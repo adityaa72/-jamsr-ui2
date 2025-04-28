@@ -20,6 +20,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@jamsr-ui/button':
+        specifier: workspace:^
+        version: link:../../packages/components/button
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -90,6 +93,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@jamsr-ui/button':
+        specifier: workspace:^
+        version: link:../../packages/components/button
       next:
         specifier: ^15.3.0
         version: 15.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -130,6 +136,21 @@ importers:
       typescript:
         specifier: 5.8.2
         version: 5.8.2
+
+  packages/components/button:
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:^
+        version: link:../../typescript-config
+      '@types/react':
+        specifier: ^19.1.2
+        version: 19.1.2
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.0(react@19.1.0)
 
   packages/eslint-config:
     devDependencies:
@@ -1116,6 +1137,9 @@ packages:
 
   '@types/react@19.1.0':
     resolution: {integrity: sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w==}
+
+  '@types/react@19.1.2':
+    resolution: {integrity: sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -3570,6 +3594,10 @@ snapshots:
       '@types/react': 19.1.0
 
   '@types/react@19.1.0':
+    dependencies:
+      csstype: 3.1.3
+
+  '@types/react@19.1.2':
     dependencies:
       csstype: 3.1.3
 
