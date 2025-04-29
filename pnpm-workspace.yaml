@@ -1,8 +1,13 @@
 packages:
   - "apps/*"
   - packages/**/*
+
 catalog:
   react: ">=19"
   react-dom: ">=19"
   next: ">=15"
   motion: ">=12"
+  "@types/react": "^19.1.2"
+  "@types/react-dom": "^19.1.2"
+  tailwindcss: "^4.1.4"
+  typescript: "5.8.3"

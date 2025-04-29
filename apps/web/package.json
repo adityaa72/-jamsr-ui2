@@ -11,21 +11,22 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@jamsr-ui/accordion": "workspace:^",
     "@jamsr-ui/button": "workspace:^",
     "next": "^15.3.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.14.0",
-    "@types/react": "19.1.0",
+    "@types/react": "catalog:",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.25.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
-    "typescript": "5.8.2"
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
   }
 }

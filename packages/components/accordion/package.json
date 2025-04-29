@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/button",
+  "name": "@jamsr-ui/accordion",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -8,11 +8,16 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:^",
     "@types/react": "catalog:",
+    "motion": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
   "peerDependencies": {
+    "motion": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
+  },
+  "dependencies": {
+    "@jamsr-ui/utils": "workspace:^"
   }
 }
