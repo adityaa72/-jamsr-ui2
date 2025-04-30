@@ -1,7 +1,7 @@
 import React from "react";
 
 export const mergeProps = <Element extends React.ElementType>(
-  ...propsArray: React.ComponentPropsWithoutRef<Element>[]
+  ...propsArray: React.ComponentProps<Element>[]
 ): React.ComponentPropsWithoutRef<Element> => {
   const mergedProps = Object.assign({}, ...propsArray);
 

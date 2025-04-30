@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { UIProps } from "@jamsr-ui/utils";
 
 const AccordionContent = (props: AccordionContent.Props) => {
   const { children, ...restProps } = props;
@@ -6,7 +6,7 @@ const AccordionContent = (props: AccordionContent.Props) => {
 };
 
 namespace AccordionContent {
-  export type Props = ComponentPropsWithoutRef<"div">;
+  export type Props = UIProps<"div">;
 }
 
 export { AccordionContent };

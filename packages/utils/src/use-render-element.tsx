@@ -1,5 +1,6 @@
 import { cloneElement } from "react";
 import { mergeProps } from "./merge-props";
+import { useMergeRefs } from "./use-merge-refs";
 
 function tag(Tag: string) {
   return function render(props: React.HTMLAttributes<any>) {
@@ -22,10 +23,18 @@ export const useRenderElement = <
 ) => {
   const { render: renderProp } = componentProps;
   const render = renderProp ?? tag(element)({});
-  const { props } = params;
+  const { props: _props } = params;
+  const props = Array.isArray(_props) ? _props : [_props];
   const mergedProps = mergeProps(...props, render.props);
+
+  const refs = useMergeRefs([
+    render.props.ref,
+    ...props.map((item) => item.ref),
+  ]);
+
   return cloneElement(render, {
     ...mergedProps,
+    ref: refs,
   });
 };
 
@@ -33,7 +42,9 @@ export namespace useRenderElement {
   export interface Parameters<
     TagName extends keyof React.JSX.IntrinsicElements,
   > {
-    props: React.ComponentPropsWithoutRef<TagName>[];
+    props:
+      | React.ComponentProps<TagName>
+      | React.ComponentProps<TagName>[];
   }
 
   export interface ComponentProps {

@@ -1,7 +1,7 @@
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithRef } from "react";
 
 export type UIProps<ElementType extends React.ElementType> = Omit<
-  ComponentPropsWithoutRef<ElementType>,
+  ComponentPropsWithRef<ElementType>,
   "className" | "defaultChecked" | "color" | "defaultValue"
 > & {
   className?: string;

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { UIProps } from "@jamsr-ui/utils";
 
 const AccordionTrigger = (props: AccordionTrigger.Props) => {
   const { children, ...restProps } = props;
@@ -6,7 +6,7 @@ const AccordionTrigger = (props: AccordionTrigger.Props) => {
 };
 
 namespace AccordionTrigger {
-  export type Props = ComponentPropsWithoutRef<"div">;
+  export type Props = UIProps<"div">;
 }
 
 export { AccordionTrigger };

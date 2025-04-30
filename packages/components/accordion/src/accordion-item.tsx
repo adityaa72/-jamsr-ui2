@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import { UIProps } from "@jamsr-ui/utils";
 
 const AccordionItem = (props: AccordionItem.Props) => {
   const { children, ...restProps } = props;
@@ -6,7 +6,7 @@ const AccordionItem = (props: AccordionItem.Props) => {
 };
 
 namespace AccordionItem {
-  export type Props = ComponentPropsWithoutRef<"div">;
+  export type Props = UIProps<"div">;
   export type Orientation = "horizontal" | "vertical";
 }
 
