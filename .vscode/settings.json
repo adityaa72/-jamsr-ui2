@@ -13,5 +13,15 @@
     "**/node_modules": true,
     "**/.next": true,
     "**/.turbo": true
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "tv\\(([^)(]*(?:\\([^)(]*(?:\\([^)(]*(?:\\([^)(]*\\)[^)(]*)*\\)[^)(]*)*\\)[^)(]*)*)\\)",
+      "\"(.*?)\""
+    ],
+    ["Classes \\=([^;]*);", "'([^']*)'"],
+    ["Classes \\=([^;]*);", "\"([^\"]*)\""],
+    ["Classes \\=([^;]*);", "\\`([^\\`]*)\\`"]
+  ],
+  "tailwindCSS.experimental.configFile": "packages/theme/src/styles.css"
 }

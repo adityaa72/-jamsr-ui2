@@ -3,10 +3,17 @@ import { UIProps } from "@jamsr-ui/utils";
 import { useButton } from "./use-button";
 
 export const Button = (props: Button.Props) => {
-  const { getButtonProps, startContent, endContent } = useButton(props);
+  const {
+    getButtonProps,
+    startContent,
+    endContent,
+    isLoading,
+    spinner = <div>Loading...</div>,
+  } = useButton(props);
   const composedChildren = (
     <>
       {startContent}
+      {isLoading && spinner}
       {props.children}
       {endContent}
     </>

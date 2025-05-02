@@ -1,0 +1,547 @@
+@theme {
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* animations */
+  --animate-progress: progress 1s infinite linear;
+  --animate-ripple: ripple 1s linear;
+
+  @keyframes progress {
+    0% {
+      transform: translateX(-50%) scaleX(0.2);
+    }
+    100% {
+      transform: translateX(100%) scaleX(1);
+    }
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(4);
+    opacify: 0;
+  }
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@theme inline {
+  /* Background Colors */
+  --color-background: var(--ui-background);
+  --color-background-secondary: var(--ui-background-secondary);
+  --color-background-tertiary: var(--ui-background-tertiary);
+  --color-background-inverse: var(--ui-background-inverse);
+
+  /* Foreground Colors */
+  --color-foreground-50: var(--ui-foreground-50);
+  --color-foreground-100: var(--ui-foreground-100);
+  --color-foreground-200: var(--ui-foreground-200);
+  --color-foreground-300: var(--ui-foreground-300);
+  --color-foreground-400: var(--ui-foreground-400);
+  --color-foreground-500: var(--ui-foreground-500);
+  --color-foreground-600: var(--ui-foreground-600);
+  --color-foreground-700: var(--ui-foreground-700);
+  --color-foreground-800: var(--ui-foreground-800);
+  --color-foreground-900: var(--ui-foreground-900);
+  --color-foreground: var(--ui-foreground);
+  --color-foreground-link: var(--ui-foreground-link);
+  --color-foreground-secondary: var(--ui-foreground-secondary);
+  --color-foreground-tertiary: var(--ui-foreground-tertiary);
+  --color-foreground-inverse: var(--ui-foreground-inverse);
+
+  /* Divider Colors */
+  --color-divider-light: var(--ui-divider-light);
+  --color-divider: var(--ui-divider);
+  --color-divider-dark: var(--ui-divider-dark);
+
+  /* Focus Color */
+  --color-focus: var(--ui-focus);
+
+  /* Overlay Color */
+  --color-overlay: var(--ui-overlay);
+
+  /* Content Colors */
+  --color-content1: var(--ui-content1);
+  --color-content1-foreground: var(--ui-content1-foreground);
+  --color-content2: var(--ui-content2);
+  --color-content2-foreground: var(--ui-content2-foreground);
+  --color-content3: var(--ui-content3);
+  --color-content3-foreground: var(--ui-content3-foreground);
+  --color-content4: var(--ui-content4);
+  --color-content4-foreground: var(--ui-content4-foreground);
+
+  /* Default Colors */
+  --color-default-50: var(--ui-default-50);
+  --color-default-100: var(--ui-default-100);
+  --color-default-200: var(--ui-default-200);
+  --color-default-300: var(--ui-default-300);
+  --color-default-400: var(--ui-default-400);
+  --color-default-500: var(--ui-default-500);
+  --color-default-600: var(--ui-default-600);
+  --color-default-700: var(--ui-default-700);
+  --color-default-800: var(--ui-default-800);
+  --color-default-900: var(--ui-default-900);
+  --color-default-foreground: var(--ui-default-foreground);
+  --color-default-dark: var(--ui-default-900);
+  --color-default: var(--ui-default);
+
+  /* Primary Colors */
+  --color-primary-50: var(--ui-primary-50);
+  --color-primary-100: var(--ui-primary-100);
+  --color-primary-200: var(--ui-primary-200);
+  --color-primary-300: var(--ui-primary-300);
+  --color-primary-400: var(--ui-primary-400);
+  --color-primary-500: var(--ui-primary-500);
+  --color-primary-600: var(--ui-primary-600);
+  --color-primary-700: var(--ui-primary-700);
+  --color-primary-800: var(--ui-primary-800);
+  --color-primary-900: var(--ui-primary-900);
+  --color-primary-foreground: var(--ui-primary-foreground);
+  --color-primary-dark: var(--ui-primary-900);
+  --color-primary: var(--ui-primary);
+
+  /* Secondary Colors */
+  --color-secondary-50: var(--ui-secondary-50);
+  --color-secondary-100: var(--ui-secondary-100);
+  --color-secondary-200: var(--ui-secondary-200);
+  --color-secondary-300: var(--ui-secondary-300);
+  --color-secondary-400: var(--ui-secondary-400);
+  --color-secondary-500: var(--ui-secondary-500);
+  --color-secondary-600: var(--ui-secondary-600);
+  --color-secondary-700: var(--ui-secondary-700);
+  --color-secondary-800: var(--ui-secondary-800);
+  --color-secondary-900: var(--ui-secondary-900);
+  --color-secondary-foreground: var(--ui-secondary-foreground);
+  --color-secondary-dark: var(--ui-secondary-900);
+  --color-secondary: var(--ui-secondary);
+
+  /* Success Colors */
+  --color-success-50: var(--ui-success-50);
+  --color-success-100: var(--ui-success-100);
+  --color-success-200: var(--ui-success-200);
+  --color-success-300: var(--ui-success-300);
+  --color-success-400: var(--ui-success-400);
+  --color-success-500: var(--ui-success-500);
+  --color-success-600: var(--ui-success-600);
+  --color-success-700: var(--ui-success-700);
+  --color-success-800: var(--ui-success-800);
+  --color-success-900: var(--ui-success-900);
+  --color-success-foreground: var(--ui-success-foreground);
+  --color-success-dark: var(--ui-success-900);
+  --color-success: var(--ui-success);
+
+  /* Warning Colors */
+  --color-warning-50: var(--ui-warning-50);
+  --color-warning-100: var(--ui-warning-100);
+  --color-warning-200: var(--ui-warning-200);
+  --color-warning-300: var(--ui-warning-300);
+  --color-warning-400: var(--ui-warning-400);
+  --color-warning-500: var(--ui-warning-500);
+  --color-warning-600: var(--ui-warning-600);
+  --color-warning-700: var(--ui-warning-700);
+  --color-warning-800: var(--ui-warning-800);
+  --color-warning-900: var(--ui-warning-900);
+  --color-warning-foreground: var(--ui-warning-foreground);
+  --color-warning-dark: var(--ui-warning-900);
+  --color-warning: var(--ui-warning);
+
+  /* Danger Colors */
+  --color-danger-50: var(--ui-danger-50);
+  --color-danger-100: var(--ui-danger-100);
+  --color-danger-200: var(--ui-danger-200);
+  --color-danger-300: var(--ui-danger-300);
+  --color-danger-400: var(--ui-danger-400);
+  --color-danger-500: var(--ui-danger-500);
+  --color-danger-600: var(--ui-danger-600);
+  --color-danger-700: var(--ui-danger-700);
+  --color-danger-800: var(--ui-danger-800);
+  --color-danger-900: var(--ui-danger-900);
+  --color-danger-foreground: var(--ui-danger-foreground);
+  --color-danger-dark: var(--ui-danger-900);
+  --color-danger: var(--ui-danger);
+
+  /* Text */
+  --text-2xs: var(--ui-fs-2xs);
+  --text-xs: var(--ui-fs-xs);
+  --text-sm: var(--ui-fs-sm);
+  --text-base: var(--ui-fs-base);
+  --text-md: var(--ui-fs-md);
+  --text-lg: var(--ui-fs-lg);
+  --text-xl: var(--ui-fs-xl);
+  --text-2xl: var(--ui-fs-2xl);
+  --text-3xl: var(--ui-fs-3xl);
+  --text-4xl: var(--ui-fs-4xl);
+  --text-5xl: var(--ui-fs-5xl);
+
+  /* Shadow */
+  --shadow-sm: var(--ui-box-shadow-sm);
+  --shadow-md: var(--ui-box-shadow-md);
+  --shadow-lg: var(--ui-box-shadow-lg);
+}
+
+:root {
+  @apply text-foreground bg-background;
+}
+
+:root {
+  --ui-fs-2xs: clamp(0.66rem, -0.08vi + 0.68rem, 0.58rem);
+  --ui-fs-xs: clamp(0.72rem, -0.03vi + 0.73rem, 0.69rem);
+  --ui-fs-sm: clamp(0.8rem, 0.04vi + 0.79rem, 0.83rem);
+  --ui-fs-base: clamp(0.82rem, 0.13vi + 0.84rem, 0.9rem);
+  --ui-fs-md: clamp(0.9rem, 0.13vi + 0.84rem, 1.05rem);
+  --ui-fs-lg: clamp(0.96rem, 0.25vi + 0.9rem, 1.2rem);
+  --ui-fs-xl: clamp(1.06rem, 0.4vi + 0.96rem, 1.44rem);
+  --ui-fs-2xl: clamp(1.16rem, 0.59vi + 1.02rem, 1.73rem);
+  --ui-fs-3xl: clamp(1.28rem, 0.83vi + 1.07rem, 2.07rem);
+  --ui-fs-4xl: clamp(1.41rem, 1.14vi + 1.13rem, 2.49rem);
+  --ui-fs-5xl: clamp(1.55rem, 1.51vi + 1.17rem, 2.99rem);
+}
+
+:root,
+.light,
+[data-theme="light"] {
+  --ui-background: oklch(100% 0 0);
+  --ui-background-secondary: oklch(95.2% 0 0);
+  --ui-background-tertiary: oklch(97% 0.003 264.5);
+  --ui-background-inverse: oklch(0% 0 0);
+
+  --ui-foreground-50: oklch(98.5% 0 0);
+  --ui-foreground-100: oklch(96.7% 0.001 286.4);
+  --ui-foreground-200: oklch(92% 0.004 286.3);
+  --ui-foreground-300: oklch(87.1% 0.005 286.3);
+  --ui-foreground-400: oklch(71.2% 0.013 286.1);
+  --ui-foreground-500: oklch(55.2% 0.014 285.9);
+  --ui-foreground-600: oklch(44.2% 0.015 285.8);
+  --ui-foreground-700: oklch(37% 0.012 285.8);
+  --ui-foreground-800: oklch(27.4% 0.005 286);
+  --ui-foreground-900: oklch(21% 0.006 285.9);
+  --ui-foreground: oklch(23.2% 0.004 286.1);
+  --ui-foreground-link: oklch(52.2% 0.177 255.8);
+  --ui-foreground-secondary: oklch(54% 0.008 286.1);
+  --ui-foreground-tertiary: oklch(62.2% 0.007 286.2);
+  --ui-foreground-inverse: oklch(100% 0 0);
+
+  --ui-divider-light: oklch(96.8% 0.002 325.6);
+  --ui-divider: oklch(93.2% 0.002 325.6);
+  --ui-divider-dark: oklch(85.9% 0.002 325.6);
+
+  --ui-focus: oklch(56.7% 0.209 257.9);
+
+  --ui-overlay: oklch(0% 0 0);
+
+  --ui-content1: oklch(100% 0 0);
+  --ui-content1-foreground: oklch(20.4% 0.013 233.3);
+
+  --ui-content2: oklch(96.7% 0.001 286.4);
+  --ui-content2-foreground: oklch(27.4% 0.005 286);
+
+  --ui-content3: oklch(92% 0.004 286.3);
+  --ui-content3-foreground: oklch(37% 0.012 285.8);
+
+  --ui-content4: oklch(87.1% 0.005 286.3);
+  --ui-content4-foreground: oklch(44.2% 0.015 285.8);
+
+  --ui-default-50: oklch(98.5% 0 0);
+  --ui-default-100: oklch(96.7% 0.001 286.4);
+  --ui-default-200: oklch(92% 0.004 286.3);
+  --ui-default-300: oklch(87.1% 0.005 286.3);
+  --ui-default-400: oklch(71.2% 0.013 286.1);
+  --ui-default-500: oklch(55.2% 0.014 285.9);
+  --ui-default-600: oklch(44.2% 0.015 285.8);
+  --ui-default-700: oklch(37% 0.012 285.8);
+  --ui-default-800: oklch(27.4% 0.005 286);
+  --ui-default-900: oklch(21% 0.006 285.9);
+  --ui-default-foreground: oklch(0% 0 0);
+  --ui-default: oklch(92% 0.004 286.3);
+
+  --ui-primary-50: oklch(95.4% 0.021 252.5);
+  --ui-primary-100: oklch(90.7% 0.043 251.5);
+  --ui-primary-200: oklch(81.6% 0.089 252);
+  --ui-primary-300: oklch(72.7% 0.135 253.3);
+  --ui-primary-400: oklch(64.7% 0.178 254.8);
+  --ui-primary-500: oklch(56.7% 0.209 257.9);
+  --ui-primary-600: oklch(49.2% 0.18 257.7);
+  --ui-primary-700: oklch(40.1% 0.144 257.2);
+  --ui-primary-800: oklch(30.7% 0.103 255.6);
+  --ui-primary-900: oklch(20.3% 0.06 251.8);
+  --ui-primary-foreground: oklch(100% 0 0);
+  --ui-primary: oklch(56.7% 0.209 257.9);
+
+  --ui-secondary-50: oklch(94.8% 0.023 308.2);
+  --ui-secondary-100: oklch(89.3% 0.046 307.9);
+  --ui-secondary-200: oklch(78.5% 0.095 307.1);
+  --ui-secondary-300: oklch(67.8% 0.145 305.9);
+  --ui-secondary-400: oklch(57.7% 0.192 304);
+  --ui-secondary-500: oklch(48.8% 0.225 300.5);
+  --ui-secondary-600: oklch(41.7% 0.189 300.8);
+  --ui-secondary-700: oklch(34.2% 0.151 301.3);
+  --ui-secondary-800: oklch(26.4% 0.11 302.1);
+  --ui-secondary-900: oklch(18.1% 0.064 303.7);
+  --ui-secondary-foreground: oklch(100% 0 0);
+  --ui-secondary: oklch(48.8% 0.225 300.5);
+
+  --ui-success-50: oklch(96.9% 0.023 161.8);
+  --ui-success-100: oklch(93.7% 0.045 160.4);
+  --ui-success-200: oklch(87.6% 0.09 159.1);
+  --ui-success-300: oklch(82.4% 0.133 156.8);
+  --ui-success-400: oklch(77.4% 0.168 154.2);
+  --ui-success-500: oklch(73.3% 0.193 150.8);
+  --ui-success-600: oklch(62.2% 0.163 151);
+  --ui-success-700: oklch(50.6% 0.13 151.4);
+  --ui-success-800: oklch(38% 0.094 152.3);
+  --ui-success-900: oklch(24.6% 0.055 154.1);
+  --ui-success-foreground: oklch(0% 0 0);
+  --ui-success: oklch(73.3% 0.193 150.8);
+
+  --ui-warning-50: oklch(98.7% 0.026 102.2);
+  --ui-warning-100: oklch(95.2% 0.038 80);
+  --ui-warning-200: oklch(90.6% 0.076 79.6);
+  --ui-warning-300: oklch(86.2% 0.11 78.3);
+  --ui-warning-400: oklch(82% 0.139 76.3);
+  --ui-warning-500: oklch(78.2% 0.158 72.3);
+  --ui-warning-600: oklch(66.3% 0.133 72.6);
+  --ui-warning-700: oklch(53.8% 0.106 73.1);
+  --ui-warning-800: oklch(40.6% 0.078 74.2);
+  --ui-warning-900: oklch(26.2% 0.046 76.3);
+  --ui-warning-foreground: oklch(0% 0 0);
+  --ui-warning: oklch(78.2% 0.158 72.3);
+
+  --ui-danger-50: oklch(94.9% 0.027 354.5);
+  --ui-danger-100: oklch(90% 0.054 356.3);
+  --ui-danger-200: oklch(80.4% 0.113 357.7);
+  --ui-danger-300: oklch(72.2% 0.171 0.4);
+  --ui-danger-400: oklch(65.6% 0.218 4.6);
+  --ui-danger-500: oklch(61.9% 0.242 11.3);
+  --ui-danger-600: oklch(52.4% 0.204 10.7);
+  --ui-danger-700: oklch(42.6% 0.164 9.9);
+  --ui-danger-800: oklch(32.1% 0.121 8.8);
+  --ui-danger-900: oklch(20.8% 0.073 5.6);
+  --ui-danger-foreground: oklch(100% 0 0);
+  --ui-danger: oklch(61.9% 0.242 11.3);
+
+  /* Shadows */
+  --ui-box-shadow-sm:
+    0px 0px 5px 0px rgba(0, 0, 0, 0.02), 0px 2px 10px 0px rgba(0, 0, 0, 0.06),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  --ui-box-shadow-md:
+    0px 0px 15px 0px rgba(0, 0, 0, 0.03), 0px 2px 30px 0px rgba(0, 0, 0, 0.08),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  --ui-box-shadow-lg:
+    0px 0px 30px 0px rgba(0, 0, 0, 0.04), 0px 30px 60px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.dark,
+[data-theme="dark"] {
+  /* Background Colors */
+  --ui-background: oklch(0% 0 0);
+  --ui-background-secondary: oklch(9.7% 0 0);
+  --ui-background-tertiary: oklch(6.7% 0 0);
+  --ui-background-inverse: oklch(100% 0 0);
+
+  /* Foreground Colors */
+  --ui-foreground-50: oklch(21% 0.006 285.9);
+  --ui-foreground-100: oklch(27.4% 0.005 286);
+  --ui-foreground-200: oklch(37% 0.012 285.8);
+  --ui-foreground-300: oklch(44.2% 0.015 285.8);
+  --ui-foreground-400: oklch(55.2% 0.014 285.9);
+  --ui-foreground-500: oklch(71.2% 0.013 286.1);
+  --ui-foreground-600: oklch(87.1% 0.005 286.3);
+  --ui-foreground-700: oklch(92% 0.004 286.3);
+  --ui-foreground-800: oklch(96.7% 0.001 286.4);
+  --ui-foreground-900: oklch(98.5% 0 0);
+  --ui-foreground: oklch(94% 0.002 247.8);
+  --ui-foreground-link: oklch(62.4% 0.206 255.5);
+  --ui-foreground-secondary: oklch(67.3% 0.024 277.3);
+  --ui-foreground-tertiary: oklch(63.5% 0.006 286.2);
+  --ui-foreground-inverse: oklch(0% 0 0);
+
+  /* Divider Colors */
+  --ui-divider-light: oklch(13.3% 0.003 246.1);
+  --ui-divider: oklch(27.9% 0.009 248.2);
+  --ui-divider-dark: oklch(34.9% 0.013 248.2);
+
+  /* Focus Color */
+  --ui-focus: oklch(56.7% 0.209 257.9);
+
+  /* Overlay Color */
+  --ui-overlay: oklch(0% 0 0);
+
+  /* Content Colors */
+  --ui-content1: oklch(21% 0.006 285.9);
+  --ui-content1-foreground: oklch(98.5% 0 0);
+  --ui-content2: oklch(27.4% 0.005 286);
+  --ui-content2-foreground: oklch(96.7% 0.001 286.4);
+  --ui-content3: oklch(37% 0.012 285.8);
+  --ui-content3-foreground: oklch(92% 0.004 286.3);
+  --ui-content4: oklch(44.2% 0.015 285.8);
+  --ui-content4-foreground: oklch(87.1% 0.005 286.3);
+
+  /* Default Colors */
+  --ui-default-50: oklch(21% 0.006 285.9);
+  --ui-default-100: oklch(27.4% 0.005 286);
+  --ui-default-200: oklch(37% 0.012 285.8);
+  --ui-default-300: oklch(44.2% 0.015 285.8);
+  --ui-default-400: oklch(55.2% 0.014 285.9);
+  --ui-default-500: oklch(71.2% 0.013 286.1);
+  --ui-default-600: oklch(87.1% 0.005 286.3);
+  --ui-default-700: oklch(92% 0.004 286.3);
+  --ui-default-800: oklch(96.7% 0.001 286.4);
+  --ui-default-900: oklch(98.5% 0 0);
+  --ui-default-foreground: oklch(100% 0 0);
+  --ui-default: oklch(37% 0.012 285.8);
+
+  /* Primary Colors */
+  --ui-primary-50: oklch(20.3% 0.06 251.8);
+  --ui-primary-100: oklch(30.7% 0.103 255.6);
+  --ui-primary-200: oklch(40.1% 0.144 257.2);
+  --ui-primary-300: oklch(49.2% 0.18 257.7);
+  --ui-primary-400: oklch(56.7% 0.209 257.9);
+  --ui-primary-500: oklch(64.7% 0.178 254.8);
+  --ui-primary-600: oklch(72.7% 0.135 253.3);
+  --ui-primary-700: oklch(81.6% 0.089 252);
+  --ui-primary-800: oklch(90.7% 0.043 251.5);
+  --ui-primary-900: oklch(95.4% 0.021 252.5);
+  --ui-primary-foreground: oklch(100% 0 0);
+  --ui-primary: oklch(56.7% 0.209 257.9);
+
+  /* Secondary Colors */
+  --ui-secondary-50: oklch(18.1% 0.064 303.7);
+  --ui-secondary-100: oklch(26.4% 0.11 302.1);
+  --ui-secondary-200: oklch(34.2% 0.151 301.3);
+  --ui-secondary-300: oklch(41.7% 0.189 300.8);
+  --ui-secondary-400: oklch(48.8% 0.225 300.5);
+  --ui-secondary-500: oklch(57.7% 0.192 304);
+  --ui-secondary-600: oklch(67.8% 0.145 305.9);
+  --ui-secondary-700: oklch(78.5% 0.095 307.1);
+  --ui-secondary-800: oklch(89.3% 0.046 307.9);
+  --ui-secondary-900: oklch(94.8% 0.023 308.2);
+  --ui-secondary-foreground: oklch(100% 0 0);
+  --ui-secondary: oklch(57.7% 0.192 304);
+
+  /* Success Colors */
+  --ui-success-50: oklch(24.6% 0.055 154.1);
+  --ui-success-100: oklch(38% 0.094 152.3);
+  --ui-success-200: oklch(50.6% 0.13 151.4);
+  --ui-success-300: oklch(62.2% 0.163 151);
+  --ui-success-400: oklch(73.3% 0.193 150.8);
+  --ui-success-500: oklch(77.4% 0.168 154.2);
+  --ui-success-600: oklch(82.4% 0.133 156.8);
+  --ui-success-700: oklch(87.6% 0.09 159.1);
+  --ui-success-800: oklch(93.7% 0.045 160.4);
+  --ui-success-900: oklch(96.9% 0.023 161.8);
+  --ui-success-foreground: oklch(0% 0 0);
+  --ui-success: oklch(73.3% 0.193 150.8);
+
+  /* Warning Colors */
+  --ui-warning-50: oklch(26.2% 0.046 76.3);
+  --ui-warning-100: oklch(40.6% 0.078 74.2);
+  --ui-warning-200: oklch(53.8% 0.106 73.1);
+  --ui-warning-300: oklch(66.3% 0.133 72.6);
+  --ui-warning-400: oklch(78.2% 0.158 72.3);
+  --ui-warning-500: oklch(82% 0.139 76.3);
+  --ui-warning-600: oklch(86.2% 0.11 78.3);
+  --ui-warning-700: oklch(90.6% 0.076 79.6);
+  --ui-warning-800: oklch(95.2% 0.038 80);
+  --ui-warning-900: oklch(98.7% 0.026 102.2);
+  --ui-warning-foreground: oklch(0% 0 0);
+  --ui-warning: oklch(78.2% 0.158 72.3);
+
+  /* Danger Colors */
+  --ui-danger-50: oklch(20.8% 0.073 5.6);
+  --ui-danger-100: oklch(32.1% 0.121 8.8);
+  --ui-danger-200: oklch(42.6% 0.164 9.9);
+  --ui-danger-300: oklch(52.4% 0.204 10.7);
+  --ui-danger-400: oklch(61.9% 0.242 11.3);
+  --ui-danger-500: oklch(65.6% 0.218 4.6);
+  --ui-danger-600: oklch(72.2% 0.171 0.4);
+  --ui-danger-700: oklch(80.4% 0.113 357.7);
+  --ui-danger-800: oklch(90% 0.054 356.3);
+  --ui-danger-900: oklch(94.9% 0.027 354.5);
+  --ui-danger-foreground: oklch(100% 0 0);
+  --ui-danger: oklch(61.9% 0.242 11.3);
+
+  /* Shadows */
+  --ui-box-shadow-sm:
+    0px 0px 5px 0px rgba(0, 0, 0, 0.05), 0px 2px 10px 0px rgba(0, 0, 0, 0.2),
+    inset 0px 0px 1px 0px hsla(0, 0%, 100%, 0.15);
+  --ui-box-shadow-md:
+    0px 0px 15px 0px rgba(0, 0, 0, 0.06), 0px 2px 30px 0px rgba(0, 0, 0, 0.22),
+    inset 0px 0px 1px 0px hsla(0, 0%, 100%, 0.15);
+  --ui-box-shadow-lg:
+    0px 0px 30px 0px rgba(0, 0, 0, 0.07), 0px 30px 60px 0px rgba(0, 0, 0, 0.26),
+    inset 0px 0px 1px 0px hsla(0, 0%, 100%, 0.15);
+}
+
+/*  utility */
+@utility z-backdrop {
+  z-index: 98;
+}
+@utility z-popover {
+  z-index: 99;
+}
+@utility z-dialog {
+  z-index: 99;
+}
+@utility z-header {
+  z-index: 60;
+}
+@utility z-drawer {
+  z-index: 60;
+}
+
+/*  variants */
+
+@utility rounded-inherit {
+  border-radius: inherit;
+}
+
+@custom-variant dark (&:where(.dark, .dark *,[data-theme="dark"]));
+@custom-variant light (&:where(.light, .light *,[data-theme="light"]));
+
+@custom-variant uig-has-start-content (&:is(:where(.group[data-has-start-content=true]) &));
+@custom-variant uig-has-end-content (&:is(:where(.group[data-has-end-content=true]) &));
+@custom-variant uig-has-label (&:is(:where(.group[data-has-label=true]) &));
+
+@custom-variant ui-hover (&:not(:disabled):hover);
+@custom-variant uig-hover (&:is(:where(.group[data-hovered=true]) &));
+
+@custom-variant ui-selected (&[data-selected=true]);
+@custom-variant uig-selected (&:is(:where(.group[data-selected=true]) &));
+
+@custom-variant ui-checked (&[data-checked=true]);
+@custom-variant uig-checked (&:is(:where(.group[data-checked=true]) &));
+
+@custom-variant ui-focus (&[data-focused=true]);
+@custom-variant uig-focus (&:is(:where(.group[data-focused=true]) &));
+
+@custom-variant ui-pressed (&[data-pressed=true]);
+@custom-variant uig-pressed (&:is(:where(.group[data-pressed=true]) &));
+
+@custom-variant ui-active (&[data-active=true]);
+@custom-variant uig-active (&:is(:where(.group[data-active=true]) &));
+
+@custom-variant ui-open (&[data-open=true]);
+@custom-variant uig-open (&:is(:where(.group[data-open=true]) &));
+
+@custom-variant ui-interactive (&[data-interactive=true]);
+@custom-variant uig-interactive (&:is(:where(.group[data-interactive=true]) &));
+
+@custom-variant ui-loaded (&[data-loaded=true]);
+
+@custom-variant ui-filled-within (&[data-filled-within=true]);
+@custom-variant uig-filled-within (&:is(:where(.group[data-filled-within=true]) &));
+
+@custom-variant ui-focus-visible (&[data-focus-visible=true]);
+
+@custom-variant ui-readonly (&[data-readonly=true]);
+@custom-variant uig-readonly (&:is(:where(.group[data-readonly=true]) &));
+
+@custom-variant ui-disabled (&[data-disabled=true]);
+@custom-variant uig-disabled (&:is(:where(.group[data-disabled=true]) &));

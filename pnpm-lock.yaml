@@ -126,6 +126,9 @@ importers:
       '@jamsr-ui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
+      '@jamsr-ui/theme':
+        specifier: workspace:^
+        version: link:../../packages/theme
       next:
         specifier: ^15.3.0
         version: 15.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -264,6 +267,8 @@ importers:
       react:
         specifier: 'catalog:'
         version: 19.1.0
+
+  packages/theme: {}
 
   packages/typescript-config: {}
 
