@@ -17,6 +17,12 @@ export const config = [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    rules: {
+      "@typescript-eslint/no-namespace": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+    },
+  },
+  {
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {

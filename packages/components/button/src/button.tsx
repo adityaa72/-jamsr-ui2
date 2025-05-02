@@ -1,14 +1,23 @@
-import { ComponentProps } from "react";
+import { useRenderElement } from "@jamsr-ui/hooks";
+import { UIProps } from "@jamsr-ui/utils";
+import { useButton } from "./use-button";
 
-export type ButtonProps = ComponentProps<"button">;
-export const Button = (props: ButtonProps) => {
-  const { children, ...restProps } = props;
-  return (
-    <button
-      className="text-white px-4 py-2 bg-purple-500 rounded-full"
-      {...restProps}
-    >
-      {children}
-    </button>
+export const Button = (props: Button.Props) => {
+  const { getButtonProps, startContent, endContent } = useButton(props);
+  const composedChildren = (
+    <>
+      {startContent}
+      {props.children}
+      {endContent}
+    </>
   );
+
+  const button = useRenderElement("button", props, {
+    props: [getButtonProps(), { children: composedChildren }],
+  });
+  return button;
 };
+
+export namespace Button {
+  export interface Props extends UIProps<"button">, useButton.Props {}
+}

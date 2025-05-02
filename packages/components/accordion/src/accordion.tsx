@@ -1,9 +1,10 @@
-import { UIProps, useRenderElement } from "@jamsr-ui/utils";
+import { UIProps } from "@jamsr-ui/utils";
 import { useAccordionConfig } from "./accordion-config";
+import { useRenderElement } from "@jamsr-ui/hooks";
 
 const Accordion = (props: Accordion.Props) => {
   const config = useAccordionConfig();
-  const { render, ...elementProps } = props;
+  const { render: _render, ...elementProps } = props;
   const renderElement = useRenderElement("div", props, {
     props: [config, elementProps],
   });
@@ -11,7 +12,7 @@ const Accordion = (props: Accordion.Props) => {
 };
 
 namespace Accordion {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
 }
 
 export { Accordion };

@@ -1,7 +1,6 @@
 import { createContext, useContext, useMemo } from "react";
 
 const AccordionContext = createContext<AccordionConfig.Props>({});
-
 export const AccordionConfig = (props: AccordionConfig.Props) => {
   const { children, className } = props;
   const value: AccordionConfig.Props = useMemo(

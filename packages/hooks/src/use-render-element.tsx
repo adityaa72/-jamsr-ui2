@@ -42,9 +42,7 @@ export namespace useRenderElement {
   export interface Parameters<
     TagName extends keyof React.JSX.IntrinsicElements,
   > {
-    props:
-      | React.ComponentProps<TagName>
-      | React.ComponentProps<TagName>[];
+    props: React.ComponentProps<TagName> | React.ComponentProps<TagName>[];
   }
 
   export interface ComponentProps {

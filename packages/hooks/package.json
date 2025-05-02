@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/button",
+  "name": "@jamsr-ui/hooks",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -7,16 +7,11 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:^",
+    "@types/node": "^22.14.0",
     "@types/react": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "react": "catalog:"
   },
   "peerDependencies": {
-    "react": "catalog:",
-    "react-dom": "catalog:"
-  },
-  "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "react": "catalog:"
   }
 }

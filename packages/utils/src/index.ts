@@ -1,3 +1,9 @@
-export { useRenderElement } from "./use-render-element";
+export {
+  tv,
+  type ClassProp,
+  type ClassValue,
+  type VariantProps,
+} from "tailwind-variants";
+
+export { mapPropsVariants, type SlotsToClasses } from "./tv";
 export { type UIProps } from "./types";
-export { mergeProps as useMergeProps } from "./merge-props";
