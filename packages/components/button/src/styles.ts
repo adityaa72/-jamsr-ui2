@@ -4,20 +4,20 @@ import { allColors, allVariants, colorVariants } from "./classes";
 export const test = "";
 export const button = tv({
   base: [
-    "inline-flex py-2 px-4 rounded-full",
+    "inline-flex py-2 px-4 rounded-full justify-center items-center gap-2",
     "data-[loading]:cursor-progress",
-    "disabled:cursor-not-allowed disabled:opacity-90",
+    "disabled:cursor-not-allowed disabled:opacity-70",
     // "focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-background",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
   ],
   variants: {
     color: {
-      default: "",
-      primary: "",
-      secondary: "",
-      success: "",
-      warning: "",
-      danger: "",
+      default: "shadow-default",
+      primary: "shadow-primary",
+      secondary: "shadow-primary",
+      success: "shadow-primary",
+      warning: "shadow-primary",
+      danger: "shadow-primary",
     },
     variant: {
       solid: "",

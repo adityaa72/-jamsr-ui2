@@ -8,13 +8,18 @@ type Color =
 type Variant = "solid" | "outlined" | "text" | "light" | "flat";
 
 const solidClasses = {
-  default: "bg-default text-default-foreground ui-hover:bg-default-dark",
-  primary: "bg-primary text-primary-foreground ui-hover:bg-primary-dark",
+  default:
+    "bg-default border border-default text-default-foreground ui-hover:bg-default-dark",
+  primary:
+    "bg-primary border border-primary text-primary-foreground ui-hover:bg-primary-dark",
   secondary:
-    "bg-secondary text-secondary-foreground ui-hover:bg-secondary-dark",
-  success: "bg-success text-success-foreground ui-hover:bg-success-dark",
-  warning: "bg-warning text-warning-foreground ui-hover:bg-warning-dark",
-  danger: "bg-danger text-danger-foreground ui-hover:bg-danger-dark",
+    "bg-secondary border border-secondary text-secondary-foreground ui-hover:bg-secondary-dark",
+  success:
+    "bg-success border border-success text-success-foreground ui-hover:bg-success-dark",
+  warning:
+    "bg-warning border border-warning text-warning-foreground ui-hover:bg-warning-dark",
+  danger:
+    "bg-danger border border-danger text-danger-foreground ui-hover:bg-danger-dark",
 } satisfies Record<Color, string>;
 
 const outlinedClasses = {

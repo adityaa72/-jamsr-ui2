@@ -11,6 +11,21 @@ const Page = () => {
         <Button radius="full" color="primary">
           I'm primary button
         </Button>
+        <Button radius="full" color="secondary">
+          I'm primary button
+        </Button>
+        <Button radius="full" color="default">
+          I'm primary button
+        </Button>
+        <Button radius="full" color="success">
+          I'm primary button
+        </Button>
+        <Button radius="full" color="warning">
+          I'm primary button
+        </Button>
+        <Button radius="full" color="danger">
+          I'm primary button
+        </Button>
       </div>
       {/* <div className="grid gap-4">
         <AccordionTest1 />
