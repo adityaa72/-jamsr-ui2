@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/copy-to-clipboard",
+  "name": "@jamsr-ui/clipboard",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
