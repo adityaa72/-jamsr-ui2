@@ -6,7 +6,6 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:^",
     "@types/react": "catalog:",
     "motion": "catalog:",
     "react": "catalog:",

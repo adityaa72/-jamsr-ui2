@@ -13,14 +13,15 @@
   "dependencies": {
     "@jamsr-ui/accordion": "workspace:^",
     "@jamsr-ui/button": "workspace:^",
+    "@jamsr-ui/card": "workspace:^",
     "@jamsr-ui/theme": "workspace:^",
     "next": "^15.3.0",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@jamsr-ui/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.14.0",
     "@types/react": "catalog:",

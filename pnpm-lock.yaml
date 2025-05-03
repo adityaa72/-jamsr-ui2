@@ -20,7 +20,7 @@ catalogs:
       version: 19.1.0
     tailwindcss:
       specifier: ^4.1.4
-      version: 4.1.4
+      version: 4.1.5
     typescript:
       specifier: 5.8.3
       version: 5.8.3
@@ -125,7 +125,7 @@ importers:
         version: 8.6.12(prettier@3.5.3)
       tailwindcss:
         specifier: 'catalog:'
-        version: 4.1.4
+        version: 4.1.5
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -144,6 +144,9 @@ importers:
       '@jamsr-ui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
+      '@jamsr-ui/card':
+        specifier: workspace:^
+        version: link:../../packages/components/card
       '@jamsr-ui/theme':
         specifier: workspace:^
         version: link:../../packages/theme
@@ -157,12 +160,12 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0(react@19.1.0)
     devDependencies:
+      '@jamsr-ui/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: ^4.1.4
         version: 4.1.4
@@ -183,7 +186,7 @@ importers:
         version: 8.5.3
       tailwindcss:
         specifier: 'catalog:'
-        version: 4.1.4
+        version: 4.1.5
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -197,9 +200,6 @@ importers:
         specifier: workspace:^
         version: link:../../utils
     devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:^
-        version: link:../../typescript-config
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -222,9 +222,6 @@ importers:
         specifier: workspace:^
         version: link:../../utils
     devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:^
-        version: link:../../typescript-config
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -234,6 +231,54 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.1.0(react@19.1.0)
+
+  packages/components/card:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/link:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/text:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
 
   packages/eslint-config:
     devDependencies:
@@ -273,9 +318,6 @@ importers:
 
   packages/hooks:
     devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:^
-        version: link:../typescript-config
       '@types/node':
         specifier: ^22.14.0
         version: 22.14.0
@@ -296,7 +338,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(tailwindcss@4.1.5)
     devDependencies:
-      '@repo/typescript-config':
+      '@jamsr-ui/typescript-config':
         specifier: workspace:^
         version: link:../typescript-config
       '@types/node':

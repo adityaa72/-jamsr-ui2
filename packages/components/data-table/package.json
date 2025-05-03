@@ -1,0 +1,19 @@
+{
+  "name": "@jamsr-ui/data-table",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "react": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:"
+  },
+  "dependencies": {
+    "@jamsr-ui/hooks": "workspace:^",
+    "@jamsr-ui/utils": "workspace:^"
+  }
+}

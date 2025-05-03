@@ -4,9 +4,9 @@ import { useRenderElement } from "@jamsr-ui/hooks";
 
 const Accordion = (props: Accordion.Props) => {
   const config = useAccordionConfig();
-  const { render: _render, ...elementProps } = props;
+  const { render: _render, ...accordionProps } = props;
   const renderElement = useRenderElement("div", props, {
-    props: [config, elementProps],
+    props: [config, accordionProps],
   });
   return renderElement;
 };
