@@ -56,7 +56,10 @@ async function main() {
         entry.charAt(0).toUpperCase() + entry.slice(1)
       ).replace("-", "");
 
-      const indexFile = readFileSync(indexPath, "utf-8");
+      let indexFile = "";
+      try {
+        indexFile = readFileSync(indexPath, "utf-8");
+      } catch {}
       if (indexFile.trim().length < 2) {
         writeFileSync(
           indexPath,

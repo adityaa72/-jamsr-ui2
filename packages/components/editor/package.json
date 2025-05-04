@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/tab",
+  "name": "@jamsr-ui/editor",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {

@@ -150,6 +150,9 @@ importers:
       '@jamsr-ui/theme':
         specifier: workspace:^
         version: link:../../packages/theme
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: ^15.3.0
         version: 15.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -249,6 +252,22 @@ importers:
         version: 19.1.0
 
   packages/components/avatar:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/breadcrumb:
     dependencies:
       '@jamsr-ui/hooks':
         specifier: workspace:^
@@ -427,6 +446,22 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/date-picker:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/dialog:
     dependencies:
       '@jamsr-ui/hooks':
@@ -460,6 +495,22 @@ importers:
         version: 19.1.0
 
   packages/components/drawer:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/editor:
     dependencies:
       '@jamsr-ui/hooks':
         specifier: workspace:^
@@ -587,7 +638,39 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/number-input:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/otp-input:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/pagination:
     dependencies:
       '@jamsr-ui/hooks':
         specifier: workspace:^
@@ -667,6 +750,22 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/scroll-area:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/select:
     dependencies:
       '@jamsr-ui/hooks':
@@ -715,6 +814,22 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/slider:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/switch:
     dependencies:
       '@jamsr-ui/hooks':
@@ -731,7 +846,7 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
-  packages/components/tab:
+  packages/components/table:
     dependencies:
       '@jamsr-ui/hooks':
         specifier: workspace:^
@@ -747,7 +862,7 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
-  packages/components/table:
+  packages/components/tabs:
     dependencies:
       '@jamsr-ui/hooks':
         specifier: workspace:^
@@ -812,6 +927,22 @@ importers:
         version: 19.1.0
 
   packages/components/toast:
+    dependencies:
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/toggle:
     dependencies:
       '@jamsr-ui/hooks':
         specifier: workspace:^

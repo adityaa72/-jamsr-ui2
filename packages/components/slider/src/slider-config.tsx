@@ -1,8 +1,8 @@
 import { UIProps } from "@jamsr-ui/utils";
 
-export const TabConfig = (props: TabConfig.Props) => {
+export const SliderConfig = (props: SliderConfig.Props) => {
   return <div>{props.children}</div>;
 };
-export namespace TabConfig {
+export namespace SliderConfig {
   export type Props = UIProps<"div">;
 }

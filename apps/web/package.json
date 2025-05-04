@@ -15,6 +15,7 @@
     "@jamsr-ui/button": "workspace:^",
     "@jamsr-ui/card": "workspace:^",
     "@jamsr-ui/theme": "workspace:^",
+    "motion": "catalog:",
     "next": "^15.3.0",
     "react": "catalog:",
     "react-dom": "catalog:"
