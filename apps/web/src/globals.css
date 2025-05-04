@@ -2,3 +2,11 @@
 @import "@jamsr-ui/theme/styles.css";
 
 @source "../../../packages/components/*/src/**/*.{tsx,ts}";
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
