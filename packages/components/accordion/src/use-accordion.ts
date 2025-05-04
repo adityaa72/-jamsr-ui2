@@ -1,4 +1,4 @@
-import { useControlled } from "@jamsr-ui/utils";
+import { useControlled } from "@jamsr-ui/hooks";
 import { useCallback, useMemo } from "react";
 
 export const useAccordion = (props: useAccordion.Props) => {

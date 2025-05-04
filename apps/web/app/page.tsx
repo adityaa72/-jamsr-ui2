@@ -1,6 +1,7 @@
 import { Button } from "@jamsr-ui/button";
 import {
   Card,
+  CardConfig,
   CardContent,
   CardDescription,
   CardHeader,
@@ -12,13 +13,15 @@ const Page = () => {
     <div className="bg-black dark text-white size-full h-screen">
       <h1 className="text-fuchsia-50">Hey there</h1>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card Description</CardDescription>
-        </CardHeader>
-        <CardContent>Hey there i' m content</CardContent>
-      </Card>
+      <CardConfig className="bg-background-secondary">
+        <Card>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>Card Description</CardDescription>
+          </CardHeader>
+          <CardContent>Hey there i' m content</CardContent>
+        </Card>
+      </CardConfig>
 
       <div className="flex flex-col gap-4 items-center">
         <Button>I'm button</Button>
