@@ -1,4 +1,4 @@
 "use client";
 
 export { Table } from "./table";
-export { TableConfig } from "./table-config";
+export { TableConfig, useTableConfig } from "./table-config";

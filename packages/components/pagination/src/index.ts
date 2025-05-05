@@ -1,4 +1,4 @@
 "use client";
 
 export { Pagination } from "./pagination";
-export { PaginationConfig } from "./pagination-config";
+export { PaginationConfig, usePaginationConfig } from "./pagination-config";

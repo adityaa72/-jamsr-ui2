@@ -1,4 +1,4 @@
 "use client";
 
 export { Textarea } from "./textarea";
-export { TextareaConfig } from "./textarea-config";
+export { TextareaConfig, useTextareaConfig } from "./textarea-config";

@@ -1,4 +1,4 @@
 "use client";
 
 export { Toast } from "./toast";
-export { ToastConfig } from "./toast-config";
+export { ToastConfig, useToastConfig } from "./toast-config";

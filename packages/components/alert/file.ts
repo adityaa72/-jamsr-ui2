@@ -45,7 +45,13 @@ export namespace ItemConfig {
 const indexContent = `"use client";
 
 export { Text } from "./text";
-export { TextConfig } from "./text-config";`;
+export { TextConfig, useTextConfig } from "./text-config";`;
+
+const kebabToCamel = (str: string) =>
+  str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+
+const kebabToPascal = (str: string) =>
+  str.replace(/(^\w|-\w)/g, (match) => match.replace("-", "").toUpperCase());
 
 async function main() {
   const entries = readdirSync("../");
@@ -61,20 +67,21 @@ async function main() {
       const configPath = path.join(srcDir, `${entry}-config.tsx`);
       const stylesPath = path.join(srcDir, `styles.ts`);
 
-      const entryText = (
-        entry.charAt(0).toUpperCase() + entry.slice(1)
-      ).replace("-", "");
-
-      let indexFile = "";
-      try {
-        indexFile = readFileSync(indexPath, "utf-8");
-      } catch {}
-      if (indexFile.trim().length < 2) {
-        writeFileSync(
-          indexPath,
-          indexContent.replaceAll("Text", entryText).replaceAll("text", entry),
-          "utf-8"
-        );
+      const entryText = kebabToPascal(entry);
+      {
+        let indexFile = "";
+        try {
+          indexFile = readFileSync(indexPath, "utf-8");
+        } catch {}
+        if (indexFile.trim().split("\n").length < 5) {
+          writeFileSync(
+            indexPath,
+            indexContent
+              .replaceAll("Text", entryText)
+              .replaceAll("text", entry),
+            "utf-8"
+          );
+        }
       }
 
       if (!existsSync(filePath)) {

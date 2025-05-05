@@ -1,15 +1,19 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { UIProps } from "@jamsr-ui/utils";
+import { mergeProps, UIProps } from "@jamsr-ui/utils";
 import { useButton } from "./use-button";
+import { useButtonConfig } from "./button-config";
 
 export const Button = (props: Button.Props) => {
+  const config = useButtonConfig();
+  const mergedProps = mergeProps(config, props);
+
   const {
     getButtonProps,
     startContent,
     endContent,
     isLoading,
     spinner = <div>Loading...</div>,
-  } = useButton(props);
+  } = useButton(mergedProps);
   const composedChildren = (
     <>
       {startContent}

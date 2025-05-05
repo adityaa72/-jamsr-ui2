@@ -1,4 +1,4 @@
 "use client";
 
 export { IconButton } from "./icon-button";
-export { IconButtonConfig } from "./icon-button-config";
+export { IconButtonConfig, useIconButtonConfig } from "./icon-button-config";

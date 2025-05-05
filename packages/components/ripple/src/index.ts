@@ -1,4 +1,4 @@
 "use client";
 
 export { Ripple } from "./ripple";
-export { RippleConfig } from "./ripple-config";
+export { RippleConfig, useRippleConfig } from "./ripple-config";

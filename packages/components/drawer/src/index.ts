@@ -1,4 +1,4 @@
 "use client";
 
 export { Drawer } from "./drawer";
-export { DrawerConfig } from "./drawer-config";
+export { DrawerConfig, useDrawerConfig } from "./drawer-config";

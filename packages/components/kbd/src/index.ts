@@ -1,4 +1,4 @@
 "use client";
 
 export { Kbd } from "./kbd";
-export { KbdConfig } from "./kbd-config";
+export { KbdConfig, useKbdConfig } from "./kbd-config";

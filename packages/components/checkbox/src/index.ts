@@ -1,4 +1,4 @@
 "use client";
 
 export { Checkbox } from "./checkbox";
-export { CheckboxConfig } from "./checkbox-config";
+export { CheckboxConfig, useCheckboxConfig } from "./checkbox-config";

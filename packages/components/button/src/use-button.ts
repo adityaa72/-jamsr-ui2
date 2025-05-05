@@ -2,9 +2,9 @@ import { mapPropsVariants, mergeProps, UIProps } from "@jamsr-ui/utils";
 import { ComponentProps, useCallback, useMemo } from "react";
 import { buttonVariants, ButtonVariantProps } from "./styles";
 
-export const useButton = (_props: useButton.Props) => {
-  const [props, variantKeys] = mapPropsVariants(
-    _props,
+export const useButton = (props: useButton.Props) => {
+  const [elementProps, variantKeys] = mapPropsVariants(
+    props,
     buttonVariants.variantKeys
   );
   const {
@@ -17,7 +17,7 @@ export const useButton = (_props: useButton.Props) => {
     disabled,
     isLoading,
     ...restProps
-  } = props;
+  } = elementProps;
 
   const isDisabled = disabled ?? isDisabledProp ?? isLoading;
 

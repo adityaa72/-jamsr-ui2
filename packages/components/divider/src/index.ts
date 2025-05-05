@@ -1,4 +1,4 @@
 "use client";
 
 export { Divider } from "./divider";
-export { DividerConfig } from "./divider-config";
+export { DividerConfig, useDividerConfig } from "./divider-config";

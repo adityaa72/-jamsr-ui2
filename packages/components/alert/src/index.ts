@@ -1,4 +1,4 @@
 "use client";
 
 export { Alert } from "./alert";
-export { AlertConfig } from "./alert-config";
+export { AlertConfig, useAlertConfig } from "./alert-config";

@@ -1,4 +1,4 @@
 "use client";
 
 export { Rating } from "./rating";
-export { RatingConfig } from "./rating-config";
+export { RatingConfig, useRatingConfig } from "./rating-config";

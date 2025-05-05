@@ -1,4 +1,4 @@
 "use client";
 
 export { Autocomplete } from "./autocomplete";
-export { AutocompleteConfig } from "./autocomplete-config";
+export { AutocompleteConfig, useAutocompleteConfig } from "./autocomplete-config";

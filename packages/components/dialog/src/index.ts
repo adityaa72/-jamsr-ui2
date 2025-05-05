@@ -1,4 +1,4 @@
 "use client";
 
 export { Dialog } from "./dialog";
-export { DialogConfig } from "./dialog-config";
+export { DialogConfig, useDialogConfig } from "./dialog-config";

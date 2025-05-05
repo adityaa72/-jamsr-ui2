@@ -1,4 +1,4 @@
 "use client";
 
 export { Select } from "./select";
-export { SelectConfig } from "./select-config";
+export { SelectConfig, useSelectConfig } from "./select-config";

@@ -1,4 +1,4 @@
 "use client";
 
 export { Input } from "./input";
-export { InputConfig } from "./input-config";
+export { InputConfig, useInputConfig } from "./input-config";

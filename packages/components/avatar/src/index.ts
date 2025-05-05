@@ -1,4 +1,4 @@
 "use client";
 
 export { Avatar } from "./avatar";
-export { AvatarConfig } from "./avatar-config";
+export { AvatarConfig, useAvatarConfig } from "./avatar-config";

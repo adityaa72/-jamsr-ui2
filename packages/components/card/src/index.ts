@@ -1,7 +1,7 @@
 "use client";
 
 export { Card } from "./card";
-export { CardConfig } from "./card-config";
+export { CardConfig, useCardConfig } from "./card-config";
 export { CardContent } from "./card-content";
 export { CardDescription } from "./card-description";
 export { CardFooter } from "./card-footer";

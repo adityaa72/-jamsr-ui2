@@ -1,4 +1,4 @@
 "use client";
 
 export { Chip } from "./chip";
-export { ChipConfig } from "./chip-config";
+export { ChipConfig, useChipConfig } from "./chip-config";

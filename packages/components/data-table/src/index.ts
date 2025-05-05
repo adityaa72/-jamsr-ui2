@@ -1,4 +1,4 @@
 "use client";
 
 export { DataTable } from "./data-table";
-export { DataTableConfig } from "./data-table-config";
+export { DataTableConfig, useDataTableConfig } from "./data-table-config";

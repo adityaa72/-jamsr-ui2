@@ -7,7 +7,7 @@ export const DatePickerConfig = (props: DatePickerConfig.Props) => {
   return <DatepickerContext value={restProps}>{children}</DatepickerContext>;
 };
 
-export const useDatepickerConfig = () => {
+export const useDatePickerConfig = () => {
   const context = use(DatepickerContext);
   return context;
 };

@@ -1,4 +1,4 @@
 "use client";
 
 export { Menu } from "./menu";
-export { MenuConfig } from "./menu-config";
+export { MenuConfig, useMenuConfig } from "./menu-config";

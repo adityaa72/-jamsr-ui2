@@ -1,4 +1,4 @@
 "use client";
 
 export { Sidebar } from "./sidebar";
-export { SidebarConfig } from "./sidebar-config";
+export { SidebarConfig, useSidebarConfig } from "./sidebar-config";

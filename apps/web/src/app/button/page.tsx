@@ -1,11 +1,13 @@
-import { Button } from "@jamsr-ui/button";
+import { Button, ButtonConfig } from "@jamsr-ui/button";
 
 const Page = () => {
   return (
     <div className="flex flex-col gap-4 items-center">
-      <Button>I'm button</Button>
-      <Button isDisabled>I'm button</Button>
-      <Button isLoading>I'm button</Button>
+      <ButtonConfig variant="outlined">
+        <Button>I'm button</Button>
+        <Button isDisabled>I'm button</Button>
+        <Button isLoading>I'm button</Button>
+      </ButtonConfig>
       <Button radius="full" color="primary">
         I'm primary button
       </Button>

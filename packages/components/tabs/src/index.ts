@@ -1,4 +1,4 @@
 "use client";
 
 export { Tabs } from "./tabs";
-export { TabsConfig } from "./tabs-config";
+export { TabsConfig, useTabsConfig } from "./tabs-config";

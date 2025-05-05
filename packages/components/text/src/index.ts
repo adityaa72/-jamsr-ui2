@@ -1,4 +1,4 @@
 "use client";
 
 export { Text } from "./text";
-export { TextConfig } from "./text-config";
+export { TextConfig, useTextConfig } from "./text-config";

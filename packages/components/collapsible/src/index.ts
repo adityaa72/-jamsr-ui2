@@ -1,4 +1,4 @@
 "use client";
 
 export { Collapsible } from "./collapsible";
-export { CollapsibleConfig } from "./collapsible-config";
+export { CollapsibleConfig, useCollapsibleConfig } from "./collapsible-config";

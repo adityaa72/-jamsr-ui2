@@ -1,4 +1,4 @@
 "use client";
 
 export { TagsInput } from "./tags-input";
-export { TagsInputConfig } from "./tags-input-config";
+export { TagsInputConfig, useTagsInputConfig } from "./tags-input-config";

@@ -1,4 +1,4 @@
 "use client";
 
 export { Charts } from "./charts";
-export { ChartsConfig } from "./charts-config";
+export { ChartsConfig, useChartsConfig } from "./charts-config";
