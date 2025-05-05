@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Text } from "./text";
 
+const TextContext = createContext<TextConfig.Props>({});
 export const TextConfig = (props: TextConfig.Props) => {
-  return <div>TextConfig</div>;
+  const { children, ...restProps } = props;
+  return <TextContext value={restProps}>{children}</TextContext>;
 };
+
+export const useTextConfig = () => {
+  const context = use(TextContext);
+  return context;
+};
+
 export namespace TextConfig {
-  export type Props = UIProps<"p">;
+  export interface Props extends Text.Props {}
 }

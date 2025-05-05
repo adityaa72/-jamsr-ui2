@@ -1,3 +1,5 @@
+import { cn } from "./cn";
+
 export const mergeProps = <Element extends React.ElementType>(
   ...propsArray: React.ComponentProps<Element>[]
 ): React.ComponentPropsWithoutRef<Element> => {
@@ -6,7 +8,7 @@ export const mergeProps = <Element extends React.ElementType>(
   // Collect and concatenate classNames
   const classNames = propsArray.map((prop) => prop.className).filter(Boolean);
   if (classNames.length > 0) {
-    mergedProps.className = classNames.join(" ");
+    mergedProps.className = cn(classNames.join(" "));
   }
 
   // Merge styles

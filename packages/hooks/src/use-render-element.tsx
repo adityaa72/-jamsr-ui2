@@ -1,5 +1,5 @@
-import { cloneElement } from "react";
-import { mergeProps } from "./merge-props";
+import { mergeProps } from "@jamsr-ui/utils";
+import React, { cloneElement } from "react";
 import { useMergeRefs } from "./use-merge-refs";
 
 function tag(Tag: string) {
@@ -14,6 +14,14 @@ function tag(Tag: string) {
   };
 }
 
+const omitAttrs = <O extends object>(
+  object: O,
+  attrs: (string | number | symbol)[]
+): O =>
+  Object.fromEntries(
+    Object.entries(object).filter(([key]) => !attrs.includes(key))
+  ) as unknown as O;
+
 export const useRenderElement = <
   TagName extends keyof React.JSX.IntrinsicElements,
 >(
@@ -24,7 +32,10 @@ export const useRenderElement = <
   const { render: renderProp } = componentProps;
   const render = renderProp ?? tag(element)({});
   const { props: _props } = params;
-  const props = Array.isArray(_props) ? _props : [_props];
+
+  const props = (Array.isArray(_props) ? _props : [_props]).map((item) =>
+    omitAttrs(item, ["render"])
+  );
   const mergedProps = mergeProps(...props, render.props);
 
   const refs = useMergeRefs([

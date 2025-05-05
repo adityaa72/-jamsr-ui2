@@ -47,6 +47,9 @@ importers:
       '@jamsr-ui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
+      '@jamsr-ui/text':
+        specifier: workspace:^
+        version: link:../../packages/components/text
       '@jamsr-ui/theme':
         specifier: workspace:^
         version: link:../../packages/theme
@@ -147,6 +150,9 @@ importers:
       '@jamsr-ui/card':
         specifier: workspace:^
         version: link:../../packages/components/card
+      '@jamsr-ui/text':
+        specifier: workspace:^
+        version: link:../../packages/components/text
       '@jamsr-ui/theme':
         specifier: workspace:^
         version: link:../../packages/theme
@@ -1011,6 +1017,10 @@ importers:
         version: 8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.2)
 
   packages/hooks:
+    dependencies:
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
     devDependencies:
       '@types/node':
         specifier: ^22.14.0
@@ -1028,6 +1038,12 @@ importers:
 
   packages/utils:
     dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      tailwind-merge:
+        specifier: ^3.2.0
+        version: 3.2.0
       tailwind-variants:
         specifier: ^1.0.0
         version: 1.0.0(tailwindcss@4.1.5)
@@ -2319,6 +2335,10 @@ packages:
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
 
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
+
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -3497,6 +3517,9 @@ packages:
 
   tailwind-merge@3.0.2:
     resolution: {integrity: sha512-l7z+OYZ7mu3DTqrL88RiKrKIqO3NcpEO8V/Od04bNpvk0kiIFndGEoqfuzvj4yuhRkHKjRkII2z+KS2HfPcSxw==}
+
+  tailwind-merge@3.2.0:
+    resolution: {integrity: sha512-FQT/OVqCD+7edmmJpsgCsY820RTD5AkBryuG5IUqR5YQZSdj5xlH5nLgH7YPths7WsLPSpSBNneJdM8aS8aeFA==}
 
   tailwind-variants@1.0.0:
     resolution: {integrity: sha512-2WSbv4ulEEyuBKomOunut65D8UZwxrHoRfYnxGcQNnHqlSCp2+B7Yz2W+yrNDrxRodOXtGD/1oCcKGNBnUqMqA==}
@@ -5035,6 +5058,8 @@ snapshots:
 
   client-only@0.0.1: {}
 
+  clsx@2.1.1: {}
+
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -6399,6 +6424,8 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   tailwind-merge@3.0.2: {}
+
+  tailwind-merge@3.2.0: {}
 
   tailwind-variants@1.0.0(tailwindcss@4.1.5):
     dependencies:

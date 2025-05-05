@@ -2,7 +2,7 @@ import { tv, VariantProps } from "@jamsr-ui/utils";
 import { allColors, allVariants, colorVariants } from "./classes";
 
 export const test = "";
-export const button = tv({
+export const buttonVariants = tv({
   base: [
     "inline-flex py-2 px-4 rounded-full justify-center items-center gap-2",
     "data-[loading]:cursor-progress",
@@ -68,4 +68,4 @@ export const button = tv({
     isFullWidth: false,
   },
 });
-export type ButtonVariantProps = VariantProps<typeof button>;
+export type ButtonVariantProps = VariantProps<typeof buttonVariants>;

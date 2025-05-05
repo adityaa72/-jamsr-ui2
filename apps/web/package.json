@@ -14,6 +14,7 @@
     "@jamsr-ui/accordion": "workspace:^",
     "@jamsr-ui/button": "workspace:^",
     "@jamsr-ui/card": "workspace:^",
+    "@jamsr-ui/text": "workspace:^",
     "@jamsr-ui/theme": "workspace:^",
     "motion": "catalog:",
     "next": "^15.3.0",

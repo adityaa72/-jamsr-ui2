@@ -12,5 +12,8 @@
   },
   "peerDependencies": {
     "react": "catalog:"
+  },
+  "dependencies": {
+    "@jamsr-ui/utils": "workspace:^"
   }
 }
