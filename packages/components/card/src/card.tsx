@@ -12,5 +12,5 @@ export const Card = (props: Card.Props) => {
 };
 
 export namespace Card {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
 }

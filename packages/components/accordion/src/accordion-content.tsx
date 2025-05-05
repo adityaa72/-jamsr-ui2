@@ -6,7 +6,7 @@ const AccordionContent = (props: AccordionContent.Props) => {
 };
 
 namespace AccordionContent {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
 }
 
 export { AccordionContent };

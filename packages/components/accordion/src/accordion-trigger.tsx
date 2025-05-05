@@ -6,7 +6,7 @@ const AccordionTrigger = (props: AccordionTrigger.Props) => {
 };
 
 namespace AccordionTrigger {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
 }
 
 export { AccordionTrigger };

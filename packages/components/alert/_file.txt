@@ -29,7 +29,7 @@ export const TextConfig = (props: TextConfig.Props) => {
   return <div>{props.children}</div>;
 };
 export namespace TextConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {};
 }
 `;
 

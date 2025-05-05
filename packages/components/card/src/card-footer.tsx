@@ -10,5 +10,5 @@ export const CardFooter = (props: CardFooter.Props) => {
 };
 
 export namespace CardFooter {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
 }

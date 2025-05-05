@@ -6,7 +6,7 @@ const AccordionItem = (props: AccordionItem.Props) => {
 };
 
 namespace AccordionItem {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
   export type Orientation = "horizontal" | "vertical";
 }
 

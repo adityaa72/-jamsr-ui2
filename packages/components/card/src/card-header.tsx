@@ -10,5 +10,5 @@ export const CardHeader = (props: CardHeader.Props) => {
 };
 
 export namespace CardHeader {
-  export type Props = UIProps<"div">;
+  export interface Props extends UIProps<"div"> {}
 }
