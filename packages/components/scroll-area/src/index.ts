@@ -1,4 +1,4 @@
 "use client";
 
-export { Scrollarea } from "./scroll-area";
-export { ScrollareaConfig } from "./scroll-area-config";
+export { ScrollArea } from "./scroll-area";
+export { ScrollAreaConfig } from "./scroll-area-config";

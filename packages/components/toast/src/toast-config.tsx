@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Toast } from "./toast";
 
+const ToastContext = createContext<ToastConfig.Props>({});
 export const ToastConfig = (props: ToastConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <ToastContext value={restProps}>{children}</ToastContext>;
 };
+
+export const useToastConfig = () => {
+  const context = use(ToastContext);
+  return context;
+};
+
 export namespace ToastConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Toast.Props {}
 }

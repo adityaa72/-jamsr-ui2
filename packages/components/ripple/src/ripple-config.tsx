@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Ripple } from "./ripple";
 
+const RippleContext = createContext<RippleConfig.Props>({});
 export const RippleConfig = (props: RippleConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <RippleContext value={restProps}>{children}</RippleContext>;
 };
+
+export const useRippleConfig = () => {
+  const context = use(RippleContext);
+  return context;
+};
+
 export namespace RippleConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Ripple.Props {}
 }

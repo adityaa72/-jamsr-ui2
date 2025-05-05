@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Avatar } from "./avatar";
 
+const AvatarContext = createContext<AvatarConfig.Props>({});
 export const AvatarConfig = (props: AvatarConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <AvatarContext value={restProps}>{children}</AvatarContext>;
 };
+
+export const useAvatarConfig = () => {
+  const context = use(AvatarContext);
+  return context;
+};
+
 export namespace AvatarConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Avatar.Props {}
 }

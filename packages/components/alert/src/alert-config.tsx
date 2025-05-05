@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Alert } from "./alert";
 
+const AlertContext = createContext<AlertConfig.Props>({});
 export const AlertConfig = (props: AlertConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <AlertContext value={restProps}>{children}</AlertContext>;
 };
+
+export const useAlertConfig = () => {
+  const context = use(AlertContext);
+  return context;
+};
+
 export namespace AlertConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Alert.Props {}
 }

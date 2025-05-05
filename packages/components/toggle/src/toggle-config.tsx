@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Toggle } from "./toggle";
 
+const ToggleContext = createContext<ToggleConfig.Props>({});
 export const ToggleConfig = (props: ToggleConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <ToggleContext value={restProps}>{children}</ToggleContext>;
 };
+
+export const useToggleConfig = () => {
+  const context = use(ToggleContext);
+  return context;
+};
+
 export namespace ToggleConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Toggle.Props {}
 }

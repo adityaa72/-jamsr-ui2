@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Charts } from "./charts";
 
+const ChartsContext = createContext<ChartsConfig.Props>({});
 export const ChartsConfig = (props: ChartsConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <ChartsContext value={restProps}>{children}</ChartsContext>;
 };
+
+export const useChartsConfig = () => {
+  const context = use(ChartsContext);
+  return context;
+};
+
 export namespace ChartsConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Charts.Props {}
 }

@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { ScrollArea } from "./scroll-area";
 
-export const ScrollareaConfig = (props: ScrollareaConfig.Props) => {
-  return <div>{props.children}</div>;
+const ScrollAreaContext = createContext<ScrollAreaConfig.Props>({});
+export const ScrollAreaConfig = (props: ScrollAreaConfig.Props) => {
+  const { children, ...restProps } = props;
+  return <ScrollAreaContext value={restProps}>{children}</ScrollAreaContext>;
 };
-export namespace ScrollareaConfig {
-  export type Props = UIProps<"div">;
+
+export const useScrollAreaConfig = () => {
+  const context = use(ScrollAreaContext);
+  return context;
+};
+
+export namespace ScrollAreaConfig {
+  export interface Props extends ScrollArea.Props {}
 }

@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Editor } from "./editor";
 
+const EditorContext = createContext<EditorConfig.Props>({});
 export const EditorConfig = (props: EditorConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <EditorContext value={restProps}>{children}</EditorContext>;
 };
+
+export const useEditorConfig = () => {
+  const context = use(EditorContext);
+  return context;
+};
+
 export namespace EditorConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Editor.Props {}
 }

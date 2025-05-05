@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Kbd } from "./kbd";
 
+const KbdContext = createContext<KbdConfig.Props>({});
 export const KbdConfig = (props: KbdConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <KbdContext value={restProps}>{children}</KbdContext>;
 };
+
+export const useKbdConfig = () => {
+  const context = use(KbdContext);
+  return context;
+};
+
 export namespace KbdConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Kbd.Props {}
 }

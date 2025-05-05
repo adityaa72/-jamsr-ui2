@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Header } from "./header";
 
+const HeaderContext = createContext<HeaderConfig.Props>({});
 export const HeaderConfig = (props: HeaderConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <HeaderContext value={restProps}>{children}</HeaderContext>;
 };
+
+export const useHeaderConfig = () => {
+  const context = use(HeaderContext);
+  return context;
+};
+
 export namespace HeaderConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Header.Props {}
 }

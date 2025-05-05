@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Drawer } from "./drawer";
 
+const DrawerContext = createContext<DrawerConfig.Props>({});
 export const DrawerConfig = (props: DrawerConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <DrawerContext value={restProps}>{children}</DrawerContext>;
 };
+
+export const useDrawerConfig = () => {
+  const context = use(DrawerContext);
+  return context;
+};
+
 export namespace DrawerConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Drawer.Props {}
 }

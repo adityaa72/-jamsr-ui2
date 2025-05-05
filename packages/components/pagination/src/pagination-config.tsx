@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Pagination } from "./pagination";
 
+const PaginationContext = createContext<PaginationConfig.Props>({});
 export const PaginationConfig = (props: PaginationConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <PaginationContext value={restProps}>{children}</PaginationContext>;
 };
+
+export const usePaginationConfig = () => {
+  const context = use(PaginationContext);
+  return context;
+};
+
 export namespace PaginationConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Pagination.Props {}
 }

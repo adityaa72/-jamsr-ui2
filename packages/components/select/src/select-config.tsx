@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Select } from "./select";
 
+const SelectContext = createContext<SelectConfig.Props>({});
 export const SelectConfig = (props: SelectConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <SelectContext value={restProps}>{children}</SelectContext>;
 };
+
+export const useSelectConfig = () => {
+  const context = use(SelectContext);
+  return context;
+};
+
 export namespace SelectConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Select.Props {}
 }

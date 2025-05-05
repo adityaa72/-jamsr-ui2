@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Input } from "./input";
 
+const InputContext = createContext<InputConfig.Props>({});
 export const InputConfig = (props: InputConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <InputContext value={restProps}>{children}</InputContext>;
 };
+
+export const useInputConfig = () => {
+  const context = use(InputContext);
+  return context;
+};
+
 export namespace InputConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Input.Props {}
 }

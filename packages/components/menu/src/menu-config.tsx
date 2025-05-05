@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Menu } from "./menu";
 
+const MenuContext = createContext<MenuConfig.Props>({});
 export const MenuConfig = (props: MenuConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <MenuContext value={restProps}>{children}</MenuContext>;
 };
+
+export const useMenuConfig = () => {
+  const context = use(MenuContext);
+  return context;
+};
+
 export namespace MenuConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Menu.Props {}
 }

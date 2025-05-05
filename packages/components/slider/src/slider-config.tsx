@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Slider } from "./slider";
 
+const SliderContext = createContext<SliderConfig.Props>({});
 export const SliderConfig = (props: SliderConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <SliderContext value={restProps}>{children}</SliderContext>;
 };
+
+export const useSliderConfig = () => {
+  const context = use(SliderContext);
+  return context;
+};
+
 export namespace SliderConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Slider.Props {}
 }

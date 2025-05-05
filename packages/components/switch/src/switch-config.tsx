@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Switch } from "./switch";
 
+const SwitchContext = createContext<SwitchConfig.Props>({});
 export const SwitchConfig = (props: SwitchConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <SwitchContext value={restProps}>{children}</SwitchContext>;
 };
+
+export const useSwitchConfig = () => {
+  const context = use(SwitchContext);
+  return context;
+};
+
 export namespace SwitchConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Switch.Props {}
 }

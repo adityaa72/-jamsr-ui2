@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { DataTable } from "./data-table";
 
+const DataTableContext = createContext<DataTableConfig.Props>({});
 export const DataTableConfig = (props: DataTableConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <DataTableContext value={restProps}>{children}</DataTableContext>;
 };
+
+export const useDataTableConfig = () => {
+  const context = use(DataTableContext);
+  return context;
+};
+
 export namespace DataTableConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends DataTable.Props {}
 }

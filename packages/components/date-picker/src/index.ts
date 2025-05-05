@@ -1,4 +1,4 @@
 "use client";
 
-export { Datepicker } from "./date-picker";
-export { DatepickerConfig } from "./date-picker-config";
+export { DatePicker } from "./date-picker";
+export { DatePickerConfig } from "./date-picker-config";

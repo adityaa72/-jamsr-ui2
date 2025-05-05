@@ -1,7 +1,7 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 import { UIProps } from "@jamsr-ui/utils";
 
-export const Datepicker = (props: Datepicker.Props) => {
+export const DatePicker = (props: DatePicker.Props) => {
   const { render, ...elementProps } = props;
   const renderElement = useRenderElement("div", props, {
     props: elementProps,
@@ -9,6 +9,6 @@ export const Datepicker = (props: Datepicker.Props) => {
   return renderElement;
 };
 
-export namespace Datepicker {
+export namespace DatePicker {
   export interface Props extends UIProps<"div"> {}
 }

@@ -1,4 +1,4 @@
 "use client";
 
-export { Numberinput } from "./number-input";
-export { NumberinputConfig } from "./number-input-config";
+export { NumberInput } from "./number-input";
+export { NumberInputConfig } from "./number-input-config";

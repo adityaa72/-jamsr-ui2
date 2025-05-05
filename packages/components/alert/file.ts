@@ -23,13 +23,22 @@ export namespace Text {
 }
 `;
 
-const configContent = `import { UIProps } from "@jamsr-ui/utils";
+const configContent = `import { createContext, use } from "react";
+import { Item } from "./item";
 
-export const TextConfig = (props: TextConfig.Props) => {
-  return <div>{props.children}</div>;
+const ItemContext = createContext<ItemConfig.Props>({});
+export const ItemConfig = (props: ItemConfig.Props) => {
+  const { children, ...restProps } = props;
+  return <ItemContext value={restProps}>{children}</ItemContext>;
 };
-export namespace TextConfig {
-  export type Props = UIProps<"div">;
+
+export const useItemConfig = () => {
+  const context = use(ItemContext);
+  return context;
+};
+
+export namespace ItemConfig {
+  export interface Props extends Item.Props {}
 }
 `;
 
@@ -76,10 +85,14 @@ async function main() {
         );
       }
 
-      if (!existsSync(configPath)) {
+      let configFile = "";
+      try {
+        configFile = readFileSync(configPath, "utf-8");
+      } catch {}
+      if (!configFile.includes("createContext")) {
         writeFileSync(
           configPath,
-          configContent.replaceAll("Text", entryText),
+          configContent.replaceAll("Item", entryText).replaceAll("item", entry),
           "utf-8"
         );
       }

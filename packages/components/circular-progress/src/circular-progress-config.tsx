@@ -1,8 +1,21 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { CircularProgress } from "./circular-progress";
 
+const CircularProgressContext = createContext<CircularProgressConfig.Props>({});
 export const CircularProgressConfig = (props: CircularProgressConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return (
+    <CircularProgressContext value={restProps}>
+      {children}
+    </CircularProgressContext>
+  );
 };
+
+export const useCircularProgressConfig = () => {
+  const context = use(CircularProgressContext);
+  return context;
+};
+
 export namespace CircularProgressConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends CircularProgress.Props {}
 }

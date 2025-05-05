@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { NumberInput } from "./number-input";
 
-export const NumberinputConfig = (props: NumberinputConfig.Props) => {
-  return <div>{props.children}</div>;
+const NumberInputContext = createContext<NumberInputConfig.Props>({});
+export const NumberInputConfig = (props: NumberInputConfig.Props) => {
+  const { children, ...restProps } = props;
+  return <NumberInputContext value={restProps}>{children}</NumberInputContext>;
 };
-export namespace NumberinputConfig {
-  export type Props = UIProps<"div">;
+
+export const useNumberInputConfig = () => {
+  const context = use(NumberInputContext);
+  return context;
+};
+
+export namespace NumberInputConfig {
+  export interface Props extends NumberInput.Props {}
 }

@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Radio } from "./radio";
 
+const RadioContext = createContext<RadioConfig.Props>({});
 export const RadioConfig = (props: RadioConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <RadioContext value={restProps}>{children}</RadioContext>;
 };
+
+export const useRadioConfig = () => {
+  const context = use(RadioContext);
+  return context;
+};
+
 export namespace RadioConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Radio.Props {}
 }

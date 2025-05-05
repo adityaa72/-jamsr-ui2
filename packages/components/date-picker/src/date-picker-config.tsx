@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { DatePicker } from "./date-picker";
 
-export const DatepickerConfig = (props: DatepickerConfig.Props) => {
-  return <div>{props.children}</div>;
+const DatepickerContext = createContext<DatePickerConfig.Props>({});
+export const DatePickerConfig = (props: DatePickerConfig.Props) => {
+  const { children, ...restProps } = props;
+  return <DatepickerContext value={restProps}>{children}</DatepickerContext>;
 };
-export namespace DatepickerConfig {
-  export type Props = UIProps<"div">;
+
+export const useDatepickerConfig = () => {
+  const context = use(DatepickerContext);
+  return context;
+};
+
+export namespace DatePickerConfig {
+  export interface Props extends DatePicker.Props {}
 }

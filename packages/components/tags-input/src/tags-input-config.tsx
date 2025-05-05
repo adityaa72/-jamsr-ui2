@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { TagsInput } from "./tags-input";
 
+const TagsInputContext = createContext<TagsInputConfig.Props>({});
 export const TagsInputConfig = (props: TagsInputConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <TagsInputContext value={restProps}>{children}</TagsInputContext>;
 };
+
+export const useTagsInputConfig = () => {
+  const context = use(TagsInputContext);
+  return context;
+};
+
 export namespace TagsInputConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends TagsInput.Props {}
 }

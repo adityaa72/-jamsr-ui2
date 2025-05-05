@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Breadcrumb } from "./breadcrumb";
 
+const BreadcrumbContext = createContext<BreadcrumbConfig.Props>({});
 export const BreadcrumbConfig = (props: BreadcrumbConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <BreadcrumbContext value={restProps}>{children}</BreadcrumbContext>;
 };
+
+export const useBreadcrumbConfig = () => {
+  const context = use(BreadcrumbContext);
+  return context;
+};
+
 export namespace BreadcrumbConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Breadcrumb.Props {}
 }

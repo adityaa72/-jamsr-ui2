@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Collapsible } from "./collapsible";
 
+const CollapsibleContext = createContext<CollapsibleConfig.Props>({});
 export const CollapsibleConfig = (props: CollapsibleConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <CollapsibleContext value={restProps}>{children}</CollapsibleContext>;
 };
+
+export const useCollapsibleConfig = () => {
+  const context = use(CollapsibleContext);
+  return context;
+};
+
 export namespace CollapsibleConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Collapsible.Props {}
 }

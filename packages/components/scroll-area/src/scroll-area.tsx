@@ -1,7 +1,7 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 import { UIProps } from "@jamsr-ui/utils";
 
-export const Scrollarea = (props: Scrollarea.Props) => {
+export const ScrollArea = (props: ScrollArea.Props) => {
   const { render, ...elementProps } = props;
   const renderElement = useRenderElement("div", props, {
     props: elementProps,
@@ -9,6 +9,6 @@ export const Scrollarea = (props: Scrollarea.Props) => {
   return renderElement;
 };
 
-export namespace Scrollarea {
+export namespace ScrollArea {
   export interface Props extends UIProps<"div"> {}
 }

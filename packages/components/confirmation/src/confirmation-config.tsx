@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Confirmation } from "./confirmation";
 
+const ConfirmationContext = createContext<ConfirmationConfig.Props>({});
 export const ConfirmationConfig = (props: ConfirmationConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <ConfirmationContext value={restProps}>{children}</ConfirmationContext>;
 };
+
+export const useConfirmationConfig = () => {
+  const context = use(ConfirmationContext);
+  return context;
+};
+
 export namespace ConfirmationConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Confirmation.Props {}
 }

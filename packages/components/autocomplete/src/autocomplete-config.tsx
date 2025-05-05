@@ -1,8 +1,17 @@
-import { UIProps } from "@jamsr-ui/utils";
+import { createContext, use } from "react";
+import { Autocomplete } from "./autocomplete";
 
+const AutocompleteContext = createContext<AutocompleteConfig.Props>({});
 export const AutocompleteConfig = (props: AutocompleteConfig.Props) => {
-  return <div>{props.children}</div>;
+  const { children, ...restProps } = props;
+  return <AutocompleteContext value={restProps}>{children}</AutocompleteContext>;
 };
+
+export const useAutocompleteConfig = () => {
+  const context = use(AutocompleteContext);
+  return context;
+};
+
 export namespace AutocompleteConfig {
-  export type Props = UIProps<"div">;
+  export interface Props extends Autocomplete.Props {}
 }
