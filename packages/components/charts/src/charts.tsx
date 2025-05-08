@@ -3,7 +3,7 @@ import { UIProps } from "@jamsr-ui/utils";
 
 export const Charts = (props: Charts.Props) => {
   const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", props, {
+  const renderElement = useRenderElement("div", {
     props: elementProps,
   });
   return renderElement;

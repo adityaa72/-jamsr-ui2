@@ -5,7 +5,7 @@ import { useCardConfig } from "./card-config";
 export const Card = (props: Card.Props) => {
   const { render, ...cardProps } = props;
   const config = useCardConfig();
-  const renderElement = useRenderElement("div", props, {
+  const renderElement = useRenderElement("div", {
     props: [config, cardProps],
   });
   return renderElement;

@@ -3,6 +3,7 @@ import { cn } from "./cn";
 export const mergeProps = <Element extends React.ElementType>(
   ...propsArray: React.ComponentProps<Element>[]
 ): React.ComponentPropsWithoutRef<Element> => {
+  propsArray = propsArray.filter(Boolean);
   const mergedProps = Object.assign({}, ...propsArray);
 
   // Collect and concatenate classNames

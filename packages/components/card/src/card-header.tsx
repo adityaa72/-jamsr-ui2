@@ -3,7 +3,7 @@ import { UIProps } from "@jamsr-ui/utils";
 
 export const CardHeader = (props: CardHeader.Props) => {
   const { render, ...cardProps } = props;
-  const renderElement = useRenderElement("div", props, {
+  const renderElement = useRenderElement("div", {
     props: cardProps,
   });
   return renderElement;

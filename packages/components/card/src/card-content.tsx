@@ -3,7 +3,7 @@ import { UIProps } from "@jamsr-ui/utils";
 
 export const CardContent = (props: CardContent.Props) => {
   const { render, ...cardProps } = props;
-  const renderElement = useRenderElement("div", props, {
+  const renderElement = useRenderElement("div", {
     props: cardProps,
   });
   return renderElement;

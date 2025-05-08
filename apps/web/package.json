@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@jamsr-ui/accordion": "workspace:^",
+    "@jamsr-ui/alert": "workspace:^",
     "@jamsr-ui/button": "workspace:^",
     "@jamsr-ui/card": "workspace:^",
     "@jamsr-ui/text": "workspace:^",

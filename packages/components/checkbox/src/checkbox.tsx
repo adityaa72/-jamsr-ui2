@@ -3,7 +3,7 @@ import { UIProps } from "@jamsr-ui/utils";
 
 export const Checkbox = (props: Checkbox.Props) => {
   const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", props, {
+  const renderElement = useRenderElement("div", {
     props: elementProps,
   });
   return renderElement;

@@ -144,6 +144,9 @@ importers:
       '@jamsr-ui/accordion':
         specifier: workspace:^
         version: link:../../packages/components/accordion
+      '@jamsr-ui/alert':
+        specifier: workspace:^
+        version: link:../../packages/components/alert
       '@jamsr-ui/button':
         specifier: workspace:^
         version: link:../../packages/components/button

@@ -12,7 +12,7 @@ import { UIProps } from "@jamsr-ui/utils";
 
 export const Text = (props: Text.Props) => {
   const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", props, {
+  const renderElement = useRenderElement("div", {
     props: elementProps,
   });
   return renderElement;

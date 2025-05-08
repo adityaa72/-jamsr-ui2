@@ -1,8 +1,11 @@
+import { useRenderElement } from "@jamsr-ui/hooks";
 import { UIProps } from "@jamsr-ui/utils";
 
 const AccordionContent = (props: AccordionContent.Props) => {
-  const { children, ...restProps } = props;
-  return <div {...restProps}>{children}</div>;
+  const renderElement = useRenderElement("div", {
+    props,
+  });
+  return renderElement;
 };
 
 namespace AccordionContent {

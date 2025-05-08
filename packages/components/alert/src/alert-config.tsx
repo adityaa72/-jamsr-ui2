@@ -1,14 +1,14 @@
 import { createContext, use } from "react";
 import { Alert } from "./alert";
 
-const AlertContext = createContext<AlertConfig.Props>({});
+const AlertConfigContext = createContext<AlertConfig.Props>({});
 export const AlertConfig = (props: AlertConfig.Props) => {
   const { children, ...restProps } = props;
-  return <AlertContext value={restProps}>{children}</AlertContext>;
+  return <AlertConfigContext value={restProps}>{children}</AlertConfigContext>;
 };
 
 export const useAlertConfig = () => {
-  const context = use(AlertContext);
+  const context = use(AlertConfigContext);
   return context;
 };
 

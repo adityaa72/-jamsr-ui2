@@ -11,7 +11,7 @@ export const Text = (props: Text.Props) => {
     textVariants.variantKeys
   );
   const className = textVariants(variantProps);
-  const renderElement = useRenderElement("p", mergedProps, {
+  const renderElement = useRenderElement("p", {
     props: [elementProps, { className }],
   });
   return renderElement;
