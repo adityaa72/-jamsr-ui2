@@ -1,7 +1,7 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 import { mergeProps, UIProps } from "@jamsr-ui/utils";
-import { useButton } from "./use-button";
 import { useButtonConfig } from "./button-config";
+import { useButton } from "./use-button";
 
 export const Button = (props: Button.Props) => {
   const config = useButtonConfig();
@@ -23,7 +23,7 @@ export const Button = (props: Button.Props) => {
     </>
   );
 
-  const button = useRenderElement("button", props, {
+  const button = useRenderElement("button", {
     props: [getButtonProps(), { children: composedChildren }],
   });
   return button;

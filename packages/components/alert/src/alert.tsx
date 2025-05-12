@@ -1,14 +1,31 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { UIProps } from "@jamsr-ui/utils";
+import { mergeProps, UIProps } from "@jamsr-ui/utils";
+import { useAlertConfig } from "./alert-config";
+import { AlertContextProvider } from "./alert-context";
 import { AlertDescription } from "./alert-description";
 import { AlertTitle } from "./alert-title";
+import { InfoIcon } from "./icons";
 
 export const Alert = (props: Alert.Props) => {
-  const { slotProps:_slotProps, ...elementProps } = props;
+  const config = useAlertConfig();
+  const mergedProps = mergeProps(config, props);
+  const { slotProps, children, ...elementProps } = mergedProps;
+
+  const content = (
+    <>
+      <InfoIcon />
+      <div>{children}</div>
+    </>
+  );
+
   const renderElement = useRenderElement("div", {
-    props: elementProps,
+    props: [elementProps, { children: content }],
   });
-  return renderElement;
+  return (
+    <AlertContextProvider slotProps={slotProps}>
+      {renderElement}
+    </AlertContextProvider>
+  );
 };
 
 export namespace Alert {

@@ -1,10 +1,11 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 import { UIProps } from "@jamsr-ui/utils";
+import { useCardContext } from "./card-contex";
 
 export const CardTitle = (props: CardTitle.Props) => {
-  const { render, ...cardProps } = props;
-  const renderElement = useRenderElement("h3", props, {
-    props: cardProps,
+  const { getTitleProps } = useCardContext();
+  const renderElement = useRenderElement("h3", {
+    props: getTitleProps(props),
   });
   return renderElement;
 };

@@ -9,17 +9,18 @@ import {
 
 const Page = () => {
   return (
-    <div>
-      <CardConfig className="bg-background-secondary">
-        <Card>
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
-          </CardHeader>
-          <CardContent>Hey there i' m content</CardContent>
-        </Card>
-      </CardConfig>
-    </div>
+    <CardConfig className="bg-background-secondary">
+      <Card>
+        <CardHeader
+          startContent={<div className="size-4 bg-red-400 rounded-full" />}
+          endContent={<div className="size-4 bg-red-400 rounded-full" />}
+        >
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>Card Description</CardDescription>
+        </CardHeader>
+        <CardContent>Hey there i' m content</CardContent>
+      </Card>
+    </CardConfig>
   );
 };
 
