@@ -4,11 +4,11 @@ export const test = "";
 export const cardVariants = tv({
   slots: {
     base: "",
-    header: "",
+    header: "flex items-center gap-2",
+    headerContent: "flex flex-col grow",
     title: "",
     description: "",
     footer: "",
-    headerContent: "",
     content: "",
   },
   variants: {},

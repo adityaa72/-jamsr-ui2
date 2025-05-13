@@ -1,13 +1,11 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { Text } from "@jamsr-ui/text";
 import { UIProps } from "@jamsr-ui/utils";
-import { useCardContext } from "./card-contex";
+import { useCardContext } from "./card-context";
 
 export const CardDescription = (props: CardDescription.Props) => {
+  const { children, ...elementProps } = props;
   const { getDescriptionProps } = useCardContext();
-  const renderElement = useRenderElement("p", {
-    props: getDescriptionProps(props),
-  });
-  return renderElement;
+  return <Text {...getDescriptionProps(elementProps)}>{children}</Text>;
 };
 
 export namespace CardDescription {

@@ -5,8 +5,8 @@ export {
   type VariantProps,
 } from "tailwind-variants";
 
+export { dataAttrDev as dataAttrDev } from "./attr";
 export { cn } from "./cn";
 export { mergeProps } from "./merge-props";
 export { mapPropsVariants, type SlotsToClasses } from "./tv";
-export { type UIProps } from "./types";
-export { devDataAttr } from "./attr";
+export { type PropGetter, type UIProps } from "./types";

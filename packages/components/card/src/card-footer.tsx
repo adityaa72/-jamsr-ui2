@@ -1,6 +1,6 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 import { UIProps } from "@jamsr-ui/utils";
-import { useCardContext } from "./card-contex";
+import { useCardContext } from "./card-context";
 
 export const CardFooter = (props: CardFooter.Props) => {
   const { getFooterProps } = useCardContext();
