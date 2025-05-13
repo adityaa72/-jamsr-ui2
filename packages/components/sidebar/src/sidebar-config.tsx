@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Sidebar } from "./sidebar";
+
+import type { Sidebar } from "./sidebar";
 
 const SidebarContext = createContext<SidebarConfig.Props>({});
 export const SidebarConfig = (props: SidebarConfig.Props) => {

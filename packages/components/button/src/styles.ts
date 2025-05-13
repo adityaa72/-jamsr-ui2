@@ -1,5 +1,8 @@
-import { tv, VariantProps } from "@jamsr-ui/utils";
+import { tv } from "@jamsr-ui/utils";
+
 import { allColors, allVariants, colorVariants } from "./classes";
+
+import type { VariantProps } from "@jamsr-ui/utils";
 
 export const test = "";
 export const buttonVariants = tv({

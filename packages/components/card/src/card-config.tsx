@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Card } from "./card";
+
+import type { Card } from "./card";
 
 const CardContext = createContext<CardConfig.Props>({});
 export const CardConfig = (props: CardConfig.Props) => {

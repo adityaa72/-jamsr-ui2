@@ -1,6 +1,8 @@
 import { Text } from "@jamsr-ui/text";
-import { UIProps } from "@jamsr-ui/utils";
+
 import { useCardContext } from "./card-context";
+
+import type { UIProps } from "@jamsr-ui/utils";
 
 export const CardDescription = (props: CardDescription.Props) => {
   const { children, ...elementProps } = props;

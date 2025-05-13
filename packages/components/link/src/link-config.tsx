@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Link } from "./link";
+
+import type { Link } from "./link";
 
 const LinkContext = createContext<LinkConfig.Props>({});
 export const LinkConfig = (props: LinkConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Switch } from "./switch";
+
+import type { Switch } from "./switch";
 
 const SwitchContext = createContext<SwitchConfig.Props>({});
 export const SwitchConfig = (props: SwitchConfig.Props) => {

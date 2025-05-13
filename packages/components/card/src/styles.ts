@@ -1,4 +1,6 @@
-import { tv, VariantProps } from "@jamsr-ui/utils";
+import { tv } from "@jamsr-ui/utils";
+
+import type { VariantProps } from "@jamsr-ui/utils";
 
 export const test = "";
 export const cardVariants = tv({

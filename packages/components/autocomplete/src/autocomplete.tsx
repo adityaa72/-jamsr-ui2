@@ -1,10 +1,10 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { UIProps } from "@jamsr-ui/utils";
+
+import type { UIProps } from "@jamsr-ui/utils";
 
 export const Autocomplete = (props: Autocomplete.Props) => {
-  const { render, ...elementProps } = props;
   const renderElement = useRenderElement("div", {
-    props: elementProps,
+    props,
   });
   return renderElement;
 };

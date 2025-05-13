@@ -1,6 +1,7 @@
 import { createContext, use } from "react";
-import { AlertDescription } from "./alert-description";
-import { AlertTitle } from "./alert-title";
+
+import type { AlertDescription } from "./alert-description";
+import type { AlertTitle } from "./alert-title";
 
 const AlertContext = createContext<AlertContextProvider.ContextType | null>(
   null

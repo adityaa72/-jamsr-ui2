@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { useCard } from "./use-card";
+
+import type { useCard } from "./use-card";
 
 const CardContext = createContext<CardContext.Type | null>(null);
 

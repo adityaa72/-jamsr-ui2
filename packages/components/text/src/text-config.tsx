@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Text } from "./text";
+
+import type { Text } from "./text";
 
 const TextContext = createContext<TextConfig.Props>({});
 export const TextConfig = (props: TextConfig.Props) => {

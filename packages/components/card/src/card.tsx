@@ -1,9 +1,13 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps, UIProps } from "@jamsr-ui/utils";
+import { mergeProps } from "@jamsr-ui/utils";
+
 import { useCardConfig } from "./card-config";
-import { CardVariants } from "./styles";
-import { useCard } from "./use-card";
 import { CardContextProvider } from "./card-context";
+import { useCard } from "./use-card";
+
+import type { UIProps } from "@jamsr-ui/utils";
+
+import type { CardVariants } from "./styles";
 
 export const Card = (props: Card.Props) => {
   const config = useCardConfig();

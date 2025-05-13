@@ -1,13 +1,14 @@
-import { Text } from "@jamsr-ui/text";
-import {
-  dataAttrDev,
-  mapPropsVariants,
-  PropGetter,
-  UIProps,
-} from "@jamsr-ui/utils";
 import { useCallback } from "react";
-import { type CardContent } from "./card-content";
-import { cardVariants, CardVariants } from "./styles";
+
+import { dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+
+import { cardVariants } from "./styles";
+
+import type { Text } from "@jamsr-ui/text";
+import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+
+import type { CardContent } from "./card-content";
+import type { CardVariants } from "./styles";
 
 export const useCard = (props: useCard.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
@@ -16,13 +17,15 @@ export const useCard = (props: useCard.Props) => {
   );
   const styles = cardVariants(variantKeys);
 
+  const className = newProps.className;
   const getBasePops: PropGetter<UIProps<"div">> = useCallback(
     () => ({
       "data-slot": dataAttrDev("base"),
       ...newProps,
-      className: styles.base({ className: newProps.className }),
+      className: className,
+      // className: styles.base({ className: newProps.className }),
     }),
-    [newProps, styles]
+    [className, newProps]
   );
 
   const getHeaderProps: PropGetter<UIProps<"div">> = useCallback(

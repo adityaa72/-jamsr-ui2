@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Slider } from "./slider";
+
+import type { Slider } from "./slider";
 
 const SliderContext = createContext<SliderConfig.Props>({});
 export const SliderConfig = (props: SliderConfig.Props) => {

@@ -1,5 +1,6 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { UIProps } from "@jamsr-ui/utils";
+
+import type { UIProps } from "@jamsr-ui/utils";
 
 export const Link = (props: Link.Props) => {
   const { render, ...linkProps } = props;

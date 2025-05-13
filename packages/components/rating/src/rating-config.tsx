@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Rating } from "./rating";
+
+import type { Rating } from "./rating";
 
 const RatingContext = createContext<RatingConfig.Props>({});
 export const RatingConfig = (props: RatingConfig.Props) => {

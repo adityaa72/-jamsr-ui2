@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { LinearProgress } from "./linear-progress";
+
+import type { LinearProgress } from "./linear-progress";
 
 const LinearProgressContext = createContext<LinearProgressConfig.Props>({});
 export const LinearProgressConfig = (props: LinearProgressConfig.Props) => {

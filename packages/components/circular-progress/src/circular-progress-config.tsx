@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { CircularProgress } from "./circular-progress";
+
+import type { CircularProgress } from "./circular-progress";
 
 const CircularProgressContext = createContext<CircularProgressConfig.Props>({});
 export const CircularProgressConfig = (props: CircularProgressConfig.Props) => {

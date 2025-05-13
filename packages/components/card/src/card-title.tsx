@@ -1,4 +1,5 @@
 import { Text } from "@jamsr-ui/text";
+
 import { useCardContext } from "./card-context";
 
 export const CardTitle = (props: CardTitle.Props) => {

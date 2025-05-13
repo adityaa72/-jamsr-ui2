@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Alert } from "./alert";
+
+import type { Alert } from "./alert";
 
 const AlertConfigContext = createContext<AlertConfig.Props>({});
 export const AlertConfig = (props: AlertConfig.Props) => {

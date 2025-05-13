@@ -1,10 +1,14 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps, UIProps } from "@jamsr-ui/utils";
+import { mergeProps } from "@jamsr-ui/utils";
+
 import { useAlertConfig } from "./alert-config";
 import { AlertContextProvider } from "./alert-context";
-import { AlertDescription } from "./alert-description";
-import { AlertTitle } from "./alert-title";
 import { InfoIcon } from "./icons";
+
+import type { UIProps } from "@jamsr-ui/utils";
+
+import type { AlertDescription } from "./alert-description";
+import type { AlertTitle } from "./alert-title";
 
 export const Alert = (props: Alert.Props) => {
   const config = useAlertConfig();

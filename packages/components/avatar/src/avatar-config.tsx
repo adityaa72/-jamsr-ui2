@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Avatar } from "./avatar";
+
+import type { Avatar } from "./avatar";
 
 const AvatarContext = createContext<AvatarConfig.Props>({});
 export const AvatarConfig = (props: AvatarConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Tabs } from "./tabs";
+
+import type { Tabs } from "./tabs";
 
 const TabsContext = createContext<TabsConfig.Props>({});
 export const TabsConfig = (props: TabsConfig.Props) => {

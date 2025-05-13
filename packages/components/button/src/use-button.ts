@@ -1,6 +1,12 @@
-import { mapPropsVariants, mergeProps, UIProps } from "@jamsr-ui/utils";
-import { ComponentProps, useCallback, useMemo } from "react";
-import { buttonVariants, ButtonVariantProps } from "./styles";
+import { useCallback, useMemo } from "react";
+
+import { mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+
+import { buttonVariants } from "./styles";
+
+import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+
+import type { ButtonVariantProps } from "./styles";
 
 export const useButton = (props: useButton.Props) => {
   const [elementProps, variantKeys] = mapPropsVariants(
@@ -22,8 +28,8 @@ export const useButton = (props: useButton.Props) => {
   const isDisabled = disabled ?? isDisabledProp ?? isLoading;
 
   const styles = buttonVariants(variantKeys);
-  const getButtonProps = useCallback(
-    (): ComponentProps<"button"> =>
+  const getButtonProps: PropGetter<UIProps<"button">> = useCallback(
+    () =>
       mergeProps(
         {
           disabled: isDisabled,

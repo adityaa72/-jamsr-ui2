@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Header } from "./header";
+
+import type { Header } from "./header";
 
 const HeaderContext = createContext<HeaderConfig.Props>({});
 export const HeaderConfig = (props: HeaderConfig.Props) => {

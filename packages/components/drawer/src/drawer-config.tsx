@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Drawer } from "./drawer";
+
+import type { Drawer } from "./drawer";
 
 const DrawerContext = createContext<DrawerConfig.Props>({});
 export const DrawerConfig = (props: DrawerConfig.Props) => {

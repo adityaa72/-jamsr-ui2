@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Button } from "./button";
+
+import type { Button } from "./button";
 
 const ButtonContext = createContext<ButtonConfig.Props>({});
 export const ButtonConfig = (props: ButtonConfig.Props) => {

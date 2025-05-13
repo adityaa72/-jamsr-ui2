@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Toast } from "./toast";
+
+import type { Toast } from "./toast";
 
 const ToastContext = createContext<ToastConfig.Props>({});
 export const ToastConfig = (props: ToastConfig.Props) => {

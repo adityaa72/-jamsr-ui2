@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Skeleton } from "./skeleton";
+
+import type { Skeleton } from "./skeleton";
 
 const SkeletonContext = createContext<SkeletonConfig.Props>({});
 export const SkeletonConfig = (props: SkeletonConfig.Props) => {

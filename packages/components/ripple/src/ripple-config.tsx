@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Ripple } from "./ripple";
+
+import type { Ripple } from "./ripple";
 
 const RippleContext = createContext<RippleConfig.Props>({});
 export const RippleConfig = (props: RippleConfig.Props) => {

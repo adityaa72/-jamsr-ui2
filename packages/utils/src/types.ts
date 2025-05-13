@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import type { ComponentPropsWithRef } from "react";
 
 type DataAttributes = Record<`data-${string}`, string | undefined>;
 

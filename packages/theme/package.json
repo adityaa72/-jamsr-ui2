@@ -4,8 +4,5 @@
   "main": "./src/styles.css",
   "exports": {
     "./styles.css": "./src/styles.css"
-  },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
   }
 }

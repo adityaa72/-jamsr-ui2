@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Textarea } from "./textarea";
+
+import type { Textarea } from "./textarea";
 
 const TextareaContext = createContext<TextareaConfig.Props>({});
 export const TextareaConfig = (props: TextareaConfig.Props) => {

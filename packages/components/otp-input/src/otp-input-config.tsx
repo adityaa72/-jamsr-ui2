@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { OtpInput } from "./otp-input";
+
+import type { OtpInput } from "./otp-input";
 
 const OtpInputContext = createContext<OtpInputConfig.Props>({});
 export const OtpInputConfig = (props: OtpInputConfig.Props) => {

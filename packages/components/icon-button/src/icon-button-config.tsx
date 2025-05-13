@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { IconButton } from "./icon-button";
+
+import type { IconButton } from "./icon-button";
 
 const IconButtonContext = createContext<IconButtonConfig.Props>({});
 export const IconButtonConfig = (props: IconButtonConfig.Props) => {

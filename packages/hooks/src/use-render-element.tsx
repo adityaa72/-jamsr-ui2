@@ -1,6 +1,11 @@
-import { mergeProps, UIProps } from "@jamsr-ui/utils";
 import React, { cloneElement } from "react";
+
+import { mergeProps } from "@jamsr-ui/utils";
+
+
 import { useMergeRefs } from "./use-merge-refs";
+
+import type { UIProps } from "@jamsr-ui/utils";
 
 function tag(Tag: string) {
   return function render(props: React.HTMLAttributes<any>) {

@@ -1,5 +1,6 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
-import { UIProps } from "@jamsr-ui/utils";
+
+import type { UIProps } from "@jamsr-ui/utils";
 
 export const Drawer = (props: Drawer.Props) => {
   const { render, ...elementProps } = props;

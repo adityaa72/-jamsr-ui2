@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Radio } from "./radio";
+
+import type { Radio } from "./radio";
 
 const RadioContext = createContext<RadioConfig.Props>({});
 export const RadioConfig = (props: RadioConfig.Props) => {

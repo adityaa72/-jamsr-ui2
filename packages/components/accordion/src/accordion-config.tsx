@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Accordion } from "./accordion";
+
+import type { Accordion } from "./accordion";
 
 const AccordionContext = createContext<AccordionConfig.Props>({});
 export const AccordionConfig = (props: AccordionConfig.Props) => {

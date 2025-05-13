@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Table } from "./table";
+
+import type { Table } from "./table";
 
 const TableContext = createContext<TableConfig.Props>({});
 export const TableConfig = (props: TableConfig.Props) => {

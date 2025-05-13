@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Confirmation } from "./confirmation";
+
+import type { Confirmation } from "./confirmation";
 
 const ConfirmationContext = createContext<ConfirmationConfig.Props>({});
 export const ConfirmationConfig = (props: ConfirmationConfig.Props) => {

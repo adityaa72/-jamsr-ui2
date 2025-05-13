@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Select } from "./select";
+
+import type { Select } from "./select";
 
 const SelectContext = createContext<SelectConfig.Props>({});
 export const SelectConfig = (props: SelectConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Chip } from "./chip";
+
+import type { Chip } from "./chip";
 
 const ChipContext = createContext<ChipConfig.Props>({});
 export const ChipConfig = (props: ChipConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Dialog } from "./dialog";
+
+import type { Dialog } from "./dialog";
 
 const DialogContext = createContext<DialogConfig.Props>({});
 export const DialogConfig = (props: DialogConfig.Props) => {

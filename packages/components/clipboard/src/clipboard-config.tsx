@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Clipboard } from "./clipboard";
+
+import type { Clipboard } from "./clipboard";
 
 const ClipboardContext = createContext<ClipboardConfig.Props>({});
 export const ClipboardConfig = (props: ClipboardConfig.Props) => {

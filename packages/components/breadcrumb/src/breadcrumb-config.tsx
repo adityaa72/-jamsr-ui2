@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Breadcrumb } from "./breadcrumb";
+
+import type { Breadcrumb } from "./breadcrumb";
 
 const BreadcrumbContext = createContext<BreadcrumbConfig.Props>({});
 export const BreadcrumbConfig = (props: BreadcrumbConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { NumberInput } from "./number-input";
+
+import type { NumberInput } from "./number-input";
 
 const NumberInputContext = createContext<NumberInputConfig.Props>({});
 export const NumberInputConfig = (props: NumberInputConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Menu } from "./menu";
+
+import type { Menu } from "./menu";
 
 const MenuContext = createContext<MenuConfig.Props>({});
 export const MenuConfig = (props: MenuConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { ScrollArea } from "./scroll-area";
+
+import type { ScrollArea } from "./scroll-area";
 
 const ScrollAreaContext = createContext<ScrollAreaConfig.Props>({});
 export const ScrollAreaConfig = (props: ScrollAreaConfig.Props) => {

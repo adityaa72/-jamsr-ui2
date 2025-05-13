@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Charts } from "./charts";
+
+import type { Charts } from "./charts";
 
 const ChartsContext = createContext<ChartsConfig.Props>({});
 export const ChartsConfig = (props: ChartsConfig.Props) => {

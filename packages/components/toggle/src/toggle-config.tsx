@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Toggle } from "./toggle";
+
+import type { Toggle } from "./toggle";
 
 const ToggleContext = createContext<ToggleConfig.Props>({});
 export const ToggleConfig = (props: ToggleConfig.Props) => {

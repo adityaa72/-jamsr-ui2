@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Divider } from "./divider";
+
+import type { Divider } from "./divider";
 
 const DividerContext = createContext<DividerConfig.Props>({});
 export const DividerConfig = (props: DividerConfig.Props) => {

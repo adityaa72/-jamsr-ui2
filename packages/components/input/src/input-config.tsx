@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Input } from "./input";
+
+import type { Input } from "./input";
 
 const InputContext = createContext<InputConfig.Props>({});
 export const InputConfig = (props: InputConfig.Props) => {

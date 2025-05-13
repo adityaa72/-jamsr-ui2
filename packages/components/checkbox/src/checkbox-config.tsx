@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Checkbox } from "./checkbox";
+
+import type { Checkbox } from "./checkbox";
 
 const CheckboxContext = createContext<CheckboxConfig.Props>({});
 export const CheckboxConfig = (props: CheckboxConfig.Props) => {

@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Kbd } from "./kbd";
+
+import type { Kbd } from "./kbd";
 
 const KbdContext = createContext<KbdConfig.Props>({});
 export const KbdConfig = (props: KbdConfig.Props) => {

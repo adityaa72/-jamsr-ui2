@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Tooltip } from "./tooltip";
+
+import type { Tooltip } from "./tooltip";
 
 const TooltipContext = createContext<TooltipConfig.Props>({});
 export const TooltipConfig = (props: TooltipConfig.Props) => {

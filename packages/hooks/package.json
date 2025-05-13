@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "npx eslint src --ext .ts,.tsx --fix"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

@@ -1,8 +1,9 @@
-import js from "@eslint/js";
+import eslint from "@eslint/js";
+import { rules } from "eslint-config-airbnb-extended";
 import eslintConfigPrettier from "eslint-config-prettier";
-import tseslint from "typescript-eslint";
-import pluginReactHooks from "eslint-plugin-react-hooks";
+import importX from "eslint-plugin-import-x";
 import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import { config as baseConfig } from "./base.js";
 
@@ -12,14 +13,29 @@ import { config as baseConfig } from "./base.js";
  * @type {import("eslint").Linter.Config[]} */
 export const config = [
   ...baseConfig,
-  js.configs.recommended,
+  eslint.configs.recommended,
   eslintConfigPrettier,
-  ...tseslint.configs.recommended,
+  // ...tseslint.configs.recommended,
+  // ...tseslint.configs.strict,
+  // ...tseslint.configs.stylistic,
+  rules.base.importsStrict,
+  rules.react.strict,
+  rules.typescript.typescriptEslintStrict,
+
   pluginReact.configs.flat.recommended,
+  {
+    plugins: {
+      "import-x": importX,
+    },
+  },
   {
     rules: {
       "@typescript-eslint/no-namespace": "off",
       "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "no-redeclare": "off",
+      "react/jsx-fragments": "off",
+      "no-undef": "off",
     },
   },
   {
@@ -28,6 +44,10 @@ export const config = [
       globals: {
         ...globals.serviceworker,
         ...globals.browser,
+      },
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },

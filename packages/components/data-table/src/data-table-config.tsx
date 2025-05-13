@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { DataTable } from "./data-table";
+
+import type { DataTable } from "./data-table";
 
 const DataTableContext = createContext<DataTableConfig.Props>({});
 export const DataTableConfig = (props: DataTableConfig.Props) => {

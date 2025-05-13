@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Editor } from "./editor";
+
+import type { Editor } from "./editor";
 
 const EditorContext = createContext<EditorConfig.Props>({});
 export const EditorConfig = (props: EditorConfig.Props) => {

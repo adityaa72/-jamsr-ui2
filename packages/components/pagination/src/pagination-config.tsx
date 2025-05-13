@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { Pagination } from "./pagination";
+
+import type { Pagination } from "./pagination";
 
 const PaginationContext = createContext<PaginationConfig.Props>({});
 export const PaginationConfig = (props: PaginationConfig.Props) => {

@@ -1,6 +1,8 @@
-import { UIProps } from "@jamsr-ui/utils";
-import { useAccordionConfig } from "./accordion-config";
 import { useRenderElement } from "@jamsr-ui/hooks";
+
+import { useAccordionConfig } from "./accordion-config";
+
+import type { UIProps } from "@jamsr-ui/utils";
 
 const Accordion = (props: Accordion.Props) => {
   const config = useAccordionConfig();

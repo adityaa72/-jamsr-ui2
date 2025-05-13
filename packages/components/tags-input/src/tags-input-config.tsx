@@ -1,5 +1,6 @@
 import { createContext, use } from "react";
-import { TagsInput } from "./tags-input";
+
+import type { TagsInput } from "./tags-input";
 
 const TagsInputContext = createContext<TagsInputConfig.Props>({});
 export const TagsInputConfig = (props: TagsInputConfig.Props) => {
