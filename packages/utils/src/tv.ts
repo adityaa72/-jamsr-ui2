@@ -1,9 +1,5 @@
 import { removeAttrsFromObject } from "./object";
 
-export type SlotsToClasses<S extends string> = {
-  [key in S]?: string;
-};
-
 export const mapPropsVariants = <
   T extends object,
   R extends readonly (keyof T)[],

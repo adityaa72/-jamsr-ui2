@@ -1,24 +1,60 @@
 import { cn } from "./cn";
 
-export const mergeProps = <Element extends React.ElementType>(
-  ...propsArray: React.ComponentProps<Element>[]
-): React.ComponentPropsWithoutRef<Element> => {
+export const mergeProps = <T extends Record<string, any>>(
+  ...propsArray: T[]
+): T => {
   propsArray = propsArray.filter(Boolean);
   const mergedProps = Object.assign({}, ...propsArray);
 
-  // Collect and concatenate classNames
+  // Handle classNames (object with keys like title, content)
+  const classNamesObjects = propsArray
+    .map((prop) => prop.classNames)
+    .filter(Boolean);
+  if (classNamesObjects.length > 0) {
+    mergedProps.classNames = {};
+    const allKeys = new Set(
+      classNamesObjects.flatMap((obj) => Object.keys(obj))
+    );
+    allKeys.forEach((key) => {
+      const classes = classNamesObjects.map((obj) => obj[key]).filter(Boolean);
+      if (classes.length > 0) {
+        mergedProps.classNames[key] = cn(classes.join(" "));
+      }
+    });
+  }
+
+  // Handle slotProps (object with keys like title, description, base)
+  const slotPropsObjects = propsArray
+    .map((prop) => prop.slotProps)
+    .filter(Boolean);
+  if (slotPropsObjects.length > 0) {
+    mergedProps.slotProps = {};
+    const allSlots = new Set(
+      slotPropsObjects.flatMap((obj) => Object.keys(obj))
+    );
+    allSlots.forEach((slot) => {
+      const slotPropsArray = slotPropsObjects
+        .map((obj) => obj[slot])
+        .filter(Boolean);
+      if (slotPropsArray.length > 0) {
+        mergedProps.slotProps[slot] = mergeProps(...slotPropsArray);
+      }
+    });
+  }
+
+  // Handle className (string)
   const classNames = propsArray.map((prop) => prop.className).filter(Boolean);
   if (classNames.length > 0) {
     mergedProps.className = cn(classNames.join(" "));
   }
 
-  // Merge styles
+  // Handle style
   const styles = propsArray.map((prop) => prop.style).filter(Boolean);
   if (styles.length > 0) {
     mergedProps.style = Object.assign({}, ...styles);
   }
 
-  // Find all event handler keys
+  // Handle event handlers
   const eventKeys = new Set<string>();
   propsArray.forEach((prop) => {
     Object.keys(prop).forEach((key) => {
@@ -27,8 +63,6 @@ export const mergeProps = <Element extends React.ElementType>(
       }
     });
   });
-
-  // Combine event handlers from right to left
   eventKeys.forEach((key) => {
     const handlers = propsArray
       .map((prop) => prop[key])
@@ -40,5 +74,6 @@ export const mergeProps = <Element extends React.ElementType>(
       };
     }
   });
+
   return mergedProps;
 };

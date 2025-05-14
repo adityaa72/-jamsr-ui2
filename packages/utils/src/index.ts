@@ -8,5 +8,5 @@ export {
 export { dataAttrDev as dataAttrDev } from "./attr";
 export { cn } from "./cn";
 export { mergeProps } from "./merge-props";
-export { mapPropsVariants, type SlotsToClasses } from "./tv";
-export { type PropGetter, type UIProps } from "./types";
+export { mapPropsVariants } from "./tv";
+export { type PropGetter, type SlotsToClassNames, type UIProps } from "./types";

@@ -15,6 +15,9 @@ const Page = () => {
     <div>
       <AlertConfig
         about="alert-comp"
+        classNames={{
+          title: "cl-test",
+        }}
         slotProps={{
           description: {
             render: <section />,
@@ -27,56 +30,28 @@ const Page = () => {
           },
         }}
       >
-        <div className="grid gap-4">
-          <Alert
-            slotProps={{
-              title: {
-                about: "test-title",
-                className: "bg-blue-500 text-white",
-                render: <span />,
-              },
-            }}
-          >
-            <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
-            <AlertTitle
-              className="rounded-sm"
-              render={<h1 className="text-blue-500" />}
-            >
-              Hey i am title
-            </AlertTitle>
-            <AlertDescription>Hey i am description</AlertDescription>
-          </Alert>
-          <Alert>
-            <AlertTitle>Hey i am title</AlertTitle>
-            <AlertDescription>Hey i am description</AlertDescription>
-          </Alert>
-        </div>
-      </AlertConfig>
-      {/* 
-      <Card>
-        <CardHeader
-          startContent={<Avatar />}
-          endContent={<IconButton></IconButton>}
+        <Alert
+          classNames={{
+            title: "cl-test2",
+            content: "cl-content",
+          }}
+          slotProps={{
+            root: {
+              className: "border-lime-900 border-2",
+              endContent: <button>Click Me 2</button>,
+            },
+            title: {
+              about: "test-title",
+              className: "bg-blue-500 text-white border-lime-500",
+              render: <span />,
+            },
+          }}
+          endContent={<button>Click Me</button>}
         >
-          <CardTitle></CardTitle>
-          <CardDescription></CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardStartContent>
-            <Avatar />
-          </CardStartContent>
-          <CardEndContent>
-            <IconButton></IconButton>
-          </CardEndContent>
-          <CardTitle></CardTitle>
-          <CardDescription></CardDescription>
-        </CardHeader>
-        <CardContent></CardContent>
-      </Card> */}
+          <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
+          <AlertDescription>Hey i am description</AlertDescription>
+        </Alert>
+      </AlertConfig>
     </div>
   );
 };

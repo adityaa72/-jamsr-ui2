@@ -9,8 +9,24 @@ import {
 
 const Page = () => {
   return (
-    <CardConfig className="bg-background-secondary">
-      <Card>
+    <CardConfig>
+      <Card
+        slotProps={{
+          footer: {
+            className: "bg-red-400",
+          },
+          base: {
+            className: "border",
+            classNames: {
+              base: "border-3",
+            },
+          },
+        }}
+        classNames={{
+          title: "border-2 border-red-400",
+          base: "border-2 border-red-400",
+        }}
+      >
         <CardHeader
           startContent={<div className="size-4 bg-red-400 rounded-full" />}
           endContent={<div className="size-4 bg-red-400 rounded-full" />}

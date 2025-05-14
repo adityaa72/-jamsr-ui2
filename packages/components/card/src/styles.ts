@@ -5,7 +5,7 @@ import type { VariantProps } from "@jamsr-ui/utils";
 export const test = "";
 export const cardVariants = tv({
   slots: {
-    base: "",
+    base: "bg-background-secondary",
     header: "flex items-center gap-2",
     headerContent: "flex flex-col grow",
     title: "",
@@ -18,3 +18,4 @@ export const cardVariants = tv({
 });
 
 export type CardVariants = VariantProps<typeof cardVariants>;
+export type CardSlots = keyof ReturnType<typeof cardVariants>;

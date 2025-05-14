@@ -1,14 +1,17 @@
 import { useCallback } from "react";
 
-import { dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
 import { cardVariants } from "./styles";
 
 import type { Text } from "@jamsr-ui/text";
-import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
 
+import type { Card } from "./card";
 import type { CardContent } from "./card-content";
-import type { CardVariants } from "./styles";
+import type { CardFooter } from "./card-footer";
+import type { CardHeader } from "./card-header";
+import type { CardSlots, CardVariants } from "./styles";
 
 export const useCard = (props: useCard.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
@@ -16,16 +19,17 @@ export const useCard = (props: useCard.Props) => {
     cardVariants.variantKeys
   );
   const styles = cardVariants(variantKeys);
+  const { classNames, slotProps, ...baseProps } = newProps;
 
-  const className = newProps.className;
-  const getBasePops: PropGetter<UIProps<"div">> = useCallback(
+  const getBaseProps: PropGetter<UIProps<"div">> = useCallback(
     () => ({
       "data-slot": dataAttrDev("base"),
-      ...newProps,
-      className: className,
-      // className: styles.base({ className: newProps.className }),
+      ...baseProps,
+      className: styles.base({
+        className: cn(classNames?.base, baseProps.className),
+      }),
     }),
-    [className, newProps]
+    [baseProps, classNames?.base, styles]
   );
 
   const getHeaderProps: PropGetter<UIProps<"div">> = useCallback(
@@ -85,7 +89,8 @@ export const useCard = (props: useCard.Props) => {
   );
 
   return {
-    getBasePops,
+    slotProps,
+    getBaseProps,
     getHeaderProps,
     getHeaderContentProps,
     getTitleProps,
@@ -96,5 +101,16 @@ export const useCard = (props: useCard.Props) => {
 };
 
 export namespace useCard {
-  export interface Props extends UIProps<"div">, CardVariants {}
+  export interface Props extends UIProps<"div">, CardVariants {
+    classNames?: SlotsToClassNames<CardSlots>;
+    slotProps?: {
+      base?: Card.Props;
+      header?: CardHeader.Props;
+      headerContent?: CardHeader.Props;
+      title?: Text.Props;
+      description?: Text.Props;
+      content?: CardContent.Props;
+      footer?: CardFooter.Props;
+    };
+  }
 }

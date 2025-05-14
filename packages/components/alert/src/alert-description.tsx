@@ -1,25 +1,21 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { Text } from "@jamsr-ui/text";
 import { mergeProps } from "@jamsr-ui/utils";
 
-import { useAlertConfig } from "./alert-config";
 import { useAlertContext } from "./alert-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
-
 export const AlertDescription = (props: AlertDescription.Props) => {
-  const config = useAlertConfig();
-  const ctx = useAlertContext();
-  const mergedProps = mergeProps(
-    config.slotProps?.description,
-    ctx.slotProps?.description,
+  const { getDescriptionProps, slotProps } = useAlertContext();
+  const { children, ...elementProps } = mergeProps(
+    slotProps?.description ?? {},
     props
   );
-  const renderElement = useRenderElement("div", {
-    props: mergedProps,
-  });
-  return renderElement;
+  return (
+    <Text render={<p />} {...getDescriptionProps(elementProps)}>
+      {children}
+    </Text>
+  );
 };
 
 export namespace AlertDescription {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends Text.Props {}
 }

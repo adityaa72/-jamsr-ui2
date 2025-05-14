@@ -1,10 +1,15 @@
 import { Text } from "@jamsr-ui/text";
+import { mergeProps } from "@jamsr-ui/utils";
 
 import { useCardContext } from "./card-context";
 
 export const CardTitle = (props: CardTitle.Props) => {
-  const { children, ...elementProps } = props;
-  const { getTitleProps } = useCardContext();
+  const { getTitleProps, slotProps } = useCardContext();
+  const { children, ...elementProps } = mergeProps(
+    slotProps?.title ?? {},
+    props
+  );
+
   return (
     <Text render={<h3 />} {...getTitleProps(elementProps)}>
       {children}

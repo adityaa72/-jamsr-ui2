@@ -2,41 +2,48 @@ import { useRenderElement } from "@jamsr-ui/hooks";
 import { mergeProps } from "@jamsr-ui/utils";
 
 import { useAlertConfig } from "./alert-config";
+import { AlertContent } from "./alert-content";
 import { AlertContextProvider } from "./alert-context";
 import { InfoIcon } from "./icons";
+import { useAlert } from "./use-alert";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
 
-import type { AlertDescription } from "./alert-description";
-import type { AlertTitle } from "./alert-title";
+import type { AlertSlots } from "./styles";
 
 export const Alert = (props: Alert.Props) => {
   const config = useAlertConfig();
-  const mergedProps = mergeProps(config, props);
-  const { slotProps, children, ...elementProps } = mergedProps;
+  const mergedProps = mergeProps(config ?? {}, props);
 
-  const content = (
+  const { slotProps } = mergedProps;
+  const rootProps = mergeProps<Alert.Props>(slotProps?.root ?? {}, mergedProps);
+
+  const {
+    children,
+    endContent,
+    classNames,
+    slotProps: slotProps2,
+    ...elementProps
+  } = rootProps;
+  const ctx = useAlert({ classNames, slotProps });
+
+  const composedChildren = (
     <>
       <InfoIcon />
-      <div>{children}</div>
+      <AlertContent>{children}</AlertContent>
+      {endContent}
     </>
   );
 
   const renderElement = useRenderElement("div", {
-    props: [elementProps, { children: content }],
+    props: [ctx.getRootProps(elementProps), { children: composedChildren }],
   });
-  return (
-    <AlertContextProvider slotProps={slotProps}>
-      {renderElement}
-    </AlertContextProvider>
-  );
+  return <AlertContextProvider ctx={ctx}>{renderElement}</AlertContextProvider>;
 };
 
 export namespace Alert {
-  export interface Props extends UIProps<"div"> {
-    slotProps?: {
-      title?: AlertTitle.Props;
-      description?: AlertDescription.Props;
-    };
+  export interface Props extends UIProps<"div">, useAlert.Props {
+    classNames?: SlotsToClassNames<AlertSlots>;
+    endContent?: React.ReactNode;
   }
 }

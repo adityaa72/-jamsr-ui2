@@ -1,15 +1,12 @@
 import { createContext, use } from "react";
 
-import type { AlertDescription } from "./alert-description";
-import type { AlertTitle } from "./alert-title";
+import type { useAlert } from "./use-alert";
 
-const AlertContext = createContext<AlertContextProvider.ContextType | null>(
-  null
-);
+const AlertContext = createContext<AlertContextProvider.Type | null>(null);
 
 export const AlertContextProvider = (props: AlertContextProvider.Props) => {
-  const { children, slotProps } = props;
-  return <AlertContext value={{ slotProps }}>{children}</AlertContext>;
+  const { children, ctx } = props;
+  return <AlertContext value={ctx}>{children}</AlertContext>;
 };
 
 export const useAlertContext = () => {
@@ -20,14 +17,10 @@ export const useAlertContext = () => {
 };
 
 export namespace AlertContextProvider {
-  export interface ContextType {
-    slotProps?: {
-      title?: AlertTitle.Props;
-      description?: AlertDescription.Props;
-    };
-  }
+  export interface Type extends ReturnType<typeof useAlert> {}
 
-  export interface Props extends ContextType {
+  export interface Props {
+    ctx: Type;
     children: React.ReactNode;
   }
 }
