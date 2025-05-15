@@ -1,10 +1,10 @@
-import { useCallback } from "react";
+import { isValidElement, useCallback } from "react";
 
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
+import { iconMappingDefault } from "./icons";
 import { alertStyles } from "./styles";
 
-import type { Text } from "@jamsr-ui/text";
 import type {
   PropGetter,
   SlotsToClassNames,
@@ -12,9 +12,11 @@ import type {
   UnknownTV,
 } from "@jamsr-ui/utils";
 
+import type { Alert } from "./alert";
 import type { AlertContent } from "./alert-content";
 import type { AlertDescription } from "./alert-description";
 import type { AlertTitle } from "./alert-title";
+import type { IconMapping } from "./icons";
 import type { AlertSlots, AlertVariants } from "./styles";
 
 export const useAlert = (props: useAlert.Props) => {
@@ -22,21 +24,34 @@ export const useAlert = (props: useAlert.Props) => {
     props,
     alertStyles.variantKeys
   );
-  const { classNames, slotProps, tv = alertStyles } = newProps;
+  const {
+    classNames,
+    slotProps,
+    tv = alertStyles,
+    endContent,
+    icon: iconProp,
+    iconMapping,
+    ...rootProps
+  } = newProps;
+
   const styles = (tv as typeof alertStyles)(variantKeys);
 
-  const getRootProps: PropGetter<UIProps<"div">> = useCallback(
+  const { status = "default" } = variantKeys;
+  const icon = iconProp ?? iconMapping?.[status] ?? iconMappingDefault[status];
+
+  const getRootProps: PropGetter<Alert.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("root"),
+      ...rootProps,
       ...props,
       className: styles.root({
         className: cn(classNames?.root, props.className),
       }),
     }),
-    [classNames?.root, styles]
+    [classNames?.root, rootProps, styles]
   );
 
-  const getTitleProps: PropGetter<Text.Props> = useCallback(
+  const getTitleProps: PropGetter<AlertTitle.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("title"),
       ...props,
@@ -48,7 +63,7 @@ export const useAlert = (props: useAlert.Props) => {
     [classNames?.title, styles]
   );
 
-  const getDescriptionProps: PropGetter<Text.Props> = useCallback(
+  const getDescriptionProps: PropGetter<AlertDescription.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("description"),
       ...props,
@@ -59,7 +74,7 @@ export const useAlert = (props: useAlert.Props) => {
     [classNames?.description, styles]
   );
 
-  const getContentProps: PropGetter<UIProps<"div">> = useCallback(
+  const getContentProps: PropGetter<AlertContent.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("content"),
       ...props,
@@ -71,6 +86,8 @@ export const useAlert = (props: useAlert.Props) => {
   );
 
   return {
+    icon,
+    endContent,
     slotProps,
     getRootProps,
     getTitleProps,
@@ -80,8 +97,11 @@ export const useAlert = (props: useAlert.Props) => {
 };
 
 export namespace useAlert {
-  export interface Props extends AlertVariants {
+  export interface Props extends UIProps<"div">, AlertVariants {
     classNames?: SlotsToClassNames<AlertSlots>;
+    endContent?: React.ReactNode;
+    icon?: React.ReactNode;
+    iconMapping?: Partial<IconMapping>;
     slotProps?: {
       title?: AlertTitle.Props;
       content?: AlertContent.Props;

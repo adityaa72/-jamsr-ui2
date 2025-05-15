@@ -50,7 +50,14 @@ const Page = () => {
           <AlertDescription>Hey i am description</AlertDescription>
         </Alert>
       </AlertConfig>
-      <Alert tv={alertStylesCustom} endContent={<button>Click Me 2</button>}>
+
+      <Alert
+        tv={alertStylesCustom}
+        variant="outlined"
+        endContent={<button>Click Me 2</button>}
+        status="warning"
+        icon={false}
+      >
         <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
         <AlertDescription>Hey i am description</AlertDescription>
       </Alert>
