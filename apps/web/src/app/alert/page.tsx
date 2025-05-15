@@ -5,6 +5,7 @@ import {
   AlertTitle,
 } from "@jamsr-ui/alert";
 import { Metadata } from "next";
+import { alertStylesCustom } from "./styles";
 
 export const metadata: Metadata = {
   title: "Alert",
@@ -31,27 +32,28 @@ const Page = () => {
         }}
       >
         <Alert
+          className="border-lime-900 border-2"
+          endContent={<button>Click Me 2</button>}
           classNames={{
             title: "cl-test2",
             content: "cl-content",
           }}
           slotProps={{
-            root: {
-              className: "border-lime-900 border-2",
-              endContent: <button>Click Me 2</button>,
-            },
             title: {
               about: "test-title",
               className: "bg-blue-500 text-white border-lime-500",
               render: <span />,
             },
           }}
-          endContent={<button>Click Me</button>}
         >
           <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
           <AlertDescription>Hey i am description</AlertDescription>
         </Alert>
       </AlertConfig>
+      <Alert tv={alertStylesCustom} endContent={<button>Click Me 2</button>}>
+        <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
+        <AlertDescription>Hey i am description</AlertDescription>
+      </Alert>
     </div>
   );
 };

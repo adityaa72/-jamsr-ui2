@@ -15,17 +15,9 @@ export const Alert = (props: Alert.Props) => {
   const config = useAlertConfig();
   const mergedProps = mergeProps(config ?? {}, props);
 
-  const { slotProps } = mergedProps;
-  const rootProps = mergeProps<Alert.Props>(slotProps?.root ?? {}, mergedProps);
-
-  const {
-    children,
-    endContent,
-    classNames,
-    slotProps: slotProps2,
-    ...elementProps
-  } = rootProps;
-  const ctx = useAlert({ classNames, slotProps });
+  const { children, classNames, endContent, slotProps, tv, ...elementProps } =
+    mergedProps;
+  const ctx = useAlert({ classNames, slotProps, tv });
 
   const composedChildren = (
     <>

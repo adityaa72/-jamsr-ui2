@@ -2,12 +2,17 @@ import { useCallback } from "react";
 
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
-import { alertVariants } from "./styles";
+import { alertStyles } from "./styles";
 
 import type { Text } from "@jamsr-ui/text";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type {
+  PropGetter,
+  SlotsToClassNames,
+  UIProps,
+  UnknownTV,
+} from "@jamsr-ui/utils";
 
-import type { Alert } from "./alert";
+import type { AlertContent } from "./alert-content";
 import type { AlertDescription } from "./alert-description";
 import type { AlertTitle } from "./alert-title";
 import type { AlertSlots, AlertVariants } from "./styles";
@@ -15,10 +20,10 @@ import type { AlertSlots, AlertVariants } from "./styles";
 export const useAlert = (props: useAlert.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
     props,
-    alertVariants.variantKeys
+    alertStyles.variantKeys
   );
-  const styles = alertVariants(variantKeys);
-  const { classNames, slotProps } = newProps;
+  const { classNames, slotProps, tv = alertStyles } = newProps;
+  const styles = (tv as typeof alertStyles)(variantKeys);
 
   const getRootProps: PropGetter<UIProps<"div">> = useCallback(
     (props) => ({
@@ -78,10 +83,10 @@ export namespace useAlert {
   export interface Props extends AlertVariants {
     classNames?: SlotsToClassNames<AlertSlots>;
     slotProps?: {
-      root?: Omit<Alert.Props, "slotProps" | "classNames">;
       title?: AlertTitle.Props;
-      content?: UIProps<"div">;
+      content?: AlertContent.Props;
       description?: AlertDescription.Props;
     };
+    tv?: UnknownTV;
   }
 }

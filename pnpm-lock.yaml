@@ -159,6 +159,9 @@ importers:
       '@jamsr-ui/theme':
         specifier: workspace:^
         version: link:../../packages/theme
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../../packages/utils
       motion:
         specifier: 'catalog:'
         version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

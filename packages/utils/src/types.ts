@@ -16,3 +16,5 @@ export type PropGetter<P = Record<string, unknown>> = (props: P) => P;
 export type SlotsToClassNames<S extends string> = {
   [key in S]?: string;
 };
+
+export type UnknownTV = () => unknown;
