@@ -18,3 +18,4 @@ export {
 } from "./types";
 
 export { allColors, allVariants, colorVariants } from "./class-names";
+export { createConfigContext } from "./context";

@@ -2,32 +2,22 @@ import { useRenderElement } from "@jamsr-ui/hooks";
 import { mergeProps } from "@jamsr-ui/utils";
 
 import { useCardContext } from "./card-context";
+import { CardHeaderContent } from "./card-header-content";
 
 import type { UIProps } from "@jamsr-ui/utils";
 
 export const CardHeader = (props: CardHeader.Props) => {
-  const {
-    getHeaderContentProps,
-    getHeaderProps,
-    slotProps: ctxSlotProps,
-  } = useCardContext();
+  const { getHeaderProps, slotProps } = useCardContext();
 
-  const { startContent, endContent, slotProps, children, ...elementProps } =
-    mergeProps(ctxSlotProps?.header ?? {}, props);
+  const { startContent, endContent, children, ...elementProps } = mergeProps(
+    slotProps?.header ?? {},
+    props
+  );
 
   const composedChildren = (
     <>
       {startContent}
-      <div
-        {...getHeaderContentProps({
-          ...mergeProps(
-            ctxSlotProps?.headerContent ?? {},
-            slotProps?.content ?? {}
-          ),
-        })}
-      >
-        {children}
-      </div>
+      <CardHeaderContent>{children}</CardHeaderContent>
       {endContent}
     </>
   );
@@ -42,8 +32,5 @@ export namespace CardHeader {
   export interface Props extends UIProps<"div"> {
     startContent?: React.ReactNode;
     endContent?: React.ReactNode;
-    slotProps?: {
-      content?: UIProps<"div">;
-    };
   }
 }

@@ -5,15 +5,14 @@ import { useCardContext } from "./card-context";
 
 import type { UIProps } from "@jamsr-ui/utils";
 
-export const CardContent = (props: CardContent.Props) => {
-  const { getContentProps, slotProps } = useCardContext();
-  const mergedProps = mergeProps(slotProps?.content ?? {}, props);
+export const CardHeaderContent = (props: CardHeaderContent.Props) => {
+  const { getHeaderContentProps, slotProps } = useCardContext();
+  const mergedProps = mergeProps(slotProps?.headerContent ?? {}, props);
   const renderElement = useRenderElement("div", {
-    props: getContentProps(mergedProps),
+    props: getHeaderContentProps(mergedProps),
   });
   return renderElement;
 };
-
-export namespace CardContent {
+export namespace CardHeaderContent {
   export interface Props extends UIProps<"div"> {}
 }

@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Card } from "./card";
 
-const CardContext = createContext<CardConfig.Props>({});
-export const CardConfig = (props: CardConfig.Props) => {
-  const { children, ...value } = props;
-  return <CardContext value={value}>{children}</CardContext>;
-};
-
-export const useCardConfig = () => {
-  const context = use(CardContext);
-  return context;
-};
+export const [CardConfig, useCardConfig] =
+  createConfigContext<CardConfig.Props>({
+    displayName: "CardConfigContext",
+  });
 
 export namespace CardConfig {
   export interface Props extends Card.Props {}

@@ -9,8 +9,11 @@ import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
 
 import type { Card } from "./card";
 import type { CardContent } from "./card-content";
+import type { CardDescription } from "./card-description";
 import type { CardFooter } from "./card-footer";
 import type { CardHeader } from "./card-header";
+import type { CardHeaderContent } from "./card-header-content";
+import type { CardTitle } from "./card-title";
 import type { CardSlots, CardVariants } from "./styles";
 
 export const useCard = (props: useCard.Props) => {
@@ -21,18 +24,18 @@ export const useCard = (props: useCard.Props) => {
   const styles = cardVariants(variantKeys);
   const { classNames, slotProps, ...baseProps } = newProps;
 
-  const getBaseProps: PropGetter<UIProps<"div">> = useCallback(
+  const getRootProps: PropGetter<Card.Props> = useCallback(
     () => ({
-      "data-slot": dataAttrDev("base"),
+      "data-slot": dataAttrDev("root"),
       ...baseProps,
-      className: styles.base({
-        className: cn(classNames?.base, baseProps.className),
+      className: styles.root({
+        className: cn(classNames?.root, baseProps.className),
       }),
     }),
-    [baseProps, classNames?.base, styles]
+    [baseProps, classNames?.root, styles]
   );
 
-  const getHeaderProps: PropGetter<UIProps<"div">> = useCallback(
+  const getHeaderProps: PropGetter<CardHeader.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("header"),
       ...props,
@@ -41,7 +44,7 @@ export const useCard = (props: useCard.Props) => {
     [styles]
   );
 
-  const getTitleProps: PropGetter<Text.Props> = useCallback(
+  const getTitleProps: PropGetter<CardTitle.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("title"),
       ...props,
@@ -51,7 +54,7 @@ export const useCard = (props: useCard.Props) => {
     [styles]
   );
 
-  const getDescriptionProps: PropGetter<Text.Props> = useCallback(
+  const getDescriptionProps: PropGetter<CardDescription.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("description"),
       ...props,
@@ -60,17 +63,17 @@ export const useCard = (props: useCard.Props) => {
     [styles]
   );
 
-  const getHeaderContentProps: PropGetter<UIProps<"div">> = useCallback(
-    (props) => ({
-      "data-slot": dataAttrDev("header-content"),
-      ...props,
-      className: styles.headerContent({ className: props.className }),
-    }),
-    [styles]
-  );
+  const getHeaderContentProps: PropGetter<CardHeaderContent.Props> =
+    useCallback(
+      (props) => ({
+        "data-slot": dataAttrDev("header-content"),
+        ...props,
+        className: styles.headerContent({ className: props.className }),
+      }),
+      [styles]
+    );
 
   const getContentProps: PropGetter<CardContent.Props> = useCallback(
-    // const getContentProps: PropGetter<UIProps<"div">> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("content"),
       ...props,
@@ -79,7 +82,7 @@ export const useCard = (props: useCard.Props) => {
     [styles]
   );
 
-  const getFooterProps: PropGetter<UIProps<"div">> = useCallback(
+  const getFooterProps: PropGetter<CardFooter.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("footer"),
       ...props,
@@ -90,7 +93,7 @@ export const useCard = (props: useCard.Props) => {
 
   return {
     slotProps,
-    getBaseProps,
+    getRootProps,
     getHeaderProps,
     getHeaderContentProps,
     getTitleProps,
@@ -104,7 +107,6 @@ export namespace useCard {
   export interface Props extends UIProps<"div">, CardVariants {
     classNames?: SlotsToClassNames<CardSlots>;
     slotProps?: {
-      base?: Card.Props;
       header?: CardHeader.Props;
       headerContent?: CardHeader.Props;
       title?: Text.Props;

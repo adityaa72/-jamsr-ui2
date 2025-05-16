@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "@jamsr-ui/utils": "workspace:^",
+    "tailwind-variants": "^1.0.0"
   }
 }

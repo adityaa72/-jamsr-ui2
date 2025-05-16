@@ -11,7 +11,7 @@ export const Card = (props: Card.Props) => {
   const ctx = useCard(mergedProps);
 
   const renderElement = useRenderElement("div", {
-    props: ctx.getBaseProps({}),
+    props: ctx.getRootProps({}),
   });
   return <CardContextProvider ctx={ctx}>{renderElement}</CardContextProvider>;
 };

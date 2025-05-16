@@ -6,10 +6,7 @@ import { AlertContent } from "./alert-content";
 import { AlertContextProvider } from "./alert-context";
 import { useAlert } from "./use-alert";
 
-import type { SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
-
-import type { IconMapping } from "./icons";
-import type { AlertSlots } from "./styles";
+import type { UIProps } from "@jamsr-ui/utils";
 
 export const Alert = (props: Alert.Props) => {
   const config = useAlertConfig();
@@ -33,10 +30,5 @@ export const Alert = (props: Alert.Props) => {
 };
 
 export namespace Alert {
-  export interface Props extends UIProps<"div">, useAlert.Props {
-    classNames?: SlotsToClassNames<AlertSlots>;
-    endContent?: React.ReactNode;
-    icon?: React.ReactNode;
-    iconMapping?: Partial<IconMapping>;
-  }
+  export interface Props extends UIProps<"div">, useAlert.Props {}
 }

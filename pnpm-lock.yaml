@@ -920,6 +920,9 @@ importers:
       '@jamsr-ui/utils':
         specifier: workspace:^
         version: link:../../utils
+      tailwind-variants:
+        specifier: ^1.0.0
+        version: 1.0.0(tailwindcss@4.1.5)
     devDependencies:
       '@types/react':
         specifier: 'catalog:'
