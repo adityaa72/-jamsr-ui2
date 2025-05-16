@@ -1,15 +1,25 @@
 import { createContext, use } from "react";
 
+import { mergeProps } from "@jamsr-ui/utils";
+
 import type { Alert } from "./alert";
 
 const AlertConfigContext = createContext<AlertConfig.Props>({});
 export const AlertConfig = (props: AlertConfig.Props) => {
-  const { children, ...restProps } = props;
+  const { merge = true, ...elementProps } = props;
+
+  const innerConfig = useAlertConfig();
+  const mergedProps = merge
+    ? mergeProps(innerConfig, elementProps)
+    : elementProps;
+  const { children, ...restProps } = mergedProps;
   return <AlertConfigContext value={restProps}>{children}</AlertConfigContext>;
 };
 
 export const useAlertConfig = () => use(AlertConfigContext);
 
 export namespace AlertConfig {
-  export interface Props extends Alert.Props {}
+  export interface Props extends Alert.Props {
+    merge?: boolean;
+  }
 }

@@ -1,4 +1,4 @@
-import { isValidElement, useCallback } from "react";
+import { useCallback } from "react";
 
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
@@ -17,7 +17,8 @@ import type { AlertContent } from "./alert-content";
 import type { AlertDescription } from "./alert-description";
 import type { AlertTitle } from "./alert-title";
 import type { IconMapping } from "./icons";
-import type { AlertSlots, AlertVariants } from "./styles";
+import type { AlertSlots } from "./styles";
+import type { AlertVariants } from "./types";
 
 export const useAlert = (props: useAlert.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
@@ -97,7 +98,10 @@ export const useAlert = (props: useAlert.Props) => {
 };
 
 export namespace useAlert {
-  export interface Props extends UIProps<"div">, AlertVariants {
+  export interface Props extends UIProps<"div"> {
+    variant?: AlertVariants.Variant;
+    status?: AlertVariants.Status;
+    radius?: AlertVariants.Radius;
     classNames?: SlotsToClassNames<AlertSlots>;
     endContent?: React.ReactNode;
     icon?: React.ReactNode;

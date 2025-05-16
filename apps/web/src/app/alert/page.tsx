@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+import type { AlertVariants } from "@jamsr-ui/alert";
 import {
   Alert,
   AlertConfig,
@@ -11,9 +13,29 @@ export const metadata: Metadata = {
   title: "Alert",
 };
 
+declare module "@jamsr-ui/alert" {
+  export namespace Alert {
+    export interface Props {
+      variant?: AlertVariants.Variant | "custom";
+    }
+  }
+}
+
 const Page = () => {
   return (
     <div>
+      <AlertConfig>
+        <Alert
+          variant="custom"
+          endContent={<button>Click Me 2</button>}
+          status="warning"
+          icon={false}
+        >
+          <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
+          <AlertDescription>Hey i am description</AlertDescription>
+        </Alert>
+      </AlertConfig>
+
       <AlertConfig
         about="alert-comp"
         classNames={{
@@ -31,7 +53,7 @@ const Page = () => {
           },
         }}
       >
-        <Alert
+        {/* <Alert
           className="border-lime-900 border-2"
           endContent={<button>Click Me 2</button>}
           classNames={{
@@ -48,19 +70,31 @@ const Page = () => {
         >
           <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
           <AlertDescription>Hey i am description</AlertDescription>
-        </Alert>
-      </AlertConfig>
+        </Alert> */}
 
-      <Alert
-        tv={alertStylesCustom}
-        variant="outlined"
-        endContent={<button>Click Me 2</button>}
-        status="warning"
-        icon={false}
-      >
-        <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
-        <AlertDescription>Hey i am description</AlertDescription>
-      </Alert>
+        <Alert
+          variant="outlined"
+          endContent={<button>Click Me 2</button>}
+          status="warning"
+          icon={false}
+        >
+          <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
+          <AlertDescription>Hey i am description</AlertDescription>
+        </Alert>
+
+        <AlertConfig merge={false}>
+          <Alert
+            tv={alertStylesCustom}
+            variant="outlined"
+            endContent={<button>Click Me 2</button>}
+            status="warning"
+            icon={false}
+          >
+            <AlertTitle className="rounded-sm">Hey i am title</AlertTitle>
+            <AlertDescription>Hey i am description</AlertDescription>
+          </Alert>
+        </AlertConfig>
+      </AlertConfig>
     </div>
   );
 };
