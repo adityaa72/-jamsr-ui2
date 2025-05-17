@@ -10,9 +10,11 @@
     "@jamsr-ui/typescript-config": "workspace:^",
     "@types/node": "^22.14.0",
     "@types/react": "catalog:",
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "peerDependencies": {
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "dependencies": {

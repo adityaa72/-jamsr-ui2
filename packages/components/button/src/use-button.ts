@@ -1,11 +1,12 @@
 import { useCallback, useMemo } from "react";
 
-import { mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { mapPropsVariants } from "@jamsr-ui/utils";
 
 import { buttonVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsr-ui/utils";
 
+import type { Button } from "./button";
 import type { ButtonVariantProps } from "./styles";
 
 export const useButton = (props: useButton.Props) => {
@@ -18,7 +19,7 @@ export const useButton = (props: useButton.Props) => {
     disableRipple,
     endContent,
     spinner,
-    spinnerPlacement,
+    spinnerPlacement = "start",
     startContent,
     disabled,
     isLoading,
@@ -28,22 +29,35 @@ export const useButton = (props: useButton.Props) => {
   const isDisabled = disabled ?? isDisabledProp ?? isLoading;
 
   const styles = buttonVariants(variantKeys);
-  const getButtonProps: PropGetter<UIProps<"button">> = useCallback(
-    () =>
-      mergeProps(
-        {
-          disabled: isDisabled,
-          className: styles,
-          "data-loading": isLoading,
-        },
-        restProps
-      ),
+  const getButtonProps: PropGetter<Button.Props> = useCallback(
+    () => ({
+      disabled: isDisabled,
+      className: styles,
+      "data-loading": isLoading,
+      ...restProps,
+    }),
     [isDisabled, isLoading, restProps, styles]
   );
 
   return useMemo(
-    () => ({ getButtonProps, startContent, endContent, isLoading, spinner }),
-    [endContent, getButtonProps, startContent, isLoading, spinner]
+    () => ({
+      getButtonProps,
+      startContent,
+      endContent,
+      isLoading,
+      spinner,
+      spinnerPlacement,
+      disableRipple,
+    }),
+    [
+      getButtonProps,
+      startContent,
+      endContent,
+      isLoading,
+      spinner,
+      spinnerPlacement,
+      disableRipple,
+    ]
   );
 };
 

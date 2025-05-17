@@ -19,3 +19,4 @@ export {
 
 export { allColors, allVariants, colorVariants } from "./class-names";
 export { createConfigContext } from "./context";
+export { TRANSITION_VARIANTS } from "./transition";

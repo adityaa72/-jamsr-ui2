@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Accordion } from "./accordion";
 
-const AccordionContext = createContext<AccordionConfig.Props>({});
-export const AccordionConfig = (props: AccordionConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <AccordionContext value={restProps}>{children}</AccordionContext>;
-};
-
-export const useAccordionConfig = () => {
-  const context = use(AccordionContext);
-  return context;
-};
+export const [AccordionConfig, useAccordionConfig] =
+  createConfigContext<AccordionConfig.Props>({
+    displayName: "AccordionConfigContext",
+  });
 
 export namespace AccordionConfig {
   export interface Props extends Accordion.Props {}
