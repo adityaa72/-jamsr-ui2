@@ -43,18 +43,21 @@ export const useAccordion = (props: useAccordion.Props) => {
 
   const styles = accordionVariants(variantProps);
 
-  const handleAccordionOpen = (idx: string) => {
-    const isOpen = value.includes(idx);
-    if (isMultiple) {
-      const newValue = new Set(value);
-      if (isOpen) newValue.delete(idx);
-      else newValue.add(idx); // toggle
-      setValue(Array.from(newValue));
-    } else {
-      setValue(isOpen ? [] : [idx]);
-      onValueChange?.(isOpen ? [] : [idx]);
-    }
-  };
+  const handleAccordionOpen = useCallback(
+    (idx: string) => {
+      const isOpen = value.includes(idx);
+      if (isMultiple) {
+        const newValue = new Set(value);
+        if (isOpen) newValue.delete(idx);
+        else newValue.add(idx); // toggle
+        setValue(Array.from(newValue));
+      } else {
+        setValue(isOpen ? [] : [idx]);
+        onValueChange?.(isOpen ? [] : [idx]);
+      }
+    },
+    [isMultiple, onValueChange, setValue, value]
+  );
 
   const getRootProps: PropGetter<Accordion.Props> = useCallback(
     (props) => ({

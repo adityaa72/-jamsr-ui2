@@ -8,16 +8,21 @@ export const accordionVariants = tv({
     root: "flex flex-col",
     item: "bg-content1",
     header: "flex items-center gap-2",
-    trigger: "flex w-full items-center gap-3 py-4",
-    content: "py-2 text-base",
+    trigger: [
+      "flex w-full items-center relative gap-3 py-4 px-4",
+      "focus-visible:outline-2 focus-visible:outline-primary focus-visible:z-10",
+    ],
+    content: "py-2 text-base px-4",
     contentWrapper: "overflow-hidden",
   },
   variants: {
     variant: {
       light: "",
-      splitted: "",
+      splitted: {
+        root: "flex flex-col gap-4",
+      },
     },
-    radius: radiusVariant("root"),
+    radius: radiusVariant(["item", "trigger", "content"]),
   },
   defaultVariants: {
     variant: "light",

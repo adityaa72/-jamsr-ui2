@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useId, useMemo } from "react";
 
 import { cn, dataAttrDev, mergeProps } from "@jamsr-ui/utils";
 
@@ -14,10 +14,12 @@ import type { AccordionTrigger } from "./accordion-trigger";
 export const useAccordionItem = (props: useAccordionItem.Props) => {
   const { styles, classNames, handleAccordionOpen, value } =
     useAccordionContext();
-  const [isOpen, setIsOpen] = useState(false);
-  // const
+  const { value: valueProp = "-", ...elementProps } = props;
+  const isOpen = useMemo(() => value.includes(valueProp), [value, valueProp]);
 
-  const { ...elementProps } = props;
+  const triggerId = useId();
+  const contentId = useId();
+
   const getItemProps: PropGetter<AccordionItem.Props> = useCallback(
     (props) => ({
       ...elementProps,
@@ -53,21 +55,37 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
       className: styles.content({
         className: cn(classNames?.content, props.className),
       }),
+      role: "region",
+      "aria-labelledby": triggerId,
+      id: contentId,
     }),
-    [classNames?.content, styles]
+    [classNames?.content, contentId, styles, triggerId]
   );
 
   const getTriggerProps: PropGetter<AccordionTrigger.Props> = useCallback(
     (props) => ({
       ...mergeProps(props, {
-        onClick: () => handleAccordionOpen("1"),
+        onClick: () => {
+          handleAccordionOpen(valueProp);
+        },
       }),
       "data-slot": dataAttrDev("trigger"),
       className: styles.trigger({
         className: cn(classNames?.trigger, props.className),
       }),
+      id: triggerId,
+      "aria-expanded": isOpen,
+      "aria-controls": contentId,
     }),
-    [classNames?.trigger, handleAccordionOpen, styles]
+    [
+      classNames?.trigger,
+      contentId,
+      handleAccordionOpen,
+      isOpen,
+      styles,
+      triggerId,
+      valueProp,
+    ]
   );
 
   return useMemo(
@@ -90,5 +108,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
 
 export namespace useAccordionItem {
   export type Orientation = "horizontal" | "vertical";
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"div"> {
+    value?: string;
+  }
 }
