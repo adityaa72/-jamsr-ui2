@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useRef } from "react";
 
 import { useControlled } from "@jamsr-ui/hooks";
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
@@ -37,11 +37,11 @@ export const useAccordion = (props: useAccordion.Props) => {
     name: "Accordion",
     state: "value",
   });
-  console.log(" value:->", value);
 
   const handleValueChange = useCallback(() => {}, []);
 
   const styles = accordionVariants(variantProps);
+  const elementRefs = useRef<(HTMLElement | null)[]>([]);
 
   const handleAccordionOpen = useCallback(
     (idx: string) => {
@@ -81,6 +81,7 @@ export const useAccordion = (props: useAccordion.Props) => {
       classNames,
       styles,
       handleAccordionOpen,
+      elementRefs,
     }),
     [
       classNames,

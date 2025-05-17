@@ -9,19 +9,25 @@ import {
 
 export const AccordionTest2 = () => {
   return (
-    <Accordion
-      render={
-        <section
-          className="bg-red-500"
-          onClick={() => console.log("clicked on section")}
-          onMouseOver={() => console.log("hovered on section")}
-        />
-      }
-    >
-      <AccordionItem>
-        <AccordionTrigger>Press me to open</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
-    </Accordion>
+    <div className="p-4">
+      <Accordion variant="splitted" isMultiple>
+        <AccordionItem>
+          <AccordionTrigger>Press me to open</AccordionTrigger>
+          <AccordionContent>I am the accordion content</AccordionContent>
+        </AccordionItem>
+        <AccordionItem>
+          <AccordionTrigger>Press me to open</AccordionTrigger>
+          <AccordionContent>I am the accordion content</AccordionContent>
+        </AccordionItem>
+        <AccordionItem>
+          <AccordionTrigger>Press me to open</AccordionTrigger>
+          <AccordionContent>I am the accordion content</AccordionContent>
+        </AccordionItem>
+        <AccordionItem>
+          <AccordionTrigger>Press me to open</AccordionTrigger>
+          <AccordionContent>I am the accordion content</AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
   );
 };
