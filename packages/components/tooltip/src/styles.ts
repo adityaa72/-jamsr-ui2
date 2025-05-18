@@ -1,0 +1,19 @@
+import { radiusVariant, tv } from "@jamsr-ui/utils";
+
+import type { VariantProps } from "@jamsr-ui/utils";
+
+export const tooltipVariants = tv({
+  slots: {
+    root: "bg-content1 inline-flex px-3 py-1 text-sm font-medium text-foreground",
+    arrow: "",
+  },
+  variants: {
+    radius: radiusVariant("root"),
+  },
+  defaultVariants: {
+    radius: "md",
+  },
+});
+
+export type TooltipVariants = VariantProps<typeof tooltipVariants>;
+export type TooltipSlots = keyof ReturnType<typeof tooltipVariants>;

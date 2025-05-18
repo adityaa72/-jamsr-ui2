@@ -1,15 +1,40 @@
+import { useMemo } from "react";
+
+import { FloatingArrow, FloatingPortal } from "@floating-ui/react";
 import { useRenderElement } from "@jamsr-ui/hooks";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import { useTooltip } from "./use-tooltip";
 
 export const Tooltip = (props: Tooltip.Props) => {
-  const { render, ...elementProps } = props;
+  const { children, getArrowProps, getRootProps, isOpen, title, showArrow } =
+    useTooltip(props);
+
+  const composedChildren = useMemo(() => {
+    return (
+      <>
+        {!!showArrow && <FloatingArrow {...getArrowProps()} />}
+        {title}
+      </>
+    );
+  }, [getArrowProps, showArrow, title]);
+
   const renderElement = useRenderElement("div", {
-    props: elementProps,
+    props: [
+      getRootProps({}),
+      {
+        children: composedChildren,
+      },
+    ],
   });
-  return renderElement;
+
+  return (
+    <>
+      {children}
+      {!!isOpen && <FloatingPortal>{renderElement}</FloatingPortal>}
+    </>
+  );
 };
 
 export namespace Tooltip {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useTooltip.Props {}
 }

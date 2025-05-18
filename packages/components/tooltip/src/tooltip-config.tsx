@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Tooltip } from "./tooltip";
 
-const TooltipContext = createContext<TooltipConfig.Props>({});
-export const TooltipConfig = (props: TooltipConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <TooltipContext value={restProps}>{children}</TooltipContext>;
-};
-
-export const useTooltipConfig = () => {
-  const context = use(TooltipContext);
-  return context;
-};
+export const [TooltipConfig, useTooltipConfig] =
+  createConfigContext<TooltipConfig.Props>({
+    displayName: "TooltipConfigContext",
+  });
 
 export namespace TooltipConfig {
   export interface Props extends Tooltip.Props {}

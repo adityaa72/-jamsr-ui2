@@ -99,7 +99,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
           break;
       }
     },
-    [blurItem, focusItem, handleAccordionOpen, index, itemValue, totalItems]
+    [blurItem, focusItem, handleAccordionOpen, index, itemValue]
   );
 
   const getItemProps: PropGetter<AccordionItem.Props> = useCallback(
