@@ -1,6 +1,11 @@
 import { useCallback, useId, useMemo } from "react";
 
-import { cn, dataAttrDev, mergeProps } from "@jamsr-ui/utils";
+import {
+  cn,
+  dataAttrDev,
+  isDisabledElement,
+  mergeProps,
+} from "@jamsr-ui/utils";
 
 import { useAccordionContext } from "./accordion-context";
 import { useAccordionListItem } from "./accordion-list-provider";
@@ -17,8 +22,9 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     useAccordionContext();
   const { index } = useAccordionListItem();
   const indexValue = (index + 1).toString();
-  const { value: itemValue = indexValue, ...elementProps } = props;
+  const { value: itemValue = indexValue, isDisabled, ...elementProps } = props;
   const isOpen = useMemo(() => value.includes(itemValue), [value, itemValue]);
+  const totalItems = elementRefs.current.length;
 
   const triggerId = useId();
   const contentId = useId();
@@ -30,18 +36,39 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     [elementRefs, index]
   );
 
-  const focusItem = useCallback(
-    (index: number) => {
-      if (elementRefs.current[index]) {
-        elementRefs.current[index]?.focus();
-      }
+  // Helper function to find the next enabled item in a given direction
+  const findNextEnabledItemIdx = useCallback(
+    (start: number, direction: "up" | "down") => {
+      const dir = direction === "up" ? -1 : 1;
+      let current = start;
+      do {
+        current = (current + dir + totalItems) % totalItems;
+        const element = elementRefs.current[current];
+        if (element && !isDisabledElement(element)) {
+          return current;
+        }
+      } while (current !== start);
+      return start; // Return original position if no enabled item found
     },
-    [elementRefs]
+    [elementRefs, totalItems]
   );
+
+  const focusItem = useCallback(
+    (index: number, direction: "up" | "down") => {
+      const idx = findNextEnabledItemIdx(index, direction);
+      elementRefs.current[idx]?.focus();
+    },
+    [elementRefs, findNextEnabledItemIdx]
+  );
+
+  const blurItem = useCallback(() => {
+    if (elementRefs.current[index]) {
+      elementRefs.current[index]?.blur();
+    }
+  }, [elementRefs, index]);
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
-      const totalItems = elementRefs.current.length;
       switch (event.key) {
         case "Enter":
         case " ":
@@ -50,25 +77,29 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
           break;
         case "ArrowUp":
           event.preventDefault();
-          focusItem(index === 0 ? totalItems - 1 : index - 1);
+          focusItem(index, "up");
           break;
         case "ArrowDown":
           event.preventDefault();
-          focusItem(index === totalItems - 1 ? 0 : index + 1);
+          focusItem(index, "down");
           break;
         case "Home":
           event.preventDefault();
-          focusItem(0);
+          focusItem(-1, "down");
           break;
         case "End":
           event.preventDefault();
-          focusItem(totalItems - 1);
+          focusItem(0, "up");
+          break;
+        case "Escape":
+          event.preventDefault();
+          blurItem();
           break;
         default:
           break;
       }
     },
-    [elementRefs, focusItem, handleAccordionOpen, index, itemValue]
+    [blurItem, focusItem, handleAccordionOpen, index, itemValue, totalItems]
   );
 
   const getItemProps: PropGetter<AccordionItem.Props> = useCallback(
@@ -83,8 +114,10 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
           props.className
         ),
       }),
+      "aria-disabled": isDisabled,
+      "data-disabled": isDisabled,
     }),
-    [classNames?.item, elementProps, styles]
+    [classNames?.item, elementProps, isDisabled, styles]
   );
 
   const getContentWrapperProps: PropGetter<AccordionContentWrapper.Props> =
@@ -121,6 +154,9 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
           handleAccordionOpen(itemValue);
         },
         onKeyDown: handleKeyDown,
+        disabled: isDisabled,
+        "aria-disabled": isDisabled,
+        "data-disabled": isDisabled,
       }),
       "data-slot": dataAttrDev("trigger"),
       className: styles.trigger({
@@ -133,6 +169,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     [
       triggerRef,
       handleKeyDown,
+      isDisabled,
       styles,
       classNames?.trigger,
       triggerId,
@@ -164,5 +201,6 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
 export namespace useAccordionItem {
   export interface Props extends UIProps<"div"> {
     value?: string;
+    isDisabled?: boolean;
   }
 }

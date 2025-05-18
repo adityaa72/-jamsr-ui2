@@ -14,7 +14,7 @@ export const AccordionTest1 = () => {
           <AccordionTrigger>Press me to open</AccordionTrigger>
           <AccordionContent>I am the accordion content</AccordionContent>
         </AccordionItem>
-        <AccordionItem value="value2">
+        <AccordionItem isDisabled value="value2">
           <AccordionTrigger>Press me to open</AccordionTrigger>
           <AccordionContent>I am the accordion content</AccordionContent>
         </AccordionItem>

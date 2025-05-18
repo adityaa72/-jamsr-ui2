@@ -6,7 +6,7 @@ export {
   type VariantProps,
 } from "tailwind-variants";
 
-export { dataAttrDev as dataAttrDev } from "./attr";
+export { dataAttrDev, isDisabledElement } from "./attr";
 export { cn } from "./cn";
 export { mergeProps } from "./merge-props";
 export { mapPropsVariants, radiusBaseVariant, radiusVariant } from "./tv";
