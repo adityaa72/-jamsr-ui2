@@ -153,6 +153,9 @@ importers:
       '@jamsr-ui/card':
         specifier: workspace:^
         version: link:../../packages/components/card
+      '@jamsr-ui/popover':
+        specifier: workspace:^
+        version: link:../../packages/components/popover
       '@jamsr-ui/text':
         specifier: workspace:^
         version: link:../../packages/components/text
@@ -709,6 +712,9 @@ importers:
 
   packages/components/popover:
     dependencies:
+      '@floating-ui/react':
+        specifier: ^0.27.8
+        version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../hooks

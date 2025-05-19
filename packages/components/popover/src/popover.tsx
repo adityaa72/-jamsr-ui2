@@ -1,15 +1,14 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-
-import type { UIProps } from "@jamsr-ui/utils";
+import { PopoverContext } from "./popover-context";
+import { usePopover } from "./use-popover";
 
 export const Popover = (props: Popover.Props) => {
-  const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
-    props: elementProps,
-  });
-  return renderElement;
+  const { children } = props;
+  const ctx = usePopover(props);
+  return <PopoverContext value={ctx}>{children}</PopoverContext>;
 };
 
 export namespace Popover {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends usePopover.Props {
+    children: React.ReactNode;
+  }
 }

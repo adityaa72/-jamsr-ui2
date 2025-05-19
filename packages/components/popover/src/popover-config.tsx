@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Popover } from "./popover";
 
-const PopoverContext = createContext<PopoverConfig.Props>({});
-export const PopoverConfig = (props: PopoverConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <PopoverContext value={restProps}>{children}</PopoverContext>;
-};
-
-export const usePopoverConfig = () => {
-  const context = use(PopoverContext);
-  return context;
-};
+export const [PopoverConfig, usePopoverConfig] =
+  createConfigContext<PopoverConfig.Props>({
+    displayName: "PopoverConfigContext",
+  });
 
 export namespace PopoverConfig {
   export interface Props extends Popover.Props {}
