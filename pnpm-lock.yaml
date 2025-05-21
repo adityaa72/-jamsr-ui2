@@ -153,9 +153,15 @@ importers:
       '@jamsr-ui/card':
         specifier: workspace:^
         version: link:../../packages/components/card
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../../packages/hooks
       '@jamsr-ui/popover':
         specifier: workspace:^
         version: link:../../packages/components/popover
+      '@jamsr-ui/ripple':
+        specifier: workspace:^
+        version: link:../../packages/components/ripple
       '@jamsr-ui/text':
         specifier: workspace:^
         version: link:../../packages/components/text

@@ -10,3 +10,10 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

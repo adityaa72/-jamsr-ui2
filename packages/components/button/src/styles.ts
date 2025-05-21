@@ -7,7 +7,7 @@ import type { VariantProps } from "@jamsr-ui/utils";
 export const test = "";
 export const buttonVariants = tv({
   base: [
-    "inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
+    "relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
     "data-[loading]:cursor-progress",
     "disabled:cursor-not-allowed disabled:opacity-70",
     // "focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-background",

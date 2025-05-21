@@ -36,5 +36,5 @@ export const Button = (props: Button.Props) => {
 };
 
 export namespace Button {
-  export interface Props extends useButton.Props {}
+  export interface Props extends useButton.Props { }
 }
