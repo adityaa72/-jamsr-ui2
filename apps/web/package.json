@@ -18,6 +18,7 @@
     "@jamsr-ui/hooks": "workspace:^",
     "@jamsr-ui/popover": "workspace:^",
     "@jamsr-ui/ripple": "workspace:^",
+    "@jamsr-ui/sidebar": "workspace:^",
     "@jamsr-ui/text": "workspace:^",
     "@jamsr-ui/theme": "workspace:^",
     "@jamsr-ui/tooltip": "workspace:^",

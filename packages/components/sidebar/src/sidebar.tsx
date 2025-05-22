@@ -1,15 +1,21 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
+import { mergeProps } from "@jamsr-ui/utils";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import { useSidebarConfig } from "./sidebar-config";
+import { SidebarContext } from "./sidebar-context";
+import { useSidebar } from "./use-sidebar";
 
 export const Sidebar = (props: Sidebar.Props) => {
-  const { render, ...elementProps } = props;
+  const config = useSidebarConfig();
+  const mergedProps = mergeProps(config, props);
+  const ctx = useSidebar(mergedProps);
+  const { getRootProps } = ctx;
   const renderElement = useRenderElement("div", {
-    props: elementProps,
+    props: [getRootProps({})],
   });
-  return renderElement;
+  return <SidebarContext value={ctx}>{renderElement}</SidebarContext>;
 };
 
 export namespace Sidebar {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useSidebar.Props {}
 }

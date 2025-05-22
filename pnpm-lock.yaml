@@ -162,6 +162,9 @@ importers:
       '@jamsr-ui/ripple':
         specifier: workspace:^
         version: link:../../packages/components/ripple
+      '@jamsr-ui/sidebar':
+        specifier: workspace:^
+        version: link:../../packages/components/sidebar
       '@jamsr-ui/text':
         specifier: workspace:^
         version: link:../../packages/components/text
