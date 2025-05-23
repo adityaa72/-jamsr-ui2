@@ -1,6 +1,9 @@
 import type { ComponentPropsWithRef } from "react";
 
-type DataAttributes = Record<`data-${string}`, string | boolean | undefined>;
+export type DataAttributes = Record<
+  `data-${string}`,
+  string | boolean | undefined
+>;
 
 export type UIProps<ElementType extends React.ElementType> = Omit<
   ComponentPropsWithRef<ElementType>,

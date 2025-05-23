@@ -1,15 +1,15 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-
-import type { UIProps } from "@jamsr-ui/utils";
+import { DialogContext } from "./dialog-context";
+import { useDialog } from "./use-dialog";
 
 export const Dialog = (props: Dialog.Props) => {
-  const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
-    props: elementProps,
-  });
-  return renderElement;
+  const { children } = props;
+  const ctx = useDialog(props);
+
+  return <DialogContext value={ctx}>{children}</DialogContext>;
 };
 
 export namespace Dialog {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useDialog.Props {
+    children: React.ReactNode;
+  }
 }

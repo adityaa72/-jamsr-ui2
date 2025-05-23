@@ -6,12 +6,12 @@ import type { UIProps } from "@jamsr-ui/utils";
 
 export const SidebarMenuItemButton = (props: SidebarMenuItemButton.Props) => {
   const { getMenuItemButtonProps } = useSidebarContext();
-  const renderElement = useRenderElement("div", {
+  const renderElement = useRenderElement("button", {
     props: [getMenuItemButtonProps(props)],
   });
   return renderElement;
 };
 
 export namespace SidebarMenuItemButton {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"button"> {}
 }

@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@floating-ui/react':
+      specifier: ^0.27.8
+      version: 0.27.8
     '@types/react':
       specifier: ^19.1.2
       version: 19.1.2
@@ -153,6 +156,9 @@ importers:
       '@jamsr-ui/card':
         specifier: workspace:^
         version: link:../../packages/components/card
+      '@jamsr-ui/dialog':
+        specifier: workspace:^
+        version: link:../../packages/components/dialog
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
@@ -497,6 +503,9 @@ importers:
 
   packages/components/dialog:
     dependencies:
+      '@floating-ui/react':
+        specifier: 'catalog:'
+        version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../hooks
@@ -1000,7 +1009,7 @@ importers:
   packages/components/tooltip:
     dependencies:
       '@floating-ui/react':
-        specifier: ^0.27.8
+        specifier: 'catalog:'
         version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@jamsr-ui/hooks':
         specifier: workspace:^
