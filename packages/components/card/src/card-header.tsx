@@ -8,7 +8,6 @@ import type { UIProps } from "@jamsr-ui/utils";
 
 export const CardHeader = (props: CardHeader.Props) => {
   const { getHeaderProps, slotProps } = useCardContext();
-
   const { startContent, endContent, children, ...elementProps } = mergeProps(
     slotProps?.header ?? {},
     props

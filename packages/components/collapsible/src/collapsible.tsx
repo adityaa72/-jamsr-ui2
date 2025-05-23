@@ -1,15 +1,17 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { cloneElement } from "react";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import { CollapsibleContext } from "./collapsible-context";
+import { useCollapsible } from "./use-collapsible";
 
 export const Collapsible = (props: Collapsible.Props) => {
-  const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
-    props: elementProps,
-  });
-  return renderElement;
+  const { children } = props;
+  const ctx = useCollapsible(props);
+  const renderElement = cloneElement(children, ctx.getRootProps());
+  return <CollapsibleContext value={ctx}>{renderElement}</CollapsibleContext>;
 };
 
 export namespace Collapsible {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useCollapsible.Props {
+    children: React.ReactElement<unknown>;
+  }
 }

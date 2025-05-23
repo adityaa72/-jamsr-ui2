@@ -49,7 +49,7 @@ export const useCard = (props: useCard.Props) => {
       "data-slot": dataAttrDev("title"),
       ...props,
       className: styles.title({ className: props.className }),
-      variant: "h3",
+      variant: "h5",
     }),
     [styles]
   );
@@ -57,6 +57,7 @@ export const useCard = (props: useCard.Props) => {
   const getDescriptionProps: PropGetter<CardDescription.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("description"),
+      variant: "caption",
       ...props,
       className: styles.description({ className: props.className }),
     }),

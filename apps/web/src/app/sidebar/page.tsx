@@ -1,9 +1,10 @@
-import { SidebarUsage } from "./usage";
+import { SidebarNested } from "./nested";
 
 const Page = () => {
   return (
     <div>
-      <SidebarUsage />
+      {/* <SidebarUsage /> */}
+      <SidebarNested />
     </div>
   );
 };

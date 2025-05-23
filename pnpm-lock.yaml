@@ -156,6 +156,9 @@ importers:
       '@jamsr-ui/card':
         specifier: workspace:^
         version: link:../../packages/components/card
+      '@jamsr-ui/collapsible':
+        specifier: workspace:^
+        version: link:../../packages/components/collapsible
       '@jamsr-ui/dialog':
         specifier: workspace:^
         version: link:../../packages/components/dialog
@@ -449,6 +452,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0
