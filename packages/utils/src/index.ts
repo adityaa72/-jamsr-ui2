@@ -17,6 +17,16 @@ export {
   type UnknownTV,
 } from "./types";
 
-export { allColors, allVariants, colorVariants } from "./class-names";
+export {
+  absoluteFullClasses,
+  allColors,
+  allVariants,
+  colorVariants,
+  dataFocusVisibleClasses,
+  focusVisibleClasses,
+  groupDataFocusVisibleClasses,
+  ringClasses,
+  translateCenterClasses,
+} from "./class-names";
 export { createConfigContext } from "./context";
 export { TRANSITION_VARIANTS } from "./transition";

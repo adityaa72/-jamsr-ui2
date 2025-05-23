@@ -1,13 +1,13 @@
 import { cn } from "./cn";
 
 export const mergeProps = <T extends Record<string, any>>(
-  ...propsArray: T[]
+  ...props: (T | undefined)[]
 ): T => {
-  propsArray = propsArray.filter(Boolean);
-  const mergedProps = Object.assign({}, ...propsArray);
+  const propsValues = props.filter(Boolean) as T[];
+  const mergedProps = Object.assign({}, ...propsValues);
 
   // Handle classNames (object with keys like title, content)
-  const classNamesObjects = propsArray
+  const classNamesObjects = propsValues
     .map((prop) => prop.classNames)
     .filter(Boolean);
   if (classNamesObjects.length > 0) {
@@ -24,7 +24,7 @@ export const mergeProps = <T extends Record<string, any>>(
   }
 
   // Handle slotProps (object with keys like title, description, base)
-  const slotPropsObjects = propsArray
+  const slotPropsObjects = propsValues
     .map((prop) => prop.slotProps)
     .filter(Boolean);
   if (slotPropsObjects.length > 0) {
@@ -43,20 +43,20 @@ export const mergeProps = <T extends Record<string, any>>(
   }
 
   // Handle className (string)
-  const classNames = propsArray.map((prop) => prop.className).filter(Boolean);
+  const classNames = propsValues.map((prop) => prop.className).filter(Boolean);
   if (classNames.length > 0) {
     mergedProps.className = cn(classNames.join(" "));
   }
 
   // Handle style
-  const styles = propsArray.map((prop) => prop.style).filter(Boolean);
+  const styles = propsValues.map((prop) => prop.style).filter(Boolean);
   if (styles.length > 0) {
     mergedProps.style = Object.assign({}, ...styles);
   }
 
   // Handle event handlers
   const eventKeys = new Set<string>();
-  propsArray.forEach((prop) => {
+  propsValues.forEach((prop) => {
     Object.keys(prop).forEach((key) => {
       if (key.startsWith("on") && typeof prop[key] === "function") {
         eventKeys.add(key);
@@ -64,7 +64,7 @@ export const mergeProps = <T extends Record<string, any>>(
     });
   });
   eventKeys.forEach((key) => {
-    const handlers = propsArray
+    const handlers = propsValues
       .map((prop) => prop[key])
       .filter(Boolean)
       .reverse();

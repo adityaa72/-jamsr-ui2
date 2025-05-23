@@ -1,15 +1,31 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
+import { mergeProps } from "@jamsr-ui/utils";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import { TabList } from "./tab-list";
+import { TabPanel } from "./tab-panel";
+import { useTabsConfig } from "./tabs-config";
+import { TabsContext } from "./tabs-context";
+import { useTabs } from "./use-tabs";
 
 export const Tabs = (props: Tabs.Props) => {
-  const { render, ...elementProps } = props;
+  const { children } = props;
+  const config = useTabsConfig();
+  const mergedProps = mergeProps(config, props);
+  const ctx = useTabs(mergedProps);
+  const { getRootProps } = ctx;
+
+  const composedChildren = <TabList>{children}</TabList>;
   const renderElement = useRenderElement("div", {
-    props: elementProps,
+    props: [getRootProps({}), { children: composedChildren }],
   });
-  return renderElement;
+  return (
+    <TabsContext value={ctx}>
+      {renderElement}
+      <TabPanel />
+    </TabsContext>
+  );
 };
 
 export namespace Tabs {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useTabs.Props {}
 }

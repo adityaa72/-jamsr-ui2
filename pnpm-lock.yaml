@@ -174,6 +174,9 @@ importers:
       '@jamsr-ui/sidebar':
         specifier: workspace:^
         version: link:../../packages/components/sidebar
+      '@jamsr-ui/tabs':
+        specifier: workspace:^
+        version: link:../../packages/components/tabs
       '@jamsr-ui/text':
         specifier: workspace:^
         version: link:../../packages/components/text
@@ -925,6 +928,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0
