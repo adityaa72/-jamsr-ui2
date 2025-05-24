@@ -132,7 +132,7 @@ export const useTabs = (props: useTabs.Props) => {
     (props) => ({
       ...mergeProps<TabPanel.Props>(slotProps?.tabContent, props),
       "data-slot": dataAttrDev("tab-panel"),
-      className: styles.tabContent({
+      className: styles.panel({
         className: cn(
           slotProps?.tabPanel?.className,
           classNames?.panel,

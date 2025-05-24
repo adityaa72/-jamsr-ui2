@@ -2,6 +2,7 @@
 @import "@jamsr-ui/theme/styles.css";
 
 @source "../../../packages/components/*/src/**/*.{tsx,ts}";
+@source "../../../packages/utils/src/**/*.{tsx,ts}";
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
