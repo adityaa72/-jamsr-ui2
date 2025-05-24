@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Divider } from "./divider";
 
-const DividerContext = createContext<DividerConfig.Props>({});
-export const DividerConfig = (props: DividerConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <DividerContext value={restProps}>{children}</DividerContext>;
-};
-
-export const useDividerConfig = () => {
-  const context = use(DividerContext);
-  return context;
-};
+export const [DividerConfig, useDividerConfig] =
+  createConfigContext<DividerConfig.Props>({
+    displayName: "DividerConfig",
+  });
 
 export namespace DividerConfig {
   export interface Props extends Divider.Props {}

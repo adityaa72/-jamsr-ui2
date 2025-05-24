@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Avatar } from "./avatar";
 
-const AvatarContext = createContext<AvatarConfig.Props>({});
-export const AvatarConfig = (props: AvatarConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <AvatarContext value={restProps}>{children}</AvatarContext>;
-};
-
-export const useAvatarConfig = () => {
-  const context = use(AvatarContext);
-  return context;
-};
+export const [AvatarConfig, useAvatarConfig] =
+  createConfigContext<AvatarConfig.Props>({
+    displayName: "AvatarConfig",
+  });
 
 export namespace AvatarConfig {
   export interface Props extends Avatar.Props {}
