@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Table } from "./table";
 
-const TableContext = createContext<TableConfig.Props>({});
-export const TableConfig = (props: TableConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <TableContext value={restProps}>{children}</TableContext>;
-};
-
-export const useTableConfig = () => {
-  const context = use(TableContext);
-  return context;
-};
+export const [TableConfig, useTableConfig] =
+  createConfigContext<TableConfig.Props>({
+    displayName: "TableConfig",
+  });
 
 export namespace TableConfig {
   export interface Props extends Table.Props {}
