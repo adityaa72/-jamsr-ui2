@@ -162,6 +162,9 @@ importers:
       '@jamsr-ui/dialog':
         specifier: workspace:^
         version: link:../../packages/components/dialog
+      '@jamsr-ui/drawer':
+        specifier: workspace:^
+        version: link:../../packages/components/drawer
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
@@ -550,6 +553,9 @@ importers:
 
   packages/components/drawer:
     dependencies:
+      '@floating-ui/react':
+        specifier: 'catalog:'
+        version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../hooks

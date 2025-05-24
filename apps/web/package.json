@@ -17,6 +17,7 @@
     "@jamsr-ui/card": "workspace:^",
     "@jamsr-ui/collapsible": "workspace:^",
     "@jamsr-ui/dialog": "workspace:^",
+    "@jamsr-ui/drawer": "workspace:^",
     "@jamsr-ui/hooks": "workspace:^",
     "@jamsr-ui/popover": "workspace:^",
     "@jamsr-ui/ripple": "workspace:^",

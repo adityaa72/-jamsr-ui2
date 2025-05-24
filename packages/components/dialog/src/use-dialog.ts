@@ -64,10 +64,6 @@ export const useDialog = (props: useDialog.Props) => {
   const styles = dialogVariants(variantProps);
   const getBackdropProps = useCallback(() => {}, []);
 
-  const handleTrigger = useCallback(() => {
-    setIsOpen(true);
-  }, []);
-
   const handleTriggerClose = useCallback(() => {
     setIsOpen(false);
   }, []);
