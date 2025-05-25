@@ -12,13 +12,13 @@ import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
 
 import { drawerVariants } from "./styles";
 
+import type { FloatingFocusManagerProps } from "@floating-ui/react";
 import type { PropGetter, SlotsToClassNames } from "@jamsr-ui/utils";
 
 import type { DrawerBackdrop } from "./drawer-backdrop";
 import type { DrawerBody } from "./drawer-body";
 import type { DrawerCloseButton } from "./drawer-close-button";
 import type { DrawerContent } from "./drawer-content";
-import type { DrawerFocusManager } from "./drawer-focus-manager";
 import type { DrawerFooter } from "./drawer-footer";
 import type { DrawerHeader } from "./drawer-header";
 import type { DrawerSlots, DrawerVariants } from "./styles";
@@ -163,15 +163,13 @@ export const useDrawer = (props: useDrawer.Props) => {
     [classNames?.backdrop, styles]
   );
 
-  const getFocusManagerProps: PropGetter<DrawerFocusManager.Props> =
-    useCallback(
-      (props) => ({
-        ...props,
-        context,
-        modal: true,
-      }),
-      [context]
-    );
+  const getFocusManagerProps = useCallback(
+    (): Omit<FloatingFocusManagerProps, "children"> => ({
+      context,
+      modal: true,
+    }),
+    [context]
+  );
 
   const getTriggerProps = useCallback(
     () => ({

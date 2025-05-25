@@ -186,6 +186,9 @@ importers:
       '@jamsr-ui/sidebar':
         specifier: workspace:^
         version: link:../../packages/components/sidebar
+      '@jamsr-ui/switch':
+        specifier: workspace:^
+        version: link:../../packages/components/switch
       '@jamsr-ui/table':
         specifier: workspace:^
         version: link:../../packages/components/table
@@ -540,6 +543,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0
@@ -575,6 +581,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0
@@ -853,6 +862,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0
@@ -917,6 +929,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0

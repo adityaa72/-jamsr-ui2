@@ -2,18 +2,18 @@ import { FloatingFocusManager } from "@floating-ui/react";
 
 import { useDrawerContext } from "./drawer-context";
 
-import type { FloatingFocusManagerProps } from "@floating-ui/react";
-
 export const DrawerFocusManager = (props: DrawerFocusManager.Props) => {
   const { children } = props;
   const { getFocusManagerProps } = useDrawerContext();
   return (
-    <FloatingFocusManager {...getFocusManagerProps(props)}>
+    <FloatingFocusManager {...getFocusManagerProps()}>
       {children}
     </FloatingFocusManager>
   );
 };
 
 export namespace DrawerFocusManager {
-  export interface Props extends FloatingFocusManagerProps {}
+  export interface Props {
+    children: React.ReactElement;
+  }
 }

@@ -25,6 +25,7 @@
     "@jamsr-ui/popover": "workspace:^",
     "@jamsr-ui/ripple": "workspace:^",
     "@jamsr-ui/sidebar": "workspace:^",
+    "@jamsr-ui/switch": "workspace:^",
     "@jamsr-ui/table": "workspace:^",
     "@jamsr-ui/tabs": "workspace:^",
     "@jamsr-ui/text": "workspace:^",

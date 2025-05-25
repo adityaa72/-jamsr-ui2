@@ -7,21 +7,17 @@ import { useDrawerContext } from "./drawer-context";
 import type { UIProps } from "@jamsr-ui/utils";
 
 export const DrawerContent = (props: DrawerContent.Props) => {
-  const { children } = props;
   const { getContentProps, isOpen } = useDrawerContext();
-  const composedChildren = isOpen ? (
+  const renderElement = useRenderElement("div", {
+    props: [getContentProps(props)],
+  });
+  return isOpen ? (
     <FloatingPortal>
-      <DrawerBackdrop>{children}</DrawerBackdrop>
+      <DrawerBackdrop>{renderElement}</DrawerBackdrop>
     </FloatingPortal>
   ) : null;
-  const renderElement = useRenderElement("div", {
-    props: [getContentProps(props), { children: composedChildren }],
-  });
-  return renderElement;
 };
 
 export namespace DrawerContent {
-  export interface Props extends UIProps<"div"> {
-    children: React.ReactElement;
-  }
+  export interface Props extends UIProps<"div"> {}
 }
