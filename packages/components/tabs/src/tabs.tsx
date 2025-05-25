@@ -14,16 +14,16 @@ export const Tabs = (props: Tabs.Props) => {
   const ctx = useTabs(mergedProps);
   const { getRootProps } = ctx;
 
-  const composedChildren = <TabList>{children}</TabList>;
+  const composedChildren = (
+    <>
+      <TabList>{children}</TabList>
+      <TabPanel />
+    </>
+  );
   const renderElement = useRenderElement("div", {
     props: [getRootProps({}), { children: composedChildren }],
   });
-  return (
-    <TabsContext value={ctx}>
-      {renderElement}
-      <TabPanel />
-    </TabsContext>
-  );
+  return <TabsContext value={ctx}>{renderElement}</TabsContext>;
 };
 
 export namespace Tabs {

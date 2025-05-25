@@ -35,7 +35,8 @@
     "motion": "catalog:",
     "next": "^15.3.0",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "shiki": "^3.4.2"
   },
   "devDependencies": {
     "@jamsr-ui/typescript-config": "workspace:*",

@@ -6,6 +6,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    typedRoutes: true,
+    typedEnv: true,
+  },
 };
 
 export default nextConfig;

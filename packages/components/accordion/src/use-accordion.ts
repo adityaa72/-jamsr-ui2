@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from "react";
 
-import { useControlled } from "@jamsr-ui/hooks";
+import { useControlledState } from "@jamsr-ui/hooks";
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
 import { accordionVariants } from "./styles";
@@ -31,11 +31,10 @@ export const useAccordion = (props: useAccordion.Props) => {
     ...restProps
   } = elementProps;
 
-  const [value = [], setValue] = useControlled({
-    controlled: valueProp,
-    default: defaultValue,
-    name: "Accordion",
-    state: "value",
+  const [value = [], setValue] = useControlledState({
+    defaultProp: defaultValue,
+    onChange: onValueChange,
+    prop: valueProp,
   });
 
   const handleValueChange = useCallback(() => {}, []);
