@@ -10,3 +10,5 @@ export { SidebarHeader } from "./sidebar-header";
 export { SidebarMenu } from "./sidebar-menu";
 export { SidebarMenuItem } from "./sidebar-menu-item";
 export { SidebarMenuItemButton } from "./sidebar-menu-item-button";
+export { SidebarProvider } from "./sidebar-provider";
+export { SidebarToggle } from "./sidebar-toggle";

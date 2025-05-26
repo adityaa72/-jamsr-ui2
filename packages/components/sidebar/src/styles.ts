@@ -2,9 +2,15 @@ import { tv } from "@jamsr-ui/utils";
 
 import type { VariantProps } from "@jamsr-ui/utils";
 
+export const test = "";
 export const sidebarVariants = tv({
   slots: {
-    root: "flex h-dvh max-h-dvh flex-col bg-content1 p-2",
+    root: [
+      "flex fixed h-dvh max-h-dvh flex-col bg-content1 p-2",
+      "transition-all duration-300 ease-in-out",
+      "w-(--width) left-0",
+      "data-[state=collapsed]:-left-(--width)",
+    ],
     header: "pb-1",
     content: "flex grow flex-col gap-4 overflow-auto py-4",
     group: "flex flex-col gap-1",

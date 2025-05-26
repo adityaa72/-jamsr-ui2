@@ -18,17 +18,26 @@ import type { SidebarMenuItemButton } from "./sidebar-menu-item-button";
 import type { SidebarSlots } from "./styles";
 
 export const useSidebar = (props: useSidebar.Props) => {
-  const { classNames, className, slotProps, ...elementProps } = props;
+  const {
+    classNames,
+    className,
+    slotProps,
+    width = 250,
+    ...elementProps
+  } = props;
 
   const styles = sidebarVariants();
 
   const getRootProps: PropGetter<Sidebar.Props> = useCallback(
     () => ({
       ...elementProps,
+      style: {
+        "--width": `${width}px`,
+      } as React.CSSProperties,
       "data-slot": dataAttrDev("root"),
       className: styles.root({ className: cn(classNames?.root, className) }),
     }),
-    [className, classNames?.root, elementProps, styles]
+    [className, classNames?.root, elementProps, styles, width]
   );
 
   const getHeaderProps: PropGetter<SidebarHeader.Props> = useCallback(
@@ -180,6 +189,7 @@ export const useSidebar = (props: useSidebar.Props) => {
 
 export namespace useSidebar {
   export interface Props extends UIProps<"div"> {
+    width?: number;
     classNames?: SlotsToClassNames<SidebarSlots>;
     slotProps?: {
       header?: SidebarHeader.Props;

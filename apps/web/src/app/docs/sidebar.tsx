@@ -6,6 +6,8 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
+  SidebarProvider,
+  SidebarToggle,
 } from "@jamsr-ui/sidebar";
 import { Route } from "next";
 import Link from "next/link";
@@ -66,81 +68,38 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
   },
 ];
 
-// [
-//   "accordion",
-//   "alert",
-//   "autocomplete",
-//   "avatar",
-//   "breadcrumb",
-//   "button",
-//   "card",
-//   "charts",
-//   "checkbox",
-//   "chip",
-//   "circular-progress",
-//   "clipboard",
-//   "collapsible",
-//   "confirmation",
-//   "data-table",
-//   "date-picker",
-//   "dialog",
-//   "divider",
-//   "drawer",
-//   "editor",
-//   "header",
-//   "icon-button",
-//   "input",
-//   "kbd",
-//   "linear-progress",
-//   "link",
-//   "menu",
-//   "number-input",
-//   "otp-input",
-//   "pagination",
-//   "popover",
-//   "radio",
-//   "rating",
-//   "ripple",
-//   "scroll-area",
-//   "select",
-//   "sidebar",
-//   "skeleton",
-//   "slider",
-//   "switch",
-//   "table",
-//   "tabs",
-//   "tags-input",
-//   "text",
-//   "textarea",
-//   "toast",
-//   "toggle",
-//   "tooltip",
-// ];
-
 export const AppSidebar = () => {
   return (
-    <Sidebar className="max-w-[250px]">
-      <SidebarContent>
-        {data.map((item) => {
-          const { items, title } = item;
-          return (
-            <SidebarGroup key={title}>
-              <SidebarGroupLabel>{title}</SidebarGroupLabel>
-              <SidebarMenu>
-                {items.map((item) => {
-                  return (
-                    <SidebarMenuItem key={item.title}>
-                      <SidebarMenuItemButton render={<Link href={item.url} />}>
-                        {item.title}
-                      </SidebarMenuItemButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroup>
-          );
-        })}
-      </SidebarContent>
-    </Sidebar>
+    <div>
+      <SidebarProvider>
+        <SidebarToggle />
+        <Sidebar width={250}>
+          <SidebarToggle />
+          <SidebarContent>
+            {data.map((item) => {
+              const { items, title } = item;
+              return (
+                <SidebarGroup key={title}>
+                  <SidebarGroupLabel>{title}</SidebarGroupLabel>
+                  <SidebarMenu>
+                    {items.map((item) => {
+                      return (
+                        <SidebarMenuItem key={item.title}>
+                          <SidebarMenuItemButton
+                            render={<Link href={item.url} />}
+                          >
+                            {item.title}
+                          </SidebarMenuItemButton>
+                        </SidebarMenuItem>
+                      );
+                    })}
+                  </SidebarMenu>
+                </SidebarGroup>
+              );
+            })}
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </div>
   );
 };
