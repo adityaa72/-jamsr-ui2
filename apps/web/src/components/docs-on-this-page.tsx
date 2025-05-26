@@ -7,11 +7,13 @@ type Props = {
 
 export const DocsOnThisPage = (props: Props) => {
   const { children } = props;
-  const headings = React.Children.toArray(children).map((item) => {
-    if (isValidElement<{ title: string }>(item)) {
-      return item.props.title;
-    }
-  });
+  const headings = React.Children.toArray(children)
+    .map((item) => {
+      if (isValidElement<{ title: string }>(item)) {
+        return item.props.title;
+      }
+    })
+    .filter(Boolean);
   return (
     <aside className="col-span-1 py-24">
       <ul className="flex flex-col gap-2">
