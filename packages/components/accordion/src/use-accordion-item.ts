@@ -14,15 +14,28 @@ import type { PropGetter, UIProps } from "@jamsr-ui/utils";
 
 import type { AccordionContent } from "./accordion-content";
 import type { AccordionContentWrapper } from "./accordion-content-wrapper";
+import type { AccordionHeadingContent } from "./accordion-heading-content";
+import type { AccordionIndicator } from "./accordion-indicator";
 import type { AccordionItem } from "./accordion-item";
 import type { AccordionTrigger } from "./accordion-trigger";
 
 export const useAccordionItem = (props: useAccordionItem.Props) => {
-  const { styles, classNames, handleAccordionOpen, value, elementRefs } =
-    useAccordionContext();
+  const {
+    styles,
+    classNames,
+    handleAccordionOpen,
+    value,
+    elementRefs,
+    slotProps,
+  } = useAccordionContext();
   const { index } = useAccordionListItem();
   const indexValue = (index + 1).toString();
-  const { value: itemValue = indexValue, isDisabled, ...elementProps } = props;
+  const {
+    value: itemValue = indexValue,
+    isDisabled,
+    indicator,
+    ...elementProps
+  } = props;
   const isOpen = useMemo(() => value.includes(itemValue), [value, itemValue]);
   const totalItems = elementRefs.current.length;
 
@@ -180,20 +193,67 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     ]
   );
 
+  const getIndicatorProps: PropGetter<AccordionIndicator.Props> = useCallback(
+    (props) => ({
+      ...slotProps?.trigger,
+      ...props,
+      "data-slot": dataAttrDev("indicator"),
+      "data-open": isOpen,
+      className: styles.indicator({
+        className: cn(
+          slotProps?.indicator?.className,
+          classNames?.indicator,
+          props.className
+        ),
+      }),
+    }),
+    [
+      classNames?.indicator,
+      isOpen,
+      slotProps?.indicator?.className,
+      slotProps?.trigger,
+      styles,
+    ]
+  );
+
+  const getHeadingContentProps: PropGetter<AccordionHeadingContent.Props> =
+    useCallback(
+      (props) => ({
+        ...mergeProps(slotProps?.headingContent, props),
+        "data-slot": dataAttrDev("heading-content"),
+        className: styles.headingContent({
+          className: cn(
+            slotProps?.headingContent?.className,
+            classNames?.headingContent,
+            props.className
+          ),
+        }),
+      }),
+      [classNames?.headingContent, slotProps?.headingContent, styles]
+    );
+
   return useMemo(
     () => ({
       getItemProps,
       getContentProps,
       getTriggerProps,
       getContentWrapperProps,
+      getIndicatorProps,
+      getHeadingContentProps,
       isOpen,
+      indicator,
+      isDisabled,
     }),
     [
-      getContentProps,
-      getContentWrapperProps,
       getItemProps,
+      getContentProps,
       getTriggerProps,
+      getContentWrapperProps,
+      getIndicatorProps,
+      getHeadingContentProps,
       isOpen,
+      indicator,
+      isDisabled,
     ]
   );
 };
@@ -202,5 +262,6 @@ export namespace useAccordionItem {
   export interface Props extends UIProps<"div"> {
     value?: string;
     isDisabled?: boolean;
+    indicator?: React.ReactNode;
   }
 }

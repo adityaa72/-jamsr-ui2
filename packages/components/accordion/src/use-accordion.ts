@@ -10,6 +10,8 @@ import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
 import type { Accordion } from "./accordion";
 import type { AccordionContent } from "./accordion-content";
 import type { AccordionContentWrapper } from "./accordion-content-wrapper";
+import type { AccordionHeadingContent } from "./accordion-heading-content";
+import type { AccordionIndicator } from "./accordion-indicator";
 import type { AccordionItem } from "./accordion-item";
 import type { AccordionTrigger } from "./accordion-trigger";
 import type { AccordionSlots, AccordionVariants } from "./styles";
@@ -28,6 +30,7 @@ export const useAccordion = (props: useAccordion.Props) => {
     loop,
     slotProps,
     classNames,
+    hideIndicator,
     ...restProps
   } = elementProps;
 
@@ -81,6 +84,7 @@ export const useAccordion = (props: useAccordion.Props) => {
       styles,
       handleAccordionOpen,
       elementRefs,
+      hideIndicator,
     }),
     [
       classNames,
@@ -91,6 +95,7 @@ export const useAccordion = (props: useAccordion.Props) => {
       slotProps,
       styles,
       value,
+      hideIndicator,
     ]
   );
 };
@@ -103,6 +108,8 @@ export namespace useAccordion {
       item?: AccordionItem.Props;
       content?: AccordionContent.Props;
       contentWrapper?: AccordionContentWrapper.Props;
+      indicator?: AccordionIndicator.Props;
+      headingContent?: AccordionHeadingContent.Props;
     };
     classNames?: SlotsToClassNames<AccordionSlots>;
     value?: AccordionValue;
@@ -111,5 +118,6 @@ export namespace useAccordion {
     onValueChange?: (value: AccordionValue) => void;
     isMultiple?: boolean;
     loop?: boolean;
+    hideIndicator?: boolean;
   }
 }

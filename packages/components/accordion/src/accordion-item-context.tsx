@@ -21,6 +21,15 @@ export const useAccordionItemContext = () => {
   return ctx;
 };
 
+export const useAccordionItemState = () => {
+  const ctx = useAccordionItemContext();
+  return {
+    isOpen: ctx.isOpen,
+    isDisabled: ctx.isDisabled,
+    indicator: ctx.indicator,
+  };
+};
+
 export namespace AccordionItemContextProvider {
   export interface Type extends ReturnType<typeof useAccordionItem> {}
   export interface Props {

@@ -1,22 +1,31 @@
+"use client";
+
+import { MinusIcon, PlusIcon } from "@/components/icons";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  useAccordionItemState,
 } from "@jamsr-ui/accordion";
 
-export const AccordionMultipleSelection = () => {
+const AccordionIndicator = () => {
+  const { isOpen } = useAccordionItemState();
+  return isOpen ? <MinusIcon /> : <PlusIcon />;
+};
+
+export const AccordionCustomIcon = () => {
   return (
-    <Accordion variant="splitted" isMultiple>
-      <AccordionItem>
+    <Accordion variant="splitted">
+      <AccordionItem indicator={<AccordionIndicator />}>
         <AccordionTrigger>Accordion 1</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
       </AccordionItem>
-      <AccordionItem>
+      <AccordionItem indicator={<AccordionIndicator />}>
         <AccordionTrigger>Accordion 2</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
       </AccordionItem>
-      <AccordionItem>
+      <AccordionItem indicator={<AccordionIndicator />}>
         <AccordionTrigger>Accordion 3</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
       </AccordionItem>

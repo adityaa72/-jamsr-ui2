@@ -14,6 +14,9 @@ export const accordionVariants = tv({
     ],
     content: "py-2 text-base px-4",
     contentWrapper: "overflow-hidden",
+    indicator:
+      "rotate-0 transition-transform duration-500 data-[open=true]:-rotate-180",
+    headingContent: "text-left grow",
   },
   variants: {
     variant: {

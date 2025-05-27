@@ -41,3 +41,54 @@ export const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="m9 18 6-6-6-6" />
   </svg>
 );
+
+export const PlusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={20}
+      height={20}
+      color="currentColor"
+      fill="none"
+      {...props}
+    >
+      <path
+        d="M12 4V20"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 12H20"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const MinusIcon = (props: SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width={20}
+      height={20}
+      color="currentColor"
+      fill="currentColor"
+      {...props}
+    >
+      <path
+        d="M20 12L4 12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

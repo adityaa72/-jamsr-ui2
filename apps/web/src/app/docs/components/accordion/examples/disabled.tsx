@@ -7,17 +7,17 @@ import {
 
 export const AccordionDisabled = () => {
   return (
-    <Accordion variant="splitted" isMultiple>
-      <AccordionItem value="value1">
-        <AccordionTrigger>Press me to open</AccordionTrigger>
+    <Accordion variant="splitted">
+      <AccordionItem>
+        <AccordionTrigger>Accordion 1</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
       </AccordionItem>
-      <AccordionItem isDisabled value="value2">
-        <AccordionTrigger>Press me to open</AccordionTrigger>
+      <AccordionItem isDisabled>
+        <AccordionTrigger>Accordion 2</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
       </AccordionItem>
-      <AccordionItem value="value3">
-        <AccordionTrigger>Press me to open</AccordionTrigger>
+      <AccordionItem>
+        <AccordionTrigger>Accordion 3</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
       </AccordionItem>
     </Accordion>
