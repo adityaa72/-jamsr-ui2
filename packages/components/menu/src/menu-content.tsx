@@ -23,6 +23,7 @@ export const MenuContent = (props: MenuContent.Props) => {
     floatingCtx,
     getContentProps,
     getRootProps,
+    isNested,
   } = useMenuContext();
 
   const { children } = props;
@@ -40,7 +41,7 @@ export const MenuContent = (props: MenuContent.Props) => {
       <FloatingList {...getFloatingListProps()}>
         {isOpen ? (
           <FloatingPortal>
-            <FloatingOverlay {...getOverlayProps()} />
+            {isNested ? null : <FloatingOverlay {...getOverlayProps()} />}
             <FloatingFocusManager {...getFocusManagerProps()}>
               {renderElement}
             </FloatingFocusManager>

@@ -155,7 +155,7 @@ export const useMenu = (props: useMenu.Props) => {
       tree.events.off("click", handleTreeClick);
       tree.events.off("menuopen", onSubMenuOpen);
     };
-  }, [tree, nodeId, parentId, setIsOpen]);
+  }, [tree, nodeId, parentId, setIsOpen, isOpen]);
 
   useEffect(() => {
     if (isOpen && tree) {
@@ -184,7 +184,7 @@ export const useMenu = (props: useMenu.Props) => {
       "data-open": isOpen,
       ...getReferenceProps({
         ...parentCtx.getItemProps({
-          onMouseEnter(event) {
+          onMouseEnter() {
             setHasFocusInside(false);
             parentCtx.setHasFocusInside(true);
           },
@@ -314,6 +314,7 @@ export const useMenu = (props: useMenu.Props) => {
       floatingCtx,
       getRootProps,
       getMenuItemProps,
+      isNested,
     }),
     [
       getOverlayProps,
@@ -328,6 +329,7 @@ export const useMenu = (props: useMenu.Props) => {
       floatingCtx,
       getRootProps,
       getMenuItemProps,
+      isNested,
     ]
   );
 };

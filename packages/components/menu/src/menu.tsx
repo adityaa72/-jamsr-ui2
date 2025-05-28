@@ -7,26 +7,28 @@ import {
 import { MenuContext } from "./menu-context";
 import { useMenu } from "./use-menu";
 
-export const Menu = (props: Menu.Props) => {
+const MenuInner = (props: Menu.Props) => {
   const ctx = useMenu(props);
-  const parentId = useFloatingParentNodeId();
   const { children } = props;
   const { getNodeProps } = ctx;
-  if (parentId === null) {
-    return (
-      <FloatingTree>
-        <FloatingNode {...getNodeProps()}>
-          <MenuContext value={ctx}>{children}</MenuContext>
-        </FloatingNode>
-      </FloatingTree>
-    );
-  }
-
   return (
     <MenuContext value={ctx}>
       <FloatingNode {...getNodeProps()}>{children}</FloatingNode>
     </MenuContext>
   );
+};
+
+export const Menu = (props: Menu.Props) => {
+  const parentId = useFloatingParentNodeId();
+  const { children } = props;
+  if (parentId === null) {
+    return (
+      <FloatingTree>
+        <MenuInner {...props}>{children}</MenuInner>
+      </FloatingTree>
+    );
+  }
+  return <MenuInner {...props}>{children}</MenuInner>;
 };
 
 export namespace Menu {

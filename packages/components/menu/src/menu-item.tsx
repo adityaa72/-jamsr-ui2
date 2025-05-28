@@ -25,6 +25,7 @@ export const MenuItem = (props: MenuItem.Props) => {
         ref: refs,
         tabIndex: isActive ? 0 : -1,
         onClick() {
+          console.log(" tree:->", tree);
           tree?.events.emit("click");
         },
         onMouseEnter() {

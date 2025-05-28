@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@jamsr-ui/button";
 import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsr-ui/menu";
 
@@ -8,7 +9,13 @@ export const MenuUsage = () => {
         <Button>Open Me</Button>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem>Undo</MenuItem>
+        <MenuItem
+          onClick={() => {
+            console.log("click on undo");
+          }}
+        >
+          Undo
+        </MenuItem>
         <MenuItem>Info</MenuItem>
         <MenuItem>Search</MenuItem>
         <MenuItem>Redo</MenuItem>
