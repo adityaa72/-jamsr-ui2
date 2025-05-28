@@ -21,6 +21,8 @@
     "@jamsr-ui/divider": "workspace:^",
     "@jamsr-ui/drawer": "workspace:^",
     "@jamsr-ui/hooks": "workspace:^",
+    "@jamsr-ui/icon-button": "workspace:^",
+    "@jamsr-ui/icons": "workspace:^",
     "@jamsr-ui/link": "workspace:^",
     "@jamsr-ui/menu": "workspace:^",
     "@jamsr-ui/popover": "workspace:^",

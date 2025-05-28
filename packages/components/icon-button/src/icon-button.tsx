@@ -1,14 +1,30 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import { useIconButton } from "./use-icon-button";
 
 export const IconButton = (props: IconButton.Props) => {
-  const renderElement = useRenderElement("div", {
-    props,
+  const { children } = props;
+  const ctx = useIconButton(props);
+  const { getButtonProps, getLabelProps } = ctx;
+
+  const composedChildren = (
+    <>
+      <span {...getLabelProps({})} />
+      {children}
+    </>
+  );
+
+  const renderElement = useRenderElement("button", {
+    props: [
+      getButtonProps(),
+      {
+        children: composedChildren,
+      },
+    ],
   });
   return renderElement;
 };
 
 export namespace IconButton {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useIconButton.Props {}
 }

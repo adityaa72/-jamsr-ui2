@@ -1,6 +1,5 @@
 "use client";
 
-import { MinusIcon, PlusIcon } from "@/components/icons";
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +7,7 @@ import {
   AccordionTrigger,
   useAccordionItemState,
 } from "@jamsr-ui/accordion";
+import { MinusIcon, PlusIcon } from "@jamsr-ui/icons";
 
 const AccordionIndicator = () => {
   const { isOpen } = useAccordionItemState();

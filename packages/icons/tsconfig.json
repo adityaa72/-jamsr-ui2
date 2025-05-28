@@ -1,0 +1,5 @@
+{
+  "extends": "@jamsr-ui/typescript-config/nextjs.json",
+  "include": ["**/*.ts", "**/*.tsx", "../utils/src/merge-props.tsx"],
+  "exclude": ["node_modules"]
+}

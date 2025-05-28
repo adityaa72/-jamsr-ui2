@@ -174,6 +174,12 @@ importers:
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
+      '@jamsr-ui/icon-button':
+        specifier: workspace:^
+        version: link:../../packages/components/icon-button
+      '@jamsr-ui/icons':
+        specifier: workspace:^
+        version: link:../../packages/icons
       '@jamsr-ui/link':
         specifier: workspace:^
         version: link:../../packages/components/link
@@ -1129,6 +1135,18 @@ importers:
       '@jamsr-ui/utils':
         specifier: workspace:^
         version: link:../utils
+    devDependencies:
+      '@types/node':
+        specifier: ^22.14.0
+        version: 22.14.0
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/icons:
     devDependencies:
       '@types/node':
         specifier: ^22.14.0

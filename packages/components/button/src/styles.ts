@@ -1,6 +1,10 @@
-import { tv } from "@jamsr-ui/utils";
-
-import { allColors, allVariants, colorVariants } from "./classes";
+import {
+  allColors,
+  allVariants,
+  colorVariants,
+  radiusBaseVariant,
+  tv,
+} from "@jamsr-ui/utils";
 
 import type { VariantProps } from "@jamsr-ui/utils";
 
@@ -10,7 +14,6 @@ export const buttonVariants = tv({
     "relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
     "data-[loading]:cursor-progress",
     "disabled:cursor-not-allowed disabled:opacity-70",
-    // "focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-background",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
   ],
   variants: {
@@ -38,16 +41,7 @@ export const buttonVariants = tv({
       md: "min-w-20 gap-2 px-4 py-2 text-sm",
       lg: "min-w-40 gap-2 px-6 py-2.5 text-base font-medium",
     },
-    radius: {
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl",
-      "2xl": "rounded-2xl",
-      "3xl": "rounded-3xl",
-      full: "rounded-full",
-      none: "rounded-none",
-    },
+    radius: radiusBaseVariant,
     disableAnimation: {
       true: "",
       false: "",

@@ -1,7 +1,14 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsr-ui/text";
 import { Metadata } from "next";
+import { IconButtonColors } from "./examples/colors";
+import { IconButtonDisabled } from "./examples/disabled";
+import { IconButtonLoading } from "./examples/loading";
+import { IconButtonRadius } from "./examples/radius";
+import { IconButtonUsage } from "./examples/usage";
+import { IconButtonVariants } from "./examples/variants";
+import { IconButtonVariantsColors } from "./examples/variants-colors";
 
 const title = "IconButton";
 const description =
@@ -16,7 +23,30 @@ const IconButton = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <IconButtonUsage />
+      </CodeExample>
+      <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
+        <IconButtonDisabled />
+      </CodeExample>
+      <CodeExample title="Loading" url={resolvePath("loading.tsx")}>
+        <IconButtonLoading />
+      </CodeExample>
+      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+        <IconButtonRadius />
+      </CodeExample>
+      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+        <IconButtonColors />
+      </CodeExample>
+      <CodeExample
+        title="Variants Colors"
+        url={resolvePath("variants-colors.tsx")}
+      >
+        <IconButtonVariantsColors />
+      </CodeExample>
+      <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
+        <IconButtonVariants />
+      </CodeExample>
     </DocsPage>
   );
 };
