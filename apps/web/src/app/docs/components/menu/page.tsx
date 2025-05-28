@@ -1,7 +1,9 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsr-ui/text";
 import { Metadata } from "next";
+import { MenuUsage } from "./examples/usage";
+import { MenuNested } from "./examples/nested";
 
 const title = "Menu";
 const description =
@@ -16,7 +18,12 @@ const Menu = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <MenuUsage />
+      </CodeExample>
+      <CodeExample title="Nested" url={resolvePath("nested.tsx")}>
+        <MenuNested />
+      </CodeExample>
     </DocsPage>
   );
 };

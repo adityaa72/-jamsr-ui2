@@ -22,6 +22,7 @@
     "@jamsr-ui/drawer": "workspace:^",
     "@jamsr-ui/hooks": "workspace:^",
     "@jamsr-ui/link": "workspace:^",
+    "@jamsr-ui/menu": "workspace:^",
     "@jamsr-ui/popover": "workspace:^",
     "@jamsr-ui/ripple": "workspace:^",
     "@jamsr-ui/sidebar": "workspace:^",

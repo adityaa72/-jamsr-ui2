@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useCallback, useMemo, useRef } from "react";
 
 /**
  * Merges an array of refs into a single memoized callback ref or `null`.
@@ -6,9 +6,9 @@ import * as React from "react";
 export function useMergeRefs<Instance>(
   refs: Array<React.Ref<Instance> | undefined>
 ): null | React.RefCallback<Instance> {
-  const cleanupRef = React.useRef<void | (() => void)>(undefined);
+  const cleanupRef = useRef<void | (() => void)>(undefined);
 
-  const refEffect = React.useCallback((instance: Instance | null) => {
+  const refEffect = useCallback((instance: Instance | null) => {
     const cleanups = refs.map((ref) => {
       if (ref == null) {
         return;
@@ -36,7 +36,7 @@ export function useMergeRefs<Instance>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, refs);
 
-  return React.useMemo(() => {
+  return useMemo(() => {
     if (refs.every((ref) => ref == null)) {
       return null;
     }
