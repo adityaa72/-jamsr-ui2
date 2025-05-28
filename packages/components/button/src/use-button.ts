@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 
-import { mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, mapPropsVariants } from "@jamsr-ui/utils";
 
 import { buttonVariants } from "./styles";
 
@@ -23,6 +23,7 @@ export const useButton = (props: useButton.Props) => {
     startContent,
     disabled,
     isLoading,
+    className,
     ...restProps
   } = elementProps;
 
@@ -31,12 +32,12 @@ export const useButton = (props: useButton.Props) => {
   const styles = buttonVariants(variantKeys);
   const getButtonProps: PropGetter<Button.Props> = useCallback(
     () => ({
-      disabled: isDisabled,
-      className: styles,
-      "data-loading": isLoading,
       ...restProps,
+      disabled: isDisabled,
+      className: cn(styles, className),
+      "data-loading": isLoading,
     }),
-    [isDisabled, isLoading, restProps, styles]
+    [className, isDisabled, isLoading, restProps, styles]
   );
 
   return useMemo(
