@@ -7,6 +7,14 @@ import { switchVariants } from "./styles";
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
 
 import type { SwitchSlots, SwitchVariants } from "./styles";
+import type { Switch } from "./switch";
+import type { SwitchDescription } from "./switch-description";
+import type { SwitchLabel } from "./switch-label";
+import type { SwitchThumb } from "./switch-thumb";
+import type { SwitchTrack } from "./switch-track";
+import type { SwitchWrapper } from "./switch-wrapper";
+import type { SwitchContent } from "./swith-content";
+import type { SwitchErrorMessage } from "./swith-error-message";
 
 export const useSwitch = (props: useSwitch.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -14,10 +22,10 @@ export const useSwitch = (props: useSwitch.Props) => {
     switchVariants.variantKeys
   );
   const styles = switchVariants(variantProps);
+  const { classNames, slotProps, label, errorMessage, ...elementProps } =
+    $props;
 
-  const { classNames, slotProps, ...elementProps } = $props;
-
-  const getRootProps = useCallback(
+  const getRootProps: PropGetter<Switch.Props> = useCallback(
     () => ({
       ...elementProps,
       "data-slot": dataAttrDev("root"),
@@ -29,7 +37,7 @@ export const useSwitch = (props: useSwitch.Props) => {
     [classNames?.root, elementProps, styles]
   );
 
-  const getThumbProps: PropGetter<UIProps<"div">> = useCallback(
+  const getThumbProps: PropGetter<SwitchThumb.Props> = useCallback(
     (props) => ({
       ...mergeProps(slotProps?.thumb, props),
       "data-slot": "thumb",
@@ -44,8 +52,8 @@ export const useSwitch = (props: useSwitch.Props) => {
     [classNames?.thumb, slotProps?.thumb, styles]
   );
 
-  const getLabelProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
+  const getLabelProps: PropGetter<SwitchLabel.Props> = useCallback(
+    (props) => ({
       ...mergeProps(slotProps?.label, props),
       "data-slot": "label",
       className: styles.label({
@@ -56,11 +64,11 @@ export const useSwitch = (props: useSwitch.Props) => {
         ),
       }),
     }),
-    [classNames?.label, props, slotProps?.label, styles]
+    [classNames?.label, slotProps?.label, styles]
   );
 
-  const getDescriptionProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
+  const getDescriptionProps: PropGetter<SwitchDescription.Props> = useCallback(
+    (props) => ({
       ...mergeProps(slotProps?.description, props),
       "data-slot": "description",
       className: styles.description({
@@ -71,11 +79,11 @@ export const useSwitch = (props: useSwitch.Props) => {
         ),
       }),
     }),
-    [classNames?.description, props, slotProps?.description, styles]
+    [classNames?.description, slotProps?.description, styles]
   );
 
-  const getContentProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
+  const getContentProps: PropGetter<SwitchContent.Props> = useCallback(
+    (props) => ({
       ...mergeProps(slotProps?.content, props),
       "data-slot": "content",
       className: styles.content({
@@ -86,11 +94,11 @@ export const useSwitch = (props: useSwitch.Props) => {
         ),
       }),
     }),
-    [classNames?.content, props, slotProps?.content, styles]
+    [classNames?.content, slotProps?.content, styles]
   );
 
-  const getWrapperProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
+  const getWrapperProps: PropGetter<SwitchWrapper.Props> = useCallback(
+    (props) => ({
       ...mergeProps(slotProps?.wrapper, props),
       "data-slot": "wrapper",
       className: styles.wrapper({
@@ -101,11 +109,11 @@ export const useSwitch = (props: useSwitch.Props) => {
         ),
       }),
     }),
-    [classNames?.wrapper, props, slotProps?.wrapper, styles]
+    [classNames?.wrapper, slotProps?.wrapper, styles]
   );
 
-  const getTrackProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
+  const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(
+    (props) => ({
       ...mergeProps(slotProps?.track, props),
       "data-slot": "track",
       className: styles.track({
@@ -116,8 +124,24 @@ export const useSwitch = (props: useSwitch.Props) => {
         ),
       }),
     }),
-    [classNames?.track, props, slotProps?.track, styles]
+    [classNames?.track, slotProps?.track, styles]
   );
+
+  const getErrorMessageProps: PropGetter<SwitchErrorMessage.Props> =
+    useCallback(
+      (props) => ({
+        ...mergeProps(slotProps?.errorMessage, props),
+        "data-slot": "error-message",
+        className: styles.errorMessage({
+          className: cn(
+            slotProps?.errorMessage?.className,
+            classNames?.errorMessage,
+            props.className
+          ),
+        }),
+      }),
+      [classNames?.errorMessage, slotProps?.errorMessage, styles]
+    );
 
   return useMemo(
     () => ({
@@ -128,6 +152,9 @@ export const useSwitch = (props: useSwitch.Props) => {
       getContentProps,
       getWrapperProps,
       getTrackProps,
+      getErrorMessageProps,
+      label,
+      errorMessage,
     }),
     [
       getContentProps,
@@ -137,20 +164,26 @@ export const useSwitch = (props: useSwitch.Props) => {
       getThumbProps,
       getWrapperProps,
       getTrackProps,
+      getErrorMessageProps,
+      label,
+      errorMessage,
     ]
   );
 };
 
 export namespace useSwitch {
   export interface Props extends SwitchVariants, UIProps<"div"> {
+    label?: string;
+    errorMessage?: string;
     classNames?: SlotsToClassNames<SwitchSlots>;
     slotProps?: {
-      track?: UIProps<"div">;
-      thumb?: UIProps<"div">;
-      label?: UIProps<"div">;
-      description?: UIProps<"div">;
-      content?: UIProps<"div">;
-      wrapper?: UIProps<"div">;
+      track?: SwitchTrack.Props;
+      thumb?: SwitchThumb.Props;
+      label?: SwitchLabel.Props;
+      description?: SwitchDescription.Props;
+      content?: SwitchContent.Props;
+      wrapper?: SwitchWrapper.Props;
+      errorMessage?: SwitchErrorMessage.Props;
     };
   }
 }

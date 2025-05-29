@@ -8,7 +8,7 @@ export const switchVariants = tv({
     root: "group flex flex-col gap-2",
     track: [
       ...focusVisibleClasses,
-      "flex cursor-pointer items-center rounded-full bg-default-200 p-1",
+      "flex cursor-pointer shrink-0 items-center rounded-full bg-default-200 p-1",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
       "cursor-default ui-interactive:cursor-pointer ui-interactive:hover:opacity-95",
       "justify-start uig-checked:justify-end",
@@ -18,6 +18,7 @@ export const switchVariants = tv({
     description: "text-xs text-foreground-500",
     content: "grid grow gap-1",
     wrapper: "flex items-center justify-between gap-2",
+    errorMessage: "text-danger text-xs",
   },
   variants: {
     color: {
