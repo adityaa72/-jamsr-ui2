@@ -1,0 +1,194 @@
+@theme inline {
+  /* Primary */
+  --color-primary: var(--ui-primary);
+  --color-primary-hover: var(--ui-primary-hover);
+  --color-primary-active: var(--ui-primary-active);
+  --color-primary-stroke: var(--ui-primary-stroke);
+  --color-primary-fill: var(--ui-primary-fill);
+  /* Secondary */
+  --color-secondary: var(--ui-secondary);
+  --color-secondary-hover: var(--ui-secondary-hover);
+  --color-secondary-active: var(--ui-secondary-active);
+  --color-secondary-stroke: var(--ui-secondary-stroke);
+  --color-secondary-fill: var(--ui-secondary-fill);
+  /* Success */
+  --color-success: var(--ui-success);
+  --color-success-hover: var(--ui-success-hover);
+  --color-success-active: var(--ui-success-active);
+  --color-success-stroke: var(--ui-success-stroke);
+  --color-success-fill: var(--ui-success-fill);
+  /* Warning */
+  --color-warning: var(--ui-warning);
+  --color-warning-hover: var(--ui-warning-hover);
+  --color-warning-active: var(--ui-warning-active);
+  --color-warning-stroke: var(--ui-warning-stroke);
+  --color-warning-fill: var(--ui-warning-fill);
+  /* Danger */
+  --color-danger: var(--ui-danger);
+  --color-danger-hover: var(--ui-danger-hover);
+  --color-danger-active: var(--ui-danger-active);
+  --color-danger-stroke: var(--ui-danger-stroke);
+  --color-danger-fill: var(--ui-danger-fill);
+  /* Text */
+  --color-foreground-primary: var(--ui-foreground-primary);
+  --color-foreground-secondary: var(--ui-foreground-secondary);
+  --color-foreground-tertiary: var(--ui-foreground-tertiary);
+  --color-foreground-quaternary: var(--ui-foreground-quaternary);
+  /* Background */
+  --color-background-primary: var(--ui-background-primary);
+  --color-background-secondary: var(--ui-background-secondary);
+  --color-background-tertiary: var(--ui-background-tertiary);
+  --color-background-quaternary: var(--ui-background-quaternary);
+  /* Gray */
+  --color-gray-primary: var(--ui-gray-primary);
+  --color-gray-secondary: var(--ui-gray-secondary);
+  --color-gray-tertiary: var(--ui-gray-tertiary);
+  --color-gray-quaternary: var(--ui-gray-quaternary);
+  /* Fill */
+  --color-fill-primary: var(--ui-fill-primary);
+  --color-fill-secondary: var(--ui-fill-secondary);
+  --color-fill-tertiary: var(--ui-fill-tertiary);
+  --color-fill-quaternary: var(--ui-fill-quaternary);
+  /* Stroke */
+  --color-stroke-primary: var(--ui-stroke-primary);
+  --color-stroke-secondary: var(--ui-stroke-secondary);
+}
+
+:root,
+.light,
+[data-theme="light"] {
+  /* Primary */
+  --ui-primary: #2563eb;
+  --ui-primary-hover: #3b82f6;
+  --ui-primary-active: #1d4ed8;
+  --ui-primary-stroke: #bfdbfe;
+  --ui-primary-fill: #eff6ff;
+
+  /* Secondary */
+  --ui-secondary: #7c3aed;
+  --ui-secondary-hover: #8b5cf6;
+  --ui-secondary-active: #6d28d9;
+  --ui-secondary-stroke: #ddd6fe;
+  --ui-secondary-fill: #f5f3ff;
+
+  /* Success */
+  --ui-success: #16a34a;
+  --ui-success-hover: #22c55e;
+  --ui-success-active: #15803d;
+  --ui-success-stroke: #bbf7d0;
+  --ui-success-fill: #f0fdf4;
+
+  /* Warning */
+  --ui-warning: #eab308;
+  --ui-warning-hover: #facc15;
+  --ui-warning-active: #ca8a04;
+  --ui-warning-stroke: #fef08a;
+  --ui-warning-fill: #fefce8;
+
+  /* Danger */
+  --ui-danger: #dc2626;
+  --ui-danger-hover: #ef4444;
+  --ui-danger-active: #b91c1c;
+  --ui-danger-stroke: #fecaca;
+  --ui-danger-fill: #fef2f2;
+
+  /* Text */
+  --ui-foreground-primary: #18181b;
+  --ui-foreground-secondary: #71717a;
+  --ui-foreground-tertiary: #a1a1aa;
+  --ui-foreground-quaternary: #d4d4d8;
+
+  /* Background */
+  --ui-background-primary: #fafafa;
+  --ui-background-secondary: #ffffff;
+  --ui-background-tertiary: #ffffff;
+  --ui-background-quaternary: #ffffff;
+
+  /* Gray */
+  --ui-gray-primary: #52525b;
+  --ui-gray-secondary: #71717a;
+  --ui-gray-tertiary: #a1a1aa;
+  --ui-gray-quaternary: #d4d4d8;
+
+  /* Fill */
+  --ui-fill-primary: #18181b28;
+  --ui-fill-secondary: #18181b14;
+  --ui-fill-tertiary: #18181b0a;
+  --ui-fill-quaternary: #18181b05;
+
+  /* Stroke */
+  --ui-stroke-primary: #18181b1e;
+  --ui-stroke-secondary: #18181b0f;
+}
+
+.dark,
+[data-theme="dark"] {
+  /* Primary */
+  --ui-primary: #2563eb;
+  --ui-primary-hover: #3b82f6;
+  --ui-primary-active: #1d4ed8;
+  --ui-primary-stroke: #1e3a8a;
+  --ui-primary-fill: #172554;
+
+  /* Secondary */
+  --ui-secondary: #7c3aed;
+  --ui-secondary-hover: #8b5cf6;
+  --ui-secondary-active: #6d28d9;
+  --ui-secondary-stroke: #4c1d95;
+  --ui-secondary-fill: #2e1065;
+
+  /* Success */
+  --ui-success: #16a34a;
+  --ui-success-hover: #22c55e;
+  --ui-success-active: #15803d;
+  --ui-success-stroke: #14532d;
+  --ui-success-fill: #052e16;
+
+  /* Warning */
+  --ui-warning: #eab308;
+  --ui-warning-hover: #facc15;
+  --ui-warning-active: #ca8a04;
+  --ui-warning-stroke: #713f12;
+  --ui-warning-fill: #422006;
+
+  /* Danger */
+  --ui-danger: #dc2626;
+  --ui-danger-hover: #ef4444;
+  --ui-danger-active: #b91c1c;
+  --ui-danger-stroke: #7f1d1d;
+  --ui-danger-fill: #450a0a;
+
+  /* Text */
+  --ui-foreground-primary: #f4f4f5;
+  --ui-foreground-secondary: #a1a1aa;
+  --ui-foreground-tertiary: #71717a;
+  --ui-foreground-quaternary: #52525b;
+
+  /* Background */
+  --ui-background-primary: #09090b;
+  --ui-background-secondary: #18181b;
+  --ui-background-tertiary: #27272a;
+  --ui-background-quaternary: #3f3f46;
+
+  /* Gray */
+  --ui-gray-primary: #a1a1aa;
+  --ui-gray-secondary: #71717a;
+  --ui-gray-tertiary: #52525b;
+  --ui-gray-quaternary: #3f3f46;
+
+  /* Fill */
+  --ui-fill-primary: #ffffff28;
+  --ui-fill-secondary: #ffffff14;
+  --ui-fill-tertiary: #ffffff0a;
+  --ui-fill-quaternary: #ffffff05;
+
+  /* Stroke */
+  --ui-stroke-primary: #52525b51;
+  --ui-stroke-secondary: #52525b51;
+}
+
+:root,
+html,
+body {
+  @apply bg-background-primary text-foreground-primary;
+}

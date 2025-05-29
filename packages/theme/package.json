@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "./src/styles.css",
   "exports": {
-    "./styles.css": "./src/styles.css"
+    "./styles.css": "./src/styles.css",
+    "./premium.css": "./src/premium.css"
   }
 }
