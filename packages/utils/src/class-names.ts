@@ -11,15 +11,15 @@ const solidClasses = {
   default:
     "bg-default border border-default text-default-foreground ui-hover:bg-default-dark",
   primary:
-    "bg-primary border border-primary text-primary-foreground ui-hover:bg-primary-dark",
+    "bg-primary border border-primary text-primary-foreground ui-hover:bg-primary-hover",
   secondary:
-    "bg-secondary border border-secondary text-secondary-foreground ui-hover:bg-secondary-dark",
+    "bg-secondary border border-secondary text-secondary-foreground ui-hover:bg-secondary-hover",
   success:
-    "bg-success border border-success text-success-foreground ui-hover:bg-success-dark",
+    "bg-success border border-success text-success-foreground ui-hover:bg-success-hover",
   warning:
-    "bg-warning border border-warning text-warning-foreground ui-hover:bg-warning-dark",
+    "bg-warning border border-warning text-warning-foreground ui-hover:bg-warning-hover",
   danger:
-    "bg-danger border border-danger text-danger-foreground ui-hover:bg-danger-dark",
+    "bg-danger border border-danger text-danger-foreground ui-hover:bg-danger-hover",
 } satisfies Record<Color, string>;
 
 const outlinedClasses = {

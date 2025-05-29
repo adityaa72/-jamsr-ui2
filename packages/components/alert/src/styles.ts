@@ -17,58 +17,64 @@ export const alertStyles = tv({
     },
     status: {
       success: {
-        root: "border border-success-600 text-success-600",
+        root: "border border-success-stroke text-success",
       },
       warning: {
-        root: "border border-warning-600 text-warning-600",
+        root: "border border-warning-stroke text-warning",
       },
       danger: {
-        root: "border border-danger-600 text-danger-500",
+        root: "border border-danger-stroke text-danger",
       },
       info: {
-        root: "border border-blue-600 text-blue-500",
+        root: "border border-primary-stroke text-primary",
       },
       default: {
-        root: "border border-divider text-default-500",
+        root: "border border-default-stroke text-default",
       },
     },
     radius: radiusVariant("root"),
   },
   compoundVariants: [
+    {
+      variant: "solid",
+      className: {
+        root: "text-foreground-primary",
+      },
+    },
     // solid
     {
       status: "danger",
       variant: "solid",
       className: {
-        root: "bg-danger/10 text-danger-600",
+        root: "bg-danger-fill",
       },
     },
     {
       status: "success",
       variant: "solid",
       className: {
-        root: "bg-success/10 text-success-600",
+        root: "bg-success-fill",
       },
     },
     {
       status: "info",
       variant: "solid",
       className: {
-        root: "bg-blue-600/10 text-blue-600",
+        root: "bg-primary-fill",
       },
     },
     {
       status: "warning",
       variant: "solid",
       className: {
-        root: "bg-warning/10 text-warning-600",
+        root: "bg-warning-fill",
       },
     },
     {
       status: "default",
       variant: "solid",
       className: {
-        root: "bg-default/10 text-default-600",
+        root: "bg-default-fill",
       },
     },
   ],

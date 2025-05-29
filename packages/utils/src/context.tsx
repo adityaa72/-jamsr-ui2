@@ -1,3 +1,4 @@
+"use client";
 import { createContext, use } from "react";
 
 import { mergeProps } from "./merge-props";
