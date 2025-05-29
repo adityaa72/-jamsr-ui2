@@ -1,5 +1,5 @@
 import { Chip } from "@jamsr-ui/chip";
 
-export const ChipUsage = () => {
+export const ChipCustomized = () => {
   return <Chip>Default</Chip>;
 };

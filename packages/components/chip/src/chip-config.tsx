@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsr-ui/utils";
 
 import type { Chip } from "./chip";
 
-const ChipContext = createContext<ChipConfig.Props>({});
-export const ChipConfig = (props: ChipConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <ChipContext value={restProps}>{children}</ChipContext>;
-};
-
-export const useChipConfig = () => {
-  const context = use(ChipContext);
-  return context;
-};
+export const [ChipConfig, useChipConfig] =
+  createConfigContext<ChipConfig.Props>({
+    displayName: "ChipConfig",
+  });
 
 export namespace ChipConfig {
   export interface Props extends Chip.Props {}

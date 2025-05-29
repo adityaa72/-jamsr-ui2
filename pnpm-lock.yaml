@@ -159,6 +159,9 @@ importers:
       '@jamsr-ui/card':
         specifier: workspace:^
         version: link:../../packages/components/card
+      '@jamsr-ui/chip':
+        specifier: workspace:^
+        version: link:../../packages/components/chip
       '@jamsr-ui/collapsible':
         specifier: workspace:^
         version: link:../../packages/components/collapsible
@@ -430,6 +433,9 @@ importers:
       '@jamsr-ui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsr-ui/icons':
+        specifier: workspace:^
+        version: link:../../icons
       '@jamsr-ui/utils':
         specifier: workspace:^
         version: link:../../utils

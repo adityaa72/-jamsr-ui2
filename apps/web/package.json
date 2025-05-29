@@ -16,6 +16,7 @@
     "@jamsr-ui/avatar": "workspace:^",
     "@jamsr-ui/button": "workspace:^",
     "@jamsr-ui/card": "workspace:^",
+    "@jamsr-ui/chip": "workspace:^",
     "@jamsr-ui/collapsible": "workspace:^",
     "@jamsr-ui/dialog": "workspace:^",
     "@jamsr-ui/divider": "workspace:^",

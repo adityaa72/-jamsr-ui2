@@ -42,7 +42,7 @@ export const SidebarProvider = (props: SidebarProvider.Props) => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "s" && (event.metaKey || event.ctrlKey)) {
+      if (event.key === "b" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
         toggleSidebar();
       }
