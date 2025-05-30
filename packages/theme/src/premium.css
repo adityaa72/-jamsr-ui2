@@ -182,7 +182,7 @@
   --ui-success-active: oklch(52.7% 0.137 150.1);
   --ui-success-stroke: oklch(39.3% 0.09 152.5);
   --ui-success-fill: oklch(26.6% 0.063 152.9);
-  --ui-default-foreground: oklch(100% 0 0);
+  --ui-success-foreground: oklch(100% 0 0);
 
   /* Warning */
   --ui-warning: oklch(79.5% 0.162 86);
@@ -190,7 +190,7 @@
   --ui-warning-active: oklch(68.1% 0.142 75.8);
   --ui-warning-stroke: oklch(42.1% 0.09 57.7);
   --ui-warning-fill: oklch(28.6% 0.064 53.8);
-  --ui-default-foreground: oklch(100% 0 0);
+  --ui-success-foreground: oklch(100% 0 0);
 
   /* Danger */
   --ui-danger: oklch(57.7% 0.215 27.3);
@@ -234,3 +234,72 @@ html,
 body {
   @apply bg-background-primary text-foreground-primary;
 }
+
+
+
+/*  utility */
+@utility z-backdrop {
+  z-index: 98;
+}
+@utility z-popover {
+  z-index: 99;
+}
+@utility z-dialog {
+  z-index: 99;
+}
+@utility z-header {
+  z-index: 60;
+}
+@utility z-drawer {
+  z-index: 60;
+}
+
+/*  variants */
+
+@utility rounded-inherit {
+  border-radius: inherit;
+}
+
+@custom-variant dark (&:where(.dark, .dark *,[data-theme="dark"]));
+@custom-variant light (&:where(.light, .light *,[data-theme="light"]));
+
+@custom-variant uig-has-start-content (&:is(:where(.group[data-has-start-content=true]) &));
+@custom-variant uig-has-end-content (&:is(:where(.group[data-has-end-content=true]) &));
+@custom-variant uig-has-label (&:is(:where(.group[data-has-label=true]) &));
+
+@custom-variant ui-hover (&:not(:disabled):hover);
+@custom-variant uig-hover (&:is(:where(.group[data-hovered=true]) &));
+
+@custom-variant ui-selected (&[data-selected=true]);
+@custom-variant uig-selected (&:is(:where(.group[data-selected=true]) &));
+
+@custom-variant ui-checked (&[data-checked=true]);
+@custom-variant uig-checked (&:is(:where(.group[data-checked=true]) &));
+
+@custom-variant ui-focus (&[data-focused=true]);
+@custom-variant uig-focus (&:is(:where(.group[data-focused=true]) &));
+
+@custom-variant ui-pressed (&[data-pressed=true]);
+@custom-variant uig-pressed (&:is(:where(.group[data-pressed=true]) &));
+
+@custom-variant ui-active (&[data-active=true]);
+@custom-variant uig-active (&:is(:where(.group[data-active=true]) &));
+
+@custom-variant ui-open (&[data-open=true]);
+@custom-variant uig-open (&:is(:where(.group[data-open=true]) &));
+
+@custom-variant ui-interactive (&[data-interactive=true]);
+@custom-variant uig-interactive (&:is(:where(.group[data-interactive=true]) &));
+
+@custom-variant ui-loaded (&[data-loaded=true]);
+
+@custom-variant ui-filled-within (&[data-filled-within=true]);
+@custom-variant uig-filled-within (&:is(:where(.group[data-filled-within=true]) &));
+
+@custom-variant ui-focus-visible (&[data-focus-visible=true]);
+
+@custom-variant ui-readonly (&[data-readonly=true]);
+@custom-variant uig-readonly (&:is(:where(.group[data-readonly=true]) &));
+
+@custom-variant ui-disabled (&[data-disabled=true]);
+@custom-variant uig-disabled (&:is(:where(.group[data-disabled=true]) &));

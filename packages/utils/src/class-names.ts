@@ -24,40 +24,47 @@ const solidClasses = {
 
 const outlinedClasses = {
   default:
-    "bg-transparent border-default text-foreground ui-hover:bg-default-50",
-  primary: "bg-transparent border-primary text-primary ui-hover:bg-primary-50",
+    "bg-transparent border-default text-foreground ui-hover:bg-default-fill",
+  primary: "bg-transparent border-primary text-primary ui-hover:bg-primary-fill",
   secondary:
-    "bg-transparent border-secondary text-secondary ui-hover:bg-secondary-50",
-  success: "bg-transparent border-success text-success ui-hover:bg-success-50",
-  warning: "bg-transparent border-warning text-warning ui-hover:bg-warning-50",
-  danger: "bg-transparent border-danger text-danger ui-hover:bg-danger-50",
+    "bg-transparent border-secondary text-secondary ui-hover:bg-secondary-fill",
+  success: "bg-transparent border-success text-success ui-hover:bg-success-fill",
+  warning: "bg-transparent border-warning text-warning ui-hover:bg-warning-fill",
+  danger: "bg-transparent border-danger text-danger ui-hover:bg-danger-fill",
 } satisfies Record<Color, string>;
 
 const textClasses = {
-  default: "text-foreground ui-hover:text-foreground-dark",
-  primary: "text-primary ui-hover:text-primary-dark",
-  secondary: "text-secondary ui-hover:text-secondary-dark",
-  success: "text-success ui-hover:text-success-dark",
-  warning: "text-warning ui-hover:text-warning-dark",
-  danger: "text-danger ui-hover:text-danger-dark",
+  default: "text-foreground ui-hover:text-foreground-active",
+  primary: "text-primary ui-hover:text-primary-active",
+  secondary: "text-secondary ui-hover:text-secondary-active",
+  success: "text-success ui-hover:text-success-active",
+  warning: "text-warning ui-hover:text-warning-active",
+  danger: "text-danger ui-hover:text-danger-active",
 } satisfies Record<Color, string>;
 
 const lightClasses = {
-  default: "bg-transparent text-foreground ui-hover:bg-default-50",
-  primary: "bg-transparent text-primary ui-hover:bg-primary-50",
-  secondary: "bg-secondary text-secondary ui-hover:bg-secondary-50",
-  success: "bg-success text-success ui-hover:bg-success-50",
-  warning: "bg-warning text-warning ui-hover:bg-warning-50",
-  danger: "bg-danger text-danger ui-hover:bg-danger-50",
+  default:
+    "bg-transparent text-foreground ui-hover:bg-default-fill ui-hover:text-default-foreground",
+  primary:
+    "bg-transparent text-primary ui-hover:bg-primary-fill ui-hover:text-primary-foreground",
+  secondary:
+    "bg-transparent text-secondary ui-hover:bg-secondary-fill ui-hover:text-secondary-foreground",
+  success:
+    "bg-transparent text-success ui-hover:bg-success-fill ui-hover:text-success-foreground",
+  warning:
+    "bg-transparent text-warning ui-hover:bg-warning-fill ui-hover:text-warning-foreground",
+  danger:
+    "bg-transparent text-danger ui-hover:bg-danger-fill ui-hover:text-danger-foreground",
 } satisfies Record<Color, string>;
 
 const flatClasses = {
-  default: "bg-default text-default-foreground ui-hover:bg-default",
-  primary: "bg-primary text-primary ui-hover:bg-primary",
-  secondary: "bg-secondary text-secondary ui-hover:bg-secondary",
-  success: "bg-success text-success ui-hover:bg-success",
-  warning: "bg-warning text-warning ui-hover:bg-warning",
-  danger: "bg-danger text-danger ui-hover:bg-danger",
+  default: "bg-default-fill text-default-foreground ui-hover:bg-default",
+  primary: "bg-primary-fill text-primary-foreground ui-hover:bg-primary",
+  secondary:
+    "bg-secondary-fill text-secondary-foreground ui-hover:bg-secondary",
+  success: "bg-success-fill text-success-foreground ui-hover:bg-success",
+  warning: "bg-warning-fill text-warning-foreground ui-hover:bg-warning",
+  danger: "bg-danger-fill text-danger-foreground ui-hover:bg-danger",
 } satisfies Record<Color, string>;
 
 export const colorVariants = {

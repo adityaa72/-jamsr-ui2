@@ -6,7 +6,7 @@ export const test = "";
 export const accordionVariants = tv({
   slots: {
     root: "flex flex-col",
-    item: "bg-content1 ui-disabled:opacity-80 ui-disabled:cursor-not-allowed",
+    item: "bg-background-secondary ui-disabled:opacity-80 ui-disabled:cursor-not-allowed",
     header: "flex items-center gap-2",
     trigger: [
       "flex w-full items-center relative gap-3 py-4 px-4",

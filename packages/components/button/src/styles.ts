@@ -27,7 +27,7 @@ export const buttonVariants = tv({
     },
     variant: {
       solid: "",
-      outlined: "",
+      outlined: "border",
       light: "",
       text: "",
       flat: "",
