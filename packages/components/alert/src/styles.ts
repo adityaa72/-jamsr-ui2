@@ -5,10 +5,11 @@ import type { VariantProps } from "@jamsr-ui/utils";
 export const test = "";
 export const alertStyles = tv({
   slots: {
-    root: "relative flex gap-2 p-4 text-sm [&>svg]:shrink-0",
+    root: "relative flex gap-2 px-4 py-1.5 text-sm",
+    icon: "shrink-0 py-2",
     title: "",
     description: "",
-    content: "flex flex-col",
+    content: "flex flex-col grow py-2 gap-1",
   },
   variants: {
     variant: {
@@ -35,46 +36,40 @@ export const alertStyles = tv({
     radius: radiusVariant("root"),
   },
   compoundVariants: [
-    {
-      variant: "solid",
-      className: {
-        root: "text-foreground-primary",
-      },
-    },
     // solid
     {
       status: "danger",
       variant: "solid",
       className: {
-        root: "bg-danger-fill",
+        root: "bg-danger-fill text-danger-foreground",
       },
     },
     {
       status: "success",
       variant: "solid",
       className: {
-        root: "bg-success-fill",
+        root: "bg-success-fill text-success-foreground",
       },
     },
     {
       status: "info",
       variant: "solid",
       className: {
-        root: "bg-primary-fill",
+        root: "bg-primary-fill text-primary-foreground",
       },
     },
     {
       status: "warning",
       variant: "solid",
       className: {
-        root: "bg-warning-fill",
+        root: "bg-warning-fill text-warning-foreground",
       },
     },
     {
       status: "default",
       variant: "solid",
       className: {
-        root: "bg-default-fill",
+        root: "bg-default-fill text-default-foreground",
       },
     },
   ],

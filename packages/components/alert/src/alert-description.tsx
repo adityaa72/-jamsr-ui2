@@ -1,14 +1,10 @@
 import { Text } from "@jamsr-ui/text";
-import { mergeProps } from "@jamsr-ui/utils";
 
 import { useAlertContext } from "./alert-context";
 
 export const AlertDescription = (props: AlertDescription.Props) => {
-  const { getDescriptionProps, slotProps } = useAlertContext();
-  const { children, ...elementProps } = mergeProps(
-    slotProps?.description ?? {},
-    props
-  );
+  const { getDescriptionProps } = useAlertContext();
+  const { children, ...elementProps } = props;
   return (
     <Text render={<p />} {...getDescriptionProps(elementProps)}>
       {children}

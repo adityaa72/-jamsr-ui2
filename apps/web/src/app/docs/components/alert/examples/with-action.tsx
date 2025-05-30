@@ -14,14 +14,13 @@ export const AlertWithAction = () => {
       <Alert
         status="warning"
         endContent={
-          <Button variant="light" color="warning">
+          <Button variant="light" color="warning" size="sm">
             Renew Now!
           </Button>
         }
       >
         Your plan will expire soon, please renew your plan.
       </Alert>
-
       {isOpen && (
         <Alert
           status="danger"
@@ -32,6 +31,7 @@ export const AlertWithAction = () => {
                 radius="full"
                 variant="light"
                 color="success"
+                size="sm"
               >
                 <EyeClosedIcon className="size-5" />
               </IconButton>
@@ -41,6 +41,7 @@ export const AlertWithAction = () => {
                 radius="full"
                 color="danger"
                 variant="light"
+                size="sm"
               >
                 <CloseIcon className="size-5" />
               </IconButton>
@@ -50,11 +51,10 @@ export const AlertWithAction = () => {
           Your Pro plan has expired.
         </Alert>
       )}
-
       <Alert
         status="success"
         endContent={
-          <Button variant="solid" color="success">
+          <Button variant="solid" color="success" size="sm">
             Let's start!
           </Button>
         }

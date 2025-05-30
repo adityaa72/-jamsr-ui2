@@ -14,6 +14,15 @@ import Link from "next/link";
 
 const data: { title: string; items: { title: string; url: Route }[] }[] = [
   {
+    title: "Getting Started",
+    items: [
+      {
+        title: "Theme",
+        url: "/theme",
+      },
+    ],
+  },
+  {
     title: "Components",
     items: [
       { title: "Accordion", url: "/docs/components/accordion" },

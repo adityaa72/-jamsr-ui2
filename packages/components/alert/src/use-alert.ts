@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
 
 import { iconMappingDefault } from "./icons";
 import { alertStyles } from "./styles";
@@ -15,6 +15,7 @@ import type {
 import type { Alert } from "./alert";
 import type { AlertContent } from "./alert-content";
 import type { AlertDescription } from "./alert-description";
+import type { AlertIcon } from "./alert-icon";
 import type { AlertTitle } from "./alert-title";
 import type { IconMapping } from "./icons";
 import type { AlertSlots } from "./styles";
@@ -32,6 +33,7 @@ export const useAlert = (props: useAlert.Props) => {
     endContent,
     icon: iconProp,
     iconMapping,
+    hideIcon,
     ...rootProps
   } = newProps;
 
@@ -43,6 +45,7 @@ export const useAlert = (props: useAlert.Props) => {
   const getRootProps: PropGetter<Alert.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("root"),
+      role: "alert",
       ...rootProps,
       ...props,
       className: styles.root({
@@ -54,47 +57,89 @@ export const useAlert = (props: useAlert.Props) => {
 
   const getTitleProps: PropGetter<AlertTitle.Props> = useCallback(
     (props) => ({
+      ...mergeProps(slotProps?.title, props),
       "data-slot": dataAttrDev("title"),
-      ...props,
       className: styles.title({
-        className: cn(classNames?.title, props.className),
+        className: cn(
+          slotProps?.title?.className,
+          classNames?.title,
+          props.className
+        ),
       }),
-      variant: "h3",
+      variant: "h6",
     }),
-    [classNames?.title, styles]
+    [classNames?.title, slotProps?.title, styles]
   );
 
   const getDescriptionProps: PropGetter<AlertDescription.Props> = useCallback(
     (props) => ({
+      ...mergeProps(slotProps?.description, props),
       "data-slot": dataAttrDev("description"),
-      ...props,
       className: styles.description({
-        className: cn(classNames?.description, props.className),
+        className: cn(
+          slotProps?.description?.className,
+          classNames?.description,
+          props.className
+        ),
       }),
     }),
-    [classNames?.description, styles]
+    [classNames?.description, slotProps?.description, styles]
   );
 
   const getContentProps: PropGetter<AlertContent.Props> = useCallback(
     (props) => ({
+      ...mergeProps(slotProps?.content, props),
       "data-slot": dataAttrDev("content"),
-      ...props,
       className: styles.content({
-        className: cn(classNames?.content, props.className),
+        className: cn(
+          slotProps?.content?.className,
+          classNames?.content,
+          props.className
+        ),
       }),
     }),
-    [classNames?.content, styles]
+    [classNames?.content, slotProps?.content, styles]
   );
 
-  return {
-    icon,
-    endContent,
-    slotProps,
-    getRootProps,
-    getTitleProps,
-    getDescriptionProps,
-    getContentProps,
-  };
+  const getIconProps: PropGetter<AlertIcon.Props> = useCallback(
+    (props) => ({
+      ...mergeProps(slotProps?.icon, props),
+      "data-slot": dataAttrDev("icon"),
+      className: styles.icon({
+        className: cn(
+          slotProps?.icon?.className,
+          classNames?.icon,
+          props.className
+        ),
+      }),
+    }),
+    [classNames?.icon, slotProps?.icon, styles]
+  );
+
+  return useMemo(
+    () => ({
+      hideIcon,
+      icon,
+      endContent,
+      slotProps,
+      getRootProps,
+      getTitleProps,
+      getDescriptionProps,
+      getContentProps,
+      getIconProps,
+    }),
+    [
+      endContent,
+      getContentProps,
+      getDescriptionProps,
+      getRootProps,
+      getTitleProps,
+      hideIcon,
+      icon,
+      slotProps,
+      getIconProps,
+    ]
+  );
 };
 
 export namespace useAlert {
@@ -110,7 +155,9 @@ export namespace useAlert {
       title?: AlertTitle.Props;
       content?: AlertContent.Props;
       description?: AlertDescription.Props;
+      icon?: AlertIcon.Props;
     };
     tv?: UnknownTV;
+    hideIcon?: boolean;
   }
 }

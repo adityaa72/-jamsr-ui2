@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@jamsr-ui/hooks": "workspace:^",
+    "@jamsr-ui/icons": "workspace:^",
     "@jamsr-ui/text": "workspace:^",
     "@jamsr-ui/utils": "workspace:^"
   }

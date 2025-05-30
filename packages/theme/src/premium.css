@@ -5,56 +5,72 @@
   --color-default-active: var(--ui-default-active);
   --color-default-stroke: var(--ui-default-stroke);
   --color-default-fill: var(--ui-default-fill);
+  --color-default-foreground: var(--ui-default-foreground);
+
   /* Primary */
   --color-primary: var(--ui-primary);
   --color-primary-hover: var(--ui-primary-hover);
   --color-primary-active: var(--ui-primary-active);
   --color-primary-stroke: var(--ui-primary-stroke);
   --color-primary-fill: var(--ui-primary-fill);
+  --color-primary-foreground: var(--ui-primary-foreground);
+
   /* Secondary */
   --color-secondary: var(--ui-secondary);
   --color-secondary-hover: var(--ui-secondary-hover);
   --color-secondary-active: var(--ui-secondary-active);
   --color-secondary-stroke: var(--ui-secondary-stroke);
   --color-secondary-fill: var(--ui-secondary-fill);
+  --color-secondary-foreground: var(--ui-secondary-foreground);
+
   /* Success */
   --color-success: var(--ui-success);
   --color-success-hover: var(--ui-success-hover);
   --color-success-active: var(--ui-success-active);
   --color-success-stroke: var(--ui-success-stroke);
   --color-success-fill: var(--ui-success-fill);
+  --color-success-foreground: var(--ui-success-foreground);
+
   /* Warning */
   --color-warning: var(--ui-warning);
   --color-warning-hover: var(--ui-warning-hover);
   --color-warning-active: var(--ui-warning-active);
   --color-warning-stroke: var(--ui-warning-stroke);
   --color-warning-fill: var(--ui-warning-fill);
+  --color-warning-foreground: var(--ui-warning-foreground);
+
   /* Danger */
   --color-danger: var(--ui-danger);
   --color-danger-hover: var(--ui-danger-hover);
   --color-danger-active: var(--ui-danger-active);
   --color-danger-stroke: var(--ui-danger-stroke);
   --color-danger-fill: var(--ui-danger-fill);
+  --color-danger-foreground: var(--ui-danger-foreground);
+
   /* Text */
   --color-foreground-primary: var(--ui-foreground-primary);
   --color-foreground-secondary: var(--ui-foreground-secondary);
   --color-foreground-tertiary: var(--ui-foreground-tertiary);
   --color-foreground-quaternary: var(--ui-foreground-quaternary);
+
   /* Background */
   --color-background-primary: var(--ui-background-primary);
   --color-background-secondary: var(--ui-background-secondary);
   --color-background-tertiary: var(--ui-background-tertiary);
   --color-background-quaternary: var(--ui-background-quaternary);
+
   /* Gray */
   --color-gray-primary: var(--ui-gray-primary);
   --color-gray-secondary: var(--ui-gray-secondary);
   --color-gray-tertiary: var(--ui-gray-tertiary);
   --color-gray-quaternary: var(--ui-gray-quaternary);
+
   /* Fill */
   --color-fill-primary: var(--ui-fill-primary);
   --color-fill-secondary: var(--ui-fill-secondary);
   --color-fill-tertiary: var(--ui-fill-tertiary);
   --color-fill-quaternary: var(--ui-fill-quaternary);
+
   /* Stroke */
   --color-stroke-primary: var(--ui-stroke-primary);
   --color-stroke-secondary: var(--ui-stroke-secondary);
@@ -166,7 +182,7 @@
   --ui-success-active: oklch(52.7% 0.137 150.1);
   --ui-success-stroke: oklch(39.3% 0.09 152.5);
   --ui-success-fill: oklch(26.6% 0.063 152.9);
-  --ui-success-foreground: oklch(0% 0 0);
+  --ui-default-foreground: oklch(100% 0 0);
 
   /* Warning */
   --ui-warning: oklch(79.5% 0.162 86);
@@ -174,7 +190,7 @@
   --ui-warning-active: oklch(68.1% 0.142 75.8);
   --ui-warning-stroke: oklch(42.1% 0.09 57.7);
   --ui-warning-fill: oklch(28.6% 0.064 53.8);
-  --ui-warning-foreground: oklch(0% 0 0);
+  --ui-default-foreground: oklch(100% 0 0);
 
   /* Danger */
   --ui-danger: oklch(57.7% 0.215 27.3);

@@ -4,20 +4,22 @@ import { mergeProps } from "@jamsr-ui/utils";
 import { useAlertConfig } from "./alert-config";
 import { AlertContent } from "./alert-content";
 import { AlertContextProvider } from "./alert-context";
+import { AlertIcon } from "./alert-icon";
 import { useAlert } from "./use-alert";
 
 import type { UIProps } from "@jamsr-ui/utils";
 
 export const Alert = (props: Alert.Props) => {
+  const { children } = props;
+
   const config = useAlertConfig();
-  const mergedProps = mergeProps(config ?? {}, props);
-  const { children } = mergedProps;
+  const mergedProps = mergeProps(config, props);
   const ctx = useAlert(mergedProps);
-  const { endContent, getRootProps, icon } = ctx;
+  const { endContent, getRootProps } = ctx;
 
   const composedChildren = (
     <>
-      {icon}
+      <AlertIcon />
       <AlertContent>{children}</AlertContent>
       {endContent}
     </>

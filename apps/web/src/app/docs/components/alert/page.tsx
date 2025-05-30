@@ -7,6 +7,7 @@ import { AlertStatus } from "./examples/status";
 import { AlertUsage } from "./examples/usage";
 import { AlertVariants } from "./examples/variants";
 import { AlertWithAction } from "./examples/with-action";
+import { AlertWithTitle } from "./examples/with-title";
 import { AlertWithoutIcon } from "./examples/without-icon";
 
 const title = "Alert";
@@ -24,6 +25,9 @@ const Alert = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <AlertUsage />
+      </CodeExample>
+      <CodeExample title="With Title" url={resolvePath("with-title.tsx")}>
+        <AlertWithTitle />
       </CodeExample>
       <CodeExample title="Status" url={resolvePath("status.tsx")}>
         <AlertStatus />
