@@ -18,8 +18,7 @@ import type { AlertDescription } from "./alert-description";
 import type { AlertIcon } from "./alert-icon";
 import type { AlertTitle } from "./alert-title";
 import type { IconMapping } from "./icons";
-import type { AlertSlots } from "./styles";
-import type { AlertVariants } from "./types";
+import type { AlertSlots, AlertVariants } from "./styles";
 
 export const useAlert = (props: useAlert.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
@@ -143,10 +142,7 @@ export const useAlert = (props: useAlert.Props) => {
 };
 
 export namespace useAlert {
-  export interface Props extends UIProps<"div"> {
-    variant?: AlertVariants.Variant;
-    status?: AlertVariants.Status;
-    radius?: AlertVariants.Radius;
+  export interface Props extends UIProps<"div">, AlertVariants {
     classNames?: SlotsToClassNames<AlertSlots>;
     endContent?: React.ReactNode;
     icon?: React.ReactNode;

@@ -1,11 +1,15 @@
-import { CodeExample } from "@/components/code-example";
+import { CodeExample, DocsPageSection } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { AlertRadius } from "./examples/radius";
 import { AlertStatus } from "./examples/status";
 import { AlertUsage } from "./examples/usage";
-import { AlertVariants } from "./examples/variants";
+import {
+  AlertVariantBordered,
+  AlertVariantFlat,
+  AlertVariantSolid,
+} from "./examples/variants/solid";
 import { AlertWithAction } from "./examples/with-action";
 import { AlertWithTitle } from "./examples/with-title";
 import { AlertWithoutIcon } from "./examples/without-icon";
@@ -32,10 +36,21 @@ const Alert = () => {
       <CodeExample title="Status" url={resolvePath("status.tsx")}>
         <AlertStatus />
       </CodeExample>
-      <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
-        <AlertVariants />
-      </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("variants.tsx")}>
+      <DocsPageSection title="Variants">
+        <CodeExample title="Solid" url={resolvePath("variants/solid.tsx")}>
+          <AlertVariantSolid />
+        </CodeExample>
+        <CodeExample
+          title="Bordered"
+          url={resolvePath("variants/bordered.tsx")}
+        >
+          <AlertVariantBordered />
+        </CodeExample>
+        <CodeExample title="Flat" url={resolvePath("variants/flat.tsx")}>
+          <AlertVariantFlat />
+        </CodeExample>
+      </DocsPageSection>
+      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
         <AlertRadius />
       </CodeExample>
       <CodeExample title="With Action" url={resolvePath("with-action.tsx")}>

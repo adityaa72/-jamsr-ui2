@@ -157,7 +157,7 @@
   --ui-default-hover: oklch(71.2% 0.013 286.1);
   --ui-default-active: oklch(27.4% 0.005 286);
   --ui-default-stroke: oklch(55.2% 0.014 285.9);
-  --ui-default-fill: oklch(27.4% 0.005 286);
+  --ui-default-fill: oklch(21% 0.006 285.9);
   --ui-default-foreground: oklch(100% 0 0);
 
   /* Primary */

@@ -10,6 +10,26 @@ type CodeExampleProps = Omit<CodeBlockProps, "children"> & {
   description?: string;
 };
 
+export const DocsPageSection = (props: {
+  title: string;
+  description?: string;
+  children: React.ReactNode;
+}) => {
+  const { title, description, children } = props;
+  const id = title.toLowerCase().replace(" ", "-");
+  return (
+    <section id={id} className="flex flex-col gap-2">
+      <div>
+        <Text render={<h1 />} variant="h5">
+          {title}
+        </Text>
+        <Text className="text-foreground-secondary">{description}</Text>
+      </div>
+      {children}
+    </section>
+  );
+};
+
 export const CodeExample = async (props: CodeExampleProps) => {
   const { children, url, lang, title, description } = props;
   const code = await readSourceCode(url);

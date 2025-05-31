@@ -13,25 +13,20 @@ export const alertStyles = tv({
   },
   variants: {
     variant: {
-      outlined: "",
-      solid: "",
+      bordered: {
+        root: "border",
+      },
+      solid: {
+        root: "font-medium",
+      },
+      flat: {},
     },
     status: {
-      success: {
-        root: "border border-success-stroke text-success",
-      },
-      warning: {
-        root: "border border-warning-stroke text-warning",
-      },
-      danger: {
-        root: "border border-danger-stroke text-danger",
-      },
-      info: {
-        root: "border border-primary-stroke text-primary",
-      },
-      default: {
-        root: "border border-default-stroke text-default",
-      },
+      success: {},
+      warning: {},
+      danger: {},
+      info: {},
+      default: {},
     },
     radius: radiusVariant("root"),
   },
@@ -41,41 +36,113 @@ export const alertStyles = tv({
       status: "danger",
       variant: "solid",
       className: {
-        root: "bg-danger-fill text-danger-foreground",
+        root: "bg-danger text-danger-foreground",
       },
     },
     {
       status: "success",
       variant: "solid",
       className: {
-        root: "bg-success-fill text-success-foreground",
+        root: "bg-success text-success-foreground",
       },
     },
     {
       status: "info",
       variant: "solid",
       className: {
-        root: "bg-primary-fill text-primary-foreground",
+        root: "bg-primary text-primary-foreground",
       },
     },
     {
       status: "warning",
       variant: "solid",
       className: {
-        root: "bg-warning-fill text-warning-foreground",
+        root: "bg-warning text-warning-foreground",
       },
     },
     {
       status: "default",
       variant: "solid",
       className: {
-        root: "bg-default-fill text-default-foreground",
+        root: "bg-default text-default-foreground",
+      },
+    },
+    // flat
+    {
+      status: "success",
+      variant: "flat",
+      className: {
+        root: "bg-success-fill text-success",
+      },
+    },
+    {
+      status: "info",
+      variant: "flat",
+      className: {
+        root: "bg-primary-fill text-primary",
+      },
+    },
+    {
+      status: "warning",
+      variant: "flat",
+      className: {
+        root: "bg-warning-fill text-warning",
+      },
+    },
+    {
+      status: "danger",
+      variant: "flat",
+      className: {
+        root: "bg-danger-fill text-danger",
+      },
+    },
+    {
+      status: "default",
+      variant: "flat",
+      className: {
+        root: "bg-default-fill text-default",
+      },
+    },
+    // bordered
+    {
+      status: "danger",
+      variant: "bordered",
+      className: {
+        root: "border-danger-stroke text-danger",
+      },
+    },
+    {
+      status: "success",
+      variant: "bordered",
+      className: {
+        root: "border-success-stroke text-success",
+      },
+    },
+    {
+      status: "info",
+      variant: "bordered",
+      className: {
+        root: "border-primary-stroke text-primary",
+      },
+    },
+    {
+      status: "warning",
+      variant: "bordered",
+      className: {
+        root: "border-warning-stroke text-warning",
+      },
+    },
+    {
+      status: "default",
+      variant: "bordered",
+      className: {
+        root: "border-default-stroke text-default",
       },
     },
   ],
   defaultVariants: {
-    status: "default",
-    variant: "outlined",
+    status: "success",
+    variant: "flat",
     radius: "md",
   },
 });

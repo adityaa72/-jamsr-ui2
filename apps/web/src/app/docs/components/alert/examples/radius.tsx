@@ -14,7 +14,7 @@ export const AlertRadius = () => {
   return (
     <div className="grid gap-4">
       {radius.map((radius) => (
-        <Alert key={radius} radius={radius} status="info">
+        <Alert key={radius} radius={radius}>
           {radius}: This is an {radius} Radius Alert
         </Alert>
       ))}
