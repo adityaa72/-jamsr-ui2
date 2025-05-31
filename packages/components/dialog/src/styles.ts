@@ -9,7 +9,7 @@ export const dialogVariants = tv({
     header: "p-4 text-base font-bold",
     body: "w-full p-4",
     content:
-      "relative z-dialog flex max-h-[calc(100dvh-4rem)] w-full flex-col overflow-y-auto bg-content1 shadow-lg",
+      "relative z-dialog flex max-h-[calc(100dvh-4rem)] w-full flex-col overflow-y-auto bg-background-secondary shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",
     closeButton: "absolute right-2 top-2 z-10",
   },

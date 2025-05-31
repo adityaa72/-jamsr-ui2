@@ -1,4 +1,4 @@
-import { cloneElement, useCallback, useMemo, useRef, useState } from "react";
+import { cloneElement, useCallback, useMemo, useRef } from "react";
 
 import {
   arrow,
@@ -7,6 +7,7 @@ import {
   offset,
   safePolygon,
   shift,
+  useDelayGroup,
   useDismiss,
   useFloating,
   useFocus,
@@ -14,11 +15,12 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
+import { useControlledState } from "@jamsr-ui/hooks";
 import { cn } from "@jamsr-ui/utils";
 
 import { tooltipVariants } from "./styles";
 
-import type { FloatingArrowProps, Placement } from "@floating-ui/react";
+import type { Delay, FloatingArrowProps, Placement } from "@floating-ui/react";
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
 import type { ReactElement } from "react";
 
@@ -28,8 +30,7 @@ export const useTooltip = (props: useTooltip.Props) => {
   const {
     title,
     isDisabled = false,
-    closeDelay = 100,
-    openDelay = 400,
+    delay: delayProp,
     offset: offsetProp = 8,
     placement = "top",
     radius,
@@ -37,9 +38,16 @@ export const useTooltip = (props: useTooltip.Props) => {
     className,
     classNames,
     children,
+    defaultOpen,
+    isOpen: isOpenProp,
+    onOpenChange,
   } = props;
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useControlledState({
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+    prop: isOpenProp,
+  });
   const arrowRef = useRef<SVGSVGElement>(null);
 
   const { refs, floatingStyles, context } = useFloating({
@@ -56,6 +64,27 @@ export const useTooltip = (props: useTooltip.Props) => {
       showArrow ? arrow({ element: arrowRef }) : null,
     ],
   });
+
+  const { delay: delayGroup } = useDelayGroup(context);
+
+  let openDelay = 400;
+  let closeDelay = 100;
+  if (typeof delayProp === "number") {
+    openDelay = delayProp;
+    closeDelay = delayProp;
+  } else if (typeof delayProp === "object") {
+    openDelay = delayProp.open ?? openDelay;
+    closeDelay = delayProp.close ?? closeDelay;
+  }
+  if (typeof delayGroup === "number" && delayGroup > 0) {
+    openDelay = delayGroup;
+    closeDelay = delayGroup;
+  } else if (typeof delayGroup === "object") {
+    openDelay = delayGroup.open ?? openDelay;
+    closeDelay = delayGroup.close ?? closeDelay;
+  }
+
+  // const delay =
 
   const hover = useHover(context, {
     move: false,
@@ -146,10 +175,14 @@ export namespace useTooltip {
     isDisabled?: boolean;
     offset?: number;
     showArrow?: boolean;
-    openDelay?: number;
-    closeDelay?: number;
+    delay?: Delay;
+    // openDelay?: number;
+    // closeDelay?: number;
     className?: string;
     classNames?: SlotsToClassNames<TooltipSlots>;
     children: ReactElement<unknown>;
+    isOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    defaultOpen?: boolean;
   }
 }

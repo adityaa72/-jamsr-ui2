@@ -4,7 +4,7 @@ import type { VariantProps } from "@jamsr-ui/utils";
 
 export const test = "";
 export const avatarVariants = tv({
-  base: "flex flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-content1 object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
+  base: "flex flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-background-secondary object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
   variants: {
     size: {
       xs: "size-6",

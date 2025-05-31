@@ -172,7 +172,8 @@
   --ui-primary-dark: oklch(49.2% 0.18 257.7);
   --ui-primary-darker: oklch(48.8% 0.217 264.4);
   --ui-primary-stroke: oklch(37.9% 0.138 265.5);
-  --ui-primary-light: #001124;
+  --ui-primary-light: #000e1f;
+  /* --ui-primary-light: #001124; */
   --ui-primary-lighter: #000b18;
   --ui-primary-foreground: oklch(100% 0 0);
 
@@ -190,7 +191,8 @@
   --ui-success-dark: oklch(62.2% 0.163 151);
   --ui-success-darker: oklch(52.7% 0.137 150.1);
   --ui-success-stroke: oklch(39.3% 0.09 152.5);
-  --ui-success-light: #041e0f;
+  --ui-success-light: #031b0e;
+  /* --ui-success-light: #041e0f; */
   --ui-success-lighter: #02140a;
   --ui-success-foreground: oklch(0% 0 0);
 
@@ -199,7 +201,8 @@
   --ui-warning-dark: oklch(66.3% 0.133 72.6);
   --ui-warning-darker: oklch(68.1% 0.142 75.8);
   --ui-warning-stroke: oklch(42.1% 0.09 57.7);
-  --ui-warning-light: #251906;
+  --ui-warning-light: #1d1301;
+  /* --ui-warning-light: #251906; */
   --ui-warning-lighter: #181004;
   --ui-warning-foreground: oklch(0% 0 0);
 

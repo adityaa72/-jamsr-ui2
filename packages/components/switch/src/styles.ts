@@ -8,7 +8,7 @@ export const switchVariants = tv({
     root: "group flex flex-col gap-2",
     track: [
       ...focusVisibleClasses,
-      "flex cursor-pointer shrink-0 items-center rounded-full bg-default-200 p-1",
+      "flex cursor-pointer shrink-0 items-center rounded-full bg-background-tertiary p-1",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
       "cursor-default ui-interactive:cursor-pointer ui-interactive:hover:opacity-95",
       "justify-start uig-checked:justify-end",

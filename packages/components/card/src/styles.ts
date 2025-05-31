@@ -16,7 +16,7 @@ export const cardVariants = tv({
   variants: {
     bg: {
       default: {
-        root: "bg-content1",
+        root: "bg-background-secondary",
       },
       secondary: {
         root: "bg-background-secondary",

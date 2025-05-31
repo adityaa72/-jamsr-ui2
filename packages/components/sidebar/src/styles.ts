@@ -6,7 +6,7 @@ export const test = "";
 export const sidebarVariants = tv({
   slots: {
     root: [
-      "flex fixed h-dvh max-h-dvh flex-col bg-content1 p-2",
+      "flex fixed h-dvh max-h-dvh flex-col bg-background-secondary p-2",
       "transition-all duration-300 ease-in-out",
       "w-(--width) left-0",
       "data-[state=collapsed]:-left-(--width)",

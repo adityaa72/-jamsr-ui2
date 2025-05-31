@@ -12,14 +12,14 @@ const theme = {
           className: "bg-primary",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(62.3% 0.188 259.8)",
-          className: "bg-primary-hover",
+          className: "bg-primary-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(48.8% 0.217 264.4)",
-          className: "bg-primary-active",
+          className: "bg-primary-darker",
         },
         {
           name: "stroke",
@@ -27,9 +27,14 @@ const theme = {
           className: "bg-primary-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(28.2% 0.087 267.9)",
-          className: "bg-primary-fill",
+          className: "bg-primary-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(28.2% 0.087 267.9)",
+          className: "bg-primary-lighter",
         },
       ],
     },
@@ -42,14 +47,14 @@ const theme = {
           className: "bg-secondary",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(60.6% 0.219 292.7)",
-          className: "bg-secondary-hover",
+          className: "bg-secondary-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(49.1% 0.241 292.6)",
-          className: "bg-secondary-active",
+          className: "bg-secondary-darker",
         },
         {
           name: "stroke",
@@ -57,9 +62,14 @@ const theme = {
           className: "bg-secondary-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(28.3% 0.135 291.1)",
-          className: "bg-secondary-fill",
+          className: "bg-secondary-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(28.3% 0.135 291.1)",
+          className: "bg-secondary-lighter",
         },
       ],
     },
@@ -72,14 +82,14 @@ const theme = {
           className: "bg-success",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(72.3% 0.192 149.6)",
-          className: "bg-success-hover",
+          className: "bg-success-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(52.7% 0.137 150.1)",
-          className: "bg-success-active",
+          className: "bg-success-darker",
         },
         {
           name: "stroke",
@@ -87,9 +97,14 @@ const theme = {
           className: "bg-success-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(26.6% 0.063 152.9)",
-          className: "bg-success-fill",
+          className: "bg-success-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(26.6% 0.063 152.9)",
+          className: "bg-success-lighter",
         },
       ],
     },
@@ -102,14 +117,14 @@ const theme = {
           className: "bg-warning",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(86.1% 0.173 91.9)",
-          className: "bg-warning-hover",
+          className: "bg-warning-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(68.1% 0.142 75.8)",
-          className: "bg-warning-active",
+          className: "bg-warning-darker",
         },
         {
           name: "stroke",
@@ -117,9 +132,14 @@ const theme = {
           className: "bg-warning-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(28.6% 0.064 53.8)",
-          className: "bg-warning-fill",
+          className: "bg-warning-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(28.6% 0.064 53.8)",
+          className: "bg-warning-lighter",
         },
       ],
     },
@@ -132,14 +152,14 @@ const theme = {
           className: "bg-danger",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(63.7% 0.208 25.3)",
-          className: "bg-danger-hover",
+          className: "bg-danger-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(50.5% 0.19 27.5)",
-          className: "bg-danger-active",
+          className: "bg-danger-darker",
         },
         {
           name: "stroke",
@@ -147,9 +167,14 @@ const theme = {
           className: "bg-danger-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(25.8% 0.089 26)",
-          className: "bg-danger-fill",
+          className: "bg-danger-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(25.8% 0.089 26)",
+          className: "bg-danger-lighter",
         },
       ],
     },
@@ -234,22 +259,22 @@ const theme = {
         {
           name: "primary",
           color: "oklch(100% 0 0 / 0.1569)",
-          className: "bg-fill-primary",
+          className: "bg-light-primary",
         },
         {
           name: "secondary",
           color: "oklch(100% 0 0 / 0.0784)",
-          className: "bg-fill-secondary",
+          className: "bg-light-secondary",
         },
         {
           name: "tertiary",
           color: "oklch(100% 0 0 / 0.0392)",
-          className: "bg-fill-tertiary",
+          className: "bg-light-tertiary",
         },
         {
           name: "quaternary",
           color: "oklch(100% 0 0 / 0.0196)",
-          className: "bg-fill-quaternary",
+          className: "bg-light-quaternary",
         },
       ],
     },
@@ -279,14 +304,14 @@ const theme = {
           className: "bg-primary",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(62.3% 0.188 259.8)",
-          className: "bg-primary-hover",
+          className: "bg-primary-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(48.8% 0.217 264.4)",
-          className: "bg-primary-active",
+          className: "bg-primary-darker",
         },
         {
           name: "stroke",
@@ -294,9 +319,14 @@ const theme = {
           className: "bg-primary-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(97% 0.014 254.6)",
-          className: "bg-primary-fill",
+          className: "bg-primary-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(97% 0.014 254.6)",
+          className: "bg-primary-lighter",
         },
       ],
     },
@@ -309,14 +339,14 @@ const theme = {
           className: "bg-secondary",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(60.6% 0.219 292.7)",
-          className: "bg-secondary-hover",
+          className: "bg-secondary-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(49.1% 0.241 292.6)",
-          className: "bg-secondary-active",
+          className: "bg-secondary-darker",
         },
         {
           name: "stroke",
@@ -324,9 +354,14 @@ const theme = {
           className: "bg-secondary-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(96.9% 0.016 293.8)",
-          className: "bg-secondary-fill",
+          className: "bg-secondary-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(96.9% 0.016 293.8)",
+          className: "bg-secondary-lighter",
         },
       ],
     },
@@ -339,14 +374,14 @@ const theme = {
           className: "bg-success",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(72.3% 0.192 149.6)",
-          className: "bg-success-hover",
+          className: "bg-success-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(52.7% 0.137 150.1)",
-          className: "bg-success-active",
+          className: "bg-success-darker",
         },
         {
           name: "stroke",
@@ -354,9 +389,14 @@ const theme = {
           className: "bg-success-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(98.2% 0.018 155.8)",
-          className: "bg-success-fill",
+          className: "bg-success-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(98.2% 0.018 155.8)",
+          className: "bg-success-lighter",
         },
       ],
     },
@@ -369,14 +409,14 @@ const theme = {
           className: "bg-warning",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(86.1% 0.173 91.9)",
-          className: "bg-warning-hover",
+          className: "bg-warning-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(68.1% 0.142 75.8)",
-          className: "bg-warning-active",
+          className: "bg-warning-darker",
         },
         {
           name: "stroke",
@@ -384,9 +424,14 @@ const theme = {
           className: "bg-warning-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(98.7% 0.026 102.2)",
-          className: "bg-warning-fill",
+          className: "bg-warning-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(98.7% 0.026 102.2)",
+          className: "bg-warning-lighter",
         },
       ],
     },
@@ -399,14 +444,14 @@ const theme = {
           className: "bg-danger",
         },
         {
-          name: "hover",
+          name: "dark",
           color: "oklch(63.7% 0.208 25.3)",
-          className: "bg-danger-hover",
+          className: "bg-danger-dark",
         },
         {
-          name: "active",
+          name: "darker",
           color: "oklch(50.5% 0.19 27.5)",
-          className: "bg-danger-active",
+          className: "bg-danger-darker",
         },
         {
           name: "stroke",
@@ -414,9 +459,14 @@ const theme = {
           className: "bg-danger-stroke",
         },
         {
-          name: "fill",
+          name: "light",
           color: "oklch(97.1% 0.013 17.4)",
-          className: "bg-danger-fill",
+          className: "bg-danger-light",
+        },
+        {
+          name: "lighter",
+          color: "oklch(97.1% 0.013 17.4)",
+          className: "bg-danger-lighter",
         },
       ],
     },
@@ -451,22 +501,22 @@ const theme = {
         {
           name: "primary",
           color: "oklch(21% 0.006 285.9 / 0.1569)",
-          className: "bg-fill-primary",
+          className: "bg-light-primary",
         },
         {
           name: "secondary",
           color: "oklch(21% 0.006 285.9 / 0.0784)",
-          className: "bg-fill-secondary",
+          className: "bg-light-secondary",
         },
         {
           name: "tertiary",
           color: "oklch(21% 0.006 285.9 / 0.0392)",
-          className: "bg-fill-tertiary",
+          className: "bg-light-tertiary",
         },
         {
           name: "quaternary",
           color: "oklch(21% 0.006 285.9 / 0.0196)",
-          className: "bg-fill-quaternary",
+          className: "bg-light-quaternary",
         },
       ],
     },
@@ -546,7 +596,7 @@ const Page = () => {
         return (
           <div key={heading} className="flex flex-col gap-2">
             <Text variant="h6">{heading}</Text>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-6 gap-4">
               {items.map((item) => {
                 const { className, color, name } = item;
                 return (

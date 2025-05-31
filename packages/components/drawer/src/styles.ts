@@ -7,7 +7,7 @@ export const drawerVariants = tv({
   slots: {
     backdrop: "z-backdrop !overflow-x-hidden",
     content:
-      "absolute z-dialog flex w-full flex-col overflow-y-auto bg-content1 shadow-sm",
+      "absolute z-dialog flex w-full flex-col overflow-y-auto bg-background-secondary shadow-sm",
     header: "p-4",
     footer: "flex justify-end gap-2 p-4",
     body: "grow p-4",

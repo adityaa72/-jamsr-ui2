@@ -9,7 +9,7 @@ export const menuVariants = tv({
     backdrop: "z-backdrop",
     root: "min-w-[150px] z-popover",
     content:
-      "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-content1 p-1 text-sm shadow-md outline-none",
+      "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-background-secondary p-1 text-sm shadow-md outline-none",
     menuItem: [
       "relative box-border flex size-full cursor-pointer select-none items-center gap-2 px-2 py-1.5 text-left outline-none focus:bg-content2 ui-hover:bg-content2 ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
       "ui-active:bg-content3",

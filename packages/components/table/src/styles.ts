@@ -22,12 +22,12 @@ export const tableVariants = tv({
     variant: {
       solid: {
         th: "bg-default-100 first:rounded-l-lg last:rounded-r-lg",
-        root: "rounded-2xl bg-content1 p-4",
+        root: "rounded-2xl bg-background-secondary p-4",
       },
       bordered: {
         th: "border-b border-b-divider-dark",
         td: "border-b border-divider",
-        root: "bg-content1",
+        root: "bg-background-secondary",
       },
     },
     radius: radiusVariant("root"),
@@ -44,7 +44,7 @@ export const tableVariants = tv({
     },
     isHeaderSticky: {
       true: {
-        thead: "sticky top-0 z-10 bg-content1 [&>tr]:shadow-sm",
+        thead: "sticky top-0 z-10 bg-background-secondary [&>tr]:shadow-sm",
         wrapper: "flex max-h-[400px] flex-col overflow-auto",
       },
     },

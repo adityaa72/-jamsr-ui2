@@ -4,7 +4,7 @@ import type { VariantProps } from "@jamsr-ui/utils";
 
 export const tooltipVariants = tv({
   slots: {
-    root: "bg-content1 inline-flex px-3 py-1 text-sm font-medium text-foreground",
+    root: "bg-background-secondary inline-flex px-3 py-1 text-sm font-medium text-foreground",
     arrow: "",
   },
   variants: {
