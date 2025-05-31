@@ -6,17 +6,21 @@ export const test = "";
 export const chipVariants = tv({
   slots: {
     root: "relative box-border inline-flex min-w-min max-w-fit shrink-0 items-center justify-between whitespace-nowrap rounded-full",
-    content: "flex flex-1 items-center gap-1 text-inherit",
+    content: "flex flex-1 items-center gap-2 text-inherit",
     closeButton:
       "z-10 cursor-pointer select-none appearance-none opacity-70 outline-none transition-opacity tap-highlight-transparent hover:opacity-100 active:opacity-disabled",
     dot: "size-1.5 rounded-full",
   },
   variants: {
     variant: {
-      solid: "",
-      outlined: "border",
-      flat: "",
-      dot: "",
+      solid: {},
+      bordered: {
+        root: "border-2",
+      },
+      flat: {},
+      dot: {
+        dot: "outline-2",
+      },
     },
     size: {
       xs: {
@@ -58,7 +62,7 @@ export const chipVariants = tv({
     radius: radiusVariant("root"),
   },
   compoundVariants: [
-    ...(["solid", "outlined", "flat"] as const).flatMap((variant) =>
+    ...(["solid", "bordered", "flat"] as const).flatMap((variant) =>
       allColors.map((color) => ({
         variant,
         color,
@@ -75,6 +79,48 @@ export const chipVariants = tv({
         dot: colorVariants["solid"][color],
       },
     })),
+    {
+      variant: "dot",
+      color: "primary",
+      className: {
+        dot: "outline-primary-stroke",
+      },
+    },
+    {
+      variant: "dot",
+      color: "secondary",
+      className: {
+        dot: "outline-secondary-stroke",
+      },
+    },
+    {
+      variant: "dot",
+      color: "success",
+      className: {
+        dot: "outline-success-stroke",
+      },
+    },
+    {
+      variant: "dot",
+      color: "warning",
+      className: {
+        dot: "outline-warning-stroke",
+      },
+    },
+    {
+      variant: "dot",
+      color: "danger",
+      className: {
+        dot: "outline-danger-stroke",
+      },
+    },
+    {
+      variant: "dot",
+      color: "default",
+      className: {
+        dot: "outline-default-stroke",
+      },
+    },
     // bordered
     {
       isBordered: true,

@@ -4,9 +4,11 @@ import {
   colorVariants,
   radiusBaseVariant,
   tv,
-  VariantProps,
 } from "@jamsr-ui/utils";
 
+import type { VariantProps } from "@jamsr-ui/utils";
+
+export const test = "";
 export const iconButtonVariants = tv({
   base: [
     "z-0",
@@ -41,7 +43,7 @@ export const iconButtonVariants = tv({
     },
     variant: {
       solid: "",
-      outlined: "border-2 bg-transparent",
+      bordered: "border-2 bg-transparent",
       light: "",
       text: "",
       flat: "",

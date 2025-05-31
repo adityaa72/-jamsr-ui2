@@ -9,7 +9,7 @@ export const ChipStartEndContent = () => {
         Default
       </Chip>
       <Chip endContent={<CheckIcon />}>Default</Chip>
-      <Chip variant="outlined" color="secondary" endContent={<CheckIcon />}>
+      <Chip variant="bordered" color="secondary" endContent={<CheckIcon />}>
         Default
       </Chip>
     </div>

@@ -1,4 +1,4 @@
-import { CodeExample } from "@/components/code-example";
+import { CodeExample, DocsPageSection } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
@@ -9,8 +9,10 @@ import { ChipRadius } from "./examples/radius";
 import { ChipSizes } from "./examples/sizes";
 import { ChipStartEndContent } from "./examples/start-end-content";
 import { ChipUsage } from "./examples/usage";
-import { ChipVariants } from "./examples/variants";
-import { ChipVariantsColors } from "./examples/variants-colors";
+import { ChipVariantBordered } from "./examples/variants/bordered";
+import { ChipVariantDot } from "./examples/variants/dot";
+import { ChipVariantFlat } from "./examples/variants/flat";
+import { ChipVariantSolid } from "./examples/variants/solid";
 import { ChipWithClose } from "./examples/with-close";
 
 const title = "Chip";
@@ -32,9 +34,23 @@ const Chip = () => {
       <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
         <ChipColors />
       </CodeExample>
-      <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
-        <ChipVariants />
-      </CodeExample>
+      <DocsPageSection title="Variants">
+        <CodeExample title="Solid" url={resolvePath("variants/solid.tsx")}>
+          <ChipVariantSolid />
+        </CodeExample>
+        <CodeExample title="Flat" url={resolvePath("variants/flat.tsx")}>
+          <ChipVariantFlat />
+        </CodeExample>
+        <CodeExample
+          title="Bordered"
+          url={resolvePath("variants/bordered.tsx")}
+        >
+          <ChipVariantBordered />
+        </CodeExample>
+        <CodeExample title="Dot" url={resolvePath("variants/dot.tsx")}>
+          <ChipVariantDot />
+        </CodeExample>
+      </DocsPageSection>
       <CodeExample title="Sizes" url={resolvePath("sizes.tsx")}>
         <ChipSizes />
       </CodeExample>
@@ -49,12 +65,6 @@ const Chip = () => {
       </CodeExample>
       <CodeExample title="Bordered" url={resolvePath("bordered.tsx")}>
         <ChipBordered />
-      </CodeExample>
-      <CodeExample
-        title="Variants & Colors"
-        url={resolvePath("variants-colors.tsx")}
-      >
-        <ChipVariantsColors />
       </CodeExample>
       <CodeExample title="With Close" url={resolvePath("with-close.tsx")}>
         <ChipWithClose />

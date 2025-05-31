@@ -11,7 +11,7 @@ import type { VariantProps } from "@jamsr-ui/utils";
 export const test = "";
 export const buttonVariants = tv({
   base: [
-    "relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
+    "relative cursor-pointer inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
     "data-[loading]:cursor-progress",
     "disabled:cursor-not-allowed disabled:opacity-70",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
@@ -27,7 +27,7 @@ export const buttonVariants = tv({
     },
     variant: {
       solid: "",
-      outlined: "border",
+      bordered: "border-2",
       light: "",
       text: "",
       flat: "",

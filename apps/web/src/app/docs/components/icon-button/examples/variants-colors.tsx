@@ -5,7 +5,7 @@ export const IconButtonVariantsColors = () => {
   const variants: IconButton.Props["variant"][] = [
     "solid",
     "light",
-    "outlined",
+    "bordered",
     "text",
     "flat",
   ];

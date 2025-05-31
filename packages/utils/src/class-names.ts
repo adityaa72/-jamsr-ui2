@@ -5,7 +5,7 @@ type Color =
   | "success"
   | "warning"
   | "danger";
-type Variant = "solid" | "outlined" | "text" | "light" | "flat";
+type Variant = "solid" | "bordered" | "text" | "light" | "flat";
 
 const solidClasses = {
   default:
@@ -22,7 +22,7 @@ const solidClasses = {
     "bg-danger border border-danger text-danger-foreground ui-hover:bg-danger-dark",
 } satisfies Record<Color, string>;
 
-const outlinedClasses = {
+const borderedClasses = {
   default:
     "bg-transparent border-default text-foreground ui-hover:bg-default-light",
   primary:
@@ -71,7 +71,7 @@ const flatClasses = {
 
 export const colorVariants = {
   solid: solidClasses,
-  outlined: outlinedClasses,
+  bordered: borderedClasses,
   text: textClasses,
   light: lightClasses,
   flat: flatClasses,
@@ -87,7 +87,7 @@ export const allColors: Color[] = [
 ];
 export const allVariants: Variant[] = [
   "solid",
-  "outlined",
+  "bordered",
   "text",
   "light",
   "flat",

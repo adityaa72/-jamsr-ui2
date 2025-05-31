@@ -13,8 +13,8 @@ export const ChipContent = (props: ChipContent.Props) => {
   const composedChildren = (
     <>
       {startContent}
-      {children}
       {!!isDotVariant && <ChipDot />}
+      {children}
       {endContent}
     </>
   );
