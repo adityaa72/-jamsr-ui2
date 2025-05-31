@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
 import { linkVariants } from "./styles";
 
@@ -20,7 +20,7 @@ export const useLink = (props: useLink.Props) => {
     () => ({
       ...$props,
       "data-component": dataAttrDev("link"),
-      className: styles,
+      className: cn(styles, $props.className),
     }),
     [$props, styles]
   );

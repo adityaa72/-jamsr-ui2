@@ -12,7 +12,7 @@ export const DocsPage = (props: Props) => {
   return (
     <>
       <article className="flex col-span-2 flex-col gap-8 py-24">
-        <div>
+        <div className="flex flex-col gap-2">
           <Text render={<h1 />} variant="h2">
             {title}
           </Text>

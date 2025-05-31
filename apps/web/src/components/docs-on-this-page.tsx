@@ -1,3 +1,4 @@
+import { Link } from "@jamsr-ui/link";
 import { Text } from "@jamsr-ui/text";
 import React, { isValidElement } from "react";
 
@@ -15,14 +16,21 @@ export const DocsOnThisPage = (props: Props) => {
     })
     .filter(Boolean);
   return (
-    <aside className="col-span-1 py-24">
-      <ul className="flex flex-col gap-2">
+    <aside className="col-span-1 py-24 sticky top-24 h-max">
+      <Text variant="paragraph2">On this page</Text>
+      <ul className="flex flex-col">
         {headings.map((item) => {
+          if (!item) return null;
+          const id = item.toLowerCase().replace(" ", "-");
           return (
             <li key={item}>
-              <Text variant="caption" className="text-foreground-tertiary">
+              <Link
+                href={`#${id}`}
+                variant="caption"
+                className="text-foreground-secondary"
+              >
                 {item}
-              </Text>
+              </Link>
             </li>
           );
         })}

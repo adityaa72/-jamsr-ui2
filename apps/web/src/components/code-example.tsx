@@ -37,14 +37,16 @@ export const CodeExample = async (props: CodeExampleProps) => {
   return (
     <section id={id} className="flex flex-col gap-2">
       <div>
-        <Text render={<h3 />} variant="h5">
+        <Text render={<a href={`#${id}`} />} variant="h5">
           {title}
         </Text>
         <Text>{description}</Text>
       </div>
       <Tabs defaultValue="preview">
         <Tab heading="Preview" value="preview">
-          {children}
+          <div className="border border-stroke-primary rounded-lg p-4">
+            {children}
+          </div>
         </Tab>
         <Tab heading="Code" value="code">
           <CodeBlock lang={lang}>{code}</CodeBlock>
