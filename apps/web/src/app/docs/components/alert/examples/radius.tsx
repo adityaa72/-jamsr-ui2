@@ -1,4 +1,4 @@
-import { Alert } from "@jamsr-ui/alert";
+import { Alert, AlertDescription } from "@jamsr-ui/alert";
 
 export const AlertRadius = () => {
   const radius: Alert.Props["radius"][] = [
@@ -15,7 +15,9 @@ export const AlertRadius = () => {
     <div className="grid gap-4">
       {radius.map((radius) => (
         <Alert key={radius} radius={radius}>
-          {radius}: This is an {radius} Radius Alert
+          <AlertDescription>
+            {radius}: This is an {radius} Radius Alert
+          </AlertDescription>
         </Alert>
       ))}
     </div>

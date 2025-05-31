@@ -5,11 +5,9 @@ import { Metadata } from "next";
 import { AlertRadius } from "./examples/radius";
 import { AlertStatus } from "./examples/status";
 import { AlertUsage } from "./examples/usage";
-import {
-  AlertVariantBordered,
-  AlertVariantFlat,
-  AlertVariantSolid,
-} from "./examples/variants/solid";
+import { AlertVariantBordered } from "./examples/variants/bordered";
+import { AlertVariantFlat } from "./examples/variants/flat";
+import { AlertVariantSolid } from "./examples/variants/solid";
 import { AlertWithAction } from "./examples/with-action";
 import { AlertWithTitle } from "./examples/with-title";
 import { AlertWithoutIcon } from "./examples/without-icon";

@@ -5,7 +5,9 @@ export const AlertWithTitle = () => {
     <div className="flex flex-col gap-4">
       <Alert status="warning">
         <AlertTitle>Warning!</AlertTitle>
-        Your plan will expire soon, please renew your plan.
+        <AlertDescription>
+          Your plan will expire soon, please renew your plan.
+        </AlertDescription>
       </Alert>
       <Alert status="info">
         <AlertTitle>Info!</AlertTitle>
@@ -13,7 +15,11 @@ export const AlertWithTitle = () => {
       </Alert>
       <Alert status="success">
         <AlertTitle>Success!</AlertTitle>
-        Your Pro plan has been activated.
+        <AlertDescription>Your Pro plan has been activated.</AlertDescription>
+      </Alert>
+      <Alert status="danger">
+        <AlertTitle>Error!</AlertTitle>
+        <AlertDescription>Something went wrong!</AlertDescription>
       </Alert>
     </div>
   );

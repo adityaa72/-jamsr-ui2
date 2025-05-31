@@ -1,66 +1,60 @@
 @theme inline {
   /* Default */
   --color-default: var(--ui-default);
-  --color-default-dark: var(--ui-default-dark);
-  --color-default-darker: var(--ui-default-darker);
+  --color-default-hover: var(--ui-default-hover);
+  --color-default-active: var(--ui-default-active);
   --color-default-stroke: var(--ui-default-stroke);
-  --color-default-light: var(--ui-default-light);
-  --color-default-lighter: var(--ui-default-lighter);
+  --color-default-fill: var(--ui-default-fill);
   --color-default-foreground: var(--ui-default-foreground);
 
   /* Primary */
   --color-primary: var(--ui-primary);
-  --color-primary-dark: var(--ui-primary-dark);
-  --color-primary-darker: var(--ui-primary-darker);
+  --color-primary-hover: var(--ui-primary-hover);
+  --color-primary-active: var(--ui-primary-active);
   --color-primary-stroke: var(--ui-primary-stroke);
-  --color-primary-light: var(--ui-primary-light);
-  --color-primary-lighter: var(--ui-primary-lighter);
+  --color-primary-fill: var(--ui-primary-fill);
   --color-primary-foreground: var(--ui-primary-foreground);
 
   /* Secondary */
   --color-secondary: var(--ui-secondary);
-  --color-secondary-dark: var(--ui-secondary-dark);
-  --color-secondary-darker: var(--ui-secondary-darker);
+  --color-secondary-hover: var(--ui-secondary-hover);
+  --color-secondary-active: var(--ui-secondary-active);
   --color-secondary-stroke: var(--ui-secondary-stroke);
-  --color-secondary-light: var(--ui-secondary-light);
-  --color-secondary-lighter: var(--ui-secondary-lighter);
+  --color-secondary-fill: var(--ui-secondary-fill);
   --color-secondary-foreground: var(--ui-secondary-foreground);
 
   /* Success */
   --color-success: var(--ui-success);
-  --color-success-dark: var(--ui-success-dark);
-  --color-success-darker: var(--ui-success-darker);
+  --color-success-hover: var(--ui-success-hover);
+  --color-success-active: var(--ui-success-active);
   --color-success-stroke: var(--ui-success-stroke);
-  --color-success-light: var(--ui-success-light);
-  --color-success-lighter: var(--ui-success-lighter);
+  --color-success-fill: var(--ui-success-fill);
   --color-success-foreground: var(--ui-success-foreground);
 
   /* Warning */
   --color-warning: var(--ui-warning);
-  --color-warning-dark: var(--ui-warning-dark);
-  --color-warning-darker: var(--ui-warning-darker);
+  --color-warning-hover: var(--ui-warning-hover);
+  --color-warning-active: var(--ui-warning-active);
   --color-warning-stroke: var(--ui-warning-stroke);
-  --color-warning-light: var(--ui-warning-light);
-  --color-warning-lighter: var(--ui-warning-lighter);
+  --color-warning-fill: var(--ui-warning-fill);
   --color-warning-foreground: var(--ui-warning-foreground);
 
   /* Danger */
   --color-danger: var(--ui-danger);
-  --color-danger-dark: var(--ui-danger-dark);
-  --color-danger-darker: var(--ui-danger-darker);
+  --color-danger-hover: var(--ui-danger-hover);
+  --color-danger-active: var(--ui-danger-active);
   --color-danger-stroke: var(--ui-danger-stroke);
-  --color-danger-light: var(--ui-danger-light);
-  --color-danger-lighter: var(--ui-danger-lighter);
+  --color-danger-fill: var(--ui-danger-fill);
   --color-danger-foreground: var(--ui-danger-foreground);
 
   /* Text */
-  --color-foreground: var(--ui-foreground-primary);
+  --color-foreground-primary: var(--ui-foreground-primary);
   --color-foreground-secondary: var(--ui-foreground-secondary);
   --color-foreground-tertiary: var(--ui-foreground-tertiary);
   --color-foreground-quaternary: var(--ui-foreground-quaternary);
 
   /* Background */
-  --color-background: var(--ui-background);
+  --color-background-primary: var(--ui-background);
   --color-background-secondary: var(--ui-background-secondary);
   --color-background-tertiary: var(--ui-background-tertiary);
   --color-background-quaternary: var(--ui-background-quaternary);
@@ -72,10 +66,10 @@
   --color-gray-quaternary: var(--ui-gray-quaternary);
 
   /* Fill */
-  --color-fill-primary: var(--ui-light-primary);
-  --color-fill-secondary: var(--ui-light-secondary);
-  --color-fill-tertiary: var(--ui-light-tertiary);
-  --color-fill-quaternary: var(--ui-light-quaternary);
+  --color-fill-primary: var(--ui-fill-primary);
+  --color-fill-secondary: var(--ui-fill-secondary);
+  --color-fill-tertiary: var(--ui-fill-tertiary);
+  --color-fill-quaternary: var(--ui-fill-quaternary);
 
   /* Stroke */
   --color-stroke-primary: var(--ui-stroke-primary);
@@ -87,48 +81,48 @@
 [data-theme="light"] {
   /* Default */
   --ui-default: oklch(37% 0.012 285.8);
-  --ui-default-dark: oklch(71.2% 0.013 286.1);
-  --ui-default-darker: oklch(27.4% 0.005 286);
+  --ui-default-hover: oklch(71.2% 0.013 286.1);
+  --ui-default-active: oklch(27.4% 0.005 286);
   --ui-default-stroke: oklch(71.2% 0.013 286.1);
-  --ui-default-light: oklch(87.1% 0.005 286.3);
+  --ui-default-fill: oklch(87.1% 0.005 286.3);
 
   /* Primary */
   --ui-primary: oklch(54.6% 0.215 262.9);
-  --ui-primary-dark: oklch(62.3% 0.188 259.8);
-  --ui-primary-darker: oklch(48.8% 0.217 264.4);
+  --ui-primary-hover: oklch(62.3% 0.188 259.8);
+  --ui-primary-active: oklch(48.8% 0.217 264.4);
   --ui-primary-stroke: oklch(88.2% 0.057 254.1);
-  --ui-primary-light: oklch(97% 0.014 254.6);
+  --ui-primary-fill: oklch(97% 0.014 254.6);
 
   /* Secondary */
   --ui-secondary: oklch(54.1% 0.247 293);
-  --ui-secondary-dark: oklch(60.6% 0.219 292.7);
-  --ui-secondary-darker: oklch(49.1% 0.241 292.6);
+  --ui-secondary-hover: oklch(60.6% 0.219 292.7);
+  --ui-secondary-active: oklch(49.1% 0.241 292.6);
   --ui-secondary-stroke: oklch(89.4% 0.055 293.3);
-  --ui-secondary-light: oklch(96.9% 0.016 293.8);
+  --ui-secondary-fill: oklch(96.9% 0.016 293.8);
 
   /* Success */
   --ui-success: oklch(62.7% 0.17 149.2);
-  --ui-success-dark: oklch(72.3% 0.192 149.6);
-  --ui-success-darker: oklch(52.7% 0.137 150.1);
+  --ui-success-hover: oklch(72.3% 0.192 149.6);
+  --ui-success-active: oklch(52.7% 0.137 150.1);
   --ui-success-stroke: oklch(92.5% 0.081 156);
-  --ui-success-light: oklch(98.2% 0.018 155.8);
+  --ui-success-fill: oklch(98.2% 0.018 155.8);
 
   /* Warning */
   --ui-warning: oklch(79.5% 0.162 86);
-  --ui-warning-dark: oklch(86.1% 0.173 91.9);
-  --ui-warning-darker: oklch(68.1% 0.142 75.8);
+  --ui-warning-hover: oklch(86.1% 0.173 91.9);
+  --ui-warning-active: oklch(68.1% 0.142 75.8);
   --ui-warning-stroke: oklch(94.5% 0.124 101.5);
-  --ui-warning-light: oklch(98.7% 0.026 102.2);
+  --ui-warning-fill: oklch(98.7% 0.026 102.2);
 
   /* Danger */
   --ui-danger: oklch(57.7% 0.215 27.3);
-  --ui-danger-dark: oklch(63.7% 0.208 25.3);
-  --ui-danger-darker: oklch(50.5% 0.19 27.5);
+  --ui-danger-hover: oklch(63.7% 0.208 25.3);
+  --ui-danger-active: oklch(50.5% 0.19 27.5);
   --ui-danger-stroke: oklch(88.5% 0.059 18.3);
-  --ui-danger-light: oklch(97.1% 0.013 17.4);
+  --ui-danger-fill: oklch(97.1% 0.013 17.4);
 
   /* Text */
-  --ui-foreground: oklch(21% 0.006 285.9);
+  --ui-foreground-primary: oklch(21% 0.006 285.9);
   --ui-foreground-secondary: oklch(55.2% 0.014 285.9);
   --ui-foreground-tertiary: oklch(71.2% 0.013 286.1);
   --ui-foreground-quaternary: oklch(87.1% 0.005 286.3);
@@ -160,56 +154,50 @@
 [data-theme="dark"] {
   /* Default */
   --ui-default: oklch(37% 0.012 285.8);
-  --ui-default-dark: oklch(27.4% 0.005 286);
-  --ui-default-darker: oklch(27.4% 0.005 286);
+  --ui-default-hover: oklch(71.2% 0.013 286.1);
+  --ui-default-active: oklch(27.4% 0.005 286);
   --ui-default-stroke: oklch(55.2% 0.014 285.9);
-  --ui-default-light: #101012;
-  --ui-default-lighter: #131315;
+  --ui-default-fill: oklch(21% 0.006 285.9);
   --ui-default-foreground: oklch(100% 0 0);
 
   /* Primary */
-  --ui-primary: oklch(56.7% 0.209 257.9);
-  --ui-primary-dark: oklch(49.2% 0.18 257.7);
-  --ui-primary-darker: oklch(48.8% 0.217 264.4);
+  --ui-primary: oklch(54.6% 0.215 262.9);
+  --ui-primary-hover: oklch(62.3% 0.188 259.8);
+  --ui-primary-active: oklch(48.8% 0.217 264.4);
   --ui-primary-stroke: oklch(37.9% 0.138 265.5);
-  --ui-primary-light: #001124;
-  --ui-primary-lighter: #000b18;
+  --ui-primary-fill: oklch(28.2% 0.087 267.9);
   --ui-primary-foreground: oklch(100% 0 0);
 
   /* Secondary */
-  --ui-secondary: oklch(57.7% 0.192 304);
-  --ui-secondary-dark: oklch(48.8% 0.225 300.5);
-  --ui-secondary-darker: oklch(49.1% 0.241 292.6);
+  --ui-secondary: oklch(54.1% 0.247 293);
+  --ui-secondary-hover: oklch(60.6% 0.219 292.7);
+  --ui-secondary-active: oklch(49.1% 0.241 292.6);
   --ui-secondary-stroke: oklch(38% 0.178 293.7);
-  --ui-secondary-light: #160C20;
-  --ui-secondary-lighter: #0F0815;
+  --ui-secondary-fill: oklch(28.3% 0.135 291.1);
   --ui-secondary-foreground: oklch(100% 0 0);
 
   /* Success */
-  --ui-success: oklch(73.3% 0.193 150.8);
-  --ui-success-dark: oklch(62.2% 0.163 151);
-  --ui-success-darker: oklch(52.7% 0.137 150.1);
+  --ui-success: oklch(62.7% 0.17 149.2);
+  --ui-success-hover: oklch(72.3% 0.192 149.6);
+  --ui-success-active: oklch(52.7% 0.137 150.1);
   --ui-success-stroke: oklch(39.3% 0.09 152.5);
-  --ui-success-light: #041e0f;
-  --ui-success-lighter: #02140a;
-  --ui-success-foreground: oklch(0% 0 0);
+  --ui-success-fill: oklch(26.6% 0.063 152.9);
+  --ui-success-foreground: oklch(100% 0 0);
 
   /* Warning */
-  --ui-warning: oklch(78.2% 0.158 72.3);
-  --ui-warning-dark: oklch(66.3% 0.133 72.6);
-  --ui-warning-darker: oklch(68.1% 0.142 75.8);
+  --ui-warning: oklch(79.5% 0.162 86);
+  --ui-warning-hover: oklch(86.1% 0.173 91.9);
+  --ui-warning-active: oklch(68.1% 0.142 75.8);
   --ui-warning-stroke: oklch(42.1% 0.09 57.7);
-  --ui-warning-light: #251906;
-  --ui-warning-lighter: #181004;
-  --ui-warning-foreground: oklch(0% 0 0);
+  --ui-warning-fill: oklch(28.6% 0.064 53.8);
+  --ui-success-foreground: oklch(100% 0 0);
 
   /* Danger */
-  --ui-danger: oklch(61.9% 0.242 11.3);
-  --ui-danger-dark: oklch(52.4% 0.204 10.7);
-  --ui-danger-darker: oklch(50.5% 0.19 27.5);
+  --ui-danger: oklch(57.7% 0.215 27.3);
+  --ui-danger-hover: oklch(63.7% 0.208 25.3);
+  --ui-danger-active: oklch(50.5% 0.19 27.5);
   --ui-danger-stroke: oklch(39.6% 0.133 25.7);
-  --ui-danger-light: #24030E;
-  --ui-danger-lighter: #18020A;
+  --ui-danger-fill: oklch(25.8% 0.089 26);
   --ui-danger-foreground: oklch(100% 0 0);
 
   /* Text */
@@ -244,8 +232,10 @@
 :root,
 html,
 body {
-  @apply bg-background text-foreground;
+  @apply bg-background-primary text-foreground;
 }
+
+
 
 /*  utility */
 @utility z-backdrop {
@@ -278,7 +268,7 @@ body {
 @custom-variant uig-has-label (&:is(:where(.group[data-has-label=true]) &));
 
 @custom-variant ui-hover (&:not(:disabled):hover);
-@custom-variant uig-hover (&:is(:where(.group[data-darked=true]) &));
+@custom-variant uig-hover (&:is(:where(.group[data-hovered=true]) &));
 
 @custom-variant ui-selected (&[data-selected=true]);
 @custom-variant uig-selected (&:is(:where(.group[data-selected=true]) &));
@@ -303,8 +293,8 @@ body {
 
 @custom-variant ui-loaded (&[data-loaded=true]);
 
-@custom-variant ui-lighted-within (&[data-lighted-within=true]);
-@custom-variant uig-lighted-within (&:is(:where(.group[data-lighted-within=true]) &));
+@custom-variant ui-filled-within (&[data-filled-within=true]);
+@custom-variant uig-filled-within (&:is(:where(.group[data-filled-within=true]) &));
 
 @custom-variant ui-focus-visible (&[data-focus-visible=true]);
 

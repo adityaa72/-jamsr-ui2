@@ -36,7 +36,7 @@ export const buttonVariants = tv({
       true: "w-full",
     },
     size: {
-      xs: "px-2 py-1 text-2xs",
+      xs: "px-2 py-1 text-xs",
       sm: "min-w-16 gap-1 px-3 py-1.5 text-xs",
       md: "min-w-20 gap-2 px-4 py-2 text-sm",
       lg: "min-w-40 gap-2 px-6 py-2.5 text-base font-medium",

@@ -3,7 +3,7 @@
 import { Alert } from "@jamsr-ui/alert";
 import { Button } from "@jamsr-ui/button";
 import { IconButton } from "@jamsr-ui/icon-button";
-import { CloseIcon, EyeClosedIcon } from "@jamsr-ui/icons";
+import { CloseIcon } from "@jamsr-ui/icons";
 import { useState } from "react";
 
 export const AlertWithAction = () => {
@@ -25,27 +25,16 @@ export const AlertWithAction = () => {
         <Alert
           status="danger"
           endContent={
-            <div className="flex flex-row gap-2">
-              <IconButton
-                label="Close"
-                radius="full"
-                variant="light"
-                color="success"
-                size="sm"
-              >
-                <EyeClosedIcon className="size-5" />
-              </IconButton>
-              <IconButton
-                label="Close"
-                onClick={handleClose}
-                radius="full"
-                color="danger"
-                variant="light"
-                size="sm"
-              >
-                <CloseIcon className="size-5" />
-              </IconButton>
-            </div>
+            <IconButton
+              label="Close"
+              onClick={handleClose}
+              radius="full"
+              color="danger"
+              variant="solid"
+              size="sm"
+            >
+              <CloseIcon className="size-5" />
+            </IconButton>
           }
         >
           Your Pro plan has expired.
