@@ -1,14 +1,19 @@
 import { Button } from "@jamsr-ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@jamsr-ui/popover";
+import { Text } from "@jamsr-ui/text";
 
 export const PopoverUsage = () => {
   return (
-    <div>
-      <Popover>
+    <div className="grid min-h-[100px] place-items-center">
+      <Popover backdrop="blur" placement="bottom">
         <PopoverTrigger>
           <Button>Press Me!</Button>
         </PopoverTrigger>
-        <PopoverContent>I am the popover content</PopoverContent>
+        <PopoverContent className="flex flex-col gap-2">
+          <Text variant="h6">Notifications</Text>
+          <Text>You are all caught up. Good job!</Text>
+          <Text>I am the popover content.</Text>
+        </PopoverContent>
       </Popover>
     </div>
   );

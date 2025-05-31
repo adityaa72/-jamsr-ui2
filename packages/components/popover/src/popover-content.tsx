@@ -4,37 +4,46 @@ import {
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { usePopoverContext } from "./popover-context";
+import { PopoverRoot } from "./popover-root";
+
+import type { HTMLMotionProps } from "motion/react";
 
 export const PopoverContent = (props: PopoverContent.Props) => {
   const { children } = props;
   const {
     isOpen,
-    getRootProps,
     showArrow,
     getArrowProps,
     getFloatingFocusManagerProps,
+    getContentProps,
+    getOverlayProps,
   } = usePopoverContext();
 
   return (
-    isOpen && (
-      <FloatingPortal>
-        <FloatingOverlay>
-          <FloatingFocusManager {...getFloatingFocusManagerProps()}>
-            <div {...getRootProps({})}>
-              {!!showArrow && <FloatingArrow {...getArrowProps()} />}
-              {children}
-            </div>
-          </FloatingFocusManager>
-        </FloatingOverlay>
-      </FloatingPortal>
-    )
+    <AnimatePresence>
+      {!!isOpen && (
+        <FloatingPortal>
+          <FloatingOverlay {...getOverlayProps()}>
+            <FloatingFocusManager {...getFloatingFocusManagerProps()}>
+              <PopoverRoot>
+                <motion.div {...getContentProps(props)}>
+                  <>
+                    {!!showArrow && <FloatingArrow {...getArrowProps()} />}
+                    {children}
+                  </>
+                </motion.div>
+              </PopoverRoot>
+            </FloatingFocusManager>
+          </FloatingOverlay>
+        </FloatingPortal>
+      )}
+    </AnimatePresence>
   );
 };
 
 export namespace PopoverContent {
-  export interface Props {
-    children: React.ReactNode;
-  }
+  export interface Props extends HTMLMotionProps<"div"> {}
 }

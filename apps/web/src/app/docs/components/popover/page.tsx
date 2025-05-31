@@ -2,7 +2,13 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { PopoverControlled } from "./examples/controlled";
+import { PopoverRadius } from "./examples/radius";
+import { PopoverTriggerOnHover } from "./examples/trigger-on-hover";
 import { PopoverUsage } from "./examples/usage";
+import { PopoverWithArrow } from "./examples/with-arrow";
+import { PopoverWithoutLockScroll } from "./examples/without-lockscroll";
+import { PopoverPlacements } from "./examples/placements";
 
 const title = "Popover";
 const description =
@@ -19,6 +25,30 @@ const Popover = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <PopoverUsage />
+      </CodeExample>
+      <CodeExample title="With Arrow" url={resolvePath("with-arrow.tsx")}>
+        <PopoverWithArrow />
+      </CodeExample>
+      <CodeExample title="Placements" url={resolvePath("placements.tsx")}>
+        <PopoverPlacements />
+      </CodeExample>
+      <CodeExample
+        title="Trigger On Hover"
+        url={resolvePath("trigger-on-hover.tsx")}
+      >
+        <PopoverTriggerOnHover />
+      </CodeExample>
+      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+        <PopoverRadius />
+      </CodeExample>
+      <CodeExample title="Controlled" url={resolvePath("controlled.tsx")}>
+        <PopoverControlled />
+      </CodeExample>
+      <CodeExample
+        title="Without Scroll"
+        url={resolvePath("without-lockscroll.tsx")}
+      >
+        <PopoverWithoutLockScroll />
       </CodeExample>
     </DocsPage>
   );

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { ComponentProps, useCallback, useMemo, useRef } from "react";
 
 import {
   arrow,
@@ -15,33 +15,68 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { cn } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsr-ui/hooks";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
 
 import { popoverVariants } from "./styles";
 
-import type { FloatingFocusManagerProps, Placement } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type {
+  FloatingFocusManagerProps,
+  FloatingOverlay,
+  Placement,
+} from "@floating-ui/react";
+import type { PropGetter, SlotsToClassNames } from "@jamsr-ui/utils";
 
+import type { PopoverContent } from "./popover-content";
+import type { PopoverRoot } from "./popover-root";
 import type { PopoverSlots, PopoverVariants } from "./styles";
 
+const getInitialPosition = (placement: Placement) => {
+  switch (placement) {
+    case "top":
+    case "top-end":
+    case "top-start":
+      return { y: 15 };
+    case "bottom":
+    case "bottom-start":
+    case "bottom-end":
+      return { y: -15 };
+    case "left":
+    case "left-end":
+    case "left-start":
+      return { x: 15 };
+    case "right":
+    case "right-end":
+    case "right-start":
+      return { x: -15 };
+  }
+};
+
 export const usePopover = (props: usePopover.Props) => {
+  const [$props, variantProps] = mapPropsVariants(
+    props,
+    popoverVariants.variantKeys
+  );
   const {
     className,
     classNames,
-    initialOpen,
+    defaultOpen,
     isDisabled = false,
-    isModal = false,
+    isModal = true,
     isOpen: isOpenProp,
     lockScroll = true,
-    offset: offsetProp,
+    offset: offsetProp = 4,
     onOpenChange,
     placement = "top",
     showArrow = false,
     triggerOn = "click",
-    radius,
-  } = props;
+  } = $props;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useControlledState({
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+    prop: isOpenProp,
+  });
   const arrowRef = useRef<SVGSVGElement>(null);
 
   const { refs, floatingStyles, context } = useFloating({
@@ -79,18 +114,18 @@ export const usePopover = (props: usePopover.Props) => {
     hover,
   ]);
 
-  const styles = popoverVariants({
-    radius,
-  });
-
-  const getRootProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
+  const styles = popoverVariants(variantProps);
+  const getRootProps: PropGetter<PopoverRoot.Props> = useCallback(
+    (props) => ({
+      ...props,
       className: styles.root({
-        className: cn(classNames?.root, className),
+        className: cn(props.className, classNames?.root, className),
       }),
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
+      "data-slot": dataAttrDev("root"),
+      "data-component": dataAttrDev("popover"),
     }),
     [
       className,
@@ -102,15 +137,30 @@ export const usePopover = (props: usePopover.Props) => {
     ]
   );
 
+  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
+    (props) => ({
+      initial: { opacity: 0, scale: 0.8, ...getInitialPosition(placement) },
+      animate: { opacity: 1, scale: 1, x: 0, y: 0 },
+      exit: { opacity: 0, scale: 0.8, ...getInitialPosition(placement) },
+      transition: { type: "spring", stiffness: 300, damping: 25 },
+      ...props,
+      "data-slot": dataAttrDev("content"),
+      className: styles.content({
+        className: cn(classNames?.content, props.className),
+      }),
+    }),
+    [classNames?.content, placement, styles]
+  );
+
   const getArrowProps = useCallback(
     () => ({
       context,
       ref: arrowRef,
       className: styles.arrow({
-        className: cn(classNames?.arrow, className),
+        className: cn(classNames?.arrow),
       }),
     }),
-    [className, classNames?.arrow, context, styles]
+    [classNames?.arrow, context, styles]
   );
 
   const getTriggerProps = useCallback(
@@ -118,8 +168,9 @@ export const usePopover = (props: usePopover.Props) => {
       ...getReferenceProps({
         ref: refs.setReference,
       }),
+      className: variantProps.backdrop === "blur" && isOpen ? "z-popover" : "",
     }),
-    [getReferenceProps, refs.setReference]
+    [getReferenceProps, isOpen, refs.setReference, variantProps.backdrop]
   );
 
   const getFloatingFocusManagerProps = useCallback(
@@ -127,9 +178,19 @@ export const usePopover = (props: usePopover.Props) => {
       context,
       modal: isModal,
       returnFocus: triggerOn === "click",
-      initialFocus: -1,
+      initialFocus: 0,
     }),
     [context, isModal, triggerOn]
+  );
+
+  const getOverlayProps = useCallback(
+    (): ComponentProps<typeof FloatingOverlay> => ({
+      lockScroll,
+      className: styles.backdrop({
+        className: cn(classNames?.backdrop),
+      }),
+    }),
+    [classNames?.backdrop, lockScroll, styles]
   );
 
   return useMemo(
@@ -140,6 +201,8 @@ export const usePopover = (props: usePopover.Props) => {
       getTriggerProps,
       getFloatingFocusManagerProps,
       showArrow,
+      getContentProps,
+      getOverlayProps,
     }),
     [
       getArrowProps,
@@ -148,6 +211,8 @@ export const usePopover = (props: usePopover.Props) => {
       getTriggerProps,
       isOpen,
       showArrow,
+      getContentProps,
+      getOverlayProps,
     ]
   );
 };
@@ -155,7 +220,7 @@ export const usePopover = (props: usePopover.Props) => {
 export namespace usePopover {
   export interface Props extends PopoverVariants {
     classNames?: SlotsToClassNames<PopoverSlots>;
-    initialOpen?: boolean;
+    defaultOpen?: boolean;
     placement?: Placement;
     isModal?: boolean;
     isOpen?: boolean;

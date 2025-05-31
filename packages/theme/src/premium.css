@@ -85,6 +85,7 @@
 :root,
 .light,
 [data-theme="light"] {
+  color-scheme: light;
   /* Default */
   --ui-default: oklch(37% 0.012 285.8);
   --ui-default-dark: oklch(71.2% 0.013 286.1);
@@ -158,6 +159,7 @@
 
 .dark,
 [data-theme="dark"] {
+  color-scheme: dark;
   /* Default */
   --ui-default: oklch(37% 0.012 285.8);
   --ui-default-dark: oklch(27.4% 0.005 286);
@@ -182,8 +184,8 @@
   --ui-secondary-dark: oklch(48.8% 0.225 300.5);
   --ui-secondary-darker: oklch(49.1% 0.241 292.6);
   --ui-secondary-stroke: oklch(38% 0.178 293.7);
-  --ui-secondary-light: #160C20;
-  --ui-secondary-lighter: #0F0815;
+  --ui-secondary-light: #160c20;
+  --ui-secondary-lighter: #0f0815;
   --ui-secondary-foreground: oklch(100% 0 0);
 
   /* Success */
@@ -211,8 +213,8 @@
   --ui-danger-dark: oklch(52.4% 0.204 10.7);
   --ui-danger-darker: oklch(50.5% 0.19 27.5);
   --ui-danger-stroke: oklch(39.6% 0.133 25.7);
-  --ui-danger-light: #24030E;
-  --ui-danger-lighter: #18020A;
+  --ui-danger-light: #24030e;
+  --ui-danger-lighter: #18020a;
   --ui-danger-foreground: oklch(100% 0 0);
 
   /* Text */
