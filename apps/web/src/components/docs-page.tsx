@@ -1,4 +1,4 @@
-import { Text } from "@jamsr-ui/text";
+import { Text } from "@jamsr-ui/react";
 import { DocsOnThisPage } from "./docs-on-this-page";
 
 type Props = {

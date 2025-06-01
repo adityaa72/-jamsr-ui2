@@ -1,6 +1,6 @@
-import { Button } from "@jamsr-ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@jamsr-ui/popover";
-import { Text } from "@jamsr-ui/text";
+import { Button } from "@jamsr-ui/react";
+import { Popover, PopoverContent, PopoverTrigger } from "@jamsr-ui/react";
+import { Text } from "@jamsr-ui/react";
 
 export const PopoverRadius = () => {
   const radii: Popover.Props["radius"][] = [

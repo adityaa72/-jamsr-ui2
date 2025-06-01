@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
   useAccordionItemState,
-} from "@jamsr-ui/accordion";
+} from "@jamsr-ui/react";
 import { MinusIcon, PlusIcon } from "@jamsr-ui/icons";
 
 const AccordionIndicator = () => {

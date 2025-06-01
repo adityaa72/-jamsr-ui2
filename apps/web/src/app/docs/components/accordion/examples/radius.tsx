@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@jamsr-ui/accordion";
+} from "@jamsr-ui/react";
 
 export const AccordionRadius = () => {
   return (

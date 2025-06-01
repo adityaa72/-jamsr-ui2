@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@jamsr-ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@jamsr-ui/react";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@jamsr-ui/collapsible";
+} from "@jamsr-ui/react";
 
 export const CollapsibleUsage = () => {
   return (

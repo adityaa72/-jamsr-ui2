@@ -1,5 +1,5 @@
 import { Link } from "@jamsr-ui/link";
-import { Text } from "@jamsr-ui/text";
+import { Text } from "@jamsr-ui/react";
 import React, { isValidElement } from "react";
 
 type Props = {

@@ -1,7 +1,7 @@
 import { readSourceCode } from "@/utils/code";
-import { Text } from "@jamsr-ui/text";
+import { Text } from "@jamsr-ui/react";
 import { CodeBlock, CodeBlockProps } from "./code-block";
-import { Tab, Tabs } from "@jamsr-ui/tabs";
+import { Tab, Tabs } from "@jamsr-ui/react";
 
 type CodeExampleProps = Omit<CodeBlockProps, "children"> & {
   url: string;

@@ -4,7 +4,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@jamsr-ui/collapsible";
+} from "@jamsr-ui/react";
 import { ChevronRightIcon, EmailIcon } from "@jamsr-ui/icons";
 import {
   Sidebar,
@@ -16,7 +16,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
-} from "@jamsr-ui/sidebar";
+} from "@jamsr-ui/react";
 import Link from "next/link";
 
 type NavItem = {

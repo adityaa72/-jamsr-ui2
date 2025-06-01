@@ -1,4 +1,4 @@
-import { Alert } from "@jamsr-ui/alert";
+import { Alert } from "@jamsr-ui/react";
 
 export const AlertVariantFlat = () => {
   return (

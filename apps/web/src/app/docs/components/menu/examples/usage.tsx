@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@jamsr-ui/button";
-import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsr-ui/menu";
+import { Button } from "@jamsr-ui/react";
+import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsr-ui/react";
 
 export const MenuUsage = () => {
   return (

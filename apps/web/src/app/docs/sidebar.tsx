@@ -8,7 +8,7 @@ import {
   SidebarMenuItemButton,
   SidebarProvider,
   SidebarToggle,
-} from "@jamsr-ui/sidebar";
+} from "@jamsr-ui/react";
 import { Route } from "next";
 import Link from "next/link";
 

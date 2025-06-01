@@ -1,4 +1,4 @@
-import { Text } from "@jamsr-ui/text";
+import { Text } from "@jamsr-ui/react";
 
 import { useCardContext } from "./card-context";
 

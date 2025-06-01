@@ -13,7 +13,7 @@ export const CodeBlock = async (props: CodeBlockProps) => {
   });
   return (
     <div
-      className="p-4 rounded-2xl max-h-[50vh] overflow-auto"
+      className="p-4 rounded-2xl [&_code]:text-sm max-h-[50vh] overflow-auto"
       style={{
         background: "#0d1117",
       }}

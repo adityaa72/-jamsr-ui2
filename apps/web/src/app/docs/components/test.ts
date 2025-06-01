@@ -54,7 +54,7 @@ const items = [
 
 const template = `import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsr-ui/text";
+import { Text } from "@jamsr-ui/react";
 import { Metadata } from "next";
 
 const title = "{{title}}";

@@ -5,7 +5,7 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@jamsr-ui/table";
+} from "@jamsr-ui/react";
 
 export const TableUsage = () => {
   return (

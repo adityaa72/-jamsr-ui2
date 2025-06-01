@@ -1,4 +1,4 @@
-import { Button } from "@jamsr-ui/button";
+import { Button } from "@jamsr-ui/react";
 import {
   Dialog,
   DialogBody,
@@ -7,8 +7,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTrigger,
-} from "@jamsr-ui/dialog";
-import { Text } from "@jamsr-ui/text";
+} from "@jamsr-ui/react";
+import { Text } from "@jamsr-ui/react";
 
 export const DialogUsage = () => {
   return (

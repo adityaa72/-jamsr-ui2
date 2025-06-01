@@ -1,4 +1,4 @@
-import { Avatar } from "@jamsr-ui/avatar";
+import { Avatar } from "@jamsr-ui/react";
 import { useId } from "react";
 
 export const AvatarUsage = (props: Partial<Avatar.Props>) => {

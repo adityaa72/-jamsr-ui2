@@ -1,4 +1,4 @@
-import { IconButton } from "@jamsr-ui/icon-button";
+import { IconButton } from "@jamsr-ui/react";
 import { EmailIcon } from "@jamsr-ui/icons";
 
 export const IconButtonRadius = () => {

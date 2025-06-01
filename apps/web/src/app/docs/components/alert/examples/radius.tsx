@@ -1,4 +1,4 @@
-import { Alert, AlertDescription } from "@jamsr-ui/alert";
+import { Alert, AlertDescription } from "@jamsr-ui/react";
 
 export const AlertRadius = () => {
   const radius: Alert.Props["radius"][] = [

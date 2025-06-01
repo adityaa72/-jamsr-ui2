@@ -1,8 +1,8 @@
 "use client";
 
-import { Alert } from "@jamsr-ui/alert";
-import { Button } from "@jamsr-ui/button";
-import { IconButton } from "@jamsr-ui/icon-button";
+import { Alert } from "@jamsr-ui/react";
+import { Button } from "@jamsr-ui/react";
+import { IconButton } from "@jamsr-ui/react";
 import { CloseIcon } from "@jamsr-ui/icons";
 import { useState } from "react";
 

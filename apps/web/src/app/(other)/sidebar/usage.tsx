@@ -6,7 +6,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
-} from "@jamsr-ui/sidebar";
+} from "@jamsr-ui/react";
 import { EmailIcon } from "../../components/icons";
 
 const data = [

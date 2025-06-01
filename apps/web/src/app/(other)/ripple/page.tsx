@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@jamsr-ui/button";
+import { Button } from "@jamsr-ui/react";
 import { Ripple } from "@jamsr-ui/ripple";
 
 const Page = () => {

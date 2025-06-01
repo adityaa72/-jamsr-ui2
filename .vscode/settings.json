@@ -20,5 +20,6 @@
     ["Classes \\=([^;]*);", "\\`([^\\`]*)\\`"]
   ],
   "tailwindCSS.classFunctions": ["tv"],
-  "tailwindCSS.experimental.configFile": "packages/theme/src/premium.css"
+  "tailwindCSS.experimental.configFile": "packages/theme/src/premium.css",
+  "explorerExclude.backup": {}
 }

@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from "@jamsr-ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@jamsr-ui/react";
 
 export const AlertWithTitle = () => {
   return (
