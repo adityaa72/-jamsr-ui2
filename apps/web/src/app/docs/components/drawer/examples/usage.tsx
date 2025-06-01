@@ -1,4 +1,4 @@
-import { Button } from "@jamsr-ui/react";
+import { Button } from "@jamsrui/react";
 import {
   Drawer,
   DrawerBody,
@@ -7,7 +7,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 export const DrawerUsage = () => {
   return (

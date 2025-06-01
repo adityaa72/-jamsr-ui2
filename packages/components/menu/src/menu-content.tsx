@@ -5,12 +5,12 @@ import {
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useMenuContext } from "./menu-context";
 import { MenuFloatingContext } from "./menu-floating-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const MenuContent = (props: MenuContent.Props) => {
   const {

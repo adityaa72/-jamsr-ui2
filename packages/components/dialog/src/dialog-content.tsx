@@ -3,11 +3,11 @@ import {
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useDialogContext } from "./dialog-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const DialogContent = (props: DialogContent.Props) => {
   const { isOpen, getContentProps, getFocusManagerProps, getOverlayProps } =

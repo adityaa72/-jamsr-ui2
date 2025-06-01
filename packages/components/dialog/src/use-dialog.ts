@@ -7,7 +7,7 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { dialogVariants } from "./styles";
 
@@ -15,7 +15,7 @@ import type {
   FloatingFocusManagerProps,
   FloatingOverlay,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { DialogBody } from "./dialog-body";

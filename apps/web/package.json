@@ -11,11 +11,11 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/icons": "workspace:^",
-    "@jamsr-ui/react": "workspace:^",
-    "@jamsr-ui/theme": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^",
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/icons": "workspace:^",
+    "@jamsrui/react": "workspace:^",
+    "@jamsrui/theme": "workspace:^",
+    "@jamsrui/utils": "workspace:^",
     "motion": "catalog:",
     "next": "^15.3.0",
     "react": "catalog:",
@@ -23,7 +23,7 @@
     "shiki": "^3.4.2"
   },
   "devDependencies": {
-    "@jamsr-ui/typescript-config": "workspace:*",
+    "@jamsrui/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/node": "^22.14.0",

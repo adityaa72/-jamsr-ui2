@@ -16,7 +16,7 @@ const OUTPUT_FILE = path.join(
 
 const pkg = JSON.parse(fs.readFileSync(pkg_file, "utf-8"));
 const deps = Object.keys(pkg.dependencies).filter((name) =>
-  name.startsWith("@jamsr-ui/")
+  name.startsWith("@jamsrui/")
 );
 
 const getNamedExports = (filePath: string) => {
@@ -60,10 +60,10 @@ const getNamedExports = (filePath: string) => {
 
 const lines: string[] = [];
 const ignoreItems = [
-  "@jamsr-ui/hooks",
-  "@jamsr-ui/icons",
-  "@jamsr-ui/theme",
-  "@jamsr-ui/utils",
+  "@jamsrui/hooks",
+  "@jamsrui/icons",
+  "@jamsrui/theme",
+  "@jamsrui/utils",
 ];
 
 for (const dep of deps) {

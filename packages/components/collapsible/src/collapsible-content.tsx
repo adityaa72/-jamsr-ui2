@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 import { useCollapsibleContext } from "./collapsible-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const CollapsibleContent = (props: CollapsibleContent.Props) => {
   const { children } = props;

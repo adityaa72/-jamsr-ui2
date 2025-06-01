@@ -5,12 +5,12 @@ import {
   dataAttrDev,
   isDisabledElement,
   mergeProps,
-} from "@jamsr-ui/utils";
+} from "@jamsrui/utils";
 
 import { useAccordionContext } from "./accordion-context";
 import { useAccordionListItem } from "./accordion-list-provider";
 
-import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { AccordionContent } from "./accordion-content";
 import type { AccordionContentWrapper } from "./accordion-content-wrapper";

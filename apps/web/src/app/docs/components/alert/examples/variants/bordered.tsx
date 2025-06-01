@@ -1,4 +1,4 @@
-import { Alert } from "@jamsr-ui/react";
+import { Alert } from "@jamsrui/react";
 
 export const AlertVariantBordered = () => {
   return (

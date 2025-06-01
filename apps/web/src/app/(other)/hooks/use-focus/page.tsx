@@ -1,6 +1,6 @@
 "use client";
 
-import { useFocus } from "@jamsr-ui/hooks";
+import { useFocus } from "@jamsrui/hooks";
 
 
 const UsePress = () => {

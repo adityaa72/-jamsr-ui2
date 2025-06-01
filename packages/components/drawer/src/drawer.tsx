@@ -1,4 +1,4 @@
-import { mergeProps } from "@jamsr-ui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useDrawerConfig } from "./drawer-config";
 import { DrawerContext } from "./drawer-context";

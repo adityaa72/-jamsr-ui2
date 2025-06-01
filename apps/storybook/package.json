@@ -12,10 +12,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@jamsr-ui/accordion": "workspace:^",
-    "@jamsr-ui/button": "workspace:^",
-    "@jamsr-ui/text": "workspace:^",
-    "@jamsr-ui/theme": "workspace:^",
+    "@jamsrui/accordion": "workspace:^",
+    "@jamsrui/button": "workspace:^",
+    "@jamsrui/text": "workspace:^",
+    "@jamsrui/theme": "workspace:^",
     "@storybook/addon-controls": "^8.6.12",
     "@storybook/manager-api": "^8.6.12",
     "@storybook/theming": "^8.6.12",

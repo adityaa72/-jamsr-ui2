@@ -1,8 +1,8 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useDialogContext } from "./dialog-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const DialogHeader = (props: DialogHeader.Props) => {
   const { getHeaderProps } = useDialogContext();

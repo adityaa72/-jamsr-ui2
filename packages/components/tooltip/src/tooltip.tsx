@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import { FloatingArrow, FloatingPortal } from "@floating-ui/react";
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useTooltip } from "./use-tooltip";
 

@@ -1,5 +1,5 @@
-import { Text } from "@jamsr-ui/react";
-import { mergeProps } from "@jamsr-ui/utils";
+import { Text } from "@jamsrui/react";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useCardContext } from "./card-context";
 

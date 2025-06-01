@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 export const CardUsage = () => {
   return (

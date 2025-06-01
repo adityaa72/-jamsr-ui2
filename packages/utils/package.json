@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/utils",
+  "name": "@jamsrui/utils",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -7,7 +7,7 @@
     "lint": "npx eslint src --ext .ts,.tsx --fix"
   },
   "devDependencies": {
-    "@jamsr-ui/typescript-config": "workspace:^",
+    "@jamsrui/typescript-config": "workspace:^",
     "@types/node": "^22.14.0",
     "@types/react": "catalog:",
     "motion": "catalog:",

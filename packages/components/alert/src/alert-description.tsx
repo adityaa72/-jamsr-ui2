@@ -1,4 +1,4 @@
-import { Text } from "@jamsr-ui/text";
+import { Text } from "@jamsrui/text";
 
 import { useAlertContext } from "./alert-context";
 

@@ -1,10 +1,10 @@
 import { ComponentProps, useCallback, useId, useMemo } from "react";
 
-import { dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { iconButtonVariants } from "./styles";
 
-import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { IconButton } from "./icon-button";
 import type { IconButtonVariantProps } from "./styles";

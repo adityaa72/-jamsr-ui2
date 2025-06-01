@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { linkVariants } from "./styles";
 
-import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Link } from "./link";
 import type { LinkVariants } from "./styles";

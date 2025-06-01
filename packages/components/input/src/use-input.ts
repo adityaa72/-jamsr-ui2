@@ -1,4 +1,4 @@
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const useInput = (props: useInput.Props) => {};
 

@@ -1,9 +1,9 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useAccordionItemContext } from "./accordion-item-context";
 import { ChevronDownIcon } from "./icons";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const AccordionIndicator = (props: AccordionIndicator.Props) => {
   const { getIndicatorProps, indicator } = useAccordionItemContext();

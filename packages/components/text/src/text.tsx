@@ -1,10 +1,10 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { textVariants } from "./styles";
 import { useTextConfig } from "./text-config";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 import type { TextVariants} from "./styles";
 

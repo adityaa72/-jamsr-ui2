@@ -1,6 +1,6 @@
-import { allColors, colorVariants, radiusVariant, tv } from "@jamsr-ui/utils";
+import { allColors, colorVariants, radiusVariant, tv } from "@jamsrui/utils";
 
-import type { VariantProps } from "@jamsr-ui/utils";
+import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
 export const chipVariants = tv({

@@ -7,13 +7,13 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useControlledState } from "@jamsr-ui/hooks";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { drawerVariants } from "./styles";
 
 import type { FloatingFocusManagerProps } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
 
 import type { DrawerBackdrop } from "./drawer-backdrop";
 import type { DrawerBody } from "./drawer-body";

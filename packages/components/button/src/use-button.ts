@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, mapPropsVariants } from "@jamsrui/utils";
 
 import { buttonVariants } from "./styles";
 
-import type { PropGetter, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Button } from "./button";
 import type { ButtonVariantProps } from "./styles";

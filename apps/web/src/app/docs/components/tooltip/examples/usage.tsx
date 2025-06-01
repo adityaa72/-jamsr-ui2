@@ -1,5 +1,5 @@
-import { Button } from "@jamsr-ui/react";
-import { Tooltip } from "@jamsr-ui/react";
+import { Button } from "@jamsrui/react";
+import { Tooltip } from "@jamsrui/react";
 
 export const TooltipUsage = () => {
   return (

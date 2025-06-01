@@ -1,4 +1,4 @@
-import { createConfigContext } from "@jamsr-ui/utils";
+import { createConfigContext } from "@jamsrui/utils";
 
 import type { Tabs } from "./tabs";
 

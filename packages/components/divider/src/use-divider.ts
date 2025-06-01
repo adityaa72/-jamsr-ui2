@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { dividerVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Divider } from "./divider";
 import type { DividerSlots, DividerVariants } from "./styles";

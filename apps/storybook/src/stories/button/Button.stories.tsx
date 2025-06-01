@@ -1,4 +1,4 @@
-import { Button } from "@jamsr-ui/react";
+import { Button } from "@jamsrui/react";
 import { Meta, StoryObj } from "@storybook/react";
 import { InfoIcon } from "../../icons";
 

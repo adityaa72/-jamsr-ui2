@@ -1,7 +1,7 @@
 import { Children } from "react";
 
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useAccordionConfig } from "./accordion-config";
 import { AccordionContextProvider } from "./accordion-context";

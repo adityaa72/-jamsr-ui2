@@ -20,9 +20,9 @@ import {
   useRole,
   useTypeahead,
 } from "@floating-ui/react";
-import { useMergeRefs } from "@jamsr-ui/hooks";
-import { useControlledState } from "@jamsr-ui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { useMergeRefs } from "@jamsrui/hooks";
+import { useControlledState } from "@jamsrui/hooks";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { useMenuFloatingContext } from "./menu-floating-context";
 import { menuVariants } from "./styles";
@@ -35,7 +35,7 @@ import type {
   FloatingOverlayProps,
   Placement,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { MenuContent } from "./menu-content";

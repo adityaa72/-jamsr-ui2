@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 
-import { useIsMobile } from "@jamsr-ui/hooks";
+import { useIsMobile } from "@jamsrui/hooks";
 
 type SidebarStateContextProps = {
   state: "expanded" | "collapsed";

@@ -1,8 +1,8 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useAlertContext } from "./alert-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const AlertIcon = (props: AlertIcon.Props) => {
   const { getIconProps, hideIcon, icon } = useAlertContext();

@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { chipVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Chip } from "./chip";
 import type { ChipCloseButton } from "./chip-close-button";

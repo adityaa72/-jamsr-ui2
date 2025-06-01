@@ -1,6 +1,6 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const Checkbox = (props: Checkbox.Props) => {
   const renderElement = useRenderElement("div", {

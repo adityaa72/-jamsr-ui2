@@ -1,5 +1,5 @@
-import { Button } from "@jamsr-ui/react";
-import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsr-ui/react";
+import { Button } from "@jamsrui/react";
+import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsrui/react";
 
 export const MenuNested = () => {
   return (

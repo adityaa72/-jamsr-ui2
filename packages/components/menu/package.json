@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/menu",
+  "name": "@jamsrui/menu",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "catalog:",
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
   }
 }

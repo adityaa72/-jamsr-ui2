@@ -1,4 +1,4 @@
-import { Divider } from "@jamsr-ui/react";
+import { Divider } from "@jamsrui/react";
 
 export const DividerUsage = () => {
   return <Divider />;

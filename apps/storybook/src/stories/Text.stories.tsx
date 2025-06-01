@@ -1,4 +1,4 @@
-import { Text } from "@jamsr-ui/react";
+import { Text } from "@jamsrui/react";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

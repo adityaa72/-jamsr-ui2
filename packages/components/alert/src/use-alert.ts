@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { iconMappingDefault } from "./icons";
 import { alertStyles } from "./styles";
@@ -10,7 +10,7 @@ import type {
   SlotsToClassNames,
   UIProps,
   UnknownTV,
-} from "@jamsr-ui/utils";
+} from "@jamsrui/utils";
 
 import type { Alert } from "./alert";
 import type { AlertContent } from "./alert-content";

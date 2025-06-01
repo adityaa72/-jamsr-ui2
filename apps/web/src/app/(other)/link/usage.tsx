@@ -1,4 +1,4 @@
-import { Link } from "@jamsr-ui/link";
+import { Link } from "@jamsrui/link";
 
 export const LinkUsage = () => {
   return <Link href="/">Go to homepage </Link>;

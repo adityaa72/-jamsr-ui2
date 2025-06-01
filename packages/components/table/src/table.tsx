@@ -1,5 +1,5 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useTableConfig } from "./table-config";
 import { TableContext } from "./table-context";

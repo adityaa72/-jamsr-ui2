@@ -1,11 +1,11 @@
 import { useId } from "react";
 
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 import { LayoutGroup } from "motion/react";
 
 import { useTabsContext } from "./tabs-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const TabList = (props: TabList.Props) => {
   const { getTabListProps } = useTabsContext();

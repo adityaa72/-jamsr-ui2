@@ -1,10 +1,10 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useAvatarConfig } from "./avatar-config";
 import { useAvatar } from "./use-avatar";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const Avatar = (props: Avatar.Props) => {
   const config = useAvatarConfig();

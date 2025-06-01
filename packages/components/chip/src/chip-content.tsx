@@ -1,9 +1,9 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useChipContext } from "./chip-context";
 import { ChipDot } from "./chip-dot";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const ChipContent = (props: ChipContent.Props) => {
   const { children } = props;

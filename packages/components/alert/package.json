@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/alert",
+  "name": "@jamsrui/alert",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -15,9 +15,9 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/icons": "workspace:^",
-    "@jamsr-ui/text": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/icons": "workspace:^",
+    "@jamsrui/text": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
   }
 }

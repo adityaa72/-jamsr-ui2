@@ -1,9 +1,9 @@
 import { useCallback, useId, useMemo } from "react";
 
-import { useControlledState } from "@jamsr-ui/hooks";
-import { dataAttrDev, mergeProps } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import { dataAttrDev, mergeProps } from "@jamsrui/utils";
 
-import type { PropGetter } from "@jamsr-ui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 
 import type { CollapsibleContent } from "./collapsible-content";
 import type { CollapsibleTrigger } from "./collapsible-trigger";

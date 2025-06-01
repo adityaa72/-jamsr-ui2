@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/button",
+  "name": "@jamsrui/button",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -16,7 +16,7 @@
     "react-dom": "catalog:"
   },
   "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
   }
 }

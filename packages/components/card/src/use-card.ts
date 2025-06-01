@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { cardVariants } from "./styles";
 
-import type { Text } from "@jamsr-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { Text } from "@jamsrui/react";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Card } from "./card";
 import type { CardContent } from "./card-content";

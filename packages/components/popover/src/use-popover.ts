@@ -15,8 +15,8 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useControlledState } from "@jamsr-ui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { popoverVariants } from "./styles";
 
@@ -25,7 +25,7 @@ import type {
   FloatingOverlay,
   Placement,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
 
 import type { PopoverContent } from "./popover-content";
 import type { PopoverRoot } from "./popover-root";

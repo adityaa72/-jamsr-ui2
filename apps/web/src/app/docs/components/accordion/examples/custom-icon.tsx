@@ -6,8 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
   useAccordionItemState,
-} from "@jamsr-ui/react";
-import { MinusIcon, PlusIcon } from "@jamsr-ui/icons";
+} from "@jamsrui/react";
+import { MinusIcon, PlusIcon } from "@jamsrui/icons";
 
 const AccordionIndicator = () => {
   const { isOpen } = useAccordionItemState();

@@ -1,6 +1,6 @@
-import { IconButton } from "@jamsr-ui/react";
-import { EmailIcon, InfoIcon } from "@jamsr-ui/icons";
-import { Tooltip, TooltipGroup } from "@jamsr-ui/react";
+import { IconButton } from "@jamsrui/react";
+import { EmailIcon, InfoIcon } from "@jamsrui/icons";
+import { Tooltip, TooltipGroup } from "@jamsrui/react";
 
 export const TooltipWithGroup = () => {
   return (

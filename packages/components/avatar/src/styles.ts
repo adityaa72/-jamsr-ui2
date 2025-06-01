@@ -1,6 +1,6 @@
-import { radiusBaseVariant, tv } from "@jamsr-ui/utils";
+import { radiusBaseVariant, tv } from "@jamsrui/utils";
 
-import type { VariantProps } from "@jamsr-ui/utils";
+import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
 export const avatarVariants = tv({

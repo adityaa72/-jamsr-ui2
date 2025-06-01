@@ -1,4 +1,4 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useIconButton } from "./use-icon-button";
 

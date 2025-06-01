@@ -1,6 +1,6 @@
-import { focusVisibleClasses, tv } from "@jamsr-ui/utils";
+import { focusVisibleClasses, tv } from "@jamsrui/utils";
 
-import type { VariantProps } from "@jamsr-ui/utils";
+import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
 export const switchVariants = tv({

@@ -1,11 +1,11 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { TabContent } from "./tab-content";
 import { TabCursor } from "./tab-cursor";
 import { useTabsContext } from "./tabs-context";
 import { useTab } from "./use-tab";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const Tab = (props: Tab.Props) => {
   const { getTabProps } = useTabsContext();

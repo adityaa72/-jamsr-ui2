@@ -1,10 +1,10 @@
 import { useFloatingTree, useListItem } from "@floating-ui/react";
-import { useMergeRefs, useRenderElement } from "@jamsr-ui/hooks";
+import { useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
 import { useMenuContext } from "./menu-context";
 import { useMenuFloatingContext } from "./menu-floating-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const MenuItem = (props: MenuItem.Props) => {
   const { getMenuItemProps } = useMenuContext();

@@ -1,5 +1,5 @@
-import { Chip } from "@jamsr-ui/chip";
-import { CheckIcon, EmailIcon } from "@jamsr-ui/icons";
+import { Chip } from "@jamsrui/chip";
+import { CheckIcon, EmailIcon } from "@jamsrui/icons";
 
 export const ChipStartEndContent = () => {
   return (

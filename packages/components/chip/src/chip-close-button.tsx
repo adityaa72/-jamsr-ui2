@@ -1,9 +1,9 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { CloseFilledIcon } from "@jamsr-ui/icons";
+import { useRenderElement } from "@jamsrui/hooks";
+import { CloseFilledIcon } from "@jamsrui/icons";
 
 import { useChipContext } from "./chip-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const ChipCloseButton = (props: ChipCloseButton.Props) => {
   const { getCloseButtonProps } = useChipContext();

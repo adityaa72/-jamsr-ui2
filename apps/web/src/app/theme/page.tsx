@@ -1,5 +1,5 @@
-import { Text } from "@jamsr-ui/react";
-import { cn } from "@jamsr-ui/utils";
+import { Text } from "@jamsrui/react";
+import { cn } from "@jamsrui/utils";
 
 const theme = {
   dark: [

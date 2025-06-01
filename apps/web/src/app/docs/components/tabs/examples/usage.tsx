@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@jamsr-ui/react";
-import { Tab, Tabs } from "@jamsr-ui/react";
+import { Card, CardContent } from "@jamsrui/react";
+import { Tab, Tabs } from "@jamsrui/react";
 
 export const TabsUsage = () => {
   return (

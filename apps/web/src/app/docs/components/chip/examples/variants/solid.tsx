@@ -1,4 +1,4 @@
-import { Chip } from "@jamsr-ui/chip";
+import { Chip } from "@jamsrui/chip";
 
 export const ChipVariantSolid = () => {
   return (

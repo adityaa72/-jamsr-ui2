@@ -1,8 +1,8 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { usePopoverContext } from "./popover-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const PopoverRoot = (props: PopoverRoot.Props) => {
   const { getRootProps } = usePopoverContext();

@@ -1,5 +1,5 @@
-import { Button } from "@jamsr-ui/react";
-import { TrashIcon } from "@jamsr-ui/icons";
+import { Button } from "@jamsrui/react";
+import { TrashIcon } from "@jamsrui/icons";
 
 export const ButtonLoading = () => {
   return (

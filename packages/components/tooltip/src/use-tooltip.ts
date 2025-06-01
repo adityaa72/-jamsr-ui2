@@ -15,13 +15,13 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useControlledState } from "@jamsr-ui/hooks";
-import { cn } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import { cn } from "@jamsrui/utils";
 
 import { tooltipVariants } from "./styles";
 
 import type { Delay, FloatingArrowProps, Placement } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { ReactElement } from "react";
 
 import type { TooltipSlots, TooltipVariants } from "./styles";

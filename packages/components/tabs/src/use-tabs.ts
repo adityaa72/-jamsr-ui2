@@ -1,11 +1,11 @@
 import { Children, isValidElement, useCallback, useMemo } from "react";
 
-import { useControlledState } from "@jamsr-ui/hooks";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { tabsVariant } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { ReactElement } from "react";
 
 import type { TabsSlots, TabVariants } from "./styles";

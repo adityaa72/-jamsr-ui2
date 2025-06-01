@@ -1,7 +1,7 @@
-import { IconButton } from "@jamsr-ui/react";
-import { InfoIcon } from "@jamsr-ui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@jamsr-ui/react";
-import { Text } from "@jamsr-ui/react";
+import { IconButton } from "@jamsrui/react";
+import { InfoIcon } from "@jamsrui/icons";
+import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/react";
+import { Text } from "@jamsrui/react";
 
 export const PopoverWithArrow = () => {
   return (

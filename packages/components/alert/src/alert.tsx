@@ -1,5 +1,5 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useAlertConfig } from "./alert-config";
 import { AlertContent } from "./alert-content";
@@ -7,7 +7,7 @@ import { AlertContextProvider } from "./alert-context";
 import { AlertIcon } from "./alert-icon";
 import { useAlert } from "./use-alert";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const Alert = (props: Alert.Props) => {
   const { children } = props;

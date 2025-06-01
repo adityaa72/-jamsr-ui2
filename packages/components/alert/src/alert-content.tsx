@@ -1,8 +1,8 @@
-import { mergeProps } from "@jamsr-ui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useAlertContext } from "./alert-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const AlertContent = (props: AlertContent.Props) => {
   const { slotProps, getContentProps } = useAlertContext();

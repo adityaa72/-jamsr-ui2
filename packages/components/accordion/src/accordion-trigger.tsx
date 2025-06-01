@@ -1,12 +1,12 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
 import { useAccordionContext } from "./accordion-context";
 import { AccordionHeadingContent } from "./accordion-heading-content";
 import { AccordionIndicator } from "./accordion-indicator";
 import { useAccordionItemContext } from "./accordion-item-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 const AccordionTrigger = (props: AccordionTrigger.Props) => {
   const { children } = props;

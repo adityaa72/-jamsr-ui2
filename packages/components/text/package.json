@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/text",
+  "name": "@jamsrui/text",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -14,8 +14,8 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^",
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/utils": "workspace:^",
     "tailwind-variants": "^1.0.0"
   }
 }

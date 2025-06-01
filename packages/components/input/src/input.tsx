@@ -1,4 +1,4 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import type { useInput } from "./use-input";
 

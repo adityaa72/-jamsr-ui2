@@ -1,9 +1,9 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSwitchContext } from "./switch-context";
 import { SwitchThumb } from "./switch-thumb";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchTrack = (props: SwitchTrack.Props) => {
   const { getTrackProps } = useSwitchContext();

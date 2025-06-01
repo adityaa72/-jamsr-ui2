@@ -1,5 +1,5 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
-import { mergeProps } from "@jamsr-ui/utils";
+import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
 import { TabList } from "./tab-list";
 import { TabPanel } from "./tab-panel";

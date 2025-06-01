@@ -1,5 +1,5 @@
 {
-  "extends": "@jamsr-ui/typescript-config/nextjs.json",
+  "extends": "@jamsrui/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {

@@ -1,6 +1,6 @@
 "use client";
 
-import { usePress } from "@jamsr-ui/hooks";
+import { usePress } from "@jamsrui/hooks";
 
 
 const UsePress = () => {

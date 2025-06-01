@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@jamsr-ui/react";
-import { Ripple } from "@jamsr-ui/ripple";
+import { Button } from "@jamsrui/react";
+import { Ripple } from "@jamsrui/ripple";
 
 const Page = () => {
   return (

@@ -6,7 +6,7 @@ export {
   AccordionTrigger,
   useAccordionConfig,
   useAccordionItemState,
-} from "@jamsr-ui/accordion";
+} from "@jamsrui/accordion";
 export {
   Alert,
   AlertConfig,
@@ -15,19 +15,19 @@ export {
   AlertTitle,
   useAlert,
   useAlertConfig,
-} from "@jamsr-ui/alert";
+} from "@jamsrui/alert";
 export {
   Autocomplete,
   AutocompleteConfig,
   useAutocompleteConfig,
-} from "@jamsr-ui/autocomplete";
-export { Avatar, AvatarConfig, useAvatarConfig } from "@jamsr-ui/avatar";
+} from "@jamsrui/autocomplete";
+export { Avatar, AvatarConfig, useAvatarConfig } from "@jamsrui/avatar";
 export {
   Breadcrumb,
   BreadcrumbConfig,
   useBreadcrumbConfig,
-} from "@jamsr-ui/breadcrumb";
-export { Button, ButtonConfig, useButtonConfig } from "@jamsr-ui/button";
+} from "@jamsrui/breadcrumb";
+export { Button, ButtonConfig, useButtonConfig } from "@jamsrui/button";
 export {
   Card,
   CardConfig,
@@ -37,46 +37,46 @@ export {
   CardHeader,
   CardTitle,
   useCardConfig,
-} from "@jamsr-ui/card";
-export { Charts, ChartsConfig, useChartsConfig } from "@jamsr-ui/charts";
+} from "@jamsrui/card";
+export { Charts, ChartsConfig, useChartsConfig } from "@jamsrui/charts";
 export {
   Checkbox,
   CheckboxConfig,
   useCheckboxConfig,
-} from "@jamsr-ui/checkbox";
-export { Chip, ChipConfig, useChipConfig } from "@jamsr-ui/chip";
+} from "@jamsrui/checkbox";
+export { Chip, ChipConfig, useChipConfig } from "@jamsrui/chip";
 export {
   CircularProgress,
   CircularProgressConfig,
   useCircularProgressConfig,
-} from "@jamsr-ui/circular-progress";
+} from "@jamsrui/circular-progress";
 export {
   Clipboard,
   ClipboardConfig,
   useClipboardConfig,
-} from "@jamsr-ui/clipboard";
+} from "@jamsrui/clipboard";
 export {
   Collapsible,
   CollapsibleConfig,
   CollapsibleContent,
   CollapsibleTrigger,
   useCollapsibleConfig,
-} from "@jamsr-ui/collapsible";
+} from "@jamsrui/collapsible";
 export {
   Confirmation,
   ConfirmationConfig,
   useConfirmationConfig,
-} from "@jamsr-ui/confirmation";
+} from "@jamsrui/confirmation";
 export {
   DataTable,
   DataTableConfig,
   useDataTableConfig,
-} from "@jamsr-ui/data-table";
+} from "@jamsrui/data-table";
 export {
   DatePicker,
   DatePickerConfig,
   useDatePickerConfig,
-} from "@jamsr-ui/date-picker";
+} from "@jamsrui/date-picker";
 export {
   Dialog,
   DialogBody,
@@ -87,8 +87,8 @@ export {
   DialogHeader,
   DialogTrigger,
   useDialogConfig,
-} from "@jamsr-ui/dialog";
-export { Divider, DividerConfig, useDividerConfig } from "@jamsr-ui/divider";
+} from "@jamsrui/dialog";
+export { Divider, DividerConfig, useDividerConfig } from "@jamsrui/divider";
 export {
   Drawer,
   DrawerBody,
@@ -100,22 +100,22 @@ export {
   DrawerHeader,
   DrawerTrigger,
   useDrawerConfig,
-} from "@jamsr-ui/drawer";
-export { Editor, EditorConfig, useEditorConfig } from "@jamsr-ui/editor";
-export { Header, HeaderConfig, useHeaderConfig } from "@jamsr-ui/header";
+} from "@jamsrui/drawer";
+export { Editor, EditorConfig, useEditorConfig } from "@jamsrui/editor";
+export { Header, HeaderConfig, useHeaderConfig } from "@jamsrui/header";
 export {
   IconButton,
   IconButtonConfig,
   useIconButtonConfig,
-} from "@jamsr-ui/icon-button";
-export { Input, InputConfig, useInputConfig } from "@jamsr-ui/input";
-export { Kbd, KbdConfig, useKbdConfig } from "@jamsr-ui/kbd";
+} from "@jamsrui/icon-button";
+export { Input, InputConfig, useInputConfig } from "@jamsrui/input";
+export { Kbd, KbdConfig, useKbdConfig } from "@jamsrui/kbd";
 export {
   LinearProgress,
   LinearProgressConfig,
   useLinearProgressConfig,
-} from "@jamsr-ui/linear-progress";
-export { Link, LinkConfig, useLinkConfig } from "@jamsr-ui/link";
+} from "@jamsrui/linear-progress";
+export { Link, LinkConfig, useLinkConfig } from "@jamsrui/link";
 export {
   Menu,
   MenuConfig,
@@ -123,38 +123,38 @@ export {
   MenuItem,
   MenuTrigger,
   useMenuConfig,
-} from "@jamsr-ui/menu";
+} from "@jamsrui/menu";
 export {
   NumberInput,
   NumberInputConfig,
   useNumberInputConfig,
-} from "@jamsr-ui/number-input";
+} from "@jamsrui/number-input";
 export {
   OtpInput,
   OtpInputConfig,
   useOtpInputConfig,
-} from "@jamsr-ui/otp-input";
+} from "@jamsrui/otp-input";
 export {
   Pagination,
   PaginationConfig,
   usePaginationConfig,
-} from "@jamsr-ui/pagination";
+} from "@jamsrui/pagination";
 export {
   Popover,
   PopoverConfig,
   PopoverContent,
   PopoverTrigger,
   usePopoverConfig,
-} from "@jamsr-ui/popover";
-export { Radio, RadioConfig, useRadioConfig } from "@jamsr-ui/radio";
-export { Rating, RatingConfig, useRatingConfig } from "@jamsr-ui/rating";
-export { Ripple, RippleConfig, useRippleConfig } from "@jamsr-ui/ripple";
+} from "@jamsrui/popover";
+export { Radio, RadioConfig, useRadioConfig } from "@jamsrui/radio";
+export { Rating, RatingConfig, useRatingConfig } from "@jamsrui/rating";
+export { Ripple, RippleConfig, useRippleConfig } from "@jamsrui/ripple";
 export {
   ScrollArea,
   ScrollAreaConfig,
   useScrollAreaConfig,
-} from "@jamsr-ui/scroll-area";
-export { Select, SelectConfig, useSelectConfig } from "@jamsr-ui/select";
+} from "@jamsrui/scroll-area";
+export { Select, SelectConfig, useSelectConfig } from "@jamsrui/select";
 export {
   Sidebar,
   SidebarConfig,
@@ -169,14 +169,14 @@ export {
   SidebarProvider,
   SidebarToggle,
   useSidebarConfig,
-} from "@jamsr-ui/sidebar";
+} from "@jamsrui/sidebar";
 export {
   Skeleton,
   SkeletonConfig,
   useSkeletonConfig,
-} from "@jamsr-ui/skeleton";
-export { Slider, SliderConfig, useSliderConfig } from "@jamsr-ui/slider";
-export { Switch, SwitchConfig, useSwitchConfig } from "@jamsr-ui/switch";
+} from "@jamsrui/skeleton";
+export { Slider, SliderConfig, useSliderConfig } from "@jamsrui/slider";
+export { Switch, SwitchConfig, useSwitchConfig } from "@jamsrui/switch";
 export {
   Table,
   TableBody,
@@ -186,24 +186,24 @@ export {
   TableHeader,
   TableRow,
   useTableConfig,
-} from "@jamsr-ui/table";
-export { Tab, Tabs, TabsConfig, useTabsConfig } from "@jamsr-ui/tabs";
+} from "@jamsrui/table";
+export { Tab, Tabs, TabsConfig, useTabsConfig } from "@jamsrui/tabs";
 export {
   TagsInput,
   TagsInputConfig,
   useTagsInputConfig,
-} from "@jamsr-ui/tags-input";
-export { Text, TextConfig, textVariants, useTextConfig } from "@jamsr-ui/text";
+} from "@jamsrui/tags-input";
+export { Text, TextConfig, textVariants, useTextConfig } from "@jamsrui/text";
 export {
   Textarea,
   TextareaConfig,
   useTextareaConfig,
-} from "@jamsr-ui/textarea";
-export { Toast, ToastConfig, useToastConfig } from "@jamsr-ui/toast";
-export { Toggle, ToggleConfig, useToggleConfig } from "@jamsr-ui/toggle";
+} from "@jamsrui/textarea";
+export { Toast, ToastConfig, useToastConfig } from "@jamsrui/toast";
+export { Toggle, ToggleConfig, useToggleConfig } from "@jamsrui/toggle";
 export {
   Tooltip,
   TooltipConfig,
   TooltipGroup,
   useTooltipConfig,
-} from "@jamsr-ui/tooltip";
+} from "@jamsrui/tooltip";

@@ -1,7 +1,7 @@
 "use client";
 
-import { IconButton } from "@jamsr-ui/react";
-import { EmailIcon } from "@jamsr-ui/icons";
+import { IconButton } from "@jamsrui/react";
+import { EmailIcon } from "@jamsrui/icons";
 
 export const IconButtonUsage = () => {
   return (

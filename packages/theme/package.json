@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/theme",
+  "name": "@jamsrui/theme",
   "version": "0.0.0",
   "main": "./src/styles.css",
   "exports": {

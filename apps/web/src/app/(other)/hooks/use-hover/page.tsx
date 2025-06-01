@@ -1,6 +1,6 @@
 "use client";
 
-import { useHover } from "@jamsr-ui/hooks";
+import { useHover } from "@jamsrui/hooks";
 
 
 const UsePress = () => {

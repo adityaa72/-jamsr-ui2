@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 export const AccordionMultipleSelection = () => {
   return (

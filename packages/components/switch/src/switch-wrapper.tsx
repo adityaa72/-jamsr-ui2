@@ -1,10 +1,10 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSwitchContext } from "./switch-context";
 import { SwitchTrack } from "./switch-track";
 import { SwitchContent } from "./swith-content";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchWrapper = (props: SwitchWrapper.Props) => {
   const { children } = props;

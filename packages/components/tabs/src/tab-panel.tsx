@@ -1,8 +1,8 @@
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { useTabsContext } from "./tabs-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const TabPanel = (props: TabPanel.Props) => {
   const { getPanelProps, selectedTabContent } = useTabsContext();

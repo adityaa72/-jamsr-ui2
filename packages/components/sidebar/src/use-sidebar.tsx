@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mergeProps } from "@jamsr-ui/utils";
+import { cn, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { sidebarVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Sidebar } from "./sidebar";
 import type { SidebarContent } from "./sidebar-content";

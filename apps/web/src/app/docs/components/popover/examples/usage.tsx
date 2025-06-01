@@ -1,6 +1,6 @@
-import { Button } from "@jamsr-ui/react";
-import { Popover, PopoverContent, PopoverTrigger } from "@jamsr-ui/react";
-import { Text } from "@jamsr-ui/react";
+import { Button } from "@jamsrui/react";
+import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/react";
+import { Text } from "@jamsrui/react";
 
 export const PopoverUsage = () => {
   return (

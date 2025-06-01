@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useRef } from "react";
 
-import { useControlledState } from "@jamsr-ui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsr-ui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { accordionVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsr-ui/utils";
+import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Accordion } from "./accordion";
 import type { AccordionContent } from "./accordion-content";

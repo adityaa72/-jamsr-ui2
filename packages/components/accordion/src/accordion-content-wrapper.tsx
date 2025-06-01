@@ -1,4 +1,4 @@
-import { mergeProps, TRANSITION_VARIANTS } from "@jamsr-ui/utils";
+import { mergeProps, TRANSITION_VARIANTS } from "@jamsrui/utils";
 import { motion } from "motion/react";
 
 import { useAccordionContext } from "./accordion-context";

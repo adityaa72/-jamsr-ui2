@@ -3,9 +3,9 @@ import {
   dataFocusVisibleClasses,
   focusVisibleClasses,
   tv,
-} from "@jamsr-ui/utils";
+} from "@jamsrui/utils";
 
-import type { VariantProps } from "@jamsr-ui/utils";
+import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
 export const tabsVariant = tv({

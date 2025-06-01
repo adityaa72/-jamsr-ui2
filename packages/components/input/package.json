@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/input",
+  "name": "@jamsrui/input",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -14,7 +14,7 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
   }
 }

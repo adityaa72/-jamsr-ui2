@@ -1,5 +1,5 @@
 {
-  "extends": "@jamsr-ui/typescript-config/react-library.json",
+  "extends": "@jamsrui/typescript-config/react-library.json",
   "include": ["**/*.ts", "**/*.tsx", "src/merge-props.tsx"],
   "exclude": ["node_modules"]
 }

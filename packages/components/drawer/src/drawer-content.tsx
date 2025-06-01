@@ -1,10 +1,10 @@
 import { FloatingPortal } from "@floating-ui/react";
-import { useRenderElement } from "@jamsr-ui/hooks";
+import { useRenderElement } from "@jamsrui/hooks";
 
 import { DrawerBackdrop } from "./drawer-backdrop";
 import { useDrawerContext } from "./drawer-context";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const DrawerContent = (props: DrawerContent.Props) => {
   const { getContentProps, isOpen } = useDrawerContext();

@@ -1,5 +1,5 @@
 {
-  "name": "@jamsr-ui/card",
+  "name": "@jamsrui/card",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -14,8 +14,8 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsr-ui/hooks": "workspace:^",
-    "@jamsr-ui/text": "workspace:^",
-    "@jamsr-ui/utils": "workspace:^"
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/text": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useFocusVisible } from "@jamsr-ui/hooks";
+import { useFocusVisible } from "@jamsrui/hooks";
 
 const UsePress = () => {
   const { isFocusVisible, ref } = useFocusVisible<HTMLButtonElement>({

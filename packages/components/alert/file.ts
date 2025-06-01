@@ -7,8 +7,8 @@ import {
 } from "node:fs";
 import path from "node:path";
 
-const fileContent = `import { useRenderElement } from "@jamsr-ui/hooks";
-import type { UIProps } from "@jamsr-ui/utils";
+const fileContent = `import { useRenderElement } from "@jamsrui/hooks";
+import type { UIProps } from "@jamsrui/utils";
 
 export const Text = (props: Text.Props) => {
   const { render, ...elementProps } = props;
