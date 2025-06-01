@@ -16,6 +16,7 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@floating-ui/react": "catalog:",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }

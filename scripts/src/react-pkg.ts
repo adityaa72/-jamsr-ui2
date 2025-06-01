@@ -39,7 +39,6 @@ const getNamedExports = (filePath: string) => {
             ("exportKind" in s && s.exportKind) ||
             path.node.exportKind ||
             "value";
-          console.log(" kind:->", kind);
           if (name) {
             if (kind === "type") {
               typeExports.add(name);

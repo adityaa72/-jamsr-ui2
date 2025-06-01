@@ -3,7 +3,7 @@ import { focusVisibleClasses, radiusVariant, tv } from "@jamsrui/utils";
 import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
-export const selectVariant = tv({
+export const selectVariants = tv({
   slots: {
     root: ["group relative flex w-full flex-col gap-1 text-sm"],
     value: ["text-sm", "pointer-events-none", "flex grow flex-wrap"],
@@ -22,15 +22,14 @@ export const selectVariant = tv({
       "shrink-0 transition-transform duration-300 group-data-[open=true]:rotate-180",
     popover: "z-popover",
     content:
-      "z-popover flex h-full flex-col gap-px overflow-hidden bg-content1 shadow-md backdrop-blur-3xl",
-    scrollArea: "flex flex-col gap-px overflow-y-auto p-2",
+      "z-popover flex h-full flex-col gap-px overflow-hidden bg-background-secondary shadow-md backdrop-blur-3xl",
     startContent: "text-foreground-500",
     endContent: "text-foreground-500",
     selectItem: [
       "relative flex w-full cursor-pointer select-none items-center gap-2 p-2 text-sm focus-visible:ring-2 focus-visible:ring-primary",
-      "ui-hover:bg-content2",
-      "ui-active:bg-content2",
-      "ui-selected:bg-content2/50",
+      "ui-hover:bg-background-tertiary",
+      "ui-active:bg-background-tertiary",
+      "ui-selected:bg-background-tertiary/50",
       "ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
       ...focusVisibleClasses,
     ],
@@ -74,5 +73,5 @@ export const selectVariant = tv({
   },
 });
 
-export type SelectVariantProps = VariantProps<typeof selectVariant>;
-export type SelectSlots = keyof ReturnType<typeof selectVariant>;
+export type SelectVariantProps = VariantProps<typeof selectVariants>;
+export type SelectSlots = keyof ReturnType<typeof selectVariants>;
