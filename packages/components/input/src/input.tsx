@@ -1,15 +1,14 @@
 import { useRenderElement } from "@jamsr-ui/hooks";
 
-import type { UIProps } from "@jamsr-ui/utils";
+import type { useInput } from "./use-input";
 
 export const Input = (props: Input.Props) => {
-  const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
-    props: elementProps,
+  const renderElement = useRenderElement("input", {
+    props,
   });
   return renderElement;
 };
 
 export namespace Input {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useInput.Props {}
 }

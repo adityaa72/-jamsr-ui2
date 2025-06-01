@@ -56,7 +56,7 @@ export const chipVariants = tv({
     },
     isBordered: {
       true: {
-        root: "border",
+        root: "border-2",
       },
     },
     radius: radiusVariant("root"),

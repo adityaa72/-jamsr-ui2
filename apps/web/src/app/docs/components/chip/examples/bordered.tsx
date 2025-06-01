@@ -16,6 +16,11 @@ export const ChipBordered = () => {
           {color}
         </Chip>
       ))}
+      {colors.map((color) => (
+        <Chip isBordered variant="dot" color={color} key={color}>
+          {color}
+        </Chip>
+      ))}
     </div>
   );
 };

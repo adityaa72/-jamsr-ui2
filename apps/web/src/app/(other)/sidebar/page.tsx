@@ -1,12 +1,5 @@
-import { SidebarNested } from "./nested";
-
 const Page = () => {
-  return (
-    <div>
-      {/* <SidebarUsage /> */}
-      <SidebarNested />
-    </div>
-  );
+  return <div>{/* <SidebarUsage /> */}</div>;
 };
 
 export default Page;

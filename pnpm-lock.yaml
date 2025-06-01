@@ -1170,6 +1170,165 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/react:
+    dependencies:
+      '@jamsr-ui/accordion':
+        specifier: workspace:^
+        version: link:../components/accordion
+      '@jamsr-ui/alert':
+        specifier: workspace:^
+        version: link:../components/alert
+      '@jamsr-ui/autocomplete':
+        specifier: workspace:^
+        version: link:../components/autocomplete
+      '@jamsr-ui/avatar':
+        specifier: workspace:^
+        version: link:../components/avatar
+      '@jamsr-ui/breadcrumb':
+        specifier: workspace:^
+        version: link:../components/breadcrumb
+      '@jamsr-ui/button':
+        specifier: workspace:^
+        version: link:../components/button
+      '@jamsr-ui/card':
+        specifier: workspace:^
+        version: link:../components/card
+      '@jamsr-ui/charts':
+        specifier: workspace:^
+        version: link:../components/charts
+      '@jamsr-ui/checkbox':
+        specifier: workspace:^
+        version: link:../components/checkbox
+      '@jamsr-ui/chip':
+        specifier: workspace:^
+        version: link:../components/chip
+      '@jamsr-ui/circular-progress':
+        specifier: workspace:^
+        version: link:../components/circular-progress
+      '@jamsr-ui/clipboard':
+        specifier: workspace:^
+        version: link:../components/clipboard
+      '@jamsr-ui/collapsible':
+        specifier: workspace:^
+        version: link:../components/collapsible
+      '@jamsr-ui/confirmation':
+        specifier: workspace:^
+        version: link:../components/confirmation
+      '@jamsr-ui/data-table':
+        specifier: workspace:^
+        version: link:../components/data-table
+      '@jamsr-ui/date-picker':
+        specifier: workspace:^
+        version: link:../components/date-picker
+      '@jamsr-ui/dialog':
+        specifier: workspace:^
+        version: link:../components/dialog
+      '@jamsr-ui/divider':
+        specifier: workspace:^
+        version: link:../components/divider
+      '@jamsr-ui/drawer':
+        specifier: workspace:^
+        version: link:../components/drawer
+      '@jamsr-ui/editor':
+        specifier: workspace:^
+        version: link:../components/editor
+      '@jamsr-ui/header':
+        specifier: workspace:^
+        version: link:../components/header
+      '@jamsr-ui/hooks':
+        specifier: workspace:^
+        version: link:../hooks
+      '@jamsr-ui/icon-button':
+        specifier: workspace:^
+        version: link:../components/icon-button
+      '@jamsr-ui/icons':
+        specifier: workspace:^
+        version: link:../icons
+      '@jamsr-ui/input':
+        specifier: workspace:^
+        version: link:../components/input
+      '@jamsr-ui/kbd':
+        specifier: workspace:^
+        version: link:../components/kbd
+      '@jamsr-ui/linear-progress':
+        specifier: workspace:^
+        version: link:../components/linear-progress
+      '@jamsr-ui/link':
+        specifier: workspace:^
+        version: link:../components/link
+      '@jamsr-ui/menu':
+        specifier: workspace:^
+        version: link:../components/menu
+      '@jamsr-ui/number-input':
+        specifier: workspace:^
+        version: link:../components/number-input
+      '@jamsr-ui/otp-input':
+        specifier: workspace:^
+        version: link:../components/otp-input
+      '@jamsr-ui/pagination':
+        specifier: workspace:^
+        version: link:../components/pagination
+      '@jamsr-ui/popover':
+        specifier: workspace:^
+        version: link:../components/popover
+      '@jamsr-ui/radio':
+        specifier: workspace:^
+        version: link:../components/radio
+      '@jamsr-ui/rating':
+        specifier: workspace:^
+        version: link:../components/rating
+      '@jamsr-ui/ripple':
+        specifier: workspace:^
+        version: link:../components/ripple
+      '@jamsr-ui/scroll-area':
+        specifier: workspace:^
+        version: link:../components/scroll-area
+      '@jamsr-ui/select':
+        specifier: workspace:^
+        version: link:../components/select
+      '@jamsr-ui/sidebar':
+        specifier: workspace:^
+        version: link:../components/sidebar
+      '@jamsr-ui/skeleton':
+        specifier: workspace:^
+        version: link:../components/skeleton
+      '@jamsr-ui/slider':
+        specifier: workspace:^
+        version: link:../components/slider
+      '@jamsr-ui/switch':
+        specifier: workspace:^
+        version: link:../components/switch
+      '@jamsr-ui/table':
+        specifier: workspace:^
+        version: link:../components/table
+      '@jamsr-ui/tabs':
+        specifier: workspace:^
+        version: link:../components/tabs
+      '@jamsr-ui/tags-input':
+        specifier: workspace:^
+        version: link:../components/tags-input
+      '@jamsr-ui/text':
+        specifier: workspace:^
+        version: link:../components/text
+      '@jamsr-ui/textarea':
+        specifier: workspace:^
+        version: link:../components/textarea
+      '@jamsr-ui/theme':
+        specifier: workspace:^
+        version: link:../theme
+      '@jamsr-ui/toast':
+        specifier: workspace:^
+        version: link:../components/toast
+      '@jamsr-ui/toggle':
+        specifier: workspace:^
+        version: link:../components/toggle
+      '@jamsr-ui/tooltip':
+        specifier: workspace:^
+        version: link:../components/tooltip
+      '@jamsr-ui/utils':
+        specifier: workspace:^
+        version: link:../utils
+
   packages/theme: {}
 
   packages/typescript-config: {}

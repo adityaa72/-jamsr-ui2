@@ -2,12 +2,10 @@
 
 import { useFocusVisible } from "@jamsr-ui/hooks";
 
-
 const UsePress = () => {
   const { isFocusVisible, ref } = useFocusVisible<HTMLButtonElement>({
     isDisabled: false,
   });
-  console.log(" isFocusVisible:->", isFocusVisible)
   return (
     <div>
       <button
@@ -15,7 +13,7 @@ const UsePress = () => {
         style={{ backgroundColor: isFocusVisible ? "lightblue" : "white" }}
         className="select-none focus:outline-primary focus:outline-2 focus:outline-offset-2"
         onClick={() => {
-          console.log('clicked')
+          console.log("clicked");
         }}
       >
         Press Me
@@ -23,6 +21,6 @@ const UsePress = () => {
       {isFocusVisible ? "Focused" : "Not Focused"}
     </div>
   );
-}
+};
 
-export default UsePress
+export default UsePress;
