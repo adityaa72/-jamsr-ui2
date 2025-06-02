@@ -20,24 +20,24 @@ export const PopoverContent = (props: PopoverContent.Props) => {
     getFloatingFocusManagerProps,
     getContentProps,
     getOverlayProps,
+    getAnimatePresenceProps,
   } = usePopoverContext();
 
   return (
-    <AnimatePresence>
+    <AnimatePresence {...getAnimatePresenceProps()}>
       {!!isOpen && (
         <FloatingPortal>
-          <FloatingOverlay {...getOverlayProps()}>
-            <FloatingFocusManager {...getFloatingFocusManagerProps()}>
-              <PopoverRoot>
-                <motion.div {...getContentProps(props)}>
-                  <>
-                    {!!showArrow && <FloatingArrow {...getArrowProps()} />}
-                    {children}
-                  </>
-                </motion.div>
-              </PopoverRoot>
-            </FloatingFocusManager>
-          </FloatingOverlay>
+          <FloatingOverlay {...getOverlayProps()} />
+          <FloatingFocusManager {...getFloatingFocusManagerProps()}>
+            <PopoverRoot>
+              <motion.div {...getContentProps(props)}>
+                <>
+                  {!!showArrow && <FloatingArrow {...getArrowProps()} />}
+                  {children}
+                </>
+              </motion.div>
+            </PopoverRoot>
+          </FloatingFocusManager>
         </FloatingPortal>
       )}
     </AnimatePresence>

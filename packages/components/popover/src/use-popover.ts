@@ -1,4 +1,4 @@
-import { ComponentProps, useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 import {
   arrow,
@@ -26,6 +26,8 @@ import type {
   Placement,
 } from "@floating-ui/react";
 import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
+import type { AnimatePresenceProps } from "motion/react";
+import type { ComponentProps } from "react";
 
 import type { PopoverContent } from "./popover-content";
 import type { PopoverRoot } from "./popover-root";
@@ -78,13 +80,26 @@ export const usePopover = (props: usePopover.Props) => {
     prop: isOpenProp,
   });
   const arrowRef = useRef<SVGSVGElement>(null);
+  const arrowHeight = showArrow ? 7 : 0;
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleOpenChange = useCallback(
+    (open: boolean) => {
+      if (!open) {
+        setIsAnimating(true);
+      }
+      setIsOpen(open);
+    },
+    [setIsOpen]
+  );
 
   const { refs, floatingStyles, context } = useFloating({
     placement,
     open: isOpen,
-    onOpenChange: setIsOpen,
+    onOpenChange: handleOpenChange,
+    // onOpenChange: setIsOpen,
     middleware: [
-      offset(offsetProp),
+      offset(offsetProp + arrowHeight),
       flip({
         crossAxis: placement.includes("-"),
         fallbackAxisSideDirection: "end",
@@ -168,9 +183,18 @@ export const usePopover = (props: usePopover.Props) => {
       ...getReferenceProps({
         ref: refs.setReference,
       }),
-      className: variantProps.backdrop === "blur" && isOpen ? "z-popover" : "",
+      className:
+        variantProps.backdrop === "blur" && (isOpen || isAnimating)
+          ? "z-popover"
+          : "",
     }),
-    [getReferenceProps, isOpen, refs.setReference, variantProps.backdrop]
+    [
+      getReferenceProps,
+      isAnimating,
+      isOpen,
+      refs.setReference,
+      variantProps.backdrop,
+    ]
   );
 
   const getFloatingFocusManagerProps = useCallback(
@@ -193,6 +217,15 @@ export const usePopover = (props: usePopover.Props) => {
     [classNames?.backdrop, lockScroll, styles]
   );
 
+  const getAnimatePresenceProps = useCallback(
+    (): AnimatePresenceProps => ({
+      onExitComplete() {
+        setIsAnimating(false);
+      },
+    }),
+    []
+  );
+
   return useMemo(
     () => ({
       getRootProps,
@@ -203,16 +236,18 @@ export const usePopover = (props: usePopover.Props) => {
       showArrow,
       getContentProps,
       getOverlayProps,
+      getAnimatePresenceProps,
     }),
     [
-      getArrowProps,
-      getFloatingFocusManagerProps,
       getRootProps,
-      getTriggerProps,
+      getArrowProps,
       isOpen,
+      getTriggerProps,
+      getFloatingFocusManagerProps,
       showArrow,
       getContentProps,
       getOverlayProps,
+      getAnimatePresenceProps,
     ]
   );
 };
