@@ -7,13 +7,13 @@ export const selectVariants = tv({
   slots: {
     root: ["group relative flex w-full flex-col gap-1 text-sm"],
     value: ["text-sm", "pointer-events-none", "flex grow flex-wrap"],
-    placeholder: ["text-left", "text-foreground-400", "text-sm", "grow"],
+    placeholder: ["text-left", "text-foreground-secondary", "text-sm", "grow"],
     mainWrapper: "flex w-full flex-col",
     innerWrapper: "flex w-full items-center gap-2",
     label: "inline-flex w-max shrink-0 text-sm font-normal text-foreground",
     trigger: [
-      "relative flex w-full flex-row items-center gap-3 border-2 border-default-200 px-3 py-2 outline-none",
-      "focus:border-primary uig-hover:border-default-400 uig-open:border-primary",
+      "relative flex w-full flex-row items-center gap-3 border-2 border-stroke-primary px-3 py-2 outline-none",
+      "focus:border-primary uig-hover:border-stroke-secondary uig-open:border-primary",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
     ],
     helperText: "text-xs text-foreground-600",
@@ -22,7 +22,7 @@ export const selectVariants = tv({
       "shrink-0 transition-transform duration-300 group-data-[open=true]:rotate-180",
     popover: "z-popover",
     content:
-      "z-popover flex h-full flex-col gap-px overflow-hidden bg-background-secondary shadow-md backdrop-blur-3xl",
+      "z-popover flex h-full flex-col gap-px overflow-hidden bg-background-secondary shadow-md backdrop-blur-3xl p-2",
     startContent: "text-foreground-500",
     endContent: "text-foreground-500",
     selectItem: [

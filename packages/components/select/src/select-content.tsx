@@ -1,17 +1,22 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { FloatingList } from "@floating-ui/react";
+import { motion } from "motion/react";
 
 import { useSelectContext } from "./select-context";
 
-import type { UIProps } from "@jamsrui/utils";
+import type { HTMLMotionProps } from "motion/react";
 
 export const SelectContent = (props: SelectContent.Props) => {
-  const { getContentProps } = useSelectContext();
-  const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
-  });
-  return renderElement;
+  const { children } = props;
+  const { getContentProps, getFloatingListProps } = useSelectContext();
+  return (
+    <motion.div {...getContentProps(props)}>
+      <FloatingList {...getFloatingListProps()}>{children}</FloatingList>
+    </motion.div>
+  );
 };
 
 export namespace SelectContent {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends HTMLMotionProps<"div"> {
+    children: React.ReactNode;
+  }
 }

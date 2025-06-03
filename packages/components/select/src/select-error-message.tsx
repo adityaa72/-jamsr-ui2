@@ -5,9 +5,9 @@ import { useSelectContext } from "./select-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SelectErrorMessage = (props: SelectErrorMessage.Props) => {
-  const { getErrorMessageProps } = useSelectContext();
+  const { getErrorMessageProps, errorMessage } = useSelectContext();
   const renderElement = useRenderElement("div", {
-    props: [getErrorMessageProps(props)],
+    props: [getErrorMessageProps(props), { children: errorMessage }],
   });
   return renderElement;
 };

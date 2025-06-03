@@ -1,12 +1,13 @@
 import { Select, SelectItem } from "@jamsr-ui/react";
 
-export const SelectWithHelperText = () => {
+export const SelectWithErrorMessage = () => {
   return (
     <div className="py-24 flex items-center justify-center">
       <Select
         className="max-w-sm"
         label="Select Fruit"
-        helperText="Please choose one of the options"
+        errorMessage="Please choose one of the options"
+        isInvalid
       >
         <SelectItem value="apple">Apple</SelectItem>
         <SelectItem value="blueberry">Blueberry</SelectItem>

@@ -5,9 +5,9 @@ import { useSelectContext } from "./select-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SelectValue = (props: SelectValue.Props) => {
-  const { getValueProps } = useSelectContext();
+  const { getValueProps, getRenderValue } = useSelectContext();
   const renderElement = useRenderElement("div", {
-    props: [getValueProps(props)],
+    props: [getValueProps(props), { children: getRenderValue }],
   });
   return renderElement;
 };

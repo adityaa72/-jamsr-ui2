@@ -3,6 +3,8 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { SelectUsage } from "./examples/usage";
+import { SelectWithErrorMessage } from "./examples/with-error-message";
+import { SelectWithHelperText } from "./examples/with-helper-text";
 
 const title = "Select";
 const description =
@@ -19,6 +21,18 @@ const Select = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <SelectUsage />
+      </CodeExample>
+      <CodeExample
+        title="With Helper Text"
+        url={resolvePath("with-helper-text.tsx")}
+      >
+        <SelectWithHelperText />
+      </CodeExample>
+      <CodeExample
+        title="With Error Message"
+        url={resolvePath("with-error-message.tsx")}
+      >
+        <SelectWithErrorMessage />
       </CodeExample>
     </DocsPage>
   );

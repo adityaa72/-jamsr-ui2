@@ -5,13 +5,13 @@ import { useSelectContext } from "./select-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SelectLabel = (props: SelectLabel.Props) => {
-  const { getLabelProps } = useSelectContext();
-  const renderElement = useRenderElement("div", {
-    props: [getLabelProps(props)],
+  const { getLabelProps, label } = useSelectContext();
+  const renderElement = useRenderElement("label", {
+    props: [getLabelProps(props), { children: label }],
   });
   return renderElement;
 };
 
 export namespace SelectLabel {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"label"> {}
 }

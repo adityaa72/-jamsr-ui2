@@ -5,9 +5,9 @@ import { useSelectContext } from "./select-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SelectPlaceholder = (props: SelectPlaceholder.Props) => {
-  const { getPlaceholderProps } = useSelectContext();
+  const { getPlaceholderProps, placeholder } = useSelectContext();
   const renderElement = useRenderElement("div", {
-    props: [getPlaceholderProps(props)],
+    props: [getPlaceholderProps(props), { children: placeholder }],
   });
   return renderElement;
 };
