@@ -5,15 +5,16 @@ import type { VariantProps } from "@jamsrui/utils";
 export const test = "";
 export const menuVariants = tv({
   slots: {
-    arrow: "fill-content2",
+    arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
     root: "min-w-[150px] z-popover",
     content:
       "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-background-secondary p-1 text-sm shadow-md outline-none",
     menuItem: [
-      "relative box-border flex size-full cursor-pointer select-none items-center gap-2 px-2 py-1.5 text-left outline-none focus:bg-content2 ui-hover:bg-content2 ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
-      "ui-active:bg-content3",
+      "relative box-border flex size-full cursor-pointer select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+      "ui-active:bg-background-tertiary",
     ],
+    menuItemInner: "grow",
   },
   variants: {
     radius: radiusVariant(["content", "menuItem"]),
@@ -22,15 +23,15 @@ export const menuVariants = tv({
         backdrop: "",
       },
       opaque: {
-        backdrop: "bg-overlay/50",
+        backdrop: "bg-black/50",
       },
       blur: {
-        backdrop: "bg-overlay/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
     color: {
       default: {
-        menuItem: "ui-hover:bg-content2 ui-hover:text-foreground",
+        menuItem: "ui-hover:bg-background-tertiary ui-hover:text-foreground",
       },
       primary: {
         menuItem: "ui-hover:bg-primary ui-hover:text-primary-foreground",
@@ -52,6 +53,7 @@ export const menuVariants = tv({
   defaultVariants: {
     backdrop: "opaque",
     radius: "md",
+    color: "default",
   },
 });
 

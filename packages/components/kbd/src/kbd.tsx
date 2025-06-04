@@ -10,5 +10,7 @@ export const Kbd = (props: Kbd.Props) => {
 };
 
 export namespace Kbd {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"div"> {
+    keys: string[];
+  }
 }

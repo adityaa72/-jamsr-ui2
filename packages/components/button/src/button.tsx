@@ -25,7 +25,6 @@ export const Button = (props: Button.Props) => {
       {isLoading && spinnerPlacement === "start" ? spinner : startContent}
       {props.children}
       {isLoading && spinnerPlacement === "end" ? spinner : endContent}
-      {endContent}
     </>
   );
 
@@ -36,5 +35,5 @@ export const Button = (props: Button.Props) => {
 };
 
 export namespace Button {
-  export interface Props extends useButton.Props { }
+  export interface Props extends useButton.Props {}
 }

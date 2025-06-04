@@ -41,9 +41,13 @@ import type { ComponentProps } from "react";
 import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context";
 import type { MenuItem } from "./menu-item";
+import type { MenuItemInner } from "./menu-item-inner";
 import type { MenuSlots, MenuVariantProps } from "./styles";
 
 export const useMenu = (props: useMenu.Props) => {
+  const parentId = useFloatingParentNodeId();
+  const isNested = parentId !== null;
+
   const [$props, variantProps] = mapPropsVariants(
     props,
     menuVariants.variantKeys
@@ -54,11 +58,9 @@ export const useMenu = (props: useMenu.Props) => {
     closeOnOutsidePress = true,
     isOpen: isOpenProp,
     lockScroll = true,
-    nestedOffset,
-    nestedPlacement,
     offset: offsetProp = 4,
     openDelay = 75,
-    placement = "bottom-end",
+    placement = isNested ? "right-start" : "bottom-end",
     defaultOpen = false,
     onOpenChange,
     triggerOn = "click",
@@ -69,7 +71,7 @@ export const useMenu = (props: useMenu.Props) => {
   const tree = useFloatingTree();
   const nodeId = useFloatingNodeId();
   const item = useListItem();
-  const parentId = useFloatingParentNodeId();
+  const arrowHeight = showArrow ? 7 : 0;
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -78,7 +80,6 @@ export const useMenu = (props: useMenu.Props) => {
   });
   const [hasFocusInside, setHasFocusInside] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const isNested = parentId !== null;
   const arrowRef = useRef<SVGSVGElement>(null);
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const labelsRef = useRef<(string | null)[]>([]);
@@ -90,7 +91,7 @@ export const useMenu = (props: useMenu.Props) => {
     placement,
     middleware: [
       offset({
-        mainAxis: offsetProp,
+        mainAxis: offsetProp + arrowHeight,
         alignmentAxis: isNested ? -4 : 0,
       }),
       flip(),
@@ -217,7 +218,7 @@ export const useMenu = (props: useMenu.Props) => {
     (): Omit<FloatingFocusManagerProps, "children"> => ({
       context,
       modal: true,
-      initialFocus: 0,
+      initialFocus: 1,
       returnFocus: !isNested,
       disabled: false,
     }),
@@ -294,10 +295,22 @@ export const useMenu = (props: useMenu.Props) => {
       "data-slot": dataAttrDev("menu-item"),
       className: styles.menuItem({
         className: cn(classNames?.menuItem, props.className),
+        color: props.color,
       }),
       role: "menuitem",
     }),
     [classNames?.menuItem, styles]
+  );
+
+  const getMenuItemInnerProps: PropGetter<MenuItemInner.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("menu-item-inner"),
+      className: styles.menuItemInner({
+        className: cn(classNames?.menuItemInner, props.className),
+      }),
+    }),
+    [classNames?.menuItemInner, styles]
   );
 
   return useMemo(
@@ -315,6 +328,7 @@ export const useMenu = (props: useMenu.Props) => {
       getRootProps,
       getMenuItemProps,
       isNested,
+      getMenuItemInnerProps,
     }),
     [
       getOverlayProps,
@@ -330,6 +344,7 @@ export const useMenu = (props: useMenu.Props) => {
       getRootProps,
       getMenuItemProps,
       isNested,
+      getMenuItemInnerProps,
     ]
   );
 };
