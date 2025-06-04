@@ -31,7 +31,7 @@ export const useTooltip = (props: useTooltip.Props) => {
     title,
     isDisabled = false,
     delay: delayProp,
-    offset: offsetProp = 8,
+    offset: offsetProp = 4,
     placement = "top",
     radius,
     showArrow = false,
@@ -49,6 +49,7 @@ export const useTooltip = (props: useTooltip.Props) => {
     prop: isOpenProp,
   });
   const arrowRef = useRef<SVGSVGElement>(null);
+  const arrowHeight = showArrow ? 7 : 0;
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
@@ -56,7 +57,7 @@ export const useTooltip = (props: useTooltip.Props) => {
     placement,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset(offsetProp),
+      offset(offsetProp + arrowHeight),
       flip({
         fallbackAxisSideDirection: "start",
       }),

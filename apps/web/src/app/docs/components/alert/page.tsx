@@ -25,7 +25,7 @@ const Alert = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <AlertUsage />
       </CodeExample>
       <CodeExample title="With Title" url={resolvePath("with-title.tsx")}>

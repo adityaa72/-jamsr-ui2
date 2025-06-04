@@ -58,6 +58,7 @@
   --color-foreground-secondary: var(--ui-foreground-secondary);
   --color-foreground-tertiary: var(--ui-foreground-tertiary);
   --color-foreground-quaternary: var(--ui-foreground-quaternary);
+  --color-foreground-link: var(--ui-foreground-link);
 
   /* Background */
   --color-background: var(--ui-background);
@@ -133,6 +134,7 @@
   --ui-foreground-secondary: oklch(55.2% 0.014 285.9);
   --ui-foreground-tertiary: oklch(71.2% 0.013 286.1);
   --ui-foreground-quaternary: oklch(87.1% 0.005 286.3);
+  --ui-foreground-link: oklch(54.6% 0.215 262.9);
 
   /* Background */
   --ui-background: oklch(98.5% 0 0);
@@ -222,6 +224,7 @@
   --ui-foreground-secondary: oklch(71.2% 0.013 286.1);
   --ui-foreground-tertiary: oklch(55.2% 0.014 285.9);
   --ui-foreground-quaternary: oklch(44.2% 0.015 285.8);
+  --ui-foreground-link: oklch(54.6% 0.215 262.9);
 
   /* Background */
   --ui-background: oklch(14.1% 0.004 285.8);

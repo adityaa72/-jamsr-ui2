@@ -1,7 +1,9 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
+import { LinkUnderline } from "./examples/underline";
+import { LinkUsage } from "./examples/usage";
 
 const title = "Link";
 const description =
@@ -16,7 +18,16 @@ const Link = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
+        <LinkUsage />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Underline"
+        url={resolvePath("underline.tsx")}
+      >
+        <LinkUnderline />
+      </CodeExample>
     </DocsPage>
   );
 };

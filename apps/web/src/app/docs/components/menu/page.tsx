@@ -29,19 +29,23 @@ const Menu = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <MenuUsage />
       </CodeExample>
-      <CodeExample title="Nested" url={resolvePath("nested.tsx")}>
+      <CodeExample isCentered title="Nested" url={resolvePath("nested.tsx")}>
         <MenuNested />
       </CodeExample>
-      <CodeExample title="Placement" url={resolvePath("placement.tsx")}>
+      <CodeExample
+        isCentered
+        title="Placement"
+        url={resolvePath("placement.tsx")}
+      >
         <MenuPlacement />
       </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <MenuRadius />
       </CodeExample>
-      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <MenuColors />
       </CodeExample>
       <CodeExample
@@ -50,16 +54,32 @@ const Menu = () => {
       >
         <MenuStartEndContent />
       </CodeExample>
-      <CodeExample title="With Arrow" url={resolvePath("with-arrow.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Arrow"
+        url={resolvePath("with-arrow.tsx")}
+      >
         <MenuWithArrow />
       </CodeExample>
-      <CodeExample title="Prevent Close" url={resolvePath("prevent-close.tsx")}>
+      <CodeExample
+        isCentered
+        title="Prevent Close"
+        url={resolvePath("prevent-close.tsx")}
+      >
         <MenuPreventClose />
       </CodeExample>
-      <CodeExample title="Backdrop" url={resolvePath("backdrop.tsx")}>
+      <CodeExample
+        isCentered
+        title="Backdrop"
+        url={resolvePath("backdrop.tsx")}
+      >
         <MenuBackdrop />
       </CodeExample>
-      <CodeExample title="Controlled" url={resolvePath("controlled.tsx")}>
+      <CodeExample
+        isCentered
+        title="Controlled"
+        url={resolvePath("controlled.tsx")}
+      >
         <MenuControlled />
       </CodeExample>
       <CodeExample
@@ -68,10 +88,14 @@ const Menu = () => {
       >
         <MenuWithoutLockScroll />
       </CodeExample>
-      <CodeExample title="Offset" url={resolvePath("offset.tsx")}>
+      <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
         <MenuOffset />
       </CodeExample>
-      <CodeExample title="Customized" url={resolvePath("customized.tsx")}>
+      <CodeExample
+        isCentered
+        title="Customized"
+        url={resolvePath("customized.tsx")}
+      >
         <MenuCustomized />
       </CodeExample>
     </DocsPage>

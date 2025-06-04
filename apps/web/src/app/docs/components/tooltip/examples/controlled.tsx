@@ -7,7 +7,7 @@ import { useState } from "react";
 export const TooltipControlled = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="py-24 grid place-content-center gap-4">
+    <div className="grid place-content-center gap-4">
       <Tooltip
         isOpen={isOpen}
         onOpenChange={setIsOpen}

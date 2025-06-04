@@ -28,48 +28,74 @@ const Chip = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <ChipUsage />
       </CodeExample>
-      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <ChipColors />
       </CodeExample>
       <DocsPageSection title="Variants">
-        <CodeExample title="Solid" url={resolvePath("variants/solid.tsx")}>
+        <CodeExample
+          isCentered
+          title="Solid"
+          url={resolvePath("variants/solid.tsx")}
+        >
           <ChipVariantSolid />
         </CodeExample>
-        <CodeExample title="Flat" url={resolvePath("variants/flat.tsx")}>
+        <CodeExample
+          isCentered
+          title="Flat"
+          url={resolvePath("variants/flat.tsx")}
+        >
           <ChipVariantFlat />
         </CodeExample>
         <CodeExample
+          isCentered
           title="Bordered"
           url={resolvePath("variants/bordered.tsx")}
         >
           <ChipVariantBordered />
         </CodeExample>
-        <CodeExample title="Dot" url={resolvePath("variants/dot.tsx")}>
+        <CodeExample
+          isCentered
+          title="Dot"
+          url={resolvePath("variants/dot.tsx")}
+        >
           <ChipVariantDot />
         </CodeExample>
       </DocsPageSection>
-      <CodeExample title="Sizes" url={resolvePath("sizes.tsx")}>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <ChipSizes />
       </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <ChipRadius />
       </CodeExample>
       <CodeExample
+        isCentered
         title="Start & End Content"
         url={resolvePath("start-end-content.tsx")}
       >
         <ChipStartEndContent />
       </CodeExample>
-      <CodeExample title="Bordered" url={resolvePath("bordered.tsx")}>
+      <CodeExample
+        isCentered
+        title="Bordered"
+        url={resolvePath("bordered.tsx")}
+      >
         <ChipBordered />
       </CodeExample>
-      <CodeExample title="With Close" url={resolvePath("with-close.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Close"
+        url={resolvePath("with-close.tsx")}
+      >
         <ChipWithClose />
       </CodeExample>
-      <CodeExample title="Customized" url={resolvePath("customized.tsx")}>
+      <CodeExample
+        isCentered
+        title="Customized"
+        url={resolvePath("customized.tsx")}
+      >
         <ChipCustomized />
       </CodeExample>
     </DocsPage>

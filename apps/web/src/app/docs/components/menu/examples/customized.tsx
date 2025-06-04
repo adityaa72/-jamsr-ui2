@@ -15,27 +15,25 @@ const motionVariants: Variants = {
 
 export const MenuCustomized = () => {
   return (
-    <div className="flex  justify-center">
-      <Menu
-        radius="2xl"
-        classNames={{
-          content:
-            "min-w-[300px] bg-background-quaternary border-2 border-primary-stroke",
-          menuItem: "py-3 text-base px-4 font-medium hover:text-primary",
-        }}
-      >
-        <MenuTrigger>
-          <button>
-            <Avatar src="https://i.pravatar.cc/150" alt="JamsrUI" />
-          </button>
-        </MenuTrigger>
-        <MenuContent>
-          <MenuItem>Undo</MenuItem>
-          <MenuItem>Info</MenuItem>
-          <MenuItem>Search</MenuItem>
-          <MenuItem>Cut</MenuItem>
-        </MenuContent>
-      </Menu>
-    </div>
+    <Menu
+      radius="2xl"
+      classNames={{
+        content:
+          "min-w-[300px] bg-background-quaternary border-2 border-primary-stroke",
+        menuItem: "py-3 text-base px-4 font-medium hover:text-primary",
+      }}
+    >
+      <MenuTrigger>
+        <button>
+          <Avatar src="https://i.pravatar.cc/150" alt="JamsrUI" />
+        </button>
+      </MenuTrigger>
+      <MenuContent>
+        <MenuItem>Undo</MenuItem>
+        <MenuItem>Info</MenuItem>
+        <MenuItem>Search</MenuItem>
+        <MenuItem>Cut</MenuItem>
+      </MenuContent>
+    </Menu>
   );
 };

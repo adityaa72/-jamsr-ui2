@@ -22,22 +22,34 @@ const Tooltip = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <TooltipUsage />
       </CodeExample>
-      <CodeExample title="With Arrow" url={resolvePath("with-arrow.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Arrow"
+        url={resolvePath("with-arrow.tsx")}
+      >
         <TooltipWithArrow />
       </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <TooltipRadius />
       </CodeExample>
-      <CodeExample title="Offset" url={resolvePath("offset.tsx")}>
+      <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
         <TooltipOffset />
       </CodeExample>
-      <CodeExample title="Controlled" url={resolvePath("controlled.tsx")}>
+      <CodeExample
+        isCentered
+        title="Controlled"
+        url={resolvePath("controlled.tsx")}
+      >
         <TooltipControlled />
       </CodeExample>
-      <CodeExample title="With Group" url={resolvePath("with-group.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Group"
+        url={resolvePath("with-group.tsx")}
+      >
         <TooltipWithGroup />
       </CodeExample>
     </DocsPage>

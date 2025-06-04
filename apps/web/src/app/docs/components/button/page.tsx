@@ -26,37 +26,54 @@ const Button = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <ButtonUsage />
       </CodeExample>
-      <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
+      <CodeExample
+        isCentered
+        title="Variants"
+        url={resolvePath("variants.tsx")}
+      >
         <ButtonVariants />
       </CodeExample>
-      <CodeExample title="Sizes" url={resolvePath("sizes.tsx")}>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <ButtonSizes />
       </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <ButtonRadius />
       </CodeExample>
-      <CodeExample title="Loading" url={resolvePath("loading.tsx")}>
+      <CodeExample isCentered title="Loading" url={resolvePath("loading.tsx")}>
         <ButtonLoading />
       </CodeExample>
-      <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
+      <CodeExample
+        isCentered
+        title="Disabled"
+        url={resolvePath("disabled.tsx")}
+      >
         <ButtonDisabled />
       </CodeExample>
-      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <ButtonColors />
       </CodeExample>
-      <CodeExample title="With Icons" url={resolvePath("with-icons.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Icons"
+        url={resolvePath("with-icons.tsx")}
+      >
         <ButtonWithIcons />
       </CodeExample>
       <CodeExample
+        isCentered
         title="Variants Colors"
         url={resolvePath("variants-colors.tsx")}
       >
         <ButtonVariantsColors />
       </CodeExample>
-      <CodeExample title="Customized" url={resolvePath("customized.tsx")}>
+      <CodeExample
+        isCentered
+        title="Customized"
+        url={resolvePath("customized.tsx")}
+      >
         <ButtonCustomized />
       </CodeExample>
     </DocsPage>

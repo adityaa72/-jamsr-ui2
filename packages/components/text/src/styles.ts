@@ -44,6 +44,10 @@ export const textVariants = tv({
       variant: ["body1", "body2", "body3", "body4"],
       className: "font-normal",
     },
+    {
+      variant: ["body5", "body6", "body7"],
+      className: "font-medium",
+    },
   ],
 });
 

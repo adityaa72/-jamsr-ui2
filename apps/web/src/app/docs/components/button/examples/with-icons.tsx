@@ -7,13 +7,13 @@ export const ButtonWithIcons = () => {
       <Button startContent={<EmailIcon />} color="success">
         Email
       </Button>
-      <Button endContent={<TrashIcon />} variant="outlined" color="primary">
+      <Button endContent={<TrashIcon />} variant="bordered" color="primary">
         Call us
       </Button>
       <Button endContent={<ImageAddIcon />} color="success">
         Upload Files
       </Button>
-      <Button endContent={<CloseIcon />} variant="outlined" color="danger">
+      <Button endContent={<CloseIcon />} variant="bordered" color="danger">
         Delete user
       </Button>
     </div>

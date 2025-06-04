@@ -23,28 +23,37 @@ const IconButton = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <IconButtonUsage />
       </CodeExample>
-      <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
+      <CodeExample
+        isCentered
+        title="Disabled"
+        url={resolvePath("disabled.tsx")}
+      >
         <IconButtonDisabled />
       </CodeExample>
-      <CodeExample title="Loading" url={resolvePath("loading.tsx")}>
+      <CodeExample isCentered title="Loading" url={resolvePath("loading.tsx")}>
         <IconButtonLoading />
       </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <IconButtonRadius />
       </CodeExample>
-      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <IconButtonColors />
       </CodeExample>
       <CodeExample
+        isCentered
         title="Variants Colors"
         url={resolvePath("variants-colors.tsx")}
       >
         <IconButtonVariantsColors />
       </CodeExample>
-      <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
+      <CodeExample
+        isCentered
+        title="Variants"
+        url={resolvePath("variants.tsx")}
+      >
         <IconButtonVariants />
       </CodeExample>
     </DocsPage>

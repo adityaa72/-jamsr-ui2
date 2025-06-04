@@ -2,20 +2,13 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
+export const test = "";
 export const dividerVariants = tv({
   slots: {
     root: "flex items-center gap-2",
     divider: "",
   },
   variants: {
-    variant: {
-      default: {
-        divider: "bg-divider",
-      },
-      gradient: {
-        divider: "from-transparent via-[#989AA6]/[0.5] to-transparent",
-      },
-    },
     orientation: {
       vertical: {
         root: "flex-col",
@@ -25,10 +18,13 @@ export const dividerVariants = tv({
         divider: "h-px w-full",
       },
     },
-    color: {
-      light: { divider: "bg-divider-light" },
-      dark: { divider: "bg-divider-dark" },
-      default: { divider: "bg-divider" },
+    variant: {
+      light: { divider: "bg-stroke-secondary" },
+      dark: { divider: "bg-stroke-secondary" },
+      default: { divider: "bg-stroke-primary" },
+      gradient: {
+        divider: "from-transparent via-[#989AA6]/[0.5] to-transparent",
+      },
     },
   },
   compoundVariants: [

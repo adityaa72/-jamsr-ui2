@@ -71,6 +71,7 @@ export const useAvatar = (props: useAvatar.Props) => {
 
   const getImgProps: PropGetter<AvatarImage.Props> = useCallback(
     () => ({
+      draggable: "false",
       ...imageProps,
       "data-slot": dataAttrDev("img"),
       onError: handleOnError,
