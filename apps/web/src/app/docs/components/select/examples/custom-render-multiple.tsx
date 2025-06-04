@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Select, SelectItem } from "@jamsr-ui/react";
+import { Avatar, Chip, Select, SelectItem } from "@jamsr-ui/react";
 
 const users = [
   {
@@ -205,38 +205,49 @@ const users = [
   },
 ];
 
-export const SelectCustomRenderComplex = () => {
+export const SelectCustomRenderMultiple = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="w-full max-w-sm"
       size="lg"
+      isMultiple
       renderValue={(values) => {
-        const value = values[0];
-        const selectedUser = users.find((u) => u.email === value);
-        if (!selectedUser) return null;
+        const selectedUsers = users.filter((u) => values.includes(u.email));
         return (
-          <div className="flex items-center gap-2">
-            <Avatar
-              alt={selectedUser.name}
-              className="shrink-0"
-              size="sm"
-              src={selectedUser.avatar}
-              width={100}
-              height={100}
-            />
-            <div className="flex flex-col">
-              <span className="text-left text-sm">{selectedUser.name}</span>
-              <span className="text-xs text-foreground-secondary">
-                {selectedUser.email}
-              </span>
-            </div>
+          <div className="flex flex-wrap gap-1">
+            {selectedUsers.map((item) => {
+              return (
+                <Chip
+                  key={item.id}
+                  classNames={{
+                    content: "flex items-center gap-2 py-1",
+                    root: "h-auto",
+                  }}
+                >
+                  <Avatar
+                    alt={item.name}
+                    className="shrink-0"
+                    size="sm"
+                    src={item.avatar}
+                    width={100}
+                    height={100}
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-left text-sm">{item.name}</span>
+                    <span className="text-xs text-foreground-secondary">
+                      {item.email}
+                    </span>
+                  </div>
+                </Chip>
+              );
+            })}
           </div>
         );
       }}
     >
       {users.map((user) => {
         return (
-          <SelectItem key={user.id} value={user.email}>
+          <SelectItem key={user.id} value={user.email} textValue={user.name}>
             <div className="flex items-center gap-2">
               <Avatar
                 alt={user.name}
@@ -248,9 +259,7 @@ export const SelectCustomRenderComplex = () => {
               />
               <div className="flex flex-col">
                 <span className="text-left text-sm">{user.name}</span>
-                <span className="text-xs text-foreground-secondary">
-                  {user.email}
-                </span>
+                <span className="text-xs text-default-400">{user.email}</span>
               </div>
             </div>
           </SelectItem>

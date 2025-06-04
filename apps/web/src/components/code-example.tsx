@@ -2,12 +2,14 @@ import { readSourceCode } from "@/utils/code";
 import { Text } from "@jamsrui/react";
 import { CodeBlock, CodeBlockProps } from "./code-block";
 import { Tab, Tabs } from "@jamsrui/react";
+import { cn } from "@jamsrui/utils";
 
 type CodeExampleProps = Omit<CodeBlockProps, "children"> & {
   url: string;
   children: React.ReactElement;
   title: string;
   description?: string;
+  isCentered?: boolean;
 };
 
 export const DocsPageSection = (props: {
@@ -31,7 +33,7 @@ export const DocsPageSection = (props: {
 };
 
 export const CodeExample = async (props: CodeExampleProps) => {
-  const { children, url, lang, title, description } = props;
+  const { children, url, lang, title, description, isCentered } = props;
   const code = await readSourceCode(url);
   const id = title.toLowerCase().replace(" ", "-");
   return (
@@ -44,7 +46,12 @@ export const CodeExample = async (props: CodeExampleProps) => {
       </div>
       <Tabs defaultValue="preview">
         <Tab heading="Preview" value="preview">
-          <div className="border border-stroke-primary rounded-lg p-4">
+          <div
+            className={cn(
+              "border min-h-[200px]  border-stroke-primary rounded-lg p-4",
+              isCentered && "flex items-center justify-center"
+            )}
+          >
             {children}
           </div>
         </Tab>

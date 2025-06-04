@@ -20,9 +20,9 @@ export const selectVariants = tv({
     errorMessage: "text-xs text-danger",
     indicator:
       "shrink-0 transition-transform duration-300 group-data-[open=true]:rotate-180",
-    popover: "z-popover",
+    popover: "z-popover overflow-hidden",
     content:
-      "z-popover flex h-full flex-col gap-px overflow-hidden bg-background-secondary shadow-md backdrop-blur-3xl p-2",
+      "z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-background-secondary shadow-md backdrop-blur-3xl p-2",
     startContent: "text-foreground-500",
     endContent: "text-foreground-500",
     selectItem: [
@@ -43,7 +43,7 @@ export const selectVariants = tv({
       warning: {},
       danger: {},
     },
-    radius: radiusVariant(["trigger", "content", "selectItem"]),
+    radius: radiusVariant(["trigger", "content", "selectItem", "popover"]),
     size: {
       sm: {
         label: "text-xs",

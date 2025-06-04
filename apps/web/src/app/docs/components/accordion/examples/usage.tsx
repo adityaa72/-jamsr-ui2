@@ -7,7 +7,7 @@ import {
 
 export const AccordionUsage = () => {
   return (
-    <Accordion variant="splitted">
+    <Accordion variant="splitted" className="w-full">
       <AccordionItem>
         <AccordionTrigger>Accordion 1</AccordionTrigger>
         <AccordionContent>I am the accordion content</AccordionContent>
