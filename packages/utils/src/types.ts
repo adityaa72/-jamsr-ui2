@@ -7,7 +7,7 @@ export type DataAttributes = Record<
 
 export type UIProps<ElementType extends React.ElementType> = Omit<
   ComponentPropsWithRef<ElementType>,
-  "className" | "defaultChecked" | "color" | "defaultValue"
+  "className" | "defaultChecked" | "color" | "defaultValue" | "size" | "slot"
 > &
   DataAttributes & {
     className?: string;
