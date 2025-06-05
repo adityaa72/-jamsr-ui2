@@ -25,6 +25,7 @@
     "@jamsrui/clipboard": "workspace:^",
     "@jamsrui/collapsible": "workspace:^",
     "@jamsrui/confirmation": "workspace:^",
+    "@jamsrui/context-menu": "workspace:^",
     "@jamsrui/data-table": "workspace:^",
     "@jamsrui/date-picker": "workspace:^",
     "@jamsrui/dialog": "workspace:^",

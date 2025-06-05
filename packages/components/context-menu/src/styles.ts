@@ -3,7 +3,7 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
-export const menuVariants = tv({
+export const contextMenuVariants = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
@@ -57,5 +57,5 @@ export const menuVariants = tv({
   },
 });
 
-export type MenuVariantProps = VariantProps<typeof menuVariants>;
-export type MenuSlots = keyof ReturnType<typeof menuVariants>;
+export type ContextMenuVariantProps = VariantProps<typeof contextMenuVariants>;
+export type ContextMenuSlots = keyof ReturnType<typeof contextMenuVariants>;

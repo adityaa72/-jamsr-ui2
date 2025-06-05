@@ -1,13 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import {
-  arrow,
   autoUpdate,
   flip,
   offset,
   safePolygon,
   shift,
-  useClick,
   useDismiss,
   useFloating,
   useFloatingNodeId,
@@ -17,18 +15,17 @@ import {
   useInteractions,
   useListItem,
   useListNavigation,
+  useMergeRefs,
   useRole,
   useTypeahead,
 } from "@floating-ui/react";
-import { useMergeRefs } from "@jamsrui/hooks";
 import { useControlledState } from "@jamsrui/hooks";
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { useMenuFloatingContext } from "./menu-floating-context";
-import { menuVariants } from "./styles";
+import { useContextMenuFloatingContext } from "./context-menu-floating-context";
+import { contextMenuVariants } from "./styles";
 
 import type {
-  FloatingArrowProps,
   FloatingFocusManagerProps,
   FloatingList,
   FloatingNodeProps,
@@ -38,72 +35,69 @@ import type {
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import type { MenuContent } from "./menu-content";
-import type { MenuFloatingContext } from "./menu-floating-context";
-import type { MenuItem } from "./menu-item";
-import type { MenuItemInner } from "./menu-item-inner";
-import type { MenuSlots, MenuVariantProps } from "./styles";
+import type { ContextMenuContent } from "./context-menu-content";
+import type { ContextMenuFloatingContext } from "./context-menu-floating-context";
+import type { ContextMenuItem } from "./context-menu-item";
+import type { ContextMenuItemInner } from "./context-menu-item-inner";
+import type { ContextMenuSlots, ContextMenuVariantProps } from "./styles";
 
-export const useMenu = (props: useMenu.Props) => {
+export const useContextMenu = (props: useContextMenu.Props) => {
   const parentId = useFloatingParentNodeId();
   const isNested = parentId !== null;
 
   const [$props, variantProps] = mapPropsVariants(
     props,
-    menuVariants.variantKeys
+    contextMenuVariants.variantKeys
   );
+
   const {
+    isOpen: isOpenProp,
+    defaultOpen,
+    onOpenChange,
+    classNames,
     closeDelay = 0,
     closeOnEscapeKey = true,
     closeOnOutsidePress = true,
-    isOpen: isOpenProp,
     lockScroll = true,
     offset: offsetProp = 4,
     openDelay = 75,
-    placement = isNested ? "right-start" : "bottom-end",
-    defaultOpen = false,
-    onOpenChange,
-    triggerOn = "click",
-    classNames,
-    showArrow,
+    placement = "right-start",
   } = $props;
 
   const tree = useFloatingTree();
   const nodeId = useFloatingNodeId();
   const item = useListItem();
-  const arrowHeight = showArrow ? 7 : 0;
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
     onChange: onOpenChange,
     prop: isOpenProp,
   });
+
   const [hasFocusInside, setHasFocusInside] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const arrowRef = useRef<SVGSVGElement>(null);
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const labelsRef = useRef<(string | null)[]>([]);
 
-  const { floatingStyles, refs, context } = useFloating<HTMLDivElement>({
+  const { refs, floatingStyles, context } = useFloating({
     nodeId,
     open: isOpen,
     onOpenChange: setIsOpen,
-    placement,
     middleware: [
       offset({
-        mainAxis: offsetProp + arrowHeight,
+        mainAxis: offsetProp,
         alignmentAxis: isNested ? -4 : 0,
       }),
-      flip(),
-      shift({ padding: 5 }),
-      arrow({
-        element: arrowRef,
+      flip({
+        fallbackPlacements: ["left-start"],
       }),
+      shift({ padding: 5 }),
     ],
+    placement,
     whileElementsMounted: autoUpdate,
   });
 
-  const hoverEnabled = triggerOn === "hover" || isNested;
+  const hoverEnabled = isNested;
   const hover = useHover(context, {
     enabled: hoverEnabled,
     delay: { open: openDelay, close: closeDelay },
@@ -111,22 +105,15 @@ export const useMenu = (props: useMenu.Props) => {
       blockPointerEvents: true,
     }),
   });
-  const click = useClick(context, {
-    event: "mousedown",
-    toggle: !isNested,
-    ignoreMouse: isNested,
-  });
   const role = useRole(context, { role: "menu" });
   const dismiss = useDismiss(context, {
-    bubbles: true,
     escapeKey: closeOnEscapeKey,
     outsidePress: closeOnOutsidePress,
   });
   const listNavigation = useListNavigation(context, {
     listRef: elementsRef,
-    activeIndex,
-    nested: isNested,
     onNavigate: setActiveIndex,
+    activeIndex,
   });
   const typeahead = useTypeahead(context, {
     enabled: isOpen,
@@ -135,8 +122,8 @@ export const useMenu = (props: useMenu.Props) => {
     activeIndex,
   });
 
-  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
-    [hover, click, role, dismiss, listNavigation, typeahead]
+  const { getFloatingProps, getItemProps, getReferenceProps } = useInteractions(
+    [role, hover, dismiss, listNavigation, typeahead]
   );
 
   useEffect(() => {
@@ -152,7 +139,6 @@ export const useMenu = (props: useMenu.Props) => {
 
     tree.events.on("click", handleTreeClick);
     tree.events.on("menuopen", onSubMenuOpen);
-
     return () => {
       tree.events.off("click", handleTreeClick);
       tree.events.off("menuopen", onSubMenuOpen);
@@ -165,12 +151,40 @@ export const useMenu = (props: useMenu.Props) => {
     }
   }, [tree, isOpen, nodeId, parentId]);
 
-  const styles = menuVariants(variantProps);
-
+  const styles = contextMenuVariants(variantProps);
   const isActive = isOpen && hasFocusInside && isNested;
-  const itemRef = useMergeRefs([refs.setReference, item.ref]);
-  const parentCtx = useMenuFloatingContext();
+  const parentCtx = useContextMenuFloatingContext();
+  const allowMouseUpCloseRef = useRef(false);
+  const timeoutRef = useRef<number | null>(null);
 
+  const handleContextMenu = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      refs.setPositionReference({
+        getBoundingClientRect() {
+          return {
+            width: 0,
+            height: 0,
+            x: e.clientX,
+            y: e.clientY,
+            top: e.clientY,
+            right: e.clientX,
+            bottom: e.clientY,
+            left: e.clientX,
+          };
+        },
+      });
+      setIsOpen(true);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      allowMouseUpCloseRef.current = false;
+      timeoutRef.current = window.setTimeout(() => {
+        allowMouseUpCloseRef.current = true;
+      }, 300);
+    },
+    [refs, setIsOpen]
+  );
+
+  const itemRef = useMergeRefs([refs.setReference, item.ref]);
   const getTriggerProps = useCallback(
     (): UIProps<"div"> => ({
       ref: itemRef,
@@ -184,6 +198,7 @@ export const useMenu = (props: useMenu.Props) => {
       "data-active": isActive,
       "data-nested": isNested,
       "data-open": isOpen,
+      onContextMenu: isNested ? undefined : handleContextMenu,
       ...getReferenceProps({
         ...parentCtx.getItemProps({
           onMouseEnter() {
@@ -195,6 +210,7 @@ export const useMenu = (props: useMenu.Props) => {
     }),
     [
       getReferenceProps,
+      handleContextMenu,
       isActive,
       isNested,
       isOpen,
@@ -246,24 +262,13 @@ export const useMenu = (props: useMenu.Props) => {
     ]
   );
 
-  const getContentProps: PropGetter<MenuContent.Props> = useCallback(
+  const getContentProps: PropGetter<ContextMenuContent.Props> = useCallback(
     () => ({
       className: styles.content({
         className: cn(classNames?.content),
       }),
     }),
     [classNames?.content, styles]
-  );
-
-  const getArrowProps = useCallback(
-    (): FloatingArrowProps => ({
-      context,
-      ref: arrowRef,
-      className: styles.arrow({
-        className: classNames?.arrow,
-      }),
-    }),
-    [classNames?.arrow, context, styles]
   );
 
   const getNodeProps = useCallback(
@@ -281,7 +286,7 @@ export const useMenu = (props: useMenu.Props) => {
     []
   );
 
-  const floatingCtx: MenuFloatingContext.Props = useMemo(
+  const floatingCtx: ContextMenuFloatingContext.Props = useMemo(
     () => ({
       activeIndex,
       getItemProps,
@@ -290,7 +295,7 @@ export const useMenu = (props: useMenu.Props) => {
     [activeIndex, getItemProps]
   );
 
-  const getMenuItemProps: PropGetter<MenuItem.Props> = useCallback(
+  const getMenuItemProps: PropGetter<ContextMenuItem.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu-item"),
@@ -303,28 +308,27 @@ export const useMenu = (props: useMenu.Props) => {
     [classNames?.menuItem, styles]
   );
 
-  const getMenuItemInnerProps: PropGetter<MenuItemInner.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("menu-item-inner"),
-      className: styles.menuItemInner({
-        className: cn(classNames?.menuItemInner, props.className),
+  const getMenuItemInnerProps: PropGetter<ContextMenuItemInner.Props> =
+    useCallback(
+      (props) => ({
+        ...props,
+        "data-slot": dataAttrDev("menu-item-inner"),
+        className: styles.menuItemInner({
+          className: cn(classNames?.menuItemInner, props.className),
+        }),
       }),
-    }),
-    [classNames?.menuItemInner, styles]
-  );
+      [classNames?.menuItemInner, styles]
+    );
 
   return useMemo(
     () => ({
       getOverlayProps,
       getFocusManagerProps,
       getContentProps,
-      getArrowProps,
       getNodeProps,
       isOpen,
       getTriggerProps,
       getFloatingListProps,
-      showArrow,
       floatingCtx,
       getRootProps,
       getMenuItemProps,
@@ -332,27 +336,24 @@ export const useMenu = (props: useMenu.Props) => {
       getMenuItemInnerProps,
     }),
     [
-      getOverlayProps,
-      getFocusManagerProps,
-      getContentProps,
-      getArrowProps,
-      getNodeProps,
-      isOpen,
-      getTriggerProps,
-      getFloatingListProps,
-      showArrow,
       floatingCtx,
-      getRootProps,
-      getMenuItemProps,
-      isNested,
+      getContentProps,
+      getFloatingListProps,
+      getFocusManagerProps,
       getMenuItemInnerProps,
+      getMenuItemProps,
+      getNodeProps,
+      getOverlayProps,
+      getRootProps,
+      getTriggerProps,
+      isNested,
+      isOpen,
     ]
   );
 };
-export namespace useMenu {
-  export interface Props extends MenuVariantProps {
-    classNames?: SlotsToClassNames<MenuSlots>;
-    triggerOn?: "hover" | "click";
+export namespace useContextMenu {
+  export interface Props extends ContextMenuVariantProps {
+    classNames?: SlotsToClassNames<ContextMenuSlots>;
     isOpen?: boolean;
     defaultOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
@@ -363,6 +364,5 @@ export namespace useMenu {
     lockScroll?: boolean;
     placement?: Placement;
     offset?: number;
-    showArrow?: boolean;
   }
 }

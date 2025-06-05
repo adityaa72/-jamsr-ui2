@@ -3,7 +3,7 @@ import { readMetaUrl } from "@/utils/code";
 import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
 
-const title = "CircularProgress";
+const title = "Circular Progress";
 const description =
   "A visually engaging component that provides a clear indication of ongoing processes or tasks, allowing users to track progress in real time with a circular animation.";
 

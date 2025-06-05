@@ -1,0 +1,21 @@
+{
+  "name": "@jamsrui/context-menu",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "npx eslint src --ext .ts,.tsx --fix"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "react": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:"
+  },
+  "dependencies": {
+    "@floating-ui/react": "catalog:",
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
+  }
+}

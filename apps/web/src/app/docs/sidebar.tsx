@@ -39,6 +39,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Clipboard", url: "/docs/components/clipboard" },
       { title: "Collapsible", url: "/docs/components/collapsible" },
       { title: "Confirmation", url: "/docs/components/confirmation" },
+      { title: "Context Menu", url: "/docs/components/context-menu" },
       { title: "Data Table", url: "/docs/components/data-table" },
       { title: "Date Picker", url: "/docs/components/date-picker" },
       { title: "Dialog", url: "/docs/components/dialog" },

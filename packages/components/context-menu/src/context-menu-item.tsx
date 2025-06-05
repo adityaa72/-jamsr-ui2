@@ -1,16 +1,16 @@
 import { useFloatingTree, useListItem } from "@floating-ui/react";
 import { useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
-import { useMenuContext } from "./menu-context";
-import { useMenuFloatingContext } from "./menu-floating-context";
-import { MenuItemInner } from "./menu-item-inner";
+import { useContextMenuContext } from "./context-menu-context";
+import { useContextMenuFloatingContext } from "./context-menu-floating-context";
+import { ContextMenuItemInner } from "./context-menu-item-inner";
 
 import type { UIProps } from "@jamsrui/utils";
 
-import type { Menu } from "./menu";
+import type { ContextMenu } from "./context-menu";
 
-export const MenuItem = (props: MenuItem.Props) => {
-  const { getMenuItemProps } = useMenuContext();
+export const ContextMenuItem = (props: ContextMenuItem.Props) => {
+  const { getMenuItemProps } = useContextMenuContext();
   const tree = useFloatingTree();
   const {
     textValue,
@@ -22,7 +22,7 @@ export const MenuItem = (props: MenuItem.Props) => {
     ...elementProps
   } = props;
 
-  const parentCtx = useMenuFloatingContext();
+  const parentCtx = useContextMenuFloatingContext();
   const item = useListItem({
     label: textValue ?? (typeof children === "string" ? children : undefined),
   });
@@ -32,7 +32,7 @@ export const MenuItem = (props: MenuItem.Props) => {
   const composedChildren = (
     <>
       {startContent}
-      <MenuItemInner>{children}</MenuItemInner>
+      <ContextMenuItemInner>{children}</ContextMenuItemInner>
       {endContent}
     </>
   );
@@ -62,11 +62,11 @@ export const MenuItem = (props: MenuItem.Props) => {
   return renderElement;
 };
 
-export namespace MenuItem {
+export namespace ContextMenuItem {
   export interface Props extends UIProps<"button"> {
     textValue?: string;
     isDisabled?: boolean;
-    color?: Menu.Props["color"];
+    color?: ContextMenu.Props["color"];
     startContent?: React.ReactNode;
     endContent?: React.ReactNode;
     preventCloseOnClick?: boolean;
