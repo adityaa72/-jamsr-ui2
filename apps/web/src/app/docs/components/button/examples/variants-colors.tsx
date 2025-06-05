@@ -4,7 +4,7 @@ export const ButtonVariantsColors = () => {
   const variants: Button.Props["variant"][] = [
     "solid",
     "light",
-    "outlined",
+    "bordered",
     "text",
     "flat",
   ];

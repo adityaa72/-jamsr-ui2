@@ -19,7 +19,7 @@ export const sidebarVariants = tv({
     menuItem: "",
     footer: "pt-1",
     menuItemButton: [
-      "flex w-full items-center gap-1 rounded-md px-2 py-1.5 text-sm ui-hover:bg-content2",
+      "flex w-full items-center gap-1 rounded-md px-2 py-1.5 text-sm ui-hover:bg-background-tertiary",
       "disabled:cursor-not-allowed disabled:opacity-50",
     ],
   },

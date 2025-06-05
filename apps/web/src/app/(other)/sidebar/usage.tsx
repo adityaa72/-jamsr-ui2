@@ -1,3 +1,4 @@
+import { EmailIcon } from "@jamsrui/icons";
 import {
   Sidebar,
   SidebarContent,
@@ -7,7 +8,6 @@ import {
   SidebarMenuItem,
   SidebarMenuItemButton,
 } from "@jamsrui/react";
-import { EmailIcon } from "../../components/icons";
 
 const data = [
   {

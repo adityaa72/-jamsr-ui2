@@ -1,7 +1,7 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsrui/react";
-import { Metadata } from "next";
+import { Metadata, Route } from "next";
 
 const title = "Sidebar";
 const description =
@@ -16,7 +16,18 @@ const Sidebar = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <iframe
+          src={"/docs/components/sidebar/examples/usage" satisfies Route}
+          className="min-h-[500px]"
+        />
+      </CodeExample>
+      <CodeExample title="Nested" url={resolvePath("nested.tsx")}>
+        <iframe
+          src={"/docs/components/sidebar/examples/nested" satisfies Route}
+          className="min-h-[500px]"
+        />
+      </CodeExample>
     </DocsPage>
   );
 };
