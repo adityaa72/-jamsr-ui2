@@ -8,7 +8,7 @@ import {
   useIsDisabled,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { inputVariants } from "./styles";
 
@@ -17,6 +17,7 @@ import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { Input } from "./input";
 import type { InputClearButton } from "./input-clear-button";
 import type { InputContent } from "./input-content";
+import type { InputContentWrapper } from "./input-content-wrapper";
 import type { InputEndContent } from "./input-end-content";
 import type { InputErrorMessage } from "./input-error-message";
 import type { InputField } from "./input-field";
@@ -46,6 +47,7 @@ export const useInput = (props: useInput.Props) => {
     onValueChange,
     onClearInput,
     ref,
+    slotProps,
     ...elementProps
   } = $props;
 
@@ -97,7 +99,7 @@ export const useInput = (props: useInput.Props) => {
 
   const getRootProps: PropGetter<Input.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.root, props),
       "data-component": dataAttrDev("input"),
       "data-slot": dataAttrDev("root"),
       "data-focused": isFocused,
@@ -107,7 +109,11 @@ export const useInput = (props: useInput.Props) => {
       "aria-disabled": isDisabled,
       "data-invalid": isInvalid,
       className: styles.root({
-        className: cn(classNames?.root, props.className),
+        className: cn(
+          slotProps?.root?.className,
+          classNames?.root,
+          props.className
+        ),
       }),
     }),
     [
@@ -117,6 +123,7 @@ export const useInput = (props: useInput.Props) => {
       isFocused,
       isHovered,
       isInvalid,
+      slotProps?.root,
       styles,
     ]
   );
@@ -147,101 +154,138 @@ export const useInput = (props: useInput.Props) => {
 
   const getWrapperProps: PropGetter<InputWrapper.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.wrapper, props),
       "data-slot": dataAttrDev("inputWrapper"),
       className: styles.wrapper({
-        className: cn(classNames?.wrapper, props.className),
+        className: cn(
+          slotProps?.wrapper?.className,
+          classNames?.wrapper,
+          props.className
+        ),
       }),
     }),
-    [classNames?.wrapper, styles]
+    [classNames?.wrapper, slotProps?.wrapper, styles]
   );
 
   const getContentProps: PropGetter<InputContent.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.content, props),
       "data-slot": dataAttrDev("content"),
       className: styles.content({
-        className: cn(classNames?.content, props.className),
+        className: cn(
+          slotProps?.content?.className,
+          classNames?.content,
+          props.className
+        ),
       }),
     }),
-    [classNames?.content, styles]
+    [classNames?.content, slotProps?.content, styles]
   );
 
-  const getContentWrapperProps: PropGetter<InputContent.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("contentWrapper"),
-      className: styles.contentWrapper({
-        className: cn(classNames?.contentWrapper, props.className),
+  const getContentWrapperProps: PropGetter<InputContentWrapper.Props> =
+    useCallback(
+      (props) => ({
+        ...mergeProps(slotProps?.contentWrapper, props),
+        "data-slot": dataAttrDev("contentWrapper"),
+        className: styles.contentWrapper({
+          className: cn(
+            slotProps?.contentWrapper?.className,
+            classNames?.contentWrapper,
+            props.className
+          ),
+        }),
       }),
-    }),
-    [classNames?.contentWrapper, styles]
-  );
+      [classNames?.contentWrapper, slotProps?.contentWrapper, styles]
+    );
 
   const getStartContentProps: PropGetter<InputStartContent.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.startContent, props),
       "data-slot": dataAttrDev("startContent"),
       className: styles.startContent({
-        className: cn(classNames?.startContent, props.className),
+        className: cn(
+          slotProps?.startContent?.className,
+          classNames?.startContent,
+          props.className
+        ),
       }),
     }),
-    [classNames?.startContent, styles]
+    [classNames?.startContent, slotProps?.startContent, styles]
   );
 
   const getEndContentProps: PropGetter<InputEndContent.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.endContent, props),
       "data-slot": dataAttrDev("endContent"),
       className: styles.endContent({
-        className: cn(classNames?.endContent, props.className),
+        className: cn(
+          slotProps?.endContent?.className,
+          classNames?.endContent,
+          props.className
+        ),
       }),
     }),
-    [classNames?.endContent, styles]
+    [classNames?.endContent, slotProps?.endContent, styles]
   );
 
   const getHelperTextProps: PropGetter<InputHelperText.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.helperText, props),
       "data-slot": dataAttrDev("helperText"),
       className: styles.helperText({
-        className: cn(classNames?.helperText, props.className),
+        className: cn(
+          slotProps?.helperText?.className,
+          classNames?.helperText,
+          props.className
+        ),
       }),
     }),
-    [classNames?.helperText, styles]
+    [classNames?.helperText, slotProps?.helperText, styles]
   );
 
   const getErrorMessageProps: PropGetter<InputErrorMessage.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.errorMessage, props),
       "data-slot": dataAttrDev("errorMessage"),
       className: styles.errorMessage({
-        className: cn(classNames?.errorMessage, props.className),
+        className: cn(
+          slotProps?.errorMessage?.className,
+          classNames?.errorMessage,
+          props.className
+        ),
       }),
     }),
-    [classNames?.errorMessage, styles]
+    [classNames?.errorMessage, slotProps?.errorMessage, styles]
   );
 
   const getClearButtonProps: PropGetter<InputClearButton.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.clearButton, props),
       "data-slot": dataAttrDev("clearButton"),
       className: styles.clearButton({
-        className: cn(classNames?.clearButton, props.className),
+        className: cn(
+          slotProps?.clearButton?.className,
+          classNames?.clearButton,
+          props.className
+        ),
       }),
     }),
-    [classNames?.clearButton, styles]
+    [classNames?.clearButton, slotProps?.clearButton, styles]
   );
 
   const getLabelProps: PropGetter<InputLabel.Props> = useCallback(
     (props) => ({
-      ...props,
+      ...mergeProps(slotProps?.label, props),
       "data-slot": dataAttrDev("label"),
       className: styles.label({
-        className: cn(classNames?.label, props.className),
+        className: cn(
+          slotProps?.label?.className,
+          classNames?.label,
+          props.className
+        ),
       }),
     }),
-    [classNames?.label, styles]
+    [classNames?.label, slotProps?.label, styles]
   );
 
   return useMemo(
@@ -300,5 +344,17 @@ export namespace useInput {
     defaultValue?: string;
     onValueChange?: (value: string) => void;
     onClearInput?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    slotProps?: {
+      root?: Omit<Input.Props, "classNames" | "slotProps">;
+      wrapper?: InputWrapper.Props;
+      content?: InputContent.Props;
+      contentWrapper?: InputContentWrapper.Props;
+      startContent?: InputStartContent.Props;
+      endContent?: InputEndContent.Props;
+      label?: InputLabel.Props;
+      helperText?: InputHelperText.Props;
+      errorMessage?: InputErrorMessage.Props;
+      clearButton?: InputClearButton.Props;
+    };
   }
 }

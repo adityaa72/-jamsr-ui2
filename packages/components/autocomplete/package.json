@@ -8,13 +8,17 @@
   },
   "devDependencies": {
     "@types/react": "catalog:",
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "peerDependencies": {
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "dependencies": {
+    "@floating-ui/react": "catalog:",
     "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/input": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }
 }

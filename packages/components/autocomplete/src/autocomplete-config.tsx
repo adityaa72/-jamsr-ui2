@@ -1,19 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
 
 import type { Autocomplete } from "./autocomplete";
 
-const AutocompleteContext = createContext<AutocompleteConfig.Props>({});
-export const AutocompleteConfig = (props: AutocompleteConfig.Props) => {
-  const { children, ...restProps } = props;
-  return (
-    <AutocompleteContext value={restProps}>{children}</AutocompleteContext>
-  );
-};
-
-export const useAutocompleteConfig = () => {
-  const context = use(AutocompleteContext);
-  return context;
-};
+export const [AutocompleteConfig, useAutocompleteConfig] =
+  createConfigContext<AutocompleteConfig.Props>({
+    displayName: "AutocompleteConfig",
+  });
 
 export namespace AutocompleteConfig {
   export interface Props extends Autocomplete.Props {}

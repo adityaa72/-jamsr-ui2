@@ -1,6 +1,6 @@
 export { Accordion, AccordionConfig, useAccordionConfig, AccordionContent, AccordionItem, useAccordionItemState, AccordionTrigger } from '@jamsrui/accordion';
 export { Alert, AlertConfig, useAlertConfig, AlertDescription, AlertTitle, alertStyles, useAlert } from '@jamsrui/alert';
-export { Autocomplete, AutocompleteConfig, useAutocompleteConfig } from '@jamsrui/autocomplete';
+export { Autocomplete, AutocompleteConfig, useAutocompleteConfig, AutocompleteItem } from '@jamsrui/autocomplete';
 export { Avatar, AvatarConfig, useAvatarConfig } from '@jamsrui/avatar';
 export { Breadcrumb, BreadcrumbConfig, useBreadcrumbConfig } from '@jamsrui/breadcrumb';
 export { Button, ButtonConfig, useButtonConfig } from '@jamsrui/button';
