@@ -7,15 +7,20 @@ export const inputVariants = tv({
   slots: {
     root: "flex flex-col gap-1 group",
     label: "shrink-0 text-sm font-medium text-foreground",
-    helperText: "text-sm",
-    errorMessage: "text-sm",
+    helperText: "text-xs text-foreground-tertiary",
+    errorMessage: "text-xs text-danger",
     input: [
       "grow bg-transparent font-normal",
       "placeholder:text-foreground-secondary read-only:cursor-not-allowed focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
     ],
     wrapper: "",
     content: "grow flex",
-    contentWrapper: "border-2 flex items-center border-stroke-primary",
+    contentWrapper: [
+      "border-2 flex items-center border-stroke-primary",
+      "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
+      "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
+      "not-uig-invalid:uig-hover:border-stroke-secondary",
+    ],
     startContent: "pl-2 text-sm text-foreground-secondary",
     endContent: "pr-2 text-sm text-foreground-secondary",
     clearButton: "",

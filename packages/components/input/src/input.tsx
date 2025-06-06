@@ -38,7 +38,7 @@ export const Input = (props: Input.Props) => {
   );
 
   const renderElement = useRenderElement("div", {
-    props: [getRootProps(props), { children: composedChildren }],
+    props: [getRootProps({}), { children: composedChildren }],
   });
   return <InputContext value={ctx}>{renderElement}</InputContext>;
 };

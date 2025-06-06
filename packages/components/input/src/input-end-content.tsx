@@ -9,6 +9,7 @@ export const InputEndContent = (props: InputEndContent.Props) => {
   const renderElement = useRenderElement("div", {
     props: [getEndContentProps(props), { children: endContent }],
   });
+  if (!endContent) return null;
   return renderElement;
 };
 

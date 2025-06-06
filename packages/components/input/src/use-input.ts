@@ -1,6 +1,13 @@
 import { useCallback, useMemo } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
+import {
+  useControlledState,
+  useFocus,
+  useFocusVisible,
+  useHover,
+  useIsDisabled,
+  useMergeRefs,
+} from "@jamsrui/hooks";
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { inputVariants } from "./styles";
@@ -33,11 +40,12 @@ export const useInput = (props: useInput.Props) => {
     isClearable,
     helperText,
     errorMessage,
-    isDisabled,
+    disabled = false,
     value: valueProp,
     defaultValue,
     onValueChange,
     onClearInput,
+    ref,
     ...elementProps
   } = $props;
 
@@ -48,29 +56,93 @@ export const useInput = (props: useInput.Props) => {
   });
 
   const styles = inputVariants(variantProps);
+  const isInvalid = variantProps.isInvalid;
+
+  const { isDisabled, ref: disableRef } = useIsDisabled<HTMLInputElement>({
+    isDisabled: disabled,
+    isFormControl: false,
+  });
+  const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
+    isDisabled,
+  });
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
+  const { isHovered, ref: hoverRef } = useHover<HTMLDivElement>({
+    isDisabled,
+  });
+  const inputRefs = useMergeRefs([
+    ref,
+    disableRef,
+    focusRef,
+    focusVisibleRef,
+    hoverRef,
+  ]);
+
+  const handleClear = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      onClearInput?.(e);
+      setValue("");
+    },
+    [onClearInput, setValue]
+  );
+
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setValue(e.target.value);
+    },
+    [setValue]
+  );
+
   const getRootProps: PropGetter<Input.Props> = useCallback(
     (props) => ({
       ...props,
       "data-component": dataAttrDev("input"),
       "data-slot": dataAttrDev("root"),
+      "data-focused": isFocused,
+      "data-focus-visible": isFocusVisible,
+      "data-hovered": isHovered,
+      "data-disabled": isDisabled,
+      "aria-disabled": isDisabled,
+      "data-invalid": isInvalid,
       className: styles.root({
         className: cn(classNames?.root, props.className),
       }),
     }),
-    [classNames?.root, styles]
+    [
+      classNames?.root,
+      isDisabled,
+      isFocusVisible,
+      isFocused,
+      isHovered,
+      isInvalid,
+      styles,
+    ]
   );
 
   const getInputProps: PropGetter<InputField.Props> = useCallback(
     (props) => ({
       ...elementProps,
       ...props,
+      ref: inputRefs,
       disabled: isDisabled,
       "data-slot": dataAttrDev("input"),
       className: styles.input({
         className: cn(classNames?.input, props.className),
       }),
+      value,
+      onChange: handleInputChange,
     }),
-    [classNames?.input, elementProps, isDisabled, styles]
+    [
+      classNames?.input,
+      elementProps,
+      handleInputChange,
+      inputRefs,
+      isDisabled,
+      styles,
+      value,
+    ]
   );
 
   const getWrapperProps: PropGetter<InputWrapper.Props> = useCallback(
@@ -172,7 +244,6 @@ export const useInput = (props: useInput.Props) => {
     [classNames?.label, styles]
   );
 
-  const isInvalid = variantProps.isInvalid;
   return useMemo(
     () => ({
       getRootProps,
@@ -229,6 +300,5 @@ export namespace useInput {
     defaultValue?: string;
     onValueChange?: (value: string) => void;
     onClearInput?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    isDisabled?: boolean;
   }
 }

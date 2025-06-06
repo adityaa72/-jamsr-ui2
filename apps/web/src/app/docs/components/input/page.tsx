@@ -47,7 +47,7 @@ const Input = () => {
       <CodeExample title="Error State" url={resolvePath("error-state.tsx")}>
         <InputErrorState />
       </CodeExample>
-      <CodeExample title="Disabled" url={resolvePath("error-state.tsx")}>
+      <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
         <InputDisabled />
       </CodeExample>
       <CodeExample title="Clearable" url={resolvePath("clearable.tsx")}>

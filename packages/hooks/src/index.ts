@@ -1,5 +1,6 @@
 export { useControlled } from "./use-controlled";
 export { useControlledState } from "./use-controlled-state";
+export { useIsDisabled } from "./use-disabled";
 export { useDisclosure } from "./use-disclosure";
 export { useFocus } from "./use-focus";
 export { useFocusVisible } from "./use-focus-visible";

@@ -9,6 +9,7 @@ export const InputStartContent = (props: InputStartContent.Props) => {
   const renderElement = useRenderElement("div", {
     props: [getStartContentProps(props), { children: startContent }],
   });
+  if (!startContent) return null;
   return renderElement;
 };
 
