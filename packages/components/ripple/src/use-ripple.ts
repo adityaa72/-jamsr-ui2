@@ -3,7 +3,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import type React from "react";
 
 export const useRipple = (props: useRipple.Props) => {
-  const { isCentered } = props;
+  const { isCentered, isDisabled } = props;
   const [ripples, setRipples] = useState<useRipple.RippleData[]>([]);
   const rippleId = useRef(0);
 
@@ -73,8 +73,9 @@ export const useRipple = (props: useRipple.Props) => {
     () => ({
       ripples,
       handleRipple,
+      isDisabled,
     }),
-    [handleRipple, ripples]
+    [handleRipple, isDisabled, ripples]
   );
 };
 
@@ -88,5 +89,6 @@ export namespace useRipple {
 
   export interface Props {
     isCentered?: boolean;
+    isDisabled?: boolean;
   }
 }

@@ -1,7 +1,9 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
+import { RippleUsage } from "./examples/usage";
+import { RippleAtCenter } from "./examples/centered";
 
 const title = "Ripple";
 const description =
@@ -16,7 +18,12 @@ const Ripple = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <RippleUsage />
+      </CodeExample>
+      <CodeExample title="Centered" url={resolvePath("centered.tsx")}>
+        <RippleAtCenter />
+      </CodeExample>
     </DocsPage>
   );
 };

@@ -10,7 +10,7 @@ const RippleInner: React.FC<RippleProps> = ({ x, y, size, duration }) => {
         width: size,
         height: size,
         borderRadius: "50%",
-        backgroundColor: "rgba(0, 0, 0, 0.3)",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
         transform: "scale(0)",
         animation: `ripple-animation ${duration}ms linear`,
         pointerEvents: "none",
@@ -26,9 +26,10 @@ interface RippleProps {
   duration: number;
 }
 
-export const Ripple = () => {
-  const { ripples, handleRipple } = useRipple({ isCentered: false });
+export const Ripple = (props: Ripple.Props) => {
+  const { ripples, handleRipple, isDisabled } = useRipple(props);
   const duration = 600;
+  if (isDisabled) return null;
   return (
     <div
       className="size-full inset-0 overflow-hidden absolute"
@@ -49,18 +50,6 @@ export const Ripple = () => {
   );
 };
 
-// export const Ripple = (props: Ripple.Props) => {
-//   const { ref: refProp, ...elementProps } = props;
-//   const ref = useRef<HTMLDivElement>(null);
-//   const ripples = useRipple({ ref, isCentered: false });
-//   const mergedRefs = useMergeRefs([refProp, ref]);
-
-//   const renderElement = useRenderElement("span", {
-//     props: [elementProps, { ref: mergedRefs }],
-//   });
-//   return renderElement;
-// };
-
-// export namespace Ripple {
-//   export interface Props extends UIProps<"span"> {}
-// }
+export namespace Ripple {
+  export interface Props extends useRipple.Props {}
+}

@@ -1,14 +1,33 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
-import type { UIProps } from "@jamsrui/utils";
+import { useCircularProgressConfig } from "./circular-progress-config";
+import { useCircularProgress } from "./use-circular-progress";
 
 export const CircularProgress = (props: CircularProgress.Props) => {
-  const renderElement = useRenderElement("div", {
-    props,
-  });
-  return renderElement;
+  const config = useCircularProgressConfig();
+  const mergedProps = mergeProps(config, props);
+  const ctx = useCircularProgress(mergedProps);
+  const {
+    showLabel,
+    getRootProps,
+    getTrackProps,
+    getLabelProps,
+    getProgressProps,
+    label,
+  } = ctx;
+
+  return (
+    <svg {...getRootProps({})}>
+      {/* Background Track */}
+      <circle {...getTrackProps({})} />
+      {/* Progress Arc */}
+      <circle {...getProgressProps({})} />
+      {/* Text inside the circle */}
+      {!!showLabel && <text {...getLabelProps({})}>{label}</text>}
+    </svg>
+  );
 };
 
 export namespace CircularProgress {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useCircularProgress.Props {}
 }

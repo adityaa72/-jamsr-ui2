@@ -1,7 +1,12 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
+import { CircularProgressColors } from "./examples/colors";
+import { CircularProgressCustomized } from "./examples/customized";
+import { CircularProgressSizes } from "./examples/sizes";
+import { CircularProgressUsage } from "./examples/usage";
+import { CircularProgressWithLabel } from "./examples/with-label";
 
 const title = "Circular Progress";
 const description =
@@ -16,7 +21,21 @@ const CircularProgress = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <CircularProgressUsage />
+      </CodeExample>
+      <CodeExample title="With Label" url={resolvePath("with-label.tsx")}>
+        <CircularProgressWithLabel />
+      </CodeExample>
+      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+        <CircularProgressColors />
+      </CodeExample>
+      <CodeExample title="Sizes" url={resolvePath("sizes.tsx")}>
+        <CircularProgressSizes />
+      </CodeExample>
+      <CodeExample title="Customized" url={resolvePath("customized.tsx")}>
+        <CircularProgressCustomized />
+      </CodeExample>
     </DocsPage>
   );
 };

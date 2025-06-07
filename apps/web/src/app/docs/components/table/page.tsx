@@ -2,6 +2,9 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { TableAllowHover } from "./examples/allow-hover";
+import { TableBordered } from "./examples/bordered";
+import { TableEmptyState } from "./examples/empty-state";
 import { TableUsage } from "./examples/usage";
 
 const title = "Table";
@@ -19,6 +22,15 @@ const Table = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <TableUsage />
+      </CodeExample>
+      <CodeExample title="Bordered" url={resolvePath("bordered.tsx")}>
+        <TableBordered />
+      </CodeExample>
+      <CodeExample title="Allow Hover" url={resolvePath("allow-hover.tsx")}>
+        <TableAllowHover />
+      </CodeExample>
+      <CodeExample title="Emtpy State" url={resolvePath("empty-state.tsx")}>
+        <TableEmptyState />
       </CodeExample>
     </DocsPage>
   );

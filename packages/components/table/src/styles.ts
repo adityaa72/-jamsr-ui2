@@ -21,12 +21,12 @@ export const tableVariants = tv({
   variants: {
     variant: {
       solid: {
-        th: "bg-default-100 first:rounded-l-lg last:rounded-r-lg",
+        th: "bg-background-tertiary first:rounded-l-lg last:rounded-r-lg",
         root: "rounded-2xl bg-background-secondary p-4",
       },
       bordered: {
-        th: "border-b border-b-divider-dark",
-        td: "border-b border-divider",
+        th: "border-b border-b-stroke-secondary",
+        td: "border-b border-stroke-primary",
         root: "bg-background-secondary",
       },
     },
@@ -50,7 +50,7 @@ export const tableVariants = tv({
     },
     allowHover: {
       true: {
-        td: "md:group-hover/tr:bg-content2",
+        td: "md:group-hover/tr:bg-background-tertiary",
       },
       false: {
         td: "",

@@ -1,10 +1,10 @@
 import { Ripple } from "@jamsr-ui/react";
 
-export const RippleUsage = () => {
+export const RippleAtCenter = () => {
   return (
     <div className="relative grid h-full place-items-center">
       <div className="h-[500px]">
-        <Ripple />
+        <Ripple isCentered />
         Click anywhere
       </div>
     </div>
