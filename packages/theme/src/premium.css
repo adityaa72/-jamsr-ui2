@@ -249,6 +249,12 @@
   --ui-stroke-secondary: oklch(44.2% 0.015 285.8 / 0.5176);
 }
 
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 :root,
 html,
 body {

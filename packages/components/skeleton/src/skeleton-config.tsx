@@ -1,17 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
 
 import type { Skeleton } from "./skeleton";
 
-const SkeletonContext = createContext<SkeletonConfig.Props>({});
-export const SkeletonConfig = (props: SkeletonConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <SkeletonContext value={restProps}>{children}</SkeletonContext>;
-};
-
-export const useSkeletonConfig = () => {
-  const context = use(SkeletonContext);
-  return context;
-};
+export const [SkeletonConfig, useSkeletonConfig] =
+  createConfigContext<SkeletonConfig.Props>({
+    displayName: "SkeletonConfig",
+  });
 
 export namespace SkeletonConfig {
   export interface Props extends Skeleton.Props {}
