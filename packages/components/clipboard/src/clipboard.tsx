@@ -1,15 +1,31 @@
 import { useRenderElement } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
 
-import type { UIProps } from "@jamsrui/utils";
+import { ClipboardButton } from "./clipboard-button";
+import { useClipboardConfig } from "./clipboard-config";
+import { ClipboardContext } from "./clipboard-context";
+import { useClipboard } from "./use-clipboard";
 
 export const Clipboard = (props: Clipboard.Props) => {
-  const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
-    props: elementProps,
+  const config = useClipboardConfig();
+  const mergedProps = mergeProps(config, props);
+  const ctx = useClipboard(mergedProps);
+  const { getRootProps } = ctx;
+
+  const { children } = props;
+  const composedChildren = (
+    <>
+      {children}
+      <ClipboardButton />
+    </>
+  );
+
+  const renderElement = useRenderElement("label", {
+    props: [getRootProps(), { children: composedChildren }],
   });
-  return renderElement;
+  return <ClipboardContext value={ctx}>{renderElement}</ClipboardContext>;
 };
 
 export namespace Clipboard {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useClipboard.Props {}
 }
