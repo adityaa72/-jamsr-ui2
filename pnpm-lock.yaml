@@ -531,6 +531,12 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/icon-button':
+        specifier: workspace:^
+        version: link:../icon-button
+      '@jamsrui/icons':
+        specifier: workspace:^
+        version: link:../../icons
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -569,6 +575,12 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/icon-button':
+        specifier: workspace:^
+        version: link:../icon-button
+      '@jamsrui/icons':
+        specifier: workspace:^
+        version: link:../../icons
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils

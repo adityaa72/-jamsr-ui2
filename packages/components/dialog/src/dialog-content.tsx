@@ -9,11 +9,17 @@ import { useDialogContext } from "./dialog-context";
 import { DialogPopover } from "./dialog-popover";
 
 import type { HTMLMotionProps } from "motion/react";
+import { DialogCloseButton } from "./dialog-close-button";
 
 export const DialogContent = (props: DialogContent.Props) => {
   const { children } = props;
-  const { isOpen, getContentProps, getFocusManagerProps, getOverlayProps } =
-    useDialogContext();
+  const {
+    isOpen,
+    getContentProps,
+    getFocusManagerProps,
+    getOverlayProps,
+    hideCloseButton,
+  } = useDialogContext();
 
   return (
     <AnimatePresence>
@@ -22,7 +28,10 @@ export const DialogContent = (props: DialogContent.Props) => {
           <FloatingOverlay {...getOverlayProps()} />
           <FloatingFocusManager {...getFocusManagerProps()}>
             <DialogPopover>
-              <motion.div {...getContentProps(props)}>{children}</motion.div>
+              <motion.div {...getContentProps(props)}>
+                {!hideCloseButton && <DialogCloseButton />}
+                {children}
+              </motion.div>
             </DialogPopover>
           </FloatingFocusManager>
         </FloatingPortal>
@@ -31,5 +40,7 @@ export const DialogContent = (props: DialogContent.Props) => {
   );
 };
 export namespace DialogContent {
-  export interface Props extends HTMLMotionProps<"div"> {}
+  export interface Props extends HTMLMotionProps<"div"> {
+    children: React.ReactNode;
+  }
 }

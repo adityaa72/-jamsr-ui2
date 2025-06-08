@@ -1,14 +1,17 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { IconButton } from "@jamsrui/icon-button";
+import { CloseIcon } from "@jamsrui/icons";
 
-import type { UIProps } from "@jamsrui/utils";
+import { useDrawerContext } from "./drawer-context";
 
 export const DrawerCloseButton = (props: DrawerCloseButton.Props) => {
-  const renderElement = useRenderElement("button", {
-    props,
-  });
-  return renderElement;
+  const { getCloseButtonProps } = useDrawerContext();
+  return (
+    <IconButton label="Close Drawer" {...getCloseButtonProps(props)}>
+      <CloseIcon className="size-4" />
+    </IconButton>
+  );
 };
 
 export namespace DrawerCloseButton {
-  export interface Props extends UIProps<"button"> {}
+  export interface Props extends Partial<IconButton.Props> {}
 }

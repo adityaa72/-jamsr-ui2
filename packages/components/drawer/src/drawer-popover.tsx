@@ -4,14 +4,13 @@ import { useDrawerContext } from "./drawer-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const DrawerFooter = (props: DrawerFooter.Props) => {
-  const { getFooterProps } = useDrawerContext();
+export const DrawerPopover = (props: DrawerPopover.Props) => {
+  const { getPopoverProps } = useDrawerContext();
   const renderElement = useRenderElement("div", {
-    props: [getFooterProps(props)],
+    props: [getPopoverProps(props)],
   });
   return renderElement;
 };
-
-export namespace DrawerFooter {
+export namespace DrawerPopover {
   export interface Props extends UIProps<"div"> {}
 }

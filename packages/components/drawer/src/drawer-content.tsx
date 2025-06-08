@@ -1,23 +1,36 @@
-import { FloatingPortal } from "@floating-ui/react";
-import { useRenderElement } from "@jamsrui/hooks";
+import { FloatingOverlay, FloatingPortal } from "@floating-ui/react";
+import { AnimatePresence, motion } from "motion/react";
 
-import { DrawerBackdrop } from "./drawer-backdrop";
+import { DrawerCloseButton } from "./drawer-close-button";
 import { useDrawerContext } from "./drawer-context";
+import { DrawerPopover } from "./drawer-popover";
 
-import type { UIProps } from "@jamsrui/utils";
+import type { HTMLMotionProps } from "motion/react";
 
 export const DrawerContent = (props: DrawerContent.Props) => {
-  const { getContentProps, isOpen } = useDrawerContext();
-  const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
-  });
-  return isOpen ? (
-    <FloatingPortal>
-      <DrawerBackdrop>{renderElement}</DrawerBackdrop>
-    </FloatingPortal>
-  ) : null;
+  const { children } = props;
+  const { getContentProps, isOpen, getBackdropProps, hideCloseButton } =
+    useDrawerContext();
+  return (
+    <AnimatePresence>
+      {isOpen ? (
+        <FloatingPortal>
+          <FloatingOverlay {...getBackdropProps()}>
+            <DrawerPopover>
+              <motion.div {...getContentProps(props)}>
+                {!hideCloseButton && <DrawerCloseButton />}
+                {children}
+              </motion.div>
+            </DrawerPopover>
+          </FloatingOverlay>
+        </FloatingPortal>
+      ) : null}
+    </AnimatePresence>
+  );
 };
 
 export namespace DrawerContent {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends Omit<HTMLMotionProps<"div">, "children"> {
+    children: React.ReactNode;
+  }
 }

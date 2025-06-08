@@ -34,13 +34,13 @@ export const useDialog = (props: useDialog.Props) => {
   const {
     slotProps,
     classNames,
-    closeButton,
     defaultOpen,
     isAnimationDisabled,
     isDismissible,
     isKeyboardDismissible,
     isOpen: isOpenProp,
     onOpenChange,
+    hideCloseButton,
   } = newProps;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -167,8 +167,16 @@ export const useDialog = (props: useDialog.Props) => {
           props.className
         ),
       }),
+      radius: "full",
+      size: "xs",
+      onClick: handleTriggerClose,
     }),
-    [classNames?.closeButton, slotProps?.closeButton, styles]
+    [
+      classNames?.closeButton,
+      handleTriggerClose,
+      slotProps?.closeButton,
+      styles,
+    ]
   );
 
   const getTriggerProps = useCallback(
@@ -219,6 +227,7 @@ export const useDialog = (props: useDialog.Props) => {
       getFocusManagerProps,
       isOpen,
       getPopoverProps,
+      hideCloseButton,
     }),
     [
       getBackdropProps,
@@ -233,6 +242,7 @@ export const useDialog = (props: useDialog.Props) => {
       getFocusManagerProps,
       isOpen,
       getPopoverProps,
+      hideCloseButton,
     ]
   );
 };
@@ -249,12 +259,12 @@ export namespace useDialog {
       closeButton?: DialogCloseButton.Props;
     };
     // --
-    closeButton?: React.ReactNode;
     defaultOpen?: boolean;
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
     isDismissible?: boolean;
     isKeyboardDismissible?: boolean;
     isAnimationDisabled?: boolean;
+    hideCloseButton?: boolean;
   }
 }

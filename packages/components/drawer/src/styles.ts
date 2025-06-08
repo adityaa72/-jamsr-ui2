@@ -1,17 +1,18 @@
-import { tv } from "@jamsrui/utils";
+import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
 export const drawerVariants = tv({
   slots: {
-    backdrop: "z-backdrop !overflow-x-hidden",
+    backdrop: "z-backdrop !overflow-hidden",
+    popover: "z-dialog",
     content:
-      "absolute z-dialog flex w-full flex-col overflow-y-auto bg-background-secondary shadow-sm",
+      "absolute flex w-full flex-col overflow-y-auto bg-background-secondary shadow-sm",
     header: "p-4",
     footer: "flex justify-end gap-2 p-4",
     body: "grow p-4",
-    closeButton: "absolute right-2 top-2",
+    closeButton: "absolute right-4 top-4",
   },
   variants: {
     anchor: {
@@ -62,8 +63,8 @@ export const drawerVariants = tv({
     },
     isBordered: {
       true: {
-        header: "border-b border-divider-light",
-        footer: "border-t border-divider-light",
+        header: "border-b border-stroke-primary",
+        footer: "border-t border-storke-primary",
       },
     },
     scrollBehavior: {
@@ -77,12 +78,13 @@ export const drawerVariants = tv({
         backdrop: "",
       },
       opaque: {
-        backdrop: "bg-overlay/50",
+        backdrop: "bg-black/50",
       },
       blur: {
-        backdrop: "bg-overlay/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
+    radius: radiusVariant("content"),
   },
   compoundVariants: [
     {
@@ -98,6 +100,7 @@ export const drawerVariants = tv({
     isBordered: false,
     backdrop: "opaque",
     anchor: "right",
+    radius: "none",
   },
 });
 

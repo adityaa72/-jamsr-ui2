@@ -7,24 +7,38 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTrigger,
+  Text,
 } from "@jamsr-ui/react";
 
-const DrawerItem = (props: Partial<Drawer.Props> & { btnText: string }) => {
-  const { btnText, ...restProps } = props;
+export const DrawerCustomized = () => {
   return (
-    <Drawer {...restProps}>
+    <Drawer
+      classNames={{
+        header: "bg-red-500",
+        body: "bg-content2",
+        footer: "bg-content3",
+        closeButton: "bg-red-900",
+        popover: "border-2 border-red-950",
+        backdrop: "bg-gray-900/20",
+      }}
+      slotProps={{
+        closeButton: {
+          size: "sm",
+        },
+      }}
+    >
       <DrawerTrigger>
-        <Button>{btnText}</Button>
+        <Button>Click Me!</Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>Product Filter</DrawerHeader>
         <DrawerBody>
-          <p className="mb-4">
+          <Text className="mb-4">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
             laborum optio quo reiciendis odio facilis quos adipisci unde eum
             vero perspiciatis, minima iste doloribus voluptatibus officia dicta,
             maxime, placeat qui.
-          </p>
+          </Text>
         </DrawerBody>
         <DrawerFooter>
           <DrawerCloseTrigger>
@@ -36,15 +50,5 @@ const DrawerItem = (props: Partial<Drawer.Props> & { btnText: string }) => {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  );
-};
-
-export const DrawerScrollBehavior = () => {
-  return (
-    <div className="flex gap-4">
-      <DrawerItem btnText="Inside" scrollBehavior="inside" />
-      <DrawerItem btnText="Outside" scrollBehavior="outside" />
-      <DrawerItem btnText="With Border" scrollBehavior="inside" isBordered />
-    </div>
   );
 };
