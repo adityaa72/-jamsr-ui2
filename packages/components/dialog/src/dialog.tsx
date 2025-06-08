@@ -4,7 +4,6 @@ import { useDialog } from "./use-dialog";
 export const Dialog = (props: Dialog.Props) => {
   const { children } = props;
   const ctx = useDialog(props);
-
   return <DialogContext value={ctx}>{children}</DialogContext>;
 };
 

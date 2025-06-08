@@ -10,9 +10,21 @@ import {
   Text,
 } from "@jamsr-ui/react";
 
-export const DialogBordered = () => {
+export const DialogCustomized = () => {
   return (
-    <Dialog isBordered>
+    <Dialog
+      classNames={{
+        header: "bg-red-500",
+        body: "bg-background-tertiary",
+        footer: "bg-background-quarternary",
+        closeButton: "bg-red-900",
+        content: "border-2 border-red-950",
+        backdrop: "bg-gray-900/20",
+      }}
+      slotProps={{
+        closeButton: {},
+      }}
+    >
       <DialogTrigger>
         <Button>Click Me!</Button>
       </DialogTrigger>

@@ -23,6 +23,7 @@ import type { DialogCloseButton } from "./dialog-close-button";
 import type { DialogContent } from "./dialog-content";
 import type { DialogFooter } from "./dialog-footer";
 import type { DialogHeader } from "./dialog-header";
+import type { DialogPopover } from "./dialog-popover";
 import type { DialogSlots, DialogVariants } from "./styles";
 
 export const useDialog = (props: useDialog.Props) => {
@@ -70,7 +71,7 @@ export const useDialog = (props: useDialog.Props) => {
 
   const getHeaderProps: PropGetter<DialogHeader.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.header ?? {}, props),
+      ...mergeProps(slotProps?.header, props),
       "data-slot": dataAttrDev("header"),
       className: styles.header({
         className: cn(
@@ -98,9 +99,36 @@ export const useDialog = (props: useDialog.Props) => {
     [classNames?.body, slotProps?.body?.className, styles]
   );
 
+  const getPopoverProps: PropGetter<DialogPopover.Props> = useCallback(
+    (props) => ({
+      ...mergeProps(slotProps?.popover, props),
+      "data-slot": dataAttrDev("popover"),
+      className: styles.popover({
+        className: cn(
+          slotProps?.popover?.className,
+          classNames?.popover,
+          props.className
+        ),
+      }),
+      ref: setFloating,
+      ...getFloatingProps(),
+    }),
+    [
+      classNames?.popover,
+      getFloatingProps,
+      setFloating,
+      slotProps?.popover,
+      styles,
+    ]
+  );
+
   const getContentProps: PropGetter<DialogContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.content ?? {}, props),
+      initial: { scale: 0.9, opacity: 0, filter: "blur(4px)" },
+      animate: { scale: 1, opacity: 1, filter: "blur(0px)" },
+      exit: { scale: 0.9, opacity: 0, filter: "blur(4px)" },
+      transition: { type: "spring", stiffness: 300, damping: 25 },
+      ...mergeProps(slotProps?.content, props),
       "data-slot": dataAttrDev("content"),
       className: styles.content({
         className: cn(
@@ -109,21 +137,13 @@ export const useDialog = (props: useDialog.Props) => {
           props.className
         ),
       }),
-      ref: setFloating,
-      ...getFloatingProps(),
     }),
-    [
-      classNames?.content,
-      getFloatingProps,
-      setFloating,
-      slotProps?.content,
-      styles,
-    ]
+    [classNames?.content, slotProps?.content, styles]
   );
 
   const getFooterProps: PropGetter<DialogFooter.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.footer ?? {}, props),
+      ...mergeProps(slotProps?.footer, props),
       "data-slot": dataAttrDev("footer"),
       className: styles.footer({
         className: cn(
@@ -138,7 +158,7 @@ export const useDialog = (props: useDialog.Props) => {
 
   const getCloseButtonProps: PropGetter<DialogCloseButton.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.closeButton ?? {}, props),
+      ...mergeProps(slotProps?.closeButton, props),
       "data-slot": dataAttrDev("close-button"),
       className: styles.closeButton({
         className: cn(
@@ -198,6 +218,7 @@ export const useDialog = (props: useDialog.Props) => {
       getOverlayProps,
       getFocusManagerProps,
       isOpen,
+      getPopoverProps,
     }),
     [
       getBackdropProps,
@@ -211,6 +232,7 @@ export const useDialog = (props: useDialog.Props) => {
       getOverlayProps,
       getFocusManagerProps,
       isOpen,
+      getPopoverProps,
     ]
   );
 };
@@ -219,6 +241,7 @@ export namespace useDialog {
   export interface Props extends DialogVariants {
     classNames?: SlotsToClassNames<DialogSlots>;
     slotProps?: {
+      popover?: DialogPopover.Props;
       header?: DialogHeader.Props;
       body?: DialogBody.Props;
       content?: DialogContent.Props;

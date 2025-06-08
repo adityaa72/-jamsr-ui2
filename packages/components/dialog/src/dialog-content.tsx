@@ -3,30 +3,33 @@ import {
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
-import { useRenderElement } from "@jamsrui/hooks";
+import { AnimatePresence, motion } from "motion/react";
 
 import { useDialogContext } from "./dialog-context";
+import { DialogPopover } from "./dialog-popover";
 
-import type { UIProps } from "@jamsrui/utils";
+import type { HTMLMotionProps } from "motion/react";
 
 export const DialogContent = (props: DialogContent.Props) => {
+  const { children } = props;
   const { isOpen, getContentProps, getFocusManagerProps, getOverlayProps } =
     useDialogContext();
 
-  const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
-  });
-
-  return isOpen ? (
-    <FloatingPortal>
-      <FloatingOverlay {...getOverlayProps()}>
-        <FloatingFocusManager {...getFocusManagerProps()}>
-          {renderElement}
-        </FloatingFocusManager>
-      </FloatingOverlay>
-    </FloatingPortal>
-  ) : null;
+  return (
+    <AnimatePresence>
+      {isOpen ? (
+        <FloatingPortal>
+          <FloatingOverlay {...getOverlayProps()} />
+          <FloatingFocusManager {...getFocusManagerProps()}>
+            <DialogPopover>
+              <motion.div {...getContentProps(props)}>{children}</motion.div>
+            </DialogPopover>
+          </FloatingFocusManager>
+        </FloatingPortal>
+      ) : null}
+    </AnimatePresence>
+  );
 };
 export namespace DialogContent {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends HTMLMotionProps<"div"> {}
 }

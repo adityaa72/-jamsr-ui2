@@ -5,11 +5,13 @@ import type { VariantProps } from "@jamsrui/utils";
 export const test = "";
 export const dialogVariants = tv({
   slots: {
-    backdrop: "z-backdrop grid place-items-center !overflow-clip",
+    backdrop: "z-backdrop grid place-items-center",
     header: "p-4 text-base font-bold",
     body: "w-full p-4",
+    popover:
+      "z-dialog absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
     content:
-      "relative z-dialog flex max-h-[calc(100dvh-4rem)] w-full flex-col overflow-y-auto bg-background-secondary shadow-lg",
+      "relative  flex max-h-[calc(100dvh-4rem)] w-full flex-col overflow-y-auto bg-background-secondary shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",
     closeButton: "absolute right-2 top-2 z-10",
   },
@@ -52,16 +54,16 @@ export const dialogVariants = tv({
         backdrop: "",
       },
       opaque: {
-        backdrop: " bg-overlay/50",
+        backdrop: "bg-black/50",
       },
       blur: {
-        backdrop: "bg-overlay/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
     isBordered: {
       true: {
-        header: "border-b border-divider-light",
-        footer: "border-t border-divider-light",
+        header: "border-b border-stroke-primary",
+        footer: "border-t border-stroke-primary",
       },
     },
     scrollBehavior: {
