@@ -1,19 +1,11 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
 
 import type { LinearProgress } from "./linear-progress";
 
-const LinearProgressContext = createContext<LinearProgressConfig.Props>({});
-export const LinearProgressConfig = (props: LinearProgressConfig.Props) => {
-  const { children, ...restProps } = props;
-  return (
-    <LinearProgressContext value={restProps}>{children}</LinearProgressContext>
-  );
-};
-
-export const useLinearProgressConfig = () => {
-  const context = use(LinearProgressContext);
-  return context;
-};
+export const [LinearProgressConfig, useLinearProgressConfig] =
+  createConfigContext<LinearProgressConfig.Props>({
+    displayName: "LinearProgressConfig",
+  });
 
 export namespace LinearProgressConfig {
   export interface Props extends LinearProgress.Props {}

@@ -1,7 +1,10 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
+import { LinearProgressColors } from "./examples/colors";
+import { LinearProgressControlled } from "./examples/controlled";
+import { LinearProgressUsage } from "./examples/usage";
 
 const title = "LinearProgress";
 const description =
@@ -16,7 +19,19 @@ const LinearProgress = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
+        <LinearProgressUsage />
+      </CodeExample>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
+        <LinearProgressColors />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Controlled"
+        url={resolvePath("controlled.tsx")}
+      >
+        <LinearProgressControlled />
+      </CodeExample>
     </DocsPage>
   );
 };
