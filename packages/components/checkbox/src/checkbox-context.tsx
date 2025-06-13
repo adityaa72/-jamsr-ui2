@@ -1,5 +1,7 @@
 import { createContext, use } from "react";
 
+import type { useCheckbox } from "./use-checkbox";
+
 export const CheckboxContext = createContext<CheckboxContext.Props | null>(
   null
 );
@@ -13,5 +15,5 @@ export const useCheckboxContext = () => {
 };
 
 export namespace CheckboxContext {
-  export interface Props {}
+  export interface Props extends ReturnType<typeof useCheckbox> {}
 }

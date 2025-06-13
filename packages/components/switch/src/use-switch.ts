@@ -22,8 +22,19 @@ export const useSwitch = (props: useSwitch.Props) => {
     switchVariants.variantKeys
   );
   const styles = switchVariants(variantProps);
-  const { classNames, slotProps, label, errorMessage, ...elementProps } =
-    $props;
+  const {
+    classNames,
+    slotProps,
+    label,
+    errorMessage,
+    children,
+    isChecked,
+    defaultChecked,
+    onCheckedChange,
+    isDisabled,
+    isReadonly,
+    ...elementProps
+  } = $props;
 
   const getRootProps: PropGetter<Switch.Props> = useCallback(
     () => ({
@@ -143,6 +154,8 @@ export const useSwitch = (props: useSwitch.Props) => {
       [classNames?.errorMessage, slotProps?.errorMessage, styles]
     );
 
+  const hasContent = !!label || !!children;
+
   return useMemo(
     () => ({
       getRootProps,
@@ -155,18 +168,20 @@ export const useSwitch = (props: useSwitch.Props) => {
       getErrorMessageProps,
       label,
       errorMessage,
+      hasContent,
     }),
     [
-      getContentProps,
-      getDescriptionProps,
-      getLabelProps,
       getRootProps,
       getThumbProps,
+      getLabelProps,
+      getDescriptionProps,
+      getContentProps,
       getWrapperProps,
       getTrackProps,
       getErrorMessageProps,
       label,
       errorMessage,
+      hasContent,
     ]
   );
 };
@@ -185,5 +200,11 @@ export namespace useSwitch {
       wrapper?: SwitchWrapper.Props;
       errorMessage?: SwitchErrorMessage.Props;
     };
+    isReadonly?: boolean;
+    isDisabled?: boolean;
+    isChecked?: boolean;
+    onCheckedChange?: (value: boolean) => void;
+    defaultChecked?: boolean;
+    isInvalid?: boolean;
   }
 }

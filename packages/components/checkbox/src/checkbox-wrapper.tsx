@@ -1,17 +1,17 @@
 import { useRenderElement } from "@jamsrui/hooks";
 
-import { useSwitchContext } from "./switch-context";
+import { useCheckboxContext } from "./checkbox-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const SwitchWrapper = (props: SwitchWrapper.Props) => {
-  const { getWrapperProps } = useSwitchContext();
+export const CheckboxWrapper = (props: CheckboxWrapper.Props) => {
+  const { getWrapperProps } = useCheckboxContext();
   const renderElement = useRenderElement("div", {
     props: [getWrapperProps(props)],
   });
   return renderElement;
 };
 
-export namespace SwitchWrapper {
+export namespace CheckboxWrapper {
   export interface Props extends UIProps<"div"> {}
 }

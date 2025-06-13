@@ -21,6 +21,9 @@ export const switchVariants = tv({
     errorMessage: "text-danger text-xs",
   },
   variants: {
+    isInvalid: {
+      true: {},
+    },
     color: {
       default: {
         track: "uig-checked:bg-default",

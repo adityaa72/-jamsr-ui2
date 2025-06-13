@@ -9,6 +9,7 @@ export const SwitchLabel = (props: SwitchLabel.Props) => {
   const renderElement = useRenderElement("label", {
     props: [getLabelProps(props), { children: label }],
   });
+  if(!label) return null;
   return renderElement;
 };
 
