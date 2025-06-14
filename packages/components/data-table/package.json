@@ -7,14 +7,22 @@
     "lint": "npx eslint src --ext .ts,.tsx --fix"
   },
   "devDependencies": {
+    "@tanstack/react-table": "catalog:",
     "@types/react": "catalog:",
     "react": "catalog:"
   },
   "peerDependencies": {
+    "@tanstack/react-table": "catalog:",
     "react": "catalog:"
   },
   "dependencies": {
     "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/icon-button": "workspace:^",
+    "@jamsrui/icons": "workspace:^",
+    "@jamsrui/input": "workspace:^",
+    "@jamsrui/menu": "workspace:^",
+    "@jamsrui/select": "workspace:^",
+    "@jamsrui/table": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }
 }

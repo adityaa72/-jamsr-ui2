@@ -11,11 +11,13 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/react": "workspace:^",
     "@jamsrui/theme": "workspace:^",
     "@jamsrui/utils": "workspace:^",
+    "@tanstack/react-table": "catalog:",
     "motion": "catalog:",
     "next": "^15.3.0",
     "react": "catalog:",

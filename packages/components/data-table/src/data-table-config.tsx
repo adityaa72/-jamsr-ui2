@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
 
 import type { DataTable } from "./data-table";
 
-const DataTableContext = createContext<DataTableConfig.Props>({});
-export const DataTableConfig = (props: DataTableConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <DataTableContext value={restProps}>{children}</DataTableContext>;
-};
-
-export const useDataTableConfig = () => {
-  const context = use(DataTableContext);
-  return context;
-};
+export const [DataTableConfig, useDataTableConfig] = createConfigContext<
+  // @ts-expect-error type-error
+  DataTableConfig.Props<any, any>
+>({
+  displayName: "DataTableConfig",
+});
 
 export namespace DataTableConfig {
-  export interface Props extends DataTable.Props {}
+  export interface Props<TData, TValue>
+    extends DataTable.Props<TData, TValue> {}
 }
