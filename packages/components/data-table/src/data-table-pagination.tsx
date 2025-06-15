@@ -34,10 +34,10 @@ export const DataTablePagination = () => {
     ? table.getState().pagination.pageIndex + 1
     : 0;
 
-  useEffect(() => {
-    table.setPageSize(Number(Array.from(value)[0] ?? [10]));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  // useEffect(() => {
+  //   table.setPageSize(Number(Array.from(value)[0] ?? [10]));
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [value]);
   return (
     <div
       className="flex flex-col w-full justify-between gap-4 md:flex-row md:items-center"

@@ -2,6 +2,7 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { mergeProps } from "@jamsrui/utils";
 
 import { DataTableBody } from "./data-table-body";
+import { DataTableColumnVisibility } from "./data-table-column-visibility";
 import { useDataTableConfig } from "./data-table-config";
 import { DataTableContext } from "./data-table-context";
 import { DataTableHeader } from "./data-table-header";
@@ -18,6 +19,7 @@ export const DataTable = <TData, TValue>(
 
   const composedChildren = (
     <>
+      <DataTableColumnVisibility />
       <DataTableTable>
         <DataTableHeader />
         <DataTableBody />

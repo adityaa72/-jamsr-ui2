@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 
 import {
   getCoreRowModel,
+  getExpandedRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
@@ -10,7 +11,9 @@ import {
 
 import type {
   ColumnFiltersState,
+  ColumnOrderState,
   PaginationState,
+  RowPinningState,
   RowSelectionState,
   SortingState,
   TableOptions,
@@ -32,25 +35,38 @@ export const useDataTable = <TData, TValue>(
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+  const [rowPinning, setRowPinning] = useState<RowPinningState>({
+    bottom: [],
+    top: [],
+  });
+  const [columnOrder, setColumnOrder] = useState<ColumnOrderState>([]);
 
   const table = useReactTable({
-    data,
-    columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
+    columnResizeMode: "onChange",
+    ...options,
     state: {
       sorting,
       columnFilters,
       columnVisibility,
       rowSelection,
+      pagination,
+      columnOrder,
+      ...options?.state,
     },
-    ...options,
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
+    onPaginationChange: setPagination,
+    getExpandedRowModel: getExpandedRowModel(),
+    onColumnOrderChange: setColumnOrder,
+    onRowPinningChange: setRowPinning,
   });
 
   return useMemo(

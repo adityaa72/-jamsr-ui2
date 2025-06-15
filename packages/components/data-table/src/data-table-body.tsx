@@ -7,10 +7,9 @@ import type { Row } from "@tanstack/react-table";
 
 export const DataTableBody = () => {
   const { table } = useDataTableContext();
-  const rows = table.getRowModel().rows;
   return (
     <TableBody>
-      {rows.map((row) => {
+      {table.getRowModel().rows.map((row) => {
         return (
           <TableRow key={row.id}>
             {row.getVisibleCells().map((cell) => {
