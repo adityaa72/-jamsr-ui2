@@ -1,5 +1,5 @@
-import { Text } from "@jamsrui/react";
 import { DocsOnThisPage } from "./docs-on-this-page";
+import { DocsPageInner } from "./docs-page-inner";
 
 type Props = {
   children: React.ReactNode;
@@ -10,17 +10,12 @@ type Props = {
 export const DocsPage = (props: Props) => {
   const { children, description, title } = props;
   return (
-    <>
-      <article className="flex col-span-2 flex-col gap-8 py-24">
-        <div className="flex flex-col gap-2">
-          <Text render={<h1 />} variant="h2">
-            {title}
-          </Text>
-          <Text className="text-foreground-secondary">{description}</Text>
-        </div>
-        <div className="flex flex-col gap-4">{children}</div>
-      </article>
-      <DocsOnThisPage>{children}</DocsOnThisPage>
-    </>
+    <DocsPageInner
+      title={title}
+      description={description}
+      onThisPage={<DocsOnThisPage>{children}</DocsOnThisPage>}
+    >
+      {children}
+    </DocsPageInner>
   );
 };

@@ -1,3 +1,4 @@
+import { SidebarProvider } from "@jamsrui/react";
 import { AppSidebar } from "./sidebar";
 
 type Props = {
@@ -7,9 +8,11 @@ type Props = {
 const Layout = (props: Props) => {
   const { children } = props;
   return (
-    <div className="grid grid-cols-4 gap-24">
-      <AppSidebar />
-      {children}
+    <div className="flex">
+      <SidebarProvider>
+        <AppSidebar />
+        {children}
+      </SidebarProvider>
     </div>
   );
 };

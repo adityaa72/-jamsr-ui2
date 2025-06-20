@@ -35,7 +35,7 @@ export { Rating, RatingConfig, useRatingConfig } from '@jamsrui/rating';
 export { Ripple, RippleConfig, useRippleConfig } from '@jamsrui/ripple';
 export { ScrollArea, ScrollAreaConfig, useScrollAreaConfig } from '@jamsrui/scroll-area';
 export { Select, SelectItem, SelectConfig, useSelectConfig } from '@jamsrui/select';
-export { Sidebar, SidebarConfig, useSidebarConfig, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuItemButton, SidebarProvider, SidebarToggle } from '@jamsrui/sidebar';
+export { Sidebar, SidebarBackdrop, SidebarBody, SidebarConfig, useSidebarConfig, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuItemButton, SidebarProvider, useSidebarState, SidebarToggle } from '@jamsrui/sidebar';
 export { Skeleton, SkeletonConfig, useSkeletonConfig } from '@jamsrui/skeleton';
 export { Slider, SliderConfig, useSliderConfig } from '@jamsrui/slider';
 export { Switch, SwitchConfig, useSwitchConfig } from '@jamsrui/switch';

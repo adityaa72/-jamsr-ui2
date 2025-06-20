@@ -1,5 +1,4 @@
-import { Link } from "@jamsrui/link";
-import { Text } from "@jamsrui/react";
+import { Link, Text } from "@jamsrui/react";
 import React, { isValidElement } from "react";
 
 type Props = {
@@ -16,7 +15,7 @@ export const DocsOnThisPage = (props: Props) => {
     })
     .filter(Boolean);
   return (
-    <aside className="col-span-1 py-24 sticky top-24 h-max">
+    <aside className="min-w-[250px] w-[250px] max-md:hidden py-24 sticky top-24 h-max">
       <Text variant="paragraph2">On this page</Text>
       <ul className="flex flex-col">
         {headings.map((item) => {

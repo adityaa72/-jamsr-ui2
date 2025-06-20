@@ -1,12 +1,18 @@
+"use client";
+
+import { AppLogo } from "@/components/app-logo";
 import {
   Sidebar,
+  SidebarBackdrop,
+  SidebarBody,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
-  SidebarProvider,
   SidebarToggle,
 } from "@jamsrui/react";
 import { Route } from "next";
@@ -80,12 +86,15 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
 
 export const AppSidebar = () => {
   return (
-    <div>
-      <SidebarProvider>
-        <SidebarToggle />
-        <Sidebar width={250}>
-          <SidebarToggle />
-          <SidebarContent>
+    <>
+      <Sidebar width={250}>
+        <SidebarBackdrop />
+        <SidebarContent>
+          <SidebarHeader className="flex justify-between border-b border-stroke-primary">
+            <AppLogo />
+            <SidebarToggle />
+          </SidebarHeader>
+          <SidebarBody>
             {data.map((item) => {
               const { items, title } = item;
               return (
@@ -107,9 +116,10 @@ export const AppSidebar = () => {
                 </SidebarGroup>
               );
             })}
-          </SidebarContent>
-        </Sidebar>
-      </SidebarProvider>
-    </div>
+          </SidebarBody>
+          <SidebarFooter>Version 1.0.0</SidebarFooter>
+        </SidebarContent>
+      </Sidebar>
+    </>
   );
 };
