@@ -21,19 +21,27 @@ const CircularProgress = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <CircularProgressUsage />
       </CodeExample>
-      <CodeExample title="With Label" url={resolvePath("with-label.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Label"
+        url={resolvePath("with-label.tsx")}
+      >
         <CircularProgressWithLabel />
       </CodeExample>
-      <CodeExample title="Colors" url={resolvePath("colors.tsx")}>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <CircularProgressColors />
       </CodeExample>
-      <CodeExample title="Sizes" url={resolvePath("sizes.tsx")}>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <CircularProgressSizes />
       </CodeExample>
-      <CodeExample title="Customized" url={resolvePath("customized.tsx")}>
+      <CodeExample
+        isCentered
+        title="Customized"
+        url={resolvePath("customized.tsx")}
+      >
         <CircularProgressCustomized />
       </CodeExample>
     </DocsPage>

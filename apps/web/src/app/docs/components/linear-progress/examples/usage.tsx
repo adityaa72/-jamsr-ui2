@@ -1,5 +1,11 @@
 import { LinearProgress } from "@jamsr-ui/react";
 
 export const LinearProgressUsage = () => {
-  return <LinearProgress />;
+  return (
+    <div className="flex w-full flex-col gap-4">
+      <LinearProgress />
+      <LinearProgress progress={20} color="warning" />
+      <LinearProgress progress={80} color="error" />
+    </div>
+  );
 };

@@ -42,6 +42,7 @@ export const circularProgressVariants = tv({
   },
   defaultVariants: {
     color: "primary",
+    isIntermediate: true,
   },
 });
 

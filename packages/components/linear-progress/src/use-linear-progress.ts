@@ -7,6 +7,7 @@ import { linearProgressVariants } from "./styles";
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { LinearProgress } from "./linear-progress";
+import type { LinearProgressBar } from "./linear-progress-bar";
 import type { LinearProgressSlots, LinearProgressVariantProps } from "./styles";
 
 export const useLinearProgress = (props: useLinearProgress.Props) => {
@@ -15,7 +16,12 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
     linearProgressVariants.variantKeys
   );
   const styles = linearProgressVariants(variantProps);
-  const { progress, isIntermediate, classNames, ...elementProps } = $props;
+  const { progress: progressProp = 0, classNames, ...elementProps } = $props;
+  const isIntermediate = variantProps.isIntermediate ?? true;
+
+  const progress = isIntermediate
+    ? progressProp || 50
+    : Math.min(progressProp, 100);
 
   const getRootProps: PropGetter<LinearProgress.Props> = useCallback(
     () => ({
@@ -28,14 +34,20 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
     [classNames?.track, elementProps, styles]
   );
 
-  const getBarProps: PropGetter<LinearProgress.Props> = useCallback(
+  const getBarProps: PropGetter<LinearProgressBar.Props> = useCallback(
     () => ({
       "data-slot": dataAttrDev("bar"),
       className: styles.bar({
         className: cn(classNames?.bar, elementProps.className),
       }),
+      initial: {
+        width: isIntermediate ? `${progress}%` : 0,
+      },
+      animate: {
+        width: `${progress}%`,
+      },
     }),
-    [classNames?.bar, elementProps, styles]
+    [classNames?.bar, elementProps.className, isIntermediate, progress, styles]
   );
 
   return useMemo(

@@ -5,8 +5,8 @@ import type { VariantProps } from "@jamsr-ui/utils";
 export const test = "";
 export const linearProgressVariants = tv({
   slots: {
-    track: "w-full overflow-hidden rounded-full",
-    bar: "rounded-full",
+    track: "w-full relative overflow-hidden rounded-full",
+    bar: "rounded-full absolute",
   },
   variants: {
     color: {
@@ -45,10 +45,16 @@ export const linearProgressVariants = tv({
         bar: "h-2 ",
       },
     },
+    isIntermediate: {
+      true: {
+        bar: "animate-progress",
+      },
+    },
   },
   defaultVariants: {
     size: "sm",
     color: "primary",
+    isIntermediate: true,
   },
 });
 

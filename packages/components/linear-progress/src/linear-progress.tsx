@@ -3,6 +3,7 @@ import { mergeProps } from "@jamsrui/utils";
 
 import { LinearProgressBar } from "./linear-progress-bar";
 import { useLinearProgressConfig } from "./linear-progress-config";
+import { LinearProgressContext } from "./linear-progress-context";
 import { useLinearProgress } from "./use-linear-progress";
 
 export const LinearProgress = (props: LinearProgress.Props) => {
@@ -19,7 +20,9 @@ export const LinearProgress = (props: LinearProgress.Props) => {
   const renderElement = useRenderElement("div", {
     props: [getRootProps({}), { children: composedChildren }],
   });
-  return renderElement;
+  return (
+    <LinearProgressContext value={ctx}>{renderElement}</LinearProgressContext>
+  );
 };
 
 export namespace LinearProgress {

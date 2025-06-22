@@ -16,11 +16,11 @@ export const DocsPageInner = (props: Props) => {
   return (
     <div
       className={cn(
-        "flex w-full transition-transform min-w-0 duration-300 max-w-screen-xl",
+        "flex w-full transition-transform min-w-0 duration-300 ",
         isOpen ? "md:translate-x-[250px] md:w-[calc(100%-250px)]" : "mx-auto"
       )}
     >
-      <div className="py-12 w-full px-4 md:px-12">
+      <div className="py-12 w-full px-4 md:px-12 max-w-screen-md mx-auto">
         <SidebarToggle className="md:hidden" />
         {!isOpen && <SidebarToggle />}
         <article className={cn("flex col-span-2 flex-col gap-8 w-full py-12")}>

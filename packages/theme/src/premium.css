@@ -1,3 +1,18 @@
+@theme {
+  /* animations */
+  --animate-ripple: ripple 1s linear;
+  --animate-progress: progress 1s infinite linear;
+
+  @keyframes progress {
+    0% {
+      left: -40%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+}
+
 @theme inline {
   /* Default */
   --color-default: var(--ui-default);

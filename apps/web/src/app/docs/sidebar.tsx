@@ -2,6 +2,7 @@
 
 import { AppLogo } from "@/components/app-logo";
 import {
+  Chip,
   Sidebar,
   SidebarBackdrop,
   SidebarBody,
@@ -14,6 +15,7 @@ import {
   SidebarMenuItem,
   SidebarMenuItemButton,
   SidebarToggle,
+  Text,
 } from "@jamsrui/react";
 import { Route } from "next";
 import Link from "next/link";
@@ -24,7 +26,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
     items: [
       {
         title: "Theme",
-        url: "/theme",
+        url: "/docs/theme",
       },
     ],
   },
@@ -117,7 +119,12 @@ export const AppSidebar = () => {
               );
             })}
           </SidebarBody>
-          <SidebarFooter>Version 1.0.0</SidebarFooter>
+          <SidebarFooter className="flex gap-2 items-center">
+            <Text>Version 0.2.0</Text>
+            <Chip color="primary" size="xs">
+              Beta
+            </Chip>
+          </SidebarFooter>
         </SidebarContent>
       </Sidebar>
     </>

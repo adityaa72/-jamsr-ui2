@@ -5,7 +5,7 @@ import { MinusIcon, PlusIcon } from "@jamsr-ui/icons";
 import { useState } from "react";
 
 export const LinearProgressControlled = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(10);
   const OnIncrease = () => setValue(value + 10);
   const OnDecrease = () => setValue(value - 10);
   const CanIncrease = value < 100;
@@ -19,7 +19,7 @@ export const LinearProgressControlled = () => {
       >
         <MinusIcon />
       </IconButton>
-      <LinearProgress progress={value} />
+      <LinearProgress isIntermediate={false} progress={value} />
       <IconButton
         label="Increase"
         isDisabled={!CanIncrease}
