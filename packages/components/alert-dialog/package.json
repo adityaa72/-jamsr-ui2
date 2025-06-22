@@ -1,5 +1,5 @@
 {
-  "name": "@jamsrui/confirmation",
+  "name": "@jamsrui/alert-dialog",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {
@@ -14,7 +14,10 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@jamsrui/button": "workspace:^",
+    "@jamsrui/dialog": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/text": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }
 }

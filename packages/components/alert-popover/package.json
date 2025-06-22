@@ -1,0 +1,23 @@
+{
+  "name": "@jamsrui/alert-popover",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "npx eslint src --ext .ts,.tsx --fix"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "react": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:"
+  },
+  "dependencies": {
+    "@jamsrui/button": "workspace:^",
+    "@jamsrui/popover": "workspace:^",
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/text": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
+  }
+}

@@ -9,6 +9,7 @@ import { DialogCustomized } from "./examples/customized";
 import { DialogNonDismissible } from "./examples/non-dismissable";
 import { DialogRadius } from "./examples/radius";
 import { DialogScrollBehavior } from "./examples/scroll-behavior";
+import { DialogSizes } from "./examples/sizes";
 import { DialogUsage } from "./examples/usage";
 import { DialogWithoutAnimation } from "./examples/without-animation";
 import { DialogWithoutCloseButton } from "./examples/without-close-button";
@@ -31,6 +32,9 @@ const Dialog = () => {
       </CodeExample>
       <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <DialogRadius />
+      </CodeExample>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
+        <DialogSizes />
       </CodeExample>
       <CodeExample
         isCentered

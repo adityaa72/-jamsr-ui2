@@ -4,33 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    '@floating-ui/react':
-      specifier: '>=0.27'
-      version: 0.27.8
-    '@tanstack/react-table':
-      specifier: '>=8'
-      version: 8.21.3
-    '@types/react':
-      specifier: '>=19'
-      version: 19.1.2
-    motion:
-      specifier: '>=12'
-      version: 12.9.2
-    react:
-      specifier: '>=19'
-      version: 19.1.0
-    react-dom:
-      specifier: '>=19'
-      version: 19.1.0
-    tailwindcss:
-      specifier: ^4.1.4
-      version: 4.1.5
-    typescript:
-      specifier: 5.8.3
-      version: 5.8.3
-
 importers:
 
   .:
@@ -262,6 +235,56 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/alert-dialog:
+    dependencies:
+      '@jamsrui/button':
+        specifier: workspace:^
+        version: link:../button
+      '@jamsrui/dialog':
+        specifier: workspace:^
+        version: link:../dialog
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsrui/text':
+        specifier: workspace:^
+        version: link:../text
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/alert-popover:
+    dependencies:
+      '@jamsrui/button':
+        specifier: workspace:^
+        version: link:../button
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsrui/popover':
+        specifier: workspace:^
+        version: link:../popover
+      '@jamsrui/text':
+        specifier: workspace:^
+        version: link:../text
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/autocomplete:
     dependencies:
       '@floating-ui/react':
@@ -461,22 +484,6 @@ importers:
       motion:
         specifier: 'catalog:'
         version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react:
-        specifier: 'catalog:'
-        version: 19.1.0
-
-  packages/components/confirmation:
-    dependencies:
-      '@jamsrui/hooks':
-        specifier: workspace:^
-        version: link:../../hooks
-      '@jamsrui/utils':
-        specifier: workspace:^
-        version: link:../../utils
-    devDependencies:
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.1.2
       react:
         specifier: 'catalog:'
         version: 19.1.0
@@ -1212,6 +1219,12 @@ importers:
       '@jamsrui/alert':
         specifier: workspace:^
         version: link:../components/alert
+      '@jamsrui/alert-dialog':
+        specifier: workspace:^
+        version: link:../components/alert-dialog
+      '@jamsrui/alert-popover':
+        specifier: workspace:^
+        version: link:../components/alert-popover
       '@jamsrui/autocomplete':
         specifier: workspace:^
         version: link:../components/autocomplete
@@ -1245,9 +1258,6 @@ importers:
       '@jamsrui/collapsible':
         specifier: workspace:^
         version: link:../components/collapsible
-      '@jamsrui/confirmation':
-        specifier: workspace:^
-        version: link:../components/confirmation
       '@jamsrui/context-menu':
         specifier: workspace:^
         version: link:../components/context-menu
@@ -1406,6 +1416,12 @@ importers:
       '@jamsrui/alert':
         specifier: workspace:^
         version: link:../packages/components/alert
+      '@jamsrui/alert-dialog':
+        specifier: workspace:^
+        version: link:../packages/components/alert-dialog
+      '@jamsrui/alert-popover':
+        specifier: workspace:^
+        version: link:../packages/components/alert-popover
       '@jamsrui/autocomplete':
         specifier: workspace:^
         version: link:../packages/components/autocomplete
@@ -1439,9 +1455,6 @@ importers:
       '@jamsrui/collapsible':
         specifier: workspace:^
         version: link:../packages/components/collapsible
-      '@jamsrui/confirmation':
-        specifier: workspace:^
-        version: link:../packages/components/confirmation
       '@jamsrui/context-menu':
         specifier: workspace:^
         version: link:../packages/components/context-menu
@@ -1698,8 +1711,8 @@ packages:
     resolution: {integrity: sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/types@7.27.3':
-    resolution: {integrity: sha512-Y1GkI4ktrtvmawoSq+4FCVHNryea6uR+qUQy0AGxLSsjCX0nVmkYQMBLHDkXZuo5hGx7eYdnIaslsdBFm7zbUw==}
+  '@babel/types@7.27.6':
+    resolution: {integrity: sha512-ETyHEk2VHHvl9b9jZP5IHPavHYk57EhanlRRuae9XCpb/j5bDCbPPMOBfCWhnl/7EDJz0jEMCi/RhccCE8r1+Q==}
     engines: {node: '>=6.9.0'}
 
   '@dnd-kit/accessibility@3.1.1':
@@ -4813,7 +4826,7 @@ snapshots:
   '@babel/generator@7.27.5':
     dependencies:
       '@babel/parser': 7.27.5
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 3.1.0
@@ -4865,7 +4878,7 @@ snapshots:
 
   '@babel/parser@7.27.5':
     dependencies:
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
 
   '@babel/plugin-transform-react-jsx-self@7.25.9(@babel/core@7.26.10)':
     dependencies:
@@ -4891,7 +4904,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.27.1
       '@babel/parser': 7.27.5
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
 
   '@babel/traverse@7.27.0':
     dependencies:
@@ -4911,7 +4924,7 @@ snapshots:
       '@babel/generator': 7.27.5
       '@babel/parser': 7.27.5
       '@babel/template': 7.27.2
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
       debug: 4.4.0
       globals: 11.12.0
     transitivePeerDependencies:
@@ -4922,7 +4935,7 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@babel/types@7.27.3':
+  '@babel/types@7.27.6':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1

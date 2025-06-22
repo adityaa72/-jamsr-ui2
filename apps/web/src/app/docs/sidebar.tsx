@@ -35,6 +35,8 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
     items: [
       { title: "Accordion", url: "/docs/components/accordion" },
       { title: "Alert", url: "/docs/components/alert" },
+      { title: "Alert Dialog", url: "/docs/components/alert-dialog" },
+      { title: "Alert Popover", url: "/docs/components/alert-popover" },
       { title: "Autocomplete", url: "/docs/components/autocomplete" },
       { title: "Avatar", url: "/docs/components/avatar" },
       { title: "Breadcrumb", url: "/docs/components/breadcrumb" },
@@ -46,7 +48,6 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Circular Progress", url: "/docs/components/circular-progress" },
       { title: "Clipboard", url: "/docs/components/clipboard" },
       { title: "Collapsible", url: "/docs/components/collapsible" },
-      { title: "Confirmation", url: "/docs/components/confirmation" },
       { title: "Context Menu", url: "/docs/components/context-menu" },
       { title: "Data Table", url: "/docs/components/data-table" },
       { title: "Date Picker", url: "/docs/components/date-picker" },

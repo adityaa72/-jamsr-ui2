@@ -1,5 +1,7 @@
 export { Accordion, AccordionConfig, useAccordionConfig, AccordionContent, AccordionItem, useAccordionItemState, AccordionTrigger } from '@jamsrui/accordion';
 export { Alert, AlertConfig, useAlertConfig, AlertDescription, AlertTitle, alertStyles, useAlert } from '@jamsrui/alert';
+export { AlertDialog, AlertDialogConfig, useAlertDialogConfig } from '@jamsrui/alert-dialog';
+export { AlertPopover, AlertPopoverConfig, useAlertPopoverConfig } from '@jamsrui/alert-popover';
 export { Autocomplete, AutocompleteConfig, useAutocompleteConfig, AutocompleteItem } from '@jamsrui/autocomplete';
 export { Avatar, AvatarConfig, useAvatarConfig } from '@jamsrui/avatar';
 export { Breadcrumb, BreadcrumbConfig, useBreadcrumbConfig } from '@jamsrui/breadcrumb';
@@ -11,7 +13,6 @@ export { Chip, ChipConfig, useChipConfig } from '@jamsrui/chip';
 export { CircularProgress, CircularProgressConfig, useCircularProgressConfig } from '@jamsrui/circular-progress';
 export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboard';
 export { Collapsible, CollapsibleConfig, useCollapsibleConfig, CollapsibleContent, CollapsibleTrigger } from '@jamsrui/collapsible';
-export { Confirmation, ConfirmationConfig, useConfirmationConfig } from '@jamsrui/confirmation';
 export { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '@jamsrui/context-menu';
 export { DataTable, DataTableConfig, useDataTableConfig } from '@jamsrui/data-table';
 export { DatePicker, DatePickerConfig, useDatePickerConfig } from '@jamsrui/date-picker';

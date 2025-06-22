@@ -9,9 +9,9 @@ export const dialogVariants = tv({
     header: "p-4 text-base font-bold",
     body: "w-full p-4",
     popover:
-      "z-dialog absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+      "z-dialog w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
     content:
-      "relative  flex max-h-[calc(100dvh-4rem)] w-full flex-col overflow-y-auto bg-background-secondary shadow-lg",
+      "relative flex size-full flex-col overflow-y-auto bg-background-secondary shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",
     closeButton: "absolute right-2 top-2 z-10",
   },
@@ -19,34 +19,34 @@ export const dialogVariants = tv({
     radius: radiusVariant("content"),
     size: {
       xs: {
-        content: "max-w-xs",
+        popover: "max-w-xs",
       },
       sm: {
-        content: "max-w-sm",
+        popover: "max-w-sm",
       },
       md: {
-        content: "max-w-md",
+        popover: "max-w-md",
       },
       lg: {
-        content: "max-w-lg",
+        popover: "max-w-lg",
       },
       xl: {
-        content: "max-w-xl",
+        popover: "max-w-xl",
       },
       "2xl": {
-        content: "max-w-2xl",
+        popover: "max-w-2xl",
       },
       "3xl": {
-        content: "max-w-3xl",
+        popover: "max-w-3xl",
       },
       "4xl": {
-        content: "max-w-4xl",
+        popover: "max-w-4xl",
       },
       "5xl": {
-        content: "max-w-5xl",
+        popover: "max-w-5xl",
       },
       full: {
-        content: "m-0 h-dvh max-w-full !rounded-none bg-background sm:m-0",
+        popover: "m-0 h-dvh max-w-full !rounded-none sm:m-0",
       },
     },
     backdrop: {

@@ -16,7 +16,7 @@ import type {
   FloatingOverlay,
 } from "@floating-ui/react";
 import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
-import type { ComponentProps } from "react";
+import type { ComponentProps, HtmlHTMLAttributes } from "react";
 
 import type { DialogBody } from "./dialog-body";
 import type { DialogCloseButton } from "./dialog-close-button";
@@ -189,9 +189,10 @@ export const useDialog = (props: useDialog.Props) => {
   );
 
   const getTriggerCloseProps = useCallback(
-    () => ({
-      onClick: handleTriggerClose,
-    }),
+    (props: ComponentProps<"button">) =>
+      mergeProps(props, {
+        onClick: handleTriggerClose,
+      }),
     [handleTriggerClose]
   );
 

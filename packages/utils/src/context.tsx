@@ -5,7 +5,9 @@ import { mergeProps } from "./merge-props";
 
 import type { HTMLAttributes } from "react";
 
-export const createConfigContext = <T extends HTMLAttributes<HTMLElement>>({
+export const createConfigContext = <
+  T extends Omit<HTMLAttributes<HTMLElement>, "title">,
+>({
   displayName,
 }: {
   displayName: string;

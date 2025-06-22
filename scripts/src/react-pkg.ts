@@ -68,7 +68,10 @@ const ignoreItems = [
 for (const dep of deps) {
   if (ignoreItems.includes(dep)) continue;
   const depPkgPath = path.join("node_modules", dep, "package.json");
-  if (!fs.existsSync(depPkgPath)) continue;
+  if (!fs.existsSync(depPkgPath)) {
+    console.log("depPkgPath not found", depPkgPath);
+    continue;
+  }
 
   const depPkg = JSON.parse(fs.readFileSync(depPkgPath, "utf-8"));
   const entry = depPkg.main;
