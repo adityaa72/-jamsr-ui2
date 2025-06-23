@@ -1,12 +1,10 @@
 "use client";
 
+import { ChevronRightIcon, EmailIcon } from "@jamsrui/icons";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@jamsrui/react";
-import { ChevronRightIcon, EmailIcon } from "@jamsrui/icons";
-import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
@@ -16,6 +14,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
+  SidebarProvider,
 } from "@jamsrui/react";
 import Link from "next/link";
 
@@ -177,24 +176,26 @@ const SidebarNestedMenuItem = (props: NavItem & { isNested?: boolean }) => {
 
 export const SidebarNested = () => {
   return (
-    <Sidebar className="max-w-[250px]">
-      <SidebarHeader>Avatar</SidebarHeader>
-      <SidebarContent>
-        {navItems.map((item) => {
-          const { items = [], title } = item;
-          return (
-            <SidebarGroup key={title}>
-              <SidebarGroupLabel>{title}</SidebarGroupLabel>
-              <SidebarMenu>
-                {items.map((item) => {
-                  return <SidebarNestedMenuItem key={item.title} {...item} />;
-                })}
-              </SidebarMenu>
-            </SidebarGroup>
-          );
-        })}
-      </SidebarContent>
-      <SidebarFooter>Logout</SidebarFooter>
-    </Sidebar>
+    <SidebarProvider>
+      <Sidebar className="max-w-[250px]">
+        <SidebarHeader>Avatar</SidebarHeader>
+        <SidebarContent>
+          {navItems.map((item) => {
+            const { items = [], title } = item;
+            return (
+              <SidebarGroup key={title}>
+                <SidebarGroupLabel>{title}</SidebarGroupLabel>
+                <SidebarMenu>
+                  {items.map((item) => {
+                    return <SidebarNestedMenuItem key={item.title} {...item} />;
+                  })}
+                </SidebarMenu>
+              </SidebarGroup>
+            );
+          })}
+        </SidebarContent>
+        <SidebarFooter>Logout</SidebarFooter>
+      </Sidebar>
+    </SidebarProvider>
   );
 };

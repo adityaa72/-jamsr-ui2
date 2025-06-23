@@ -1,3 +1,4 @@
+import { Toaster } from "@jamsrui/react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Toaster position="bottom-center" richColors theme="dark" />
         {children}
       </body>
     </html>

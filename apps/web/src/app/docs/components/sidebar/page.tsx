@@ -18,13 +18,13 @@ const Sidebar = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <iframe
-          src={"/docs/components/sidebar/examples/usage" satisfies Route}
+          src={"/examples/sidebar/usage" satisfies Route}
           className="min-h-[500px]"
         />
       </CodeExample>
       <CodeExample title="Nested" url={resolvePath("nested.tsx")}>
         <iframe
-          src={"/docs/components/sidebar/examples/nested" satisfies Route}
+          src={"/examples/sidebar/nested" satisfies Route}
           className="min-h-[500px]"
         />
       </CodeExample>

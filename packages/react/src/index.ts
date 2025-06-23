@@ -45,6 +45,6 @@ export { Tab, Tabs, TabsConfig, useTabsConfig } from '@jamsrui/tabs';
 export { TagsInput, TagsInputConfig, useTagsInputConfig } from '@jamsrui/tags-input';
 export { textVariants, Text, TextConfig, useTextConfig } from '@jamsrui/text';
 export { Textarea, TextareaConfig, useTextareaConfig } from '@jamsrui/textarea';
-export { Toast, ToastConfig, useToastConfig } from '@jamsrui/toast';
+export { toast, Toaster, Toast, ToastConfig, useToastConfig } from '@jamsrui/toast';
 export { Toggle, ToggleConfig, useToggleConfig } from '@jamsrui/toggle';
 export { Tooltip, TooltipConfig, useTooltipConfig, TooltipGroup } from '@jamsrui/tooltip';

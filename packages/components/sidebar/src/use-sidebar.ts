@@ -9,6 +9,7 @@ import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Sidebar } from "./sidebar";
 import type { SidebarBackdrop } from "./sidebar-backdrop";
+import type { SidebarBody } from "./sidebar-body";
 import type { SidebarContent } from "./sidebar-content";
 import type { SidebarFooter } from "./sidebar-footer";
 import type { SidebarGroup } from "./sidebar-group";
@@ -18,7 +19,6 @@ import type { SidebarMenu } from "./sidebar-menu";
 import type { SidebarMenuItem } from "./sidebar-menu-item";
 import type { SidebarMenuItemButton } from "./sidebar-menu-item-button";
 import type { SidebarSlots } from "./styles";
-import { SidebarBody } from "./sidebar-body";
 
 export const useSidebar = (props: useSidebar.Props) => {
   const {

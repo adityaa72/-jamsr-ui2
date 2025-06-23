@@ -1,0 +1,12 @@
+import { Textarea } from "@jamsr-ui/react";
+import { EmailIcon } from "@jamsrui/icons";
+
+export const TextareaWithIcon = () => {
+  return (
+    <Textarea
+      label="Email"
+      placeholder="Enter your email"
+      startContent={<EmailIcon />}
+    />
+  );
+};

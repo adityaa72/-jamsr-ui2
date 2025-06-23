@@ -1,7 +1,9 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
+import ToastUsage from "./examples/usage";
+import ToastVariants from "./examples/variants";
 
 const title = "Toast";
 const description =
@@ -16,7 +18,16 @@ const Toast = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <Text>Coming Soon!</Text>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
+        <ToastUsage />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Variants"
+        url={resolvePath("variants.tsx")}
+      >
+        <ToastVariants />
+      </CodeExample>
     </DocsPage>
   );
 };

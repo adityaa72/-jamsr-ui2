@@ -7,6 +7,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
+  SidebarProvider,
 } from "@jamsrui/react";
 
 const data = [
@@ -56,32 +57,34 @@ const data = [
 
 export const SidebarUsage = () => {
   return (
-    <Sidebar className="max-w-[250px]">
-      <SidebarContent>
-        {data.map((item) => {
-          const { items, title } = item;
-          return (
-            <SidebarGroup key={title}>
-              <SidebarGroupLabel>{title}</SidebarGroupLabel>
-              <SidebarMenu>
-                {items.map((item) => {
-                  return (
-                    <SidebarMenuItem
-                      key={item.title}
-                      className="group/collapsible"
-                    >
-                      <SidebarMenuItemButton>
-                        {item.icon && item.icon}
-                        {item.title}
-                      </SidebarMenuItemButton>
-                    </SidebarMenuItem>
-                  );
-                })}
-              </SidebarMenu>
-            </SidebarGroup>
-          );
-        })}
-      </SidebarContent>
-    </Sidebar>
+    <SidebarProvider>
+      <Sidebar className="max-w-[250px]">
+        <SidebarContent>
+          {data.map((item) => {
+            const { items, title } = item;
+            return (
+              <SidebarGroup key={title}>
+                <SidebarGroupLabel>{title}</SidebarGroupLabel>
+                <SidebarMenu>
+                  {items.map((item) => {
+                    return (
+                      <SidebarMenuItem
+                        key={item.title}
+                        className="group/collapsible"
+                      >
+                        <SidebarMenuItemButton>
+                          {item.icon && item.icon}
+                          {item.title}
+                        </SidebarMenuItemButton>
+                      </SidebarMenuItem>
+                    );
+                  })}
+                </SidebarMenu>
+              </SidebarGroup>
+            );
+          })}
+        </SidebarContent>
+      </Sidebar>
+    </SidebarProvider>
   );
 };
