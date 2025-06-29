@@ -40,6 +40,7 @@ export const DataGridColumnVisibility = (
               <MenuItem
                 key={column.id}
                 preventCloseOnClick
+                isDisabled={!column.getCanHide()}
                 onClick={column.getToggleVisibilityHandler()}
               >
                 <input

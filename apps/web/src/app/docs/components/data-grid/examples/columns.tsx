@@ -1,6 +1,7 @@
 "use client";
 
 import { faker } from "@faker-js/faker";
+import { Avatar, Text } from "@jamsrui/react";
 import type { ColumnDef } from "@tanstack/react-table";
 
 type User = {
@@ -8,8 +9,7 @@ type User = {
   username: string;
   email: string;
   avatar: string;
-  password: string;
-  birthdate: Date;
+  country: string;
   registeredAt: Date;
 };
 
@@ -19,8 +19,7 @@ export function createRandomUser(): User {
     username: faker.internet.username(),
     email: faker.internet.email(),
     avatar: faker.image.avatar(),
-    password: faker.internet.password(),
-    birthdate: faker.date.birthdate(),
+    country: faker.location.country(),
     registeredAt: faker.date.past(),
   };
 }
@@ -51,27 +50,25 @@ export const COLUMNS = [
   {
     accessorKey: "userId",
     header: "ID",
+    cell({ row: { original } }) {
+      return (
+        <div className="flex gap-2 items-center">
+          <Avatar src={original.avatar} />
+          <div className="flex flex-col gap-1">
+            <Text>{original.username}</Text>
+            <Text variant="caption" className="text-foreground-secondary">
+              {original.email}
+            </Text>
+          </div>
+        </div>
+      );
+    },
+    enableHiding: false,
   },
   {
-    accessorKey: "username",
-    header: "Username",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "avatar",
-    header: "Avatar",
-  },
-  {
-    accessorKey: "password",
-    header: "Password",
-  },
-  {
-    accessorKey: "birthdate",
-    header: "Birthdate",
-    accessorFn: (row) => row.birthdate.toLocaleDateString(),
+    accessorKey: "country",
+    header: "Country",
+    accessorFn: (row) => row.country,
   },
   {
     accessorKey: "registeredAt",

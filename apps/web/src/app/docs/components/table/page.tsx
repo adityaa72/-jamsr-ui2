@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { TableAllowHover } from "./examples/allow-hover";
 import { TableBordered } from "./examples/bordered";
 import { TableEmptyState } from "./examples/empty-state";
+import { TableStickyHeader } from "./examples/sticky-header";
 import { TableUsage } from "./examples/usage";
 
 const title = "Table";
@@ -28,6 +29,9 @@ const Table = () => {
       </CodeExample>
       <CodeExample title="Allow Hover" url={resolvePath("allow-hover.tsx")}>
         <TableAllowHover />
+      </CodeExample>
+      <CodeExample title="Sticky Header" url={resolvePath("sticky-header.tsx")}>
+        <TableStickyHeader />
       </CodeExample>
       <CodeExample title="Emtpy State" url={resolvePath("empty-state.tsx")}>
         <TableEmptyState />

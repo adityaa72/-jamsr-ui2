@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
@@ -41,6 +41,10 @@ export const useAvatar = (props: useAvatar.Props) => {
   });
   const [imgSrc, setImgSrc] = useState<string | undefined>(src);
   const hasImage = imgSrc?.length ?? 0 > 0;
+
+  useEffect(() => {
+    setImgSrc(src);
+  }, [src]);
 
   const handleOnError = useCallback(
     (e: React.SyntheticEvent<HTMLImageElement, Event>) => {

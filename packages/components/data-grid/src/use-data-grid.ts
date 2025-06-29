@@ -9,6 +9,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import type { Table } from "@jamsrui/table";
 import type {
   ColumnFiltersState,
   ColumnOrderState,
@@ -21,7 +22,19 @@ import type {
 } from "@tanstack/react-table";
 
 export const useDataGrid = <TData>(props: useDataGrid.Props<TData>) => {
-  const { columns, data, state, isLoading, ...tableProps } = props;
+  const {
+    columns,
+    data,
+    state,
+    isLoading,
+    isHeaderSticky,
+    variant,
+    radius,
+    density,
+    allowHover,
+    separateRows,
+    ...tableProps
+  } = props;
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [pagination, setPagination] = useState<PaginationState>({
@@ -66,20 +79,42 @@ export const useDataGrid = <TData>(props: useDataGrid.Props<TData>) => {
     columns,
   });
 
+  const rootProps = useMemo(
+    () => ({
+      isHeaderSticky,
+      variant,
+      radius,
+      density,
+      allowHover,
+      separateRows,
+    }),
+    [allowHover, density, isHeaderSticky, radius, separateRows, variant]
+  );
+
   return useMemo(
     () => ({
       table,
       isLoading,
       isEmtpy,
+      rootProps,
     }),
-    [isEmtpy, isLoading, table]
+    [isEmtpy, isLoading, rootProps, table]
   );
 };
 
 export namespace useDataGrid {
   export interface Props<TData>
     extends Pick<TableOptions<TData>, "data" | "columns">,
-      Partial<Omit<TableOptions<TData>, "data" | "columns">> {
+      Partial<Omit<TableOptions<TData>, "data" | "columns">>,
+      Pick<
+        Table.Props,
+        | "isHeaderSticky"
+        | "variant"
+        | "radius"
+        | "density"
+        | "allowHover"
+        | "separateRows"
+      > {
     isLoading?: boolean;
   }
 }
