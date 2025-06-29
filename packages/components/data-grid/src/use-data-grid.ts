@@ -20,12 +20,8 @@ import type {
   VisibilityState,
 } from "@tanstack/react-table";
 
-import type { DataGridProps } from "./types";
-
-export const useDataGrid = <TData, TValue>(
-  props: useDataGrid.Props<TData, TValue>
-) => {
-  const { columns, data, options } = props;
+export const useDataGrid = <TData>(props: useDataGrid.Props<TData>) => {
+  const { columns, data, state, isLoading, ...tableProps } = props;
 
   const [sorting, setSorting] = useState<SortingState>([]);
   const [pagination, setPagination] = useState<PaginationState>({
@@ -40,6 +36,7 @@ export const useDataGrid = <TData, TValue>(
     top: [],
   });
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>([]);
+  const isEmtpy = data.length === 0;
 
   const table = useReactTable({
     columnResizeMode: "onChange",
@@ -55,7 +52,7 @@ export const useDataGrid = <TData, TValue>(
     getExpandedRowModel: getExpandedRowModel(),
     onColumnOrderChange: setColumnOrder,
     onRowPinningChange: setRowPinning,
-    ...options,
+    ...tableProps,
     state: {
       sorting,
       columnFilters,
@@ -63,7 +60,7 @@ export const useDataGrid = <TData, TValue>(
       rowSelection,
       pagination,
       columnOrder,
-      ...options?.state,
+      ...state,
     },
     data,
     columns,
@@ -72,13 +69,17 @@ export const useDataGrid = <TData, TValue>(
   return useMemo(
     () => ({
       table,
+      isLoading,
+      isEmtpy,
     }),
-    [table]
+    [isEmtpy, isLoading, table]
   );
 };
 
 export namespace useDataGrid {
-  export interface Props<TData, TValue> extends DataGridProps<TData, TValue> {
-    options?: Partial<TableOptions<TData>>;
+  export interface Props<TData>
+    extends Pick<TableOptions<TData>, "data" | "columns">,
+      Partial<Omit<TableOptions<TData>, "data" | "columns">> {
+    isLoading?: boolean;
   }
 }

@@ -2,7 +2,9 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { DataGridEmptyState } from "./examples/empty-state";
 import { DataGridServerSide } from "./examples/server";
+import { DataGridStickyHeader } from "./examples/sticky-header";
 import { DataGridUsage } from "./examples/usage";
 
 const title = "Data Grid";
@@ -18,11 +20,17 @@ const DataGrid = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <DataGridUsage />
+      </CodeExample>
       <CodeExample title="Server Side" url={resolvePath("server.tsx")}>
         <DataGridServerSide />
       </CodeExample>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
-        <DataGridUsage />
+      <CodeExample title="Empty State" url={resolvePath("empty-state.tsx")}>
+        <DataGridEmptyState />
+      </CodeExample>
+      <CodeExample title="Sticky Header" url={resolvePath("sticky-header.tsx")}>
+        <DataGridStickyHeader />
       </CodeExample>
     </DocsPage>
   );

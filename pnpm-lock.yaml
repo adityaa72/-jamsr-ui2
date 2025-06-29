@@ -563,6 +563,9 @@ importers:
       '@jamsrui/input':
         specifier: workspace:^
         version: link:../input
+      '@jamsrui/linear-progress':
+        specifier: workspace:^
+        version: link:../linear-progress
       '@jamsrui/menu':
         specifier: workspace:^
         version: link:../menu

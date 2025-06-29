@@ -6,20 +6,20 @@ import { DataGridColumnVisibility } from "./data-grid-column-visibility";
 import { useDataGridConfig } from "./data-grid-config";
 import { DataGridContext } from "./data-grid-context";
 import { DataGridHeader } from "./data-grid-header";
+import { DataGridLoading } from "./data-grid-loading";
 import { DataGridPagination } from "./data-grid-pagination";
 import { DataGridTable } from "./data-grid-table";
 import { useDataGrid } from "./use-data-grid";
 
-export const DataGrid = <TData, TValue>(
-  props: DataGrid.Props<TData, TValue>
-) => {
-  const config = useDataGridConfig() as DataGrid.Props<TData, TValue>;
+export const DataGrid = (props: DataGrid.Props) => {
+  const config = useDataGridConfig();
   const mergedProps = mergeProps(config, props);
-  const ctx = useDataGrid<TData, TValue>(mergedProps);
+  const ctx = useDataGrid(mergedProps);
 
   const composedChildren = (
     <>
       <DataGridColumnVisibility />
+      {!!ctx.isLoading && <DataGridLoading />}
       <DataGridTable>
         <DataGridHeader />
         <DataGridBody />
@@ -28,12 +28,18 @@ export const DataGrid = <TData, TValue>(
     </>
   );
   const renderElement = useRenderElement("div", {
-    props: [{ children: composedChildren }],
+    props: [
+      {
+        "data-component": "data-grid",
+        "data-slot": "root",
+        className: "relative flex flex-col gap-2",
+      },
+      { children: composedChildren },
+    ],
   });
   return <DataGridContext value={ctx}>{renderElement}</DataGridContext>;
 };
 
 export namespace DataGrid {
-  export interface Props<TData, TValue>
-    extends useDataGrid.Props<TData, TValue> {}
+  export interface Props extends useDataGrid.Props<any> {}
 }

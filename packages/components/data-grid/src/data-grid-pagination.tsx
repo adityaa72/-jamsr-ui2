@@ -13,7 +13,7 @@ import { useDataGridContext } from "./data-grid-context";
 
 export const DataGridPagination = () => {
   const take = 10;
-  const { table } = useDataGridContext();
+  const { table, isEmtpy } = useDataGridContext();
   const [value, setValue] = useState<string[]>([take.toString()]);
 
   const onNext = () => {
@@ -38,6 +38,7 @@ export const DataGridPagination = () => {
     table.setPageSize(Number(Array.from(value)[0] ?? [10]));
     setValue(value);
   };
+  if (isEmtpy) return null;
 
   return (
     <div

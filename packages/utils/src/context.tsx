@@ -3,11 +3,7 @@ import { createContext, use } from "react";
 
 import { mergeProps } from "./merge-props";
 
-import type { HTMLAttributes } from "react";
-
-export const createConfigContext = <
-  T extends Omit<HTMLAttributes<HTMLElement>, "title">,
->({
+export const createConfigContext = <T extends { children: React.ReactNode }>({
   displayName,
 }: {
   displayName: string;

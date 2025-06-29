@@ -23,14 +23,11 @@ export const DataGridServerSide = () => {
     <DataGrid
       columns={COLUMNS}
       data={dataQuery.data?.rows ?? defaultData}
-      options={{
-        manualPagination: true,
-        rowCount: dataQuery.data?.rowCount ?? 0,
-        state: {
-          pagination,
-        },
-        onPaginationChange: setPagination,
-      }}
+      manualPagination
+      rowCount={dataQuery.data?.rowCount ?? 0}
+      state={{ pagination }}
+      onPaginationChange={setPagination}
+      isLoading={dataQuery.isFetching}
     />
   );
 };

@@ -50,10 +50,7 @@ export async function fetchData(options: {
 export const COLUMNS = [
   {
     accessorKey: "userId",
-    // header: "ID",
-    header(props) {
-      return "ID";
-    },
+    header: "ID",
   },
   {
     accessorKey: "username",
