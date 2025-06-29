@@ -49,7 +49,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Clipboard", url: "/docs/components/clipboard" },
       { title: "Collapsible", url: "/docs/components/collapsible" },
       { title: "Context Menu", url: "/docs/components/context-menu" },
-      { title: "Data Table", url: "/docs/components/data-table" },
+      { title: "Data Grid", url: "/docs/components/data-grid" },
       { title: "Date Picker", url: "/docs/components/date-picker" },
       { title: "Dialog", url: "/docs/components/dialog" },
       { title: "Divider", url: "/docs/components/divider" },

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { IconButton } from "@jamsrui/icon-button";
 import {
@@ -9,11 +9,11 @@ import {
 } from "@jamsrui/icons";
 import { Select, SelectItem } from "@jamsrui/select";
 
-import { useDataTableContext } from "./data-table-context";
+import { useDataGridContext } from "./data-grid-context";
 
-export const DataTablePagination = () => {
+export const DataGridPagination = () => {
   const take = 10;
-  const { table } = useDataTableContext();
+  const { table } = useDataGridContext();
   const [value, setValue] = useState<string[]>([take.toString()]);
 
   const onNext = () => {
@@ -34,10 +34,11 @@ export const DataTablePagination = () => {
     ? table.getState().pagination.pageIndex + 1
     : 0;
 
-  // useEffect(() => {
-  //   table.setPageSize(Number(Array.from(value)[0] ?? [10]));
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [value]);
+  const onValueChange = (value: string[]) => {
+    table.setPageSize(Number(Array.from(value)[0] ?? [10]));
+    setValue(value);
+  };
+
   return (
     <div
       className="flex flex-col w-full justify-between gap-4 md:flex-row md:items-center"
@@ -45,7 +46,7 @@ export const DataTablePagination = () => {
     >
       <Select
         label="Rows Per Page:"
-        onValueChange={setValue}
+        onValueChange={onValueChange}
         returnFocus={false}
         size="sm"
         value={value}
@@ -115,6 +116,6 @@ export const DataTablePagination = () => {
   );
 };
 
-export namespace DataTablePagination {
+export namespace DataGridPagination {
   export interface Props<T> {}
 }

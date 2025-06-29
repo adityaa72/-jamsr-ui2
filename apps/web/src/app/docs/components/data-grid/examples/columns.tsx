@@ -29,10 +29,31 @@ export const USERS: User[] = faker.helpers.multiple(createRandomUser, {
   count: 100,
 });
 
+export async function fetchData(options: {
+  pageIndex: number;
+  pageSize: number;
+}) {
+  // Simulate some network latency
+  await new Promise((r) => setTimeout(r, 500));
+
+  const data = USERS;
+  return {
+    rows: data.slice(
+      options.pageIndex * options.pageSize,
+      (options.pageIndex + 1) * options.pageSize
+    ),
+    pageCount: Math.ceil(data.length / options.pageSize),
+    rowCount: data.length,
+  };
+}
+
 export const COLUMNS = [
   {
     accessorKey: "userId",
-    header: "ID",
+    // header: "ID",
+    header(props) {
+      return "ID";
+    },
   },
   {
     accessorKey: "username",

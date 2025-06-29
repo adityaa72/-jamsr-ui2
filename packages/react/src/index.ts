@@ -14,7 +14,7 @@ export { CircularProgress, CircularProgressConfig, useCircularProgressConfig } f
 export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboard';
 export { Collapsible, CollapsibleConfig, useCollapsibleConfig, CollapsibleContent, CollapsibleTrigger } from '@jamsrui/collapsible';
 export { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '@jamsrui/context-menu';
-export { DataTable, DataTableConfig, useDataTableConfig } from '@jamsrui/data-table';
+export { DataGrid, DataGridConfig, useDataGridConfig } from '@jamsrui/data-grid';
 export { DatePicker, DatePickerConfig, useDatePickerConfig } from '@jamsrui/date-picker';
 export { Dialog, DialogBody, DialogCloseTrigger, DialogConfig, useDialogConfig, DialogContent, DialogFooter, DialogHeader, DialogTrigger } from '@jamsrui/dialog';
 export { Divider, DividerConfig, useDividerConfig } from '@jamsrui/divider';

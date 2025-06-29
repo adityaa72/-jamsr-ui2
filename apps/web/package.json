@@ -17,6 +17,7 @@
     "@jamsrui/react": "workspace:^",
     "@jamsrui/theme": "workspace:^",
     "@jamsrui/utils": "workspace:^",
+    "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-table": "catalog:",
     "motion": "catalog:",
     "next": "^15.3.0",

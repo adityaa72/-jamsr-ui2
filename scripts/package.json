@@ -27,7 +27,7 @@
     "@jamsrui/alert-dialog": "workspace:^",
     "@jamsrui/alert-popover": "workspace:^",
     "@jamsrui/context-menu": "workspace:^",
-    "@jamsrui/data-table": "workspace:^",
+    "@jamsrui/data-grid": "workspace:^",
     "@jamsrui/date-picker": "workspace:^",
     "@jamsrui/dialog": "workspace:^",
     "@jamsrui/divider": "workspace:^",

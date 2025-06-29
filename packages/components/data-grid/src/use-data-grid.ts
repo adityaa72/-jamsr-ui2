@@ -20,10 +20,10 @@ import type {
   VisibilityState,
 } from "@tanstack/react-table";
 
-import type { DataTableProps } from "./types";
+import type { DataGridProps } from "./types";
 
-export const useDataTable = <TData, TValue>(
-  props: useDataTable.Props<TData, TValue>
+export const useDataGrid = <TData, TValue>(
+  props: useDataGrid.Props<TData, TValue>
 ) => {
   const { columns, data, options } = props;
 
@@ -43,18 +43,6 @@ export const useDataTable = <TData, TValue>(
 
   const table = useReactTable({
     columnResizeMode: "onChange",
-    ...options,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection,
-      pagination,
-      columnOrder,
-      ...options?.state,
-    },
-    data,
-    columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -67,6 +55,18 @@ export const useDataTable = <TData, TValue>(
     getExpandedRowModel: getExpandedRowModel(),
     onColumnOrderChange: setColumnOrder,
     onRowPinningChange: setRowPinning,
+    ...options,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+      rowSelection,
+      pagination,
+      columnOrder,
+      ...options?.state,
+    },
+    data,
+    columns,
   });
 
   return useMemo(
@@ -77,8 +77,8 @@ export const useDataTable = <TData, TValue>(
   );
 };
 
-export namespace useDataTable {
-  export interface Props<TData, TValue> extends DataTableProps<TData, TValue> {
-    options?: TableOptions<TData>;
+export namespace useDataGrid {
+  export interface Props<TData, TValue> extends DataGridProps<TData, TValue> {
+    options?: Partial<TableOptions<TData>>;
   }
 }

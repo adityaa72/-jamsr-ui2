@@ -1,5 +1,5 @@
 {
-  "name": "@jamsrui/data-table",
+  "name": "@jamsrui/data-grid",
   "version": "0.0.0",
   "main": "./src/index.ts",
   "scripts": {

@@ -1,12 +1,12 @@
 import { TableBody, TableCell, TableRow } from "@jamsrui/table";
 import { flexRender } from "@tanstack/react-table";
 
-import { useDataTableContext } from "./data-table-context";
+import { useDataGridContext } from "./data-grid-context";
 
 import type { Row } from "@tanstack/react-table";
 
-export const DataTableBody = () => {
-  const { table } = useDataTableContext();
+export const DataGridBody = () => {
+  const { table } = useDataGridContext();
   return (
     <TableBody>
       {table.getRowModel().rows.map((row) => {
@@ -26,6 +26,6 @@ export const DataTableBody = () => {
   );
 };
 
-export interface DataTableBodyProps<T> {
+export interface DataGridBodyProps<T> {
   rows: Row<T>[];
 }

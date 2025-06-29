@@ -165,6 +165,9 @@ importers:
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../packages/utils
+      '@tanstack/react-query':
+        specifier: ^5.81.5
+        version: 5.81.5(react@19.1.0)
       '@tanstack/react-table':
         specifier: 'catalog:'
         version: 8.21.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -527,6 +530,55 @@ importers:
         specifier: workspace:^
         version: link:../../utils
     devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/data-grid:
+    dependencies:
+      '@dnd-kit/core':
+        specifier: ^6.3.1
+        version: 6.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@dnd-kit/modifiers':
+        specifier: ^9.0.0
+        version: 9.0.0(@dnd-kit/core@6.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+      '@dnd-kit/sortable':
+        specifier: ^10.0.0
+        version: 10.0.0(@dnd-kit/core@6.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+      '@dnd-kit/utilities':
+        specifier: ^3.2.2
+        version: 3.2.2(react@19.1.0)
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsrui/icon-button':
+        specifier: workspace:^
+        version: link:../icon-button
+      '@jamsrui/icons':
+        specifier: workspace:^
+        version: link:../../icons
+      '@jamsrui/input':
+        specifier: workspace:^
+        version: link:../input
+      '@jamsrui/menu':
+        specifier: workspace:^
+        version: link:../menu
+      '@jamsrui/select':
+        specifier: workspace:^
+        version: link:../select
+      '@jamsrui/table':
+        specifier: workspace:^
+        version: link:../table
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@tanstack/react-table':
+        specifier: 'catalog:'
+        version: 8.21.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -1291,9 +1343,9 @@ importers:
       '@jamsrui/context-menu':
         specifier: workspace:^
         version: link:../components/context-menu
-      '@jamsrui/data-table':
+      '@jamsrui/data-grid':
         specifier: workspace:^
-        version: link:../components/data-table
+        version: link:../components/data-grid
       '@jamsrui/date-picker':
         specifier: workspace:^
         version: link:../components/date-picker
@@ -1488,9 +1540,9 @@ importers:
       '@jamsrui/context-menu':
         specifier: workspace:^
         version: link:../packages/components/context-menu
-      '@jamsrui/data-table':
+      '@jamsrui/data-grid':
         specifier: workspace:^
-        version: link:../packages/components/data-table
+        version: link:../packages/components/data-grid
       '@jamsrui/date-picker':
         specifier: workspace:^
         version: link:../packages/components/date-picker
@@ -2728,6 +2780,14 @@ packages:
     resolution: {integrity: sha512-FE1stRoqdHSb7RxesMfCXE8icwI1W6zGE/512ae3ZDrpkQYTTYeSyUJPRCjZd8CwVAhpDUbi1YR8pcZioFJQ/w==}
     peerDependencies:
       vite: ^5.2.0 || ^6
+
+  '@tanstack/query-core@5.81.5':
+    resolution: {integrity: sha512-ZJOgCy/z2qpZXWaj/oxvodDx07XcQa9BF92c0oINjHkoqUPsmm3uG08HpTaviviZ/N9eP1f9CM7mKSEkIo7O1Q==}
+
+  '@tanstack/react-query@5.81.5':
+    resolution: {integrity: sha512-lOf2KqRRiYWpQT86eeeftAGnjuTR35myTP8MXyvHa81VlomoAWNEd8x5vkcAfQefu0qtYCvyqLropFZqgI2EQw==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tanstack/react-table@8.21.3':
     resolution: {integrity: sha512-5nNMTSETP4ykGegmVkhjcS8tTLW6Vl4axfEGQN3v0zdHYbK4UfoqfPChclTrJ4EoK9QynqAu9oUf8VEmrpZ5Ww==}
@@ -5821,6 +5881,13 @@ snapshots:
       '@tailwindcss/oxide': 4.1.5
       tailwindcss: 4.1.5
       vite: 6.3.3(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.29.2)
+
+  '@tanstack/query-core@5.81.5': {}
+
+  '@tanstack/react-query@5.81.5(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.81.5
+      react: 19.1.0
 
   '@tanstack/react-table@8.21.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:

@@ -3,7 +3,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/popover";
 import { Text } from "@jamsrui/text";
 import { mergeProps } from "@jamsrui/utils";
 
+import { AlertPopoverBody } from "./alert-popover-body";
 import { useAlertPopoverConfig } from "./alert-popover-config";
+import { AlertPopoverFooter } from "./alert-popover-footer";
 import { useAlertPopover } from "./use-alert-popover";
 
 export const AlertPopover = (props: AlertPopover.Props) => {
@@ -28,14 +30,14 @@ export const AlertPopover = (props: AlertPopover.Props) => {
     <Popover {...getRootProps({})}>
       <PopoverTrigger>{children}</PopoverTrigger>
       <PopoverContent {...getContentProps({})}>
-        <div className="pb-4">
+        <AlertPopoverBody>
           <Text {...getTitleProps({})}>{title}</Text>
           <Text {...getMessageProps({})}>{message}</Text>
-        </div>
-        <div className="flex justify-end gap-2">
+        </AlertPopoverBody>
+        <AlertPopoverFooter>
           <Button {...getCancelButtonProps({})}>{cancelText}</Button>
           <Button {...getConfirmButtonProps({})}>{confirmText}</Button>
-        </div>
+        </AlertPopoverFooter>
       </PopoverContent>
     </Popover>
   );

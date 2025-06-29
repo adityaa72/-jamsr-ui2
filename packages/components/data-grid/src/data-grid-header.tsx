@@ -3,10 +3,10 @@ import { TableColumn, TableHeader, TableRow } from "@jamsrui/table";
 import { cn } from "@jamsrui/utils";
 import { flexRender } from "@tanstack/react-table";
 
-import { useDataTableContext } from "./data-table-context";
+import { useDataGridContext } from "./data-grid-context";
 
-export const DataTableHeader = () => {
-  const { table } = useDataTableContext();
+export const DataGridHeader = () => {
+  const { table } = useDataGridContext();
   const headerGroups = table.getHeaderGroups();
   return (
     <TableHeader>
@@ -66,6 +66,6 @@ export const DataTableHeader = () => {
   );
 };
 
-export namespace DataTableHeader {
+export namespace DataGridHeader {
   export interface Props {}
 }
