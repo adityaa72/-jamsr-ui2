@@ -72,35 +72,35 @@ export const alertStyles = tv({
       status: "success",
       variant: "flat",
       className: {
-        root: "bg-success-light text-success",
+        root: "bg-success-subtle text-success",
       },
     },
     {
       status: "info",
       variant: "flat",
       className: {
-        root: "bg-primary-light text-primary",
+        root: "bg-primary-subtle text-primary",
       },
     },
     {
       status: "warning",
       variant: "flat",
       className: {
-        root: "bg-warning-light text-warning",
+        root: "bg-warning-subtle text-warning",
       },
     },
     {
       status: "danger",
       variant: "flat",
       className: {
-        root: "bg-danger-light text-danger",
+        root: "bg-danger-subtle text-danger",
       },
     },
     {
       status: "default",
       variant: "flat",
       className: {
-        root: "bg-default-light text-foreground",
+        root: "bg-default-subtle text-foreground",
       },
     },
     // bordered

@@ -48,7 +48,7 @@ export const CodeExample = async (props: CodeExampleProps) => {
         <Tab heading="Preview" value="preview">
           <div
             className={cn(
-              "border min-h-[200px]  border-stroke-primary rounded-lg p-4",
+              "border min-h-[200px]  border-divider rounded-lg p-4",
               isCentered && "flex items-center justify-center"
             )}
           >

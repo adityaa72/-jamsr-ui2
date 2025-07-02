@@ -11,7 +11,7 @@ export const dialogVariants = tv({
     popover:
       "z-dialog w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
     content:
-      "relative flex size-full flex-col overflow-y-auto bg-background-secondary shadow-lg",
+      "relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",
     closeButton: "absolute right-2 top-2 z-10",
   },
@@ -62,8 +62,8 @@ export const dialogVariants = tv({
     },
     isBordered: {
       true: {
-        header: "border-b border-stroke-primary",
-        footer: "border-t border-stroke-primary",
+        header: "border-b border-divider",
+        footer: "border-t border-divider",
       },
     },
     scrollBehavior: {

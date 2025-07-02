@@ -21,13 +21,13 @@ export const tableVariants = tv({
   variants: {
     variant: {
       solid: {
-        th: "bg-background-tertiary first:rounded-l-lg last:rounded-r-lg",
-        root: "rounded-2xl bg-background-secondary p-4",
+        th: "bg-surface-secondary first:rounded-l-lg last:rounded-r-lg",
+        root: "rounded-2xl bg-surface p-4",
       },
       bordered: {
         th: "border-b border-b-stroke-secondary",
-        td: "border-b border-stroke-primary",
-        root: "bg-background-secondary",
+        td: "border-b border-divider",
+        root: "bg-surface",
       },
     },
     radius: radiusVariant("root"),
@@ -44,13 +44,13 @@ export const tableVariants = tv({
     },
     isHeaderSticky: {
       true: {
-        thead: "sticky top-0 z-10 bg-background-secondary [&>tr]:shadow-sm",
+        thead: "sticky top-0 z-10 bg-surface [&>tr]:shadow-sm",
         wrapper: "flex max-h-[400px] flex-col overflow-auto",
       },
     },
     allowHover: {
       true: {
-        td: "md:group-hover/tr:bg-background-tertiary",
+        td: "md:group-hover/tr:bg-surface-secondary",
       },
       false: {
         td: "",
@@ -59,7 +59,7 @@ export const tableVariants = tv({
     separateRows: {
       true: {
         tr: "border-b-2 border-transparent",
-        td: "border-none bg-background-secondary",
+        td: "border-none bg-surface",
         root: "border-none bg-transparent p-0",
       },
     },

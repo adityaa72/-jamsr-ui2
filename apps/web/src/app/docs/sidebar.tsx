@@ -93,7 +93,7 @@ export const AppSidebar = () => {
       <Sidebar width={250}>
         <SidebarBackdrop />
         <SidebarContent>
-          <SidebarHeader className="flex justify-between border-b border-stroke-primary">
+          <SidebarHeader className="flex justify-between border-b border-divider">
             <AppLogo />
             <SidebarToggle />
           </SidebarHeader>

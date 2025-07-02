@@ -5,7 +5,7 @@ import type { VariantProps } from "@jamsrui/utils";
 export const test = "";
 export const avatarVariants = tv({
   slots: {
-    root: "relative flex-shrink-0 overflow-hidden rounded-full bg-background-secondary object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
+    root: "relative flex-shrink-0 overflow-hidden rounded-full bg-surface object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
     img: "select-none",
     fallback: "absolute inset-0 flex items-center justify-center",
   },

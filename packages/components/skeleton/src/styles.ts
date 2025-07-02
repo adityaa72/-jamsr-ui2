@@ -9,7 +9,7 @@ export const skeletonVariants = tv({
       "group",
       "relative",
       "overflow-hidden",
-      "bg-background-tertiary dark:bg-background-secondary",
+      "bg-surface-secondary dark:bg-surface",
       "pointer-events-none",
       // before
       "before:opacity-100",
@@ -29,8 +29,8 @@ export const skeletonVariants = tv({
       "after:absolute",
       "after:inset-0",
       "after:-z-10",
-      "after:bg-background-tertiary",
-      "dark:after:bg-background-secondary",
+      "after:bg-surface-secondary",
+      "dark:after:bg-surface",
       // state
       "data-[loaded=true]:pointer-events-auto",
       "data-[loaded=true]:overflow-visible",

@@ -3,7 +3,7 @@
   --color-default: var(--ui-default);
   --color-default-hover: var(--ui-default-hover);
   --color-default-active: var(--ui-default-active);
-  --color-default-stroke: var(--ui-default-stroke);
+  --color-default-border: var(--ui-default-border);
   --color-default-fill: var(--ui-default-fill);
   --color-default-foreground: var(--ui-default-foreground);
 
@@ -11,7 +11,7 @@
   --color-primary: var(--ui-primary);
   --color-primary-hover: var(--ui-primary-hover);
   --color-primary-active: var(--ui-primary-active);
-  --color-primary-stroke: var(--ui-primary-stroke);
+  --color-primary-border: var(--ui-primary-border);
   --color-primary-fill: var(--ui-primary-fill);
   --color-primary-foreground: var(--ui-primary-foreground);
 
@@ -19,7 +19,7 @@
   --color-secondary: var(--ui-secondary);
   --color-secondary-hover: var(--ui-secondary-hover);
   --color-secondary-active: var(--ui-secondary-active);
-  --color-secondary-stroke: var(--ui-secondary-stroke);
+  --color-secondary-border: var(--ui-secondary-border);
   --color-secondary-fill: var(--ui-secondary-fill);
   --color-secondary-foreground: var(--ui-secondary-foreground);
 
@@ -27,7 +27,7 @@
   --color-success: var(--ui-success);
   --color-success-hover: var(--ui-success-hover);
   --color-success-active: var(--ui-success-active);
-  --color-success-stroke: var(--ui-success-stroke);
+  --color-success-border: var(--ui-success-border);
   --color-success-fill: var(--ui-success-fill);
   --color-success-foreground: var(--ui-success-foreground);
 
@@ -35,7 +35,7 @@
   --color-warning: var(--ui-warning);
   --color-warning-hover: var(--ui-warning-hover);
   --color-warning-active: var(--ui-warning-active);
-  --color-warning-stroke: var(--ui-warning-stroke);
+  --color-warning-border: var(--ui-warning-border);
   --color-warning-fill: var(--ui-warning-fill);
   --color-warning-foreground: var(--ui-warning-foreground);
 
@@ -43,7 +43,7 @@
   --color-danger: var(--ui-danger);
   --color-danger-hover: var(--ui-danger-hover);
   --color-danger-active: var(--ui-danger-active);
-  --color-danger-stroke: var(--ui-danger-stroke);
+  --color-danger-border: var(--ui-danger-border);
   --color-danger-fill: var(--ui-danger-fill);
   --color-danger-foreground: var(--ui-danger-foreground);
 
@@ -72,8 +72,8 @@
   --color-fill-quaternary: var(--ui-fill-quaternary);
 
   /* Stroke */
-  --color-stroke-primary: var(--ui-stroke-primary);
-  --color-stroke-secondary: var(--ui-stroke-secondary);
+  --color-border-primary: var(--ui-border-primary);
+  --color-border-secondary: var(--ui-border-secondary);
 }
 
 :root,
@@ -83,42 +83,42 @@
   --ui-default: oklch(37% 0.012 285.8);
   --ui-default-hover: oklch(71.2% 0.013 286.1);
   --ui-default-active: oklch(27.4% 0.005 286);
-  --ui-default-stroke: oklch(71.2% 0.013 286.1);
+  --ui-default-border: oklch(71.2% 0.013 286.1);
   --ui-default-fill: oklch(87.1% 0.005 286.3);
 
   /* Primary */
   --ui-primary: oklch(54.6% 0.215 262.9);
   --ui-primary-hover: oklch(62.3% 0.188 259.8);
   --ui-primary-active: oklch(48.8% 0.217 264.4);
-  --ui-primary-stroke: oklch(88.2% 0.057 254.1);
+  --ui-primary-border: oklch(88.2% 0.057 254.1);
   --ui-primary-fill: oklch(97% 0.014 254.6);
 
   /* Secondary */
   --ui-secondary: oklch(54.1% 0.247 293);
   --ui-secondary-hover: oklch(60.6% 0.219 292.7);
   --ui-secondary-active: oklch(49.1% 0.241 292.6);
-  --ui-secondary-stroke: oklch(89.4% 0.055 293.3);
+  --ui-secondary-border: oklch(89.4% 0.055 293.3);
   --ui-secondary-fill: oklch(96.9% 0.016 293.8);
 
   /* Success */
   --ui-success: oklch(62.7% 0.17 149.2);
   --ui-success-hover: oklch(72.3% 0.192 149.6);
   --ui-success-active: oklch(52.7% 0.137 150.1);
-  --ui-success-stroke: oklch(92.5% 0.081 156);
+  --ui-success-border: oklch(92.5% 0.081 156);
   --ui-success-fill: oklch(98.2% 0.018 155.8);
 
   /* Warning */
   --ui-warning: oklch(79.5% 0.162 86);
   --ui-warning-hover: oklch(86.1% 0.173 91.9);
   --ui-warning-active: oklch(68.1% 0.142 75.8);
-  --ui-warning-stroke: oklch(94.5% 0.124 101.5);
+  --ui-warning-border: oklch(94.5% 0.124 101.5);
   --ui-warning-fill: oklch(98.7% 0.026 102.2);
 
   /* Danger */
   --ui-danger: oklch(57.7% 0.215 27.3);
   --ui-danger-hover: oklch(63.7% 0.208 25.3);
   --ui-danger-active: oklch(50.5% 0.19 27.5);
-  --ui-danger-stroke: oklch(88.5% 0.059 18.3);
+  --ui-danger-border: oklch(88.5% 0.059 18.3);
   --ui-danger-fill: oklch(97.1% 0.013 17.4);
 
   /* Text */
@@ -146,8 +146,8 @@
   --ui-fill-quaternary: oklch(21% 0.006 285.9 / 0.0196);
 
   /* Stroke */
-  --ui-stroke-primary: oklch(21% 0.006 285.9 / 0.1176);
-  --ui-stroke-secondary: oklch(21% 0.006 285.9 / 0.0588);
+  --ui-border-primary: oklch(21% 0.006 285.9 / 0.1176);
+  --ui-border-secondary: oklch(21% 0.006 285.9 / 0.0588);
 }
 
 .dark,
@@ -156,7 +156,7 @@
   --ui-default: oklch(37% 0.012 285.8);
   --ui-default-hover: oklch(71.2% 0.013 286.1);
   --ui-default-active: oklch(27.4% 0.005 286);
-  --ui-default-stroke: oklch(55.2% 0.014 285.9);
+  --ui-default-border: oklch(55.2% 0.014 285.9);
   --ui-default-fill: oklch(21% 0.006 285.9);
   --ui-default-foreground: oklch(100% 0 0);
 
@@ -164,7 +164,7 @@
   --ui-primary: oklch(54.6% 0.215 262.9);
   --ui-primary-hover: oklch(62.3% 0.188 259.8);
   --ui-primary-active: oklch(48.8% 0.217 264.4);
-  --ui-primary-stroke: oklch(37.9% 0.138 265.5);
+  --ui-primary-border: oklch(37.9% 0.138 265.5);
   --ui-primary-fill: oklch(28.2% 0.087 267.9);
   --ui-primary-foreground: oklch(100% 0 0);
 
@@ -172,7 +172,7 @@
   --ui-secondary: oklch(54.1% 0.247 293);
   --ui-secondary-hover: oklch(60.6% 0.219 292.7);
   --ui-secondary-active: oklch(49.1% 0.241 292.6);
-  --ui-secondary-stroke: oklch(38% 0.178 293.7);
+  --ui-secondary-border: oklch(38% 0.178 293.7);
   --ui-secondary-fill: oklch(28.3% 0.135 291.1);
   --ui-secondary-foreground: oklch(100% 0 0);
 
@@ -180,7 +180,7 @@
   --ui-success: oklch(62.7% 0.17 149.2);
   --ui-success-hover: oklch(72.3% 0.192 149.6);
   --ui-success-active: oklch(52.7% 0.137 150.1);
-  --ui-success-stroke: oklch(39.3% 0.09 152.5);
+  --ui-success-border: oklch(39.3% 0.09 152.5);
   --ui-success-fill: oklch(26.6% 0.063 152.9);
   --ui-success-foreground: oklch(100% 0 0);
 
@@ -188,7 +188,7 @@
   --ui-warning: oklch(79.5% 0.162 86);
   --ui-warning-hover: oklch(86.1% 0.173 91.9);
   --ui-warning-active: oklch(68.1% 0.142 75.8);
-  --ui-warning-stroke: oklch(42.1% 0.09 57.7);
+  --ui-warning-border: oklch(42.1% 0.09 57.7);
   --ui-warning-fill: oklch(28.6% 0.064 53.8);
   --ui-success-foreground: oklch(100% 0 0);
 
@@ -196,7 +196,7 @@
   --ui-danger: oklch(57.7% 0.215 27.3);
   --ui-danger-hover: oklch(63.7% 0.208 25.3);
   --ui-danger-active: oklch(50.5% 0.19 27.5);
-  --ui-danger-stroke: oklch(39.6% 0.133 25.7);
+  --ui-danger-border: oklch(39.6% 0.133 25.7);
   --ui-danger-fill: oklch(25.8% 0.089 26);
   --ui-danger-foreground: oklch(100% 0 0);
 
@@ -225,8 +225,8 @@
   --ui-fill-quaternary: oklch(100% 0 0 / 0.0196);
 
   /* Stroke */
-  --ui-stroke-primary: oklch(44.2% 0.015 285.8 / 0.3176);
-  --ui-stroke-secondary: oklch(44.2% 0.015 285.8 / 0.3176);
+  --ui-border-primary: oklch(44.2% 0.015 285.8 / 0.3176);
+  --ui-border-secondary: oklch(44.2% 0.015 285.8 / 0.3176);
 }
 
 :root,

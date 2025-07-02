@@ -5,7 +5,7 @@ import type { VariantProps } from "@jamsrui/utils";
 export const test = "";
 export const tooltipVariants = tv({
   slots: {
-    root: "bg-background-secondary inline-flex px-3 py-1 text-sm font-medium text-foreground",
+    root: "bg-surface inline-flex px-3 py-1 text-sm font-medium text-foreground",
     arrow: "fill-background-secondary",
   },
   variants: {

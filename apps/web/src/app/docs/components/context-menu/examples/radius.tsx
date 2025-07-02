@@ -20,7 +20,7 @@ export const ContextMenuRadius = () => {
       {radii.map((radius) => (
         <ContextMenu key={radius} radius={radius}>
           <ContextMenuTrigger>
-            <div className="border-stroke-primary text-center p-12 border-dashed border w-full">
+            <div className="border-divider text-center p-12 border-dashed border w-full">
               Radius:{radius}
             </div>
           </ContextMenuTrigger>

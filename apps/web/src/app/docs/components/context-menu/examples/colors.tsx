@@ -9,7 +9,7 @@ export const ContextMenuColors = () => {
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-        <div className="border-stroke-primary text-center p-12 border-dashed border w-full">
+        <div className="border-divider text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
       </ContextMenuTrigger>

@@ -16,10 +16,10 @@ export const cardVariants = tv({
   variants: {
     bg: {
       default: {
-        root: "bg-background-secondary",
+        root: "bg-surface",
       },
       secondary: {
-        root: "bg-background-secondary",
+        root: "bg-surface",
       },
     },
     isBordered: { true: "border border-divider-dark" },

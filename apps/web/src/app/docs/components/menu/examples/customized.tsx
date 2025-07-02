@@ -19,7 +19,7 @@ export const MenuCustomized = () => {
       radius="2xl"
       classNames={{
         content:
-          "min-w-[300px] bg-background-quaternary border-2 border-primary-stroke",
+          "min-w-[300px] bg-surface-tertiary border-2 border-primary-stroke",
         menuItem: "py-3 text-base px-4 font-medium hover:text-primary",
       }}
     >

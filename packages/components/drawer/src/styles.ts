@@ -8,7 +8,7 @@ export const drawerVariants = tv({
     backdrop: "z-backdrop !overflow-hidden",
     popover: "z-dialog",
     content:
-      "absolute flex w-full flex-col overflow-y-auto bg-background-secondary shadow-sm",
+      "absolute flex w-full flex-col overflow-y-auto bg-surface shadow-sm",
     header: "p-4",
     footer: "flex justify-end gap-2 p-4",
     body: "grow p-4",
@@ -63,7 +63,7 @@ export const drawerVariants = tv({
     },
     isBordered: {
       true: {
-        header: "border-b border-stroke-primary",
+        header: "border-b border-divider",
         footer: "border-t border-storke-primary",
       },
     },

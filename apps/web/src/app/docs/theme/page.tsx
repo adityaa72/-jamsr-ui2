@@ -19,20 +19,20 @@ const Page = () => {
         return (
           <div key={heading} className="flex flex-col gap-2">
             <Text variant="h6">{heading}</Text>
-            <div className="grid grid-cols-6 gap-4">
+            <div className="grid grid-cols-4 gap-4">
               {items.map((item) => {
                 const { className, color, name } = item;
                 return (
                   <div
                     key={name}
                     className={cn(
-                      "rounded-md p-1 flex aspect-square border border-stroke-secondary",
+                      "rounded-md p-1 flex aspect-square border border-divider-dark",
                       className
                     )}
                   >
-                    <div className="bg-background-secondary w-full mt-auto rounded-md py-2 px-4">
+                    <div className="bg-surface w-full mt-auto rounded-md py-2 px-4">
                       <Text>{name}</Text>
-                      <Text variant="paragraph2">{color}</Text>
+                      <Text variant="caption">{color}</Text>
                     </div>
                   </div>
                 );

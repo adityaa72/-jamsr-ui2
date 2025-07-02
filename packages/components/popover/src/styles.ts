@@ -7,7 +7,7 @@ export const popoverVariants = tv({
   slots: {
     root: "z-popover",
     content:
-      "bg-background-secondary p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none",
+      "bg-surface p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none",
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
   },

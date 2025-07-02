@@ -16,10 +16,10 @@ export const inputVariants = tv({
     wrapper: "",
     content: "grow flex",
     contentWrapper: [
-      "border-2 flex items-center border-stroke-primary",
+      "border-2 flex items-center border-divider",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
       "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
-      "not-uig-invalid:uig-hover:border-stroke-secondary",
+      "not-uig-invalid:uig-hover:border-divider-dark",
     ],
     startContent: "pl-2 text-sm text-foreground-secondary",
     endContent: "pr-2 text-sm text-foreground-secondary",

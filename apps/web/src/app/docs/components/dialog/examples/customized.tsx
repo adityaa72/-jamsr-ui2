@@ -15,7 +15,7 @@ export const DialogCustomized = () => {
     <Dialog
       classNames={{
         header: "bg-red-500",
-        body: "bg-background-tertiary",
+        body: "bg-surface-secondary",
         footer: "bg-background-quarternary",
         closeButton: "bg-red-900",
         content: "border-2 border-red-950",

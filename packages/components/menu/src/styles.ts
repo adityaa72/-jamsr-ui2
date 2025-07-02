@@ -9,10 +9,10 @@ export const menuVariants = tv({
     backdrop: "z-backdrop",
     root: "min-w-[150px] z-popover",
     content:
-      "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-background-secondary p-1 text-sm shadow-md outline-none",
+      "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
     menuItem: [
       "relative box-border flex size-full cursor-pointer select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
-      "ui-active:bg-background-tertiary",
+      "ui-active:bg-surface-secondary",
     ],
     menuItemInner: "grow",
   },
@@ -31,7 +31,7 @@ export const menuVariants = tv({
     },
     color: {
       default: {
-        menuItem: "ui-hover:bg-background-tertiary ui-hover:text-foreground",
+        menuItem: "ui-hover:bg-surface-secondary ui-hover:text-foreground",
       },
       primary: {
         menuItem: "ui-hover:bg-primary ui-hover:text-primary-foreground",
