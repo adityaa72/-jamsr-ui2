@@ -1,7 +1,7 @@
 import { Button } from "@jamsrui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/popover";
 import { Text } from "@jamsrui/text";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { AlertPopoverBody } from "./alert-popover-body";
 import { useAlertPopoverConfig } from "./alert-popover-config";
@@ -10,7 +10,7 @@ import { useAlertPopover } from "./use-alert-popover";
 
 export const AlertPopover = (props: AlertPopover.Props) => {
   const config = useAlertPopoverConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useAlertPopover(mergedProps);
   const {
     getCancelButtonProps,

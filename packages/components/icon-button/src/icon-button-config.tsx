@@ -14,5 +14,5 @@ export const useIconButtonConfig = () => {
 };
 
 export namespace IconButtonConfig {
-  export interface Props extends IconButton.Props {}
+  export interface Props extends IconButton.Props, GlobalConfigProps<IconButton.Props> {}
 }

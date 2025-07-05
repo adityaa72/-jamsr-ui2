@@ -1,11 +1,11 @@
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useCircularProgressConfig } from "./circular-progress-config";
 import { useCircularProgress } from "./use-circular-progress";
 
 export const CircularProgress = (props: CircularProgress.Props) => {
   const config = useCircularProgressConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useCircularProgress(mergedProps);
   const {
     showLabel,

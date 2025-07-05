@@ -1,3 +1,5 @@
+// eslint-disable
+
 import { cn } from "./cn";
 
 export const mergeProps = <T extends Record<string, any>>(
@@ -76,4 +78,26 @@ export const mergeProps = <T extends Record<string, any>>(
   });
 
   return mergedProps;
+};
+
+export const mergeConfigProps = <
+  P extends Record<string, any>,
+  T extends P & {
+    props?: (props: Partial<P>) => P;
+    omitProps?: string[];
+  },
+>(
+  defaultValues: P,
+  globalConfig: T,
+  props: P
+): P => {
+  const { props: configProps, omitProps, ...restProps } = globalConfig;
+  const actualProps = omitProps?.length
+    ? Object.fromEntries(
+        Object.entries(props).filter(([key]) => !omitProps.includes(key))
+      )
+    : props;
+
+  const mergedProps = mergeProps(defaultValues, restProps, props);
+  return mergeProps(restProps, configProps?.(mergedProps), actualProps);
 };

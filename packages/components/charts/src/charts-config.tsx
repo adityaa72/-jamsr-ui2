@@ -14,5 +14,5 @@ export const useChartsConfig = () => {
 };
 
 export namespace ChartsConfig {
-  export interface Props extends Charts.Props {}
+  export interface Props extends Charts.Props, GlobalConfigProps<Charts.Props> {}
 }

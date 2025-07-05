@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useTableConfig } from "./table-config";
 import { TableContext } from "./table-context";
@@ -10,7 +10,7 @@ import { useTable } from "./use-table";
 export const Table = (props: Table.Props) => {
   const { children } = props;
   const config = useTableConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useTable(mergedProps);
   const { getRootProps } = ctx;
 

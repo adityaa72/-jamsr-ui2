@@ -1,18 +1,16 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { DatePicker } from "./date-picker";
 
-const DatepickerContext = createContext<DatePickerConfig.Props>({});
-export const DatePickerConfig = (props: DatePickerConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <DatepickerContext value={restProps}>{children}</DatepickerContext>;
-};
-
-export const useDatePickerConfig = () => {
-  const context = use(DatepickerContext);
-  return context;
-};
+export const [DatePickerConfig, useDatePickerConfig] =
+  createConfigContext<DatePickerConfig.Props>({
+    displayName: "DatepickerContext",
+  });
 
 export namespace DatePickerConfig {
-  export interface Props extends DatePicker.Props {}
+  export interface Props
+    extends DatePicker.Props,
+      GlobalConfigProps<DatePicker.Props> {}
 }

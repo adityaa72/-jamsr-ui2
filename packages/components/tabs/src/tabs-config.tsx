@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Tabs } from "./tabs";
 
 export const [TabsConfig, useTabsConfig] =
@@ -8,5 +10,5 @@ export const [TabsConfig, useTabsConfig] =
   });
 
 export namespace TabsConfig {
-  export interface Props extends Tabs.Props {}
+  export interface Props extends Tabs.Props, GlobalConfigProps<Tabs.Props> {}
 }

@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { DataGridBody } from "./data-grid-body";
 import { DataGridColumnVisibility } from "./data-grid-column-visibility";
@@ -13,7 +13,7 @@ import { useDataGrid } from "./use-data-grid";
 
 export const DataGrid = (props: DataGrid.Props) => {
   const config = useDataGridConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useDataGrid(mergedProps);
 
   const composedChildren = (

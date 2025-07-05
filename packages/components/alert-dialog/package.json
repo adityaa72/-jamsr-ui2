@@ -17,6 +17,7 @@
     "@jamsrui/button": "workspace:^",
     "@jamsrui/dialog": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
+"@jamsrui/core": "workspace:^",
     "@jamsrui/text": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }

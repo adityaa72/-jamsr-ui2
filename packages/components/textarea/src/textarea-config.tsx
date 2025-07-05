@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Textarea } from "./textarea";
 
-const TextareaContext = createContext<TextareaConfig.Props>({});
-export const TextareaConfig = (props: TextareaConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <TextareaContext value={restProps}>{children}</TextareaContext>;
-};
-
-export const useTextareaConfig = () => {
-  const context = use(TextareaContext);
-  return context;
-};
+export const [TextareaConfig, useTextareaConfig] = createConfigContext({
+  displayName: "TextareaContext",
+});
 
 export namespace TextareaConfig {
-  export interface Props extends Textarea.Props {}
+  export interface Props
+    extends Textarea.Props,
+      GlobalConfigProps<Textarea.Props> {}
 }

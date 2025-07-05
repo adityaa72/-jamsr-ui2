@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { ClipboardButton } from "./clipboard-button";
 import { useClipboardConfig } from "./clipboard-config";
@@ -8,7 +8,7 @@ import { useClipboard } from "./use-clipboard";
 
 export const Clipboard = (props: Clipboard.Props) => {
   const config = useClipboardConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useClipboard(mergedProps);
   const { getRootProps } = ctx;
 

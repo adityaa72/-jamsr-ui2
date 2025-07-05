@@ -3,7 +3,7 @@ import { createContext, use } from "react";
 
 import { mergeProps } from "./merge-props";
 
-export const createConfigContext = <T extends { children: React.ReactNode }>({
+export const createConfigContext = <T extends { children?: React.ReactNode }>({
   displayName,
 }: {
   displayName: string;

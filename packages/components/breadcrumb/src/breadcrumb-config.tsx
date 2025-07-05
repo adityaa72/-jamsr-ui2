@@ -14,5 +14,5 @@ export const useBreadcrumbConfig = () => {
 };
 
 export namespace BreadcrumbConfig {
-  export interface Props extends Breadcrumb.Props {}
+  export interface Props extends Breadcrumb.Props, GlobalConfigProps<Breadcrumb.Props> {}
 }

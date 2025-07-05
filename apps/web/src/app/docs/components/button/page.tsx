@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { ButtonColors } from "./examples/colors";
 import { ButtonCustomized } from "./examples/customized";
 import { ButtonDisabled } from "./examples/disabled";
+import { ButtonGlobalConfig } from "./examples/global-config";
 import { ButtonLoading } from "./examples/loading";
 import { ButtonRadius } from "./examples/radius";
 import { ButtonSizes } from "./examples/sizes";
@@ -75,6 +76,13 @@ const Button = () => {
         url={resolvePath("customized.tsx")}
       >
         <ButtonCustomized />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Global Config"
+        url={resolvePath("global-config.tsx")}
+      >
+        <ButtonGlobalConfig />
       </CodeExample>
     </DocsPage>
   );

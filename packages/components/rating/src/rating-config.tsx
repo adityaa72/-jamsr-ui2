@@ -14,5 +14,5 @@ export const useRatingConfig = () => {
 };
 
 export namespace RatingConfig {
-  export interface Props extends Rating.Props {}
+  export interface Props extends Rating.Props, GlobalConfigProps<Rating.Props> {}
 }

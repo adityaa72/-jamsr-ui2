@@ -1,7 +1,7 @@
 import { Children } from "react";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAccordionConfig } from "./accordion-config";
 import { AccordionContextProvider } from "./accordion-context";
@@ -10,7 +10,7 @@ import { useAccordion } from "./use-accordion";
 
 const Accordion = (props: Accordion.Props) => {
   const config = useAccordionConfig();
-  const mergedProps = mergeProps(config ?? {}, props);
+  const mergedProps = mergeConfigProps(config, config, props);
   const ctx = useAccordion(mergedProps);
   const { getRootProps } = ctx;
   const { children } = mergedProps;

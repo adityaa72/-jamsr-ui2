@@ -1,18 +1,13 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Toast } from "./toast";
 
-const ToastContext = createContext<ToastConfig.Props>({});
-export const ToastConfig = (props: ToastConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <ToastContext value={restProps}>{children}</ToastContext>;
-};
-
-export const useToastConfig = () => {
-  const context = use(ToastContext);
-  return context;
-};
+export const [ToastConfig, useToastConfig] = createConfigContext({
+  displayName: "ToastContext",
+});
 
 export namespace ToastConfig {
-  export interface Props extends Toast.Props {}
+  export interface Props extends Toast.Props, GlobalConfigProps<Toast.Props> {}
 }

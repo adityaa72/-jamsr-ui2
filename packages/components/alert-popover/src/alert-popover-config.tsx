@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { AlertPopover } from "./alert-popover";
 
 export const [AlertPopoverConfig, useAlertPopoverConfig] =
@@ -8,5 +10,5 @@ export const [AlertPopoverConfig, useAlertPopoverConfig] =
   });
 
 export namespace AlertPopoverConfig {
-  export interface Props extends AlertPopover.Props {}
+  export interface Props extends AlertPopover.Props, GlobalConfigProps<AlertPopover.Props> {}
 }

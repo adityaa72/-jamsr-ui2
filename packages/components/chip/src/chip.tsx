@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { ChipCloseButton } from "./chip-close-button";
 import { useChipConfig } from "./chip-config";
@@ -10,7 +10,7 @@ import { useChip } from "./use-chip";
 export const Chip = (props: Chip.Props) => {
   const { children } = props;
   const config = useChipConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useChip(mergedProps);
   const { getRootProps, isClosable } = ctx;
 

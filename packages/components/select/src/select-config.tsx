@@ -14,5 +14,5 @@ export const useSelectConfig = () => {
 };
 
 export namespace SelectConfig {
-  export interface Props extends Select.Props {}
+  export interface Props extends Select.Props, GlobalConfigProps<Select.Props> {}
 }

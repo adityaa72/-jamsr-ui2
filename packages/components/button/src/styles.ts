@@ -9,7 +9,7 @@ import {
 import type { VariantProps } from "@jamsrui/utils";
 
 export const test = "";
-export const buttonVariants = tv({
+export const buttonVariant = tv({
   base: [
     "relative cursor-pointer inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
     "data-[loading]:cursor-progress",
@@ -65,4 +65,5 @@ export const buttonVariants = tv({
     isFullWidth: false,
   },
 });
-export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
+
+export type ButtonVariantProps = VariantProps<typeof buttonVariant>;

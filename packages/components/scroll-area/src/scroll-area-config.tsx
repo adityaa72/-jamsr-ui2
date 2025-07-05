@@ -14,5 +14,5 @@ export const useScrollAreaConfig = () => {
 };
 
 export namespace ScrollAreaConfig {
-  export interface Props extends ScrollArea.Props {}
+  export interface Props extends ScrollArea.Props, GlobalConfigProps<ScrollArea.Props> {}
 }

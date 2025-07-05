@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAlertConfig } from "./alert-config";
 import { AlertContent } from "./alert-content";
@@ -13,7 +13,7 @@ export const Alert = (props: Alert.Props) => {
   const { children } = props;
 
   const config = useAlertConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useAlert(mergedProps);
   const { endContent, getRootProps } = ctx;
 

@@ -14,5 +14,5 @@ export const useKbdConfig = () => {
 };
 
 export namespace KbdConfig {
-  export interface Props extends Kbd.Props {}
+  export interface Props extends Kbd.Props, GlobalConfigProps<Kbd.Props> {}
 }

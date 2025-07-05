@@ -14,5 +14,5 @@ export const usePaginationConfig = () => {
 };
 
 export namespace PaginationConfig {
-  export interface Props extends Pagination.Props {}
+  export interface Props extends Pagination.Props, GlobalConfigProps<Pagination.Props> {}
 }

@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useDividerConfig } from "./divider-config";
 import { useDivider } from "./use-divider";
@@ -8,7 +8,7 @@ import type { UIProps } from "@jamsrui/utils";
 
 export const Divider = (props: Divider.Props) => {
   const config = useDividerConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useDivider(mergedProps);
   const { getRootProps, getDividerProps } = ctx;
   const { children } = props;

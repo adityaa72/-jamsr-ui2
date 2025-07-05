@@ -2,17 +2,16 @@ import { useCallback, useMemo } from "react";
 
 import { cn, mapPropsVariants } from "@jamsrui/utils";
 
-import { buttonVariants } from "./styles";
+import { buttonVariant } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Button } from "./button";
-import type { ButtonVariantProps } from "./styles";
 
 export const useButton = (props: useButton.Props) => {
   const [elementProps, variantKeys] = mapPropsVariants(
     props,
-    buttonVariants.variantKeys
+    buttonVariant.variantKeys
   );
   const {
     isDisabled: isDisabledProp,
@@ -29,7 +28,7 @@ export const useButton = (props: useButton.Props) => {
 
   const isDisabled = disabled ?? isDisabledProp ?? isLoading;
 
-  const styles = buttonVariants(variantKeys);
+  const styles = buttonVariant(variantKeys);
   const getButtonProps: PropGetter<Button.Props> = useCallback(
     () => ({
       ...restProps,
@@ -63,7 +62,8 @@ export const useButton = (props: useButton.Props) => {
 };
 
 export namespace useButton {
-  export interface Props extends ButtonVariantProps, UIProps<"button"> {
+  export interface VariantProps extends Button.VariantProps {}
+  export interface Props extends VariantProps, UIProps<"button"> {
     /**
      * If `true`, the button will show a spinner and be non-interactive.
      * Useful for indicating a loading state during async operations.

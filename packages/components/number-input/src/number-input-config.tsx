@@ -14,5 +14,5 @@ export const useNumberInputConfig = () => {
 };
 
 export namespace NumberInputConfig {
-  export interface Props extends NumberInput.Props {}
+  export interface Props extends NumberInput.Props, GlobalConfigProps<NumberInput.Props> {}
 }

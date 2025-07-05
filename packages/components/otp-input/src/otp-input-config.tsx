@@ -14,5 +14,5 @@ export const useOtpInputConfig = () => {
 };
 
 export namespace OtpInputConfig {
-  export interface Props extends OtpInput.Props {}
+  export interface Props extends OtpInput.Props, GlobalConfigProps<OtpInput.Props> {}
 }

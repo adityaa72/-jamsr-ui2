@@ -14,5 +14,5 @@ export const useEditorConfig = () => {
 };
 
 export namespace EditorConfig {
-  export interface Props extends Editor.Props {}
+  export interface Props extends Editor.Props, GlobalConfigProps<Editor.Props> {}
 }

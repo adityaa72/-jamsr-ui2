@@ -14,5 +14,5 @@ export const useHeaderConfig = () => {
 };
 
 export namespace HeaderConfig {
-  export interface Props extends Header.Props {}
+  export interface Props extends Header.Props, GlobalConfigProps<Header.Props> {}
 }

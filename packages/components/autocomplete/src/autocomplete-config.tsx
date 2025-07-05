@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Autocomplete } from "./autocomplete";
 
 export const [AutocompleteConfig, useAutocompleteConfig] =
@@ -8,5 +10,5 @@ export const [AutocompleteConfig, useAutocompleteConfig] =
   });
 
 export namespace AutocompleteConfig {
-  export interface Props extends Autocomplete.Props {}
+  export interface Props extends Autocomplete.Props, GlobalConfigProps<Autocomplete.Props> {}
 }

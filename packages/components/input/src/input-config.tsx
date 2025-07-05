@@ -14,5 +14,5 @@ export const useInputConfig = () => {
 };
 
 export namespace InputConfig {
-  export interface Props extends Input.Props {}
+  export interface Props extends Input.Props, GlobalConfigProps<Input.Props> {}
 }

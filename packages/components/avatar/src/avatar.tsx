@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAvatarConfig } from "./avatar-config";
 import { AvatarContext } from "./avatar-context";
@@ -10,7 +10,7 @@ import { useAvatar } from "./use-avatar";
 export const Avatar = (props: Avatar.Props) => {
   const { children } = props;
   const config = useAvatarConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useAvatar(mergedProps);
   const { getRootProps } = ctx;
 

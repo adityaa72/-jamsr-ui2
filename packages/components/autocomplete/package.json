@@ -18,6 +18,7 @@
   "dependencies": {
     "@floating-ui/react": "catalog:",
     "@jamsrui/hooks": "workspace:^",
+"@jamsrui/core": "workspace:^",
     "@jamsrui/input": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }

@@ -21,6 +21,7 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@jamsrui/hooks": "workspace:^",
+"@jamsrui/core": "workspace:^",
     "@jamsrui/icon-button": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/input": "workspace:^",

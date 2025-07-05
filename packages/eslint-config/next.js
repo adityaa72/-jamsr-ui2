@@ -36,6 +36,11 @@ export const nextJsConfig = [
     },
   },
   {
+    rules: {
+      "@typescript-eslint/no-namespace": "off",
+    },
+  },
+  {
     plugins: {
       "react-hooks": pluginReactHooks,
     },

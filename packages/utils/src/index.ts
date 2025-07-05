@@ -8,7 +8,7 @@ export {
 
 export { dataAttr, dataAttrDev, isDisabledElement } from "./attr";
 export { cn } from "./cn";
-export { mergeProps } from "./merge-props";
+export { mergeConfigProps, mergeProps } from "./merge-props";
 export { mapPropsVariants, radiusBaseVariant, radiusVariant } from "./tv";
 export {
   type PropGetter,

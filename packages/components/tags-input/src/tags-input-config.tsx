@@ -14,5 +14,5 @@ export const useTagsInputConfig = () => {
 };
 
 export namespace TagsInputConfig {
-  export interface Props extends TagsInput.Props {}
+  export interface Props extends TagsInput.Props, GlobalConfigProps<TagsInput.Props> {}
 }

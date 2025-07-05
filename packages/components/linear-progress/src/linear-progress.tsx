@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { LinearProgressBar } from "./linear-progress-bar";
 import { useLinearProgressConfig } from "./linear-progress-config";
@@ -8,7 +8,7 @@ import { useLinearProgress } from "./use-linear-progress";
 
 export const LinearProgress = (props: LinearProgress.Props) => {
   const config = useLinearProgressConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useLinearProgress(mergedProps);
   const { getRootProps } = ctx;
   const composedChildren = (

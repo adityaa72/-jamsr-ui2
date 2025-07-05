@@ -8,14 +8,14 @@ import {
   DialogTrigger,
 } from "@jamsrui/dialog";
 import { Text } from "@jamsrui/text";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAlertDialogConfig } from "./alert-dialog-config";
 import { useAlertDialog } from "./use-alert-dialog";
 
 export const AlertDialog = (props: AlertDialog.Props) => {
   const config = useAlertDialogConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useAlertDialog(mergedProps);
   const {
     getBodyProps,

@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { TabList } from "./tab-list";
 import { TabPanel } from "./tab-panel";
@@ -10,7 +10,7 @@ import { useTabs } from "./use-tabs";
 export const Tabs = (props: Tabs.Props) => {
   const { children } = props;
   const config = useTabsConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useTabs(mergedProps);
   const { getRootProps } = ctx;
 

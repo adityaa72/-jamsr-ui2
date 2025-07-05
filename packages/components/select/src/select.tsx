@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useSelectConfig } from "./select-config";
 import { SelectContext } from "./select-context";
@@ -18,7 +18,7 @@ import { useSelect } from "./use-select";
 export const Select = (props: Select.Props) => {
   const { children } = props;
   const config = useSelectConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useSelect(mergedProps);
   const { getRootProps, hasValue } = ctx;
 

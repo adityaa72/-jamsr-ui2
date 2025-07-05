@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useSidebarConfig } from "./sidebar-config";
 import { SidebarContext } from "./sidebar-context";
@@ -8,7 +8,7 @@ import { useSidebar } from "./use-sidebar";
 
 export const Sidebar = (props: Sidebar.Props) => {
   const config = useSidebarConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useSidebar(mergedProps);
   const { state } = useSidebarState();
   const { getRootProps } = ctx;

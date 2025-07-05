@@ -14,5 +14,5 @@ export const useRadioConfig = () => {
 };
 
 export namespace RadioConfig {
-  export interface Props extends Radio.Props {}
+  export interface Props extends Radio.Props, GlobalConfigProps<Radio.Props> {}
 }

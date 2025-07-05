@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Sidebar } from "./sidebar";
 
 export const [SidebarConfig, useSidebarConfig] =
@@ -8,5 +10,5 @@ export const [SidebarConfig, useSidebarConfig] =
   });
 
 export namespace SidebarConfig {
-  export interface Props extends Sidebar.Props {}
+  export interface Props extends Sidebar.Props, GlobalConfigProps<Sidebar.Props> {}
 }

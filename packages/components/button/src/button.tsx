@@ -1,13 +1,20 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useButtonConfig } from "./button-config";
 import { LoadingSpinner } from "./spinner";
+import { buttonVariant } from "./styles";
 import { useButton } from "./use-button";
+
+import type { ButtonVariantProps } from "./styles";
 
 export const Button = (props: Button.Props) => {
   const config = useButtonConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(
+    buttonVariant.defaultVariants,
+    config,
+    props
+  );
   const { size } = mergedProps;
 
   const {
@@ -35,5 +42,6 @@ export const Button = (props: Button.Props) => {
 };
 
 export namespace Button {
+  export interface VariantProps extends ButtonVariantProps {}
   export interface Props extends useButton.Props {}
 }

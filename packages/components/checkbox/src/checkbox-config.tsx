@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Checkbox } from "./checkbox";
 
 export const [CheckboxConfig, useCheckboxConfig] =
@@ -8,5 +10,5 @@ export const [CheckboxConfig, useCheckboxConfig] =
   });
 
 export namespace CheckboxConfig {
-  export interface Props extends Checkbox.Props {}
+  export interface Props extends Checkbox.Props, GlobalConfigProps<Checkbox.Props> {}
 }

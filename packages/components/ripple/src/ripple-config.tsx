@@ -14,5 +14,5 @@ export const useRippleConfig = () => {
 };
 
 export namespace RippleConfig {
-  export interface Props extends Ripple.Props {}
+  export interface Props extends Ripple.Props, GlobalConfigProps<Ripple.Props> {}
 }

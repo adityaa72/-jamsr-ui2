@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Alert } from "./alert";
 
 export const [AlertConfig, useAlertConfig] =

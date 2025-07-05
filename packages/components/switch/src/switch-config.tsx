@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Switch } from "./switch";
 
 export const [SwitchConfig, useSwitchConfig] =
@@ -8,5 +10,5 @@ export const [SwitchConfig, useSwitchConfig] =
   });
 
 export namespace SwitchConfig {
-  export interface Props extends Switch.Props {}
+  export interface Props extends Switch.Props, GlobalConfigProps<Switch.Props> {}
 }

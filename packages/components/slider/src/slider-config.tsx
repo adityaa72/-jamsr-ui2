@@ -14,5 +14,5 @@ export const useSliderConfig = () => {
 };
 
 export namespace SliderConfig {
-  export interface Props extends Slider.Props {}
+  export interface Props extends Slider.Props, GlobalConfigProps<Slider.Props> {}
 }

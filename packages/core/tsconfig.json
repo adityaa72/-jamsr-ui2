@@ -1,0 +1,5 @@
+{
+  "extends": "@jamsrui/typescript-config/nextjs.json",
+  "include": ["**/*.ts", "**/*.tsx", "../utils/src/merge-props.tsx", "../components/clipboard/src/use-copy-to-clipboard.ts"],
+  "exclude": ["node_modules"]
+}

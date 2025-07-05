@@ -14,5 +14,5 @@ export const useLinkConfig = () => {
 };
 
 export namespace LinkConfig {
-  export interface Props extends Link.Props {}
+  export interface Props extends Link.Props, GlobalConfigProps<Link.Props> {}
 }

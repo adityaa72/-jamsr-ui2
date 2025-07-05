@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useCheckboxConfig } from "./checkbox-config";
 import { CheckboxContent } from "./checkbox-content";
@@ -15,7 +15,7 @@ import { useCheckbox } from "./use-checkbox";
 
 export const Checkbox = (props: Checkbox.Props) => {
   const config = useCheckboxConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useCheckbox(mergedProps);
   const { getRootProps } = ctx;
 

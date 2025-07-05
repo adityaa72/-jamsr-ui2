@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useSwitchConfig } from "./switch-config";
 import { SwitchContext } from "./switch-context";
@@ -15,7 +15,7 @@ import { useSwitch } from "./use-switch";
 export const Switch = (props: Switch.Props) => {
   const { children } = props;
   const config = useSwitchConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
 
   const ctx = useSwitch(mergedProps);
   const { getRootProps, hasContent } = ctx;

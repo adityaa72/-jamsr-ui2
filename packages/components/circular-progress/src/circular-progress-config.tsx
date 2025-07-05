@@ -1,22 +1,16 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { CircularProgress } from "./circular-progress";
 
-const CircularProgressContext = createContext<CircularProgressConfig.Props>({});
-export const CircularProgressConfig = (props: CircularProgressConfig.Props) => {
-  const { children, ...restProps } = props;
-  return (
-    <CircularProgressContext value={restProps}>
-      {children}
-    </CircularProgressContext>
-  );
-};
-
-export const useCircularProgressConfig = () => {
-  const context = use(CircularProgressContext);
-  return context;
-};
+export const [CircularProgressConfig, useCircularProgressConfig] =
+  createConfigContext<CircularProgressConfig.Props>({
+    displayName: "CircularProgressContext",
+  });
 
 export namespace CircularProgressConfig {
-  export interface Props extends CircularProgress.Props {}
+  export interface Props
+    extends CircularProgress.Props,
+      GlobalConfigProps<CircularProgress.Props> {}
 }

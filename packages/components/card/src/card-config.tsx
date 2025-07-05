@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Card } from "./card";
 
 export const [CardConfig, useCardConfig] =
@@ -8,5 +10,5 @@ export const [CardConfig, useCardConfig] =
   });
 
 export namespace CardConfig {
-  export interface Props extends Card.Props {}
+  export interface Props extends Card.Props, GlobalConfigProps<Card.Props> {}
 }

@@ -1,5 +1,5 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useInputConfig } from "./input-config";
 import { InputContent } from "./input-content";
@@ -16,7 +16,7 @@ import { useInput } from "./use-input";
 
 export const Input = (props: Input.Props) => {
   const config = useInputConfig();
-  const mergedProps = mergeProps(config, props);
+  const mergedProps = mergeConfigProps(config,config, props);
   const ctx = useInput(mergedProps);
   const { getRootProps } = ctx;
 

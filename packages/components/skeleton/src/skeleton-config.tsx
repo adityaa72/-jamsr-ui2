@@ -1,5 +1,7 @@
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { GlobalConfigProps } from "@jamsrui/core";
+
 import type { Skeleton } from "./skeleton";
 
 export const [SkeletonConfig, useSkeletonConfig] =
@@ -8,5 +10,5 @@ export const [SkeletonConfig, useSkeletonConfig] =
   });
 
 export namespace SkeletonConfig {
-  export interface Props extends Skeleton.Props {}
+  export interface Props extends Skeleton.Props, GlobalConfigProps<Skeleton.Props> {}
 }
