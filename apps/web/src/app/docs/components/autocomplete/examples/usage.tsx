@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteItem } from "@jamsr-ui/react";
+import { Autocomplete, AutocompleteItem } from "@jamsrui/react";
 
 const animals = [
   {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar } from "@jamsr-ui/react";
+import { Avatar } from "@jamsrui/react";
 
 export const AvatarImageFallback = () => {
   return (

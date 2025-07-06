@@ -1,6 +1,6 @@
 "use client";
 
-import { CircularProgress } from "@jamsr-ui/react";
+import { CircularProgress } from "@jamsrui/react";
 
 export const CircularProgressCustomized = () => {
   return (

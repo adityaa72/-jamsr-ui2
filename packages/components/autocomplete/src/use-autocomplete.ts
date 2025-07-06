@@ -19,8 +19,8 @@ import { autocompleteVariants } from "./styles";
 import type {
   FloatingFocusManagerProps,
   FloatingList,
+  Placement,
 } from "@floating-ui/react";
-import type { Placement } from "@floating-ui/react";
 import type { Input } from "@jamsrui/input";
 import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
@@ -59,7 +59,6 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     onChange: onOpenChange,
     prop: isOpenProp,
   });
-  console.log(" isOpen:->", isOpen);
   const [value = [], setValue] = useControlledState({
     defaultProp: defaultValue,
     onChange: onValueChange,

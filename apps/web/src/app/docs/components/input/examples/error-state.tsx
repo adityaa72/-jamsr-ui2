@@ -1,4 +1,4 @@
-import { Input } from "@jamsr-ui/react";
+import { Input } from "@jamsrui/react";
 
 export const InputErrorState = () => {
   return (

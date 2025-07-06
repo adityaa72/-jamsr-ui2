@@ -3,7 +3,7 @@ import {
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 const ContextMenuUsage = (props: Pick<ContextMenu.Props, "backdrop">) => {
   const { backdrop } = props;

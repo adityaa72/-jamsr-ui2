@@ -5,7 +5,7 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 export const TableStickyHeader = () => {
   return (

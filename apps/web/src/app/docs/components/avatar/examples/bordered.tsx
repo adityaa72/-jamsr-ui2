@@ -1,4 +1,4 @@
-import { Avatar } from "@jamsr-ui/react";
+import { Avatar } from "@jamsrui/react";
 import { useId } from "react";
 
 export const AvatarBordered = () => {

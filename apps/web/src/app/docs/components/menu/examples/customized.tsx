@@ -4,7 +4,7 @@ import {
   MenuContent,
   MenuItem,
   MenuTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 import { type Variants } from "motion/react";
 
 const motionVariants: Variants = {

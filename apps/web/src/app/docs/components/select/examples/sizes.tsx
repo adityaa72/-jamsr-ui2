@@ -1,4 +1,4 @@
-import { Select, SelectItem } from "@jamsr-ui/react";
+import { Select, SelectItem } from "@jamsrui/react";
 
 const SelectUsage = (props: { size: Select.Props["size"] }) => {
   const { size } = props;

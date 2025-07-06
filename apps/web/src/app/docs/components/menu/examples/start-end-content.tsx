@@ -5,7 +5,7 @@ import {
   MenuContent,
   MenuItem,
   MenuTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 import { ChevronUpIcon, InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
 
 export const MenuStartEndContent = () => {

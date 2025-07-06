@@ -1,6 +1,6 @@
 "use client";
 
-import { Textarea } from "@jamsr-ui/react";
+import { Textarea } from "@jamsrui/react";
 import { useState } from "react";
 
 export const TextareaControlled = () => {

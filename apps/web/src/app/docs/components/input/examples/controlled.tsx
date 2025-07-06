@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@jamsr-ui/react";
+import { Input } from "@jamsrui/react";
 import { useState } from "react";
 
 export const InputControlled = () => {

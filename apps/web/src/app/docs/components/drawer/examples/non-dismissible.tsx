@@ -8,7 +8,7 @@ import {
   DrawerHeader,
   DrawerTrigger,
   Text,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 export const DrawerNonDismissible = () => {
   return (

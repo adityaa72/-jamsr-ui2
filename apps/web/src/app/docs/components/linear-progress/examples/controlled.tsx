@@ -1,7 +1,7 @@
 "use client";
 
-import { IconButton, LinearProgress } from "@jamsr-ui/react";
-import { MinusIcon, PlusIcon } from "@jamsr-ui/icons";
+import { IconButton, LinearProgress } from "@jamsrui/react";
+import { MinusIcon, PlusIcon } from "@jamsrui/icons";
 import { useState } from "react";
 
 export const LinearProgressControlled = () => {

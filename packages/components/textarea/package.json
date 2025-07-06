@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/textarea",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",

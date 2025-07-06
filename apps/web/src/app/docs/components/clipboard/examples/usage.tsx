@@ -1,4 +1,4 @@
-import { Clipboard } from "@jamsr-ui/react";
+import { Clipboard } from "@jamsrui/react";
 
 export const ClipboardUsage = () => {
   return <Clipboard text="Hello world!" />;

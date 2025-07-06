@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTrigger,
   Text,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 export const DialogWithoutAnimation = () => {
   return (

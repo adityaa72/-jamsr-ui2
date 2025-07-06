@@ -1,4 +1,4 @@
-import { Button, Header } from "@jamsr-ui/react";
+import { Button, Header } from "@jamsrui/react";
 
 export const HeaderUsage = (props: Header.Props) => {
   return (

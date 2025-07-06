@@ -4,7 +4,7 @@ import {
   MenuContent,
   MenuItem,
   MenuTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 import { ChevronUpIcon } from "@jamsrui/icons";
 
 export const MenuRadius = () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Switch } from "@jamsr-ui/react";
+import { Switch } from "@jamsrui/react";
 import { useState } from "react";
 
 export const SwitchControlled = () => {

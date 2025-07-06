@@ -1,4 +1,4 @@
-import { Textarea } from "@jamsr-ui/react";
+import { Textarea } from "@jamsrui/react";
 
 export const TextareaRadius = () => {
   const radii: Textarea.Props["radius"][] = [

@@ -1,4 +1,4 @@
-import { Switch } from "@jamsr-ui/react";
+import { Switch } from "@jamsrui/react";
 
 export const SwitchSizes = () => {
   const sizes: Switch.Props["size"][] = ["xs", "sm", "md", "lg"];

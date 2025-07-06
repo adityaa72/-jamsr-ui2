@@ -1,13 +1,13 @@
 "use client";
 
-import { useDisclosure } from "@jamsr-ui/hooks";
+import { useDisclosure } from "@jamsrui/hooks";
 import {
   Button,
   Menu,
   MenuContent,
   MenuItem,
   MenuTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 import { ChevronUpIcon } from "@jamsrui/icons";
 
 export const MenuControlled = () => {

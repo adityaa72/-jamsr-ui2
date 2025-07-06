@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Select, SelectItem } from "@jamsr-ui/react";
+import { Avatar, Select, SelectItem } from "@jamsrui/react";
 
 const users = [
   {

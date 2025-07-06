@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTrigger,
   Text,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 const DialogItem = (
   props: Partial<Dialog.Props> & {

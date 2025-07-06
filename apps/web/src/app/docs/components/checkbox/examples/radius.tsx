@@ -1,4 +1,4 @@
-import { Checkbox } from "@jamsr-ui/react";
+import { Checkbox } from "@jamsrui/react";
 
 export const CheckboxRadius = () => {
   const radii: Checkbox.Props["radius"][] = [

@@ -1,4 +1,4 @@
-import { Input } from "@jamsr-ui/react";
+import { Input } from "@jamsrui/react";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const InputWithIcon = () => {

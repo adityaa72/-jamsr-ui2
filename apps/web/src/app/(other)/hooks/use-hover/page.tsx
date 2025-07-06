@@ -8,7 +8,6 @@ const UsePress = () => {
     isDisabled: false,
     enterDelay: 100
   });
-  console.log(" isHovered:->", isHovered)
   return (
     <div>
       <button

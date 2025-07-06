@@ -1,4 +1,4 @@
-import { Select, SelectItem } from "@jamsr-ui/react";
+import { Select, SelectItem } from "@jamsrui/react";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const SelectStartEndItems = () => {

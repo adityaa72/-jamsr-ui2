@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Select, SelectItem } from "@jamsr-ui/react";
+import { Select, SelectItem } from "@jamsrui/react";
 
 export const SelectControlled = () => {
   const [value, setValue] = useState<string[]>(["apple"]);

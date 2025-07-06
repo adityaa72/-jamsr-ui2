@@ -1,4 +1,4 @@
-import { IconButton, Tooltip } from "@jamsr-ui/react";
+import { IconButton, Tooltip } from "@jamsrui/react";
 import { type Route } from "next";
 
 type Props = {

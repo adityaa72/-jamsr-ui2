@@ -7,7 +7,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTrigger,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 
 const DrawerItem = (props: Partial<Drawer.Props> & { btnText: string }) => {
   const { btnText, ...restProps } = props;

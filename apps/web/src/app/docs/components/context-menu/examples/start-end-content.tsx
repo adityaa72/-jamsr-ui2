@@ -4,7 +4,7 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
   Kbd,
-} from "@jamsr-ui/react";
+} from "@jamsrui/react";
 import { InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
 
 export const ContextMenuStartEndContent = () => {

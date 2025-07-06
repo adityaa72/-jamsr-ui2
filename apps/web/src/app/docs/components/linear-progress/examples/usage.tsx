@@ -1,4 +1,4 @@
-import { LinearProgress } from "@jamsr-ui/react";
+import { LinearProgress } from "@jamsrui/react";
 
 export const LinearProgressUsage = () => {
   return (

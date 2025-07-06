@@ -1,6 +1,6 @@
 "use client";
 
-import { Select, SelectItem } from "@jamsr-ui/react";
+import { Select, SelectItem } from "@jamsrui/react";
 import { useState } from "react";
 
 export const SelectMultipleControlled = () => {

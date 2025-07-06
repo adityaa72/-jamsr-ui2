@@ -1,4 +1,4 @@
-import { Textarea } from "@jamsr-ui/react";
+import { Textarea } from "@jamsrui/react";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const TextareaWithIcon = () => {
