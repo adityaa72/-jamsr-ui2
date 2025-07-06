@@ -1,5 +1,17 @@
 # @jamsrui/core
 
+## 0.0.6
+
+### Patch Changes
+
+- fix: tsconfig
+
+## 0.0.5
+
+### Patch Changes
+
+- fix: tsup builds
+
 ## 0.0.4
 
 ### Patch Changes

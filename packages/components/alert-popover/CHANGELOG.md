@@ -1,5 +1,31 @@
 # @jamsrui/alert-popover
 
+## 0.0.6
+
+### Patch Changes
+
+- fix: tsconfig
+- Updated dependencies
+  - @jamsrui/popover@0.0.6
+  - @jamsrui/button@0.0.6
+  - @jamsrui/text@0.0.6
+  - @jamsrui/hooks@0.0.6
+  - @jamsrui/utils@0.0.6
+  - @jamsrui/core@0.0.6
+
+## 0.0.5
+
+### Patch Changes
+
+- fix: tsup builds
+- Updated dependencies
+  - @jamsrui/button@0.0.5
+  - @jamsrui/popover@0.0.5
+  - @jamsrui/text@0.0.5
+  - @jamsrui/core@0.0.5
+  - @jamsrui/hooks@0.0.5
+  - @jamsrui/utils@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

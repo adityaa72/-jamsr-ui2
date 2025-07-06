@@ -1,5 +1,5 @@
 {
-  "extends": "@jamsrui/typescript-config/nextjs.json",
+  "extends": "@jamsrui/typescript-config/react-library.json",
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

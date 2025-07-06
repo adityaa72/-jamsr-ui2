@@ -1,5 +1,27 @@
 # storybook-2
 
+## 0.0.5
+
+### Patch Changes
+
+- fix: tsconfig
+- Updated dependencies
+  - @jamsrui/accordion@0.0.6
+  - @jamsrui/button@0.0.6
+  - @jamsrui/text@0.0.6
+  - @jamsrui/theme@0.0.6
+
+## 0.0.4
+
+### Patch Changes
+
+- fix: tsup builds
+- Updated dependencies
+  - @jamsrui/accordion@0.0.5
+  - @jamsrui/button@0.0.5
+  - @jamsrui/text@0.0.5
+  - @jamsrui/theme@0.0.5
+
 ## 0.0.3
 
 ### Patch Changes
