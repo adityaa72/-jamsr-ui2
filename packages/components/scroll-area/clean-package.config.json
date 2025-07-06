@@ -1,46 +1,46 @@
 {
-    "remove": [
-        "devDependencies",
-        "scripts",
-        "main",
-        "clean-package"
+  "remove": [
+    "devDependencies",
+    "scripts",
+    "main",
+    "clean-package"
+  ],
+  "replace": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      }
+    },
+    "description": "A modern and beautiful Next.js UI components library.",
+    "keywords": [
+      "react",
+      "ui",
+      "UI components",
+      "Next.js",
+      "React",
+      "JamsrUI",
+      "jamsr-ui",
+      "TypeScript"
     ],
-    "replace": {
-        "exports": {
-            ".": {
-                "types": "./dist/index.d.ts",
-                "import": "./dist/index.mjs",
-                "require": "./dist/index.js"
-            }
-        },
-        "description": "A modern and beautiful Next.js UI components library.",
-        "keywords": [
-            "react",
-            "ui",
-            "UI components",
-            "Next.js",
-            "React",
-            "JamsrUI",
-            "jamsr-ui",
-            "TypeScript"
-        ],
-        "sideEffects": false,
-        "license": "MIT",
-        "author": "@jamsrworld",
-        "repository": {
-            "type": "git",
-            "url": "https://github.com/jamsrworld/jamsr-ui"
-        },
-        "bugs": {
-            "url": "https://github.com/jamsrworld/jamsr-ui/issues"
-        },
-        "homepage": "https://jamsr-ui.jamsrworld.com",
-        "files": [
-            "dist",
-            "README",
-            "README.md",
-            "package.json",
-            "LICENSE"
-        ]
-    }
+    "sideEffects": false,
+    "license": "MIT",
+    "author": "@jamsrworld",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jamsrworld/jamsr-ui"
+    },
+    "bugs": {
+      "url": "https://github.com/jamsrworld/jamsr-ui/issues"
+    },
+    "homepage": "https://jamsr-ui.jamsrworld.com",
+    "files": [
+      "dist",
+      "README",
+      "README.md",
+      "package.json",
+      "LICENSE"
+    ]
+  }
 }

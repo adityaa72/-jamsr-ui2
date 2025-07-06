@@ -36,23 +36,35 @@ function createPackageClean(pkg: PackageInfo) {
   // pkgJson["version"] = "0.0.1";
   // pkgJson["clean-package"] = "./clean-package.config.json";
 
-  const cleanPackagePath = path + "/clean-package.config.json";
+  const packageExports = pkgJson.exports;
+  console.log(" packageExports:->", packageExports);
+  const cleanPackageContentObj = JSON.parse(cleanPackageContent);
+  if (packageExports) {
+    cleanPackageContentObj.replace.exports = {
+      ...cleanPackageContentObj.replace.exports,
+      ...packageExports,
+    };
+  }
+
   const readmePath = path + "/README.md";
   const tsupPath = path + "/tsup.config.ts";
+  const cleanPackagePath = path + "/clean-package.config.json";
 
   // if (!existsSync(tsupPath)) {
   writeFileSync(tsupPath, tsupContent, "utf-8");
   // }
   writeFileSync(readmePath, readmeContent, "utf-8");
-  writeFileSync(cleanPackagePath, cleanPackageContent, "utf-8");
+  writeFileSync(
+    cleanPackagePath,
+    JSON.stringify(cleanPackageContentObj, null, 2),
+    "utf-8"
+  );
   writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2), "utf-8");
 }
 
 function main() {
   const output = execSync("pnpm list --depth -1 --recursive --json").toString();
   const packages: PackageInfo[] = JSON.parse(output);
-
-  console.log(packages);
 
   for (const pkg of packages) {
     if (pkg.private) continue;

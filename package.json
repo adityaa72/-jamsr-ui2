@@ -8,7 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "build-packages": "turbo build --filter='@jamsrui*'",
-    "publish-packages": "turbo build --filter='@jamsrui*' && changeset && changeset version && changeset publish"
+    "publish-packages": "turbo build --filter='@jamsrui*' && changeset && changeset version && changeset publish --force"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.5",

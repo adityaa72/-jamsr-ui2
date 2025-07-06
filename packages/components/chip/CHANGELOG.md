@@ -1,5 +1,16 @@
 # @jamsrui/chip
 
+## 0.0.7
+
+### Patch Changes
+
+- fix: exports
+- Updated dependencies
+  - @jamsrui/hooks@0.0.7
+  - @jamsrui/icons@0.0.7
+  - @jamsrui/utils@0.0.7
+  - @jamsrui/core@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
