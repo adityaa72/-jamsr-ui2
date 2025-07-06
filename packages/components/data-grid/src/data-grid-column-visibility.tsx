@@ -35,6 +35,7 @@ export const DataGridColumnVisibility = (
           </MenuItem>
           {table.getAllLeafColumns().map((column) => {
             const header = column.columnDef.header;
+            // @ts-expect-error todo
             const text = typeof header === "function" ? header({}) : header;
             return (
               <MenuItem

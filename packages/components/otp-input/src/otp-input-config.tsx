@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { OtpInput } from "./otp-input";
 
-const OtpInputContext = createContext<OtpInputConfig.Props>({});
-export const OtpInputConfig = (props: OtpInputConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <OtpInputContext value={restProps}>{children}</OtpInputContext>;
-};
-
-export const useOtpInputConfig = () => {
-  const context = use(OtpInputContext);
-  return context;
-};
+export const [OtpInputConfig, useOtpInputConfig] = createConfigContext({
+  displayName: "OtpInputConfig",
+});
 
 export namespace OtpInputConfig {
-  export interface Props extends OtpInput.Props, GlobalConfigProps<OtpInput.Props> {}
+  export interface Props
+    extends OtpInput.Props,
+      GlobalConfigProps<OtpInput.Props> {}
 }

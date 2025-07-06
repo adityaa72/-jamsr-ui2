@@ -1,7 +1,5 @@
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
-
 import type { DataGrid } from "./data-grid";
 
 export const [DataGridConfig, useDataGridConfig] =

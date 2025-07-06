@@ -1,0 +1,13 @@
+# @jamsrui/drawer
+
+## 0.0.2
+
+### Patch Changes
+
+- initial
+- Updated dependencies
+  - @jamsrui/icon-button@0.0.2
+  - @jamsrui/hooks@0.0.2
+  - @jamsrui/icons@0.0.2
+  - @jamsrui/utils@0.0.2
+  - @jamsrui/core@0.0.2

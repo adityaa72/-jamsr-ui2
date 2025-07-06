@@ -1,18 +1,12 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Radio } from "./radio";
 
-const RadioContext = createContext<RadioConfig.Props>({});
-export const RadioConfig = (props: RadioConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <RadioContext value={restProps}>{children}</RadioContext>;
-};
-
-export const useRadioConfig = () => {
-  const context = use(RadioContext);
-  return context;
-};
-
+export const [RadioConfig, useRadioConfig] = createConfigContext({
+  displayName: "RadioConfigContext",
+});
 export namespace RadioConfig {
   export interface Props extends Radio.Props, GlobalConfigProps<Radio.Props> {}
 }

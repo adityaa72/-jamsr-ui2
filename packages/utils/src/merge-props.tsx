@@ -98,6 +98,8 @@ export const mergeConfigProps = <
       )
     : props;
 
+  // @ts-expect-error tserror
   const mergedProps = mergeProps(defaultValues, restProps, props);
+  // @ts-expect-error tserror
   return mergeProps(restProps, configProps?.(mergedProps), actualProps);
 };

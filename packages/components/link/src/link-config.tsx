@@ -1,17 +1,12 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Link } from "./link";
 
-const LinkContext = createContext<LinkConfig.Props>({});
-export const LinkConfig = (props: LinkConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <LinkContext value={restProps}>{children}</LinkContext>;
-};
-
-export const useLinkConfig = () => {
-  const context = use(LinkContext);
-  return context;
-};
+export const [LinkConfig, useLinkConfig] = createConfigContext({
+  displayName: "LinkConfig",
+});
 
 export namespace LinkConfig {
   export interface Props extends Link.Props, GlobalConfigProps<Link.Props> {}

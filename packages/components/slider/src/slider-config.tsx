@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Slider } from "./slider";
 
-const SliderContext = createContext<SliderConfig.Props>({});
-export const SliderConfig = (props: SliderConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <SliderContext value={restProps}>{children}</SliderContext>;
-};
-
-export const useSliderConfig = () => {
-  const context = use(SliderContext);
-  return context;
-};
+export const [SliderConfig, useSliderConfig] = createConfigContext({
+  displayName: "SliderConfig",
+});
 
 export namespace SliderConfig {
-  export interface Props extends Slider.Props, GlobalConfigProps<Slider.Props> {}
+  export interface Props
+    extends Slider.Props,
+      GlobalConfigProps<Slider.Props> {}
 }

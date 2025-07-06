@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { ScrollArea } from "./scroll-area";
 
-const ScrollAreaContext = createContext<ScrollAreaConfig.Props>({});
-export const ScrollAreaConfig = (props: ScrollAreaConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <ScrollAreaContext value={restProps}>{children}</ScrollAreaContext>;
-};
-
-export const useScrollAreaConfig = () => {
-  const context = use(ScrollAreaContext);
-  return context;
-};
+export const [ScrollAreaConfig, useScrollAreaConfig] = createConfigContext({
+  displayName: "ScrollAreaConfig",
+});
 
 export namespace ScrollAreaConfig {
-  export interface Props extends ScrollArea.Props, GlobalConfigProps<ScrollArea.Props> {}
+  export interface Props
+    extends ScrollArea.Props,
+      GlobalConfigProps<ScrollArea.Props> {}
 }

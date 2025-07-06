@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Select } from "./select";
 
-const SelectContext = createContext<SelectConfig.Props>({});
-export const SelectConfig = (props: SelectConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <SelectContext value={restProps}>{children}</SelectContext>;
-};
-
-export const useSelectConfig = () => {
-  const context = use(SelectContext);
-  return context;
-};
+export const [SelectConfig, useSelectConfig] = createConfigContext({
+  displayName: "SelectConfig",
+});
 
 export namespace SelectConfig {
-  export interface Props extends Select.Props, GlobalConfigProps<Select.Props> {}
+  export interface Props
+    extends Select.Props,
+      GlobalConfigProps<Select.Props> {}
 }

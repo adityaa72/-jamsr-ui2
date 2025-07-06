@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { TagsInput } from "./tags-input";
 
-const TagsInputContext = createContext<TagsInputConfig.Props>({});
-export const TagsInputConfig = (props: TagsInputConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <TagsInputContext value={restProps}>{children}</TagsInputContext>;
-};
-
-export const useTagsInputConfig = () => {
-  const context = use(TagsInputContext);
-  return context;
-};
+export const [TagsInputConfig, useTagsInputConfig] = createConfigContext({
+  displayName: "TagsInputConfig",
+});
 
 export namespace TagsInputConfig {
-  export interface Props extends TagsInput.Props, GlobalConfigProps<TagsInput.Props> {}
+  export interface Props
+    extends TagsInput.Props,
+      GlobalConfigProps<TagsInput.Props> {}
 }

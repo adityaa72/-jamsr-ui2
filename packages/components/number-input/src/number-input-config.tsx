@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { NumberInput } from "./number-input";
 
-const NumberInputContext = createContext<NumberInputConfig.Props>({});
-export const NumberInputConfig = (props: NumberInputConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <NumberInputContext value={restProps}>{children}</NumberInputContext>;
-};
-
-export const useNumberInputConfig = () => {
-  const context = use(NumberInputContext);
-  return context;
-};
+export const [NumberInputConfig, useNumberInputConfig] = createConfigContext({
+  displayName: "NumberInputConfig",
+});
 
 export namespace NumberInputConfig {
-  export interface Props extends NumberInput.Props, GlobalConfigProps<NumberInput.Props> {}
+  export interface Props
+    extends NumberInput.Props,
+      GlobalConfigProps<NumberInput.Props> {}
 }

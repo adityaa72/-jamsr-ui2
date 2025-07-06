@@ -4,7 +4,7 @@ import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { cardVariants } from "./styles";
 
-import type { Text } from "@jamsrui/react";
+import type { Text } from "@jamsrui/text";
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { Card } from "./card";

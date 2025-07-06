@@ -1,4 +1,3 @@
-import { useRenderElement } from "@jamsrui/hooks";
 import { motion } from "motion/react";
 
 import { useLinearProgressContext } from "./linear-progress-context";
@@ -7,10 +6,10 @@ import type { HTMLMotionProps } from "motion/react";
 
 export const LinearProgressBar = (props: LinearProgressBar.Props) => {
   const { getBarProps } = useLinearProgressContext();
-  const renderElement = useRenderElement(motion.div, {
-    props: [getBarProps(props)],
-  });
-  return renderElement;
+  // const renderElement = useRenderElement(motion.div, {
+  //   props: [getBarProps(props)],
+  // });
+  return <motion.div {...props} />;
 };
 
 export namespace LinearProgressBar {

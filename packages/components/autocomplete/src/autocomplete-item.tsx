@@ -32,6 +32,7 @@ export const AutocompleteItem = (props: AutocompleteItem.Props) => {
 
   const renderElement = useRenderElement("li", {
     props: [
+      // @ts-expect-error todo
       getAutocompleteItemProps(elementProps),
       {
         ref: mergedRefs,

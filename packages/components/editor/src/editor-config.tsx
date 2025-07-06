@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Editor } from "./editor";
 
-const EditorContext = createContext<EditorConfig.Props>({});
-export const EditorConfig = (props: EditorConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <EditorContext value={restProps}>{children}</EditorContext>;
-};
-
-export const useEditorConfig = () => {
-  const context = use(EditorContext);
-  return context;
-};
+export const [EditorConfig, useEditorConfig] = createConfigContext({
+  displayName: "EditorConfig",
+});
 
 export namespace EditorConfig {
-  export interface Props extends Editor.Props, GlobalConfigProps<Editor.Props> {}
+  export interface Props
+    extends Editor.Props,
+      GlobalConfigProps<Editor.Props> {}
 }

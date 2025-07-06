@@ -1,18 +1,15 @@
-import { createContext, use } from "react";
+import { createConfigContext } from "@jamsrui/utils";
+
+import type { GlobalConfigProps } from "@jamsrui/core";
 
 import type { Breadcrumb } from "./breadcrumb";
 
-const BreadcrumbContext = createContext<BreadcrumbConfig.Props>({});
-export const BreadcrumbConfig = (props: BreadcrumbConfig.Props) => {
-  const { children, ...restProps } = props;
-  return <BreadcrumbContext value={restProps}>{children}</BreadcrumbContext>;
-};
-
-export const useBreadcrumbConfig = () => {
-  const context = use(BreadcrumbContext);
-  return context;
-};
+export const [BreadcrumbConfig, useBreadcrumbConfig] = createConfigContext({
+  displayName: "BreadcrumbConfig",
+});
 
 export namespace BreadcrumbConfig {
-  export interface Props extends Breadcrumb.Props, GlobalConfigProps<Breadcrumb.Props> {}
+  export interface Props
+    extends Breadcrumb.Props,
+      GlobalConfigProps<Breadcrumb.Props> {}
 }
