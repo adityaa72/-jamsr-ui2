@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/react",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -67,6 +67,14 @@
   },
   "clean-package": "./clean-package.config.json",
   "devDependencies": {
-    "clean-package": "^2.2.0"
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "clean-package": "^2.2.0",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "peerDependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
   }
 }

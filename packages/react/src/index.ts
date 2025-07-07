@@ -221,3 +221,4 @@ export {
   TooltipGroup,
   useTooltipConfig,
 } from "@jamsrui/tooltip";
+export { JamsrUIConfig } from "./config";

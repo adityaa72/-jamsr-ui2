@@ -4,8 +4,8 @@ import parser from "@babel/parser";
 import traverse from "@babel/traverse";
 
 const ROOT = process.cwd();
-const pkg_file = path.join(ROOT, "../", "packages", "react", "package.json");
-const OUTPUT_FILE = path.join(
+const PKG_FILE = path.join(ROOT, "../", "packages", "react", "package.json");
+const OUTPUT_INDEX_FILE = path.join(
   ROOT,
   "../",
   "packages",
@@ -13,8 +13,16 @@ const OUTPUT_FILE = path.join(
   "src",
   "index.ts"
 );
+const OUTPUT_CONFIG_FILE = path.join(
+  ROOT,
+  "../",
+  "packages",
+  "react",
+  "src",
+  "config.tsx"
+);
 
-const pkg = JSON.parse(fs.readFileSync(pkg_file, "utf-8"));
+const pkg = JSON.parse(fs.readFileSync(PKG_FILE, "utf-8"));
 const deps = Object.keys(pkg.dependencies).filter((name) =>
   name.startsWith("@jamsrui/")
 );
@@ -58,6 +66,7 @@ const getNamedExports = (filePath: string) => {
 };
 
 const lines: string[] = [];
+const configComponents: { name: string; dep: string }[] = [];
 const ignoreItems = [
   "@jamsrui/hooks",
   "@jamsrui/icons",
@@ -65,17 +74,34 @@ const ignoreItems = [
   "@jamsrui/utils",
 ];
 
+function toCamelCase(str: string): string {
+  return str
+    .replace(/([a-z])([A-Z])/g, "$1_$2") // handle PascalCase boundaries
+    .replace(/[_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ""))
+    .replace(/^./, (c) => c.toLowerCase());
+}
+
 for (const dep of deps) {
   if (ignoreItems.includes(dep)) continue;
   const depPkgPath = path.join("node_modules", dep, "package.json");
   if (!fs.existsSync(depPkgPath)) {
-    console.log("depPkgPath not found", depPkgPath);
+    console.warn("⚠️ Dependency package.json not found:", depPkgPath);
     continue;
   }
 
   const depPkg = JSON.parse(fs.readFileSync(depPkgPath, "utf-8"));
   const entry = depPkg.main;
+  if (!entry) {
+    console.warn("⚠️ No 'main' field in", depPkgPath);
+    continue;
+  }
+
   const fullEntryPath = path.resolve("node_modules", dep, entry);
+  if (!fs.existsSync(fullEntryPath)) {
+    console.warn("⚠️ Entry file not found:", fullEntryPath);
+    continue;
+  }
+
   const { values, types } = getNamedExports(fullEntryPath);
 
   if (values.length > 0) {
@@ -84,8 +110,59 @@ for (const dep of deps) {
   if (types.length > 0) {
     lines.push(`export type { ${types.join(", ")} } from '${dep}';`);
   }
+
+  // config components
+  for (const name of values) {
+    if (
+      typeof name === "string" &&
+      !name.startsWith("use") &&
+      name.endsWith("Config")
+    ) {
+      configComponents.push({ name, dep });
+    }
+  }
 }
 
 // Write output
-fs.writeFileSync(OUTPUT_FILE, lines.join("\n") + "\n");
-console.log(`✅ Export file generated at ${OUTPUT_FILE}`);
+lines.push(`export { JamsrUIConfig } from "./config";`);
+fs.writeFileSync(OUTPUT_INDEX_FILE, lines.join("\n") + "\n");
+console.log(`✅ Export file generated at ${OUTPUT_INDEX_FILE}`);
+
+// Sort config components (alphabetically)
+configComponents.sort((a, b) => a.name.localeCompare(b.name));
+
+// Generate config-wrapper.tsx
+const wrapperImports = configComponents
+  .map(({ name, dep }) => `import { ${name} } from '${dep}';`)
+  .join("\n");
+
+const propsType = configComponents
+  .map(({ name }) => {
+    const prop = toCamelCase(name.replace("Config", ""));
+    return `  ${prop}?: ${name}.Props;`;
+  })
+  .join("\n");
+
+const nestedJSX = configComponents.reduceRight((acc, { name }) => {
+  const prop = toCamelCase(name.replace("Config", ""));
+  return `  <${name} {...props.${prop}}>\n${acc}\n  </${name}>`;
+}, `    {children}`);
+
+const wrapperComponent = `
+${wrapperImports}
+
+type Props = {
+  children: React.ReactNode;
+${propsType}
+};
+
+export const JamsrUIConfig = (props: Props) => {
+  const { children } = props;
+  return (
+${nestedJSX}
+  );
+};
+`.trim();
+
+fs.writeFileSync(OUTPUT_CONFIG_FILE, wrapperComponent + "\n");
+console.log(`✅ Config wrapper generated at ${OUTPUT_CONFIG_FILE}`);

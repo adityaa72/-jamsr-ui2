@@ -1,5 +1,11 @@
 # @jamsrui/utils
 
+## 0.0.8
+
+### Patch Changes
+
+- feat: JamsrUIconfig
+
 ## 0.0.7
 
 ### Patch Changes

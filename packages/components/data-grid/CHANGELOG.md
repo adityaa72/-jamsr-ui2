@@ -1,5 +1,19 @@
 # @jamsrui/data-grid
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.8
+  - @jamsrui/icon-button@0.0.8
+  - @jamsrui/input@0.0.8
+  - @jamsrui/linear-progress@0.0.8
+  - @jamsrui/menu@0.0.8
+  - @jamsrui/select@0.0.8
+  - @jamsrui/table@0.0.8
+  - @jamsrui/hooks@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes

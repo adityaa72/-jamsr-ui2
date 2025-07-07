@@ -3,23 +3,28 @@ import { createContext, use } from "react";
 
 import { mergeProps } from "./merge-props";
 
-export const createConfigContext = <T extends { children?: React.ReactNode }>({
+export const createConfigContext = <T extends Record<string, any>>({
   displayName,
 }: {
   displayName: string;
 }) => {
   const Context = createContext<T>({} as T);
   Context.displayName = displayName;
+  const useConfig = () => use(Context);
 
-  const ConfigProvider = (props: T & { merge?: boolean }) => {
+  const ConfigProvider = (
+    props: Omit<Partial<T>, "children"> & {
+      merge?: boolean;
+      children: React.ReactNode;
+    }
+  ) => {
     const { merge = true, ...elementProps } = props;
     const innerConfig = useConfig();
     const mergedProps = merge
-      ? mergeProps(innerConfig, elementProps as T)
+      ? mergeProps(innerConfig, elementProps as unknown as T)
       : elementProps;
     const { children, ...restProps } = mergedProps;
     return <Context value={restProps as T}>{children}</Context>;
   };
-  const useConfig = () => use(Context);
   return [ConfigProvider, useConfig] as const;
 };

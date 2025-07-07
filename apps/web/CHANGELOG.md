@@ -1,5 +1,15 @@
 # web
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/react@0.0.8
+  - @jamsrui/utils@0.0.8
+  - @jamsrui/button@0.0.8
+  - @jamsrui/hooks@0.0.8
+
 ## 0.1.6
 
 ### Patch Changes

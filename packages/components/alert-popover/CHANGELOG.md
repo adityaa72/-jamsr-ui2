@@ -1,5 +1,16 @@
 # @jamsrui/alert-popover
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.8
+  - @jamsrui/button@0.0.8
+  - @jamsrui/popover@0.0.8
+  - @jamsrui/text@0.0.8
+  - @jamsrui/hooks@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes
