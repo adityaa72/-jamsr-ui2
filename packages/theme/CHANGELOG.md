@@ -1,5 +1,11 @@
 # @jamsrui/theme
 
+## 0.0.8
+
+### Patch Changes
+
+- fix theme exports
+
 ## 0.0.7
 
 ### Patch Changes

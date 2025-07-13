@@ -1,5 +1,13 @@
 # web
 
+## 0.1.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/theme@0.0.8
+  - @jamsrui/react@0.0.9
+
 ## 0.1.7
 
 ### Patch Changes

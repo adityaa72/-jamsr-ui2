@@ -12,8 +12,8 @@
         "import": "./dist/index.mjs",
         "require": "./dist/index.js"
       },
-      "./styles.css": "./src/styles.css",
-      "./premium.css": "./src/premium.css"
+      "./styles.css": "./dist/styles.css",
+      "./premium.css": "./dist/premium.css"
     },
     "description": "A modern and beautiful Next.js UI components library.",
     "keywords": [

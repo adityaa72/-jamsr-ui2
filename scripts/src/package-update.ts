@@ -19,7 +19,11 @@ function createPackageClean(pkg: PackageInfo) {
   const { path } = pkg;
 
   const pkgPath = path + "/package.json";
-  const pkgJson = JSON.parse(readFileSync(pkgPath, "utf-8"));
+  const pkgContent = readFileSync(pkgPath, "utf-8").replaceAll(
+    "./src",
+    "./dist"
+  );
+  const pkgJson = JSON.parse(pkgContent);
 
   // pkgJson.scripts = {
   //   ...pkgJson.scripts,
@@ -50,16 +54,16 @@ function createPackageClean(pkg: PackageInfo) {
   const tsupPath = path + "/tsup.config.ts";
   const cleanPackagePath = path + "/clean-package.config.json";
 
-  // if (!existsSync(tsupPath)) {
-  writeFileSync(tsupPath, tsupContent, "utf-8");
-  // }
+  if (!existsSync(tsupPath)) {
+    writeFileSync(tsupPath, tsupContent, "utf-8");
+  }
   writeFileSync(readmePath, readmeContent, "utf-8");
   writeFileSync(
     cleanPackagePath,
     JSON.stringify(cleanPackageContentObj, null, 2),
     "utf-8"
   );
-  writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2), "utf-8");
+  // writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2), "utf-8");
 }
 
 function main() {
