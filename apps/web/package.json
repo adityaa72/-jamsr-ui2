@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^9.8.0",
+    "@jamsrui/accordion2": "workspace:^",
     "@jamsrui/button": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icons": "workspace:^",

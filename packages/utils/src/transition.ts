@@ -15,6 +15,7 @@ export const TRANSITION_VARIANTS = {
       height: 0,
       transition: {
         type: "spring",
+        // duration: 6,
         duration: 0.6,
       },
     },
