@@ -1,6 +1,13 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import { useControlledState } from "@jamsrui/hooks";
+import {
+  cn,
+  dataAttr,
+  dataAttrDev,
+  mapPropsVariants,
+  mergeProps,
+} from "@jamsrui/utils";
 
 import { switchVariants } from "./styles";
 
@@ -8,13 +15,15 @@ import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { SwitchSlots, SwitchVariants } from "./styles";
 import type { Switch } from "./switch";
+import type { SwitchContent } from "./switch-content";
 import type { SwitchDescription } from "./switch-description";
+import type { SwitchErrorMessage } from "./switch-error-message";
+import type { SwitchInput } from "./switch-input";
 import type { SwitchLabel } from "./switch-label";
+import type { SwitchRoot } from "./switch-root";
 import type { SwitchThumb } from "./switch-thumb";
 import type { SwitchTrack } from "./switch-track";
 import type { SwitchWrapper } from "./switch-wrapper";
-import type { SwitchContent } from "./swith-content";
-import type { SwitchErrorMessage } from "./swith-error-message";
 
 export const useSwitch = (props: useSwitch.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -28,7 +37,7 @@ export const useSwitch = (props: useSwitch.Props) => {
     label,
     errorMessage,
     children,
-    isChecked,
+    isChecked: propIsChecked,
     defaultChecked,
     onCheckedChange,
     isDisabled,
@@ -36,16 +45,78 @@ export const useSwitch = (props: useSwitch.Props) => {
     ...elementProps
   } = $props;
 
-  const getRootProps: PropGetter<Switch.Props> = useCallback(
-    () => ({
-      ...elementProps,
+  const [isChecked, setIsChecked] = useControlledState({
+    defaultProp: defaultChecked,
+    onChange: onCheckedChange,
+    prop: propIsChecked,
+  });
+  console.log(isChecked);
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (!isDisabled && !isReadonly) {
+        setIsChecked(event.target.checked);
+      }
+    },
+    [isDisabled, isReadonly, setIsChecked]
+  );
+
+  const getRootProps: PropGetter<SwitchRoot.Props> = useCallback(
+    (props) => ({
+      ...mergeProps(props, slotProps?.root),
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("switch"),
       className: styles.root({
         className: cn(classNames?.root, elementProps.className),
       }),
+      "data-checked": dataAttr(isChecked),
     }),
-    [classNames?.root, elementProps, styles]
+    [
+      classNames?.root,
+      elementProps.className,
+      isChecked,
+      slotProps?.root,
+      styles,
+    ]
+  );
+
+  const getInputProps: PropGetter<Switch.Props> = useCallback(
+    (props) => ({
+      ...mergeProps(elementProps, slotProps?.input, props, {
+        onChange: handleInputChange,
+      }),
+      type: "checkbox",
+      "data-slot": dataAttrDev("input"),
+      className: styles.input({
+        className: cn(
+          slotProps?.input?.className,
+          classNames?.input,
+          elementProps.className
+        ),
+      }),
+    }),
+    [
+      classNames?.input,
+      elementProps,
+      handleInputChange,
+      slotProps?.input,
+      styles,
+    ]
+  );
+
+  const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(
+    (props) => ({
+      ...mergeProps(slotProps?.track, props),
+      "data-slot": "track",
+      className: styles.track({
+        className: cn(
+          slotProps?.track?.className,
+          classNames?.track,
+          props.className
+        ),
+      }),
+    }),
+    [classNames?.track, slotProps?.track, styles]
   );
 
   const getThumbProps: PropGetter<SwitchThumb.Props> = useCallback(
@@ -123,21 +194,6 @@ export const useSwitch = (props: useSwitch.Props) => {
     [classNames?.wrapper, slotProps?.wrapper, styles]
   );
 
-  const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(slotProps?.track, props),
-      "data-slot": "track",
-      className: styles.track({
-        className: cn(
-          slotProps?.track?.className,
-          classNames?.track,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.track, slotProps?.track, styles]
-  );
-
   const getErrorMessageProps: PropGetter<SwitchErrorMessage.Props> =
     useCallback(
       (props) => ({
@@ -166,6 +222,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       getWrapperProps,
       getTrackProps,
       getErrorMessageProps,
+      getInputProps,
       label,
       errorMessage,
       hasContent,
@@ -179,6 +236,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       getWrapperProps,
       getTrackProps,
       getErrorMessageProps,
+      getInputProps,
       label,
       errorMessage,
       hasContent,
@@ -187,7 +245,7 @@ export const useSwitch = (props: useSwitch.Props) => {
 };
 
 export namespace useSwitch {
-  export interface Props extends SwitchVariants, UIProps<"div"> {
+  export interface Props extends SwitchVariants, UIProps<"input"> {
     label?: string;
     errorMessage?: string;
     classNames?: SlotsToClassNames<SwitchSlots>;
@@ -199,12 +257,13 @@ export namespace useSwitch {
       content?: SwitchContent.Props;
       wrapper?: SwitchWrapper.Props;
       errorMessage?: SwitchErrorMessage.Props;
+      input?: SwitchInput.Props;
+      root?: SwitchRoot.Props;
     };
     isReadonly?: boolean;
     isDisabled?: boolean;
     isChecked?: boolean;
     onCheckedChange?: (value: boolean) => void;
     defaultChecked?: boolean;
-    isInvalid?: boolean;
   }
 }

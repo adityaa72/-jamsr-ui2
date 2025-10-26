@@ -12,7 +12,7 @@ export const test = "";
 export const buttonVariant = tv({
   base: [
     "relative cursor-pointer inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
-    "data-[loading]:cursor-progress",
+    "data-loading:cursor-progress",
     "disabled:cursor-not-allowed disabled:opacity-70",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
   ],

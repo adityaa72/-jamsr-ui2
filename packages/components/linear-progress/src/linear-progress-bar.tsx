@@ -9,7 +9,7 @@ export const LinearProgressBar = (props: LinearProgressBar.Props) => {
   // const renderElement = useRenderElement(motion.div, {
   //   props: [getBarProps(props)],
   // });
-  return <motion.div {...props} />;
+  return <motion.div {...getBarProps(props)} {...props} />;
 };
 
 export namespace LinearProgressBar {

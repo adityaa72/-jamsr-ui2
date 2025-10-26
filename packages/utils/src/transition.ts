@@ -13,11 +13,11 @@ export const TRANSITION_VARIANTS = {
     exit: {
       opacity: 0,
       height: 0,
-      transition: {
-        type: "spring",
-        // duration: 6,
-        duration: 0.6,
-      },
+      // transition: {
+      //   type: "spring",
+      //   // duration: 6,
+      //   duration: 0.6,
+      // },
     },
   },
 } satisfies Record<string, Variants>;

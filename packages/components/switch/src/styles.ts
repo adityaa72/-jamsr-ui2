@@ -19,6 +19,7 @@ export const switchVariants = tv({
     content: "grid grow gap-1",
     wrapper: "flex items-center justify-between gap-2",
     errorMessage: "text-danger text-xs",
+    input: "",
   },
   variants: {
     isInvalid: {

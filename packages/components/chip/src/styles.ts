@@ -83,42 +83,42 @@ export const chipVariants = tv({
       variant: "dot",
       color: "primary",
       className: {
-        dot: "outline-primary-stroke",
+        dot: "outline-primary-border",
       },
     },
     {
       variant: "dot",
       color: "secondary",
       className: {
-        dot: "outline-secondary-stroke",
+        dot: "outline-secondary-border",
       },
     },
     {
       variant: "dot",
       color: "success",
       className: {
-        dot: "outline-success-stroke",
+        dot: "outline-success-border",
       },
     },
     {
       variant: "dot",
       color: "warning",
       className: {
-        dot: "outline-warning-stroke",
+        dot: "outline-warning-border",
       },
     },
     {
       variant: "dot",
       color: "danger",
       className: {
-        dot: "outline-danger-stroke",
+        dot: "outline-danger-border",
       },
     },
     {
       variant: "dot",
       color: "default",
       className: {
-        dot: "outline-default-stroke",
+        dot: "outline-default-border",
       },
     },
     // bordered

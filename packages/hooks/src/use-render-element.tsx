@@ -2,7 +2,6 @@ import React, { cloneElement } from "react";
 
 import { mergeProps } from "@jamsrui/utils";
 
-
 import { useMergeRefs } from "./use-merge-refs";
 
 import type { UIProps } from "@jamsrui/utils";
