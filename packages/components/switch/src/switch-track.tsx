@@ -6,12 +6,12 @@ import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchTrack = (props: SwitchTrack.Props) => {
   const { getTrackProps } = useSwitchContext();
-  const renderElement = useRenderElement("button", {
+  const renderElement = useRenderElement("div", {
     props: [getTrackProps(props)],
   });
   return renderElement;
 };
 
 export namespace SwitchTrack {
-  export interface Props extends UIProps<"button"> {}
+  export interface Props extends UIProps<"div"> {}
 }

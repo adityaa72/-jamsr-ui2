@@ -1,4 +1,4 @@
-import { focusVisibleClasses, tv } from "@jamsrui/utils";
+import { groupDataFocusVisibleClasses, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
@@ -7,7 +7,7 @@ export const switchVariants = tv({
   slots: {
     root: "group flex flex-col gap-2",
     track: [
-      ...focusVisibleClasses,
+      ...groupDataFocusVisibleClasses,
       "flex cursor-pointer shrink-0 items-center rounded-full bg-surface-secondary p-1",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
       "cursor-default ui-interactive:cursor-pointer ui-interactive:hover:opacity-95",
@@ -15,11 +15,11 @@ export const switchVariants = tv({
     ],
     thumb: "size-8 rounded-full bg-white shadow-md",
     label: "text-sm uig-interactive:cursor-pointer",
-    description: "text-xs text-foreground-500",
+    description: "text-xs text-foreground-secondary",
     content: "grid grow gap-1",
-    wrapper: "flex items-center justify-between gap-2",
-    errorMessage: "text-danger text-xs",
-    input: "",
+    wrapper: "flex items-center justify-between gap-2 relative",
+    input:
+      "opacity-[0.0001] absolute inset-0 cursor-pointer disabled:cursor-not-allowed z-1",
   },
   variants: {
     isInvalid: {
@@ -48,19 +48,19 @@ export const switchVariants = tv({
     size: {
       xs: {
         track: "h-4 w-7 px-0.5",
-        thumb: "size-3",
+        thumb: "size-3 uig-pressed:w-4",
       },
       sm: {
         track: "h-6 w-10",
-        thumb: "size-4",
+        thumb: "size-4 uig-pressed:w-5",
       },
       md: {
-        track: "mr-2 h-7 w-12",
-        thumb: "size-5",
+        track: "h-7 w-12",
+        thumb: "size-5 uig-pressed:w-6",
       },
       lg: {
-        track: "mr-2 h-8 w-14",
-        thumb: "size-6",
+        track: "h-8 w-14",
+        thumb: "size-6 uig-pressed:w-7",
       },
     },
     labelPlacement: {

@@ -1,7 +1,4 @@
-import { useCallback, useEffect, useMemo, useReducer, useRef } from "react";
-
-
-
+import { useCallback, useEffect, useReducer, useRef } from "react";
 
 // State for the reducer
 interface PressState {
@@ -38,10 +35,8 @@ function pressReducer(state: PressState, action: PressAction): PressState {
   }
 }
 
-export function usePress(props: usePress.UsePressProps) {
-  const {
-    isDisabled = false,
-  } = props;
+export function usePress(props: usePress.UsePressProps = {}) {
+  const { isDisabled = false } = props;
 
   const [state, dispatch] = useReducer(pressReducer, initialState);
   const ref = useRef<HTMLElement>(null);
@@ -50,59 +45,52 @@ export function usePress(props: usePress.UsePressProps) {
   const isPressed = state.isPressing && state.isPointerInside;
 
   // Handle pointer down event
-  const handlePointerDown = useCallback(
-    () => {
-      dispatch({ type: "PRESS_START" });
-    },
-    []
-  );
+  const handlePointerDown = useCallback(() => {
+    dispatch({ type: "PRESS_START" });
+  }, []);
 
   // Handle pointer leave event
-  const handlePointerLeave = useCallback(
-    () => {
-      if (state.isPressing) {
-        dispatch({ type: "POINTER_LEAVE" });
-      }
-    },
-    [state.isPressing]
-  );
+  const handlePointerLeave = useCallback(() => {
+    if (state.isPressing) {
+      dispatch({ type: "POINTER_LEAVE" });
+    }
+  }, [state.isPressing]);
 
   // Handle pointer enter event
-  const handlePointerEnter = useCallback(
-    () => {
-      if (state.isPressing) {
-        dispatch({ type: "POINTER_ENTER" });
-      }
-    },
-    [state.isPressing]
-  );
+  const handlePointerEnter = useCallback(() => {
+    if (state.isPressing) {
+      dispatch({ type: "POINTER_ENTER" });
+    }
+  }, [state.isPressing]);
 
   const onPointerCancel = useCallback(() => {
     if (state.isPressing) {
       dispatch({ type: "PRESS_END" });
     }
-  }, [state.isPressing])
+  }, [state.isPressing]);
 
-  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
+  const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       dispatch({ type: "PRESS_START" });
     }
-  }, [])
+  }, []);
 
-  const handleKeyUp = useCallback((event: React.KeyboardEvent) => {
-    if (event.key === "Enter" || event.key === " ") {
-      if (state.isPressing) {
-        dispatch({ type: "PRESS_END" });
+  const handleKeyUp = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === " ") {
+        if (state.isPressing) {
+          dispatch({ type: "PRESS_END" });
+        }
       }
-    }
-  }, [state.isPressing])
+    },
+    [state.isPressing]
+  );
 
   // Handle pointer up event (attached to window)
   useEffect(() => {
     if (isDisabled) return;
     const handlePointerUp = () => {
-      if (state.isPressing)
-        dispatch({ type: "PRESS_END" });
+      if (state.isPressing) dispatch({ type: "PRESS_END" });
     };
     window.addEventListener("pointerup", handlePointerUp);
     window.addEventListener("contextmenu", handlePointerUp);
@@ -112,21 +100,36 @@ export function usePress(props: usePress.UsePressProps) {
     };
   }, [state.isPressing, state.isPointerInside, isDisabled]);
 
-  // Memoize press props to prevent unnecessary re-renders
-  const pressProps = useMemo(
-    (): React.ComponentPropsWithRef<any> => (isDisabled ? {} : {
-      onPointerDown: handlePointerDown,
-      onPointerEnter: handlePointerEnter,
-      onPointerLeave: handlePointerLeave,
-      onKeyDown: handleKeyDown,
-      onKeyUp: handleKeyUp,
-      onPointerCancel: onPointerCancel,
-      ref
-    }),
-    [handleKeyDown, handleKeyUp, handlePointerDown, handlePointerEnter, handlePointerLeave, isDisabled, onPointerCancel]
-  );
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || isDisabled) return;
 
-  return { isPressed, pressProps };
+    node.addEventListener("pointerdown", handlePointerDown);
+    node.addEventListener("pointerenter", handlePointerEnter);
+    node.addEventListener("pointerleave", handlePointerLeave);
+    node.addEventListener("keydown", handleKeyDown);
+    node.addEventListener("keyup", handleKeyUp);
+    node.addEventListener("pointercancel", onPointerCancel);
+
+    return () => {
+      node.removeEventListener("pointerdown", handlePointerDown);
+      node.removeEventListener("pointerenter", handlePointerEnter);
+      node.removeEventListener("pointerleave", handlePointerLeave);
+      node.removeEventListener("keydown", handleKeyDown);
+      node.removeEventListener("keyup", handleKeyUp);
+      node.removeEventListener("pointercancel", onPointerCancel);
+    };
+  }, [
+    handleKeyDown,
+    handleKeyUp,
+    handlePointerDown,
+    handlePointerEnter,
+    handlePointerLeave,
+    isDisabled,
+    onPointerCancel,
+  ]);
+
+  return { isPressed, ref };
 }
 
 export namespace usePress {
@@ -135,5 +138,3 @@ export namespace usePress {
     isDisabled?: boolean;
   }
 }
-
-

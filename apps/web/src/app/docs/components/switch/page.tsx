@@ -6,7 +6,6 @@ import { SwitchColors } from "./examples/colors";
 import { SwitchControlled } from "./examples/controlled";
 import { SwitchDescription } from "./examples/description";
 import { SwitchDisabled } from "./examples/disabled";
-import { SwitchInvalidState } from "./examples/invalid-state";
 import { SwitchLabelPlacement } from "./examples/label-placement";
 import { SwitchReadonly } from "./examples/readonly";
 import { SwitchSizes } from "./examples/sizes";
@@ -76,13 +75,6 @@ const Switch = () => {
         url={resolvePath("label-placement.tsx")}
       >
         <SwitchLabelPlacement />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Invalid State"
-        url={resolvePath("invalid-state.tsx")}
-      >
-        <SwitchInvalidState />
       </CodeExample>
     </DocsPage>
   );

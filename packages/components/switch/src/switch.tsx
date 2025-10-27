@@ -5,7 +5,6 @@ import { useSwitchConfig } from "./switch-config";
 import { SwitchContent } from "./switch-content";
 import { SwitchContext } from "./switch-context";
 import { SwitchDescription } from "./switch-description";
-import { SwitchErrorMessage } from "./switch-error-message";
 import { SwitchInput } from "./switch-input";
 import { SwitchLabel } from "./switch-label";
 import { SwitchRoot } from "./switch-root";
@@ -37,7 +36,6 @@ export const Switch = (props: Switch.Props) => {
             </SwitchTrack>
           </AnimatePresence>
         </SwitchWrapper>
-        <SwitchErrorMessage />
       </SwitchRoot>
     </SwitchContext>
   );

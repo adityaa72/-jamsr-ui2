@@ -91,6 +91,9 @@
   --color-divider: var(--ui-divider);
   --color-divider-light: var(--ui-divider-light);
   --color-divider-dark: var(--ui-divider-dark);
+
+  /* Focus */
+  --color-focus: var(--ui-focus);
 }
 
 :root,
@@ -162,6 +165,9 @@
   --ui-divider: oklch(21% 0.006 285.9 / 0.1176);
   --ui-divider-light: oklch(21% 0.006 285.9 / 0.0588);
   --ui-divider-dark: oklch(21% 0.006 285.9 / 0.0588);
+
+  /* Focus */
+  --ui-focus: oklch(54.6% 0.215 262.9);
 }
 
 .dark,
@@ -247,6 +253,9 @@
   --ui-divider: oklch(44.2% 0.015 285.8 / 0.3176);
   --ui-divider-light: oklch(44.2% 0.015 285.8 / 0.5176);
   --ui-divider-dark: oklch(44.2% 0.015 285.8 / 0.5176);
+
+  /* Focus */
+  --ui-focus: oklch(56.7% 0.209 257.9);
 }
 
 @keyframes shimmer {
@@ -321,6 +330,7 @@ body {
 @custom-variant uig-filled-within (&:is(:where(.group[data-filled-within=true]) &));
 
 @custom-variant ui-focus-visible (&[data-focus-visible=true]);
+@custom-variant uig-focus-visible (&:is(:where(.group[data-focus-visible=true]) &));
 
 @custom-variant ui-readonly (&[data-readonly=true]);
 @custom-variant uig-readonly (&:is(:where(.group[data-readonly=true]) &));

@@ -3,11 +3,5 @@
 import { Switch } from "@jamsrui/react";
 
 export const SwitchUsage = () => {
-  return (
-    <Switch
-      onChange={(e) => {
-        console.log(e);
-      }}
-    />
-  );
+  return <Switch />;
 };

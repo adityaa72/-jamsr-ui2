@@ -11,7 +11,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.8.0",
+    "@faker-js/faker": "10.1.0",
     "@jamsrui/accordion2": "workspace:^",
     "@jamsrui/button": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
@@ -22,7 +22,7 @@
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-table": "catalog:",
     "motion": "catalog:",
-    "next": "^15.3.0",
+    "next": "16.0.0",
     "react": "catalog:",
     "react-dom": "catalog:",
     "shiki": "^3.4.2"
@@ -31,7 +31,7 @@
     "@jamsrui/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.4",
-    "@types/node": "^22.14.0",
+    "@types/node": "24.9.1",
     "@types/react": "catalog:",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.25.0",

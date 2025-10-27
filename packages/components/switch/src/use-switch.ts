@@ -1,6 +1,11 @@
 import { useCallback, useMemo } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
+import {
+  useControlledState,
+  useFocusVisible,
+  useMergeRefs,
+  usePress,
+} from "@jamsrui/hooks";
 import {
   cn,
   dataAttr,
@@ -17,7 +22,6 @@ import type { SwitchSlots, SwitchVariants } from "./styles";
 import type { Switch } from "./switch";
 import type { SwitchContent } from "./switch-content";
 import type { SwitchDescription } from "./switch-description";
-import type { SwitchErrorMessage } from "./switch-error-message";
 import type { SwitchInput } from "./switch-input";
 import type { SwitchLabel } from "./switch-label";
 import type { SwitchRoot } from "./switch-root";
@@ -50,7 +54,11 @@ export const useSwitch = (props: useSwitch.Props) => {
     onChange: onCheckedChange,
     prop: propIsChecked,
   });
-  console.log(isChecked);
+  const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
+    isDisabled,
+  });
+  const { isPressed, ref: pressRef } = usePress({ isDisabled });
+  const inputRefs = useMergeRefs([focusVisibleRef, pressRef]);
 
   const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,17 +72,23 @@ export const useSwitch = (props: useSwitch.Props) => {
   const getRootProps: PropGetter<SwitchRoot.Props> = useCallback(
     (props) => ({
       ...mergeProps(props, slotProps?.root),
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("switch"),
       className: styles.root({
         className: cn(classNames?.root, elementProps.className),
       }),
+      "data-slot": dataAttrDev("root"),
+      "data-component": dataAttrDev("switch"),
       "data-checked": dataAttr(isChecked),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-pressed": dataAttr(isPressed),
+      "data-disabled": dataAttr(isDisabled),
     }),
     [
       classNames?.root,
       elementProps.className,
       isChecked,
+      isDisabled,
+      isFocusVisible,
+      isPressed,
       slotProps?.root,
       styles,
     ]
@@ -85,6 +99,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       ...mergeProps(elementProps, slotProps?.input, props, {
         onChange: handleInputChange,
       }),
+      ref: inputRefs,
       type: "checkbox",
       "data-slot": dataAttrDev("input"),
       className: styles.input({
@@ -94,11 +109,16 @@ export const useSwitch = (props: useSwitch.Props) => {
           elementProps.className
         ),
       }),
+      disabled: isDisabled,
+      readOnly: isReadonly,
     }),
     [
       classNames?.input,
       elementProps,
       handleInputChange,
+      inputRefs,
+      isDisabled,
+      isReadonly,
       slotProps?.input,
       styles,
     ]
@@ -194,22 +214,6 @@ export const useSwitch = (props: useSwitch.Props) => {
     [classNames?.wrapper, slotProps?.wrapper, styles]
   );
 
-  const getErrorMessageProps: PropGetter<SwitchErrorMessage.Props> =
-    useCallback(
-      (props) => ({
-        ...mergeProps(slotProps?.errorMessage, props),
-        "data-slot": "error-message",
-        className: styles.errorMessage({
-          className: cn(
-            slotProps?.errorMessage?.className,
-            classNames?.errorMessage,
-            props.className
-          ),
-        }),
-      }),
-      [classNames?.errorMessage, slotProps?.errorMessage, styles]
-    );
-
   const hasContent = !!label || !!children;
 
   return useMemo(
@@ -221,7 +225,6 @@ export const useSwitch = (props: useSwitch.Props) => {
       getContentProps,
       getWrapperProps,
       getTrackProps,
-      getErrorMessageProps,
       getInputProps,
       label,
       errorMessage,
@@ -235,7 +238,6 @@ export const useSwitch = (props: useSwitch.Props) => {
       getContentProps,
       getWrapperProps,
       getTrackProps,
-      getErrorMessageProps,
       getInputProps,
       label,
       errorMessage,
@@ -256,7 +258,6 @@ export namespace useSwitch {
       description?: SwitchDescription.Props;
       content?: SwitchContent.Props;
       wrapper?: SwitchWrapper.Props;
-      errorMessage?: SwitchErrorMessage.Props;
       input?: SwitchInput.Props;
       root?: SwitchRoot.Props;
     };
