@@ -6,7 +6,7 @@ import type { UIProps } from "@jamsrui/utils";
 
 export const CheckboxLabel = (props: CheckboxLabel.Props) => {
   const { getLabelProps, label } = useCheckboxContext();
-  const renderElement = useRenderElement("div", {
+  const renderElement = useRenderElement("label", {
     props: [getLabelProps(props), { children: label }],
   });
   if (!label) return null;
@@ -14,5 +14,5 @@ export const CheckboxLabel = (props: CheckboxLabel.Props) => {
 };
 
 export namespace CheckboxLabel {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"label"> {}
 }

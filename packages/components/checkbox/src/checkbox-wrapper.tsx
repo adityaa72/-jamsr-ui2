@@ -6,12 +6,12 @@ import type { UIProps } from "@jamsrui/utils";
 
 export const CheckboxWrapper = (props: CheckboxWrapper.Props) => {
   const { getWrapperProps } = useCheckboxContext();
-  const renderElement = useRenderElement("label", {
+  const renderElement = useRenderElement("div", {
     props: [getWrapperProps(props)],
   });
   return renderElement;
 };
 
 export namespace CheckboxWrapper {
-  export interface Props extends UIProps<"label"> {}
+  export interface Props extends UIProps<"div"> {}
 }

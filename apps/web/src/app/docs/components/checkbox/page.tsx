@@ -7,6 +7,7 @@ import { CheckboxDescription } from "./examples/description";
 import { CheckboxDisabled } from "./examples/disabled";
 import { CheckboxInvalidState } from "./examples/invalid-state";
 import { CheckboxReadonly } from "./examples/readonly";
+import { CheckboxSizes } from "./examples/sizes";
 import { CheckboxUsage } from "./examples/usage";
 
 const title = "Checkbox";
@@ -38,6 +39,9 @@ const Checkbox = () => {
         url={resolvePath("controlled.tsx")}
       >
         <CheckboxControlled />
+      </CodeExample>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
+        <CheckboxSizes />
       </CodeExample>
       <CodeExample
         isCentered

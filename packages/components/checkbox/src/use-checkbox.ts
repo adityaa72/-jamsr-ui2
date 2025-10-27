@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useId, useMemo } from "react";
 
 import {
   useControlledState,
@@ -55,8 +55,9 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     onChange: onCheckedChange,
   });
 
-  const isDisabled = isDisabledProp ?? isReadonly;
+  const inputId = useId();
 
+  const isDisabled = isDisabledProp ?? isReadonly;
   const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
     isDisabled,
   });
@@ -104,6 +105,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       ...mergeProps(elementProps, props, {
         onChange: handleInputOnChange,
       }),
+      id: inputId,
       ref: inputRef,
       type: "checkbox",
       "data-slot": dataAttrDev("input"),
@@ -111,7 +113,14 @@ export const useCheckbox = (props: useCheckbox.Props) => {
         className: cn(classNames?.input, props.className),
       }),
     }),
-    [classNames?.input, elementProps, handleInputOnChange, inputRef, styles]
+    [
+      classNames?.input,
+      elementProps,
+      handleInputOnChange,
+      inputRef,
+      inputId,
+      styles,
+    ]
   );
 
   const getWrapperProps: PropGetter<CheckboxWrapper.Props> = useCallback(
@@ -128,12 +137,13 @@ export const useCheckbox = (props: useCheckbox.Props) => {
   const getLabelProps: PropGetter<CheckboxLabel.Props> = useCallback(
     (props) => ({
       ...props,
+      htmlFor: inputId,
       "data-slot": dataAttrDev("label"),
       className: styles.label({
         className: cn(classNames?.label, props.className),
       }),
     }),
-    [classNames?.label, styles]
+    [classNames?.label, inputId, styles]
   );
   const getTriggerProps: PropGetter<CheckboxTrigger.Props> = useCallback(
     (props) => ({

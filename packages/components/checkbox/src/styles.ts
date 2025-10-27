@@ -26,8 +26,8 @@ export const checkboxVariants = tv({
       "uig-disabled:cursor-not-allowed uig-pressed:scale-90 transition-all duration-300",
     ],
     input:
-      "absolute opacity-[0.0001] cursor-pointer disabled:cursor-not-allowed",
-    description: "text-xs text-foreground-500",
+      "absolute opacity-[0.0001] cursor-pointer disabled:cursor-not-allowed inset-0 z-1",
+    description: "text-xs text-foreground-secondary",
     content: "flex flex-col justify-center gap-1",
     errorMessage: "",
   },

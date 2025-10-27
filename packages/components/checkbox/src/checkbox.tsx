@@ -21,14 +21,14 @@ export const Checkbox = (props: Checkbox.Props) => {
     <CheckboxContext value={ctx}>
       <CheckboxRoot>
         <CheckboxWrapper>
-          <CheckboxContent>
-            <CheckboxTrigger>
-              <CheckboxIcon />
-            </CheckboxTrigger>
+          <CheckboxTrigger>
+            <CheckboxIcon />
             <CheckboxInput />
+          </CheckboxTrigger>
+          <CheckboxContent>
+            <CheckboxLabel />
+            <CheckboxDescription />
           </CheckboxContent>
-          <CheckboxLabel />
-          <CheckboxDescription />
         </CheckboxWrapper>
         <CheckboxErrorMessage />
       </CheckboxRoot>
