@@ -15,13 +15,9 @@ export const config = [
   ...baseConfig,
   eslint.configs.recommended,
   eslintConfigPrettier,
-  // ...tseslint.configs.recommended,
-  // ...tseslint.configs.strict,
-  // ...tseslint.configs.stylistic,
   rules.base.importsStrict,
   rules.react.strict,
   rules.typescript.typescriptEslintStrict,
-
   pluginReact.configs.flat.recommended,
   {
     plugins: {
@@ -36,6 +32,11 @@ export const config = [
       "no-redeclare": "off",
       "react/jsx-fragments": "off",
       "no-undef": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
     },
   },
   {

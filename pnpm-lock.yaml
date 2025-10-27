@@ -166,8 +166,8 @@ importers:
   apps/web:
     dependencies:
       '@faker-js/faker':
-        specifier: ^9.8.0
-        version: 9.8.0
+        specifier: 10.1.0
+        version: 10.1.0
       '@jamsrui/accordion2':
         specifier: workspace:^
         version: link:../../packages/components/accordion2 copy
@@ -1569,14 +1569,14 @@ importers:
         specifier: ^9.25.0
         version: 9.25.0
       '@next/eslint-plugin-next':
-        specifier: ^15.3.0
-        version: 15.3.0
+        specifier: 16.0.0
+        version: 16.0.0
       eslint:
         specifier: ^9.25.0
         version: 9.25.0(jiti@2.6.1)
       eslint-config-airbnb-extended:
-        specifier: ^1.0.11
-        version: 1.0.11(@next/eslint-plugin-next@15.3.0)(eslint-import-resolver-typescript@4.3.4(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react-hooks@5.2.0(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react@7.37.4(eslint@9.25.0(jiti@2.6.1)))(eslint@9.25.0(jiti@2.6.1))(typescript-eslint@8.30.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))
+        specifier: 2.3.2
+        version: 2.3.2(@next/eslint-plugin-next@16.0.0)(eslint-import-resolver-typescript@4.3.4(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react-hooks@7.0.1(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react@7.37.4(eslint@9.25.0(jiti@2.6.1)))(eslint@9.25.0(jiti@2.6.1))(typescript-eslint@8.30.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))
       eslint-config-prettier:
         specifier: ^10.1.1
         version: 10.1.1(eslint@9.25.0(jiti@2.6.1))
@@ -1590,8 +1590,8 @@ importers:
         specifier: ^7.37.4
         version: 7.37.4(eslint@9.25.0(jiti@2.6.1))
       eslint-plugin-react-hooks:
-        specifier: ^5.2.0
-        version: 5.2.0(eslint@9.25.0(jiti@2.6.1))
+        specifier: 7.0.1
+        version: 7.0.1(eslint@9.25.0(jiti@2.6.1))
       eslint-plugin-turbo:
         specifier: ^2.5.0
         version: 2.5.0(eslint@9.25.0(jiti@2.6.1))(turbo@2.5.8)
@@ -2487,9 +2487,9 @@ packages:
     resolution: {integrity: sha512-ZAoA40rNMPwSm+AeHpCq8STiNAwzWLJuP8Xv4CHIc9wv/PSuExjMrmjfYNj682vW0OOiZ1HKxzvjQr9XZIisQA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@faker-js/faker@9.8.0':
-    resolution: {integrity: sha512-U9wpuSrJC93jZBxx/Qq2wPjCuYISBueyVUGK7qqdmj7r/nxaxwW8AQDCLeRO7wZnjj94sh3p246cAYjUKuqgfg==}
-    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
+  '@faker-js/faker@10.1.0':
+    resolution: {integrity: sha512-C3mrr3b5dRVlKPJdfrAXS8+dq+rq8Qm5SNRazca0JKgw1HQERFmrVb0towvMmw5uu8hHKNiQasMaR/tydf3Zsg==}
+    engines: {node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10'}
 
   '@floating-ui/core@1.7.0':
     resolution: {integrity: sha512-FRdBLykrPPA6P76GGGqlex/e7fbe0F1ykgxHYNXQsH/iTEtjMj/f9bpY5oQqbjt5VgZvgz/uKXbGuROijh3VLA==}
@@ -2728,8 +2728,8 @@ packages:
   '@next/env@16.0.0':
     resolution: {integrity: sha512-s5j2iFGp38QsG1LWRQaE2iUY3h1jc014/melHFfLdrsMJPqxqDQwWNwyQTcNoUSGZlCVZuM7t7JDMmSyRilsnA==}
 
-  '@next/eslint-plugin-next@15.3.0':
-    resolution: {integrity: sha512-511UUcpWw5GWTyKfzW58U2F/bYJyjLE9e3SlnGK/zSXq7RqLlqFO8B9bitJjumLpj317fycC96KZ2RZsjGNfBw==}
+  '@next/eslint-plugin-next@16.0.0':
+    resolution: {integrity: sha512-IB7RzmmtrPOrpAgEBR1PIQPD0yea5lggh5cq54m51jHjjljU80Ia+czfxJYMlSDl1DPvpzb8S9TalCc0VMo9Hw==}
 
   '@next/swc-darwin-arm64@16.0.0':
     resolution: {integrity: sha512-/CntqDCnk5w2qIwMiF0a9r6+9qunZzFmU0cBX4T82LOflE72zzH6gnOjCwUXYKOBlQi8OpP/rMj8cBIr18x4TA==}
@@ -4297,26 +4297,36 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-config-airbnb-extended@1.0.11:
-    resolution: {integrity: sha512-dtSU+blkYae887ur+IhZ6ZVzw2x3WABA/T1WUqmr6WcrD9HnrJ3KdAEu1joWxJObKT0GjcxeLOjH5DrHo3ZryQ==}
+  eslint-config-airbnb-extended@2.3.2:
+    resolution: {integrity: sha512-eXkRUdkXzZpyAKUF8iuXrgGxCoZlFIKRA6Hpa6d6vsF7seftGI+CgsjH811R5OaWbj63TWUET/mbiPmBZkgxwQ==}
+    engines: {node: '>=16.0.0'}
     peerDependencies:
-      '@next/eslint-plugin-next': 15.x
-      '@stylistic/eslint-plugin': 3.x
-      '@types/eslint-plugin-jsx-a11y': 6.x
-      eslint: 9.x
-      eslint-import-resolver-typescript: 4.x
-      eslint-plugin-import-x: 4.x
-      eslint-plugin-jsx-a11y: 6.x
-      eslint-plugin-n: 17.x
-      eslint-plugin-react: 7.x
-      eslint-plugin-react-hooks: 5.x
-      typescript-eslint: 8.x
+      '@next/eslint-plugin-next': ^15.0.0
+      '@stylistic/eslint-plugin': ^3.0.0
+      '@types/eslint-plugin-jsx-a11y': ^6.0.0
+      eslint: ^9.0.0
+      eslint-import-resolver-typescript: ^4.0.0
+      eslint-plugin-import: ^2.0.0
+      eslint-plugin-import-x: ^4.0.0
+      eslint-plugin-jsx-a11y: ^6.0.0
+      eslint-plugin-n: ^17.0.0
+      eslint-plugin-react: ^7.0.0
+      eslint-plugin-react-hooks: ^5.0.0 || ^6.0.0 || ^7.0.0
+      typescript-eslint: ^8.0.0
     peerDependenciesMeta:
       '@next/eslint-plugin-next':
         optional: true
       '@stylistic/eslint-plugin':
         optional: true
       '@types/eslint-plugin-jsx-a11y':
+        optional: true
+      eslint-import-resolver-typescript:
+        optional: true
+      eslint-plugin-import:
+        optional: true
+      eslint-plugin-import-x:
+        optional: true
+      eslint-plugin-jsx-a11y:
         optional: true
       eslint-plugin-n:
         optional: true
@@ -4368,6 +4378,12 @@ packages:
   eslint-plugin-react-hooks@5.2.0:
     resolution: {integrity: sha512-+f15FfK64YQwZdJNELETdn5ibXEUQmW1DZL6KXhNnc2heoy/sg9VJJeT7n8TlMWouzWqSWavFkIhHyIbIAEapg==}
     engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
+
+  eslint-plugin-react-hooks@7.0.1:
+    resolution: {integrity: sha512-O0d0m04evaNzEPoSW+59Mezf8Qt0InfgGIBJnpC0h3NH/WjUAR7BIKUfysC6todmtiZ/A0oUVS8Gce0WhBrHsA==}
+    engines: {node: '>=18'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
@@ -4624,6 +4640,10 @@ packages:
     resolution: {integrity: sha512-iInW14XItCXET01CQFqudPOWP2jYMl7T+QRQT+UNcR/iQncN/F0UNpgd76iFkBPgNQb4+X3LV9tLJYzwh+Gl3A==}
     engines: {node: '>=18'}
 
+  globals@16.4.0:
+    resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
+    engines: {node: '>=18'}
+
   globalthis@1.0.4:
     resolution: {integrity: sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ==}
     engines: {node: '>= 0.4'}
@@ -4674,6 +4694,12 @@ packages:
 
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
+
+  hermes-estree@0.25.1:
+    resolution: {integrity: sha512-0wUoCcLp+5Ev5pDW2OriHC2MJCbwLwuRx+gAqMTOkGKJJiBCLjtrvy4PWUGn6MIVefecRpzoOZ/UV6iGdOr+Cw==}
+
+  hermes-parser@0.25.1:
+    resolution: {integrity: sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==}
 
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
@@ -6169,6 +6195,15 @@ packages:
     resolution: {integrity: sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==}
     engines: {node: '>=12.20'}
 
+  zod-validation-error@4.0.2:
+    resolution: {integrity: sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      zod: ^3.25.0 || ^4.0.0
+
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -6827,7 +6862,7 @@ snapshots:
       '@eslint/core': 0.13.0
       levn: 0.4.1
 
-  '@faker-js/faker@9.8.0': {}
+  '@faker-js/faker@10.1.0': {}
 
   '@floating-ui/core@1.7.0':
     dependencies:
@@ -7048,7 +7083,7 @@ snapshots:
 
   '@next/env@16.0.0': {}
 
-  '@next/eslint-plugin-next@15.3.0':
+  '@next/eslint-plugin-next@16.0.0':
     dependencies:
       fast-glob: 3.3.1
 
@@ -8154,6 +8189,7 @@ snapshots:
       get-intrinsic: 1.3.0
       is-string: 1.1.1
       math-intrinsics: 1.1.0
+    optional: true
 
   array-union@2.1.0: {}
 
@@ -8200,7 +8236,8 @@ snapshots:
 
   assertion-error@2.0.1: {}
 
-  ast-types-flow@0.0.8: {}
+  ast-types-flow@0.0.8:
+    optional: true
 
   ast-types@0.16.1:
     dependencies:
@@ -8212,9 +8249,11 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axe-core@4.11.0: {}
+  axe-core@4.11.0:
+    optional: true
 
-  axobject-query@4.1.0: {}
+  axobject-query@4.1.0:
+    optional: true
 
   balanced-match@1.0.2: {}
 
@@ -8394,7 +8433,8 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  damerau-levenshtein@1.0.8: {}
+  damerau-levenshtein@1.0.8:
+    optional: true
 
   dargs@8.1.0: {}
 
@@ -8625,6 +8665,7 @@ snapshots:
       typed-array-length: 1.0.7
       unbox-primitive: 1.1.0
       which-typed-array: 1.1.19
+    optional: true
 
   es-define-property@1.0.1: {}
 
@@ -8738,18 +8779,18 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-config-airbnb-extended@1.0.11(@next/eslint-plugin-next@15.3.0)(eslint-import-resolver-typescript@4.3.4(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react-hooks@5.2.0(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react@7.37.4(eslint@9.25.0(jiti@2.6.1)))(eslint@9.25.0(jiti@2.6.1))(typescript-eslint@8.30.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2)):
+  eslint-config-airbnb-extended@2.3.2(@next/eslint-plugin-next@16.0.0)(eslint-import-resolver-typescript@4.3.4(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react-hooks@7.0.1(eslint@9.25.0(jiti@2.6.1)))(eslint-plugin-react@7.37.4(eslint@9.25.0(jiti@2.6.1)))(eslint@9.25.0(jiti@2.6.1))(typescript-eslint@8.30.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2)):
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 9.25.0(jiti@2.6.1)
+      globals: 16.4.0
+    optionalDependencies:
+      '@next/eslint-plugin-next': 16.0.0
       eslint-import-resolver-typescript: 4.3.4(eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2))(eslint@9.25.0(jiti@2.6.1))
       eslint-plugin-import-x: 4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.25.0(jiti@2.6.1))
-      globals: 16.0.0
-    optionalDependencies:
-      '@next/eslint-plugin-next': 15.3.0
       eslint-plugin-react: 7.37.4(eslint@9.25.0(jiti@2.6.1))
-      eslint-plugin-react-hooks: 5.2.0(eslint@9.25.0(jiti@2.6.1))
+      eslint-plugin-react-hooks: 7.0.1(eslint@9.25.0(jiti@2.6.1))
       typescript-eslint: 8.30.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2)
 
   eslint-config-prettier@10.1.1(eslint@9.25.0(jiti@2.6.1)):
@@ -8777,6 +8818,7 @@ snapshots:
       eslint-plugin-import-x: 4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2)
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   eslint-plugin-import-x@4.11.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.8.2):
     dependencies:
@@ -8814,12 +8856,24 @@ snapshots:
       object.fromentries: 2.0.8
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
+    optional: true
 
   eslint-plugin-only-warn@1.1.0: {}
 
   eslint-plugin-react-hooks@5.2.0(eslint@9.25.0(jiti@2.6.1)):
     dependencies:
       eslint: 9.25.0(jiti@2.6.1)
+
+  eslint-plugin-react-hooks@7.0.1(eslint@9.25.0(jiti@2.6.1)):
+    dependencies:
+      '@babel/core': 7.26.10
+      '@babel/parser': 7.27.0
+      eslint: 9.25.0(jiti@2.6.1)
+      hermes-parser: 0.25.1
+      zod: 4.1.12
+      zod-validation-error: 4.0.2(zod@4.1.12)
+    transitivePeerDependencies:
+      - supports-color
 
   eslint-plugin-react-refresh@0.4.20(eslint@9.25.0(jiti@2.6.1)):
     dependencies:
@@ -9096,6 +9150,7 @@ snapshots:
   get-tsconfig@4.13.0:
     dependencies:
       resolve-pkg-maps: 1.0.0
+    optional: true
 
   git-raw-commits@4.0.0:
     dependencies:
@@ -9129,6 +9184,8 @@ snapshots:
   globals@14.0.0: {}
 
   globals@16.0.0: {}
+
+  globals@16.4.0: {}
 
   globalthis@1.0.4:
     dependencies:
@@ -9189,6 +9246,12 @@ snapshots:
   hast-util-whitespace@3.0.0:
     dependencies:
       '@types/hast': 3.0.4
+
+  hermes-estree@0.25.1: {}
+
+  hermes-parser@0.25.1:
+    dependencies:
+      hermes-estree: 0.25.1
 
   html-void-elements@3.0.0: {}
 
@@ -9256,6 +9319,7 @@ snapshots:
   is-bun-module@2.0.0:
     dependencies:
       semver: 7.7.3
+    optional: true
 
   is-callable@1.2.7: {}
 
@@ -9297,7 +9361,8 @@ snapshots:
 
   is-map@2.0.3: {}
 
-  is-negative-zero@2.0.3: {}
+  is-negative-zero@2.0.3:
+    optional: true
 
   is-number-object@1.1.1:
     dependencies:
@@ -9430,11 +9495,13 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  language-subtag-registry@0.3.23: {}
+  language-subtag-registry@0.3.23:
+    optional: true
 
   language-tags@1.0.9:
     dependencies:
       language-subtag-registry: 0.3.23
+    optional: true
 
   levn@0.4.1:
     dependencies:
@@ -9647,7 +9714,8 @@ snapshots:
 
   napi-postinstall@0.2.3: {}
 
-  napi-postinstall@0.3.4: {}
+  napi-postinstall@0.3.4:
+    optional: true
 
   natural-compare@1.4.0: {}
 
@@ -10209,6 +10277,7 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
       internal-slot: 1.1.0
+    optional: true
 
   storybook-dark-mode@4.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.6.2)):
     dependencies:
@@ -10252,6 +10321,7 @@ snapshots:
       call-bind: 1.0.8
       define-properties: 1.2.1
       es-abstract: 1.24.0
+    optional: true
 
   string.prototype.matchall@4.0.12:
     dependencies:
@@ -10612,6 +10682,7 @@ snapshots:
       '@unrs/resolver-binding-win32-arm64-msvc': 1.11.1
       '@unrs/resolver-binding-win32-ia32-msvc': 1.11.1
       '@unrs/resolver-binding-win32-x64-msvc': 1.11.1
+    optional: true
 
   unrs-resolver@1.7.2:
     dependencies:
@@ -10738,6 +10809,7 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       has-tostringtag: 1.0.2
+    optional: true
 
   which@2.0.2:
     dependencies:
@@ -10778,5 +10850,11 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   yocto-queue@1.2.1: {}
+
+  zod-validation-error@4.0.2(zod@4.1.12):
+    dependencies:
+      zod: 4.1.12
+
+  zod@4.1.12: {}
 
   zwitch@2.0.4: {}
