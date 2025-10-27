@@ -2,7 +2,6 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
-import { RadioGroupExample } from "./examples/radio-group";
 import { RadioUsage } from "./examples/usage";
 
 const title = "Radio";
@@ -20,9 +19,6 @@ const Radio = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <RadioUsage />
-      </CodeExample>
-      <CodeExample title="Radio Group" url={resolvePath("radio-group.tsx")}>
-        <RadioGroupExample />
       </CodeExample>
     </DocsPage>
   );

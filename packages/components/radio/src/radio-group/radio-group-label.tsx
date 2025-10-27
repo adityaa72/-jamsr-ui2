@@ -5,10 +5,11 @@ import { useRadioGroupContext } from "./radio-group-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const RadioGroupLabel = (props: RadioGroupLabel.Props) => {
-  const { getLabelProps } = useRadioGroupContext();
+  const { getLabelProps, label } = useRadioGroupContext();
   const renderElement = useRenderElement("div", {
-    props: [getLabelProps(props)],
+    props: [getLabelProps(props), { children: label }],
   });
+  if (!label) return null;
   return renderElement;
 };
 

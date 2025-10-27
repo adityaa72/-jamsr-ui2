@@ -1,11 +1,6 @@
 import { useCallback, useId } from "react";
 
-import {
-  useControlledState,
-  useFocusVisible,
-  useMergeRefs,
-  usePress,
-} from "@jamsrui/hooks";
+import { useFocusVisible, useMergeRefs, usePress } from "@jamsrui/hooks";
 import {
   cn,
   dataAttr,
@@ -14,6 +9,7 @@ import {
   mergeProps,
 } from "@jamsrui/utils";
 
+import { useRadioGroupContext } from "../radio-group/radio-group-context";
 import { radioVariant } from "../styles";
 
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
@@ -35,39 +31,23 @@ export const useRadio = (props: useRadio.Props) => {
 
   const styles = radioVariant(variantProps);
   const inputId = useId();
+  const { name: inputName, handleInputChange, value } = useRadioGroupContext();
 
   const {
     classNames,
     label,
     isDisabled,
     isReadonly,
-    defaultChecked,
-    onCheckedChange,
-    isChecked: propIsChecked,
     children: description,
     ...elementProps
   } = $props;
-
-  const [isChecked, setIsChecked] = useControlledState({
-    defaultProp: defaultChecked,
-    onChange: onCheckedChange,
-    prop: propIsChecked,
-  });
 
   const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
     isDisabled,
   });
   const { isPressed, ref: pressRef } = usePress({ isDisabled });
   const inputRefs = useMergeRefs([focusVisibleRef, pressRef]);
-
-  const handleInputChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (!isDisabled && !isReadonly) {
-        setIsChecked(event.target.checked);
-      }
-    },
-    [isDisabled, isReadonly, setIsChecked]
-  );
+  const isChecked = value === props.value;
 
   const getRootProps: PropGetter<RadioRoot.Props> = useCallback(
     (props) => ({
@@ -98,6 +78,7 @@ export const useRadio = (props: useRadio.Props) => {
       }),
       disabled: isDisabled,
       readOnly: isReadonly,
+      name: inputName,
     }),
     [
       classNames?.input,
@@ -108,6 +89,7 @@ export const useRadio = (props: useRadio.Props) => {
       isDisabled,
       isReadonly,
       styles,
+      inputName,
     ]
   );
   const getControlProps: PropGetter<RadioControl.Props> = useCallback(
@@ -183,8 +165,5 @@ export namespace useRadio {
     classNames?: SlotsToClassNames<RadioSlots>;
     isDisabled?: boolean;
     isReadonly?: boolean;
-    defaultChecked?: boolean;
-    isChecked?: boolean;
-    onCheckedChange?: (value: boolean) => void;
   }
 }
