@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -15,6 +15,7 @@
     "@jamsrui/accordion": "workspace:^",
     "@jamsrui/button": "workspace:^",
     "@jamsrui/text": "workspace:^",
+    "@jamsrui/react": "workspace:^",
     "@jamsrui/theme": "workspace:^",
     "@storybook/addon-controls": "^8.6.12",
     "@storybook/manager-api": "^8.6.12",

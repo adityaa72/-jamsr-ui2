@@ -1,4 +1,4 @@
-import { Chip } from "@jamsrui/chip";
+import { Chip } from "@jamsrui/react";
 
 export const ChipSizes = () => {
   const sizes: Chip.Props["size"][] = ["xs", "sm", "md", "lg"];

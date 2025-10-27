@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 import { useSwitchContext } from "./switch-context";
 
-import type { UIProps } from "@jamsrui/utils";
+import type { HTMLMotionProps } from "motion/react";
 
 export const SwitchThumb = (props: SwitchThumb.Props) => {
   const id = useId();
@@ -21,5 +21,6 @@ export const SwitchThumb = (props: SwitchThumb.Props) => {
 };
 
 export namespace SwitchThumb {
-  export interface Props extends UIProps<"div"> {}
+  // export interface Props extends UIProps<"div"> {}
+  export interface Props extends HTMLMotionProps<"div"> {}
 }

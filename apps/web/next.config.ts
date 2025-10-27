@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
   },
   typedRoutes: true,
   experimental: {
-    typedRoutes: true,
     typedEnv: true,
   },
 };

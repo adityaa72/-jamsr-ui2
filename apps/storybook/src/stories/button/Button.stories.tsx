@@ -53,7 +53,7 @@ export const Variants: Story = {
     const variants: Button.Props["variant"][] = [
       "light",
       "text",
-      "outlined",
+      "bordered",
       "solid",
       "flat",
     ];

@@ -1,4 +1,4 @@
-import { Chip } from "@jamsrui/chip";
+import { Chip } from "@jamsrui/react";
 
 export const ChipBordered = () => {
   const colors: Chip.Props["color"][] = [

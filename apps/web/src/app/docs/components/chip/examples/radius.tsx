@@ -1,4 +1,4 @@
-import { Chip } from "@jamsrui/chip";
+import { Chip } from "@jamsrui/react";
 
 export const ChipRadius = () => {
   const radii: Chip.Props["radius"][] = [

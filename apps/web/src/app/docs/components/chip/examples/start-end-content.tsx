@@ -1,4 +1,4 @@
-import { Chip } from "@jamsrui/chip";
+import { Chip } from "@jamsrui/react";
 import { CheckIcon, EmailIcon } from "@jamsrui/icons";
 
 export const ChipStartEndContent = () => {

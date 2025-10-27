@@ -71,6 +71,9 @@ importers:
       '@jamsrui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
+      '@jamsrui/react':
+        specifier: workspace:^
+        version: link:../../packages/react
       '@jamsrui/text':
         specifier: workspace:^
         version: link:../../packages/components/text
@@ -168,9 +171,6 @@ importers:
       '@faker-js/faker':
         specifier: 10.1.0
         version: 10.1.0
-      '@jamsrui/accordion2':
-        specifier: workspace:^
-        version: link:../../packages/components/accordion2 copy
       '@jamsrui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
@@ -243,62 +243,6 @@ importers:
         version: 5.9.3
 
   packages/components/accordion:
-    dependencies:
-      '@jamsrui/core':
-        specifier: workspace:^
-        version: link:../../core
-      '@jamsrui/hooks':
-        specifier: workspace:^
-        version: link:../../hooks
-      '@jamsrui/utils':
-        specifier: workspace:^
-        version: link:../../utils
-    devDependencies:
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.1.2
-      clean-package:
-        specifier: ^2.2.0
-        version: 2.2.0
-      motion:
-        specifier: 'catalog:'
-        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react:
-        specifier: 'catalog:'
-        version: 19.1.0
-      react-dom:
-        specifier: 'catalog:'
-        version: 19.1.0(react@19.1.0)
-
-  packages/components/accordion2:
-    dependencies:
-      '@jamsrui/core':
-        specifier: workspace:^
-        version: link:../../core
-      '@jamsrui/hooks':
-        specifier: workspace:^
-        version: link:../../hooks
-      '@jamsrui/utils':
-        specifier: workspace:^
-        version: link:../../utils
-    devDependencies:
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.1.2
-      clean-package:
-        specifier: ^2.2.0
-        version: 2.2.0
-      motion:
-        specifier: 'catalog:'
-        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react:
-        specifier: 'catalog:'
-        version: 19.1.0
-      react-dom:
-        specifier: 'catalog:'
-        version: 19.1.0(react@19.1.0)
-
-  packages/components/accordion2 copy:
     dependencies:
       '@jamsrui/core':
         specifier: workspace:^
@@ -1615,8 +1559,8 @@ importers:
         version: link:../utils
     devDependencies:
       '@types/node':
-        specifier: ^22.14.0
-        version: 22.14.0
+        specifier: 24.9.1
+        version: 24.9.1
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -1840,15 +1784,15 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0
       tailwind-variants:
-        specifier: ^1.0.0
-        version: 1.0.0(tailwindcss@4.1.5)
+        specifier: 3.1.1
+        version: 3.1.1(tailwind-merge@3.2.0)(tailwindcss@4.1.5)
     devDependencies:
       '@jamsrui/typescript-config':
         specifier: workspace:^
         version: link:../typescript-config
       '@types/node':
-        specifier: ^22.14.0
-        version: 22.14.0
+        specifier: 24.9.1
+        version: 24.9.1
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -5827,6 +5771,16 @@ packages:
     engines: {node: '>=16.x', pnpm: '>=7.x'}
     peerDependencies:
       tailwindcss: '*'
+
+  tailwind-variants@3.1.1:
+    resolution: {integrity: sha512-ftLXe3krnqkMHsuBTEmaVUXYovXtPyTK7ckEfDRXS8PBZx0bAUas+A0jYxuKA5b8qg++wvQ3d2MQ7l/xeZxbZQ==}
+    engines: {node: '>=16.x', pnpm: '>=7.x'}
+    peerDependencies:
+      tailwind-merge: '>=3.0.0'
+      tailwindcss: '*'
+    peerDependenciesMeta:
+      tailwind-merge:
+        optional: true
 
   tailwindcss@4.1.4:
     resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
@@ -10426,6 +10380,12 @@ snapshots:
     dependencies:
       tailwind-merge: 3.0.2
       tailwindcss: 4.1.5
+
+  tailwind-variants@3.1.1(tailwind-merge@3.2.0)(tailwindcss@4.1.5):
+    dependencies:
+      tailwindcss: 4.1.5
+    optionalDependencies:
+      tailwind-merge: 3.2.0
 
   tailwindcss@4.1.4: {}
 
