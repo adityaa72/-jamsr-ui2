@@ -14,11 +14,6 @@ export const useFocusVisible = <T extends HTMLElement>(
   const ref = useRef<T>(null);
 
   useEffect(() => {
-    if (isDisabled) {
-      setIsFocusVisible(false);
-      return () => { };
-    }
-
     // Tracks whether the last input was from the keyboard
     let isLastInputKeyboard = false;
 

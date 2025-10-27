@@ -5,10 +5,16 @@ import { useCheckboxContext } from "./checkbox-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const CheckboxDescription = (props: CheckboxDescription.Props) => {
-  const { getDescriptionProps } = useCheckboxContext();
+  const { getDescriptionProps, description } = useCheckboxContext();
   const renderElement = useRenderElement("div", {
-    props: [getDescriptionProps(props)],
+    props: [
+      getDescriptionProps(props),
+      {
+        children: description,
+      },
+    ],
   });
+  if (!description) return null;
   return renderElement;
 };
 

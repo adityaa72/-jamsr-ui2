@@ -1,22 +1,33 @@
 import { useCallback, useMemo } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import {
+  useControlledState,
+  useFocusVisible,
+  useHover,
+  useMergeRefs,
+  usePress,
+} from "@jamsrui/hooks";
+import {
+  cn,
+  dataAttr,
+  dataAttrDev,
+  mapPropsVariants,
+  mergeProps,
+} from "@jamsrui/utils";
 
 import { checkboxVariants } from "./styles";
 
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
-import type { Checkbox } from "./checkbox";
 import type { CheckboxContent } from "./checkbox-content";
 import type { CheckboxDescription } from "./checkbox-description";
-import type { CheckboxHelperText } from "./checkbox-helper-text";
+import type { CheckboxErrorMessage } from "./checkbox-error-message";
 import type { CheckboxInput } from "./checkbox-input";
 import type { CheckboxLabel } from "./checkbox-label";
+import type { CheckboxRoot } from "./checkbox-root";
 import type { CheckboxTrigger } from "./checkbox-trigger";
 import type { CheckboxWrapper } from "./checkbox-wrapper";
 import type { CheckboxSlots, CheckboxVariantProps } from "./styles";
-import { CheckboxErrorMessage } from "./checkbox-errror-message";
 
 export const useCheckbox = (props: useCheckbox.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -30,11 +41,11 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     onCheckedChange,
     defaultChecked,
     label,
-    description,
     helperText,
     isReadonly,
     classNames,
     isDisabled: isDisabledProp,
+    children: description,
     ...elementProps
   } = $props;
 
@@ -44,16 +55,63 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     onChange: onCheckedChange,
   });
 
-  const getRootProps: PropGetter<Checkbox.Props> = useCallback(
-    () => ({
-      ...elementProps,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("checkbox"),
+  const isDisabled = isDisabledProp ?? isReadonly;
+
+  const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
+    isDisabled,
+  });
+  const { isPressed, ref: pressRef } = usePress({
+    isDisabled,
+  });
+  const { isHovered, ref: hoverRef } = useHover({
+    isDisabled,
+  });
+  const inputRef = useMergeRefs([focusVisibleRef, pressRef, hoverRef]);
+
+  const handleInputOnChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setIsChecked(event.target.checked);
+    },
+    [setIsChecked]
+  );
+
+  const getRootProps: PropGetter<CheckboxRoot.Props> = useCallback(
+    (props) => ({
+      ...props,
       className: styles.root({
         className: cn(classNames?.root, elementProps.className),
       }),
+      "data-slot": dataAttrDev("root"),
+      "data-component": dataAttrDev("checkbox"),
+      "data-checked": dataAttr(isChecked),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-pressed": dataAttr(isPressed),
+      "data-hovered": dataAttr(isHovered),
     }),
-    [classNames?.root, elementProps, styles]
+    [
+      classNames?.root,
+      elementProps.className,
+      isChecked,
+      isFocusVisible,
+      isHovered,
+      isPressed,
+      styles,
+    ]
+  );
+
+  const getInputProps: PropGetter<CheckboxInput.Props> = useCallback(
+    (props) => ({
+      ...mergeProps(elementProps, props, {
+        onChange: handleInputOnChange,
+      }),
+      ref: inputRef,
+      type: "checkbox",
+      "data-slot": dataAttrDev("input"),
+      className: styles.input({
+        className: cn(classNames?.input, props.className),
+      }),
+    }),
+    [classNames?.input, elementProps, handleInputOnChange, inputRef, styles]
   );
 
   const getWrapperProps: PropGetter<CheckboxWrapper.Props> = useCallback(
@@ -77,18 +135,6 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     }),
     [classNames?.label, styles]
   );
-
-  const getInputProps: PropGetter<CheckboxInput.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("input"),
-      className: styles.input({
-        className: cn(classNames?.input, props.className),
-      }),
-    }),
-    [classNames?.input, styles]
-  );
-
   const getTriggerProps: PropGetter<CheckboxTrigger.Props> = useCallback(
     (props) => ({
       ...props,
@@ -111,17 +157,6 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       }),
       [classNames?.description, styles]
     );
-
-  const getHelperTextProps: PropGetter<CheckboxHelperText.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("helperText"),
-      className: styles.helperText({
-        className: cn(classNames?.helperText, props.className),
-      }),
-    }),
-    [classNames?.helperText, styles]
-  );
 
   const getContentProps: PropGetter<CheckboxContent.Props> = useCallback(
     (props) => ({
@@ -154,14 +189,14 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       getInputProps,
       getTriggerProps,
       getDescriptionProps,
-      getHelperTextProps,
       getContentProps,
       onCheckedChange,
+      getErrorMessageProps,
       defaultChecked,
       label,
       description,
       helperText,
-      getErrorMessageProps,
+      isChecked,
     }),
     [
       defaultChecked,
@@ -169,13 +204,13 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       getContentProps,
       getDescriptionProps,
       getErrorMessageProps,
-      getHelperTextProps,
       getInputProps,
       getLabelProps,
       getRootProps,
       getTriggerProps,
       getWrapperProps,
       helperText,
+      isChecked,
       label,
       onCheckedChange,
     ]
@@ -183,9 +218,8 @@ export const useCheckbox = (props: useCheckbox.Props) => {
 };
 
 export namespace useCheckbox {
-  export interface Props extends UIProps<"div">, CheckboxVariantProps {
+  export interface Props extends UIProps<"input">, CheckboxVariantProps {
     label?: React.ReactNode;
-    description?: React.ReactNode;
     defaultChecked?: boolean;
     isChecked?: boolean;
     onCheckedChange?: (checked: boolean) => void;

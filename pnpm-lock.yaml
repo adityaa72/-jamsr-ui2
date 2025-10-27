@@ -580,6 +580,9 @@ importers:
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@types/react':
         specifier: 'catalog:'

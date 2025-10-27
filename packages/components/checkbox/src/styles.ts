@@ -1,4 +1,8 @@
-import { focusVisibleClasses, radiusVariant, tv } from "@jamsrui/utils";
+import {
+  groupDataFocusVisibleClasses,
+  radiusVariant,
+  tv,
+} from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
@@ -11,24 +15,34 @@ export const checkboxVariants = tv({
       "ui-disabled:cursor-not-allowed",
     ],
     wrapper: "flex gap-2",
-    label:
+    label: [
       "shrink-0 text-sm font-normal leading-none text-foreground uig-interactive:cursor-pointer uig-disabled:cursor-not-allowed",
-    helperText: "text-xs text-foreground-600",
-    input: [
-      ...focusVisibleClasses,
-      "border-default-200 uig-hover:border-default-400",
-      "relative size-5 appearance-none border-2 uig-checked:border-primary uig-checked:bg-primary uig-interactive:cursor-pointer",
-      "uig-disabled:cursor-not-allowed",
+      "select-none",
     ],
     trigger: [
-      "relative flex size-max items-center",
-      "disabled:cursor-not-allowed",
+      ...groupDataFocusVisibleClasses,
+      "border-default-border uig-hover:border-default-hover",
+      "relative size-5 appearance-none border-2 uig-checked:border-primary uig-checked:bg-primary uig-interactive:cursor-pointer",
+      "uig-disabled:cursor-not-allowed uig-pressed:scale-90 transition-all duration-300",
     ],
+    input:
+      "absolute opacity-[0.0001] cursor-pointer disabled:cursor-not-allowed",
     description: "text-xs text-foreground-500",
     content: "flex flex-col justify-center gap-1",
     errorMessage: "",
   },
   variants: {
+    size: {
+      sm: {
+        trigger: "size-4",
+      },
+      md: {
+        trigger: "size-5",
+      },
+      lg: {
+        trigger: "size-6",
+      },
+    },
     isInvalid: {
       true: {
         label: "text-danger",
@@ -36,10 +50,11 @@ export const checkboxVariants = tv({
         checkbox: "border-danger",
       },
     },
-    radius: radiusVariant("checkbox"),
+    radius: radiusVariant("trigger"),
   },
   defaultVariants: {
     radius: "md",
+    size: "md",
   },
 });
 

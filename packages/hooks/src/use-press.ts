@@ -70,7 +70,9 @@ export function usePress(props: usePress.UsePressProps = {}) {
   }, [state.isPressing]);
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
-    if (event.key === "Enter" || event.key === " ") {
+    const isInput = event.target instanceof HTMLInputElement;
+    const allowedKeys = isInput ? [" "] : ["Enter", " "];
+    if (allowedKeys.includes(event.key)) {
       dispatch({ type: "PRESS_START" });
     }
   }, []);
