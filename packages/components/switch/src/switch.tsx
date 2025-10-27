@@ -13,23 +13,26 @@ import { SwitchTrack } from "./switch-track";
 import { SwitchWrapper } from "./switch-wrapper";
 import { useSwitch } from "./use-switch";
 
-export const Switch = (props: Switch.Props) => {
-  const { children } = props;
+export const SwitchComposable = (props: Switch.Props) => {
   const config = useSwitchConfig();
   const mergedProps = mergeConfigProps(config, config, props);
   const ctx = useSwitch(mergedProps);
-  const { hasContent } = ctx;
+  return <SwitchContext value={ctx}>{props.children}</SwitchContext>;
+};
+
+export const Switch = (props: Switch.Props) => {
+  const config = useSwitchConfig();
+  const mergedProps = mergeConfigProps(config, config, props);
+  const ctx = useSwitch(mergedProps);
   return (
     <SwitchContext value={ctx}>
       <SwitchRoot>
         <SwitchWrapper>
           <SwitchInput />
-          {!!hasContent && (
-            <SwitchContent>
-              <SwitchLabel />
-              {!!children && <SwitchDescription>{children}</SwitchDescription>}
-            </SwitchContent>
-          )}
+          <SwitchContent>
+            <SwitchLabel />
+            <SwitchDescription />
+          </SwitchContent>
           <AnimatePresence initial={false}>
             <SwitchTrack>
               <SwitchThumb />

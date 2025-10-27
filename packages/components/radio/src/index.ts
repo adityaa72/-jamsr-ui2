@@ -1,4 +1,5 @@
 "use client";
 
 export { Radio } from "./radio";
-export { RadioConfig, useRadioConfig } from "./radio-config";
+export { RadioGroup } from "./radio-group";
+export { RadioConfig, useRadioConfig } from "./radio/radio-config";

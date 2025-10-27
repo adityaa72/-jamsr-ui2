@@ -2,7 +2,7 @@ import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
 
-import type { Radio } from "./radio";
+import type { Radio } from ".";
 
 export const [RadioConfig, useRadioConfig] = createConfigContext({
   displayName: "RadioConfigContext",

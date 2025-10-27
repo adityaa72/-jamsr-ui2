@@ -1,15 +1,17 @@
 import { useRenderElement } from "@jamsrui/hooks";
 
+import { useRadioContext } from "./radio-context";
+
 import type { UIProps } from "@jamsrui/utils";
 
-export const Radio = (props: Radio.Props) => {
-  const { render, ...elementProps } = props;
+export const RadioContent = (props: RadioContent.Props) => {
+  const { getContentProps } = useRadioContext();
   const renderElement = useRenderElement("div", {
-    props: elementProps,
+    props: [getContentProps(props)],
   });
   return renderElement;
 };
 
-export namespace Radio {
+export namespace RadioContent {
   export interface Props extends UIProps<"div"> {}
 }

@@ -4,15 +4,15 @@ import { useRadioContext } from "./radio-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const RadioDescription = (props: RadioDescription.Props) => {
-  const { getDescriptionProps, description } = useRadioContext();
+export const RadioIndicator = (props: RadioIndicator.Props) => {
+  const { getIndicatorProps, isChecked } = useRadioContext();
   const renderElement = useRenderElement("div", {
-    props: [getDescriptionProps(props), { children: description }],
+    props: [getIndicatorProps(props)],
   });
-  if (!description) return null;
+  if (!isChecked) return null;
   return renderElement;
 };
 
-export namespace RadioDescription {
+export namespace RadioIndicator {
   export interface Props extends UIProps<"div"> {}
 }

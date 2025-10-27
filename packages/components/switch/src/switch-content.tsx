@@ -5,10 +5,11 @@ import { useSwitchContext } from "./switch-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchContent = (props: SwitchContent.Props) => {
-  const { getContentProps } = useSwitchContext();
+  const { getContentProps, hasContent } = useSwitchContext();
   const renderElement = useRenderElement("div", {
     props: [getContentProps(props)],
   });
+  if (!hasContent) return null;
   return renderElement;
 };
 

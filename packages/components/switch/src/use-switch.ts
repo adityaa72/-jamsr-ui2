@@ -40,12 +40,12 @@ export const useSwitch = (props: useSwitch.Props) => {
     slotProps,
     label,
     errorMessage,
-    children,
     isChecked: propIsChecked,
     defaultChecked,
     onCheckedChange,
     isDisabled,
     isReadonly,
+    children: description,
     ...elementProps
   } = $props;
 
@@ -214,7 +214,7 @@ export const useSwitch = (props: useSwitch.Props) => {
     [classNames?.wrapper, slotProps?.wrapper, styles]
   );
 
-  const hasContent = !!label || !!children;
+  const hasContent = !!label || !!description;
 
   return useMemo(
     () => ({
@@ -229,6 +229,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       label,
       errorMessage,
       hasContent,
+      description,
     }),
     [
       getRootProps,
@@ -242,6 +243,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       label,
       errorMessage,
       hasContent,
+      description,
     ]
   );
 };

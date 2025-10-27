@@ -4,14 +4,14 @@ import { useRadioGroupContext } from "./radio-group-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const RadioGroupLabel = (props: RadioGroupLabel.Props) => {
-  const { getLabelProps } = useRadioGroupContext();
+export const RadioGroupRoot = (props: RadioGroupRoot.Props) => {
+  const { getRootProps } = useRadioGroupContext();
   const renderElement = useRenderElement("div", {
-    props: [getLabelProps(props)],
+    props: [getRootProps(props)],
   });
   return renderElement;
 };
 
-export namespace RadioGroupLabel {
+export namespace RadioGroupRoot {
   export interface Props extends UIProps<"div"> {}
 }

@@ -183,6 +183,9 @@ importers:
       '@jamsrui/react':
         specifier: workspace:^
         version: link:../../packages/react
+      '@jamsrui/switch':
+        specifier: workspace:^
+        version: link:../../packages/components/switch
       '@jamsrui/theme':
         specifier: workspace:^
         version: link:../../packages/theme
@@ -6297,7 +6300,7 @@ snapshots:
   '@babel/types@7.27.0':
     dependencies:
       '@babel/helper-string-parser': 7.25.9
-      '@babel/helper-validator-identifier': 7.25.9
+      '@babel/helper-validator-identifier': 7.28.5
 
   '@changesets/apply-release-plan@7.0.13':
     dependencies:
