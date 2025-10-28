@@ -4,7 +4,7 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { RadioUsage } from "./examples/usage";
 
-const title = "Radio";
+const title = "Radio Group";
 const description =
   "Radio buttons are used for selecting one option from a set. They allow a single choice from a group of options, with only one option being selected at a time.";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description,
 };
 
-const Radio = () => {
+const RadioGroup = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
@@ -24,4 +24,4 @@ const Radio = () => {
   );
 };
 
-export default Radio;
+export default RadioGroup;

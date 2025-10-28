@@ -20,7 +20,8 @@
   "dependencies": {
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/core": "workspace:^",
-    "@jamsrui/utils": "workspace:^"
+    "@jamsrui/utils": "workspace:^",
+    "@jamsrui/input": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"
 }

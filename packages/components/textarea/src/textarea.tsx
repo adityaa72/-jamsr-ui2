@@ -1,15 +1,11 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { Input } from "@jamsrui/input";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const Textarea = (props: Textarea.Props) => {
-  const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
-    props: elementProps,
-  });
-  return renderElement;
+  return <Input render={<textarea />} {...props} />;
 };
 
 export namespace Textarea {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"input"> {}
 }
