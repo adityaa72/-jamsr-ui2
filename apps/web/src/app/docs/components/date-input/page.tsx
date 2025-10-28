@@ -2,7 +2,7 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
-import { DatePickerUsage } from "./examples/usage";
+import { DateInputUsage } from "./examples/usage";
 
 const title = "Date Picker";
 const description = "Date Picker";
@@ -17,7 +17,7 @@ const DatePicker = () => {
   return (
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
-        <DatePickerUsage />
+        <DateInputUsage />
       </CodeExample>
     </DocsPage>
   );

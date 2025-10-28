@@ -21,6 +21,7 @@
     "@jamsrui/utils": "workspace:^",
     "@tanstack/react-query": "^5.81.5",
     "@tanstack/react-table": "catalog:",
+    "date-fns": "^4.1.0",
     "motion": "catalog:",
     "next": "16.0.0",
     "react": "catalog:",
