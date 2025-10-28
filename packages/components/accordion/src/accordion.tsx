@@ -4,7 +4,7 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAccordionConfig } from "./accordion-config";
-import { AccordionContextProvider } from "./accordion-context";
+import { AccordionContext } from "./accordion-context";
 import { AccordionListItemContext } from "./accordion-list-provider";
 import { useAccordion } from "./use-accordion";
 
@@ -26,11 +26,7 @@ const Accordion = (props: Accordion.Props) => {
   const renderElement = useRenderElement("div", {
     props: [getRootProps({}), { children: composedChildren }],
   });
-  return (
-    <AccordionContextProvider ctx={ctx}>
-      {renderElement}
-    </AccordionContextProvider>
-  );
+  return <AccordionContext value={ctx}>{renderElement}</AccordionContext>;
 };
 
 namespace Accordion {
