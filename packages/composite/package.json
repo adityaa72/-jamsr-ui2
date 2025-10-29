@@ -1,6 +1,6 @@
 {
-  "name": "@jamsrui/accordion",
-  "version": "0.0.8",
+  "name": "@jamsrui/composite",
+  "version": "0.0.1",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -9,23 +9,16 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
+  "clean-package": "./clean-package.config.json",
   "devDependencies": {
     "@types/react": "catalog:",
     "clean-package": "^2.2.0",
-    "motion": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "react": "catalog:"
   },
   "peerDependencies": {
-    "motion": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/composite": "workspace:^",
-    "@jamsrui/core": "workspace:^",
-    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"
-  },
-  "clean-package": "./clean-package.config.json"
+  }
 }

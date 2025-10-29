@@ -1,11 +1,9 @@
-import { Children } from "react";
-
+import { Composite } from "@jamsrui/composite";
 import { useRenderElement } from "@jamsrui/hooks";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAccordionConfig } from "./accordion-config";
 import { AccordionContext } from "./accordion-context";
-import { AccordionListItemContext } from "./accordion-list-provider";
 import { useAccordion } from "./use-accordion";
 
 const Accordion = (props: Accordion.Props) => {
@@ -15,18 +13,14 @@ const Accordion = (props: Accordion.Props) => {
   const { getRootProps } = ctx;
   const { children } = mergedProps;
 
-  const composedChildren = Children.map(children, (child, index) => {
-    return (
-      <AccordionListItemContext value={{ index }}>
-        {child}
-      </AccordionListItemContext>
-    );
-  });
-
   const renderElement = useRenderElement("div", {
-    props: [getRootProps({}), { children: composedChildren }],
+    props: [getRootProps({}), { children }],
   });
-  return <AccordionContext value={ctx}>{renderElement}</AccordionContext>;
+  return (
+    <Composite>
+      <AccordionContext value={ctx}>{renderElement}</AccordionContext>
+    </Composite>
+  );
 };
 
 namespace Accordion {

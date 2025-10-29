@@ -26,7 +26,7 @@ const Accordion = () => {
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <AccordionUsage />
       </CodeExample>
-      <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
+      {/* <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
         <AccordionDisabled />
       </CodeExample>
       <CodeExample
@@ -46,7 +46,7 @@ const Accordion = () => {
       </CodeExample>
       <CodeExample title="Without Icon" url={resolvePath("without-icon.tsx")}>
         <AccordionWithoutIcon />
-      </CodeExample>
+      </CodeExample> */}
     </DocsPage>
   );
 };
