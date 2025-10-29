@@ -14,13 +14,8 @@ export const SwitchThumb = (props: SwitchThumb.Props) => {
       {props.children}
     </motion.div>
   );
-  // const renderElement = useRenderElement("div", {
-  //   props: [getThumbProps(props)],
-  // });
-  // return renderElement;
 };
 
 export namespace SwitchThumb {
-  // export interface Props extends UIProps<"div"> {}
   export interface Props extends HTMLMotionProps<"div"> {}
 }

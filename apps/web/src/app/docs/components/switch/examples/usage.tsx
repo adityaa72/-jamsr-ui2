@@ -3,13 +3,5 @@
 import { Switch } from "@jamsrui/react";
 
 export const SwitchUsage = () => {
-  return (
-    <div>
-      <Switch label="Dark Mode" />
-    </div>
-  );
+  return <Switch />;
 };
-
-// export const SwitchUsage = () => {
-//   return <Switch />;
-// };

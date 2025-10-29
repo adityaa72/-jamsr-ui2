@@ -2,7 +2,6 @@ import { groupDataFocusVisibleClasses, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
 export const switchVariants = tv({
   slots: {
     root: "group flex flex-col gap-2",
@@ -22,9 +21,6 @@ export const switchVariants = tv({
       "opacity-[0.0001] absolute inset-0 cursor-pointer disabled:cursor-not-allowed z-1",
   },
   variants: {
-    isInvalid: {
-      true: {},
-    },
     color: {
       default: {
         track: "uig-checked:bg-default",

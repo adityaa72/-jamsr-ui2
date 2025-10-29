@@ -10,6 +10,7 @@ import { SwitchLabelPlacement } from "./examples/label-placement";
 import { SwitchReadonly } from "./examples/readonly";
 import { SwitchSizes } from "./examples/sizes";
 import { SwitchUsage } from "./examples/usage";
+import { SwitchPrimitiveUsage } from "./examples/usage2";
 import { SwitchWithLabel } from "./examples/with-label";
 
 const title = "Switch";
@@ -27,6 +28,13 @@ const Switch = () => {
     <DocsPage title={title} description={description}>
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <SwitchUsage />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Primitive Usage"
+        url={resolvePath("usage2.tsx")}
+      >
+        <SwitchPrimitiveUsage />
       </CodeExample>
       <CodeExample
         isCentered

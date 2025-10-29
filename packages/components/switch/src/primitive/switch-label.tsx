@@ -5,11 +5,10 @@ import { useSwitchContext } from "./switch-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchLabel = (props: SwitchLabel.Props) => {
-  const { getLabelProps, label } = useSwitchContext();
+  const { getLabelProps } = useSwitchContext();
   const renderElement = useRenderElement("span", {
-    props: [getLabelProps(props), { children: label }],
+    props: [getLabelProps(props)],
   });
-  if (!label) return null;
   return renderElement;
 };
 
