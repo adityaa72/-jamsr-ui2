@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@jamsrui/button";
-import { Composite, CompositeItem, useCompositeItem } from "@jamsrui/react";
+import { Composite, CompositeItem } from "@jamsrui/react";
 
-const CompositeButton = () => {
-  const { index } = useCompositeItem({});
-  return <Button>hiiii {index}</Button>;
+const CompositeButton = (props) => {
+  // const { index } = useCompositeItem({});
+  return <Button {...props}>hiiii </Button>;
 };
 
 export const CompositeUsage = () => {

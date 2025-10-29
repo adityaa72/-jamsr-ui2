@@ -40,6 +40,7 @@
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/input": "workspace:^",
     "@jamsrui/kbd": "workspace:^",
+    "@jamsrui/label": "workspace:^",
     "@jamsrui/linear-progress": "workspace:^",
     "@jamsrui/link": "workspace:^",
     "@jamsrui/menu": "workspace:^",

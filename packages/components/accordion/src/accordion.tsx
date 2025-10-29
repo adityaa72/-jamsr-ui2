@@ -1,4 +1,4 @@
-import { Composite } from "@jamsrui/composite";
+import { Composite } from "../../composite/src";
 import { useRenderElement } from "@jamsrui/hooks";
 import { mergeConfigProps } from "@jamsrui/utils";
 

@@ -1,6 +1,6 @@
 import { useCallback, useId, useMemo } from "react";
 
-import { useCompositeItem } from "@jamsrui/composite/src/use-composite-item";
+import { useCompositeItem } from "../../composite/src/use-composite-item";
 import { cn, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { useAccordionContext } from "./accordion-context";

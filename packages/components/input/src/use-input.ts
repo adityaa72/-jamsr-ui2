@@ -18,11 +18,12 @@ import type { Input } from "./input";
 import type { InputClearButton } from "./input-clear-button";
 import type { InputContent } from "./input-content";
 import type { InputContentWrapper } from "./input-content-wrapper";
+import type { InputDescription } from "./input-description";
 import type { InputEndContent } from "./input-end-content";
 import type { InputErrorMessage } from "./input-error-message";
 import type { InputField } from "./input-field";
-import type { InputHelperText } from "./input-helper-text";
 import type { InputLabel } from "./input-label";
+import { InputRoot } from "./input-root";
 import type { InputStartContent } from "./input-start-content";
 import type { InputWrapper } from "./input-wrapper";
 import type { InputSlots, InputVariantProps } from "./styles";
@@ -97,7 +98,7 @@ export const useInput = (props: useInput.Props) => {
     [setValue]
   );
 
-  const getRootProps: PropGetter<Input.Props> = useCallback(
+  const getRootProps: PropGetter<InputRoot.Props> = useCallback(
     (props) => ({
       ...mergeProps(slotProps?.root, props),
       "data-component": dataAttrDev("input"),
@@ -228,7 +229,7 @@ export const useInput = (props: useInput.Props) => {
     [classNames?.endContent, slotProps?.endContent, styles]
   );
 
-  const getHelperTextProps: PropGetter<InputHelperText.Props> = useCallback(
+  const getDescriptionProps: PropGetter<InputDescription.Props> = useCallback(
     (props) => ({
       ...mergeProps(slotProps?.helperText, props),
       "data-slot": dataAttrDev("helperText"),
@@ -296,7 +297,7 @@ export const useInput = (props: useInput.Props) => {
       getEndContentProps,
       getInputProps,
       getLabelProps,
-      getHelperTextProps,
+      getDescriptionProps,
       getErrorMessageProps,
       label,
       helperText,
@@ -315,7 +316,7 @@ export const useInput = (props: useInput.Props) => {
       getEndContentProps,
       getInputProps,
       getLabelProps,
-      getHelperTextProps,
+      getDescriptionProps,
       getErrorMessageProps,
       label,
       helperText,
@@ -352,7 +353,7 @@ export namespace useInput {
       startContent?: InputStartContent.Props;
       endContent?: InputEndContent.Props;
       label?: InputLabel.Props;
-      helperText?: InputHelperText.Props;
+      helperText?: InputDescription.Props;
       errorMessage?: InputErrorMessage.Props;
       clearButton?: InputClearButton.Props;
     };

@@ -6,7 +6,7 @@ import { AccordionHeadingContent } from "./accordion-heading-content";
 import { AccordionIndicator } from "./accordion-indicator";
 import { useAccordionItemContext } from "./accordion-item-context";
 
-import { CompositeItem } from "@jamsrui/composite";
+import { CompositeItem } from "../../composite/src";
 import type { UIProps } from "@jamsrui/utils";
 
 const AccordionTrigger = (props: AccordionTrigger.Props) => {
