@@ -9,7 +9,6 @@ export function usePress(props: { isDisabled?: boolean } = {}) {
 
   // Derived value
   const isPressed = isPressing && isPointerInside;
-  console.log({ isPressed });
 
   // --- Handlers ---
 
