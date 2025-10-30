@@ -4,13 +4,14 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { SwitchColors } from "./examples/colors";
 import { SwitchControlled } from "./examples/controlled";
+import { SwitchCustomization } from "./examples/customization";
 import { SwitchDescription } from "./examples/description";
 import { SwitchDisabled } from "./examples/disabled";
 import { SwitchLabelPlacement } from "./examples/label-placement";
+import { SwitchPrimitiveUsage } from "./examples/primitive";
 import { SwitchReadonly } from "./examples/readonly";
 import { SwitchSizes } from "./examples/sizes";
 import { SwitchUsage } from "./examples/usage";
-import { SwitchPrimitiveUsage } from "./examples/usage2";
 import { SwitchWithLabel } from "./examples/with-label";
 
 const title = "Switch";
@@ -28,13 +29,6 @@ const Switch = () => {
     <DocsPage title={title} description={description}>
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <SwitchUsage />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Primitive Usage"
-        url={resolvePath("usage2.tsx")}
-      >
-        <SwitchPrimitiveUsage />
       </CodeExample>
       <CodeExample
         isCentered
@@ -83,6 +77,20 @@ const Switch = () => {
         url={resolvePath("label-placement.tsx")}
       >
         <SwitchLabelPlacement />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Primitive Usage"
+        url={resolvePath("primitive.tsx")}
+      >
+        <SwitchPrimitiveUsage />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Customization"
+        url={resolvePath("customization.tsx")}
+      >
+        <SwitchCustomization />
       </CodeExample>
     </DocsPage>
   );

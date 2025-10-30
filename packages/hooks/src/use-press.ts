@@ -1,107 +1,70 @@
-import { useCallback, useEffect, useReducer, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-// State for the reducer
-interface PressState {
-  isPressing: boolean;
-  isPointerInside: boolean;
-}
-
-// Actions for the reducer
-type PressAction =
-  | { type: "PRESS_START" }
-  | { type: "POINTER_LEAVE" }
-  | { type: "POINTER_ENTER" }
-  | { type: "PRESS_END" };
-
-// Initial state
-const initialState: PressState = {
-  isPressing: false,
-  isPointerInside: false,
-};
-
-// Reducer to manage press state
-function pressReducer(state: PressState, action: PressAction): PressState {
-  switch (action.type) {
-    case "PRESS_START":
-      return { isPressing: true, isPointerInside: true };
-    case "POINTER_LEAVE":
-      return { ...state, isPointerInside: false };
-    case "POINTER_ENTER":
-      return { ...state, isPointerInside: true };
-    case "PRESS_END":
-      return { ...state, isPressing: false };
-    default:
-      return state;
-  }
-}
-
-export function usePress(props: usePress.UsePressProps = {}) {
+export function usePress(props: { isDisabled?: boolean } = {}) {
   const { isDisabled = false } = props;
-
-  const [state, dispatch] = useReducer(pressReducer, initialState);
   const ref = useRef<HTMLElement>(null);
 
-  // Derive isPressed from state
-  const isPressed = state.isPressing && state.isPointerInside;
+  const [isPressing, setIsPressing] = useState(false);
+  const [isPointerInside, setIsPointerInside] = useState(false);
 
-  // Handle pointer down event
+  // Derived value
+  const isPressed = isPressing && isPointerInside;
+  console.log({ isPressed });
+
+  // --- Handlers ---
+
   const handlePointerDown = useCallback(() => {
-    dispatch({ type: "PRESS_START" });
+    setIsPressing(true);
+    setIsPointerInside(true);
   }, []);
 
-  // Handle pointer leave event
   const handlePointerLeave = useCallback(() => {
-    if (state.isPressing) {
-      dispatch({ type: "POINTER_LEAVE" });
-    }
-  }, [state.isPressing]);
+    if (isPressing) setIsPointerInside(false);
+  }, [isPressing]);
 
-  // Handle pointer enter event
   const handlePointerEnter = useCallback(() => {
-    if (state.isPressing) {
-      dispatch({ type: "POINTER_ENTER" });
-    }
-  }, [state.isPressing]);
+    if (isPressing) setIsPointerInside(true);
+  }, [isPressing]);
 
-  const onPointerCancel = useCallback(() => {
-    if (state.isPressing) {
-      dispatch({ type: "PRESS_END" });
-    }
-  }, [state.isPressing]);
+  const handlePointerCancel = useCallback(() => {
+    if (isPressing) setIsPressing(false);
+  }, [isPressing]);
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     const isInput = event.target instanceof HTMLInputElement;
     const allowedKeys = isInput ? [" "] : ["Enter", " "];
     if (allowedKeys.includes(event.key)) {
-      dispatch({ type: "PRESS_START" });
+      setIsPressing(true);
+      setIsPointerInside(true);
     }
   }, []);
 
   const handleKeyUp = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key === "Enter" || event.key === " ") {
-        if (state.isPressing) {
-          dispatch({ type: "PRESS_END" });
-        }
+      if ((event.key === "Enter" || event.key === " ") && isPressing) {
+        setIsPressing(false);
       }
     },
-    [state.isPressing]
+    [isPressing]
   );
 
-  // Handle pointer up event (attached to window)
+  // --- Global pointer up (to end press anywhere) ---
   useEffect(() => {
     if (isDisabled) return;
+
     const handlePointerUp = () => {
-      if (state.isPressing) dispatch({ type: "PRESS_END" });
+      if (isPressing) setIsPressing(false);
     };
+
     window.addEventListener("pointerup", handlePointerUp);
     window.addEventListener("contextmenu", handlePointerUp);
     return () => {
       window.removeEventListener("pointerup", handlePointerUp);
       window.removeEventListener("contextmenu", handlePointerUp);
     };
-  }, [state.isPressing, state.isPointerInside, isDisabled]);
+  }, [isPressing, isDisabled]);
 
+  // --- Attach event listeners to element ---
   useEffect(() => {
     const node = ref.current;
     if (!node || isDisabled) return;
@@ -111,7 +74,7 @@ export function usePress(props: usePress.UsePressProps = {}) {
     node.addEventListener("pointerleave", handlePointerLeave);
     node.addEventListener("keydown", handleKeyDown);
     node.addEventListener("keyup", handleKeyUp);
-    node.addEventListener("pointercancel", onPointerCancel);
+    node.addEventListener("pointercancel", handlePointerCancel);
 
     return () => {
       node.removeEventListener("pointerdown", handlePointerDown);
@@ -119,19 +82,19 @@ export function usePress(props: usePress.UsePressProps = {}) {
       node.removeEventListener("pointerleave", handlePointerLeave);
       node.removeEventListener("keydown", handleKeyDown);
       node.removeEventListener("keyup", handleKeyUp);
-      node.removeEventListener("pointercancel", onPointerCancel);
+      node.removeEventListener("pointercancel", handlePointerCancel);
     };
   }, [
-    handleKeyDown,
-    handleKeyUp,
     handlePointerDown,
     handlePointerEnter,
     handlePointerLeave,
+    handleKeyDown,
+    handleKeyUp,
+    handlePointerCancel,
     isDisabled,
-    onPointerCancel,
   ]);
 
-  return { isPressed, ref };
+  return { isPressed, ref, isPressing };
 }
 
 export namespace usePress {

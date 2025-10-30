@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   experimental: {
     typedEnv: true,
   },
+  reactStrictMode: false,
 };
 
 export default nextConfig;

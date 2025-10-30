@@ -42,7 +42,7 @@ export const CodeExample = async (props: CodeExampleProps) => {
         <Text render={<a href={`#${id}`} />} variant="h5">
           {title}
         </Text>
-        <Text>{description}</Text>
+        {description && <Text>{description}</Text>}
       </div>
       <Tabs defaultValue="preview">
         <Tab heading="Preview" value="preview">

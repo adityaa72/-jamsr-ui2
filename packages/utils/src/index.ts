@@ -10,11 +10,12 @@ export { dataAttr, dataAttrDev, isDisabledElement } from "./attr";
 export { cn } from "./cn";
 export { mergeConfigProps, mergeProps } from "./merge-props";
 export { mapPropsVariants, radiusBaseVariant, radiusVariant } from "./tv";
-export {
-  type PropGetter,
-  type SlotsToClassNames,
-  type UIProps,
-  type UnknownTV,
+export type {
+  PropGetter,
+  SlotsToClassNames,
+  SlotsToReactNode,
+  UIProps,
+  UnknownTV,
 } from "./types";
 
 export {

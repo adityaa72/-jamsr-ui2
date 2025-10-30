@@ -2,9 +2,11 @@ import { groupDataFocusVisibleClasses, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
+const root = "root";
+
 export const switchVariants = tv({
   slots: {
-    root: "group flex flex-col gap-2",
+    [root]: "group flex flex-col gap-2",
     track: [
       ...groupDataFocusVisibleClasses,
       "flex cursor-pointer shrink-0 items-center rounded-full bg-surface-secondary p-1",
