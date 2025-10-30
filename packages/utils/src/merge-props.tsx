@@ -26,23 +26,13 @@ export const mergeProps = <T extends Record<string, any>>(
   }
 
   // Handle slotProps (object with keys like title, description, base)
-  const slotPropsObjects = propsValues
-    .map((prop) => prop.slotProps)
-    .filter(Boolean);
-  if (slotPropsObjects.length > 0) {
-    mergedProps.slotProps = {};
-    const allSlots = new Set(
-      slotPropsObjects.flatMap((obj) => Object.keys(obj))
-    );
-    allSlots.forEach((slot) => {
-      const slotPropsArray = slotPropsObjects
-        .map((obj) => obj[slot])
-        .filter(Boolean);
-      if (slotPropsArray.length > 0) {
-        mergedProps.slotProps[slot] = mergeProps(...slotPropsArray);
-      }
-    });
-  }
+  mergedProps.slots = propsValues.reduce(
+    (acc, prop) => ({
+      ...acc,
+      ...prop.slots,
+    }),
+    {}
+  );
 
   // Handle className (string)
   const classNames = propsValues.map((prop) => prop.className).filter(Boolean);

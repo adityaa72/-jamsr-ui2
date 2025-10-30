@@ -173,6 +173,7 @@ export const useSwitch = (props: useSwitch.Props) => {
 
   return useMemo(
     () => ({
+      isChecked,
       getRootProps,
       getThumbProps,
       getLabelProps,
@@ -183,6 +184,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       getInputProps,
     }),
     [
+      isChecked,
       getRootProps,
       getThumbProps,
       getLabelProps,
