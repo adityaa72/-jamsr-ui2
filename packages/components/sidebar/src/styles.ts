@@ -2,7 +2,7 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const sidebarVariants = tv({
   slots: {
     root: [

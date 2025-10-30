@@ -2,7 +2,7 @@ import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
 
-import type { Switch } from "./switch";
+import type { Switch } from "../switch";
 
 export const [SwitchConfig, useSwitchConfig] =
   createConfigContext<SwitchConfig.Props>({

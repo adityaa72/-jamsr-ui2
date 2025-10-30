@@ -2,7 +2,7 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const dividerVariants = tv({
   slots: {
     root: "flex items-center gap-2",

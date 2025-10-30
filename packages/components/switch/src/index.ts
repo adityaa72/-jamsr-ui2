@@ -1,4 +1,4 @@
 "use client";
 
+export { SwitchConfig, useSwitchConfig } from "./primitive";
 export { Switch } from "./switch";
-export { SwitchConfig, useSwitchConfig } from "./switch-config";

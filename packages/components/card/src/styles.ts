@@ -2,7 +2,7 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const cardVariants = tv({
   slots: {
     root: "relative flex flex-col overflow-hidden transition-colo",

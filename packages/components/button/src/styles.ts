@@ -8,7 +8,7 @@ import {
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const buttonVariant = tv({
   base: [
     "relative cursor-pointer inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",

@@ -2,7 +2,6 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
 export const accordionVariants = tv({
   slots: {
     root: "flex flex-col",

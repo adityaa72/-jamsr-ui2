@@ -7,83 +7,17 @@ import {
   SwitchDescription,
   SwitchInput,
   SwitchLabel,
+  Switch as SwitchPrimitive,
   SwitchRoot,
   SwitchThumb,
   SwitchTrack,
   SwitchWrapper,
   useSwitch,
 } from "./primitive";
-import { SwitchContext } from "./primitive/switch-context";
 
 import type { SlotsToReactNode } from "@jamsrui/utils";
 
 import type { SwitchSlots } from "./primitive/styles";
-
-const Root = ({
-  root,
-  children,
-}: {
-  root?: React.ReactElement;
-  children: React.ReactNode;
-}) => {
-  if (root) return cloneElement(root, {}, children);
-  return <SwitchRoot>{children}</SwitchRoot>;
-};
-
-const Wrapper = ({
-  wrapper,
-  children,
-}: {
-  wrapper?: React.ReactElement;
-  children: React.ReactNode;
-}) => {
-  if (wrapper) return cloneElement(wrapper, {}, children);
-  return <SwitchWrapper>{children}</SwitchWrapper>;
-};
-
-const Content = ({
-  content,
-  children,
-}: {
-  content?: React.ReactElement;
-  children: React.ReactNode;
-}) => {
-  if (content) return cloneElement(content, {}, children);
-  return <SwitchContent>{children}</SwitchContent>;
-};
-
-const Track = ({
-  track,
-  children,
-}: {
-  track?: React.ReactElement;
-  children: React.ReactNode;
-}) => {
-  if (track) return cloneElement(track, {}, children);
-  return <SwitchTrack>{children}</SwitchTrack>;
-};
-
-const Label = ({
-  label,
-  children,
-}: {
-  label?: React.ReactElement;
-  children: React.ReactNode;
-}) => {
-  if (label) return cloneElement(label, {}, children);
-  return <SwitchLabel>{children}</SwitchLabel>;
-};
-
-const Description = ({
-  description,
-  children,
-}: {
-  description?: React.ReactElement;
-  children: React.ReactNode;
-}) => {
-  if (description) return cloneElement(description, {}, children);
-  return <SwitchDescription>{children}</SwitchDescription>;
-};
 
 const Slot = ({
   slot,
@@ -100,9 +34,8 @@ const Slot = ({
 
 export const Switch = (props: Switch.Props) => {
   const { label, children, slots, ...restProps } = props;
-  const ctx = useSwitch(restProps);
   return (
-    <SwitchContext value={ctx}>
+    <SwitchPrimitive {...restProps}>
       <Slot Comp={SwitchRoot} slot={slots?.root}>
         <Slot Comp={SwitchWrapper} slot={slots?.wrapper}>
           <Slot Comp={SwitchInput} slot={slots?.input} />
@@ -121,7 +54,7 @@ export const Switch = (props: Switch.Props) => {
           </AnimatePresence>
         </Slot>
       </Slot>
-    </SwitchContext>
+    </SwitchPrimitive>
   );
 
   // const RootComp = slots?.root ?? SwitchRoot;

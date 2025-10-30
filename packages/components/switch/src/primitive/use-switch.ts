@@ -40,7 +40,6 @@ export const useSwitch = (props: useSwitch.Props) => {
     onCheckedChange,
     isDisabled,
     isReadonly,
-    slotProps,
     classNames,
   } = $props;
 
@@ -67,13 +66,9 @@ export const useSwitch = (props: useSwitch.Props) => {
 
   const getRootProps: PropGetter<SwitchRoot.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.root, props),
+      ...props,
       className: styles.root({
-        className: cn(
-          slotProps?.root?.className,
-          classNames?.root,
-          props.className
-        ),
+        className: cn(classNames?.root, props.className),
       }),
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("switch"),
@@ -82,31 +77,19 @@ export const useSwitch = (props: useSwitch.Props) => {
       "data-pressed": dataAttr(isPressed),
       "data-disabled": dataAttr(isDisabled),
     }),
-    [
-      classNames?.root,
-      isChecked,
-      isDisabled,
-      isFocusVisible,
-      isPressed,
-      slotProps?.root,
-      styles,
-    ]
+    [classNames?.root, isChecked, isDisabled, isFocusVisible, isPressed, styles]
   );
 
   const getInputProps: PropGetter<SwitchInput.Props> = useCallback(
     (props) => ({
-      ...mergeProps<SwitchInput.Props>(slotProps?.input, props, {
+      ...mergeProps<SwitchInput.Props>(props, {
         onChange: handleInputChange,
       }),
       ref: inputRefs,
       type: "checkbox",
       "data-slot": dataAttrDev("input"),
       className: styles.input({
-        className: cn(
-          slotProps?.input?.className,
-          classNames?.input,
-          props.className
-        ),
+        className: cn(classNames?.input, props.className),
       }),
       disabled: isDisabled,
       readOnly: isReadonly,
@@ -117,100 +100,75 @@ export const useSwitch = (props: useSwitch.Props) => {
       inputRefs,
       isDisabled,
       isReadonly,
-      slotProps?.input,
       styles,
     ]
   );
 
   const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.track, props),
+      ...props,
       "data-slot": "track",
       className: styles.track({
-        className: cn(
-          slotProps?.track?.className,
-          classNames?.track,
-          props.className
-        ),
+        className: cn(classNames?.track, props.className),
       }),
     }),
-    [classNames?.track, slotProps?.track, styles]
+    [classNames?.track, styles]
   );
 
   const getThumbProps: PropGetter<SwitchThumb.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.thumb, props),
+      ...props,
       layoutId: layoutId,
       "data-slot": "thumb",
       className: styles.thumb({
-        className: cn(
-          slotProps?.thumb?.className,
-          classNames?.thumb,
-          props.className
-        ),
+        className: cn(classNames?.thumb, props.className),
       }),
     }),
-    [classNames?.thumb, layoutId, slotProps?.thumb, styles]
+    [classNames?.thumb, layoutId, styles]
   );
 
   const getLabelProps: PropGetter<SwitchLabel.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.label, props),
+      ...props,
       "data-slot": "label",
       className: styles.label({
-        className: cn(
-          slotProps?.label?.className,
-          classNames?.label,
-          props.className
-        ),
+        className: cn(classNames?.label, props.className),
       }),
     }),
-    [classNames?.label, slotProps?.label, styles]
+    [classNames?.label, styles]
   );
 
   const getDescriptionProps: PropGetter<SwitchDescription.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.description, props),
+      ...props,
       "data-slot": "description",
       className: styles.description({
-        className: cn(
-          slotProps?.description?.className,
-          classNames?.description,
-          props.className
-        ),
+        className: cn(classNames?.description, props.className),
       }),
     }),
-    [classNames?.description, slotProps?.description, styles]
+    [classNames?.description, styles]
   );
 
   const getContentProps: PropGetter<SwitchContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.content, props),
+      ...props,
       "data-slot": "content",
       className: styles.content({
-        className: cn(
-          slotProps?.content?.className,
-          classNames?.content,
-          props.className
-        ),
+        className: cn(classNames?.content, props.className),
       }),
     }),
-    [classNames?.content, slotProps?.content, styles]
+    [classNames?.content, styles]
   );
 
   const getWrapperProps: PropGetter<SwitchWrapper.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.wrapper, props),
+      ...props,
       "data-slot": "wrapper",
       className: styles.wrapper({
-        className: cn(
-          slotProps?.wrapper?.className,
-          classNames?.wrapper,
-          props.className
-        ),
+        className: cn(classNames?.wrapper, props.className),
       }),
     }),
-    [classNames?.wrapper, slotProps?.wrapper, styles]
+    [classNames?.wrapper, styles]
   );
 
   return useMemo(
@@ -246,15 +204,5 @@ export namespace useSwitch {
     defaultChecked?: boolean;
     children?: React.ReactNode;
     classNames?: SlotsToClassNames<SwitchSlots>;
-    slotProps?: {
-      root?: SwitchRoot.Props;
-      input?: SwitchInput.Props;
-      track?: SwitchTrack.Props;
-      thumb?: SwitchThumb.Props;
-      label?: SwitchLabel.Props;
-      description?: SwitchDescription.Props;
-      content?: SwitchContent.Props;
-      wrapper?: SwitchWrapper.Props;
-    };
   }
 }

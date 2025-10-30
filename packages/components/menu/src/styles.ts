@@ -2,7 +2,7 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const menuVariants = tv({
   slots: {
     arrow: "fill-background-secondary",

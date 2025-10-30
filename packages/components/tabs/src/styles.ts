@@ -7,7 +7,7 @@ import {
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const tabsVariant = tv({
   slots: {
     root: "",

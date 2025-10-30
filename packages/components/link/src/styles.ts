@@ -3,7 +3,7 @@ import { focusVisibleClasses, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const linkVariants = tv({
   extend: textVariants,
   base: [

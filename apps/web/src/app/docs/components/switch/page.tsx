@@ -7,6 +7,7 @@ import { SwitchControlled } from "./examples/controlled";
 import { SwitchCustomization } from "./examples/customization";
 import { SwitchDescription } from "./examples/description";
 import { SwitchDisabled } from "./examples/disabled";
+import { SwitchGlobalCustomization } from "./examples/global-customization";
 import { SwitchLabelPlacement } from "./examples/label-placement";
 import { SwitchPrimitiveUsage } from "./examples/primitive";
 import { SwitchReadonly } from "./examples/readonly";
@@ -91,6 +92,13 @@ const Switch = () => {
         url={resolvePath("customization.tsx")}
       >
         <SwitchCustomization />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Global Customization"
+        url={resolvePath("global-customization.tsx")}
+      >
+        <SwitchGlobalCustomization />
       </CodeExample>
     </DocsPage>
   );

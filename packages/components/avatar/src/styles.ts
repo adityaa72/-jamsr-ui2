@@ -2,7 +2,7 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const avatarVariants = tv({
   slots: {
     root: "relative flex-shrink-0 overflow-hidden rounded-full bg-surface object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",

@@ -2,7 +2,7 @@ import { focusVisibleClasses, radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const test = "";
+
 export const selectVariants = tv({
   slots: {
     root: ["group relative flex w-full flex-col gap-1 text-sm"],
