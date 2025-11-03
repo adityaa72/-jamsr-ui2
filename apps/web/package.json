@@ -13,6 +13,7 @@
   "dependencies": {
     "@faker-js/faker": "10.1.0",
     "@jamsrui/button": "workspace:^",
+    "@jamsrui/checkbox": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/react": "workspace:^",

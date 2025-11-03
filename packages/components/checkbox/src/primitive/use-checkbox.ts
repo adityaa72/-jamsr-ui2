@@ -40,12 +40,10 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     isChecked: isCheckedProp,
     onCheckedChange,
     defaultChecked,
-    label,
-    helperText,
     isReadonly,
     classNames,
     isDisabled: isDisabledProp,
-    children: description,
+    children,
     ...elementProps
   } = $props;
 
@@ -203,14 +201,12 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       onCheckedChange,
       getErrorMessageProps,
       defaultChecked,
-      label,
-      description,
-      helperText,
       isChecked,
+      children,
     }),
     [
+      children,
       defaultChecked,
-      description,
       getContentProps,
       getDescriptionProps,
       getErrorMessageProps,
@@ -219,9 +215,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       getRootProps,
       getTriggerProps,
       getWrapperProps,
-      helperText,
       isChecked,
-      label,
       onCheckedChange,
     ]
   );
@@ -229,11 +223,9 @@ export const useCheckbox = (props: useCheckbox.Props) => {
 
 export namespace useCheckbox {
   export interface Props extends UIProps<"input">, CheckboxVariantProps {
-    label?: React.ReactNode;
     defaultChecked?: boolean;
     isChecked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
-    helperText?: string;
     classNames?: SlotsToClassNames<CheckboxSlots>;
     isReadonly?: boolean;
     isDisabled?: boolean;

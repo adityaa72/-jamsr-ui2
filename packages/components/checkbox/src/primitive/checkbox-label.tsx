@@ -5,11 +5,10 @@ import { useCheckboxContext } from "./checkbox-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const CheckboxLabel = (props: CheckboxLabel.Props) => {
-  const { getLabelProps, label } = useCheckboxContext();
+  const { getLabelProps } = useCheckboxContext();
   const renderElement = useRenderElement("label", {
-    props: [getLabelProps(props), { children: label }],
+    props: [getLabelProps(props)],
   });
-  if (!label) return null;
   return renderElement;
 };
 

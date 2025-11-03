@@ -5,7 +5,7 @@ export const CheckboxInvalidState = () => {
     <Checkbox
       label="Are you agree to our terms?"
       isInvalid
-      helperText="You must 've to agree the terms"
+      // ="You must 've to agree the terms"
     />
   );
 };

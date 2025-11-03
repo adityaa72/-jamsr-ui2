@@ -174,6 +174,9 @@ importers:
       '@jamsrui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
+      '@jamsrui/checkbox':
+        specifier: workspace:^
+        version: link:../../packages/components/checkbox
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../packages/hooks
