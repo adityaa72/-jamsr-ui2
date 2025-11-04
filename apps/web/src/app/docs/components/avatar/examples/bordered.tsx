@@ -11,7 +11,6 @@ export const AvatarBordered = () => {
     "danger",
   ];
   const id = useId();
-
   return (
     <div className="flex gap-4">
       {colors.map((color) => (

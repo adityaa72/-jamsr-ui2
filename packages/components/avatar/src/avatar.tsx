@@ -6,6 +6,7 @@ import {
   AvatarContext,
   AvatarFallback,
   AvatarImage,
+  AvatarIndicator,
   AvatarRoot,
   useAvatar,
 } from "./primitive";
@@ -17,9 +18,8 @@ import type { AvatarSlots } from "./primitive/styles";
 export const Avatar = (props: Avatar.Props) => {
   const config = useAvatarConfig();
   const mergedProps = mergeConfigProps(config, props, props);
-  const { children, slots, ...restProps } = mergedProps;
+  const { children, slots, indicator, ...restProps } = mergedProps;
   const ctx = useAvatar(restProps);
-
   return (
     <AvatarContext value={ctx}>
       <Slot slot={slots?.root}>
@@ -30,6 +30,11 @@ export const Avatar = (props: Avatar.Props) => {
           <Slot slot={slots?.fallback}>
             <AvatarFallback>{children}</AvatarFallback>
           </Slot>
+          {!!indicator && (
+            <Slot slot={slots?.indicator}>
+              <AvatarIndicator>{indicator}</AvatarIndicator>
+            </Slot>
+          )}
         </AvatarRoot>
       </Slot>
     </AvatarContext>
@@ -39,5 +44,6 @@ export const Avatar = (props: Avatar.Props) => {
 export namespace Avatar {
   export interface Props extends useAvatar.Props {
     slots?: SlotsToReactNode<AvatarSlots>;
+    indicator?: React.ReactNode;
   }
 }

@@ -4,9 +4,11 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const avatarVariants = tv({
   slots: {
-    root: "relative shrink-0 overflow-hidden rounded-full bg-surface object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
-    img: "select-none",
+    root: "relative shrink-0 rounded-full bg-surface object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
+    img: "select-none rounded-inherit",
     fallback: "absolute inset-0 flex items-center justify-center",
+    indicator:
+      "absolute -bottom-2 -right-1 size-6 flex justify-center items-center",
   },
   variants: {
     size: {

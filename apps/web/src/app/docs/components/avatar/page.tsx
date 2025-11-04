@@ -7,6 +7,7 @@ import { AvatarColors } from "./examples/colors";
 import { AvatarCustomization } from "./examples/customization";
 import { AvatarFallbacks } from "./examples/fallbacks";
 import { AvatarImageFallback } from "./examples/image-fallback";
+import { AvatarIndicatorExample } from "./examples/indicator";
 import { AvatarRadius } from "./examples/radius";
 import { AvatarUsage } from "./examples/usage";
 
@@ -52,6 +53,13 @@ const Avatar = () => {
         url={resolvePath("bordered.tsx")}
       >
         <AvatarBordered />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Indicator"
+        url={resolvePath("indicator.tsx")}
+      >
+        <AvatarIndicatorExample />
       </CodeExample>
       <CodeExample
         isCentered

@@ -94,15 +94,34 @@ export const useAvatar = (props: useAvatar.Props) => {
     [classNames?.fallback, styles]
   );
 
+  const getIndicatorProps: PropGetter<AvatarFallback.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("indicator"),
+      className: styles.indicator({
+        className: cn(classNames?.indicator, props.className),
+      }),
+    }),
+    [classNames?.indicator, styles]
+  );
+
   return useMemo(
     () => ({
       getRootProps,
       getImgProps,
       getFallbackProps,
+      getIndicatorProps,
       fallBackString,
       hasImage,
     }),
-    [fallBackString, getFallbackProps, getImgProps, getRootProps, hasImage]
+    [
+      fallBackString,
+      getFallbackProps,
+      getImgProps,
+      getIndicatorProps,
+      getRootProps,
+      hasImage,
+    ]
   );
 };
 export namespace useAvatar {
