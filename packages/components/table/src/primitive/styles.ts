@@ -2,21 +2,17 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const tableVariants = tv({
   slots: {
     root: "relative flex flex-col gap-2 overflow-hidden",
     wrapper: "grid w-full gap-2 overflow-x-auto",
     table: "group/table w-full min-w-full",
     thead: "h-10",
-    th: "h-10 grow items-center whitespace-nowrap px-3 text-left text-sm",
+    th: "h-10 grow items-center px-3 text-left text-sm font-normal",
     tbody: "",
     tr: "group/tr",
-    td: "overflow-hidden whitespace-nowrap px-3 text-sm",
+    td: "overflow-hidden  px-3 text-sm",
     tfoot: "",
-    sortIcon: "",
-    emptyWrapper: "",
-    loadingWrapper: "",
   },
   variants: {
     variant: {
@@ -25,7 +21,7 @@ export const tableVariants = tv({
         root: "rounded-2xl bg-surface p-4",
       },
       bordered: {
-        th: "border-b border-b-stroke-secondary",
+        th: "border-b border-b-divider-dark",
         td: "border-b border-divider",
         root: "bg-surface",
       },

@@ -1,8 +1,10 @@
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
   TableColumn,
+  TableFooter,
   TableHeader,
   TableRow,
 } from "@jamsrui/react";
@@ -39,6 +41,20 @@ export const TableUsage = () => {
           <TableCell>Vacation</TableCell>
         </TableRow>
       </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>
+            <div className="flex justify-between items-center">
+              <span className="text-sm text-foreground-secondary">
+                Showing 4 of 4 employees
+              </span>
+              <Button color="primary" size="xs">
+                View All
+              </Button>
+            </div>
+          </TableCell>
+        </TableRow>
+      </TableFooter>
     </Table>
   );
 };

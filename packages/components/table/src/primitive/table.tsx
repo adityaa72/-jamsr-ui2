@@ -1,13 +1,11 @@
 import { mergeConfigProps } from "@jamsrui/utils";
 
-import {
-  TableContext,
-  TableRoot,
-  TableTable,
-  TableWrapper,
-  useTable,
-} from "./primitive";
 import { useTableConfig } from "./table-config";
+import { TableContext } from "./table-context";
+import { TableRoot } from "./table-root";
+import { TableTable } from "./table-table";
+import { TableWrapper } from "./table-wrapper";
+import { useTable } from "./use-table";
 
 export const Table = (props: Table.Props) => {
   const { children } = props;

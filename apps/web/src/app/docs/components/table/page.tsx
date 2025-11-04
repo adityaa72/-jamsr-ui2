@@ -4,6 +4,7 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { TableAllowHover } from "./examples/allow-hover";
 import { TableBordered } from "./examples/bordered";
+import { TableCustomEmptyState } from "./examples/custom-empty-state";
 import { TableEmptyState } from "./examples/empty-state";
 import { TableStickyHeader } from "./examples/sticky-header";
 import { TableUsage } from "./examples/usage";
@@ -33,8 +34,14 @@ const Table = () => {
       <CodeExample title="Sticky Header" url={resolvePath("sticky-header.tsx")}>
         <TableStickyHeader />
       </CodeExample>
-      <CodeExample title="Emtpy State" url={resolvePath("empty-state.tsx")}>
+      <CodeExample title="Empty State" url={resolvePath("empty-state.tsx")}>
         <TableEmptyState />
+      </CodeExample>
+      <CodeExample
+        title="Custom Empty State"
+        url={resolvePath("custom-empty-state.tsx")}
+      >
+        <TableCustomEmptyState />
       </CodeExample>
     </DocsPage>
   );

@@ -19,6 +19,7 @@
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/react": "workspace:^",
     "@jamsrui/switch": "workspace:^",
+    "@jamsrui/table": "workspace:^",
     "@jamsrui/theme": "workspace:^",
     "@jamsrui/utils": "workspace:^",
     "@tanstack/react-query": "^5.81.5",

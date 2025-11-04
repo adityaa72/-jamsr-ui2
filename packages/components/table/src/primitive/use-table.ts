@@ -13,6 +13,7 @@ import type { TableCell } from "./table-cell";
 import type { TableColumn } from "./table-column";
 import type { TableFooter } from "./table-footer";
 import type { TableHeader } from "./table-header";
+import type { TableRoot } from "./table-root";
 import type { TableRow } from "./table-row";
 import type { TableWrapper } from "./table-wrapper";
 
@@ -21,135 +22,111 @@ export const useTable = (props: useTable.Props) => {
     props,
     tableVariants.variantKeys
   );
-  const { classNames, slotProps, ...elementProps } = $props;
+  const { classNames, ...elementProps } = $props;
   const styles = tableVariants(variantProps);
 
-  const getRootProps: PropGetter<Table.Props> = useCallback(
-    () => ({
-      ...elementProps,
+  const getRootProps: PropGetter<TableRoot.Props> = useCallback(
+    (props) => ({
+      ...props,
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("table"),
       className: styles.root({
-        className: cn(classNames?.root, $props.className),
+        className: cn(classNames?.root, props.className),
       }),
     }),
-    [$props.className, classNames?.root, elementProps, styles]
+    [classNames?.root, styles]
   );
 
   const getWrapperProps: PropGetter<TableWrapper.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.wrapper, props),
+      ...props,
       "data-slot": dataAttrDev("wrapper"),
       className: styles.wrapper({
-        className: cn(
-          slotProps?.wrapper?.className,
-          classNames?.wrapper,
-          props.className
-        ),
+        className: cn(classNames?.wrapper, props.className),
       }),
     }),
-    [classNames?.wrapper, slotProps?.wrapper, styles]
+    [classNames?.wrapper, styles]
   );
 
   const getTableProps: PropGetter<Table.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.table, props),
+      ...mergeProps(elementProps, props),
       "data-slot": dataAttrDev("table"),
       className: styles.table({
         className: cn(
-          slotProps?.table?.className,
+          elementProps.className,
           classNames?.table,
           props.className
         ),
       }),
     }),
-    [classNames?.table, slotProps?.table, styles]
+    [classNames?.table, elementProps, styles]
   );
 
   const getHeaderProps: PropGetter<TableHeader.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.header, props),
+      ...props,
       "data-slot": dataAttrDev("header"),
       className: styles.thead({
-        className: cn(
-          slotProps?.header?.className,
-          classNames?.thead,
-          props.className
-        ),
+        className: cn(classNames?.thead, props.className),
       }),
     }),
-    [classNames?.thead, slotProps?.header, styles]
+    [classNames?.thead, styles]
   );
 
   const getColumnProps: PropGetter<TableColumn.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.column, props),
+      ...props,
       "data-slot": dataAttrDev("column"),
       className: styles.th({
-        className: cn(slotProps?.column, classNames?.th, props.className),
+        className: cn(classNames?.th, props.className),
       }),
     }),
-    [classNames?.th, slotProps?.column, styles]
+    [classNames?.th, styles]
   );
 
   const getBodyProps: PropGetter<TableBody.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.body, props),
+      ...props,
       "data-slot": dataAttrDev("body"),
       className: styles.tbody({
-        className: cn(
-          slotProps?.body?.className,
-          classNames?.tbody,
-          props.className
-        ),
+        className: cn(classNames?.tbody, props.className),
       }),
     }),
-    [classNames?.tbody, slotProps?.body, styles]
+    [classNames?.tbody, styles]
   );
 
   const getRowProps: PropGetter<TableRow.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.row, props),
+      ...props,
       "data-slot": dataAttrDev("row"),
       className: styles.tr({
-        className: cn(
-          slotProps?.row?.className,
-          classNames?.tr,
-          props.className
-        ),
+        className: cn(classNames?.tr, props.className),
       }),
     }),
-    [classNames?.tr, slotProps?.row, styles]
+    [classNames?.tr, styles]
   );
 
   const getCellProps: PropGetter<TableCell.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.cell, props),
+      ...props,
       "data-slot": dataAttrDev("cell"),
       className: styles.td({
-        className: cn(
-          slotProps?.cell?.className,
-          classNames?.td,
-          props.className
-        ),
+        className: cn(classNames?.td, props.className),
       }),
     }),
-    [classNames?.td, slotProps?.cell, styles]
+    [classNames?.td, styles]
   );
 
   const getFooterProps: PropGetter<TableFooter.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.footer, props),
+      ...props,
       "data-slot": dataAttrDev("footer"),
       className: styles.tfoot({
-        className: cn(
-          slotProps?.footer?.className,
-          classNames?.tfoot,
-          props.className
-        ),
+        className: cn(classNames?.tfoot, props.className),
       }),
     }),
-    [classNames?.tfoot, slotProps?.footer, styles]
+    [classNames?.tfoot, styles]
   );
 
   return useMemo(
@@ -181,15 +158,5 @@ export const useTable = (props: useTable.Props) => {
 export namespace useTable {
   export interface Props extends UIProps<"table">, TableVariantProps {
     classNames?: SlotsToClassNames<TableSlots>;
-    slotProps?: {
-      table?: Table.Props;
-      header?: TableHeader.Props;
-      column?: TableColumn.Props;
-      body?: TableBody.Props;
-      row?: TableRow.Props;
-      cell?: TableCell.Props;
-      footer?: TableFooter.Props;
-      wrapper?: TableWrapper.Props;
-    };
   }
 }

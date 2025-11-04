@@ -18,7 +18,7 @@ export const AvatarCustomization = () => {
       slots={{
         root: <AvatarRoot className="ring-3" />,
         fallback: <AvatarFallback />,
-        img: <AvatarImage />,
+        img: <AvatarImage data-testid="img" />,
       }}
     />
   );

@@ -20,6 +20,7 @@ export {
   EyeClosedIcon,
   EyeOpenIcon,
   FileAddIcon,
+  FileIcon,
   GalleryIcon,
   ImageAddIcon,
   MinusIcon,

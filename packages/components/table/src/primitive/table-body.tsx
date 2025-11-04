@@ -6,16 +6,17 @@ import { TableEmptyState } from "./table-empty-state";
 import type { UIProps } from "@jamsrui/utils";
 
 export const TableBody = (props: TableBody.Props) => {
-  const { children } = props;
-
+  const { children, emptySlot = <TableEmptyState />, ...restProps } = props;
   const { getBodyProps } = useTableContext();
-
-  const composedChildren = children ?? <TableEmptyState />;
+  const composedChildren = children ?? emptySlot;
   const renderElement = useRenderElement("tbody", {
-    props: [getBodyProps(props), { children: composedChildren }],
+    props: [getBodyProps(restProps), { children: composedChildren }],
   });
   return renderElement;
 };
+
 export namespace TableBody {
-  export interface Props extends UIProps<"tbody"> {}
+  export interface Props extends UIProps<"tbody"> {
+    emptySlot?: React.ReactNode;
+  }
 }
