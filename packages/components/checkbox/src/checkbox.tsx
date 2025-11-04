@@ -1,5 +1,4 @@
-import { cloneElement } from "react";
-
+import { Slot } from "@jamsrui/slot";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useCheckboxConfig } from "./checkbox-config";
@@ -20,25 +19,6 @@ import {
 import type { SlotsToReactNode } from "@jamsrui/utils";
 
 import type { CheckboxSlots } from "./primitive/styles";
-
-const Slot = ({
-  slot,
-  children,
-  slotProps,
-}: {
-  slot: React.ReactElement<{ children?: React.ReactNode }> | undefined;
-  children?: React.ReactElement<{ children?: React.ReactNode }>;
-  slotProps?: Record<string, unknown>;
-}) => {
-  if (slot) {
-    return cloneElement(
-      slot,
-      slotProps,
-      slot.props?.children ?? children?.props?.children
-    );
-  }
-  return <>{children}</>;
-};
 
 export const Checkbox = (props: Checkbox.Props) => {
   const config = useCheckboxConfig();

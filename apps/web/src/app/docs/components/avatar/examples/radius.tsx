@@ -1,14 +1,28 @@
 import { Avatar } from "@jamsrui/react";
 import { useId } from "react";
 
-export const AvatarUsage = (props: Partial<Avatar.Props>) => {
+export const AvatarRadius = (props: Partial<Avatar.Props>) => {
   const id = useId();
+  const radii: Avatar.Props["radius"][] = [
+    "none",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "2xl",
+    "3xl",
+    "full",
+  ];
   return (
-    <Avatar
-      alt="John"
-      className="flex"
-      src={`https://i.pravatar.cc/300?u=${id}`}
-      {...props}
-    />
+    <div className="flex gap-2">
+      {radii.map((radius) => (
+        <Avatar
+          key={radius}
+          radius={radius}
+          {...props}
+          src={`https://i.pravatar.cc/300?u=${id}${radius}`}
+        />
+      ))}
+    </div>
   );
 };

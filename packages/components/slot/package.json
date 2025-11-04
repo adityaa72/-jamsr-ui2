@@ -1,11 +1,7 @@
 {
-  "name": "@jamsrui/switch",
+  "name": "@jamsrui/slot",
   "version": "0.0.8",
   "main": "./src/index.ts",
-  "exports": {
-    ".": "./src/index.ts",
-    "./primitive": "./src/primitive/index.ts"
-  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "npx eslint src --ext .ts,.tsx --fix",
@@ -15,19 +11,12 @@
   },
   "devDependencies": {
     "@types/react": "catalog:",
-    "clean-package": "^2.2.0",
-    "motion": "catalog:",
-    "react": "catalog:"
+    "react": "catalog:",
+    "clean-package": "^2.2.0"
   },
   "peerDependencies": {
-    "motion": "catalog:",
     "react": "catalog:"
   },
-  "dependencies": {
-    "@jamsrui/core": "workspace:^",
-    "@jamsrui/hooks": "workspace:^",
-    "@jamsrui/slot": "workspace:^",
-    "@jamsrui/utils": "workspace:^"
-  },
+  "dependencies": {},
   "clean-package": "./clean-package.config.json"
 }

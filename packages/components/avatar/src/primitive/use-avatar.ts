@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { avatarVariants } from "./styles";
 import { getFirstChar } from "./utils";
 
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
-import type { Avatar } from "./avatar";
 import type { AvatarFallback } from "./avatar-fallback";
-import type { AvatarImage } from "./avatar-img";
+import type { AvatarImage } from "./avatar-image";
+import type { AvatarRoot } from "./avatar-root";
 import type { AvatarSlots, AvatarVariants } from "./styles";
 
 export const useAvatar = (props: useAvatar.Props) => {
@@ -19,7 +19,6 @@ export const useAvatar = (props: useAvatar.Props) => {
   );
   const {
     classNames,
-    slotProps,
     children,
     alt = "",
     fallback,
@@ -57,20 +56,16 @@ export const useAvatar = (props: useAvatar.Props) => {
     [alt, fallback, name, onError]
   );
 
-  const getRootProps: PropGetter<Avatar.Props> = useCallback(
+  const getRootProps: PropGetter<AvatarRoot.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.root, props),
+      ...props,
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("avatar"),
       className: styles.root({
-        className: cn(
-          slotProps?.root?.className,
-          classNames?.root,
-          props.className
-        ),
+        className: cn(classNames?.root, props.className),
       }),
     }),
-    [classNames?.root, slotProps?.root, styles]
+    [classNames?.root, styles]
   );
 
   const getImgProps: PropGetter<AvatarImage.Props> = useCallback(
@@ -90,17 +85,13 @@ export const useAvatar = (props: useAvatar.Props) => {
 
   const getFallbackProps: PropGetter<AvatarFallback.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.fallback, props),
+      ...props,
       "data-slot": dataAttrDev("fallback"),
       className: styles.fallback({
-        className: cn(
-          slotProps?.fallback?.className,
-          classNames?.fallback,
-          props.className
-        ),
+        className: cn(classNames?.fallback, props.className),
       }),
     }),
-    [classNames?.fallback, slotProps?.fallback, styles]
+    [classNames?.fallback, styles]
   );
 
   return useMemo(
@@ -118,10 +109,6 @@ export namespace useAvatar {
   export interface Props extends AvatarVariants, UIProps<"img"> {
     fallback?: string | ((_: { alt: string; name?: string }) => string);
     classNames?: SlotsToClassNames<AvatarSlots>;
-    slotProps?: {
-      root?: Omit<Avatar.Props, "classNames" | "slotProps">;
-      fallback?: AvatarFallback.Props;
-    };
     name?: string;
   }
 }

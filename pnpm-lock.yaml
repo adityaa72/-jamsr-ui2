@@ -171,6 +171,9 @@ importers:
       '@faker-js/faker':
         specifier: 10.1.0
         version: 10.1.0
+      '@jamsrui/avatar':
+        specifier: workspace:^
+        version: link:../../packages/components/avatar
       '@jamsrui/button':
         specifier: workspace:^
         version: link:../../packages/components/button
@@ -429,6 +432,9 @@ importers:
       '@jamsrui/icons':
         specifier: workspace:^
         version: link:../../icons
+      '@jamsrui/slot':
+        specifier: workspace:^
+        version: link:../slot
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -545,6 +551,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/slot':
+        specifier: workspace:^
+        version: link:../slot
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -1372,6 +1381,18 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/slot:
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      clean-package:
+        specifier: ^2.2.0
+        version: 2.2.0
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/switch:
     dependencies:
       '@jamsrui/core':
@@ -1380,6 +1401,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/slot':
+        specifier: workspace:^
+        version: link:../slot
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils

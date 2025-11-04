@@ -6,13 +6,23 @@ export const AvatarImageFallback = () => {
   return (
     <div className="flex gap-4">
       <Avatar
-        alt="image"
+        alt="Admin"
         className="flex"
         src="https://error.jamsrworld.com/error.png"
         width={100}
         height={100}
+        fallback={({ alt }) =>
+          `https://avatar.iran.liara.run/username?username=${alt}`
+        }
+      />
+      <Avatar
+        className="flex"
+        name="Jamsrworld"
+        src="https://error.jamsrworld.com/error.png"
+        width={100}
+        height={100}
         fallback={({ name }) =>
-          `https://avatars.jamsrworld.com/username?username=${name}`
+          `https://avatar.iran.liara.run/username?username=${name}`
         }
       />
       <Avatar
@@ -21,20 +31,10 @@ export const AvatarImageFallback = () => {
         src="https://error.jamsrworld.com/error.png"
         width={100}
         height={100}
-        fallback={({ name }) =>
-          `https://avatars.jamsrworld.com/public?username=${name}`
-        }
+        fallback="https://avatar.iran.liara.run/public"
       />
       <Avatar
-        alt="image"
-        className="flex"
-        src="https://error.jamsrworld.com/error.png"
-        width={100}
-        height={100}
-        fallback="https://i.pravatar.cc/150?u=random123"
-      />
-      <Avatar
-        alt="image"
+        alt="John Deo"
         className="flex"
         src="https://error.jamsrworld.com/error.png"
         width={100}

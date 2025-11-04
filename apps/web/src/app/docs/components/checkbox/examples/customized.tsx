@@ -22,7 +22,7 @@ export const CheckboxCustomized = () => {
         ),
         wrapper: <CheckboxWrapper className="border border-default" />,
         content: <CheckboxContent className="border border-default-active" />,
-        input: <CheckboxInput className="sr-only" data-testid="input" />,
+        input: <CheckboxInput data-testid="input" />,
       }}
     >
       Hiii there

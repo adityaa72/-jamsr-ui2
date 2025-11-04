@@ -1,5 +1,4 @@
-import { cloneElement } from "react";
-
+import { Slot } from "@jamsrui/slot";
 import { mergeConfigProps } from "@jamsrui/utils";
 import { AnimatePresence } from "motion/react";
 
@@ -21,24 +20,6 @@ import type { SlotsToReactNode } from "@jamsrui/utils";
 
 import type { SwitchSlots } from "./primitive/styles";
 
-const Slot = ({
-  slot,
-  children,
-  Comp,
-  slotProps,
-}: {
-  slot?: React.ReactElement<{ children?: React.ReactNode }>;
-  children?: React.ReactNode;
-  Comp: React.ComponentType<{ children: React.ReactNode }>;
-  slotProps?: Record<string, unknown>;
-}) => {
-  if (slot) {
-    // const mergedProps = mergeProps(slot.props ?? {}, slotProps);
-    return cloneElement(slot, slotProps, slot.props?.children ?? children);
-  }
-  return <Comp>{children}</Comp>;
-};
-
 export const Switch = (props: Switch.Props) => {
   const config = useSwitchConfig();
   const mergedProps = mergeConfigProps(config, config, props);
@@ -46,51 +27,38 @@ export const Switch = (props: Switch.Props) => {
   const ctx = useSwitch(restProps);
   return (
     <SwitchContext value={ctx}>
-      <Slot Comp={SwitchRoot} slot={slots?.root}>
-        <Slot Comp={SwitchWrapper} slot={slots?.wrapper}>
-          <Slot Comp={SwitchInput} slot={slots?.input} />
-          <Slot Comp={SwitchContent} slot={slots?.content}>
-            <Slot Comp={SwitchLabel} slot={slots?.label}>
-              {label}
-            </Slot>
-            <Slot
-              Comp={SwitchDescription}
-              slot={slots?.description}
-              slotProps={ctx.getDescriptionProps(
-                slots?.description?.props ?? {}
-              )}
-            >
-              {children}
-            </Slot>
+      <Slot slot={slots?.root}>
+        <SwitchRoot>
+          <Slot slot={slots?.wrapper}>
+            <SwitchWrapper>
+              <Slot slot={slots?.input}>
+                <SwitchInput />
+              </Slot>
+              <Slot slot={slots?.content}>
+                <SwitchContent>
+                  <Slot slot={slots?.label}>
+                    <SwitchLabel>{label}</SwitchLabel>
+                  </Slot>
+                  <Slot slot={slots?.description}>
+                    <SwitchDescription>{children}</SwitchDescription>
+                  </Slot>
+                </SwitchContent>
+              </Slot>
+              <AnimatePresence initial={false}>
+                <Slot slot={slots?.track}>
+                  <SwitchTrack>
+                    <Slot slot={slots?.thumb}>
+                      <SwitchThumb />
+                    </Slot>
+                  </SwitchTrack>
+                </Slot>
+              </AnimatePresence>
+            </SwitchWrapper>
           </Slot>
-          <AnimatePresence initial={false}>
-            <Slot Comp={SwitchTrack} slot={slots?.track}>
-              <Slot Comp={SwitchThumb} slot={slots?.thumb} />
-            </Slot>
-          </AnimatePresence>
-        </Slot>
+        </SwitchRoot>
       </Slot>
     </SwitchContext>
   );
-
-  // const RootComp = slots?.root ?? SwitchRoot;
-  // return (
-  //   <SwitchContext value={ctx}>
-  //     <RootComp />
-  //     <SwitchRoot>
-  //       <SwitchWrapper>
-  //         <SwitchInput />
-  //         <SwitchContent>
-  //           {!!label && <SwitchLabel>{label}</SwitchLabel>}
-  //           {!!description && <SwitchLabel>{description}</SwitchLabel>}
-  //         </SwitchContent>
-  //         <AnimatePresence initial={false}>
-  //           <SwitchTrack>{thumb}</SwitchTrack>
-  //         </AnimatePresence>
-  //       </SwitchWrapper>
-  //     </SwitchRoot>
-  //   </SwitchContext>
-  // );
 };
 
 export namespace Switch {

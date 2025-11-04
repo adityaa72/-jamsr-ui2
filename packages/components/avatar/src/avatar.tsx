@@ -1,37 +1,43 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { Slot } from "@jamsrui/slot";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAvatarConfig } from "./avatar-config";
-import { AvatarContext } from "./avatar-context";
-import { AvatarFallback } from "./avatar-fallback";
-import { AvatarImage } from "./avatar-img";
-import { useAvatar } from "./use-avatar";
+import {
+  AvatarContext,
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  useAvatar,
+} from "./primitive";
+
+import type { SlotsToReactNode } from "@jamsrui/utils";
+
+import type { AvatarSlots } from "./primitive/styles";
 
 export const Avatar = (props: Avatar.Props) => {
-  const { children } = props;
   const config = useAvatarConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
-  const ctx = useAvatar(mergedProps);
-  const { getRootProps } = ctx;
+  const mergedProps = mergeConfigProps(config, props, props);
+  const { children, slots, ...restProps } = mergedProps;
+  const ctx = useAvatar(restProps);
 
-  const composedChildren = (
-    <>
-      <AvatarImage />
-      <AvatarFallback>{children}</AvatarFallback>
-    </>
+  return (
+    <AvatarContext value={ctx}>
+      <Slot slot={slots?.root}>
+        <AvatarRoot>
+          <Slot slot={slots?.img}>
+            <AvatarImage />
+          </Slot>
+          <Slot slot={slots?.fallback}>
+            <AvatarFallback>{children}</AvatarFallback>
+          </Slot>
+        </AvatarRoot>
+      </Slot>
+    </AvatarContext>
   );
-
-  const renderElement = useRenderElement("div", {
-    props: [
-      getRootProps({}),
-      {
-        children: composedChildren,
-      },
-    ],
-  });
-  return <AvatarContext value={ctx}>{renderElement}</AvatarContext>;
 };
 
 export namespace Avatar {
-  export interface Props extends useAvatar.Props {}
+  export interface Props extends useAvatar.Props {
+    slots?: SlotsToReactNode<AvatarSlots>;
+  }
 }

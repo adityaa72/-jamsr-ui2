@@ -4,9 +4,11 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { AvatarBordered } from "./examples/bordered";
 import { AvatarColors } from "./examples/colors";
+import { AvatarCustomization } from "./examples/customization";
 import { AvatarFallbacks } from "./examples/fallbacks";
 import { AvatarImageFallback } from "./examples/image-fallback";
-import { AvatarUsage } from "./examples/radius";
+import { AvatarRadius } from "./examples/radius";
+import { AvatarUsage } from "./examples/usage";
 
 const title = "Avatar";
 const description =
@@ -23,6 +25,9 @@ const Avatar = () => {
     <DocsPage title={title} description={description}>
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <AvatarUsage />
+      </CodeExample>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
+        <AvatarRadius />
       </CodeExample>
       <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <AvatarColors />
@@ -47,6 +52,13 @@ const Avatar = () => {
         url={resolvePath("bordered.tsx")}
       >
         <AvatarBordered />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Customization"
+        url={resolvePath("customization.tsx")}
+      >
+        <AvatarCustomization />
       </CodeExample>
     </DocsPage>
   );
