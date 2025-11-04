@@ -1,3 +1,5 @@
+import { cloneElement } from "react";
+
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useCheckboxConfig } from "./checkbox-config";
@@ -15,26 +17,67 @@ import {
   useCheckbox,
 } from "./primitive";
 
+import type { SlotsToReactNode } from "@jamsrui/utils";
+
+import type { CheckboxSlots } from "./primitive/styles";
+
+const Slot = ({
+  slot,
+  children,
+  slotProps,
+}: {
+  slot: React.ReactElement<{ children?: React.ReactNode }> | undefined;
+  children?: React.ReactElement<{ children?: React.ReactNode }>;
+  slotProps?: Record<string, unknown>;
+}) => {
+  if (slot) {
+    return cloneElement(
+      slot,
+      slotProps,
+      slot.props?.children ?? children?.props?.children
+    );
+  }
+  return <>{children}</>;
+};
+
 export const Checkbox = (props: Checkbox.Props) => {
   const config = useCheckboxConfig();
   const mergedProps = mergeConfigProps(config, config, props);
-  const ctx = useCheckbox(mergedProps);
-  const { label, children } = mergedProps;
+  const { label, children, slots, ...restProps } = mergedProps;
+  const ctx = useCheckbox(restProps);
   return (
     <CheckboxContext value={ctx}>
-      <CheckboxRoot>
-        <CheckboxWrapper>
-          <CheckboxTrigger>
-            <CheckboxIcon />
-            <CheckboxInput />
-          </CheckboxTrigger>
-          <CheckboxContent>
-            <CheckboxLabel>{label}</CheckboxLabel>
-            <CheckboxDescription>{children}</CheckboxDescription>
-          </CheckboxContent>
-        </CheckboxWrapper>
-        <CheckboxErrorMessage />
-      </CheckboxRoot>
+      <Slot slot={slots?.root}>
+        <CheckboxRoot>
+          <Slot slot={slots?.wrapper}>
+            <CheckboxWrapper>
+              <Slot slot={slots?.trigger}>
+                <CheckboxTrigger>
+                  <CheckboxIcon />
+                  <Slot slot={slots?.input}>
+                    <CheckboxInput />
+                  </Slot>
+                </CheckboxTrigger>
+              </Slot>
+              <Slot slot={slots?.content}>
+                <CheckboxContent>
+                  {!!label && (
+                    <Slot slot={slots?.label}>
+                      <CheckboxLabel>{label}</CheckboxLabel>
+                    </Slot>
+                  )}
+                  {!!children && (
+                    <Slot slot={slots?.description}>
+                      <CheckboxDescription>{children}</CheckboxDescription>
+                    </Slot>
+                  )}
+                </CheckboxContent>
+              </Slot>
+            </CheckboxWrapper>
+          </Slot>
+          <CheckboxErrorMessage />
+        </CheckboxRoot>
+      </Slot>
     </CheckboxContext>
   );
 };
@@ -42,5 +85,6 @@ export const Checkbox = (props: Checkbox.Props) => {
 export namespace Checkbox {
   export interface Props extends useCheckbox.Props {
     label?: React.ReactNode;
+    slots?: SlotsToReactNode<CheckboxSlots>;
   }
 }

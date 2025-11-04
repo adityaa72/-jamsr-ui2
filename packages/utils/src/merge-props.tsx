@@ -26,13 +26,15 @@ export const mergeProps = <T extends Record<string, any>>(
   }
 
   // Handle slotProps (object with keys like title, description, base)
-  mergedProps.slots = propsValues.reduce(
-    (acc, prop) => ({
-      ...acc,
-      ...prop.slots,
-    }),
-    {}
-  );
+  if (mergedProps.slots) {
+    mergedProps.slots = propsValues.reduce(
+      (acc, prop) => ({
+        ...acc,
+        ...prop.slots,
+      }),
+      {}
+    );
+  }
 
   // Handle className (string)
   const classNames = propsValues.map((prop) => prop.className).filter(Boolean);

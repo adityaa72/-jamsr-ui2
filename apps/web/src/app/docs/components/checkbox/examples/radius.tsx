@@ -1,15 +1,7 @@
 import { Checkbox } from "@jamsrui/react";
 
 export const CheckboxRadius = () => {
-  const radii: Checkbox.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-  ];
+  const radii: Checkbox.Props["radius"][] = ["none", "sm", "md", "lg", "xl"];
   return (
     <div className="grid gap-4">
       {radii.map((radius) => (

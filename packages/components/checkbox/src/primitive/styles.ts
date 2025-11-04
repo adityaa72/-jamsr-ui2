@@ -21,8 +21,8 @@ export const checkboxVariants = tv({
     ],
     trigger: [
       ...groupDataFocusVisibleClasses,
-      "border-default-border uig-hover:border-default-hover",
-      "relative size-5 appearance-none border-2 uig-checked:border-primary uig-checked:bg-primary uig-interactive:cursor-pointer",
+      "border-default uig-hover:border-default-hover",
+      "relative size-5 appearance-none border uig-checked:border-primary uig-checked:bg-primary uig-interactive:cursor-pointer",
       "uig-disabled:cursor-not-allowed uig-pressed:scale-90 transition-all duration-300",
     ],
     input:
@@ -37,17 +37,10 @@ export const checkboxVariants = tv({
         trigger: "size-4",
       },
       md: {
-        trigger: "size-5",
+        trigger: "size-4.5",
       },
       lg: {
-        trigger: "size-6",
-      },
-    },
-    isInvalid: {
-      true: {
-        label: "text-danger",
-        helperText: "text-danger",
-        checkbox: "border-danger",
+        trigger: "size-5.5",
       },
     },
     radius: radiusVariant("trigger"),

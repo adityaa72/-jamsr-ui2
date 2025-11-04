@@ -78,7 +78,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     (props) => ({
       ...props,
       className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
+        className: cn(classNames?.root),
       }),
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("checkbox"),
@@ -86,11 +86,13 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
       "data-hovered": dataAttr(isHovered),
+      "data-disabled": dataAttr(isDisabled),
+      "aria-disabled": dataAttr(isDisabled),
     }),
     [
       classNames?.root,
-      elementProps.className,
       isChecked,
+      isDisabled,
       isFocusVisible,
       isHovered,
       isPressed,
@@ -103,21 +105,28 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       ...mergeProps(elementProps, props, {
         onChange: handleInputOnChange,
       }),
+      disabled: isDisabled,
+      "aria-disabled": dataAttr(isDisabled),
       id: inputId,
       ref: inputRef,
       type: "checkbox",
       "data-slot": dataAttrDev("input"),
       className: styles.input({
-        className: cn(classNames?.input, props.className),
+        className: cn(
+          classNames?.input,
+          elementProps.className,
+          props.className
+        ),
       }),
     }),
     [
-      classNames?.input,
       elementProps,
       handleInputOnChange,
-      inputRef,
+      isDisabled,
       inputId,
+      inputRef,
       styles,
+      classNames?.input,
     ]
   );
 

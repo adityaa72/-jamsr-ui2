@@ -10,7 +10,8 @@ export const CheckboxControlled = () => {
       label="Controlled Checkbox"
       isChecked={isChecked}
       onCheckedChange={setIsChecked}
-      helperText={isChecked ? "Checked" : "Unchecked"}
-    />
+    >
+      {isChecked ? "Checked" : "Unchecked"}
+    </Checkbox>
   );
 };

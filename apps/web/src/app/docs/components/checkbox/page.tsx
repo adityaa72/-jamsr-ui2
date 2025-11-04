@@ -3,10 +3,11 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { CheckboxControlled } from "./examples/controlled";
+import { CheckboxCustomized } from "./examples/customized";
 import { CheckboxDescription } from "./examples/description";
 import { CheckboxDisabled } from "./examples/disabled";
-import { CheckboxInvalidState } from "./examples/invalid-state";
 import { CheckboxPrimitive } from "./examples/primitive";
+import { CheckboxRadius } from "./examples/radius";
 import { CheckboxReadonly } from "./examples/readonly";
 import { CheckboxSizes } from "./examples/sizes";
 import { CheckboxUsage } from "./examples/usage";
@@ -51,6 +52,9 @@ const Checkbox = () => {
       <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <CheckboxSizes />
       </CodeExample>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
+        <CheckboxRadius />
+      </CodeExample>
       <CodeExample
         isCentered
         title="Disabled"
@@ -67,10 +71,10 @@ const Checkbox = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Invalid State"
-        url={resolvePath("invalid-state.tsx")}
+        title="Customized"
+        url={resolvePath("customized.tsx")}
       >
-        <CheckboxInvalidState />
+        <CheckboxCustomized />
       </CodeExample>
     </DocsPage>
   );
