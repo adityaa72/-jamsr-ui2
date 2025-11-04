@@ -1,9 +1,16 @@
 export {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowLeftToLineIcon,
+  ArrowRightIcon,
+  ArrowRightToLineIcon,
+  ArrowUpIcon,
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  ChevronsUpDownIcon,
   ChevronUpIcon,
 } from "./arrow";
 
@@ -16,6 +23,7 @@ export {
   CloseIcon,
   CopyIcon,
   DragDropHorizontalIcon,
+  EllipsisVerticalIcon,
   EmailIcon,
   EyeClosedIcon,
   EyeOpenIcon,
@@ -28,6 +36,7 @@ export {
   PlusIcon,
   RefreshIcon,
   SearchIcon,
+  Settings2Icon,
   StarIcon,
   TrashIcon,
   VideoIcon,

@@ -25,14 +25,14 @@ const tickVariants: Variants = {
 };
 
 export const CheckboxIcon = () => {
-  const { isChecked } = useCheckboxContext();
+  const { isChecked, isIntermediate } = useCheckboxContext();
   return (
     <div
       className="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-primary-foreground"
       data-slot="icon"
     >
       <motion.svg
-        animate={isChecked ? "checked" : "unchecked"}
+        animate={isChecked || isIntermediate ? "checked" : "unchecked"}
         className="size-3.5"
         fill="none"
         initial={false}
@@ -42,7 +42,7 @@ export const CheckboxIcon = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <motion.path
-          d="M4.5 12.75l6 6 9-13.5"
+          d={isIntermediate ? "M5 12h14" : "M4.5 12.75l6 6 9-13.5"}
           strokeLinecap="round"
           strokeLinejoin="round"
           variants={tickVariants}

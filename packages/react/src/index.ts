@@ -15,7 +15,7 @@ export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboa
 export { Collapsible, CollapsibleConfig, useCollapsibleConfig, CollapsibleContent, CollapsibleTrigger } from '@jamsrui/collapsible';
 export { Composite, CompositeItem, useComposite, useCompositeItem } from '@jamsrui/composite';
 export { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from '@jamsrui/context-menu';
-export { DataGrid, DataGridConfig, useDataGridConfig } from '@jamsrui/data-grid';
+export { DataGrid, DataGridConfig, useDataGridConfig, DataGridRowSelect, DataGridRowSelectAll } from '@jamsrui/data-grid';
 export { DateInput, useDateInput } from '@jamsrui/date-input';
 export { DatePicker, DatePickerConfig, useDatePickerConfig } from '@jamsrui/date-picker';
 export { Dialog, DialogBody, DialogCloseTrigger, DialogConfig, useDialogConfig, DialogContent, DialogFooter, DialogHeader, DialogTrigger } from '@jamsrui/dialog';
@@ -43,7 +43,7 @@ export { Sidebar, SidebarBackdrop, SidebarBody, SidebarConfig, useSidebarConfig,
 export { Skeleton, SkeletonConfig, useSkeletonConfig } from '@jamsrui/skeleton';
 export { Slider, SliderConfig, useSliderConfig } from '@jamsrui/slider';
 export { SwitchConfig, useSwitchConfig, Switch } from '@jamsrui/switch';
-export { Table, TableBody, TableCell, TableColumn, TableConfig, useTableConfig, TableFooter, TableHeader, TableRow } from '@jamsrui/table';
+export { TableBody, TableCell, TableColumn, TableFooter, TableHeader, TableRow, Table, TableConfig, useTableConfig } from '@jamsrui/table';
 export { Tab, Tabs, TabsConfig, useTabsConfig } from '@jamsrui/tabs';
 export { TagsInput, TagsInputConfig, useTagsInputConfig } from '@jamsrui/tags-input';
 export { textVariants, Text, TextConfig, useTextConfig } from '@jamsrui/text';

@@ -25,6 +25,7 @@ export const Checkbox = (props: Checkbox.Props) => {
   const mergedProps = mergeConfigProps(config, config, props);
   const { label, children, slots, ...restProps } = mergedProps;
   const ctx = useCheckbox(restProps);
+  const hasContent = !!label || !!children;
   return (
     <CheckboxContext value={ctx}>
       <Slot slot={slots?.root}>
@@ -39,20 +40,22 @@ export const Checkbox = (props: Checkbox.Props) => {
                   </Slot>
                 </CheckboxTrigger>
               </Slot>
-              <Slot slot={slots?.content}>
-                <CheckboxContent>
-                  {!!label && (
-                    <Slot slot={slots?.label}>
-                      <CheckboxLabel>{label}</CheckboxLabel>
-                    </Slot>
-                  )}
-                  {!!children && (
-                    <Slot slot={slots?.description}>
-                      <CheckboxDescription>{children}</CheckboxDescription>
-                    </Slot>
-                  )}
-                </CheckboxContent>
-              </Slot>
+              {hasContent ? (
+                <Slot slot={slots?.content}>
+                  <CheckboxContent>
+                    {!!label && (
+                      <Slot slot={slots?.label}>
+                        <CheckboxLabel>{label}</CheckboxLabel>
+                      </Slot>
+                    )}
+                    {!!children && (
+                      <Slot slot={slots?.description}>
+                        <CheckboxDescription>{children}</CheckboxDescription>
+                      </Slot>
+                    )}
+                  </CheckboxContent>
+                </Slot>
+              ) : null}
             </CheckboxWrapper>
           </Slot>
           <CheckboxErrorMessage />

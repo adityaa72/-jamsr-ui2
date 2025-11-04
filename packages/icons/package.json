@@ -1,7 +1,11 @@
 {
   "name": "@jamsrui/icons",
   "version": "0.0.7",
-  "main": "./src/index.tsx",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./animated": "./src/animated/index.ts"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "npx eslint src --ext .ts,.tsx --fix",
@@ -10,12 +14,14 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
+    "@types/node": "catalog:",
     "@types/react": "catalog:",
-    "react": "catalog:",
-    "clean-package": "^2.2.0"
+    "clean-package": "^2.2.0",
+    "motion": "catalog:",
+    "react": "catalog:"
   },
   "peerDependencies": {
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "clean-package": "./clean-package.config.json"

@@ -21,7 +21,7 @@ export const tableVariants = tv({
         root: "rounded-2xl bg-surface p-4",
       },
       bordered: {
-        th: "border-b border-b-divider-dark",
+        th: "border-b border-b-divider-dark bg-surface-secondary text-foreground-secondary font-normal text-xs",
         td: "border-b border-divider",
         root: "bg-surface",
       },
@@ -65,7 +65,7 @@ export const tableVariants = tv({
     density: "compact",
     allowHover: false,
     separateRows: false,
-    variant: "solid",
+    variant: "bordered",
     radius: "md",
   },
 });

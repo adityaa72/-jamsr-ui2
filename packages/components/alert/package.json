@@ -10,7 +10,7 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
+    "@types/node": "catalog:",
     "@types/react": "catalog:",
     "react": "catalog:",
     "clean-package": "^2.2.0"

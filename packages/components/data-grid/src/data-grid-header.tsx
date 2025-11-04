@@ -1,9 +1,44 @@
-import { ChevronDownIcon, ChevronUpIcon } from "@jamsrui/icons";
+import { IconButton } from "@jamsrui/icon-button";
+import {
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowLeftToLineIcon,
+  ArrowRightIcon,
+  ArrowRightToLineIcon,
+  ArrowUpIcon,
+  ChevronsUpDownIcon,
+  EllipsisVerticalIcon,
+  EyeClosedIcon,
+} from "@jamsrui/icons";
+import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsrui/menu";
 import { TableColumn, TableHeader, TableRow } from "@jamsrui/table";
 import { cn } from "@jamsrui/utils";
 import { flexRender } from "@tanstack/react-table";
 
 import { useDataGridContext } from "./data-grid-context";
+
+const DataGridHeaderDropdown = () => {
+  return (
+    <Menu>
+      <MenuTrigger>
+        <IconButton label="More" size="xs" variant="light">
+          <EllipsisVerticalIcon className="size-4" />
+        </IconButton>
+      </MenuTrigger>
+      <MenuContent>
+        <MenuItem startContent={<ArrowUpIcon />}>Asc</MenuItem>
+        <MenuItem startContent={<ArrowDownIcon />}>Desc</MenuItem>
+        <MenuItem startContent={<EyeClosedIcon />}>Hide Column</MenuItem>
+        <MenuItem startContent={<ArrowLeftToLineIcon />}>Pin To Left</MenuItem>
+        <MenuItem startContent={<ArrowRightToLineIcon />}>
+          Pin To Right
+        </MenuItem>
+        <MenuItem startContent={<ArrowLeftIcon />}>Move To Left</MenuItem>
+        <MenuItem startContent={<ArrowRightIcon />}>Move To Right</MenuItem>
+      </MenuContent>
+    </Menu>
+  );
+};
 
 export const DataGridHeader = () => {
   const { table } = useDataGridContext();
@@ -15,9 +50,9 @@ export const DataGridHeader = () => {
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               return (
-                <TableColumn key={header.id}>
+                <TableColumn key={header.id} className="relative">
                   {header.isPlaceholder ? null : (
-                    <>
+                    <div className="flex">
                       <button
                         onClick={header.column.getToggleSortingHandler()}
                         type="button"
@@ -33,14 +68,20 @@ export const DataGridHeader = () => {
                             header.column.columnDef.header,
                             header.getContext()
                           )}
-                          {{
-                            asc: <ChevronUpIcon className="size-4 shrink-0" />,
-                            desc: (
-                              <ChevronDownIcon className="size-4 shrink-0" />
-                            ),
-                          }[header.column.getIsSorted() as string] ?? null}
+                          {
+                            {
+                              asc: <ArrowUpIcon className="size-3 shrink-0" />,
+                              desc: (
+                                <ArrowDownIcon className="size-3 shrink-0" />
+                              ),
+                              empty: (
+                                <ChevronsUpDownIcon className="size-3 shrink-0" />
+                              ),
+                            }[header.column.getIsSorted() || "empty"]
+                          }
                         </span>
                       </button>
+                      <DataGridHeaderDropdown />
                       <span
                         aria-label="resize"
                         onMouseDown={header.getResizeHandler()}
@@ -54,7 +95,7 @@ export const DataGridHeader = () => {
                           }
                         )}
                       />
-                    </>
+                    </div>
                   )}
                 </TableColumn>
               );

@@ -12,6 +12,8 @@ catalog:
   typescript: 5.9.3
   "@floating-ui/react": ">=0.27"
   "@tanstack/react-table": ">=8"
+  "@types/node": 24.10.0
+
 onlyBuiltDependencies:
   - esbuild
   - sharp

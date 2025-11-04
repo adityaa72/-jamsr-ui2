@@ -12,8 +12,8 @@
   "devDependencies": {
     "@tanstack/react-table": "catalog:",
     "@types/react": "catalog:",
-    "react": "catalog:",
-    "clean-package": "^2.2.0"
+    "clean-package": "^2.2.0",
+    "react": "catalog:"
   },
   "peerDependencies": {
     "@tanstack/react-table": "catalog:",
@@ -24,8 +24,10 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/button": "workspace:^",
+    "@jamsrui/checkbox": "workspace:^",
     "@jamsrui/core": "workspace:^",
+    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icon-button": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/input": "workspace:^",

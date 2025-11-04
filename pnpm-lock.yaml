@@ -12,6 +12,9 @@ catalogs:
     '@tanstack/react-table':
       specifier: '>=8'
       version: 8.21.3
+    '@types/node':
+      specifier: 24.10.0
+      version: 24.10.0
     '@types/react':
       specifier: '>=19'
       version: 19.1.2
@@ -40,10 +43,10 @@ importers:
     devDependencies:
       '@changesets/cli':
         specifier: ^2.29.7
-        version: 2.29.7(@types/node@24.9.1)
+        version: 2.29.7(@types/node@24.10.0)
       '@commitlint/cli':
         specifier: 20.1.0
-        version: 20.1.0(@types/node@24.9.1)(typescript@5.8.2)
+        version: 20.1.0(@types/node@24.10.0)(typescript@5.8.2)
       '@commitlint/config-conventional':
         specifier: 20.0.0
         version: 20.0.0
@@ -119,13 +122,13 @@ importers:
         version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.6.2))(typescript@5.9.3)
       '@storybook/react-vite':
         specifier: ^8.6.12
-        version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@8.6.12(prettier@3.6.2))(typescript@5.9.3)(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))
+        version: 8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@8.6.12(prettier@3.6.2))(typescript@5.9.3)(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))
       '@storybook/test':
         specifier: ^8.6.12
         version: 8.6.12(storybook@8.6.12(prettier@3.6.2))
       '@tailwindcss/vite':
         specifier: ^4.1.5
-        version: 4.1.5(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))
+        version: 4.1.5(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -134,7 +137,7 @@ importers:
         version: 19.1.1(@types/react@19.1.2)
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.4.1(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))
+        version: 4.4.1(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))
       eslint:
         specifier: ^9.22.0
         version: 9.25.0(jiti@2.6.1)
@@ -164,7 +167,7 @@ importers:
         version: 8.30.1(eslint@9.25.0(jiti@2.6.1))(typescript@5.9.3)
       vite:
         specifier: ^6.3.1
-        version: 6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2)
+        version: 6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2)
 
   apps/web:
     dependencies:
@@ -236,8 +239,8 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4
       '@types/node':
-        specifier: 24.9.1
-        version: 24.9.1
+        specifier: 'catalog:'
+        version: 24.10.0
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -319,8 +322,8 @@ importers:
         version: link:../../utils
     devDependencies:
       '@types/node':
-        specifier: ^22.14.0
-        version: 22.14.0
+        specifier: 'catalog:'
+        version: 24.10.0
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -726,6 +729,12 @@ importers:
       '@dnd-kit/utilities':
         specifier: ^3.2.2
         version: 3.2.2(react@19.1.0)
+      '@jamsrui/button':
+        specifier: workspace:^
+        version: link:../button
+      '@jamsrui/checkbox':
+        specifier: workspace:^
+        version: link:../checkbox
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1695,8 +1704,8 @@ importers:
         version: link:../utils
     devDependencies:
       '@types/node':
-        specifier: 24.9.1
-        version: 24.9.1
+        specifier: 'catalog:'
+        version: 24.10.0
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -1710,14 +1719,17 @@ importers:
   packages/icons:
     devDependencies:
       '@types/node':
-        specifier: ^22.14.0
-        version: 22.14.0
+        specifier: 'catalog:'
+        version: 24.10.0
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
       clean-package:
         specifier: ^2.2.0
         version: 2.2.0
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0
@@ -1939,8 +1951,8 @@ importers:
         specifier: workspace:^
         version: link:../typescript-config
       '@types/node':
-        specifier: 24.9.1
-        version: 24.9.1
+        specifier: 'catalog:'
+        version: 24.10.0
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.2
@@ -1953,196 +1965,6 @@ importers:
       react:
         specifier: 'catalog:'
         version: 19.1.0
-
-  scripts:
-    dependencies:
-      '@jamsrui/accordion':
-        specifier: workspace:^
-        version: link:../packages/components/accordion
-      '@jamsrui/alert':
-        specifier: workspace:^
-        version: link:../packages/components/alert
-      '@jamsrui/alert-dialog':
-        specifier: workspace:^
-        version: link:../packages/components/alert-dialog
-      '@jamsrui/alert-popover':
-        specifier: workspace:^
-        version: link:../packages/components/alert-popover
-      '@jamsrui/autocomplete':
-        specifier: workspace:^
-        version: link:../packages/components/autocomplete
-      '@jamsrui/avatar':
-        specifier: workspace:^
-        version: link:../packages/components/avatar
-      '@jamsrui/breadcrumb':
-        specifier: workspace:^
-        version: link:../packages/components/breadcrumb
-      '@jamsrui/button':
-        specifier: workspace:^
-        version: link:../packages/components/button
-      '@jamsrui/card':
-        specifier: workspace:^
-        version: link:../packages/components/card
-      '@jamsrui/charts':
-        specifier: workspace:^
-        version: link:../packages/components/charts
-      '@jamsrui/checkbox':
-        specifier: workspace:^
-        version: link:../packages/components/checkbox
-      '@jamsrui/chip':
-        specifier: workspace:^
-        version: link:../packages/components/chip
-      '@jamsrui/circular-progress':
-        specifier: workspace:^
-        version: link:../packages/components/circular-progress
-      '@jamsrui/clipboard':
-        specifier: workspace:^
-        version: link:../packages/components/clipboard
-      '@jamsrui/collapsible':
-        specifier: workspace:^
-        version: link:../packages/components/collapsible
-      '@jamsrui/composite':
-        specifier: workspace:^
-        version: link:../packages/components/composite
-      '@jamsrui/context-menu':
-        specifier: workspace:^
-        version: link:../packages/components/context-menu
-      '@jamsrui/data-grid':
-        specifier: workspace:^
-        version: link:../packages/components/data-grid
-      '@jamsrui/date-input':
-        specifier: workspace:^
-        version: link:../packages/components/date-input
-      '@jamsrui/date-picker':
-        specifier: workspace:^
-        version: link:../packages/components/date-picker
-      '@jamsrui/dialog':
-        specifier: workspace:^
-        version: link:../packages/components/dialog
-      '@jamsrui/divider':
-        specifier: workspace:^
-        version: link:../packages/components/divider
-      '@jamsrui/drawer':
-        specifier: workspace:^
-        version: link:../packages/components/drawer
-      '@jamsrui/editor':
-        specifier: workspace:^
-        version: link:../packages/components/editor
-      '@jamsrui/header':
-        specifier: workspace:^
-        version: link:../packages/components/header
-      '@jamsrui/hooks':
-        specifier: workspace:^
-        version: link:../packages/hooks
-      '@jamsrui/icon-button':
-        specifier: workspace:^
-        version: link:../packages/components/icon-button
-      '@jamsrui/icons':
-        specifier: workspace:^
-        version: link:../packages/icons
-      '@jamsrui/input':
-        specifier: workspace:^
-        version: link:../packages/components/input
-      '@jamsrui/kbd':
-        specifier: workspace:^
-        version: link:../packages/components/kbd
-      '@jamsrui/label':
-        specifier: workspace:^
-        version: link:../packages/components/label
-      '@jamsrui/linear-progress':
-        specifier: workspace:^
-        version: link:../packages/components/linear-progress
-      '@jamsrui/link':
-        specifier: workspace:^
-        version: link:../packages/components/link
-      '@jamsrui/menu':
-        specifier: workspace:^
-        version: link:../packages/components/menu
-      '@jamsrui/number-input':
-        specifier: workspace:^
-        version: link:../packages/components/number-input
-      '@jamsrui/otp-input':
-        specifier: workspace:^
-        version: link:../packages/components/otp-input
-      '@jamsrui/pagination':
-        specifier: workspace:^
-        version: link:../packages/components/pagination
-      '@jamsrui/popover':
-        specifier: workspace:^
-        version: link:../packages/components/popover
-      '@jamsrui/radio':
-        specifier: workspace:^
-        version: link:../packages/components/radio
-      '@jamsrui/rating':
-        specifier: workspace:^
-        version: link:../packages/components/rating
-      '@jamsrui/ripple':
-        specifier: workspace:^
-        version: link:../packages/components/ripple
-      '@jamsrui/scroll-area':
-        specifier: workspace:^
-        version: link:../packages/components/scroll-area
-      '@jamsrui/select':
-        specifier: workspace:^
-        version: link:../packages/components/select
-      '@jamsrui/sidebar':
-        specifier: workspace:^
-        version: link:../packages/components/sidebar
-      '@jamsrui/skeleton':
-        specifier: workspace:^
-        version: link:../packages/components/skeleton
-      '@jamsrui/slider':
-        specifier: workspace:^
-        version: link:../packages/components/slider
-      '@jamsrui/switch':
-        specifier: workspace:^
-        version: link:../packages/components/switch
-      '@jamsrui/table':
-        specifier: workspace:^
-        version: link:../packages/components/table
-      '@jamsrui/tabs':
-        specifier: workspace:^
-        version: link:../packages/components/tabs
-      '@jamsrui/tags-input':
-        specifier: workspace:^
-        version: link:../packages/components/tags-input
-      '@jamsrui/text':
-        specifier: workspace:^
-        version: link:../packages/components/text
-      '@jamsrui/textarea':
-        specifier: workspace:^
-        version: link:../packages/components/textarea
-      '@jamsrui/theme':
-        specifier: workspace:^
-        version: link:../packages/theme
-      '@jamsrui/time-input':
-        specifier: workspace:^
-        version: link:../packages/components/time-input
-      '@jamsrui/toast':
-        specifier: workspace:^
-        version: link:../packages/components/toast
-      '@jamsrui/toggle':
-        specifier: workspace:^
-        version: link:../packages/components/toggle
-      '@jamsrui/tooltip':
-        specifier: workspace:^
-        version: link:../packages/components/tooltip
-      '@jamsrui/utils':
-        specifier: workspace:^
-        version: link:../packages/utils
-    devDependencies:
-      '@babel/parser':
-        specifier: ^7.27.4
-        version: 7.28.5
-      '@babel/traverse':
-        specifier: ^7.27.4
-        version: 7.28.5
-      '@types/babel__traverse':
-        specifier: ^7.20.7
-        version: 7.20.7
-      '@types/node':
-        specifier: 24.0.10
-        version: 24.0.10
 
 packages:
 
@@ -2177,16 +1999,8 @@ packages:
     resolution: {integrity: sha512-VybsKvpiN1gU1sdMZIp7FcqphVVKEwcuj02x73uvcHE0PTihx1nlBcowYWhDwjpoAXRv43+gDzyggGnn1XZhVw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/generator@7.28.5':
-    resolution: {integrity: sha512-3EwLFhZ38J4VyIP6WNtt2kUdW9dokXA9Cr4IVIFHuCpZ3H8/YFOl5JjZHisrn1fATPBmKKqXzDFvh9fUwHz6CQ==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-compilation-targets@7.27.0':
     resolution: {integrity: sha512-LVk7fbXml0H2xH34dFzKQ7TDZ2G4/rVTOrq9V+icbbadjbVxxeFeDsNHv2SrZeWoA+6ZiTyWYWtScEIW07EAcA==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helper-globals@7.28.0':
-    resolution: {integrity: sha512-+W6cISkXFa1jXsDEdYA8HeevQT/FULhxzR99pxphltZcVaugps53THCeiWA8SguxxpSp3gKPiuYfSWopkLQ4hw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-module-imports@7.25.9':
@@ -2207,10 +2021,6 @@ packages:
     resolution: {integrity: sha512-4A/SCr/2KLd5jrtOMFzaKjVtAei3+2r/NChoBNoZ3EyP/+GlhoaEGoWOZUmFmoITP7zOJyHIMm+DYRd8o3PvHA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-string-parser@7.27.1':
-    resolution: {integrity: sha512-qMlSxKbpRlAridDExk92nSobyDdpPijUq2DW6oDnUqd0iOGxmQjyqhMIihI9+zv4LPyZdRje2cavWPbCbWm3eA==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-validator-identifier@7.25.9':
     resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
     engines: {node: '>=6.9.0'}
@@ -2229,11 +2039,6 @@ packages:
 
   '@babel/parser@7.27.0':
     resolution: {integrity: sha512-iaepho73/2Pz7w2eMS0Q5f83+0RKI7i4xmiYeBmDzfRVbQtTOG7Ts0S4HzJVsTMGI9keU8rNfuZr8DKfSt7Yyg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-
-  '@babel/parser@7.28.5':
-    resolution: {integrity: sha512-KKBU1VGYR7ORr3At5HAtUQ+TV3SzRCXmA/8OdDZiLDBIZxVyzXuztPjfLd3BV1PRAQGCMWWSHYhL0F8d5uHBDQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -2261,24 +2066,12 @@ packages:
     resolution: {integrity: sha512-2ncevenBqXI6qRMukPlXwHKHchC7RyMuu4xv5JBXRfOGVcTy1mXCD12qrp7Jsoxll1EV3+9sE4GugBVRjT2jFA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/template@7.27.2':
-    resolution: {integrity: sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/traverse@7.27.0':
     resolution: {integrity: sha512-19lYZFzYVQkkHkl4Cy4WrAVcqBkgvV2YM2TU3xG6DIwO7O3ecbDPfW3yM3bjAGcqcQHi+CCtjMR3dIEHxsd6bA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/traverse@7.28.5':
-    resolution: {integrity: sha512-TCCj4t55U90khlYkVV/0TfkJkAkUg3jZFA3Neb7unZT8CPok7iiRfaX0F+WnqWqt7OxhOn0uBKXCw4lbL8W0aQ==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/types@7.27.0':
     resolution: {integrity: sha512-H45s8fVLYjbhFH62dIJ3WtmJ6RSPt/3DRO0ZcT2SUiYiQyz3BLVb9ADEnLl91m74aQPS3AzzeajZHYOalWe3bg==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.28.5':
-    resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
 
   '@changesets/apply-release-plan@7.0.13':
@@ -3785,11 +3578,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@22.14.0':
-    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
-
-  '@types/node@24.0.10':
-    resolution: {integrity: sha512-ENHwaH+JIRTDIEEbDK6QSQntAYGtbvdDXnMXnZaZ6k13Du1dPMmprkEHIL7ok2Wl2aZevetwTAb5S+7yIF+enA==}
+  '@types/node@24.10.0':
+    resolution: {integrity: sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A==}
 
   '@types/node@24.9.1':
     resolution: {integrity: sha512-QoiaXANRkSXK6p0Duvt56W208du4P9Uye9hWLWgGMDTEoKPhuenzNcC4vGUmrNkiOKTlIrBoyNQYNpSwfEZXSg==}
@@ -6343,14 +6133,8 @@ packages:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
-
-  undici-types@7.8.0:
-    resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
@@ -6593,14 +6377,6 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 3.1.0
 
-  '@babel/generator@7.28.5':
-    dependencies:
-      '@babel/parser': 7.28.5
-      '@babel/types': 7.28.5
-      '@jridgewell/gen-mapping': 0.3.13
-      '@jridgewell/trace-mapping': 0.3.31
-      jsesc: 3.1.0
-
   '@babel/helper-compilation-targets@7.27.0':
     dependencies:
       '@babel/compat-data': 7.26.8
@@ -6608,8 +6384,6 @@ snapshots:
       browserslist: 4.24.4
       lru-cache: 5.1.1
       semver: 6.3.1
-
-  '@babel/helper-globals@7.28.0': {}
 
   '@babel/helper-module-imports@7.25.9':
     dependencies:
@@ -6631,8 +6405,6 @@ snapshots:
 
   '@babel/helper-string-parser@7.25.9': {}
 
-  '@babel/helper-string-parser@7.27.1': {}
-
   '@babel/helper-validator-identifier@7.25.9': {}
 
   '@babel/helper-validator-identifier@7.28.5': {}
@@ -6647,10 +6419,6 @@ snapshots:
   '@babel/parser@7.27.0':
     dependencies:
       '@babel/types': 7.27.0
-
-  '@babel/parser@7.28.5':
-    dependencies:
-      '@babel/types': 7.28.5
 
   '@babel/plugin-transform-react-jsx-self@7.25.9(@babel/core@7.26.10)':
     dependencies:
@@ -6674,12 +6442,6 @@ snapshots:
       '@babel/parser': 7.27.0
       '@babel/types': 7.27.0
 
-  '@babel/template@7.27.2':
-    dependencies:
-      '@babel/code-frame': 7.27.1
-      '@babel/parser': 7.28.5
-      '@babel/types': 7.28.5
-
   '@babel/traverse@7.27.0':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -6692,26 +6454,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/traverse@7.28.5':
-    dependencies:
-      '@babel/code-frame': 7.27.1
-      '@babel/generator': 7.28.5
-      '@babel/helper-globals': 7.28.0
-      '@babel/parser': 7.28.5
-      '@babel/template': 7.27.2
-      '@babel/types': 7.28.5
-      debug: 4.4.3
-    transitivePeerDependencies:
-      - supports-color
-
   '@babel/types@7.27.0':
     dependencies:
       '@babel/helper-string-parser': 7.25.9
-      '@babel/helper-validator-identifier': 7.28.5
-
-  '@babel/types@7.28.5':
-    dependencies:
-      '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
   '@changesets/apply-release-plan@7.0.13':
@@ -6743,7 +6488,7 @@ snapshots:
     dependencies:
       '@changesets/types': 6.1.0
 
-  '@changesets/cli@2.29.7(@types/node@24.9.1)':
+  '@changesets/cli@2.29.7(@types/node@24.10.0)':
     dependencies:
       '@changesets/apply-release-plan': 7.0.13
       '@changesets/assemble-release-plan': 6.0.9
@@ -6759,7 +6504,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@changesets/write': 0.4.0
-      '@inquirer/external-editor': 1.0.2(@types/node@24.9.1)
+      '@inquirer/external-editor': 1.0.2(@types/node@24.10.0)
       '@manypkg/get-packages': 1.1.3
       ansi-colors: 4.1.3
       ci-info: 3.9.0
@@ -6858,11 +6603,11 @@ snapshots:
       human-id: 4.1.2
       prettier: 2.8.8
 
-  '@commitlint/cli@20.1.0(@types/node@24.9.1)(typescript@5.8.2)':
+  '@commitlint/cli@20.1.0(@types/node@24.10.0)(typescript@5.8.2)':
     dependencies:
       '@commitlint/format': 20.0.0
       '@commitlint/lint': 20.0.0
-      '@commitlint/load': 20.1.0(@types/node@24.9.1)(typescript@5.8.2)
+      '@commitlint/load': 20.1.0(@types/node@24.10.0)(typescript@5.8.2)
       '@commitlint/read': 20.0.0
       '@commitlint/types': 20.0.0
       tinyexec: 1.0.1
@@ -6909,7 +6654,7 @@ snapshots:
       '@commitlint/rules': 20.0.0
       '@commitlint/types': 20.0.0
 
-  '@commitlint/load@20.1.0(@types/node@24.9.1)(typescript@5.8.2)':
+  '@commitlint/load@20.1.0(@types/node@24.10.0)(typescript@5.8.2)':
     dependencies:
       '@commitlint/config-validator': 20.0.0
       '@commitlint/execute-rule': 20.0.0
@@ -6917,7 +6662,7 @@ snapshots:
       '@commitlint/types': 20.0.0
       chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.8.2)
-      cosmiconfig-typescript-loader: 6.2.0(@types/node@24.9.1)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2)
+      cosmiconfig-typescript-loader: 6.2.0(@types/node@24.10.0)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -7363,12 +7108,12 @@ snapshots:
   '@img/sharp-win32-x64@0.34.4':
     optional: true
 
-  '@inquirer/external-editor@1.0.2(@types/node@24.9.1)':
+  '@inquirer/external-editor@1.0.2(@types/node@24.10.0)':
     dependencies:
       chardet: 2.1.0
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 24.9.1
+      '@types/node': 24.10.0
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -7379,12 +7124,12 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.9.3)(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.9.3)(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))':
     dependencies:
       glob: 10.4.5
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.9.3)
-      vite: 6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2)
+      vite: 6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2)
     optionalDependencies:
       typescript: 5.9.3
 
@@ -7765,13 +7510,13 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@storybook/builder-vite@8.6.12(storybook@8.6.12(prettier@3.6.2))(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))':
+  '@storybook/builder-vite@8.6.12(storybook@8.6.12(prettier@3.6.2))(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))':
     dependencies:
       '@storybook/csf-plugin': 8.6.12(storybook@8.6.12(prettier@3.6.2))
       browser-assert: 1.2.1
       storybook: 8.6.12(prettier@3.6.2)
       ts-dedent: 2.2.0
-      vite: 6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2)
+      vite: 6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2)
 
   '@storybook/components@8.6.12(storybook@8.6.12(prettier@3.6.2))':
     dependencies:
@@ -7838,11 +7583,11 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
       storybook: 8.6.12(prettier@3.6.2)
 
-  '@storybook/react-vite@8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@8.6.12(prettier@3.6.2))(typescript@5.9.3)(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))':
+  '@storybook/react-vite@8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@8.6.12(prettier@3.6.2))(typescript@5.9.3)(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.9.3)(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.9.3)(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))
       '@rollup/pluginutils': 5.1.4(rollup@4.52.5)
-      '@storybook/builder-vite': 8.6.12(storybook@8.6.12(prettier@3.6.2))(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))
+      '@storybook/builder-vite': 8.6.12(storybook@8.6.12(prettier@3.6.2))(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))
       '@storybook/react': 8.6.12(@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.2)))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.6.2))(typescript@5.9.3)
       find-up: 5.0.0
       magic-string: 0.30.17
@@ -7852,7 +7597,7 @@ snapshots:
       resolve: 1.22.10
       storybook: 8.6.12(prettier@3.6.2)
       tsconfig-paths: 4.2.0
-      vite: 6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2)
+      vite: 6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2)
     optionalDependencies:
       '@storybook/test': 8.6.12(storybook@8.6.12(prettier@3.6.2))
     transitivePeerDependencies:
@@ -8018,12 +7763,12 @@ snapshots:
       postcss: 8.5.3
       tailwindcss: 4.1.4
 
-  '@tailwindcss/vite@4.1.5(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))':
+  '@tailwindcss/vite@4.1.5(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))':
     dependencies:
       '@tailwindcss/node': 4.1.5
       '@tailwindcss/oxide': 4.1.5
       tailwindcss: 4.1.5
-      vite: 6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2)
+      vite: 6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2)
 
   '@tanstack/query-core@5.81.5': {}
 
@@ -8100,7 +7845,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.2':
     dependencies:
-      '@types/node': 22.14.0
+      '@types/node': 24.9.1
 
   '@types/doctrine@0.0.9': {}
 
@@ -8122,13 +7867,9 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@22.14.0':
+  '@types/node@24.10.0':
     dependencies:
-      undici-types: 6.21.0
-
-  '@types/node@24.0.10':
-    dependencies:
-      undici-types: 7.8.0
+      undici-types: 7.16.0
 
   '@types/node@24.9.1':
     dependencies:
@@ -8441,14 +8182,14 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.7.2':
     optional: true
 
-  '@vitejs/plugin-react@4.4.1(vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2))':
+  '@vitejs/plugin-react@4.4.1(vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2))':
     dependencies:
       '@babel/core': 7.26.10
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.10)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.10)
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2)
+      vite: 6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -8783,9 +8524,9 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cosmiconfig-typescript-loader@6.2.0(@types/node@24.9.1)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2):
+  cosmiconfig-typescript-loader@6.2.0(@types/node@24.10.0)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2):
     dependencies:
-      '@types/node': 24.9.1
+      '@types/node': 24.10.0
       cosmiconfig: 9.0.0(typescript@5.8.2)
       jiti: 2.6.1
       typescript: 5.8.2
@@ -11007,11 +10748,7 @@ snapshots:
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
 
-  undici-types@6.21.0: {}
-
   undici-types@7.16.0: {}
-
-  undici-types@7.8.0: {}
 
   unicorn-magic@0.1.0: {}
 
@@ -11122,7 +10859,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@6.3.3(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.29.2):
+  vite@6.3.3(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.29.2):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.4(picomatch@4.0.2)
@@ -11131,7 +10868,7 @@ snapshots:
       rollup: 4.40.1
       tinyglobby: 0.2.13
     optionalDependencies:
-      '@types/node': 24.9.1
+      '@types/node': 24.10.0
       fsevents: 2.3.3
       jiti: 2.6.1
       lightningcss: 1.29.2

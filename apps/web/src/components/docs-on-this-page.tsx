@@ -16,7 +16,7 @@ export const DocsOnThisPage = (props: Props) => {
     .filter(Boolean);
   if (headings.length === 0) return null;
   return (
-    <aside className="min-w-[250px] w-[250px] max-md:hidden py-24 sticky top-24 h-max">
+    <aside className="min-w-[250px] w-[250px] max-lg:hidden py-24 sticky top-24 h-max">
       <Text variant="paragraph2">On this page</Text>
       <ul className="flex flex-col">
         {headings.map((item) => {

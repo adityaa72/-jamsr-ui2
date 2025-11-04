@@ -6,9 +6,9 @@ import { CheckboxControlled } from "./examples/controlled";
 import { CheckboxCustomized } from "./examples/customized";
 import { CheckboxDescription } from "./examples/description";
 import { CheckboxDisabled } from "./examples/disabled";
+import { CheckboxIntermediate } from "./examples/intermediate";
 import { CheckboxPrimitive } from "./examples/primitive";
 import { CheckboxRadius } from "./examples/radius";
-import { CheckboxReadonly } from "./examples/readonly";
 import { CheckboxSizes } from "./examples/sizes";
 import { CheckboxUsage } from "./examples/usage";
 
@@ -64,10 +64,10 @@ const Checkbox = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Readonly"
-        url={resolvePath("readonly.tsx")}
+        title="Intermediate"
+        url={resolvePath("intermediate.tsx")}
       >
-        <CheckboxReadonly />
+        <CheckboxIntermediate />
       </CodeExample>
       <CodeExample
         isCentered

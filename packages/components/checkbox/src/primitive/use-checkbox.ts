@@ -40,10 +40,10 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     isChecked: isCheckedProp,
     onCheckedChange,
     defaultChecked,
-    isReadonly,
     classNames,
-    isDisabled: isDisabledProp,
+    isDisabled = false,
     children,
+    isIntermediate,
     ...elementProps
   } = $props;
 
@@ -55,7 +55,6 @@ export const useCheckbox = (props: useCheckbox.Props) => {
 
   const inputId = useId();
 
-  const isDisabled = isDisabledProp ?? isReadonly;
   const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
     isDisabled,
   });
@@ -82,7 +81,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       }),
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("checkbox"),
-      "data-checked": dataAttr(isChecked),
+      "data-checked": dataAttr(isChecked || isIntermediate),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
       "data-hovered": dataAttr(isHovered),
@@ -95,6 +94,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       isDisabled,
       isFocusVisible,
       isHovered,
+      isIntermediate,
       isPressed,
       styles,
     ]
@@ -212,6 +212,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       defaultChecked,
       isChecked,
       children,
+      isIntermediate,
     }),
     [
       children,
@@ -225,6 +226,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       getTriggerProps,
       getWrapperProps,
       isChecked,
+      isIntermediate,
       onCheckedChange,
     ]
   );
@@ -236,7 +238,7 @@ export namespace useCheckbox {
     isChecked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
     classNames?: SlotsToClassNames<CheckboxSlots>;
-    isReadonly?: boolean;
     isDisabled?: boolean;
+    isIntermediate?: boolean;
   }
 }

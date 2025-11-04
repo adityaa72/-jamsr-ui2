@@ -20,7 +20,7 @@ export const DocsPageInner = (props: Props) => {
         isOpen ? "md:translate-x-[250px] md:w-[calc(100%-250px)]" : "mx-auto"
       )}
     >
-      <div className="py-12 w-full px-4 md:px-12 max-w-screen-md mx-auto">
+      <div className="py-12 w-full px-4 md:px-12 max-w-screen-lg mx-auto">
         <SidebarToggle className="md:hidden" />
         {!isOpen && <SidebarToggle />}
         <article className={cn("flex col-span-2 flex-col gap-8 w-full py-12")}>
