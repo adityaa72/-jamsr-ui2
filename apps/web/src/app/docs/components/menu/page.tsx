@@ -16,7 +16,7 @@ import { MenuRadioItemsExample } from "./examples/radio-items";
 import { MenuRadius } from "./examples/radius";
 import { MenuStartEndContent } from "./examples/start-end-content";
 import { MenuUsage } from "./examples/usage";
-import { MenuWithArrow } from "./examples/with-arrow";
+import { MenuWithoutArrow } from "./examples/without-arrow";
 import { MenuWithoutLockScroll } from "./examples/without-lock-scroll";
 
 const title = "Menu";
@@ -38,19 +38,7 @@ const Menu = () => {
       <CodeExample isCentered title="Nested" url={resolvePath("nested.tsx")}>
         <MenuNested />
       </CodeExample>
-      <CodeExample
-        isCentered
-        title="Placement"
-        url={resolvePath("placement.tsx")}
-      >
-        <MenuPlacement />
-      </CodeExample>
-      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
-        <MenuRadius />
-      </CodeExample>
-      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
-        <MenuColors />
-      </CodeExample>
+
       <CodeExample
         isCentered
         title="Radio Items"
@@ -71,15 +59,16 @@ const Menu = () => {
       <CodeExample
         title="Start & End Content"
         url={resolvePath("start-end-content.tsx")}
+        isCentered
       >
         <MenuStartEndContent />
       </CodeExample>
       <CodeExample
         isCentered
-        title="With Arrow"
-        url={resolvePath("with-arrow.tsx")}
+        title="Without Arrow"
+        url={resolvePath("without-arrow.tsx")}
       >
-        <MenuWithArrow />
+        <MenuWithoutArrow />
       </CodeExample>
       <CodeExample
         isCentered
@@ -87,6 +76,22 @@ const Menu = () => {
         url={resolvePath("prevent-close.tsx")}
       >
         <MenuPreventClose />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Placement"
+        url={resolvePath("placement.tsx")}
+      >
+        <MenuPlacement />
+      </CodeExample>
+      <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
+        <MenuOffset />
+      </CodeExample>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
+        <MenuRadius />
+      </CodeExample>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
+        <MenuColors />
       </CodeExample>
       <CodeExample
         isCentered
@@ -107,9 +112,6 @@ const Menu = () => {
         url={resolvePath("without-lock-scroll.tsx")}
       >
         <MenuWithoutLockScroll />
-      </CodeExample>
-      <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
-        <MenuOffset />
       </CodeExample>
       <CodeExample
         isCentered

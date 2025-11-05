@@ -1116,6 +1116,9 @@ importers:
       clean-package:
         specifier: ^2.2.0
         version: 2.2.0
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: 'catalog:'
         version: 19.1.0

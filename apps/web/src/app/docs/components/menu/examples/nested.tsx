@@ -24,6 +24,16 @@ export const MenuNested = () => {
             <MenuItem>Undo</MenuItem>
             <MenuItem>Info</MenuItem>
             <MenuItem>Search</MenuItem>
+            <Menu>
+              <MenuTrigger>
+                <MenuItem>Search</MenuItem>
+              </MenuTrigger>
+              <MenuContent>
+                <MenuItem>Undo</MenuItem>
+                <MenuItem>Info</MenuItem>
+                <MenuItem>Search</MenuItem>
+              </MenuContent>
+            </Menu>
           </MenuContent>
         </Menu>
       </MenuContent>

@@ -6,11 +6,13 @@ export const menuVariants = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
-    root: "min-w-[150px] z-popover",
-    content:
+    root: "min-w-[150px] z-popover outline-none outline-0",
+    content: [
       "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
+      "shadow-lg origin-(--transform-origin)",
+    ],
     menuItem: [
-      "relative box-border flex size-full cursor-pointer select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+      "relative box-border flex size-full select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
       "ui-active:bg-surface-secondary",
     ],
     menuGroup: [""],

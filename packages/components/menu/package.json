@@ -12,9 +12,11 @@
   "devDependencies": {
     "@types/react": "catalog:",
     "clean-package": "^2.2.0",
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "peerDependencies": {
+    "motion": "catalog:",
     "react": "catalog:"
   },
   "dependencies": {

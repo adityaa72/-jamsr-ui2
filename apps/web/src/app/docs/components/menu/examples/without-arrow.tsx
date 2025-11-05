@@ -7,9 +7,9 @@ import {
 } from "@jamsrui/react";
 import { ChevronUpIcon } from "@jamsrui/icons";
 
-export const MenuWithArrow = () => {
+export const MenuWithoutArrow = () => {
   return (
-    <Menu showArrow>
+    <Menu hideArrow>
       <MenuTrigger>
         <Button endContent={<ChevronUpIcon />}>Open Me</Button>
       </MenuTrigger>

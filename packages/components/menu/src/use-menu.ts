@@ -7,6 +7,7 @@ import {
   offset,
   safePolygon,
   shift,
+  size,
   useClick,
   useDismiss,
   useFloating,
@@ -37,12 +38,13 @@ import type {
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import type { MenuContent } from "./menu-content";
-import type { MenuFloatingContext } from "./menu-floating-context";
+import type { MenuContent2 } from "./menu-content2";
+import type { MenuFloatingContext } from "./menu-floating-context.tsx";
 import type { MenuGroup } from "./menu-group";
 import type { MenuGroupLabel } from "./menu-group-label";
 import type { MenuItem } from "./menu-item";
 import type { MenuItemInner } from "./menu-item-inner";
+import type { MenuRoot } from "./menu-root";
 import type { MenuSlots, MenuVariantProps } from "./styles";
 
 export const useMenu = (props: useMenu.Props) => {
@@ -61,18 +63,18 @@ export const useMenu = (props: useMenu.Props) => {
     lockScroll = true,
     offset: offsetProp = 4,
     openDelay = 75,
-    placement = isNested ? "right-start" : "bottom-end",
+    placement = isNested ? "right-start" : "bottom",
     defaultOpen = false,
     onOpenChange,
     triggerOn = "click",
     classNames,
-    showArrow,
+    hideArrow = isNested ? true : false,
   } = $props;
 
   const tree = useFloatingTree();
   const nodeId = useFloatingNodeId();
   const item = useListItem();
-  const arrowHeight = showArrow ? 7 : 0;
+  const arrowHeight = hideArrow ? 0 : 7;
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -99,6 +101,22 @@ export const useMenu = (props: useMenu.Props) => {
       shift({ padding: 5 }),
       arrow({
         element: arrowRef,
+      }),
+      size({
+        apply({ availableHeight, elements, availableWidth }) {
+          elements.floating.style.setProperty(
+            "--available-width",
+            `${availableWidth}px`
+          );
+          elements.floating.style.setProperty(
+            "--available-height",
+            `${availableHeight}px`
+          );
+          elements.floating.style.setProperty(
+            "--transform-origin",
+            "top center"
+          );
+        },
       }),
     ],
     whileElementsMounted: autoUpdate,
@@ -227,8 +245,9 @@ export const useMenu = (props: useMenu.Props) => {
     [context, isNested]
   );
 
-  const getRootProps = useCallback(
-    () => ({
+  const getRootProps: PropGetter<MenuRoot.Props> = useCallback(
+    (props: MenuRoot.Props) => ({
+      ...props,
       "data-component": dataAttrDev("menu"),
       "data-slot": dataAttrDev("root"),
       className: styles.root({
@@ -247,7 +266,7 @@ export const useMenu = (props: useMenu.Props) => {
     ]
   );
 
-  const getContentProps: PropGetter<MenuContent.Props> = useCallback(
+  const getContentProps: PropGetter<MenuContent2.Props> = useCallback(
     () => ({
       className: styles.content({
         className: cn(classNames?.content),
@@ -347,7 +366,7 @@ export const useMenu = (props: useMenu.Props) => {
       isOpen,
       getTriggerProps,
       getFloatingListProps,
-      showArrow,
+      hideArrow,
       floatingCtx,
       getRootProps,
       getMenuItemProps,
@@ -355,6 +374,7 @@ export const useMenu = (props: useMenu.Props) => {
       getMenuItemInnerProps,
       getMenuGroupProps,
       getMenuGroupLabelProps,
+      placement,
     }),
     [
       getOverlayProps,
@@ -365,7 +385,7 @@ export const useMenu = (props: useMenu.Props) => {
       isOpen,
       getTriggerProps,
       getFloatingListProps,
-      showArrow,
+      hideArrow,
       floatingCtx,
       getRootProps,
       getMenuItemProps,
@@ -373,6 +393,7 @@ export const useMenu = (props: useMenu.Props) => {
       getMenuItemInnerProps,
       getMenuGroupProps,
       getMenuGroupLabelProps,
+      placement,
     ]
   );
 };
@@ -390,6 +411,6 @@ export namespace useMenu {
     lockScroll?: boolean;
     placement?: Placement;
     offset?: number;
-    showArrow?: boolean;
+    hideArrow?: boolean;
   }
 }

@@ -5,10 +5,12 @@ import {
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
-import { useRenderElement } from "@jamsrui/hooks";
+import { AnimatePresence } from "motion/react";
 
+import { MenuContent2 } from "./menu-content2";
 import { useMenuContext } from "./menu-context";
 import { MenuFloatingContext } from "./menu-floating-context";
+import { MenuRoot } from "./menu-root";
 
 import type { UIProps } from "@jamsrui/utils";
 
@@ -18,35 +20,32 @@ export const MenuContent = (props: MenuContent.Props) => {
     isOpen,
     getFocusManagerProps,
     getOverlayProps,
-    showArrow,
+    hideArrow,
     getArrowProps,
     floatingCtx,
-    getContentProps,
-    getRootProps,
     isNested,
   } = useMenuContext();
 
   const { children } = props;
-  const composedChildren = (
-    <>
-      {!!showArrow && <FloatingArrow {...getArrowProps()} />}
-      <div {...getContentProps(props)}>{children}</div>
-    </>
-  );
-  const renderElement = useRenderElement("div", {
-    props: [getRootProps(), { children: composedChildren }],
-  });
+
   return (
     <MenuFloatingContext value={floatingCtx}>
       <FloatingList {...getFloatingListProps()}>
-        {isOpen ? (
-          <FloatingPortal>
-            {isNested ? null : <FloatingOverlay {...getOverlayProps()} />}
-            <FloatingFocusManager {...getFocusManagerProps()}>
-              {renderElement}
-            </FloatingFocusManager>
-          </FloatingPortal>
-        ) : null}
+        <AnimatePresence>
+          {isOpen ? (
+            <FloatingPortal>
+              {isNested ? null : <FloatingOverlay {...getOverlayProps()} />}
+              <FloatingFocusManager {...getFocusManagerProps()}>
+                <MenuRoot>
+                  <MenuContent2>
+                    {hideArrow ? null : <FloatingArrow {...getArrowProps()} />}
+                    {children}
+                  </MenuContent2>
+                </MenuRoot>
+              </FloatingFocusManager>
+            </FloatingPortal>
+          ) : null}
+        </AnimatePresence>
       </FloatingList>
     </MenuFloatingContext>
   );
