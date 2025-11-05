@@ -29,7 +29,7 @@ export { Kbd, KbdConfig, useKbdConfig } from '@jamsrui/kbd';
 export { Label } from '@jamsrui/label';
 export { LinearProgress, LinearProgressConfig, useLinearProgressConfig } from '@jamsrui/linear-progress';
 export { Link, LinkConfig, useLinkConfig } from '@jamsrui/link';
-export { Menu, MenuCheckboxGroup, MenuCheckboxItem, MenuConfig, useMenuConfig, MenuContent, MenuGroup, MenuGroupLabel, MenuItem, MenuRadioGroup, MenuRadioItem, MenuTrigger } from '@jamsrui/menu';
+export { Menu, MenuCheckboxItem, MenuConfig, useMenuConfig, MenuContent, MenuGroup, MenuGroupLabel, MenuItem, MenuRadioGroup, MenuRadioItem, MenuSeparator, MenuTrigger } from '@jamsrui/menu';
 export { NumberInput, NumberInputConfig, useNumberInputConfig } from '@jamsrui/number-input';
 export { OtpInput, OtpInputConfig, useOtpInputConfig } from '@jamsrui/otp-input';
 export { Pagination, PaginationConfig, usePaginationConfig } from '@jamsrui/pagination';

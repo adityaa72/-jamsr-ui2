@@ -6,9 +6,18 @@ import {
   ArrowUpIcon,
   ChevronsUpDownIcon,
   EllipsisVerticalIcon,
-  EyeClosedIcon
+  EyeClosedIcon,
 } from "@jamsrui/icons";
-import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsrui/menu";
+import {
+  Menu,
+  MenuContent,
+  MenuGroup,
+  MenuItem,
+  MenuRadioGroup,
+  MenuRadioItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@jamsrui/menu";
 import { TableColumn, TableHeader, TableRow } from "@jamsrui/table";
 import { cn } from "@jamsrui/utils";
 import { flexRender } from "@tanstack/react-table";
@@ -19,41 +28,51 @@ import { getPinningStyles } from "./utils";
 import type { Column } from "@tanstack/react-table";
 
 const DataGridHeaderDropdown = ({ column }: { column: Column<any, any> }) => {
-  const { table } = useDataGridContext();
   return (
-    <Menu>
+    <Menu classNames={{ content: "border border-divider" }}>
       <MenuTrigger>
         <IconButton label="More" size="xs" variant="light">
           <EllipsisVerticalIcon className="size-4" />
         </IconButton>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem
-          isDisabled={!column.getCanSort()}
-          startContent={<ArrowUpIcon />}
-          onClick={() => {
-            if (column.getIsSorted() === "asc") {
-              column.clearSorting();
-            } else {
-              column.toggleSorting(false);
-            }
-          }}
-        >
-          Asc
-        </MenuItem>
-        <MenuItem
-          isDisabled={!column.getCanSort()}
-          startContent={<ArrowDownIcon />}
-          onClick={() => {
-            if (column.getIsSorted() === "desc") {
-              column.clearSorting();
-            } else {
-              column.toggleSorting(true);
-            }
-          }}
-        >
-          Desc
-        </MenuItem>
+        <MenuGroup>
+          <MenuRadioGroup value={column.getIsSorted() || ""}>
+            <MenuRadioItem
+              isDisabled={!column.getCanSort()}
+              preventCloseOnClick={false}
+              startContent={<ArrowUpIcon />}
+              tickPlacement="end"
+              value="asc"
+              onClick={() => {
+                if (column.getIsSorted() === "asc") {
+                  column.clearSorting();
+                } else {
+                  column.toggleSorting(false);
+                }
+              }}
+            >
+              Asc
+            </MenuRadioItem>
+            <MenuRadioItem
+              isDisabled={!column.getCanSort()}
+              preventCloseOnClick={false}
+              startContent={<ArrowDownIcon />}
+              tickPlacement="end"
+              value="desc"
+              onClick={() => {
+                if (column.getIsSorted() === "desc") {
+                  column.clearSorting();
+                } else {
+                  column.toggleSorting(true);
+                }
+              }}
+            >
+              Desc
+            </MenuRadioItem>
+          </MenuRadioGroup>
+        </MenuGroup>
+        <MenuSeparator />
         <MenuItem
           isDisabled={!column.getCanHide()}
           onClick={column.getToggleVisibilityHandler()}
@@ -61,22 +80,33 @@ const DataGridHeaderDropdown = ({ column }: { column: Column<any, any> }) => {
         >
           Hide Column
         </MenuItem>
-        <MenuItem
-          startContent={<ArrowLeftToLineIcon />}
-          onClick={() => {
-            column.pin(column.getIsPinned() === "left" ? false : "left");
-          }}
-        >
-          Pin To Left
-        </MenuItem>
-        <MenuItem
-          startContent={<ArrowRightToLineIcon />}
-          onClick={() =>
-            column.pin(column.getIsPinned() === "right" ? false : "right")
-          }
-        >
-          Pin To Right
-        </MenuItem>
+        <MenuSeparator />
+        <MenuGroup>
+          <MenuRadioGroup value={column.getIsPinned() || ""}>
+            <MenuRadioItem
+              preventCloseOnClick={false}
+              startContent={<ArrowLeftToLineIcon />}
+              tickPlacement="end"
+              value="left"
+              onClick={() => {
+                column.pin(column.getIsPinned() === "left" ? false : "left");
+              }}
+            >
+              Pin To Left
+            </MenuRadioItem>
+            <MenuRadioItem
+              preventCloseOnClick={false}
+              startContent={<ArrowRightToLineIcon />}
+              tickPlacement="end"
+              value="right"
+              onClick={() =>
+                column.pin(column.getIsPinned() === "right" ? false : "right")
+              }
+            >
+              Pin To Right
+            </MenuRadioItem>
+          </MenuRadioGroup>
+        </MenuGroup>
       </MenuContent>
     </Menu>
   );

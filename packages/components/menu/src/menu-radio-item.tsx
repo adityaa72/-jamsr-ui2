@@ -11,7 +11,7 @@ const MenuRadioIndicator = (props: { isChecked: boolean }) => {
 };
 
 export const MenuRadioItem = (props: MenuRadioItem.Props) => {
-  const { value: itemValue, ...restProps } = props;
+  const { value: itemValue, tickPlacement, ...restProps } = props;
   const { value, isDisabled, setValue } = useMenuRadioGroupContext();
 
   const handleClick = useCallback(() => {
@@ -24,7 +24,16 @@ export const MenuRadioItem = (props: MenuRadioItem.Props) => {
     <MenuItem
       preventCloseOnClick
       onClick={handleClick}
-      startContent={<MenuRadioIndicator isChecked={value === itemValue} />}
+      endContent={
+        tickPlacement === "end" ? (
+          <MenuRadioIndicator isChecked={value === itemValue} />
+        ) : undefined
+      }
+      startContent={
+        tickPlacement === "start" ? (
+          <MenuRadioIndicator isChecked={value === itemValue} />
+        ) : undefined
+      }
       {...restProps}
     />
   );
@@ -33,5 +42,6 @@ export const MenuRadioItem = (props: MenuRadioItem.Props) => {
 export namespace MenuRadioItem {
   export interface Props extends MenuItem.Props {
     value: string;
+    tickPlacement?: "start" | "end";
   }
 }

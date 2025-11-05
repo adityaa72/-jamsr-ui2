@@ -484,6 +484,7 @@ export const useSelect = (props: useSelect.Props) => {
       );
     return Array.from(new Set(items));
   }, [selectItems, value]);
+
   const getRenderValue = useMemo(() => {
     if (renderValue) return renderValue(value);
     return selectedLabels.join(",");
@@ -577,7 +578,7 @@ export namespace useSelect {
     errorMessage?: string;
     classNames?: SlotsToClassNames<SelectSlots>;
     helperText?: React.ReactNode;
-    renderValue?: (value: string[]) => React.ReactNode;
+    renderValue?: (value: string[]) => React.ReactElement;
     startContent?: React.ReactNode;
     endContent?: React.ReactNode;
     returnFocus?: boolean;

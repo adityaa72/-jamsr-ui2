@@ -22,6 +22,7 @@
   "dependencies": {
     "@floating-ui/react": "catalog:",
     "@jamsrui/core": "workspace:^",
+    "@jamsrui/divider": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/utils": "workspace:^"

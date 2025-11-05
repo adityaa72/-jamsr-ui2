@@ -15,6 +15,7 @@ export const MenuCheckboxItem = (props: MenuCheckboxItem.Props) => {
     isChecked: isCheckedProp,
     onCheckedChange,
     defaultChecked,
+    tickPlacement,
     ...restProps
   } = props;
 
@@ -32,7 +33,16 @@ export const MenuCheckboxItem = (props: MenuCheckboxItem.Props) => {
     <MenuItem
       preventCloseOnClick
       onClick={handleClick}
-      startContent={<MenuCheckboxIndicator isChecked={isChecked} />}
+      endContent={
+        tickPlacement === "end" ? (
+          <MenuCheckboxIndicator isChecked={isChecked} />
+        ) : undefined
+      }
+      startContent={
+        tickPlacement === "start" ? (
+          <MenuCheckboxIndicator isChecked={isChecked} />
+        ) : undefined
+      }
       {...restProps}
     />
   );
@@ -43,5 +53,6 @@ export namespace MenuCheckboxItem {
     isChecked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
     defaultChecked?: boolean;
+    tickPlacement?: "start" | "end";
   }
 }

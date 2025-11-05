@@ -738,6 +738,9 @@ importers:
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
+      '@jamsrui/divider':
+        specifier: workspace:^
+        version: link:../divider
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
@@ -1100,6 +1103,9 @@ importers:
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
+      '@jamsrui/divider':
+        specifier: workspace:^
+        version: link:../divider
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks

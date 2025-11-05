@@ -9,5 +9,5 @@ export { MenuGroupLabel } from "./menu-group-label";
 export { MenuItem } from "./menu-item";
 export { MenuRadioGroup } from "./menu-radio-group";
 export { MenuRadioItem } from "./menu-radio-item";
+export { MenuSeparator } from "./menu-separator";
 export { MenuTrigger } from "./menu-trigger";
-
