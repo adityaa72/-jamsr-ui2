@@ -16,8 +16,12 @@ import { cn } from "@jamsrui/utils";
 import { flexRender } from "@tanstack/react-table";
 
 import { useDataGridContext } from "./data-grid-context";
+import { getPinningStyles } from "./utils";
 
-const DataGridHeaderDropdown = () => {
+import type { Column } from "@tanstack/react-table";
+
+const DataGridHeaderDropdown = ({ column }: { column: Column<any, any> }) => {
+  const { table } = useDataGridContext();
   return (
     <Menu>
       <MenuTrigger>
@@ -26,11 +30,53 @@ const DataGridHeaderDropdown = () => {
         </IconButton>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem startContent={<ArrowUpIcon />}>Asc</MenuItem>
-        <MenuItem startContent={<ArrowDownIcon />}>Desc</MenuItem>
-        <MenuItem startContent={<EyeClosedIcon />}>Hide Column</MenuItem>
-        <MenuItem startContent={<ArrowLeftToLineIcon />}>Pin To Left</MenuItem>
-        <MenuItem startContent={<ArrowRightToLineIcon />}>
+        <MenuItem
+          isDisabled={!column.getCanSort()}
+          startContent={<ArrowUpIcon />}
+          onClick={() => {
+            if (column.getIsSorted() === "asc") {
+              column.clearSorting();
+            } else {
+              column.toggleSorting(false);
+            }
+          }}
+        >
+          Asc
+        </MenuItem>
+        <MenuItem
+          isDisabled={!column.getCanSort()}
+          startContent={<ArrowDownIcon />}
+          onClick={() => {
+            if (column.getIsSorted() === "desc") {
+              column.clearSorting();
+            } else {
+              column.toggleSorting(true);
+            }
+          }}
+        >
+          Desc
+        </MenuItem>
+        <MenuItem
+          isDisabled={!column.getCanHide()}
+          onClick={column.getToggleVisibilityHandler()}
+          startContent={<EyeClosedIcon />}
+        >
+          Hide Column
+        </MenuItem>
+        <MenuItem
+          startContent={<ArrowLeftToLineIcon />}
+          onClick={() => {
+            column.pin(column.getIsPinned() === "left" ? false : "left");
+          }}
+        >
+          Pin To Left
+        </MenuItem>
+        <MenuItem
+          startContent={<ArrowRightToLineIcon />}
+          onClick={() =>
+            column.pin(column.getIsPinned() === "right" ? false : "right")
+          }
+        >
           Pin To Right
         </MenuItem>
         <MenuItem startContent={<ArrowLeftIcon />}>Move To Left</MenuItem>
@@ -50,7 +96,16 @@ export const DataGridHeader = () => {
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               return (
-                <TableColumn key={header.id} className="relative">
+                <TableColumn
+                  key={header.id}
+                  className="relative"
+                  colSpan={header.colSpan}
+                  data-pinned={header.column.getIsPinned() || undefined}
+                  style={{
+                    width: header.getSize(),
+                    ...getPinningStyles(header.column),
+                  }}
+                >
                   {header.isPlaceholder ? null : (
                     <div className="flex">
                       <button
@@ -81,14 +136,15 @@ export const DataGridHeader = () => {
                           }
                         </span>
                       </button>
-                      <DataGridHeaderDropdown />
+                      <DataGridHeaderDropdown column={header.column} />
                       <span
                         aria-label="resize"
+                        onDoubleClick={() => header.column.resetSize()}
                         onMouseDown={header.getResizeHandler()}
                         onTouchStart={header.getResizeHandler()}
                         role="presentation"
                         className={cn(
-                          "absolute right-0 top-1/2  h-3/5 w-[2px] -translate-y-1/2 cursor-ew-resize bg-slate-300/30 opacity-0 transition-all duration-500 group-hover/table:opacity-100",
+                          "absolute right-0 top-1/2  h-3/5 w-[2px] -translate-y-1/2 cursor-ew-resize bg-slate-300/30 opacity-0 transition-all duration-500 group-hover/table:opacity-100 select-none touch-none",
                           {
                             "isResizing cursor-ew-resize":
                               header.column.getIsResizing(),

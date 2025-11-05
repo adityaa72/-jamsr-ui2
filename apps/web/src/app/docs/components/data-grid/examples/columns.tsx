@@ -70,8 +70,7 @@ export const COLUMNS = [
     accessorKey: "id",
     enableSorting: false,
     enableHiding: false,
-    size: 35,
-    maxSize: 35,
+    size: 100,
     header: () => {
       return <DataGridRowSelectAll />;
     },

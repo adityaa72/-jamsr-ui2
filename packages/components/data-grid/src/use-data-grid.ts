@@ -18,7 +18,7 @@ import type {
   RowSelectionState,
   SortingState,
   TableOptions,
-  VisibilityState,
+  VisibilityState
 } from "@tanstack/react-table";
 
 export const useDataGrid = <TData>(props: useDataGrid.Props<TData>) => {
@@ -49,10 +49,12 @@ export const useDataGrid = <TData>(props: useDataGrid.Props<TData>) => {
     top: [],
   });
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>([]);
-  const isEmtpy = data.length === 0;
+
+  const isEmpty = data.length === 0;
 
   const table = useReactTable({
     columnResizeMode: "onChange",
+    columnResizeDirection: "ltr",
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -95,10 +97,10 @@ export const useDataGrid = <TData>(props: useDataGrid.Props<TData>) => {
     () => ({
       table,
       isLoading,
-      isEmtpy,
+      isEmpty,
       rootProps,
     }),
-    [isEmtpy, isLoading, rootProps, table]
+    [isEmpty, isLoading, rootProps, table]
   );
 };
 

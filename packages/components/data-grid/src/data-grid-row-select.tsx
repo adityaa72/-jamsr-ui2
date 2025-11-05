@@ -13,6 +13,7 @@ export const DataGridRowSelect = ({ row }: { row: Row<any> }) => {
     />
   );
 };
+
 export const DataGridRowSelectAll = () => {
   const { table } = useDataGridContext();
   return (

@@ -8,10 +8,16 @@ export const tableVariants = tv({
     wrapper: "grid w-full gap-2 overflow-x-auto",
     table: "group/table w-full min-w-full",
     thead: "h-10",
-    th: "h-10 grow items-center px-3 text-left text-sm font-normal",
+    th: [
+      "h-10 grow items-center px-3 text-left text-sm font-normal",
+      "data-pinned:bg-background/90 data-pinned:backdrop-blur-xl",
+    ],
     tbody: "",
     tr: "group/tr",
-    td: "overflow-hidden  px-3 text-sm",
+    td: [
+      "overflow-hidden  px-3 text-sm",
+      "data-pinned:bg-background/90 data-pinned:backdrop-blur-xl",
+    ],
     tfoot: "",
   },
   variants: {
@@ -40,8 +46,9 @@ export const tableVariants = tv({
     },
     isHeaderSticky: {
       true: {
-        thead: "sticky top-0 z-10 bg-surface [&>tr]:shadow-sm",
+        thead: "sticky top-0 z-10 [&>tr]:shadow-sm",
         wrapper: "flex max-h-[400px] flex-col overflow-auto",
+        th: " bg-surface-secondary/90 backdrop-blur-xl",
       },
     },
     allowHover: {

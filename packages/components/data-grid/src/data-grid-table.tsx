@@ -5,7 +5,11 @@ import { useDataGridContext } from "./data-grid-context";
 export const DataGridTable = (props: DataGridTable.Props) => {
   const { children } = props;
   const { rootProps } = useDataGridContext();
-  return <Table {...rootProps}>{children}</Table>;
+  return (
+    <Table className="w-full table-fixed" {...rootProps}>
+      {children}
+    </Table>
+  );
 };
 
 export namespace DataGridTable {
