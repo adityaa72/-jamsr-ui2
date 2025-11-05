@@ -1,6 +1,11 @@
 "use client";
-import { Button } from "@jamsrui/react";
-import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsrui/react";
+import {
+  Button,
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuTrigger,
+} from "@jamsrui/react";
 
 export const MenuUsage = () => {
   return (

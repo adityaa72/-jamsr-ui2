@@ -20,8 +20,7 @@ import {
   useRole,
   useTypeahead,
 } from "@floating-ui/react";
-import { useMergeRefs } from "@jamsrui/hooks";
-import { useControlledState } from "@jamsrui/hooks";
+import { useControlledState, useMergeRefs } from "@jamsrui/hooks";
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { useMenuFloatingContext } from "./menu-floating-context";
@@ -40,6 +39,8 @@ import type { ComponentProps } from "react";
 
 import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context";
+import type { MenuGroup } from "./menu-group";
+import type { MenuGroupLabel } from "./menu-group-label";
 import type { MenuItem } from "./menu-item";
 import type { MenuItemInner } from "./menu-item-inner";
 import type { MenuSlots, MenuVariantProps } from "./styles";
@@ -314,6 +315,28 @@ export const useMenu = (props: useMenu.Props) => {
     [classNames?.menuItemInner, styles]
   );
 
+  const getMenuGroupProps: PropGetter<MenuGroup.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("menu-group"),
+      className: styles.menuItemInner({
+        className: cn(classNames?.menuGroup, props.className),
+      }),
+    }),
+    [classNames?.menuGroup, styles]
+  );
+
+  const getMenuGroupLabelProps: PropGetter<MenuGroupLabel.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("menu-group-label"),
+      className: styles.menuGroupLabel({
+        className: cn(classNames?.menuGroupLabel, props.className),
+      }),
+    }),
+    [classNames?.menuGroupLabel, styles]
+  );
+
   return useMemo(
     () => ({
       getOverlayProps,
@@ -330,6 +353,8 @@ export const useMenu = (props: useMenu.Props) => {
       getMenuItemProps,
       isNested,
       getMenuItemInnerProps,
+      getMenuGroupProps,
+      getMenuGroupLabelProps,
     }),
     [
       getOverlayProps,
@@ -346,6 +371,8 @@ export const useMenu = (props: useMenu.Props) => {
       getMenuItemProps,
       isNested,
       getMenuItemInnerProps,
+      getMenuGroupProps,
+      getMenuGroupLabelProps,
     ]
   );
 };

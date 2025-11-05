@@ -1,14 +1,12 @@
 import { IconButton } from "@jamsrui/icon-button";
 import {
   ArrowDownIcon,
-  ArrowLeftIcon,
   ArrowLeftToLineIcon,
-  ArrowRightIcon,
   ArrowRightToLineIcon,
   ArrowUpIcon,
   ChevronsUpDownIcon,
   EllipsisVerticalIcon,
-  EyeClosedIcon,
+  EyeClosedIcon
 } from "@jamsrui/icons";
 import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsrui/menu";
 import { TableColumn, TableHeader, TableRow } from "@jamsrui/table";
@@ -79,8 +77,6 @@ const DataGridHeaderDropdown = ({ column }: { column: Column<any, any> }) => {
         >
           Pin To Right
         </MenuItem>
-        <MenuItem startContent={<ArrowLeftIcon />}>Move To Left</MenuItem>
-        <MenuItem startContent={<ArrowRightIcon />}>Move To Right</MenuItem>
       </MenuContent>
     </Menu>
   );

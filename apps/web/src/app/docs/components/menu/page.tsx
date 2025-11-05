@@ -3,13 +3,16 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { MenuBackdrop } from "./examples/backdrop";
+import { MenuCheckboxItemsExample } from "./examples/checkbox-items";
 import { MenuColors } from "./examples/colors";
 import { MenuControlled } from "./examples/controlled";
 import { MenuCustomized } from "./examples/customized";
+import { MenuGroupExample } from "./examples/group";
 import { MenuNested } from "./examples/nested";
 import { MenuOffset } from "./examples/offset";
 import { MenuPlacement } from "./examples/placement";
 import { MenuPreventClose } from "./examples/prevent-close";
+import { MenuRadioItemsExample } from "./examples/radio-items";
 import { MenuRadius } from "./examples/radius";
 import { MenuStartEndContent } from "./examples/start-end-content";
 import { MenuUsage } from "./examples/usage";
@@ -47,6 +50,23 @@ const Menu = () => {
       </CodeExample>
       <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <MenuColors />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Radio Items"
+        url={resolvePath("radio-items.tsx")}
+      >
+        <MenuRadioItemsExample />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Checkbox Items"
+        url={resolvePath("checkbox-items.tsx")}
+      >
+        <MenuCheckboxItemsExample />
+      </CodeExample>
+      <CodeExample isCentered title="Group" url={resolvePath("group.tsx")}>
+        <MenuGroupExample />
       </CodeExample>
       <CodeExample
         title="Start & End Content"
