@@ -1,5 +1,16 @@
 # @jamsrui/accordion
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: builds
+- Updated dependencies
+  - @jamsrui/composite@0.0.3
+  - @jamsrui/core@0.0.9
+  - @jamsrui/hooks@0.0.10
+  - @jamsrui/utils@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

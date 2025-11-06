@@ -1,5 +1,13 @@
 # @jamsrui/hooks
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: builds
+- Updated dependencies
+  - @jamsrui/utils@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # web
 
+## 0.1.10
+
+### Patch Changes
+
+- fix: builds
+- Updated dependencies
+  - @jamsrui/avatar@0.0.10
+  - @jamsrui/button@0.0.10
+  - @jamsrui/checkbox@0.0.10
+  - @jamsrui/switch@0.0.10
+  - @jamsrui/table@0.0.10
+  - @jamsrui/hooks@0.0.10
+  - @jamsrui/icons@0.0.9
+  - @jamsrui/react@0.0.11
+  - @jamsrui/theme@0.0.10
+  - @jamsrui/utils@0.0.10
+
 ## 0.1.9
 
 ### Patch Changes

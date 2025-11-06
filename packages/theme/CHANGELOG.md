@@ -1,5 +1,11 @@
 # @jamsrui/theme
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: builds
+
 ## 0.0.9
 
 ### Patch Changes

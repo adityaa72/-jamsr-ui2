@@ -1,5 +1,15 @@
 # @jamsrui/slider
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: builds
+- Updated dependencies
+  - @jamsrui/core@0.0.9
+  - @jamsrui/hooks@0.0.10
+  - @jamsrui/utils@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

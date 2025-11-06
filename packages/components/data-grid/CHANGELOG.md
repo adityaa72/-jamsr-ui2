@@ -1,5 +1,25 @@
 # @jamsrui/data-grid
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: builds
+- Updated dependencies
+  - @jamsrui/button@0.0.10
+  - @jamsrui/checkbox@0.0.10
+  - @jamsrui/divider@0.0.10
+  - @jamsrui/icon-button@0.0.10
+  - @jamsrui/input@0.0.10
+  - @jamsrui/linear-progress@0.0.10
+  - @jamsrui/menu@0.0.10
+  - @jamsrui/select@0.0.10
+  - @jamsrui/table@0.0.10
+  - @jamsrui/core@0.0.9
+  - @jamsrui/hooks@0.0.10
+  - @jamsrui/icons@0.0.9
+  - @jamsrui/utils@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes
