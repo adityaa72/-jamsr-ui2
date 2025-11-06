@@ -1,5 +1,22 @@
 # web
 
+## 0.1.9
+
+### Patch Changes
+
+- slots
+- Updated dependencies
+  - @jamsrui/avatar@0.0.9
+  - @jamsrui/button@0.0.9
+  - @jamsrui/checkbox@0.0.9
+  - @jamsrui/switch@0.0.9
+  - @jamsrui/table@0.0.9
+  - @jamsrui/hooks@0.0.9
+  - @jamsrui/icons@0.0.8
+  - @jamsrui/react@0.0.10
+  - @jamsrui/theme@0.0.9
+  - @jamsrui/utils@0.0.9
+
 ## 0.1.8
 
 ### Patch Changes

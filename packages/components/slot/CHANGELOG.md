@@ -1,5 +1,11 @@
 # @jamsrui/charts
 
+## 0.0.9
+
+### Patch Changes
+
+- slots
+
 ## 0.0.8
 
 ### Patch Changes

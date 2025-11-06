@@ -1,5 +1,13 @@
 # @jamsrui/hooks
 
+## 0.0.9
+
+### Patch Changes
+
+- slots
+- Updated dependencies
+  - @jamsrui/utils@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @jamsrui/toast
 
+## 0.0.9
+
+### Patch Changes
+
+- slots
+- Updated dependencies
+  - @jamsrui/core@0.0.8
+  - @jamsrui/hooks@0.0.9
+  - @jamsrui/utils@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes

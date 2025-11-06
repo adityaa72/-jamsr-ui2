@@ -1,5 +1,11 @@
 # @jamsrui/icons
 
+## 0.0.8
+
+### Patch Changes
+
+- slots
+
 ## 0.0.7
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @jamsrui/avatar
 
+## 0.0.9
+
+### Patch Changes
+
+- slots
+- Updated dependencies
+  - @jamsrui/slot@0.0.9
+  - @jamsrui/core@0.0.8
+  - @jamsrui/hooks@0.0.9
+  - @jamsrui/icons@0.0.8
+  - @jamsrui/utils@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes
