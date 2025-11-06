@@ -19,34 +19,30 @@ function createPackageClean(pkg: PackageInfo) {
   const { path } = pkg;
 
   const pkgPath = path + "/package.json";
-  const pkgContent = readFileSync(pkgPath, "utf-8").replaceAll(
-    "./src",
-    "./dist"
-  );
+  const pkgContent = readFileSync(pkgPath, "utf-8");
   const pkgJson = JSON.parse(pkgContent);
 
-  // pkgJson.scripts = {
-  //   ...pkgJson.scripts,
-  //   typecheck: "tsc --noEmit",
-  //   lint: "npx eslint src --ext .ts,.tsx --fix",
-  //   build: "tsup",
-  //   prepack: "clean-package",
-  //   postpack: "clean-package restore",
-  // };
-  // pkgJson.devDependencies = {
-  //   ...(pkgJson.devDependencies ?? {}),
-  //   "clean-package": "^2.2.0",
-  // };
-  // pkgJson["version"] = "0.0.1";
-  // pkgJson["clean-package"] = "./clean-package.config.json";
-
-  const packageExports = pkgJson.exports;
-  console.log(" packageExports:->", packageExports);
+  const packageExports: Record<string, string> = pkgJson.exports ?? {};
+  const distPackageExports = Object.fromEntries(
+    Object.entries(packageExports).map(([key, value]) => {
+      const isTsFile = value.endsWith(".ts");
+      const distValue = value.replace("src", "dist");
+      return [
+        key,
+        isTsFile
+          ? {
+              types: distValue.replace(".ts", ".d.ts"),
+              import: distValue.replace(".ts", ".mjs"),
+            }
+          : distValue,
+      ];
+    })
+  );
   const cleanPackageContentObj = JSON.parse(cleanPackageContent);
   if (packageExports) {
     cleanPackageContentObj.replace.exports = {
       ...cleanPackageContentObj.replace.exports,
-      ...packageExports,
+      ...distPackageExports,
     };
   }
 

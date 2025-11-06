@@ -9,8 +9,11 @@
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
-        "import": "./dist/index.mjs",
-        "require": "./dist/index.js"
+        "import": "./dist/index.mjs"
+      },
+      "./primitive": {
+        "types": "./dist/primitive/index.d.ts",
+        "import": "./dist/primitive/index.mjs"
       }
     },
     "description": "A modern and beautiful Next.js UI components library.",
