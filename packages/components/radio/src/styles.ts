@@ -5,7 +5,7 @@ import type { VariantProps } from "@jamsrui/utils";
 export const radioVariant = tv({
   slots: {
     root: [
-      "group relative inline-flex gap-2 cursor-pointer items-center justify-start tap-highlight-transparent",
+      "group relative inline-flex gap-2 cursor-default items-center justify-start tap-highlight-transparent",
       "ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
     ],
     control: [
@@ -16,7 +16,7 @@ export const radioVariant = tv({
       "shrink-0",
       "overflow-hidden",
       "border-solid",
-      "border-2",
+      "border",
       "box-border",
       "border-default",
       "rounded-full",
@@ -68,14 +68,14 @@ export const radioVariant = tv({
         description: "text-xs",
       },
       md: {
-        control: "size-5",
+        control: "size-4.5",
         indicator: "size-2",
         labelWrapper: "ml-2",
         label: "text-base",
         description: "text-sm",
       },
       lg: {
-        control: "size-6",
+        control: "size-5",
         indicator: "size-2.5",
         labelWrapper: "ml-2",
         label: "text-lg",

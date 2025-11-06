@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, mapPropsVariants } from "@jamsrui/utils";
+import { useHover, useMergeRefs, usePress } from "@jamsrui/hooks";
+import { cn, dataAttr, mapPropsVariants } from "@jamsrui/utils";
 
 import { buttonVariant } from "./styles";
 
@@ -14,29 +15,50 @@ export const useButton = (props: useButton.Props) => {
     buttonVariant.variantKeys
   );
   const {
-    isDisabled: isDisabledProp,
+    isDisabled: isDisabledProp = false,
     disableRipple,
     endContent,
     spinner,
     spinnerPlacement = "start",
     startContent,
-    disabled,
-    isLoading,
+    disabled = false,
+    isLoading = false,
     className,
+    ref,
     ...restProps
   } = elementProps;
 
-  const isDisabled = disabled ?? isDisabledProp ?? isLoading;
-
+  const isDisabled = disabled || isDisabledProp || isLoading;
   const styles = buttonVariant(variantKeys);
+
+  const { isHovered, ref: hoverRef } = useHover({
+    isDisabled,
+  });
+  const { isPressed, ref: pressRef } = usePress({
+    isDisabled,
+  });
+  const mergedRefs = useMergeRefs([ref, hoverRef, pressRef]);
+
   const getButtonProps: PropGetter<Button.Props> = useCallback(
     () => ({
       ...restProps,
+      ref: mergedRefs,
       disabled: isDisabled,
       className: cn(styles, className),
-      "data-loading": isLoading,
+      "data-loading": dataAttr(isLoading),
+      "data-pressed": dataAttr(isPressed),
+      "data-hover": dataAttr(isHovered),
     }),
-    [className, isDisabled, isLoading, restProps, styles]
+    [
+      className,
+      isDisabled,
+      isHovered,
+      isLoading,
+      isPressed,
+      mergedRefs,
+      restProps,
+      styles,
+    ]
   );
 
   return useMemo(

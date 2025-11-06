@@ -66,7 +66,7 @@
   --color-foreground-inverse: var(--ui-foreground-inverse);
 
   /* Divider Colors */
-  --color-divider-subtle: var(--ui-divider-subtle);
+  --color-divider-flat: var(--ui-divider-flat);
   --color-divider: var(--ui-divider);
   --color-divider-hover: var(--ui-divider-hover);
 
@@ -237,7 +237,7 @@
   --ui-foreground-tertiary: oklch(62.2% 0.007 286.2);
   --ui-foreground-inverse: oklch(100% 0 0);
 
-  --ui-divider-subtle: oklch(96.8% 0.002 325.6);
+  --ui-divider-flat: oklch(96.8% 0.002 325.6);
   --ui-divider: oklch(93.2% 0.002 325.6);
   --ui-divider-hover: oklch(85.9% 0.002 325.6);
 
@@ -373,7 +373,7 @@
   --ui-foreground-inverse: oklch(0% 0 0);
 
   /* Divider Colors */
-  --ui-divider-subtle: oklch(13.3% 0.003 246.1);
+  --ui-divider-flat: oklch(13.3% 0.003 246.1);
   --ui-divider: oklch(27.9% 0.009 248.2);
   --ui-divider-hover: oklch(34.9% 0.013 248.2);
 

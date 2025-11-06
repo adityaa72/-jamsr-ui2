@@ -8,7 +8,6 @@ import {
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const buttonVariant = tv({
   base: [
     "relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
@@ -27,7 +26,7 @@ export const buttonVariant = tv({
     },
     variant: {
       solid: "",
-      bordered: "border-2",
+      bordered: "border",
       light: "",
       text: "",
       flat: "",
@@ -38,13 +37,13 @@ export const buttonVariant = tv({
     size: {
       xs: "px-2 py-1 text-xs",
       sm: "min-w-16 gap-1 px-3 py-1.5 text-xs",
-      md: "min-w-20 gap-2 px-4 py-2 text-sm",
-      lg: "min-w-40 gap-2 px-6 py-2.5 text-base font-medium",
+      md: "min-w-20 gap-2 px-4 py-1.5 text-sm",
+      lg: "min-w-30 gap-2 px-5 py-1.5 text-base",
     },
     radius: radiusBaseVariant,
     disableAnimation: {
       true: "",
-      false: "",
+      false: "transition-[scale] duration-300 data-pressed:scale-98",
     },
   },
   compoundVariants: [

@@ -8,11 +8,10 @@ import {
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const iconButtonVariants = tv({
   base: [
     "z-0",
-    "cursor-pointer",
+    "cursor-default",
     "shrink-0",
     "group",
     "relative",
@@ -27,9 +26,9 @@ export const iconButtonVariants = tv({
     "min-w-max",
     "font-medium",
     "tap-highlight-transparent",
-    "transition-transform",
+    "transition-transform duration-300",
     "focus-visible:ring-2 focus-visible:ring-primary",
-    "ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+    "data-disabled:cursor-not-allowed data-disabled:opacity-60",
     "text-transform-inherit",
   ],
   variants: {
@@ -43,7 +42,7 @@ export const iconButtonVariants = tv({
     },
     variant: {
       solid: "",
-      bordered: "border-2 bg-transparent",
+      bordered: "border bg-transparent",
       light: "",
       text: "",
       flat: "",
@@ -55,8 +54,8 @@ export const iconButtonVariants = tv({
       lg: "size-12 min-w-12 rounded-2xl",
     },
     disableAnimation: {
-      true: "!transition-none",
-      false: "data-[pressed=true]:scale-[0.97]",
+      true: "transition-none!",
+      false: "data-pressed:scale-98",
     },
     radius: radiusBaseVariant,
   },

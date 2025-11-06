@@ -2,12 +2,11 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const popoverVariants = tv({
   slots: {
     root: "z-popover",
     content:
-      "bg-surface p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none",
+      "bg-surface p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-[top_center]",
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
   },

@@ -8,10 +8,11 @@ type Props = {
   title: string;
   description: string;
   onThisPage?: React.ReactNode;
+  size?: "md" | "lg";
 };
 
 export const DocsPageInner = (props: Props) => {
-  const { children, description, title, onThisPage } = props;
+  const { children, description, size, title, onThisPage } = props;
   const { isOpen } = useSidebarState();
   return (
     <div
@@ -20,7 +21,12 @@ export const DocsPageInner = (props: Props) => {
         isOpen ? "md:translate-x-[250px] md:w-[calc(100%-250px)]" : "mx-auto"
       )}
     >
-      <div className="py-12 w-full px-4 md:px-12 max-w-screen-lg mx-auto">
+      <div
+        className={cn(
+          "py-12 w-full px-4 md:px-12  mx-auto",
+          size === "lg" ? "max-w-screen-lg" : "max-w-screen-md"
+        )}
+      >
         <SidebarToggle className="md:hidden" />
         {!isOpen && <SidebarToggle />}
         <article className={cn("flex col-span-2 flex-col gap-8 w-full py-12")}>

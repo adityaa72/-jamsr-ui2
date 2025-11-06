@@ -11,7 +11,7 @@ export const ButtonVariants = () => {
   return (
     <div className="flex flex-wrap gap-4">
       {variants.map((variant) => (
-        <Button color="primary" key={variant} variant={variant}>
+        <Button key={variant} variant={variant}>
           {variant}
         </Button>
       ))}

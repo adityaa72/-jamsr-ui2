@@ -23,6 +23,7 @@
   "tailwindCSS.experimental.configFile": "packages/theme/src/premium.css",
   "explorerExclude.backup": {},
   "cSpell.words": [
+    "Booleanish",
     "jamsrui",
     "labelledby",
     "shiki"

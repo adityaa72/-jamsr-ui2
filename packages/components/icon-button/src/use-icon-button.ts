@@ -1,6 +1,7 @@
 import { useCallback, useId, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { useHover, useMergeRefs, usePress } from "@jamsrui/hooks";
+import { cn, dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { iconButtonVariants } from "./styles";
 
@@ -19,30 +20,53 @@ export const useIconButton = (props: useIconButton.Props) => {
   const {
     type = "button",
     label: labelProp,
-    isDisabled: isDisabledProp,
-    isLoading,
-    disabled,
+    isDisabled: isDisabledProp = false,
+    isLoading = false,
+    disabled = false,
     className,
+    ref,
     ...restProps
   } = $props;
 
   const styles = iconButtonVariants(variantProps);
   const id = useId();
-  const isDisabled = isDisabledProp ?? isLoading ?? disabled;
+  const isDisabled = isDisabledProp || isLoading || disabled;
+
+  const { isHovered, ref: hoverRef } = useHover({
+    isDisabled,
+  });
+  const { isPressed, ref: pressRef } = usePress({
+    isDisabled,
+  });
+  const mergedRefs = useMergeRefs([ref, hoverRef, pressRef]);
 
   const getButtonProps = useCallback(
     (): Partial<IconButton.Props> => ({
       ...restProps,
+      ref: mergedRefs,
       "data-component": dataAttrDev("icon-button"),
       className: cn(styles, className),
-      "aria-label": labelProp,
       "aria-labelledby": id,
       type,
       disabled: isDisabled,
-      "data-disabled": isDisabled,
-      "aria-disabled": isDisabled,
+      "data-disabled": dataAttr(isDisabled),
+      "aria-disabled": dataAttr(isDisabled),
+      "data-loading": dataAttr(isLoading),
+      "data-pressed": dataAttr(isPressed),
+      "data-hover": dataAttr(isHovered),
     }),
-    [className, id, isDisabled, labelProp, restProps, styles, type]
+    [
+      className,
+      id,
+      isDisabled,
+      isHovered,
+      isLoading,
+      isPressed,
+      mergedRefs,
+      restProps,
+      styles,
+      type,
+    ]
   );
 
   const getLabelProps: PropGetter<ComponentProps<"span">> = useCallback(() => {

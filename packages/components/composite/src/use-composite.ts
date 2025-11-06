@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 
 import { isDisabledElement } from "@jamsrui/utils";
+
 import type { Composite } from "./composite";
 
 type CompositeItemRef = {
@@ -21,11 +22,11 @@ export const useComposite = (props: useComposite.Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const rootRef = useRef<HTMLElement | null>(null);
 
-  console.log({
-    rootRef,
-    items,
-    activeIndex,
-  });
+  // console.log({
+  //   rootRef,
+  //   items,
+  //   activeIndex,
+  // });
 
   const registerItem = useCallback((entry: CompositeItemRef) => {
     items.current.push({

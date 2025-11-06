@@ -1,6 +1,6 @@
 import { useCallback, useId, useMemo } from "react";
 
-import { useCompositeItem } from "../../composite/src/use-composite-item";
+import { useCompositeItem } from "@jamsrui/composite";
 import { cn, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { useAccordionContext } from "./accordion-context";
@@ -25,7 +25,6 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
   } = useAccordionContext();
   // const { index } = useAccordionListItem();
   const { index } = useCompositeItem({});
-  console.log(index);
   const indexValue = (index + 1).toString();
   const {
     value: itemValue = indexValue,

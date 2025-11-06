@@ -8,7 +8,7 @@ import {
 
 export const PopoverUsage = () => {
   return (
-    <Popover backdrop="blur" placement="bottom">
+    <Popover placement="bottom">
       <PopoverTrigger>
         <Button>Press Me!</Button>
       </PopoverTrigger>

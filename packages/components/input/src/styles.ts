@@ -5,8 +5,8 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const inputVariants = tv({
   slots: {
-    root: "flex flex-col gap-1 group",
-    label: "shrink-0 text-sm font-medium text-foreground",
+    root: "flex flex-col gap-1.5 group",
+    label: "shrink-0 text-sm font-normal text-foreground",
     helperText: "text-xs text-foreground-tertiary",
     errorMessage: "text-xs text-danger",
     input: [
@@ -16,7 +16,7 @@ export const inputVariants = tv({
     wrapper: "",
     content: "grow flex",
     contentWrapper: [
-      "border-2 flex items-center border-divider",
+      "border flex items-center border-divider",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
       "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
       "not-uig-invalid:uig-hover:border-divider-dark",
@@ -39,7 +39,7 @@ export const inputVariants = tv({
         input: "px-3 py-2 text-sm placeholder:text-sm",
       },
       lg: {
-        input: "p-3 text-base placeholder:text-base",
+        input: "px-3 py-2 text-base placeholder:text-base",
       },
     },
     isInvalid: {

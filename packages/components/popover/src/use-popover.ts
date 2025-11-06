@@ -33,27 +33,6 @@ import type { PopoverContent } from "./popover-content";
 import type { PopoverRoot } from "./popover-root";
 import type { PopoverSlots, PopoverVariants } from "./styles";
 
-const getInitialPosition = (placement: Placement) => {
-  switch (placement) {
-    case "top":
-    case "top-end":
-    case "top-start":
-      return { y: 15 };
-    case "bottom":
-    case "bottom-start":
-    case "bottom-end":
-      return { y: -15 };
-    case "left":
-    case "left-end":
-    case "left-start":
-      return { x: 15 };
-    case "right":
-    case "right-end":
-    case "right-start":
-      return { x: -15 };
-  }
-};
-
 export const usePopover = (props: usePopover.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
@@ -154,9 +133,9 @@ export const usePopover = (props: usePopover.Props) => {
 
   const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
     (props) => ({
-      initial: { opacity: 0, scale: 0.8, ...getInitialPosition(placement) },
+      initial: { opacity: 0, scale: 0.8 },
       animate: { opacity: 1, scale: 1, x: 0, y: 0 },
-      exit: { opacity: 0, scale: 0.8, ...getInitialPosition(placement) },
+      exit: { opacity: 0, scale: 0.8 },
       transition: { type: "spring", stiffness: 300, damping: 25 },
       ...props,
       "data-slot": dataAttrDev("content"),
@@ -164,7 +143,7 @@ export const usePopover = (props: usePopover.Props) => {
         className: cn(classNames?.content, props.className),
       }),
     }),
-    [classNames?.content, placement, styles]
+    [classNames?.content, styles]
   );
 
   const getArrowProps = useCallback(

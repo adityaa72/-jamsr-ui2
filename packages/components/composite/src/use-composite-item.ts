@@ -60,7 +60,6 @@ export const useCompositeItem = (props: useCompositeItem.Props) => {
       ) {
         e.preventDefault();
         next = ctx.moveNext(index);
-        console.log(next);
         ctx.setActiveIndex(next);
         focusItem(next);
       } else if (

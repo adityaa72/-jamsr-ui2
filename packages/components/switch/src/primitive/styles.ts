@@ -7,9 +7,9 @@ export const switchVariants = tv({
     root: "group flex flex-col gap-2",
     track: [
       ...groupDataFocusVisibleClasses,
-      "flex cursor-pointer shrink-0 items-center rounded-full bg-surface-secondary p-1",
+      "flex cursor-default shrink-0 items-center rounded-full bg-surface-secondary p-1",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
-      "cursor-default ui-interactive:cursor-pointer ui-interactive:hover:opacity-95",
+      "ui-interactive:hover:opacity-95",
       "justify-start uig-checked:justify-end",
     ],
     thumb: "size-8 rounded-full bg-white shadow-md",
@@ -18,7 +18,7 @@ export const switchVariants = tv({
     content: "grid grow gap-1",
     wrapper: "flex items-center justify-between gap-2 relative",
     input:
-      "opacity-[0.0001] absolute inset-0 cursor-pointer disabled:cursor-not-allowed z-1",
+      "opacity-[0.0001] absolute inset-0 cursor-default disabled:cursor-not-allowed z-1",
   },
   variants: {
     color: {
