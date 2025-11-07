@@ -1,5 +1,11 @@
 # @jamsrui/icons
 
+## 0.0.10
+
+### Patch Changes
+
+- rhf
+
 ## 0.0.9
 
 ### Patch Changes

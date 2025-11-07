@@ -1,5 +1,15 @@
 # @jamsrui/context-menu
 
+## 0.0.11
+
+### Patch Changes
+
+- rhf
+- Updated dependencies
+  - @jamsrui/core@0.0.10
+  - @jamsrui/hooks@0.0.11
+  - @jamsrui/utils@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes

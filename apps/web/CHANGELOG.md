@@ -1,5 +1,22 @@
 # web
 
+## 0.1.11
+
+### Patch Changes
+
+- rhf
+- Updated dependencies
+  - @jamsrui/avatar@0.0.11
+  - @jamsrui/button@0.0.11
+  - @jamsrui/checkbox@0.0.11
+  - @jamsrui/switch@0.0.11
+  - @jamsrui/table@0.0.11
+  - @jamsrui/hooks@0.0.11
+  - @jamsrui/icons@0.0.10
+  - @jamsrui/react@0.0.12
+  - @jamsrui/theme@0.0.11
+  - @jamsrui/utils@0.0.11
+
 ## 0.1.10
 
 ### Patch Changes

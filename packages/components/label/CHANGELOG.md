@@ -1,5 +1,13 @@
 # @jamsrui/label
 
+## 0.0.4
+
+### Patch Changes
+
+- rhf
+- Updated dependencies
+  - @jamsrui/utils@0.0.11
+
 ## 0.0.3
 
 ### Patch Changes

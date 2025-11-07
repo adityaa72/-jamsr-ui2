@@ -1,5 +1,17 @@
 # @jamsrui/menu
 
+## 0.0.11
+
+### Patch Changes
+
+- rhf
+- Updated dependencies
+  - @jamsrui/divider@0.0.11
+  - @jamsrui/core@0.0.10
+  - @jamsrui/hooks@0.0.11
+  - @jamsrui/icons@0.0.10
+  - @jamsrui/utils@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes

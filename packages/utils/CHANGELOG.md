@@ -1,5 +1,11 @@
 # @jamsrui/utils
 
+## 0.0.11
+
+### Patch Changes
+
+- rhf
+
 ## 0.0.10
 
 ### Patch Changes
