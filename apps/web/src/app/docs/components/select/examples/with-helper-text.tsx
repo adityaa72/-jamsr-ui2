@@ -3,7 +3,7 @@ import { Select, SelectItem } from "@jamsrui/react";
 export const SelectWithHelperText = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       label="Select Fruit"
       helperText="Please choose one of the options"
     >

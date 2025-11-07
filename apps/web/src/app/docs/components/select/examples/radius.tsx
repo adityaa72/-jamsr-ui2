@@ -16,7 +16,7 @@ export const SelectRadius = () => {
     <div className="flex flex-col gap-4 w-full items-center">
       {radii.map((radius) => (
         <Select
-          className="max-w-sm"
+          className="max-w-xs"
           label="Select Label"
           radius={radius}
           key={radius}

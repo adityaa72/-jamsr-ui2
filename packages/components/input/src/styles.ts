@@ -2,12 +2,11 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const inputVariants = tv({
   slots: {
     root: "flex flex-col gap-1.5 group",
     label: "shrink-0 text-sm font-normal text-foreground",
-    helperText: "text-xs text-foreground-tertiary",
+    description: "text-xs text-foreground-tertiary",
     errorMessage: "text-xs text-danger",
     input: [
       "grow bg-transparent font-normal",

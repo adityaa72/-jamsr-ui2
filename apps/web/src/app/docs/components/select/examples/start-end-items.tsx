@@ -4,7 +4,7 @@ import { EmailIcon } from "@jamsrui/icons";
 export const SelectStartEndItems = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       label="Select Label"
       startContent="$"
       endContent={<EmailIcon />}

@@ -2,7 +2,7 @@ import { Select, SelectItem } from "@jamsrui/react";
 
 export const SelectUsage = () => {
   return (
-    <Select className="max-w-sm w-full" label="Select Fruit">
+    <Select className="max-w-xs w-full" label="Select Fruit">
       <SelectItem value="apple">Apple</SelectItem>
       <SelectItem value="blueberry">Blueberry</SelectItem>
       <SelectItem value="watermelon">Watermelon</SelectItem>

@@ -23,7 +23,7 @@ import type { InputEndContent } from "./input-end-content";
 import type { InputErrorMessage } from "./input-error-message";
 import type { InputField } from "./input-field";
 import type { InputLabel } from "./input-label";
-import { InputRoot } from "./input-root";
+import type { InputRoot } from "./input-root";
 import type { InputStartContent } from "./input-start-content";
 import type { InputWrapper } from "./input-wrapper";
 import type { InputSlots, InputVariantProps } from "./styles";
@@ -40,9 +40,10 @@ export const useInput = (props: useInput.Props) => {
     classNames,
     label,
     isClearable,
-    helperText,
+    isDisabled: isDisabledProp = false,
+    isReadonly,
+    description: helperText,
     errorMessage,
-    disabled = false,
     value: valueProp,
     defaultValue,
     onValueChange,
@@ -62,7 +63,7 @@ export const useInput = (props: useInput.Props) => {
   const isInvalid = variantProps.isInvalid;
 
   const { isDisabled, ref: disableRef } = useIsDisabled<HTMLInputElement>({
-    isDisabled: disabled,
+    isDisabled: isDisabledProp,
     isFormControl: false,
   });
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
@@ -231,17 +232,17 @@ export const useInput = (props: useInput.Props) => {
 
   const getDescriptionProps: PropGetter<InputDescription.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.helperText, props),
-      "data-slot": dataAttrDev("helperText"),
-      className: styles.helperText({
+      ...mergeProps(slotProps?.description, props),
+      "data-slot": dataAttrDev("description"),
+      className: styles.description({
         className: cn(
-          slotProps?.helperText?.className,
-          classNames?.helperText,
+          slotProps?.description?.className,
+          classNames?.description,
           props.className
         ),
       }),
     }),
-    [classNames?.helperText, slotProps?.helperText, styles]
+    [classNames?.description, slotProps?.description, styles]
   );
 
   const getErrorMessageProps: PropGetter<InputErrorMessage.Props> = useCallback(
@@ -338,13 +339,15 @@ export namespace useInput {
     classNames?: SlotsToClassNames<InputSlots>;
     label?: string;
     isClearable?: boolean;
-    helperText?: string;
-    errorMessage?: string;
+    description?: React.ReactNode;
+    errorMessage?: React.ReactNode;
     isInvalid?: boolean;
     value?: string;
     defaultValue?: string;
     onValueChange?: (value: string) => void;
     onClearInput?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    isDisabled?: boolean;
+    isReadonly?: boolean;
     slotProps?: {
       root?: Omit<Input.Props, "classNames" | "slotProps">;
       wrapper?: InputWrapper.Props;
@@ -353,7 +356,7 @@ export namespace useInput {
       startContent?: InputStartContent.Props;
       endContent?: InputEndContent.Props;
       label?: InputLabel.Props;
-      helperText?: InputDescription.Props;
+      description?: InputDescription.Props;
       errorMessage?: InputErrorMessage.Props;
       clearButton?: InputClearButton.Props;
     };

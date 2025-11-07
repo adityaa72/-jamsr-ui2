@@ -2,7 +2,7 @@ import { Select, SelectItem } from "@jamsrui/react";
 
 export const SelectDisabledItems = () => {
   return (
-    <Select className="max-w-sm" label="Select Label">
+    <Select className="max-w-xs" label="Select Label">
       <SelectItem value="apple">Apple</SelectItem>
       <SelectItem isDisabled value="blueberry">
         Blueberry

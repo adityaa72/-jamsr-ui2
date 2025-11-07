@@ -7,7 +7,7 @@ export const SelectControlled = () => {
   const [value, setValue] = useState<string[]>(["apple"]);
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       label="Select Label"
       value={value}
       onValueChange={setValue}

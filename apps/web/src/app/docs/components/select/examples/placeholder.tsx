@@ -3,7 +3,7 @@ import { Select, SelectItem } from "@jamsrui/react";
 export const SelectPlaceholder = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       label="Select Label"
       placeholder="Select as item..."
     >

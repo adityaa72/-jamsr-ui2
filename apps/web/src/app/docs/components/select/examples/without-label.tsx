@@ -3,7 +3,7 @@ import { Select, SelectItem } from "@jamsrui/react";
 export const SelectWithoutLabel = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       label={undefined}
       placeholder="Select as item..."
     >

@@ -208,7 +208,7 @@ const users = [
 export const SelectCustomRenderComplex = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       size="lg"
       renderValue={(values) => {
         const value = values[0];

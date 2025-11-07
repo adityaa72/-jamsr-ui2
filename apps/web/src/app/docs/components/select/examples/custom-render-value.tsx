@@ -5,7 +5,7 @@ import { Select, SelectItem } from "@jamsrui/react";
 export const SelectCustomRenderValue = () => {
   return (
     <Select
-      className="max-w-sm"
+      className="max-w-xs"
       label="Select Label"
       placeholder="Choose Fruit"
       renderValue={(value) => {
