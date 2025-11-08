@@ -1,16 +1,15 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { FieldError } from "@jamsrui/field-error";
 
 import { useInputContext } from "./input-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const InputErrorMessage = (props: InputErrorMessage.Props) => {
-  const { getErrorMessageProps, errorMessage } = useInputContext();
-  const renderElement = useRenderElement("span", {
-    props: [getErrorMessageProps(props), { children: errorMessage }],
-  });
-  if (!errorMessage) return null;
-  return renderElement;
+  const { children, ...restProps } = props;
+  const { getErrorMessageProps } = useInputContext();
+  return (
+    <FieldError {...getErrorMessageProps(restProps)}>{children}</FieldError>
+  );
 };
 
 export namespace InputErrorMessage {

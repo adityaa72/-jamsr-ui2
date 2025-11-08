@@ -1,8 +1,13 @@
+import { useRenderElement } from "@jamsrui/hooks";
+
 import { useLabel } from "./use-label";
 
 export const Label = (props: Label.Props) => {
-  const { children, ...labelProps } = useLabel(props);
-  return <label {...labelProps}>{children}</label>;
+  const labelProps = useLabel(props);
+  const renderElement = useRenderElement("label", {
+    props: [labelProps],
+  });
+  return renderElement;
 };
 
 export namespace Label {

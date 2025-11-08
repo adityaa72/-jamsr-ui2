@@ -1,5 +1,14 @@
 # @jamsrui/button
 
+## 0.0.12
+
+### Patch Changes
+
+- fix: slots
+- Updated dependencies
+  - @jamsrui/utils@0.0.12
+  - @jamsrui/hooks@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes

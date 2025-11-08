@@ -2,31 +2,42 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const alertStyles = tv({
   slots: {
-    root: "relative flex gap-2 px-4 py-1.5 text-sm",
-    icon: "shrink-0 py-2",
-    title: "",
-    description: "",
-    content: "flex flex-col grow py-2 gap-1",
+    root: "alert__root relative flex gap-2 px-4 py-1.5 text-sm ring-1 ring-inset",
+    icon: "alert__icon shrink-0 py-2",
+    title: "alert__title",
+    description: "alert__description",
+    content: "alert__content flex flex-col grow py-2 gap-1",
   },
   variants: {
     variant: {
       bordered: {
-        root: "border",
+        root: "alert--bordered border",
       },
       solid: {
-        root: "font-medium",
+        root: "alert--solid font-medium",
       },
-      flat: {},
+      flat: {
+        root: "alert--flat",
+      },
     },
     status: {
-      success: {},
-      warning: {},
-      danger: {},
-      info: {},
-      default: {},
+      success: {
+        root: "alert--success ring-success-border",
+      },
+      warning: {
+        root: "alert--warning ring-warning-border",
+      },
+      danger: {
+        root: "alert--danger ring-danger-border",
+      },
+      info: {
+        root: "alert--info ring-primary-border",
+      },
+      default: {
+        root: "alert--default ring-default-border",
+      },
     },
     radius: radiusVariant("root"),
   },

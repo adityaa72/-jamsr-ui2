@@ -1,18 +1,17 @@
-import { useRenderElement } from "@jamsrui/hooks";
+import { Description } from "@jamsrui/description";
 
 import { useInputContext } from "./input-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const InputDescription = (props: InputDescription.Props) => {
-  const { getDescriptionProps, helperText } = useInputContext();
-  const renderElement = useRenderElement("span", {
-    props: [getDescriptionProps(props), { children: helperText }],
-  });
-  if (!helperText) return null;
-  return renderElement;
+  const { children, ...restProps } = props;
+  const { getDescriptionProps } = useInputContext();
+  return (
+    <Description {...getDescriptionProps(restProps)}>{children}</Description>
+  );
 };
 
 export namespace InputDescription {
-  export interface Props extends UIProps<"span"> {}
+  export interface Props extends UIProps<"p"> {}
 }

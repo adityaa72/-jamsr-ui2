@@ -1,14 +1,19 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useId, useMemo } from "react";
 
 import {
   useControlledState,
   useFocus,
   useFocusVisible,
   useHover,
-  useIsDisabled,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import {
+  cn,
+  dataAttr,
+  dataAttrDev,
+  mapPropsVariants,
+  mergeProps,
+} from "@jamsrui/utils";
 
 import { inputVariants } from "./styles";
 
@@ -40,9 +45,9 @@ export const useInput = (props: useInput.Props) => {
     classNames,
     label,
     isClearable,
-    isDisabled: isDisabledProp = false,
+    isDisabled = false,
     isReadonly,
-    description: helperText,
+    description,
     errorMessage,
     value: valueProp,
     defaultValue,
@@ -61,11 +66,11 @@ export const useInput = (props: useInput.Props) => {
 
   const styles = inputVariants(variantProps);
   const isInvalid = variantProps.isInvalid;
+  const labelId = useId();
+  const descriptionId = useId();
+  const inputId = useId();
+  const errorId = useId();
 
-  const { isDisabled, ref: disableRef } = useIsDisabled<HTMLInputElement>({
-    isDisabled: isDisabledProp,
-    isFormControl: false,
-  });
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
     isDisabled,
   });
@@ -76,13 +81,7 @@ export const useInput = (props: useInput.Props) => {
   const { isHovered, ref: hoverRef } = useHover<HTMLDivElement>({
     isDisabled,
   });
-  const inputRefs = useMergeRefs([
-    ref,
-    disableRef,
-    focusRef,
-    focusVisibleRef,
-    hoverRef,
-  ]);
+  const inputRefs = useMergeRefs([ref, focusRef, focusVisibleRef, hoverRef]);
 
   const handleClear = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -104,12 +103,12 @@ export const useInput = (props: useInput.Props) => {
       ...mergeProps(slotProps?.root, props),
       "data-component": dataAttrDev("input"),
       "data-slot": dataAttrDev("root"),
-      "data-focused": isFocused,
-      "data-focus-visible": isFocusVisible,
-      "data-hovered": isHovered,
-      "data-disabled": isDisabled,
-      "aria-disabled": isDisabled,
-      "data-invalid": isInvalid,
+      "data-focused": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-hovered": dataAttr(isHovered),
+      "data-disabled": dataAttr(isDisabled),
+      "aria-disabled": dataAttr(isDisabled),
+      "data-invalid": dataAttr(isInvalid),
       className: styles.root({
         className: cn(
           slotProps?.root?.className,
@@ -132,10 +131,14 @@ export const useInput = (props: useInput.Props) => {
 
   const getInputProps: PropGetter<InputField.Props> = useCallback(
     (props) => ({
+      id: inputId,
+      disabled: isDisabled,
+      readOnly: isReadonly,
+      "aria-labelledby": labelId,
+      "aria-describedby": `${descriptionId} ${errorId}`,
       ...elementProps,
       ...props,
       ref: inputRefs,
-      disabled: isDisabled,
       "data-slot": dataAttrDev("input"),
       className: styles.input({
         className: cn(classNames?.input, props.className),
@@ -144,13 +147,18 @@ export const useInput = (props: useInput.Props) => {
       onChange: handleInputChange,
     }),
     [
-      classNames?.input,
-      elementProps,
-      handleInputChange,
-      inputRefs,
+      inputId,
       isDisabled,
+      isReadonly,
+      labelId,
+      descriptionId,
+      errorId,
+      elementProps,
+      inputRefs,
       styles,
+      classNames?.input,
       value,
+      handleInputChange,
     ]
   );
 
@@ -232,6 +240,7 @@ export const useInput = (props: useInput.Props) => {
 
   const getDescriptionProps: PropGetter<InputDescription.Props> = useCallback(
     (props) => ({
+      id: descriptionId,
       ...mergeProps(slotProps?.description, props),
       "data-slot": dataAttrDev("description"),
       className: styles.description({
@@ -242,7 +251,7 @@ export const useInput = (props: useInput.Props) => {
         ),
       }),
     }),
-    [classNames?.description, slotProps?.description, styles]
+    [classNames?.description, descriptionId, slotProps?.description, styles]
   );
 
   const getErrorMessageProps: PropGetter<InputErrorMessage.Props> = useCallback(
@@ -277,6 +286,8 @@ export const useInput = (props: useInput.Props) => {
 
   const getLabelProps: PropGetter<InputLabel.Props> = useCallback(
     (props) => ({
+      htmlFor: inputId,
+      id: labelId,
       ...mergeProps(slotProps?.label, props),
       "data-slot": dataAttrDev("label"),
       className: styles.label({
@@ -287,7 +298,7 @@ export const useInput = (props: useInput.Props) => {
         ),
       }),
     }),
-    [classNames?.label, slotProps?.label, styles]
+    [classNames?.label, inputId, labelId, slotProps?.label, styles]
   );
 
   return useMemo(
@@ -301,7 +312,7 @@ export const useInput = (props: useInput.Props) => {
       getDescriptionProps,
       getErrorMessageProps,
       label,
-      helperText,
+      description,
       errorMessage,
       isInvalid,
       getWrapperProps,
@@ -320,7 +331,7 @@ export const useInput = (props: useInput.Props) => {
       getDescriptionProps,
       getErrorMessageProps,
       label,
-      helperText,
+      description,
       errorMessage,
       isInvalid,
       getWrapperProps,

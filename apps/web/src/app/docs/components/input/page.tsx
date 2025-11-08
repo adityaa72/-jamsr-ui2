@@ -6,7 +6,7 @@ import { InputClearable } from "./examples/clearable";
 import { InputControlled } from "./examples/controlled";
 import { InputDisabled } from "./examples/disabled";
 import { InputErrorState } from "./examples/error-state";
-import { InputHelperText } from "./examples/helper-text";
+import { InputDescriptionExample } from "./examples/description";
 import { InputPlaceholder } from "./examples/placeholder";
 import { InputRadius } from "./examples/radius";
 import { InputSizes } from "./examples/sizes";
@@ -41,8 +41,8 @@ const Input = () => {
       <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
         <InputRadius />
       </CodeExample>
-      <CodeExample title="Helper Text" url={resolvePath("helper-text.tsx")}>
-        <InputHelperText />
+      <CodeExample title="Description" url={resolvePath("description.tsx")}>
+        <InputDescriptionExample />
       </CodeExample>
       <CodeExample title="Error State" url={resolvePath("error-state.tsx")}>
         <InputErrorState />
@@ -53,11 +53,11 @@ const Input = () => {
       <CodeExample title="Clearable" url={resolvePath("clearable.tsx")}>
         <InputClearable />
       </CodeExample>
-      <CodeExample title="Placeholde" url={resolvePath("placeholder.tsx")}>
+      <CodeExample title="Placeholder" url={resolvePath("placeholder.tsx")}>
         <InputPlaceholder />
       </CodeExample>
       <CodeExample
-        title="With Placeholde"
+        title="With Placeholder"
         url={resolvePath("with-placeholder.tsx")}
       >
         <InputWithPlaceholder />

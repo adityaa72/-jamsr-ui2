@@ -9,17 +9,17 @@ type Variant = "solid" | "bordered" | "text" | "light" | "flat";
 
 const solidClasses = {
   default:
-    "bg-default border-default text-default-foreground data-hover:bg-default-hover data-pressed:bg-default-active",
+    "bg-default border-default text-default-foreground data-hover:bg-default-hover data-pressed:bg-default-active ring-default-border",
   primary:
-    "bg-primary border-primary text-primary-foreground data-hover:bg-primary-hover data-pressed:bg-primary-active",
+    "bg-primary border-primary text-primary-foreground data-hover:bg-primary-hover data-pressed:bg-primary-active ring-primary-border",
   secondary:
-    "bg-secondary border-secondary text-secondary-foreground data-hover:bg-secondary-hover data-pressed:bg-secondary-active",
+    "bg-secondary border-secondary text-secondary-foreground data-hover:bg-secondary-hover data-pressed:bg-secondary-active ring-secondary-border",
   success:
-    "bg-success border-success text-success-foreground data-hover:bg-success-hover data-pressed:bg-success-active",
+    "bg-success border-success text-success-foreground data-hover:bg-success-hover data-pressed:bg-success-active ring-success-border",
   warning:
-    "bg-warning border-warning text-warning-foreground data-hover:bg-warning-hover data-pressed:bg-warning-active",
+    "bg-warning border-warning text-warning-foreground data-hover:bg-warning-hover data-pressed:bg-warning-active ring-warning-border",
   danger:
-    "bg-danger border-danger text-danger-foreground data-hover:bg-danger-hover data-pressed:bg-danger-active",
+    "bg-danger border-danger text-danger-foreground data-hover:bg-danger-hover data-pressed:bg-danger-active ring-danger-border",
 } satisfies Record<Color, string>;
 
 const borderedClasses = {

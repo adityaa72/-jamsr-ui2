@@ -1,5 +1,16 @@
 # storybook-2
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/button@0.0.12
+  - @jamsrui/theme@0.0.12
+  - @jamsrui/react@0.0.13
+  - @jamsrui/accordion@0.0.12
+  - @jamsrui/text@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes

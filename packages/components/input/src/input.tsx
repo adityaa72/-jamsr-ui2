@@ -18,11 +18,12 @@ export const Input = (props: Input.Props) => {
   const config = useInputConfig();
   const mergedProps = mergeConfigProps(config, config, props);
   const ctx = useInput(mergedProps);
+  const { label, description, errorMessage } = ctx;
   return (
     <InputContext value={ctx}>
       <InputRoot>
         <InputWrapper>
-          <InputLabel />
+          {!!label && <InputLabel>{label}</InputLabel>}
           <InputContentWrapper>
             <InputStartContent />
             <InputContent>
@@ -31,8 +32,10 @@ export const Input = (props: Input.Props) => {
             <InputEndContent />
           </InputContentWrapper>
         </InputWrapper>
-        <InputDescription />
-        <InputErrorMessage />
+        {!!description && <InputDescription>{description}</InputDescription>}
+        {!!errorMessage && (
+          <InputErrorMessage>{errorMessage}</InputErrorMessage>
+        )}
       </InputRoot>
     </InputContext>
   );

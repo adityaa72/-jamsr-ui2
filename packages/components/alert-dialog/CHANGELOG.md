@@ -1,5 +1,16 @@
 # @jamsrui/alert-dialog
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/button@0.0.12
+  - @jamsrui/utils@0.0.12
+  - @jamsrui/dialog@0.0.12
+  - @jamsrui/text@0.0.12
+  - @jamsrui/hooks@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes

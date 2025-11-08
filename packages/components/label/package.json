@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/label",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -19,6 +19,7 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }
 }

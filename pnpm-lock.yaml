@@ -838,6 +838,25 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/description:
+    dependencies:
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      clean-package:
+        specifier: ^2.2.0
+        version: 2.2.0
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/dialog:
     dependencies:
       '@floating-ui/react':
@@ -950,6 +969,25 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/field-error:
+    dependencies:
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      clean-package:
+        specifier: ^2.2.0
+        version: 2.2.0
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/header:
     dependencies:
       '@jamsrui/core':
@@ -999,9 +1037,18 @@ importers:
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
+      '@jamsrui/description':
+        specifier: workspace:^
+        version: link:../description
+      '@jamsrui/field-error':
+        specifier: workspace:^
+        version: link:../field-error
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/label':
+        specifier: workspace:^
+        version: link:../label
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -1040,6 +1087,9 @@ importers:
 
   packages/components/label:
     dependencies:
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -3609,9 +3659,6 @@ packages:
 
   '@types/node@24.10.0':
     resolution: {integrity: sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A==}
-
-  '@types/node@24.9.1':
-    resolution: {integrity: sha512-QoiaXANRkSXK6p0Duvt56W208du4P9Uye9hWLWgGMDTEoKPhuenzNcC4vGUmrNkiOKTlIrBoyNQYNpSwfEZXSg==}
 
   '@types/react-dom@19.1.1':
     resolution: {integrity: sha512-jFf/woGTVTjUJsl2O7hcopJ1r0upqoq/vIOoCj0yLh3RIXxWcljlpuZ+vEBRXsymD1jhfeJrlyTy/S1UW+4y1w==}
@@ -7887,7 +7934,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.2':
     dependencies:
-      '@types/node': 24.9.1
+      '@types/node': 24.10.0
 
   '@types/doctrine@0.0.9': {}
 
@@ -7910,10 +7957,6 @@ snapshots:
   '@types/node@12.20.55': {}
 
   '@types/node@24.10.0':
-    dependencies:
-      undici-types: 7.16.0
-
-  '@types/node@24.9.1':
     dependencies:
       undici-types: 7.16.0
 

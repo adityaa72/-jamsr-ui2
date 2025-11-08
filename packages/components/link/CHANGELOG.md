@@ -1,5 +1,14 @@
 # @jamsrui/link
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.12
+  - @jamsrui/text@0.0.12
+  - @jamsrui/hooks@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes

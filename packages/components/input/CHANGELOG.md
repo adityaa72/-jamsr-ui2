@@ -1,5 +1,17 @@
 # @jamsrui/input
 
+## 0.0.12
+
+### Patch Changes
+
+- fix: slots
+- Updated dependencies
+  - @jamsrui/description@0.0.5
+  - @jamsrui/field-error@0.0.5
+  - @jamsrui/label@0.0.5
+  - @jamsrui/utils@0.0.12
+  - @jamsrui/hooks@0.0.12
+
 ## 0.0.11
 
 ### Patch Changes

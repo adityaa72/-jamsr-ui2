@@ -10,35 +10,35 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const buttonVariant = tv({
   base: [
-    "relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
+    "button relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
     "data-loading:cursor-progress",
     "disabled:cursor-not-allowed disabled:opacity-70",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
   ],
   variants: {
     color: {
-      default: "shadow-default",
-      primary: "shadow-primary",
-      secondary: "shadow-primary",
-      success: "shadow-primary",
-      warning: "shadow-primary",
-      danger: "shadow-primary",
+      default: "button--default",
+      primary: "button--primary",
+      secondary: "button--secondary",
+      success: "button--success",
+      warning: "button--warning",
+      danger: "button--danger",
     },
     variant: {
-      solid: "",
-      bordered: "border",
-      light: "",
-      text: "",
-      flat: "",
+      solid: "button--solid ring-1 ring-inset",
+      bordered: "button--bordered border",
+      light: "button--light",
+      text: "button--text",
+      flat: "button--flat",
     },
     isFullWidth: {
       true: "w-full",
     },
     size: {
-      xs: "px-2 py-1 text-xs",
-      sm: "min-w-16 gap-1 px-3 py-1.5 text-xs",
-      md: "min-w-20 gap-2 px-4 py-1.5 text-sm",
-      lg: "min-w-30 gap-2 px-5 py-1.5 text-base",
+      xs: "button--xs px-2 py-1 text-xs",
+      sm: "button--sm min-w-16 gap-1 px-3 py-1.5 text-xs",
+      md: "button--md min-w-20 gap-2 px-4 py-1.5 text-sm",
+      lg: "button--lg min-w-30 gap-2 px-5 py-1.5 text-base",
     },
     radius: radiusBaseVariant,
     disableAnimation: {

@@ -1,5 +1,21 @@
 # web
 
+## 0.1.12
+
+### Patch Changes
+
+- fix: slots
+- Updated dependencies
+  - @jamsrui/button@0.0.12
+  - @jamsrui/theme@0.0.12
+  - @jamsrui/utils@0.0.12
+  - @jamsrui/react@0.0.13
+  - @jamsrui/avatar@0.0.12
+  - @jamsrui/checkbox@0.0.12
+  - @jamsrui/switch@0.0.12
+  - @jamsrui/table@0.0.12
+  - @jamsrui/hooks@0.0.12
+
 ## 0.1.11
 
 ### Patch Changes
