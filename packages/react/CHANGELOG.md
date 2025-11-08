@@ -1,5 +1,18 @@
 # @jamsrui/react
 
+## 0.0.14
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/input@0.0.13
+  - @jamsrui/link@0.0.13
+  - @jamsrui/autocomplete@0.0.13
+  - @jamsrui/data-grid@0.0.13
+  - @jamsrui/date-input@0.0.13
+  - @jamsrui/textarea@0.0.13
+  - @jamsrui/time-input@0.0.13
+
 ## 0.0.13
 
 ### Patch Changes

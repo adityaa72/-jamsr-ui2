@@ -1,5 +1,11 @@
 # @jamsrui/input
 
+## 0.0.13
+
+### Patch Changes
+
+- fix: input link
+
 ## 0.0.12
 
 ### Patch Changes

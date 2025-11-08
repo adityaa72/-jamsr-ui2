@@ -1,5 +1,12 @@
 # @jamsrui/data-grid
 
+## 0.0.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/input@0.0.13
+
 ## 0.0.12
 
 ### Patch Changes

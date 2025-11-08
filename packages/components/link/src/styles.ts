@@ -7,7 +7,7 @@ import type { VariantProps } from "@jamsrui/utils";
 export const linkVariants = tv({
   extend: textVariants,
   base: [
-    "cursor-pointer select-none text-foreground-link hover:text-foreground-link/80",
+    "cursor-default text-foreground-link hover:text-foreground-link/80",
     focusVisibleClasses,
   ],
   variants: {

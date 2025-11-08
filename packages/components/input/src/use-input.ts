@@ -256,6 +256,7 @@ export const useInput = (props: useInput.Props) => {
 
   const getErrorMessageProps: PropGetter<InputErrorMessage.Props> = useCallback(
     (props) => ({
+      id: errorId,
       ...mergeProps(slotProps?.errorMessage, props),
       "data-slot": dataAttrDev("errorMessage"),
       className: styles.errorMessage({
@@ -266,7 +267,7 @@ export const useInput = (props: useInput.Props) => {
         ),
       }),
     }),
-    [classNames?.errorMessage, slotProps?.errorMessage, styles]
+    [classNames?.errorMessage, errorId, slotProps?.errorMessage, styles]
   );
 
   const getClearButtonProps: PropGetter<InputClearButton.Props> = useCallback(
