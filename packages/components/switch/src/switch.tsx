@@ -1,3 +1,5 @@
+"use client";
+
 import { Slot } from "@jamsrui/slot";
 import { mergeConfigProps } from "@jamsrui/utils";
 import { AnimatePresence } from "motion/react";
