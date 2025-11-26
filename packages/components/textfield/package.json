@@ -18,11 +18,7 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/core": "workspace:^",
-    "@jamsrui/description": "workspace:^",
-    "@jamsrui/field-error": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
-    "@jamsrui/label": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"

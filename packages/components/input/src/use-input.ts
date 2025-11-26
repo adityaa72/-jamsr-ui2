@@ -7,7 +7,7 @@ import { inputGroupVariants, inputVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { useIsInsideInputGroup } from "@jamsrui/input-group";
+import { useInputGroupContextOpt } from "@jamsrui/input-group";
 import { useTextFieldContext } from "@jamsrui/textfield";
 import type { InputVariantProps } from "./styles";
 
@@ -16,7 +16,7 @@ export const useInput = (props: useInput.Props) => {
     props,
     inputVariants.variantKeys
   );
-  const isInsideInputGroup = useIsInsideInputGroup();
+  const inputGroupCtx = useInputGroupContextOpt();
   const textFieldCtx = useTextFieldContext();
 
   const {
@@ -33,8 +33,11 @@ export const useInput = (props: useInput.Props) => {
     onChange: onValueChange,
     prop: valueProp,
   });
-  const styles = isInsideInputGroup
-    ? inputGroupVariants()
+  const styles = inputGroupCtx
+    ? inputGroupVariants({
+        ...inputGroupCtx.variantProps,
+        ...variantProps,
+      })
     : inputVariants(variantProps);
 
   const handleInputChange = useCallback(

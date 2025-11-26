@@ -16,9 +16,9 @@ export const useInputGroupContext = () => {
   return ctx;
 };
 
-export const useIsInsideInputGroup = () => {
+export const useInputGroupContextOpt = () => {
   const ctx = use(InputGroupContext);
-  return !!ctx;
+  return ctx;
 };
 
 export namespace InputGroupContext {

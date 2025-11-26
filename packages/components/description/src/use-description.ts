@@ -1,3 +1,4 @@
+import { useMergeRefs } from "@jamsrui/hooks";
 import { useTextFieldContext } from "@jamsrui/textfield";
 import { cn } from "@jamsrui/utils";
 
@@ -6,13 +7,15 @@ import type { UIProps } from "@jamsrui/utils";
 export const useDescription = (
   props: useDescription.Props
 ): useDescription.ReturnType => {
-  const { className, ...restProps } = props;
+  const { className, ref, ...restProps } = props;
   const textFieldCtx = useTextFieldContext();
+  const mergedRef = useMergeRefs([ref, textFieldCtx?.setDescriptionRef]);
 
   return {
-    ...restProps,
-    ...textFieldCtx?.getDescriptionProps(),
+    ref: mergedRef,
     className: cn("description text-xs text-foreground-secondary", className),
+    ...textFieldCtx?.getDescriptionProps(),
+    ...restProps,
   };
 };
 

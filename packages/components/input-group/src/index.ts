@@ -6,7 +6,7 @@ export { useInputGroup } from "./use-input-group";
 export {
   InputGroupContext,
   useInputGroupContext,
-  useIsInsideInputGroup,
+  useInputGroupContextOpt,
 } from "./input-group-context";
 
 const InputGroup = Object.assign(InputGroupBase, {

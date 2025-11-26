@@ -10,23 +10,23 @@ import {
 } from "@jamsrui/hooks";
 import { cn, dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { inputVariants } from "./styles";
+import { inputGroupVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import { InputGroupPrefix } from "./input-group-prefix";
 import { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
-import type { InputVariantProps } from "./styles";
+import type { InputGroupVariantProps } from "./styles";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    inputVariants.variantKeys
+    inputGroupVariants.variantKeys
   );
   const { ref, className, ...elementProps } = $props;
 
-  const styles = inputVariants(variantProps);
+  const styles = inputGroupVariants(variantProps);
   const isInvalid = variantProps.isInvalid;
   const isDisabled = false;
 
@@ -105,11 +105,12 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       getRootProps,
       getPrefixProps,
       getSuffixProps,
+      variantProps,
     }),
-    [getRootProps, getPrefixProps, getSuffixProps]
+    [getRootProps, getPrefixProps, getSuffixProps, variantProps]
   );
 };
 
 export namespace useInputGroup {
-  export interface Props extends UIProps<"div">, InputVariantProps {}
+  export interface Props extends UIProps<"div">, InputGroupVariantProps {}
 }

@@ -7,12 +7,13 @@ import { InputDisabled } from "./examples/disabled";
 import { InputErrorState } from "./examples/error-state";
 import { InputRadius } from "./examples/radius";
 import { InputSizes } from "./examples/sizes";
-import { InputWithStartEndContent } from "./examples/start-end-content";
+import { InputPrefixSuffix } from "./examples/prefix-suffix";
 import { InputUsage } from "./examples/usage";
 import { InputWithDescription } from "./examples/with-description";
 import { InputWithIcon } from "./examples/with-icon";
 import { InputWithLabel } from "./examples/with-label";
 import { InputPasswordToggle } from "./examples/password-toggle";
+import { InputVariants } from "./examples/variants";
 
 const title = "Input";
 const description =
@@ -51,6 +52,13 @@ const Input = () => {
       >
         <InputControlled />
       </CodeExample>
+      <CodeExample
+        isCentered
+        title="Variants"
+        url={resolvePath("variants.tsx")}
+      >
+        <InputVariants />
+      </CodeExample>
       <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <InputSizes />
       </CodeExample>
@@ -73,10 +81,10 @@ const Input = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Start & End Content"
-        url={resolvePath("start-end-content.tsx")}
+        title="Prefix & Suffix"
+        url={resolvePath("prefix-suffix.tsx")}
       >
-        <InputWithStartEndContent />
+        <InputPrefixSuffix />
       </CodeExample>
       <CodeExample
         isCentered

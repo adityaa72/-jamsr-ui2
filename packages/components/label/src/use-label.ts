@@ -4,10 +4,12 @@ import { cn } from "@jamsrui/utils";
 
 import type { UIProps } from "@jamsrui/utils";
 import { useTextFieldContext } from "@jamsrui/textfield";
+import { useMergeRefs } from "@jamsrui/hooks";
 
 export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
-  const { onMouseDown, className, ...restProps } = props;
+  const { onMouseDown, className, ref, ...restProps } = props;
   const textFieldCtx = useTextFieldContext();
+  const mergedRef = useMergeRefs([ref, textFieldCtx?.setLabelRef]);
 
   const handleOnMouseDown = useCallback(
     (event: React.MouseEvent<HTMLLabelElement>) => {
@@ -27,6 +29,7 @@ export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
   );
 
   return {
+    ref: mergedRef,
     onMouseDown: handleOnMouseDown,
     className: cn(
       "label cursor-default shrink-0 text-sm font-normal text-foreground",
