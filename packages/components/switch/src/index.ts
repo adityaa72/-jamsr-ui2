@@ -10,16 +10,18 @@ import {
   SwitchWrapper,
   Switch as SwitchPrimitive,
 } from "./primitive";
-import { Switch as SwitchFinal } from "./switch";
+// import { Switch as SwitchFinal } from "./switch";
 
-export const Switch = Object.assign(SwitchFinal, {
-  Context: SwitchPrimitive,
-  Root: SwitchRoot,
-  Wrapper: SwitchWrapper,
-  Input: SwitchInput,
-  Content: SwitchContent,
-  Label: SwitchLabel,
-  Description: SwitchDescription,
-  Track: SwitchTrack,
-  Thumb: SwitchThumb,
-});
+export { Switch } from "./switch";
+
+// export const Switch = Object.assign(SwitchFinal, {
+//   Context: SwitchPrimitive,
+//   Root: SwitchRoot,
+//   Wrapper: SwitchWrapper,
+//   Input: SwitchInput,
+//   Content: SwitchContent,
+//   Label: SwitchLabel,
+//   Description: SwitchDescription,
+//   Track: SwitchTrack,
+//   Thumb: SwitchThumb,
+// });

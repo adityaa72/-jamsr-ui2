@@ -1,44 +1,8 @@
-import { mergeConfigProps } from "@jamsrui/utils";
-
-import { useInputConfig } from "./input-config";
-import { InputContent } from "./input-content";
-import { InputContentWrapper } from "./input-content-wrapper";
-import { InputContext } from "./input-context";
-import { InputDescription } from "./input-description";
-import { InputEndContent } from "./input-end-content";
-import { InputErrorMessage } from "./input-error-message";
-import { InputField } from "./input-field";
-import { InputLabel } from "./input-label";
-import { InputRoot } from "./input-root";
-import { InputStartContent } from "./input-start-content";
-import { InputWrapper } from "./input-wrapper";
 import { useInput } from "./use-input";
 
 export const Input = (props: Input.Props) => {
-  const config = useInputConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
-  const ctx = useInput(mergedProps);
-  const { label, description, errorMessage } = ctx;
-  return (
-    <InputContext value={ctx}>
-      <InputRoot>
-        <InputWrapper>
-          {!!label && <InputLabel>{label}</InputLabel>}
-          <InputContentWrapper>
-            <InputStartContent />
-            <InputContent>
-              <InputField />
-            </InputContent>
-            <InputEndContent />
-          </InputContentWrapper>
-        </InputWrapper>
-        {!!description && <InputDescription>{description}</InputDescription>}
-        {!!errorMessage && (
-          <InputErrorMessage>{errorMessage}</InputErrorMessage>
-        )}
-      </InputRoot>
-    </InputContext>
-  );
+  const { getInputProps } = useInput(props);
+  return <input {...getInputProps({})} />;
 };
 
 export namespace Input {

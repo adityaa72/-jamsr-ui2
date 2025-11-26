@@ -1,12 +1,12 @@
-import { Input } from "@jamsrui/react";
+import { Description, FieldError, Input, Label } from "@jamsrui/react";
 
 export const InputErrorState = () => {
   return (
-    <Input
-      label="Username"
-      description="This will help others finding you"
-      errorMessage="Please use a unique username"
-      isInvalid
-    />
+    <div className="flex flex-col gap-2">
+      <Label>Username</Label>
+      <Input placeholder="Enter your username" />
+      <Description>Please use a unique username</Description>
+      <FieldError>Username is required</FieldError>
+    </div>
   );
 };

@@ -1,11 +1,20 @@
-import { Input } from "@jamsrui/react";
+import { Input, Label } from "@jamsrui/react";
 
 export const InputSizes = () => {
   return (
-    <div className="space-y-4">
-      <Input label="Small" size="sm" />
-      <Input label="Medium" size="md" />
-      <Input label="Large" size="lg" />
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <Label>Small</Label>
+        <Input size="sm" />
+      </div>
+      <div className="flex flex-col gap-1">
+        <Label>Medium</Label>
+        <Input size="md" />
+      </div>
+      <div className="flex flex-col gap-1">
+        <Label>Large</Label>
+        <Input size="lg" />
+      </div>
     </div>
   );
 };

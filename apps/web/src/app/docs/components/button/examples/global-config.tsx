@@ -2,18 +2,18 @@
 
 import { Button, ButtonConfig } from "@jamsrui/react";
 
-declare module "@jamsrui/react" {
-  export namespace Button {
-    export interface VariantProps {
-      gap?: "sm" | "md" | "lg";
-    }
+// declare module "@jamsrui/react" {
+//   export namespace Button {
+//     export interface VariantProps {
+//       gap?: "sm" | "md" | "lg";
+//     }
 
-    export interface Props {
-      justRandomOne?: boolean;
-      size?: Button.VariantProps["size"] | "2xs";
-    }
-  }
-}
+//     export interface Props {
+//       justRandomOne?: boolean;
+//       size?: Button.VariantProps["size"] | "2xs";
+//     }
+//   }
+// }
 
 export const ButtonGlobalConfig = () => {
   return (

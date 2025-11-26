@@ -1,7 +1,14 @@
-import { Switch } from "@jamsrui/react";
+import { Description, Label, Switch } from "@jamsrui/react";
 
 export const SwitchUsage = () => {
   // return <Switch />;
+  return (
+    <div>
+      <Switch />
+      <Label>This is label</Label>
+      <Description>This is description</Description>
+    </div>
+  );
   return (
     <Switch.Context>
       <Switch.Root>
@@ -10,10 +17,7 @@ export const SwitchUsage = () => {
           <Switch.Track>
             <Switch.Thumb />
           </Switch.Track>
-          <Switch.Content>
-            <Switch.Label>Label</Switch.Label>
-            <Switch.Description>Description</Switch.Description>
-          </Switch.Content>
+          <Switch.Content></Switch.Content>
         </Switch.Wrapper>
       </Switch.Root>
     </Switch.Context>

@@ -1,10 +1,10 @@
 import { Input, Label } from "@jamsrui/react";
 
-export const InputDisabled = () => {
+export const InputWithLabel = () => {
   return (
     <div className="flex flex-col gap-1">
-      <Label>Enter your name</Label>
-      <Input disabled />
+      <Label>Username</Label>
+      <Input placeholder="Enter your username" />
     </div>
   );
 };

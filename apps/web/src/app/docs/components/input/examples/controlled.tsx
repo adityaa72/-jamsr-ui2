@@ -1,18 +1,15 @@
 "use client";
 
-import { Input } from "@jamsrui/react";
+import { Description, Input, Label } from "@jamsrui/react";
 import { useState } from "react";
 
 export const InputControlled = () => {
   const [value, setValue] = useState("");
   return (
-    <div>
-      <Input
-        label="Controlled Input"
-        value={value}
-        onValueChange={setValue}
-      />
-      <p className="text-foreground-secondary">Value: {value}</p>
+    <div className="flex flex-col gap-1">
+      <Label>Name</Label>
+      <Input value={value} onValueChange={setValue} />
+      <Description>Your name is: {value}</Description>
     </div>
   );
 };

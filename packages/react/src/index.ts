@@ -18,13 +18,15 @@ export { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } 
 export { DataGrid, DataGridConfig, useDataGridConfig, DataGridRowSelect, DataGridRowSelectAll } from '@jamsrui/data-grid';
 export { DateInput, useDateInput } from '@jamsrui/date-input';
 export { DatePicker, DatePickerConfig, useDatePickerConfig } from '@jamsrui/date-picker';
+export { Description } from '@jamsrui/description';
 export { Dialog, DialogBody, DialogCloseTrigger, DialogConfig, useDialogConfig, DialogContent, DialogFooter, DialogHeader, DialogTrigger } from '@jamsrui/dialog';
 export { Divider, DividerConfig, useDividerConfig } from '@jamsrui/divider';
 export { Drawer, DrawerBody, DrawerCloseButton, DrawerCloseTrigger, DrawerConfig, useDrawerConfig, DrawerContent, DrawerFooter, DrawerHeader, DrawerTrigger } from '@jamsrui/drawer';
 export { Editor, EditorConfig, useEditorConfig } from '@jamsrui/editor';
+export { FieldError } from '@jamsrui/field-error';
 export { Header, HeaderConfig, useHeaderConfig } from '@jamsrui/header';
 export { IconButton, IconButtonConfig, useIconButtonConfig } from '@jamsrui/icon-button';
-export { Input, InputConfig, useInputConfig } from '@jamsrui/input';
+export { Input } from '@jamsrui/input';
 export { Kbd, KbdConfig, useKbdConfig } from '@jamsrui/kbd';
 export { Label } from '@jamsrui/label';
 export { LinearProgress, LinearProgressConfig, useLinearProgressConfig } from '@jamsrui/linear-progress';

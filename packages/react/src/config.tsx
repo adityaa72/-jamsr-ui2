@@ -21,7 +21,6 @@ import { DrawerConfig } from '@jamsrui/drawer';
 import { EditorConfig } from '@jamsrui/editor';
 import { HeaderConfig } from '@jamsrui/header';
 import { IconButtonConfig } from '@jamsrui/icon-button';
-import { InputConfig } from '@jamsrui/input';
 import { KbdConfig } from '@jamsrui/kbd';
 import { LinearProgressConfig } from '@jamsrui/linear-progress';
 import { LinkConfig } from '@jamsrui/link';
@@ -73,7 +72,6 @@ type Props = {
   editor?: EditorConfig.Props;
   header?: HeaderConfig.Props;
   iconButton?: IconButtonConfig.Props;
-  input?: InputConfig.Props;
   kbd?: KbdConfig.Props;
   linearProgress?: LinearProgressConfig.Props;
   link?: LinkConfig.Props;
@@ -127,7 +125,6 @@ export const JamsrUIConfig = (props: Props) => {
   <EditorConfig {...props.editor}>
   <HeaderConfig {...props.header}>
   <IconButtonConfig {...props.iconButton}>
-  <InputConfig {...props.input}>
   <KbdConfig {...props.kbd}>
   <LinearProgressConfig {...props.linearProgress}>
   <LinkConfig {...props.link}>
@@ -179,7 +176,6 @@ export const JamsrUIConfig = (props: Props) => {
   </LinkConfig>
   </LinearProgressConfig>
   </KbdConfig>
-  </InputConfig>
   </IconButtonConfig>
   </HeaderConfig>
   </EditorConfig>
