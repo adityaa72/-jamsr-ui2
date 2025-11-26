@@ -1,7 +1,5 @@
 "use client";
 
-import { TextFieldRoot } from "./textfield-root";
+export { TextField } from "./textfield";
 export { useTextFieldContext } from "./textfield-context";
 export { useTextField } from "./use-textfield";
-
-export const TextField = TextFieldRoot;

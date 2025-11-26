@@ -1,10 +1,16 @@
-import { Textarea } from "@jamsrui/react";
+import { Textarea, Label, TextField } from "@jamsrui/react";
 
 export const TextareaVariants = () => {
   return (
-    <div className="space-y-4">
-      <Textarea label="Standard" variant="standard" />
-      <Textarea label="Outlined" variant="outlined" />
+    <div className="flex flex-col gap-4">
+      <TextField>
+        <Label>Bordered</Label>
+        <Textarea size="sm" variant="bordered" />
+      </TextField>
+      <TextField>
+        <Label>Solid</Label>
+        <Textarea size="md" variant="solid" />
+      </TextField>
     </div>
   );
 };

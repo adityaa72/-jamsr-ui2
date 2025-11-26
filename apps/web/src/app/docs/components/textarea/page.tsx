@@ -5,20 +5,18 @@ import { Metadata } from "next";
 import { TextareaControlled } from "./examples/controlled";
 import { TextareaDisabled } from "./examples/disabled";
 import { TextareaErrorState } from "./examples/error-state";
-import { TextareaHelperText } from "./examples/helper-text";
-import { TextareaPlaceholder } from "./examples/placeholder";
+import { TextareaPrefixSuffix } from "./examples/prefix-suffix";
 import { TextareaRadius } from "./examples/radius";
 import { TextareaSizes } from "./examples/sizes";
 import { TextareaUsage } from "./examples/usage";
 import { TextareaVariants } from "./examples/variants";
+import { TextareaWithDescription } from "./examples/with-description";
 import { TextareaWithIcon } from "./examples/with-icon";
-import { TextareaWithPlaceholder } from "./examples/with-placeholder";
-import { TextareaWithStartContent } from "./examples/with-start-content";
-import { TextareaWithoutLabel } from "./examples/without-label";
+import { TextareaWithLabel } from "./examples/with-label";
 
 const title = "Textarea";
 const description =
-  "A Textarea component allows users to input multi-line text. It is commonly used for capturing longer user input, such as comments, messages, or descriptions, and offers flexible height for better content management.";
+  "A form element that allows users to textarea and submit data, supporting various types such as text, numbers, and more for seamless data entry.";
 
 export const metadata: Metadata = {
   title,
@@ -29,50 +27,70 @@ const Textarea = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <TextareaUsage />
       </CodeExample>
-      <CodeExample title="Sizes" url={resolvePath("sizes.tsx")}>
-        <TextareaSizes />
-      </CodeExample>
-      <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
-        <TextareaVariants />
-      </CodeExample>
-      <CodeExample title="With Icon" url={resolvePath("with-icon.tsx")}>
-        <TextareaWithIcon />
+      <CodeExample
+        isCentered
+        title="With Label"
+        url={resolvePath("with-label.tsx")}
+      >
+        <TextareaWithLabel />
       </CodeExample>
       <CodeExample
-        title="With Placeholder"
-        url={resolvePath("with-placeholder.tsx")}
+        isCentered
+        title="With Description"
+        url={resolvePath("with-description.tsx")}
       >
-        <TextareaWithPlaceholder />
+        <TextareaWithDescription />
       </CodeExample>
       <CodeExample
-        title="With Start Content"
-        url={resolvePath("with-start-content.tsx")}
+        isCentered
+        title="Controlled"
+        url={resolvePath("controlled.tsx")}
       >
-        <TextareaWithStartContent />
-      </CodeExample>
-      <CodeExample title="Without Label" url={resolvePath("without-label.tsx")}>
-        <TextareaWithoutLabel />
-      </CodeExample>
-      <CodeExample title="Controlled" url={resolvePath("controlled.tsx")}>
         <TextareaControlled />
       </CodeExample>
-      <CodeExample title="Disabled" url={resolvePath("disabled.tsx")}>
-        <TextareaDisabled />
+      <CodeExample
+        isCentered
+        title="Variants"
+        url={resolvePath("variants.tsx")}
+      >
+        <TextareaVariants />
       </CodeExample>
-      <CodeExample title="Error State" url={resolvePath("error-state.tsx")}>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
+        <TextareaSizes />
+      </CodeExample>
+      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
+        <TextareaRadius />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Error State"
+        url={resolvePath("error-state.tsx")}
+      >
         <TextareaErrorState />
       </CodeExample>
-      <CodeExample title="Helper Text" url={resolvePath("helper-text.tsx")}>
-        <TextareaHelperText />
+      <CodeExample
+        isCentered
+        title="Disabled"
+        url={resolvePath("disabled.tsx")}
+      >
+        <TextareaDisabled />
       </CodeExample>
-      <CodeExample title="Placeholder" url={resolvePath("placeholder.tsx")}>
-        <TextareaPlaceholder />
+      <CodeExample
+        isCentered
+        title="Prefix & Suffix"
+        url={resolvePath("prefix-suffix.tsx")}
+      >
+        <TextareaPrefixSuffix />
       </CodeExample>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
-        <TextareaRadius />
+      <CodeExample
+        isCentered
+        title="With Icon"
+        url={resolvePath("with-icon.tsx")}
+      >
+        <TextareaWithIcon />
       </CodeExample>
     </DocsPage>
   );

@@ -72,7 +72,7 @@ export const useTextField = (props: useTextField.Props) => {
       className: cn("flex flex-col gap-1", className),
       ...restProps,
     }),
-    [restProps]
+    [className, restProps]
   );
 
   return useMemo(() => {

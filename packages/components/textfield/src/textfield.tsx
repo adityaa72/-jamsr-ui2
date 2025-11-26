@@ -2,7 +2,7 @@ import { TextFieldContext } from "./textfield-context";
 import { TextfieldRootInner } from "./textfield-root-inner";
 import { useTextField } from "./use-textfield";
 
-export const TextFieldRoot = (props: TextFieldRoot.Props) => {
+export const TextField = (props: TextField.Props) => {
   const ctx = useTextField(props);
   const { children } = props;
   return (
@@ -12,6 +12,6 @@ export const TextFieldRoot = (props: TextFieldRoot.Props) => {
   );
 };
 
-export namespace TextFieldRoot {
+export namespace TextField {
   export interface Props extends useTextField.Props {}
 }

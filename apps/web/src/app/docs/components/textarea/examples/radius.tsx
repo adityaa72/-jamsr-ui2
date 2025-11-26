@@ -1,26 +1,36 @@
-import { Textarea } from "@jamsrui/react";
+import { Textarea, Label, TextField } from "@jamsrui/react";
 
 export const TextareaRadius = () => {
-  const radii: Textarea.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-    "full",
-  ];
   return (
     <div className="grid gap-4">
-      {radii.map((radius) => (
-        <Textarea
-          label="Enter your message"
-          placeholder={`Enter your message ${radius}`}
-          key={radius}
-          radius={radius}
-        />
-      ))}
+      <TextField>
+        <Label>Radius none</Label>
+        <Textarea radius="none" />
+      </TextField>
+      <TextField>
+        <Label>Radius sm</Label>
+        <Textarea radius="sm" />
+      </TextField>
+      <TextField>
+        <Label>Radius md</Label>
+        <Textarea radius="md" />
+      </TextField>
+      <TextField>
+        <Label>Radius lg</Label>
+        <Textarea radius="lg" />
+      </TextField>
+      <TextField>
+        <Label>Radius xl</Label>
+        <Textarea radius="xl" />
+      </TextField>
+      <TextField>
+        <Label>Radius 2xl</Label>
+        <Textarea radius="2xl" />
+      </TextField>
+      <TextField>
+        <Label>Radius 3xl</Label>
+        <Textarea radius="3xl" />
+      </TextField>
     </div>
   );
 };

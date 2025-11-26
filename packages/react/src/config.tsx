@@ -41,7 +41,6 @@ import { SwitchConfig } from '@jamsrui/switch';
 import { TableConfig } from '@jamsrui/table';
 import { TabsConfig } from '@jamsrui/tabs';
 import { TagsInputConfig } from '@jamsrui/tags-input';
-import { TextareaConfig } from '@jamsrui/textarea';
 import { TextConfig } from '@jamsrui/text';
 import { ToastConfig } from '@jamsrui/toast';
 import { ToggleConfig } from '@jamsrui/toggle';
@@ -92,7 +91,6 @@ type Props = {
   table?: TableConfig.Props;
   tabs?: TabsConfig.Props;
   tagsInput?: TagsInputConfig.Props;
-  textarea?: TextareaConfig.Props;
   text?: TextConfig.Props;
   toast?: ToastConfig.Props;
   toggle?: ToggleConfig.Props;
@@ -145,7 +143,6 @@ export const JamsrUIConfig = (props: Props) => {
   <TableConfig {...props.table}>
   <TabsConfig {...props.tabs}>
   <TagsInputConfig {...props.tagsInput}>
-  <TextareaConfig {...props.textarea}>
   <TextConfig {...props.text}>
   <ToastConfig {...props.toast}>
   <ToggleConfig {...props.toggle}>
@@ -155,7 +152,6 @@ export const JamsrUIConfig = (props: Props) => {
   </ToggleConfig>
   </ToastConfig>
   </TextConfig>
-  </TextareaConfig>
   </TagsInputConfig>
   </TabsConfig>
   </TableConfig>

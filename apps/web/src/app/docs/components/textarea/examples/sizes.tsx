@@ -1,11 +1,20 @@
-import { Textarea } from "@jamsrui/react";
+import { Textarea, Label, TextField } from "@jamsrui/react";
 
 export const TextareaSizes = () => {
   return (
-    <div className="space-y-4">
-      <Textarea label="Small" size="sm" />
-      <Textarea label="Medium" size="md" />
-      <Textarea label="Large" size="lg" />
+    <div className="flex flex-col gap-4">
+      <TextField>
+        <Label>Small</Label>
+        <Textarea size="sm" />
+      </TextField>
+      <TextField>
+        <Label>Medium</Label>
+        <Textarea size="md" />
+      </TextField>
+      <TextField>
+        <Label>Large</Label>
+        <Textarea size="lg" />
+      </TextField>
     </div>
   );
 };

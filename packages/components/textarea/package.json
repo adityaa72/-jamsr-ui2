@@ -11,17 +11,18 @@
   },
   "devDependencies": {
     "@types/react": "catalog:",
-    "react": "catalog:",
-    "clean-package": "^2.2.0"
+    "clean-package": "^2.2.0",
+    "react": "catalog:"
   },
   "peerDependencies": {
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/core": "workspace:^",
-    "@jamsrui/utils": "workspace:^",
-    "@jamsrui/input": "workspace:^"
+    "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/input-group": "workspace:^",
+    "@jamsrui/textfield": "workspace:^",
+    "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"
 }

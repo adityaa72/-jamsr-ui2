@@ -1,9 +1,10 @@
-import type { UIProps } from "@jamsrui/utils";
+import { useTextarea } from "./use-textarea";
 
 export const Textarea = (props: Textarea.Props) => {
-  return <textarea {...props} />;
+  const { getTextareaProps } = useTextarea(props);
+  return <textarea {...getTextareaProps({})} />;
 };
 
 export namespace Textarea {
-  export interface Props extends UIProps<"textarea"> {}
+  export interface Props extends useTextarea.Props {}
 }

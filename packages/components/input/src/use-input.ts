@@ -1,14 +1,14 @@
 import { useCallback, useMemo } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
+import { useInputGroupContextOpt } from "@jamsrui/input-group";
+import { useTextFieldContext } from "@jamsrui/textfield";
 import { cn, mapPropsVariants } from "@jamsrui/utils";
 
 import { inputGroupVariants, inputVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { useInputGroupContextOpt } from "@jamsrui/input-group";
-import { useTextFieldContext } from "@jamsrui/textfield";
 import type { InputVariantProps } from "./styles";
 
 export const useInput = (props: useInput.Props) => {
@@ -23,7 +23,6 @@ export const useInput = (props: useInput.Props) => {
     value: valueProp,
     defaultValue,
     onValueChange,
-    ref,
     className,
     ...elementProps
   } = $props;
@@ -56,7 +55,7 @@ export const useInput = (props: useInput.Props) => {
       value,
       onChange: handleInputChange,
     }),
-    [elementProps, styles, value, handleInputChange]
+    [textFieldCtx, elementProps, styles, className, value, handleInputChange]
   );
 
   return useMemo(

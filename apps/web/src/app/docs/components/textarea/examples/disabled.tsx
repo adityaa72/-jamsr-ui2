@@ -1,5 +1,10 @@
-import { Textarea } from "@jamsrui/react";
+import { Textarea, Label, TextField } from "@jamsrui/react";
 
 export const TextareaDisabled = () => {
-  return <Textarea label="Username" disabled />;
+  return (
+    <TextField>
+      <Label>Enter your name</Label>
+      <Textarea disabled />
+    </TextField>
+  );
 };
