@@ -1,6 +1,6 @@
 {
-  "name": "@jamsrui/input",
-  "version": "0.0.13",
+  "name": "@jamsrui/input-group",
+  "version": "0.0.1",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -22,7 +22,6 @@
     "@jamsrui/description": "workspace:^",
     "@jamsrui/field-error": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
-    "@jamsrui/input-group": "workspace:^",
     "@jamsrui/label": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },

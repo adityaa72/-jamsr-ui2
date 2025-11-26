@@ -18,4 +18,8 @@ export const inputVariants = tv({
   },
 });
 
+export const inputGroupVariants = tv({
+  base: "input-group__input w-full px-3 py-2 text-sm placeholder:text-sm focus:outline-none",
+});
+
 export type InputVariantProps = VariantProps<typeof inputVariants>;

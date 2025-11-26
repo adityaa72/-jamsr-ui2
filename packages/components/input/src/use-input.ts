@@ -3,10 +3,11 @@ import { useCallback, useMemo } from "react";
 import { useControlledState } from "@jamsrui/hooks";
 import { cn, mapPropsVariants } from "@jamsrui/utils";
 
-import { inputVariants } from "./styles";
+import { inputGroupVariants, inputVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
+import { useIsInsideInputGroup } from "@jamsrui/input-group";
 import type { InputVariantProps } from "./styles";
 
 export const useInput = (props: useInput.Props) => {
@@ -14,6 +15,7 @@ export const useInput = (props: useInput.Props) => {
     props,
     inputVariants.variantKeys
   );
+  const isInsideInputGroup = useIsInsideInputGroup();
 
   const {
     value: valueProp,
@@ -29,7 +31,9 @@ export const useInput = (props: useInput.Props) => {
     onChange: onValueChange,
     prop: valueProp,
   });
-  const styles = inputVariants(variantProps);
+  const styles = isInsideInputGroup
+    ? inputGroupVariants()
+    : inputVariants(variantProps);
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

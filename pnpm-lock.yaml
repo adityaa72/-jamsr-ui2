@@ -1046,6 +1046,40 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/input-group':
+        specifier: workspace:^
+        version: link:../input-group
+      '@jamsrui/label':
+        specifier: workspace:^
+        version: link:../label
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      clean-package:
+        specifier: ^2.2.0
+        version: 2.2.0
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
+  packages/components/input-group:
+    dependencies:
+      '@jamsrui/core':
+        specifier: workspace:^
+        version: link:../../core
+      '@jamsrui/description':
+        specifier: workspace:^
+        version: link:../description
+      '@jamsrui/field-error':
+        specifier: workspace:^
+        version: link:../field-error
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
       '@jamsrui/label':
         specifier: workspace:^
         version: link:../label
@@ -1900,6 +1934,9 @@ importers:
       '@jamsrui/input':
         specifier: workspace:^
         version: link:../components/input
+      '@jamsrui/input-group':
+        specifier: workspace:^
+        version: link:../components/input-group
       '@jamsrui/kbd':
         specifier: workspace:^
         version: link:../components/kbd
@@ -2138,6 +2175,9 @@ importers:
       '@jamsrui/input':
         specifier: workspace:^
         version: link:../packages/components/input
+      '@jamsrui/input-group':
+        specifier: workspace:^
+        version: link:../packages/components/input-group
       '@jamsrui/kbd':
         specifier: workspace:^
         version: link:../packages/components/kbd

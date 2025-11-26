@@ -27,6 +27,7 @@ export { FieldError } from '@jamsrui/field-error';
 export { Header, HeaderConfig, useHeaderConfig } from '@jamsrui/header';
 export { IconButton, IconButtonConfig, useIconButtonConfig } from '@jamsrui/icon-button';
 export { Input } from '@jamsrui/input';
+export { InputGroup } from '@jamsrui/input-group';
 export { Kbd, KbdConfig, useKbdConfig } from '@jamsrui/kbd';
 export { Label } from '@jamsrui/label';
 export { LinearProgress, LinearProgressConfig, useLinearProgressConfig } from '@jamsrui/linear-progress';
