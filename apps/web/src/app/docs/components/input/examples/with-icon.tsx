@@ -1,9 +1,9 @@
 import { EmailIcon } from "@jamsrui/icons";
-import { Input, InputGroup, Label } from "@jamsrui/react";
+import { Input, InputGroup, Label, TextField } from "@jamsrui/react";
 
 export const InputWithIcon = () => {
   return (
-    <div>
+    <TextField>
       <Label>Email</Label>
       <InputGroup>
         <InputGroup.Prefix>
@@ -11,6 +11,6 @@ export const InputWithIcon = () => {
         </InputGroup.Prefix>
         <Input placeholder="Enter your email" type="email" className="w-full" />
       </InputGroup>
-    </div>
+    </TextField>
   );
 };

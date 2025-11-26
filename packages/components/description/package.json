@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@jamsrui/hooks": "workspace:^",
+    "@jamsrui/textfield": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }
 }

@@ -1,10 +1,10 @@
-import { Input, Label } from "@jamsrui/react";
+import { Input, Label, TextField } from "@jamsrui/react";
 
 export const InputDisabled = () => {
   return (
-    <div className="flex flex-col gap-1">
+    <TextField>
       <Label>Enter your name</Label>
       <Input disabled />
-    </div>
+    </TextField>
   );
 };

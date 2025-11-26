@@ -1,6 +1,6 @@
 {
-  "name": "@jamsrui/label",
-  "version": "0.0.5",
+  "name": "@jamsrui/textfield",
+  "version": "0.0.1",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -9,7 +9,6 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "clean-package": "./clean-package.config.json",
   "devDependencies": {
     "@types/react": "catalog:",
     "clean-package": "^2.2.0",
@@ -19,8 +18,12 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@jamsrui/core": "workspace:^",
+    "@jamsrui/description": "workspace:^",
+    "@jamsrui/field-error": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
-    "@jamsrui/textfield": "workspace:^",
+    "@jamsrui/label": "workspace:^",
     "@jamsrui/utils": "workspace:^"
-  }
+  },
+  "clean-package": "./clean-package.config.json"
 }

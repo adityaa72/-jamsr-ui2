@@ -1,4 +1,3 @@
-import { useIsInsideInputGroup } from "@jamsrui/input-group";
 import { useInput } from "./use-input";
 
 export const Input = (props: Input.Props) => {

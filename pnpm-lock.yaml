@@ -843,6 +843,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../textfield
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -974,6 +977,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../textfield
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -1052,6 +1058,9 @@ importers:
       '@jamsrui/label':
         specifier: workspace:^
         version: link:../label
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../textfield
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -1124,6 +1133,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../textfield
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -1657,6 +1669,37 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
+  packages/components/textfield:
+    dependencies:
+      '@jamsrui/core':
+        specifier: workspace:^
+        version: link:../../core
+      '@jamsrui/description':
+        specifier: workspace:^
+        version: link:../description
+      '@jamsrui/field-error':
+        specifier: workspace:^
+        version: link:../field-error
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../../hooks
+      '@jamsrui/label':
+        specifier: workspace:^
+        version: link:../label
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../../utils
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.2
+      clean-package:
+        specifier: ^2.2.0
+        version: 2.2.0
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+
   packages/components/time-input:
     dependencies:
       '@jamsrui/core':
@@ -2006,6 +2049,9 @@ importers:
       '@jamsrui/textarea':
         specifier: workspace:^
         version: link:../components/textarea
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../components/textfield
       '@jamsrui/theme':
         specifier: workspace:^
         version: link:../theme
@@ -2247,6 +2293,9 @@ importers:
       '@jamsrui/textarea':
         specifier: workspace:^
         version: link:../packages/components/textarea
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../packages/components/textfield
       '@jamsrui/theme':
         specifier: workspace:^
         version: link:../packages/theme

@@ -65,6 +65,7 @@
     "@jamsrui/tags-input": "workspace:^",
     "@jamsrui/text": "workspace:^",
     "@jamsrui/textarea": "workspace:^",
+    "@jamsrui/textfield": "workspace:^",
     "@jamsrui/theme": "workspace:^",
     "@jamsrui/time-input": "workspace:^",
     "@jamsrui/toast": "workspace:^",

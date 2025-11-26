@@ -14,8 +14,8 @@ import { inputVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { InputGroupRoot } from "./input-group-root";
 import { InputGroupPrefix } from "./input-group-prefix";
+import { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
 import type { InputVariantProps } from "./styles";
 
@@ -42,6 +42,23 @@ export const useInputGroup = (props: useInputGroup.Props) => {
   });
   const inputRefs = useMergeRefs([ref, focusRef, focusVisibleRef, hoverRef]);
 
+  const handleOnMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+
+    // return if direct clicked on input, textarea
+    if (target.closest("input, textarea")) {
+      return;
+    }
+
+    const input = e.currentTarget.querySelector<
+      HTMLInputElement | HTMLTextAreaElement
+    >("input, textarea");
+    if (input) {
+      input.focus();
+      e.preventDefault();
+    }
+  };
+
   const getRootProps: PropGetter<InputGroupRoot.Props> = useCallback(
     (props) => ({
       "data-component": dataAttrDev("input-group"),
@@ -52,6 +69,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
       "data-invalid": dataAttr(isInvalid),
+      onMouseDown: handleOnMouseDown,
       ...elementProps,
       className: styles.root({
         className: cn(props.className),

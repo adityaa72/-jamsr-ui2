@@ -12,6 +12,7 @@ import { InputUsage } from "./examples/usage";
 import { InputWithDescription } from "./examples/with-description";
 import { InputWithIcon } from "./examples/with-icon";
 import { InputWithLabel } from "./examples/with-label";
+import { InputPasswordToggle } from "./examples/password-toggle";
 
 const title = "Input";
 const description =
@@ -71,13 +72,25 @@ const Input = () => {
         <InputDisabled />
       </CodeExample>
       <CodeExample
+        isCentered
         title="Start & End Content"
         url={resolvePath("start-end-content.tsx")}
       >
         <InputWithStartEndContent />
       </CodeExample>
-      <CodeExample title="With Icon" url={resolvePath("with-icon.tsx")}>
+      <CodeExample
+        isCentered
+        title="With Icon"
+        url={resolvePath("with-icon.tsx")}
+      >
         <InputWithIcon />
+      </CodeExample>
+      <CodeExample
+        title="Password Toggle"
+        url={resolvePath("password-toggle.tsx")}
+        isCentered
+      >
+        <InputPasswordToggle />
       </CodeExample>
     </DocsPage>
   );

@@ -7,6 +7,7 @@ export const inputVariants = tv({
     root: [
       "input-group flex group",
       "border flex items-center border-divider",
+      "focus-within:border-focus",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
       "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
       "not-uig-invalid:uig-hover:border-divider-dark",
@@ -15,8 +16,8 @@ export const inputVariants = tv({
       "input__control grow bg-transparent font-normal",
       "placeholder:text-foreground-secondary read-only:cursor-not-allowed focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
     ],
-    prefix: "input__prefix pl-3 text-sm text-foreground-secondary",
-    suffix: "input__suffix pr-3 text-sm text-foreground-secondary",
+    prefix: "input__prefix pl-3 text-sm text-foreground-secondary select-none",
+    suffix: "input__suffix pr-3 text-sm text-foreground-secondary select-none",
   },
   variants: {
     fullWidth: {

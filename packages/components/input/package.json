@@ -24,6 +24,7 @@
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/input-group": "workspace:^",
     "@jamsrui/label": "workspace:^",
+    "@jamsrui/textfield": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"
