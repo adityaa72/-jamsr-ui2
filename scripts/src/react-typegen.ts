@@ -40,6 +40,29 @@ const getNamedExports = (filePath: string) => {
 
   traverse.default(ast, {
     ExportNamedDeclaration(path) {
+      if (path.node.declaration) {
+        const decl = path.node.declaration;
+
+        // Variable declaration export
+        if (decl.type === "VariableDeclaration") {
+          for (const d of decl.declarations) {
+            if (d.id.type === "Identifier") {
+              valueExports.add(d.id.name);
+            }
+          }
+        }
+
+        // Function export: `export function foo() {}`
+        if (decl.type === "FunctionDeclaration" && decl.id) {
+          valueExports.add(decl.id.name);
+        }
+
+        // Class export: `export class Foo {}`
+        if (decl.type === "ClassDeclaration" && decl.id) {
+          valueExports.add(decl.id.name);
+        }
+      }
+
       if (path.node.specifiers) {
         for (const s of path.node.specifiers) {
           const name = "name" in s.exported && s.exported?.name;
@@ -47,6 +70,8 @@ const getNamedExports = (filePath: string) => {
             ("exportKind" in s && s.exportKind) ||
             path.node.exportKind ||
             "value";
+          console.log("🚀 ~ name:->", { name, kind });
+
           if (name) {
             if (kind === "type") {
               typeExports.add(name);

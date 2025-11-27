@@ -1,3 +1,5 @@
+"use client";
+
 import { mergeProps } from "@jamsrui/utils";
 
 import { useAlertContext } from "./alert-context";

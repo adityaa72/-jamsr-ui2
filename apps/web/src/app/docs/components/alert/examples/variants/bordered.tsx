@@ -4,19 +4,24 @@ export const AlertVariantBordered = () => {
   return (
     <div className="grid gap-4">
       <Alert variant="bordered" status="success">
-        This is a success Alert.
+        <Alert.Icon />
+        <Alert.Content>This is a success Alert.</Alert.Content>
       </Alert>
       <Alert variant="bordered" status="warning">
-        This is an warning Alert.
+        <Alert.Icon />
+        <Alert.Content>This is an warning Alert.</Alert.Content>
       </Alert>
       <Alert variant="bordered" status="info">
-        This is an info Alert.
+        <Alert.Icon />
+        <Alert.Content>This is an info Alert.</Alert.Content>
       </Alert>
       <Alert variant="bordered" status="danger">
-        This is an danger Alert.
+        <Alert.Icon />
+        <Alert.Content>This is an danger Alert.</Alert.Content>
       </Alert>
       <Alert variant="bordered" status="default">
-        This is a default Alert.
+        <Alert.Icon />
+        <Alert.Content>This is a default Alert.</Alert.Content>
       </Alert>
     </div>
   );

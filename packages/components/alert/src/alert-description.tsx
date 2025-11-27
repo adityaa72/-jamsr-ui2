@@ -1,3 +1,5 @@
+"use client";
+
 import { Text } from "@jamsrui/text";
 
 import { useAlertContext } from "./alert-context";

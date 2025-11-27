@@ -2,6 +2,7 @@ import { CodeExample, DocsPageSection } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { AlertCustomIcon } from "./examples/custom-icon";
 import { AlertRadius } from "./examples/radius";
 import { AlertStatus } from "./examples/status";
 import { AlertUsage } from "./examples/usage";
@@ -53,6 +54,13 @@ const Alert = () => {
       </CodeExample>
       <CodeExample title="With Action" url={resolvePath("with-action.tsx")}>
         <AlertWithAction />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Custom Icon"
+        url={resolvePath("custom-icon.tsx")}
+      >
+        <AlertCustomIcon />
       </CodeExample>
       <CodeExample title="Without Icon" url={resolvePath("without-icon.tsx")}>
         <AlertWithoutIcon />

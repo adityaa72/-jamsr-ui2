@@ -1,3 +1,5 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useAlertContext } from "./alert-context";
@@ -5,12 +7,11 @@ import { useAlertContext } from "./alert-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const AlertIcon = (props: AlertIcon.Props) => {
-  const { getIconProps, hideIcon, icon } = useAlertContext();
-  const children = icon;
+  const { getIconProps, icon } = useAlertContext();
+  const { children = icon, ...restProps } = props;
   const renderElement = useRenderElement("span", {
-    props: [getIconProps(props), { children }],
+    props: [getIconProps(restProps), { children }],
   });
-  if (hideIcon) return null;
   return renderElement;
 };
 export namespace AlertIcon {

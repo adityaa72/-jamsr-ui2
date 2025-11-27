@@ -3,14 +3,14 @@ import { Alert } from "@jamsrui/react";
 export const AlertWithoutIcon = () => {
   return (
     <div className="flex flex-col gap-4">
-      <Alert status="warning" hideIcon>
-        This is a warning message.
+      <Alert status="warning">
+        <Alert.Content>This is a warning message.</Alert.Content>
       </Alert>
-      <Alert status="info" hideIcon>
-        This is an info message.
+      <Alert status="info">
+        <Alert.Content>This is an info message.</Alert.Content>
       </Alert>
-      <Alert status="success" hideIcon>
-        This is an success message.
+      <Alert status="success">
+        <Alert.Content>This is an success message.</Alert.Content>
       </Alert>
     </div>
   );

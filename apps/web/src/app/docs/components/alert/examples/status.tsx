@@ -3,11 +3,26 @@ import { Alert } from "@jamsrui/react";
 export const AlertStatus = () => {
   return (
     <div className="grid gap-4">
-      <Alert status="warning">This is a warning message.</Alert>
-      <Alert status="info">This is a info message.</Alert>
-      <Alert status="success">This is a success message.</Alert>
-      <Alert status="danger">This is a danger message.</Alert>
-      <Alert status="default">This is a default message.</Alert>
+      <Alert status="warning">
+        <Alert.Icon />
+        <Alert.Content>This is a warning message.</Alert.Content>
+      </Alert>
+      <Alert status="info">
+        <Alert.Icon />
+        <Alert.Content>This is a info message.</Alert.Content>
+      </Alert>
+      <Alert status="success">
+        <Alert.Icon />
+        <Alert.Content>This is a success message.</Alert.Content>
+      </Alert>
+      <Alert status="danger">
+        <Alert.Icon />
+        <Alert.Content>This is a danger message.</Alert.Content>
+      </Alert>
+      <Alert status="default">
+        <Alert.Icon />
+        <Alert.Content>This is a default message.</Alert.Content>
+      </Alert>
     </div>
   );
 };
