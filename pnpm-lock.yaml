@@ -1518,6 +1518,9 @@ importers:
 
   packages/components/switch:
     dependencies:
+      '@jamsrui/context':
+        specifier: workspace:^
+        version: link:../../context
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core

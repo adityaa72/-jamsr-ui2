@@ -1,17 +1,17 @@
 "use client";
 
-import { Switch } from "@jamsrui/react";
+import { Description, Label, Switch } from "@jamsrui/react";
 import { useState } from "react";
 
 export const SwitchControlled = () => {
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <Switch
-      labelPlacement="bottom"
-      isChecked={isChecked}
-      onCheckedChange={setIsChecked}
-    >
-      {isChecked ? "Checked" : "Unchecked"}
+    <Switch isChecked={isChecked} onCheckedChange={setIsChecked}>
+      <Switch.Track />
+      <Switch.Content>
+        <Label>Are you ok?</Label>
+        <Description>{isChecked ? "Checked" : "Unchecked"}</Description>
+      </Switch.Content>
     </Switch>
   );
 };

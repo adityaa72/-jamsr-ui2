@@ -1,5 +1,12 @@
-import { Switch } from "@jamsrui/react";
+import { Label, Switch } from "@jamsrui/react";
 
 export const SwitchDisabled = () => {
-  return <Switch label="I'm a disabled switch" isDisabled />;
+  return (
+    <Switch disabled>
+      <Switch.Track />
+      <Switch.Content>
+        <Label>Enable Notifications</Label>
+      </Switch.Content>
+    </Switch>
+  );
 };

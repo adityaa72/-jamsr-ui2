@@ -1,27 +1,14 @@
 export { SwitchConfig, useSwitchConfig } from "./switch-config";
-import {
-  SwitchContent,
-  SwitchDescription,
-  SwitchInput,
-  SwitchLabel,
-  SwitchRoot,
-  SwitchThumb,
-  SwitchTrack,
-  SwitchWrapper,
-  Switch as SwitchPrimitive,
-} from "./primitive";
-// import { Switch as SwitchFinal } from "./switch";
+import { Switch as SwitchRoot } from "./switch";
+import { SwitchContent } from "./switch-content";
+import { SwitchThumb } from "./switch-thumb";
+import { SwitchTrack } from "./switch-track";
 
-export { Switch } from "./switch";
+export const Switch = Object.assign(SwitchRoot, {
+  Root: SwitchRoot,
+  Content: SwitchContent,
+  Track: SwitchTrack,
+  Thumb: SwitchThumb,
+});
 
-// export const Switch = Object.assign(SwitchFinal, {
-//   Context: SwitchPrimitive,
-//   Root: SwitchRoot,
-//   Wrapper: SwitchWrapper,
-//   Input: SwitchInput,
-//   Content: SwitchContent,
-//   Label: SwitchLabel,
-//   Description: SwitchDescription,
-//   Track: SwitchTrack,
-//   Thumb: SwitchThumb,
-// });
+export type SwitchProps = SwitchRoot.Props;

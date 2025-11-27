@@ -1,31 +1,18 @@
-"use client";
-
-import { Switch } from "@jamsrui/react";
-import {
-  SwitchContent,
-  SwitchDescription,
-  SwitchLabel,
-  SwitchRoot,
-  SwitchThumb,
-  SwitchTrack,
-  SwitchWrapper,
-} from "@jamsrui/switch/primitive";
+import { SuccessIcon } from "@jamsrui/icons";
+import { Description, Label, Switch } from "@jamsrui/react";
 
 export const SwitchCustomization = () => {
   return (
-    <Switch
-      label="Hii there"
-      slots={{
-        root: <SwitchRoot className="bg-red-950" />,
-        label: <SwitchLabel className="font-medium" />,
-        description: <SwitchDescription className="text-foreground-link" />,
-        content: <SwitchContent className="border" />,
-        wrapper: <SwitchWrapper className="border border-blue-900" />,
-        track: <SwitchTrack className="border" />,
-        thumb: <SwitchThumb className="border-2 border-blue-900" />,
-      }}
-    >
-      This is the description
+    <Switch>
+      <Switch.Track>
+        <Switch.Thumb>
+          <SuccessIcon className="size-3 shrink-0 text-primary" />
+        </Switch.Thumb>
+      </Switch.Track>
+      <Switch.Content>
+        <Label>Are you ok?</Label>
+        <Description>This is a description</Description>
+      </Switch.Content>
     </Switch>
   );
 };

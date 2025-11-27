@@ -1,17 +1,19 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSwitchContext } from "./switch-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const SwitchDescription = (props: SwitchDescription.Props) => {
-  const { getDescriptionProps } = useSwitchContext();
+export const SwitchContent = (props: SwitchContent.Props) => {
+  const { getContentProps } = useSwitchContext();
   const renderElement = useRenderElement("div", {
-    props: [getDescriptionProps(props)],
+    props: [getContentProps(props)],
   });
   return renderElement;
 };
 
-export namespace SwitchDescription {
+export namespace SwitchContent {
   export interface Props extends UIProps<"div"> {}
 }

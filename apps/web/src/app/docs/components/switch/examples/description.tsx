@@ -1,5 +1,13 @@
-import { Switch } from "@jamsrui/react";
+import { Description, Label, Switch } from "@jamsrui/react";
 
 export const SwitchDescription = () => {
-  return <Switch label="Are you ok?">This is a description</Switch>;
+  return (
+    <Switch>
+      <Switch.Track />
+      <Switch.Content>
+        <Label>Are you ok?</Label>
+        <Description>This is a description</Description>
+      </Switch.Content>
+    </Switch>
+  );
 };

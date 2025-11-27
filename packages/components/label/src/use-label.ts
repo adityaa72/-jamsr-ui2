@@ -32,7 +32,7 @@ export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
     ref: mergedRef,
     onMouseDown: handleOnMouseDown,
     className: cn(
-      "label cursor-default shrink-0 text-sm font-normal text-foreground",
+      "label cursor-default shrink-0 text-sm font-normal text-foreground group-data-invalid:text-danger group-data-disabled:cursor-not-allowed",
       className
     ),
     ...fieldAllyCtx?.getLabelProps(),

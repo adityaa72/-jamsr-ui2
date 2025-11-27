@@ -13,7 +13,7 @@ export const checkboxVariants = tv({
       "data-disabled:opacity-60 data-disabled:cursor-not-allowed",
     ],
     control: [
-      "checkbox__control",
+      "checkbox__control flex justify-center items-center",
       ...groupDataFocusVisibleClasses,
       "shrink-0 border-default uig-hover:border-default-hover",
       "relative appearance-none border uig-checked:border-primary uig-checked:bg-primary",
@@ -22,6 +22,7 @@ export const checkboxVariants = tv({
     input:
       "checkbox__input absolute opacity-[0.0001] cursor-default disabled:cursor-not-allowed inset-0 z-1",
     content: "checkbox__content flex flex-col justify-center gap-1",
+    indicator: "checkbox__indicator size-3",
   },
   variants: {
     size: {
@@ -36,6 +37,11 @@ export const checkboxVariants = tv({
       lg: {
         root: "checkbox--lg",
         control: "size-5",
+      },
+    },
+    isInvalid: {
+      true: {
+        control: "border-danger! uig-checked:bg-danger",
       },
     },
     radius: radiusVariant("control"),

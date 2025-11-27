@@ -3,9 +3,13 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { CheckboxControlled } from "./examples/controlled";
+import { CheckboxCustomIndicator } from "./examples/custom-indicator";
+import { CheckboxCustomization } from "./examples/customization";
 import { CheckboxDescription } from "./examples/description";
 import { CheckboxDisabled } from "./examples/disabled";
+import { CheckboxInputEvents } from "./examples/input-events";
 import { CheckboxIntermediate } from "./examples/intermediate";
+import { CheckboxInvalid } from "./examples/invalid";
 import { CheckboxRadius } from "./examples/radius";
 import { CheckboxSizes } from "./examples/sizes";
 import { CheckboxUsage } from "./examples/usage";
@@ -53,6 +57,9 @@ const Checkbox = () => {
       >
         <CheckboxDisabled />
       </CodeExample>
+      <CodeExample isCentered title="Invalid" url={resolvePath("invalid.tsx")}>
+        <CheckboxInvalid />
+      </CodeExample>
       <CodeExample
         isCentered
         title="Intermediate"
@@ -60,13 +67,27 @@ const Checkbox = () => {
       >
         <CheckboxIntermediate />
       </CodeExample>
-      {/* <CodeExample
+      <CodeExample
         isCentered
-        title="Customized"
-        url={resolvePath("customized.tsx")}
+        title="Custom Indicator"
+        url={resolvePath("custom-indicator.tsx")}
       >
-        <CheckboxCustomized />
-      </CodeExample> */}
+        <CheckboxCustomIndicator />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Input Events"
+        url={resolvePath("input-events.tsx")}
+      >
+        <CheckboxInputEvents />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Customization"
+        url={resolvePath("customization.tsx")}
+      >
+        <CheckboxCustomization />
+      </CodeExample>
     </DocsPage>
   );
 };

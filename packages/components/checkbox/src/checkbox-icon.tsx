@@ -30,7 +30,6 @@ export const CheckboxIcon = () => {
   return (
     <motion.svg
       animate={isChecked || isIntermediate ? "checked" : "unchecked"}
-      className="size-3.5"
       fill="none"
       initial={false}
       stroke="currentColor"

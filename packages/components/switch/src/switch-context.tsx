@@ -1,3 +1,4 @@
+"use client";
 import { createContext, use } from "react";
 
 import type { useSwitch } from "./use-switch";
