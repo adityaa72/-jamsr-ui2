@@ -14,16 +14,13 @@ export const AvatarBordered = () => {
   return (
     <div className="flex gap-4">
       {colors.map((color) => (
-        <Avatar
-          alt="image"
-          className="flex"
-          src={`https://i.pravatar.cc/300?u=${id}${color}`}
-          width={100}
-          height={100}
-          key={color}
-          color={color}
-          isBordered
-        />
+        <Avatar className="flex" key={color} color={color} isBordered>
+          <Avatar.Image
+            alt="image"
+            src={`https://i.pravatar.cc/300?u=${id}${color}`}
+          />
+          <Avatar.Fallback />
+        </Avatar>
       ))}
     </div>
   );

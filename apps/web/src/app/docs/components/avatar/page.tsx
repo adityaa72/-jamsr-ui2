@@ -4,9 +4,7 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { AvatarBordered } from "./examples/bordered";
 import { AvatarColors } from "./examples/colors";
-import { AvatarCustomization } from "./examples/customization";
 import { AvatarFallbacks } from "./examples/fallbacks";
-import { AvatarImageFallback } from "./examples/image-fallback";
 import { AvatarIndicatorExample } from "./examples/indicator";
 import { AvatarRadius } from "./examples/radius";
 import { AvatarUsage } from "./examples/usage";
@@ -42,13 +40,6 @@ const Avatar = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Image Fallbacks"
-        url={resolvePath("image-fallback.tsx")}
-      >
-        <AvatarImageFallback />
-      </CodeExample>
-      <CodeExample
-        isCentered
         title="Bordered"
         url={resolvePath("bordered.tsx")}
       >
@@ -60,13 +51,6 @@ const Avatar = () => {
         url={resolvePath("indicator.tsx")}
       >
         <AvatarIndicatorExample />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Customization"
-        url={resolvePath("customization.tsx")}
-      >
-        <AvatarCustomization />
       </CodeExample>
     </DocsPage>
   );

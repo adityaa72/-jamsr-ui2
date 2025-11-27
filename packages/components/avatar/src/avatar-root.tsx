@@ -1,17 +1,19 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useAvatarContext } from "./avatar-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const AvatarIndicator = (props: AvatarIndicator.Props) => {
-  const { getIndicatorProps } = useAvatarContext();
+export const AvatarRoot = (_props: AvatarRoot.Props) => {
+  const { getRootProps } = useAvatarContext();
   const renderElement = useRenderElement("div", {
-    props: [getIndicatorProps(props)],
+    props: [getRootProps()],
   });
   return renderElement;
 };
 
-export namespace AvatarIndicator {
+export namespace AvatarRoot {
   export interface Props extends UIProps<"div"> {}
 }

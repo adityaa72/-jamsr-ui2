@@ -1,14 +1,14 @@
+"use client";
+
 import { Avatar } from "@jamsrui/react";
 import { useId } from "react";
 
-export const AvatarUsage = (props: Partial<Avatar.Props>) => {
+export const AvatarUsage = () => {
   const id = useId();
   return (
-    <Avatar
-      alt="John"
-      className="flex"
-      src={`https://i.pravatar.cc/300?u=${id}`}
-      {...props}
-    />
+    <Avatar>
+      <Avatar.Image alt="John" src={`https://i.pravatar.cc/300?u=${id}`} />
+      <Avatar.Fallback />
+    </Avatar>
   );
 };

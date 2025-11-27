@@ -1,49 +1,24 @@
-import { Slot } from "@jamsrui/slot";
+"use client";
+
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAvatarConfig } from "./avatar-config";
-import {
-  AvatarContext,
-  AvatarFallback,
-  AvatarImage,
-  AvatarIndicator,
-  AvatarRoot,
-  useAvatar,
-} from "./primitive";
-
-import type { SlotsToReactNode } from "@jamsrui/utils";
-
-import type { AvatarSlots } from "./primitive/styles";
+import { AvatarContext } from "./avatar-context";
+import { AvatarRoot } from "./avatar-root";
+import { useAvatar } from "./use-avatar";
 
 export const Avatar = (props: Avatar.Props) => {
+  const { children } = props;
   const config = useAvatarConfig();
-  const mergedProps = mergeConfigProps(config, props, props);
-  const { children, slots, indicator, ...restProps } = mergedProps;
-  const ctx = useAvatar(restProps);
+  const mergedProps = mergeConfigProps(config, config, props);
+  const ctx = useAvatar(mergedProps);
   return (
     <AvatarContext value={ctx}>
-      <Slot slot={slots?.root}>
-        <AvatarRoot>
-          <Slot slot={slots?.img}>
-            <AvatarImage />
-          </Slot>
-          <Slot slot={slots?.fallback}>
-            <AvatarFallback>{children}</AvatarFallback>
-          </Slot>
-          {!!indicator && (
-            <Slot slot={slots?.indicator}>
-              <AvatarIndicator>{indicator}</AvatarIndicator>
-            </Slot>
-          )}
-        </AvatarRoot>
-      </Slot>
+      <AvatarRoot>{children}</AvatarRoot>
     </AvatarContext>
   );
 };
 
 export namespace Avatar {
-  export interface Props extends useAvatar.Props {
-    slots?: SlotsToReactNode<AvatarSlots>;
-    indicator?: React.ReactNode;
-  }
+  export interface Props extends useAvatar.Props {}
 }

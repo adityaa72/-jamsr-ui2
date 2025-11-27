@@ -1,7 +1,7 @@
 import { Avatar } from "@jamsrui/react";
 import { useId } from "react";
 
-export const AvatarRadius = (props: Partial<Avatar.Props>) => {
+export const AvatarRadius = () => {
   const id = useId();
   const radii: Avatar.Props["radius"][] = [
     "none",
@@ -16,12 +16,10 @@ export const AvatarRadius = (props: Partial<Avatar.Props>) => {
   return (
     <div className="flex gap-2">
       {radii.map((radius) => (
-        <Avatar
-          key={radius}
-          radius={radius}
-          {...props}
-          src={`https://i.pravatar.cc/300?u=${id}${radius}`}
-        />
+        <Avatar key={radius} radius={radius}>
+          <Avatar.Image src={`https://i.pravatar.cc/300?u=${id}${radius}`} />
+          <Avatar.Fallback />
+        </Avatar>
       ))}
     </div>
   );

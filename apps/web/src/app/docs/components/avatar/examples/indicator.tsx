@@ -23,73 +23,98 @@ const BadgeIcon = () => {
 export const AvatarIndicatorExample = () => {
   return (
     <div className="grid grid-cols-4 gap-4">
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/boy?username=John`}
-        indicator={<BadgeIcon />}
-      />
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=Jamsr`}
-        indicator={
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/boy?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator>
+          <BadgeIcon />
+        </Avatar.Indicator>
+      </Avatar>
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=Jamsr`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator>
           <Chip size="xs" isSquare color="primary">
             2
           </Chip>
-        }
-      />
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=John`}
-        indicator={<Chip isSquare variant="dot" color="success" />}
-      />
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=John`}
-        indicator={
-          <Avatar
-            src={`https://avatar.iran.liara.run/public/girl?username=Jamsr`}
-            classNames={{
-              root: "size-5",
-            }}
-            isBordered
-            color="warning"
-          />
-        }
-      />
+        </Avatar.Indicator>
+      </Avatar>
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator>
+          <Chip isSquare variant="dot" color="success" />
+        </Avatar.Indicator>
+      </Avatar>
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator>
+          <Avatar size="xs" isBordered color="warning">
+            <Avatar.Image
+              alt="John"
+              src={`https://avatar.iran.liara.run/public/girl?username=Jamsr`}
+            />
+          </Avatar>
+        </Avatar.Indicator>
+      </Avatar>
       {/*  */}
 
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=John`}
-        indicator={<Chip isSquare variant="dot" color="primary" />}
-      />
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator>
+          <Chip isSquare variant="dot" color="primary" />
+        </Avatar.Indicator>
+      </Avatar>
 
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=John`}
-        indicator={<Chip isSquare variant="dot" color="danger" />}
-        classNames={{
-          indicator: "-top-2 -left-1",
-        }}
-      />
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator className="-top-2 -left-1">
+          <Chip isSquare variant="dot" color="danger" />
+        </Avatar.Indicator>
+      </Avatar>
 
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=John`}
-        indicator={<Chip isSquare variant="dot" color="success" />}
-        classNames={{
-          indicator: "-top-2 -right-1",
-        }}
-      />
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator className="-top-2 -right-1">
+          <Chip isSquare variant="dot" color="success" />
+        </Avatar.Indicator>
+      </Avatar>
 
-      <Avatar
-        alt="John"
-        src={`https://avatar.iran.liara.run/public/girl?username=John`}
-        indicator={<Chip isSquare variant="dot" color="warning" />}
-        classNames={{
-          indicator: "-bottom-2 -left-1",
-        }}
-      />
+      <Avatar>
+        <Avatar.Image
+          alt="John"
+          src={`https://avatar.iran.liara.run/public/girl?username=John`}
+        />
+        <Avatar.Fallback />
+        <Avatar.Indicator className="-bottom-2 -left-1">
+          <Chip isSquare variant="dot" color="warning" />
+        </Avatar.Indicator>
+      </Avatar>
     </div>
   );
 };

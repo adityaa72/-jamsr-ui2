@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [AvatarConfig, useAvatarConfig] =
   });
 
 export namespace AvatarConfig {
-  export interface Props extends Avatar.Props, GlobalConfigProps<Avatar.Props> {}
+  export interface Props
+    extends Avatar.Props,
+      GlobalConfigProps<Avatar.Props> {}
 }
