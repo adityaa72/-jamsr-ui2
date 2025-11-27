@@ -1,3 +1,5 @@
+import { useCallback, useId, useMemo } from "react";
+
 import {
   useControlledState,
   useFocusVisible,
@@ -11,7 +13,6 @@ import {
   mapPropsVariants,
   mergeProps,
 } from "@jamsrui/utils";
-import { useCallback, useId, useMemo } from "react";
 
 import { switchVariants } from "./styles";
 
@@ -77,7 +78,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       "data-pressed": dataAttr(isPressed),
       "data-disabled": dataAttr(isDisabled),
     }),
-    [isChecked, isDisabled, isFocusVisible, isPressed, styles]
+    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles]
   );
 
   const getInputProps: PropGetter<SwitchInput.Props> = useCallback(
@@ -93,7 +94,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       }),
       disabled: isDisabled,
     }),
-    [handleInputChange, inputRefs, isDisabled, styles]
+    [handleInputChange, inputProps, inputRefs, isDisabled, styles]
   );
 
   const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(

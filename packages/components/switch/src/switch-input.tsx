@@ -1,10 +1,10 @@
 "use client";
 
+import { useFieldA11yContext } from "@jamsrui/context";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSwitchContext } from "./switch-context";
 
-import { useFieldA11yContext } from "@jamsrui/context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchInput = (props: SwitchInput.Props) => {

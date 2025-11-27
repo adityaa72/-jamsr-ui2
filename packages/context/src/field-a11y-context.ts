@@ -1,6 +1,7 @@
 "use client";
 import { createContext, use } from "react";
-import { useFieldA11y } from "./use-field-a11y";
+
+import type { useFieldA11y } from "./use-field-a11y";
 
 export const FieldA11yContext = createContext<FieldA11yContext.Props | null>(
   null

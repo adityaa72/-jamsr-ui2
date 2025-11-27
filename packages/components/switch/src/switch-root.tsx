@@ -6,10 +6,10 @@ import { useSwitchContext } from "./switch-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const SwitchRoot = (props: SwitchRoot.Props) => {
+export const SwitchRoot = (_props: SwitchRoot.Props) => {
   const { getRootProps } = useSwitchContext();
   const renderElement = useRenderElement("div", {
-    props: [getRootProps(props)],
+    props: [getRootProps()],
   });
   return renderElement;
 };

@@ -33,7 +33,7 @@ export const useFieldA11y = () => {
     if (hasFieldError) {
       ids.push(fieldErrorId);
     }
-    return ids.filter(Boolean).join(" ");
+    return ids.length === 0 ? undefined : ids.filter(Boolean).join(" ");
   }, [descriptionId, fieldErrorId, hasDescription, hasFieldError]);
 
   const getLabelProps = useCallback(() => {

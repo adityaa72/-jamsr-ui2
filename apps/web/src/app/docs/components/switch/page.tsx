@@ -10,6 +10,7 @@ import { SwitchDisabled } from "./examples/disabled";
 import { SwitchSizes } from "./examples/sizes";
 import { SwitchUsage } from "./examples/usage";
 import { SwitchWithLabel } from "./examples/with-label";
+import { SwitchInputEvents } from "./examples/input-events";
 
 const title = "Switch";
 const description =
@@ -34,6 +35,13 @@ const Switch = () => {
       >
         <SwitchWithLabel />
       </CodeExample>
+      <CodeExample
+        isCentered
+        title="Description"
+        url={resolvePath("description.tsx")}
+      >
+        <SwitchDescription />
+      </CodeExample>
       <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <SwitchColors />
       </CodeExample>
@@ -49,17 +57,17 @@ const Switch = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Description"
-        url={resolvePath("description.tsx")}
-      >
-        <SwitchDescription />
-      </CodeExample>
-      <CodeExample
-        isCentered
         title="Controlled"
         url={resolvePath("controlled.tsx")}
       >
         <SwitchControlled />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Input Events"
+        url={resolvePath("input-events.tsx")}
+      >
+        <SwitchInputEvents />
       </CodeExample>
       <CodeExample
         isCentered

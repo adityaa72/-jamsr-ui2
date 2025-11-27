@@ -1,8 +1,8 @@
 "use client";
 
+import { FieldA11yContext, useFieldA11y } from "@jamsrui/context";
 import { mergeConfigProps } from "@jamsrui/utils";
 
-import { FieldA11yContext, useFieldA11y } from "@jamsrui/context";
 import { useSwitchConfig } from "./switch-config";
 import { SwitchContext } from "./switch-context";
 import { SwitchRoot } from "./switch-root";
@@ -14,13 +14,11 @@ export const Switch = (props: Switch.Props) => {
   const ctx = useSwitch(mergedProps);
   const fieldA11yCtx = useFieldA11y();
   return (
-    <SwitchContext value={ctx}>
-      <SwitchRoot>
-        <FieldA11yContext value={fieldA11yCtx}>
-          {props.children}
-        </FieldA11yContext>
-      </SwitchRoot>
-    </SwitchContext>
+    <FieldA11yContext value={fieldA11yCtx}>
+      <SwitchContext value={ctx}>
+        <SwitchRoot>{props.children}</SwitchRoot>
+      </SwitchContext>
+    </FieldA11yContext>
   );
 };
 
