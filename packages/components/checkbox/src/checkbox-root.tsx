@@ -1,17 +1,18 @@
+"use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useCheckboxContext } from "./checkbox-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const CheckboxTrigger = (props: CheckboxTrigger.Props) => {
-  const { getTriggerProps } = useCheckboxContext();
+export const CheckboxRoot = (_prop: CheckboxRoot.Props) => {
+  const { getRootProps } = useCheckboxContext();
   const renderElement = useRenderElement("div", {
-    props: [getTriggerProps(props)],
+    props: [getRootProps()],
   });
   return renderElement;
 };
 
-export namespace CheckboxTrigger {
+export namespace CheckboxRoot {
   export interface Props extends UIProps<"div"> {}
 }

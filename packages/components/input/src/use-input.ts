@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from "react";
 
+import { useFieldA11yContext } from "@jamsrui/context";
 import { useControlledState } from "@jamsrui/hooks";
 import { useInputGroupContextOpt } from "@jamsrui/input-group";
-import { useTextFieldContext } from "@jamsrui/textfield";
 import { cn, mapPropsVariants } from "@jamsrui/utils";
 
 import { inputGroupVariants, inputVariants } from "./styles";
@@ -17,7 +17,7 @@ export const useInput = (props: useInput.Props) => {
     inputVariants.variantKeys
   );
   const inputGroupCtx = useInputGroupContextOpt();
-  const textFieldCtx = useTextFieldContext();
+  const fieldA11yCtx = useFieldA11yContext();
 
   const {
     value: valueProp,
@@ -48,14 +48,14 @@ export const useInput = (props: useInput.Props) => {
 
   const getInputProps: PropGetter<UIProps<"input">> = useCallback(
     (props) => ({
-      ...textFieldCtx?.getInputProps(),
+      ...fieldA11yCtx?.getInputProps(),
       ...elementProps,
       ...props,
       className: cn(styles, className),
       value,
       onChange: handleInputChange,
     }),
-    [textFieldCtx, elementProps, styles, className, value, handleInputChange]
+    [fieldA11yCtx, elementProps, styles, className, value, handleInputChange]
   );
 
   return useMemo(

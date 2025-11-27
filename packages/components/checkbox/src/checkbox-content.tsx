@@ -1,17 +1,19 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useCheckboxContext } from "./checkbox-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const CheckboxWrapper = (props: CheckboxWrapper.Props) => {
-  const { getWrapperProps } = useCheckboxContext();
+export const CheckboxContent = (props: CheckboxContent.Props) => {
+  const { getContentProps } = useCheckboxContext();
   const renderElement = useRenderElement("div", {
-    props: [getWrapperProps(props)],
+    props: [getContentProps(props)],
   });
   return renderElement;
 };
 
-export namespace CheckboxWrapper {
+export namespace CheckboxContent {
   export interface Props extends UIProps<"div"> {}
 }

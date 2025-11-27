@@ -1,6 +1,6 @@
 {
-  "name": "@jamsrui/input",
-  "version": "0.0.13",
+  "name": "@jamsrui/context",
+  "version": "0.0.1",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -10,18 +10,15 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
+    "@types/node": "catalog:",
     "@types/react": "catalog:",
-    "clean-package": "^2.2.0",
-    "react": "catalog:"
+    "react": "catalog:",
+    "clean-package": "^2.2.0"
   },
   "peerDependencies": {
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/context": "workspace:^",
-    "@jamsrui/hooks": "workspace:^",
-    "@jamsrui/input-group": "workspace:^",
-    "@jamsrui/textfield": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"

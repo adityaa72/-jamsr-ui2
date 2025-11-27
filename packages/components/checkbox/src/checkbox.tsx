@@ -1,73 +1,26 @@
-import { Slot } from "@jamsrui/slot";
+"use client";
+import { FieldA11yContext, useFieldA11y } from "@jamsrui/context";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useCheckboxConfig } from "./checkbox-config";
-import {
-  CheckboxContent,
-  CheckboxContext,
-  CheckboxDescription,
-  CheckboxErrorMessage,
-  CheckboxIcon,
-  CheckboxInput,
-  CheckboxLabel,
-  CheckboxRoot,
-  CheckboxTrigger,
-  CheckboxWrapper,
-  useCheckbox,
-} from "./primitive";
-
-import type { SlotsToReactNode } from "@jamsrui/utils";
-
-import type { CheckboxSlots } from "./primitive/styles";
+import { CheckboxContext } from "./checkbox-context";
+import { CheckboxRoot } from "./checkbox-root";
+import { useCheckbox } from "./use-checkbox";
 
 export const Checkbox = (props: Checkbox.Props) => {
   const config = useCheckboxConfig();
   const mergedProps = mergeConfigProps(config, config, props);
-  const { label, children, slots, ...restProps } = mergedProps;
-  const ctx = useCheckbox(restProps);
-  const hasContent = !!label || !!children;
+  const ctx = useCheckbox(mergedProps);
+  const fieldAllyCtx = useFieldA11y();
   return (
     <CheckboxContext value={ctx}>
-      <Slot slot={slots?.root}>
-        <CheckboxRoot>
-          <Slot slot={slots?.wrapper}>
-            <CheckboxWrapper>
-              <Slot slot={slots?.trigger}>
-                <CheckboxTrigger>
-                  <CheckboxIcon />
-                  <Slot slot={slots?.input}>
-                    <CheckboxInput />
-                  </Slot>
-                </CheckboxTrigger>
-              </Slot>
-              {hasContent ? (
-                <Slot slot={slots?.content}>
-                  <CheckboxContent>
-                    {!!label && (
-                      <Slot slot={slots?.label}>
-                        <CheckboxLabel>{label}</CheckboxLabel>
-                      </Slot>
-                    )}
-                    {!!children && (
-                      <Slot slot={slots?.description}>
-                        <CheckboxDescription>{children}</CheckboxDescription>
-                      </Slot>
-                    )}
-                  </CheckboxContent>
-                </Slot>
-              ) : null}
-            </CheckboxWrapper>
-          </Slot>
-          <CheckboxErrorMessage />
-        </CheckboxRoot>
-      </Slot>
+      <FieldA11yContext value={fieldAllyCtx}>
+        <CheckboxRoot>{props.children}</CheckboxRoot>
+      </FieldA11yContext>
     </CheckboxContext>
   );
 };
 
 export namespace Checkbox {
-  export interface Props extends useCheckbox.Props {
-    label?: React.ReactNode;
-    slots?: SlotsToReactNode<CheckboxSlots>;
-  }
+  export interface Props extends useCheckbox.Props {}
 }

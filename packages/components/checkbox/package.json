@@ -3,8 +3,7 @@
   "version": "0.0.12",
   "main": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./primitive": "./src/primitive/index.ts"
+    ".": "./src/index.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -23,6 +22,7 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@jamsrui/context": "workspace:^",
     "@jamsrui/core": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/slot": "workspace:^",

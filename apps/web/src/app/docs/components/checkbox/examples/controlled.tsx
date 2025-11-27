@@ -1,17 +1,20 @@
 "use client";
 
-import { Checkbox } from "@jamsrui/react";
+import { Checkbox, Label } from "@jamsrui/react";
 import { useState } from "react";
 
 export const CheckboxControlled = () => {
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <Checkbox
-      label="Controlled Checkbox"
-      isChecked={isChecked}
-      onCheckedChange={setIsChecked}
-    >
-      {isChecked ? "Checked" : "Unchecked"}
+    <Checkbox isChecked={isChecked} onCheckedChange={setIsChecked}>
+      <Checkbox.Control />
+      <Checkbox.Content>
+        <Label>
+          {isChecked
+            ? "I agree to receive marketing emails"
+            : "Agree to receive marketing emails"}
+        </Label>
+      </Checkbox.Content>
     </Checkbox>
   );
 };

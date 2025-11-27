@@ -1,8 +1,10 @@
 import { useRenderElement } from "@jamsrui/hooks";
-import { UIProps } from "@jamsrui/utils";
+
 import { useTextFieldContext } from "./textfield-context";
 
-export const TextfieldRootInner = (props: TextfieldRootInner.Props) => {
+import type { UIProps } from "@jamsrui/utils";
+
+export const TextfieldRoot = (props: TextfieldRoot.Props) => {
   const ctx = useTextFieldContext();
   const renderElement = useRenderElement("div", {
     props: [props, ctx?.getRootProps({}) ?? {}],
@@ -10,6 +12,6 @@ export const TextfieldRootInner = (props: TextfieldRootInner.Props) => {
   return renderElement;
 };
 
-export namespace TextfieldRootInner {
+export namespace TextfieldRoot {
   export interface Props extends UIProps<"div"> {}
 }

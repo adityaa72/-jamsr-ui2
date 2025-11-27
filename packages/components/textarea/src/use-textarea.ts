@@ -2,13 +2,13 @@ import { useCallback, useMemo } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
 import { useInputGroupContextOpt } from "@jamsrui/input-group";
-import { useTextFieldContext } from "@jamsrui/textfield";
 import { cn, mapPropsVariants } from "@jamsrui/utils";
 
 import { textareaGroupVariants, textareaVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
+import { useFieldA11yContext } from "@jamsrui/context";
 import type { TextareaVariantProps } from "./styles";
 
 export const useTextarea = (props: useTextarea.Props) => {
@@ -17,7 +17,7 @@ export const useTextarea = (props: useTextarea.Props) => {
     textareaVariants.variantKeys
   );
   const inputGroupCtx = useInputGroupContextOpt();
-  const textFieldCtx = useTextFieldContext();
+  const fieldA11yCtx = useFieldA11yContext();
 
   const {
     value: valueProp,
@@ -48,14 +48,14 @@ export const useTextarea = (props: useTextarea.Props) => {
 
   const getTextareaProps: PropGetter<UIProps<"textarea">> = useCallback(
     (props) => ({
-      ...textFieldCtx?.getInputProps(),
+      ...fieldA11yCtx?.getInputProps(),
       ...elementProps,
       ...props,
       className: cn(styles, className),
       value,
       onChange: handleTextareaChange,
     }),
-    [textFieldCtx, elementProps, styles, className, value, handleTextareaChange]
+    [fieldA11yCtx, elementProps, styles, className, value, handleTextareaChange]
   );
 
   return useMemo(

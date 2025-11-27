@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [CheckboxConfig, useCheckboxConfig] =
   });
 
 export namespace CheckboxConfig {
-  export interface Props extends Checkbox.Props, GlobalConfigProps<Checkbox.Props> {}
+  export interface Props
+    extends Checkbox.Props,
+      GlobalConfigProps<Checkbox.Props> {}
 }

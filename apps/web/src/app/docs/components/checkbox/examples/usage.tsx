@@ -1,5 +1,12 @@
-import { Checkbox } from "@jamsrui/react";
+import { Checkbox, Label } from "@jamsrui/react";
 
 export const CheckboxUsage = () => {
-  return <Checkbox label="I am a checkbox" />;
+  return (
+    <Checkbox>
+      <Checkbox.Control />
+      <Checkbox.Content>
+        <Label>Enable email notifications</Label>
+      </Checkbox.Content>
+    </Checkbox>
+  );
 };

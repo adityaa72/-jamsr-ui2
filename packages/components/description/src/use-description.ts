@@ -1,5 +1,5 @@
+import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
-import { useTextFieldContext } from "@jamsrui/textfield";
 import { cn } from "@jamsrui/utils";
 
 import type { UIProps } from "@jamsrui/utils";
@@ -8,13 +8,13 @@ export const useDescription = (
   props: useDescription.Props
 ): useDescription.ReturnType => {
   const { className, ref, ...restProps } = props;
-  const textFieldCtx = useTextFieldContext();
-  const mergedRef = useMergeRefs([ref, textFieldCtx?.setDescriptionRef]);
+  const fieldAllyCtx = useFieldA11yContext();
+  const mergedRef = useMergeRefs([ref, fieldAllyCtx?.setDescriptionRef]);
 
   return {
     ref: mergedRef,
     className: cn("description text-xs text-foreground-secondary", className),
-    ...textFieldCtx?.getDescriptionProps(),
+    ...fieldAllyCtx?.getDescriptionProps(),
     ...restProps,
   };
 };
