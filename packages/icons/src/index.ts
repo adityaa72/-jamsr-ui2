@@ -42,3 +42,5 @@ export {
   VideoIcon,
   ZipIcon,
 } from "./others";
+
+export { LoadingSpinnerIcon } from "./spinner";

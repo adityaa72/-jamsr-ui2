@@ -1,47 +1,32 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useButtonConfig } from "./button-config";
-import { LoadingSpinner } from "./spinner";
 import { buttonVariant } from "./styles";
 import { useButton } from "./use-button";
 
+import { ButtonContext } from "./button-context";
 import type { ButtonVariantProps } from "./styles";
 
-export const Button = (props: Button.Props) => {
+export const ButtonRoot = (props: ButtonRoot.Props) => {
   const config = useButtonConfig();
   const mergedProps = mergeConfigProps(
     buttonVariant.defaultVariants,
     config,
     props
   );
-  const { size } = mergedProps;
-
-  const {
-    getButtonProps,
-    startContent,
-    endContent,
-    isLoading,
-    spinner = <LoadingSpinner size={size === "xs" ? 14 : 20} />,
-    disableRipple,
-    spinnerPlacement,
-  } = useButton(mergedProps);
-
-  const composedChildren = (
-    <>
-      {isLoading && spinnerPlacement === "start" ? spinner : startContent}
-      {props.children}
-      {isLoading && spinnerPlacement === "end" ? spinner : endContent}
-    </>
-  );
+  const ctx = useButton(mergedProps);
+  const { getButtonProps } = ctx;
 
   const button = useRenderElement("button", {
-    props: [getButtonProps({}), { children: composedChildren }],
+    props: [getButtonProps({}), { children: props.children }],
   });
-  return button;
+  return <ButtonContext value={ctx}>{button}</ButtonContext>;
 };
 
-export namespace Button {
+export namespace ButtonRoot {
   export interface VariantProps extends ButtonVariantProps {}
   export interface Props extends useButton.Props {}
 }

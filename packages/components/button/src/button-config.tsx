@@ -1,8 +1,10 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
 
-import type { Button } from "./button";
+import type { ButtonRoot } from "./button";
 
 export const [ButtonConfig, useButtonConfig] =
   createConfigContext<ButtonConfig.Props>({
@@ -11,6 +13,6 @@ export const [ButtonConfig, useButtonConfig] =
 
 export namespace ButtonConfig {
   export interface Props
-    extends Button.Props,
-      GlobalConfigProps<Button.Props> {}
+    extends ButtonRoot.Props,
+      GlobalConfigProps<ButtonRoot.Props> {}
 }

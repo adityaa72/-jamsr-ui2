@@ -2,10 +2,9 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const circularProgressVariants = tv({
   slots: {
-    root: "",
+    root: "size-5",
     track: "stroke-background-secondary",
     progress: "stroke-success",
     label: "fill-foreground text-xs",

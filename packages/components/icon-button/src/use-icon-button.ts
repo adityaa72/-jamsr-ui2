@@ -5,10 +5,10 @@ import { cn, dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { iconButtonVariants } from "./styles";
 
-import type { PropGetter, UIProps } from "@jamsrui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import type { IconButton } from "./icon-button";
+import { IconButtonRoot } from "./icon-button-root";
 import type { IconButtonVariantProps } from "./styles";
 
 export const useIconButton = (props: useIconButton.Props) => {
@@ -19,18 +19,18 @@ export const useIconButton = (props: useIconButton.Props) => {
 
   const {
     type = "button",
-    label: labelProp,
-    isDisabled: isDisabledProp = false,
+    label,
     isLoading = false,
     disabled = false,
     className,
     ref,
+    loadingIcon,
     ...restProps
   } = $props;
 
   const styles = iconButtonVariants(variantProps);
   const id = useId();
-  const isDisabled = isDisabledProp || isLoading || disabled;
+  const isDisabled = isLoading || disabled;
 
   const { isHovered, ref: hoverRef } = useHover({
     isDisabled,
@@ -41,7 +41,7 @@ export const useIconButton = (props: useIconButton.Props) => {
   const mergedRefs = useMergeRefs([ref, hoverRef, pressRef]);
 
   const getButtonProps = useCallback(
-    (): Partial<IconButton.Props> => ({
+    (): Partial<IconButtonRoot.Props> => ({
       ...restProps,
       ref: mergedRefs,
       "data-component": dataAttrDev("icon-button"),
@@ -78,14 +78,21 @@ export const useIconButton = (props: useIconButton.Props) => {
   }, [id]);
 
   return useMemo(
-    () => ({ getButtonProps, getLabelProps, isLoading, isDisabled }),
-    [getButtonProps, getLabelProps, isDisabled, isLoading]
+    () => ({
+      getButtonProps,
+      getLabelProps,
+      isLoading,
+      isDisabled,
+      label,
+      loadingIcon,
+    }),
+    [getButtonProps, getLabelProps, isDisabled, isLoading, label, loadingIcon]
   );
 };
 export namespace useIconButton {
-  export interface Props extends IconButtonVariantProps, UIProps<"button"> {
+  export interface Props extends IconButtonVariantProps, IconButtonRoot.Props {
     label: string;
-    isDisabled?: boolean;
     isLoading?: boolean;
+    loadingIcon?: React.ReactElement;
   }
 }

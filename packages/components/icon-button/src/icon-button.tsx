@@ -1,28 +1,17 @@
-import { useRenderElement } from "@jamsrui/hooks";
+"use client";
 
+import { IconButtonContext } from "./icon-button-context";
+import { IconButtonRoot } from "./icon-button-root";
 import { useIconButton } from "./use-icon-button";
 
 export const IconButton = (props: IconButton.Props) => {
   const { children } = props;
   const ctx = useIconButton(props);
-  const { getButtonProps, getLabelProps } = ctx;
-
-  const composedChildren = (
-    <>
-      <span {...getLabelProps({})} />
-      {children}
-    </>
+  return (
+    <IconButtonContext value={ctx}>
+      <IconButtonRoot>{children}</IconButtonRoot>
+    </IconButtonContext>
   );
-
-  const renderElement = useRenderElement("button", {
-    props: [
-      getButtonProps(),
-      {
-        children: composedChildren,
-      },
-    ],
-  });
-  return renderElement;
 };
 
 export namespace IconButton {

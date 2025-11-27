@@ -7,7 +7,7 @@ import { buttonVariant } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { Button } from "./button";
+import type { ButtonRoot } from "./button";
 
 export const useButton = (props: useButton.Props) => {
   const [elementProps, variantKeys] = mapPropsVariants(
@@ -15,12 +15,6 @@ export const useButton = (props: useButton.Props) => {
     buttonVariant.variantKeys
   );
   const {
-    isDisabled: isDisabledProp = false,
-    disableRipple,
-    endContent,
-    spinner,
-    spinnerPlacement = "start",
-    startContent,
     disabled = false,
     isLoading = false,
     className,
@@ -28,7 +22,7 @@ export const useButton = (props: useButton.Props) => {
     ...restProps
   } = elementProps;
 
-  const isDisabled = disabled || isDisabledProp || isLoading;
+  const isDisabled = disabled || isLoading;
   const styles = buttonVariant(variantKeys);
 
   const { isHovered, ref: hoverRef } = useHover({
@@ -39,7 +33,7 @@ export const useButton = (props: useButton.Props) => {
   });
   const mergedRefs = useMergeRefs([ref, hoverRef, pressRef]);
 
-  const getButtonProps: PropGetter<Button.Props> = useCallback(
+  const getButtonProps: PropGetter<ButtonRoot.Props> = useCallback(
     () => ({
       ...restProps,
       ref: mergedRefs,
@@ -64,27 +58,14 @@ export const useButton = (props: useButton.Props) => {
   return useMemo(
     () => ({
       getButtonProps,
-      startContent,
-      endContent,
       isLoading,
-      spinner,
-      spinnerPlacement,
-      disableRipple,
     }),
-    [
-      getButtonProps,
-      startContent,
-      endContent,
-      isLoading,
-      spinner,
-      spinnerPlacement,
-      disableRipple,
-    ]
+    [getButtonProps, isLoading]
   );
 };
 
 export namespace useButton {
-  export interface VariantProps extends Button.VariantProps {}
+  export interface VariantProps extends ButtonRoot.VariantProps {}
   export interface Props extends VariantProps, UIProps<"button"> {
     /**
      * If `true`, the button will show a spinner and be non-interactive.
@@ -93,44 +74,9 @@ export namespace useButton {
     isLoading?: boolean;
 
     /**
-     * If `true`, the button will be disabled.
-     * Takes precedence over `isLoading`.
-     */
-    isDisabled?: boolean;
-
-    /**
-     * Element to be rendered at the **start** of the button content.
-     * Commonly used for icons or prepended text.
-     */
-    startContent?: React.ReactNode;
-
-    /**
-     * Element to be rendered at the **end** of the button content.
-     * Commonly used for icons or appended text.
-     */
-    endContent?: React.ReactNode;
-
-    /**
-     * Determines where the spinner appears when `isLoading` is true.
-     * Can be `"start"` or `"end"`. Defaults to `"start"`.
-     */
-    spinnerPlacement?: "start" | "end";
-
-    /**
-     * If `true`, disables the ripple effect on click.
-     * Recommended for a more minimal or static UI feel.
-     */
-    disableRipple?: boolean;
-
-    /**
      * If `true`, disables all animations on the button.
      * Useful for performance-sensitive environments or reduced motion settings.
      */
     disableAnimation?: boolean;
-
-    /**
-     * A custom spinner element to replace the default loading indicator.
-     */
-    spinner?: React.ReactNode;
   }
 }

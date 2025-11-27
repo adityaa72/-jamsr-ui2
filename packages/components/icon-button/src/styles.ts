@@ -10,6 +10,7 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const iconButtonVariants = tv({
   base: [
+    "icon-button",
     "z-0",
     "cursor-default",
     "shrink-0",
