@@ -2,12 +2,13 @@ import { Label, Select, SelectItem } from "@jamsrui/react";
 
 export const SelectUsage = () => {
   return (
-    <Select className="max-w-xs w-full" placeholder="Select one fruit">
+    <Select
+      defaultValue={["apple"]}
+      className="max-w-xs w-full"
+      placeholder="Select one fruit"
+    >
       <Label>Fruit</Label>
-      <Select.Trigger>
-        <Select.Value />
-        <Select.Indicator />
-      </Select.Trigger>
+      <Select.Trigger />
       <Select.Popover>
         <Select.Content>
           <SelectItem value="apple">

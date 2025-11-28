@@ -32,7 +32,7 @@ export const Ripple = (props: Ripple.Props) => {
   if (isDisabled) return null;
   return (
     <div
-      className="size-full inset-0 overflow-hidden absolute"
+      className="size-full inset-0 z-1 overflow-hidden absolute"
       onClick={handleRipple}
       onMouseDown={handleRipple}
       onTouchStart={handleRipple}

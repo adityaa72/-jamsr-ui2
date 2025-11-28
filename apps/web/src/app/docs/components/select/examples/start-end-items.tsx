@@ -1,19 +1,19 @@
-import { Select, SelectItem } from "@jamsrui/react";
-import { EmailIcon } from "@jamsrui/icons";
+import { Label, Select } from "@jamsrui/react";
 
 export const SelectStartEndItems = () => {
   return (
-    <Select
-      className="max-w-xs"
-      label="Select Label"
-      startContent="$"
-      endContent={<EmailIcon />}
-    >
-      <SelectItem value="apple">Apple</SelectItem>
-      <SelectItem value="blueberry">Blueberry</SelectItem>
-      <SelectItem value="watermelon">Watermelon</SelectItem>
-      <SelectItem value="banana">Banana</SelectItem>
-      <SelectItem value="orange">Orange</SelectItem>
+    <Select className="max-w-xs" placeholder="Select Label">
+      <Label>Fruit</Label>
+      <Select.Trigger />
+      <Select.Popover>
+        <Select.Content>
+          <Select.Item value="apple">Apple</Select.Item>
+          <Select.Item value="blueberry">Blueberry</Select.Item>
+          <Select.Item value="watermelon">Watermelon</Select.Item>
+          <Select.Item value="banana">Banana</Select.Item>
+          <Select.Item value="orange">Orange</Select.Item>
+        </Select.Content>
+      </Select.Popover>
     </Select>
   );
 };

@@ -20,3 +20,14 @@ export const Select = Object.assign(SelectRoot, {
   Content: SelectContent,
   ItemIndicator: SelectItemIndicator,
 });
+
+export namespace Select {
+  export interface Props extends SelectRoot.Props {}
+  export interface Item extends SelectItem.Props {}
+  export interface Trigger extends SelectTrigger.Props {}
+  export interface Value extends SelectValue.Props {}
+  export interface Indicator extends SelectIndicator.Props {}
+  export interface Popover extends SelectPopover.Props {}
+  export interface Content extends SelectContent.Props {}
+  export interface ItemIndicator extends SelectItemIndicator.Props {}
+}
