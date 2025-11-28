@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, use } from "react";
 
 import type { useMenu } from "./use-menu";

@@ -1,33 +1,21 @@
 "use client";
-import {
-  Button,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuUsage = () => {
   return (
     <Menu>
-      <MenuTrigger>
+      <Menu.Trigger>
         <Button>Open Me</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuItem
-          onClick={() => {
-            console.log("click on undo");
-          }}
-        >
-          Undo
-        </MenuItem>
-        <MenuItem>Info</MenuItem>
-        <MenuItem>Search</MenuItem>
-        <MenuItem>Redo</MenuItem>
-        <MenuItem>Cut</MenuItem>
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>Delete</MenuItem>
-      </MenuContent>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item>Undo</Menu.Item>
+        <Menu.Item>Info</Menu.Item>
+        <Menu.Item>Search</Menu.Item>
+        <Menu.Item>Redo</Menu.Item>
+        <Menu.Item>Cut</Menu.Item>
+        <Menu.Item>Edit</Menu.Item>
+        <Menu.Item>Delete</Menu.Item>
+      </Menu.Content>
     </Menu>
   );
 };

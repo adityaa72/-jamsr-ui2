@@ -6,7 +6,6 @@ import { MenuBackdrop } from "./examples/backdrop";
 import { MenuCheckboxItemsExample } from "./examples/checkbox-items";
 import { MenuColors } from "./examples/colors";
 import { MenuControlled } from "./examples/controlled";
-import { MenuCustomized } from "./examples/customized";
 import { MenuGroupExample } from "./examples/group";
 import { MenuNested } from "./examples/nested";
 import { MenuOffset } from "./examples/offset";
@@ -16,7 +15,7 @@ import { MenuRadioItemsExample } from "./examples/radio-items";
 import { MenuRadius } from "./examples/radius";
 import { MenuStartEndContent } from "./examples/start-end-content";
 import { MenuUsage } from "./examples/usage";
-import { MenuWithoutArrow } from "./examples/without-arrow";
+import { MenuWithArrow } from "./examples/with-arrow";
 import { MenuWithoutLockScroll } from "./examples/without-lock-scroll";
 
 const title = "Menu";
@@ -38,7 +37,6 @@ const Menu = () => {
       <CodeExample isCentered title="Nested" url={resolvePath("nested.tsx")}>
         <MenuNested />
       </CodeExample>
-
       <CodeExample
         isCentered
         title="Radio Items"
@@ -65,10 +63,10 @@ const Menu = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Without Arrow"
-        url={resolvePath("without-arrow.tsx")}
+        title="With Arrow"
+        url={resolvePath("with-arrow.tsx")}
       >
-        <MenuWithoutArrow />
+        <MenuWithArrow />
       </CodeExample>
       <CodeExample
         isCentered
@@ -110,15 +108,9 @@ const Menu = () => {
       <CodeExample
         title="Without Lock Scroll"
         url={resolvePath("without-lock-scroll.tsx")}
+        isCentered
       >
         <MenuWithoutLockScroll />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Customized"
-        url={resolvePath("customized.tsx")}
-      >
-        <MenuCustomized />
       </CodeExample>
     </DocsPage>
   );

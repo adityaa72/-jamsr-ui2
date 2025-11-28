@@ -1,56 +1,39 @@
-import {
-  FloatingArrow,
-  FloatingFocusManager,
-  FloatingList,
-  FloatingOverlay,
-  FloatingPortal,
-} from "@floating-ui/react";
-import { AnimatePresence } from "motion/react";
+"use client";
 
-import { MenuContent2 } from "./menu-content2";
+import { motion } from "motion/react";
+
 import { useMenuContext } from "./menu-context";
-import { MenuFloatingContext } from "./menu-floating-context";
-import { MenuRoot } from "./menu-root";
 
-import type { UIProps } from "@jamsrui/utils";
+import type { HTMLMotionProps } from "motion/react";
 
 export const MenuContent = (props: MenuContent.Props) => {
-  const {
-    getFloatingListProps,
-    isOpen,
-    getFocusManagerProps,
-    getOverlayProps,
-    hideArrow,
-    getArrowProps,
-    floatingCtx,
-    isNested,
-  } = useMenuContext();
-
-  const { children } = props;
-
+  const { children, ...restProps } = props;
+  const { getContentProps, isNested } = useMenuContext();
   return (
-    <MenuFloatingContext value={floatingCtx}>
-      <FloatingList {...getFloatingListProps()}>
-        <AnimatePresence>
-          {isOpen ? (
-            <FloatingPortal>
-              {isNested ? null : <FloatingOverlay {...getOverlayProps()} />}
-              <FloatingFocusManager {...getFocusManagerProps()}>
-                <MenuRoot>
-                  <MenuContent2>
-                    {hideArrow ? null : <FloatingArrow {...getArrowProps()} />}
-                    {children}
-                  </MenuContent2>
-                </MenuRoot>
-              </FloatingFocusManager>
-            </FloatingPortal>
-          ) : null}
-        </AnimatePresence>
-      </FloatingList>
-    </MenuFloatingContext>
+    <motion.div
+      {...(!isNested
+        ? {
+            initial: {
+              opacity: 0,
+              scale: 0.8,
+            },
+            transition: { type: "spring", stiffness: 300, damping: 25 },
+            animate: {
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              y: 0,
+            },
+            exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2 } },
+          }
+        : {})}
+      {...getContentProps(restProps)}
+    >
+      {children}
+    </motion.div>
   );
 };
 
 export namespace MenuContent {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends HTMLMotionProps<"div"> {}
 }

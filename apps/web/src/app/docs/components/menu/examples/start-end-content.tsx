@@ -1,82 +1,72 @@
-import {
-  Button,
-  Kbd,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
 import { ChevronUpIcon, InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
+import { Button, Kbd, Menu } from "@jamsrui/react";
 
 export const MenuStartEndContent = () => {
   return (
     <Menu>
-      <MenuTrigger>
-        <Button endContent={<ChevronUpIcon />}>Open Me</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuItem
-          startContent={
-            <SearchIcon
-              width={20}
-              height={20}
-              className="text-foreground-secondary"
-            />
-          }
-          endContent={<Kbd keys={["command"]}>U</Kbd>}
-        >
+      <Menu.Trigger>
+        <Button>
+          <ChevronUpIcon />
+          Open Me
+        </Button>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item>
+          <SearchIcon
+            width={20}
+            height={20}
+            className="text-foreground-secondary"
+          />
           Undo
-        </MenuItem>
-        <MenuItem
-          startContent={
-            <InfoIcon
-              width={20}
-              height={20}
-              className="text-foreground-secondary"
-            />
-          }
-          endContent={<Kbd keys={["command"]}>I</Kbd>}
-        >
+          <Kbd className="ml-auto" keys={["command"]}>
+            U
+          </Kbd>
+        </Menu.Item>
+        <Menu.Item>
+          <InfoIcon
+            width={20}
+            height={20}
+            className="text-foreground-secondary"
+          />
           Info
-        </MenuItem>
-        <MenuItem
-          startContent={
-            <SearchIcon
-              width={20}
-              height={20}
-              className="text-foreground-secondary"
-            />
-          }
-          endContent={<Kbd keys={["command"]}>K</Kbd>}
-        >
+          <Kbd className="ml-auto" keys={["command"]}>
+            I
+          </Kbd>
+        </Menu.Item>
+        <Menu.Item>
+          <SearchIcon
+            width={20}
+            height={20}
+            className="text-foreground-secondary"
+          />
           Search
-        </MenuItem>
-        <MenuItem
-          startContent={
-            <SearchIcon
-              width={20}
-              height={20}
-              className="text-foreground-secondary"
-            />
-          }
-          endContent={<Kbd keys={["command"]}>C</Kbd>}
-        >
+          <Kbd className="ml-auto" keys={["command"]}>
+            K
+          </Kbd>
+        </Menu.Item>
+        <Menu.Item>
+          <SearchIcon
+            width={20}
+            height={20}
+            className="text-foreground-secondary"
+          />
           Cut
-        </MenuItem>
-        <MenuItem
-          className="hover:bg-danger"
-          endContent={<Kbd keys={["command"]}>D</Kbd>}
-          startContent={
-            <TrashIcon
-              width={20}
-              height={20}
-              className="text-foreground-secondary"
-            />
-          }
-        >
+          <Kbd className="ml-auto" keys={["command"]}>
+            C
+          </Kbd>
+        </Menu.Item>
+        <Menu.Item className="hover:bg-danger">
+          <TrashIcon
+            width={20}
+            height={20}
+            className="text-foreground-secondary"
+          />
           Delete
-        </MenuItem>
-      </MenuContent>
+          <Kbd className="ml-auto" keys={["command"]}>
+            D
+          </Kbd>
+        </Menu.Item>
+      </Menu.Content>
     </Menu>
   );
 };

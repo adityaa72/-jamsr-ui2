@@ -1,42 +1,40 @@
-import {
-  Button,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuNested = () => {
   return (
     <Menu>
-      <MenuTrigger>
+      <Menu.Trigger>
         <Button>Open Me</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuItem>Undo</MenuItem>
-        <MenuItem>Info</MenuItem>
-        <MenuItem>Search</MenuItem>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item>Undo</Menu.Item>
+        <Menu.Item>Info</Menu.Item>
+        <Menu.Item>Search</Menu.Item>
         <Menu>
-          <MenuTrigger>
-            <MenuItem>Search</MenuItem>
-          </MenuTrigger>
-          <MenuContent>
-            <MenuItem>Undo</MenuItem>
-            <MenuItem>Info</MenuItem>
-            <MenuItem>Search</MenuItem>
+          <Menu.Trigger>
+            <Menu.Item>
+              Search <Menu.SubmenuIndicator />
+            </Menu.Item>
+          </Menu.Trigger>
+          <Menu.Content>
+            <Menu.Item>Undo</Menu.Item>
+            <Menu.Item>Info</Menu.Item>
+            <Menu.Item>Search</Menu.Item>
             <Menu>
-              <MenuTrigger>
-                <MenuItem>Search</MenuItem>
-              </MenuTrigger>
-              <MenuContent>
-                <MenuItem>Undo</MenuItem>
-                <MenuItem>Info</MenuItem>
-                <MenuItem>Search</MenuItem>
-              </MenuContent>
+              <Menu.Trigger>
+                <Menu.Item>
+                  Search <Menu.SubmenuIndicator />
+                </Menu.Item>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.Item>Undo</Menu.Item>
+                <Menu.Item>Info</Menu.Item>
+                <Menu.Item>Search</Menu.Item>
+              </Menu.Content>
             </Menu>
-          </MenuContent>
+          </Menu.Content>
         </Menu>
-      </MenuContent>
+      </Menu.Content>
     </Menu>
   );
 };

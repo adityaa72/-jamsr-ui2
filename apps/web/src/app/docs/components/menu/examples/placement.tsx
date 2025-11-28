@@ -1,11 +1,5 @@
 import { ChevronUpIcon } from "@jamsrui/icons";
-import {
-  Button,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuPlacement = () => {
   const placements: Menu.Props["placement"][] = [
@@ -26,18 +20,21 @@ export const MenuPlacement = () => {
     <div className="flex flex-wrap gap-4">
       {placements.map((placement) => (
         <Menu key={placement} placement={placement}>
-          <MenuTrigger>
-            <Button endContent={<ChevronUpIcon />}>{placement}</Button>
-          </MenuTrigger>
-          <MenuContent>
-            <MenuItem>Undo</MenuItem>
-            <MenuItem>Info</MenuItem>
-            <MenuItem>Search</MenuItem>
-            <MenuItem isDisabled>Redo</MenuItem>
-            <MenuItem>Cut</MenuItem>
-            <MenuItem isDisabled>Edit</MenuItem>
-            <MenuItem color="danger">Delete</MenuItem>
-          </MenuContent>
+          <Menu.Trigger>
+            <Button>
+              <ChevronUpIcon />
+              {placement}
+            </Button>
+          </Menu.Trigger>
+          <Menu.Content>
+            <Menu.Item>Undo</Menu.Item>
+            <Menu.Item>Info</Menu.Item>
+            <Menu.Item>Search</Menu.Item>
+            <Menu.Item isDisabled>Redo</Menu.Item>
+            <Menu.Item>Cut</Menu.Item>
+            <Menu.Item isDisabled>Edit</Menu.Item>
+            <Menu.Item color="danger">Delete</Menu.Item>
+          </Menu.Content>
         </Menu>
       ))}
     </div>

@@ -1,23 +1,26 @@
 "use client";
-import {
-  Button,
-  Menu,
-  MenuCheckboxItem,
-  MenuContent,
-  MenuTrigger,
-} from "@jamsrui/react";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuCheckboxItemsExample = () => {
   return (
     <Menu>
-      <MenuTrigger>
+      <Menu.Trigger>
         <Button>Sort</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuCheckboxItem>Date</MenuCheckboxItem>
-        <MenuCheckboxItem>Name</MenuCheckboxItem>
-        <MenuCheckboxItem>Type</MenuCheckboxItem>
-      </MenuContent>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.CheckboxItem>
+          <Menu.ItemIndicator />
+          Date
+        </Menu.CheckboxItem>
+        <Menu.CheckboxItem>
+          <Menu.ItemIndicator />
+          Name
+        </Menu.CheckboxItem>
+        <Menu.CheckboxItem>
+          <Menu.ItemIndicator />
+          Type
+        </Menu.CheckboxItem>
+      </Menu.Content>
     </Menu>
   );
 };

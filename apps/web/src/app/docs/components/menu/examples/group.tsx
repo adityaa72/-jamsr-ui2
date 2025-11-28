@@ -1,16 +1,5 @@
 "use client";
-import {
-  Button,
-  Divider,
-  Menu,
-  MenuCheckboxItem,
-  MenuContent,
-  MenuGroup,
-  MenuGroupLabel,
-  MenuRadioGroup,
-  MenuRadioItem,
-  MenuTrigger,
-} from "@jamsrui/react";
+import { Button, Divider, Menu } from "@jamsrui/react";
 import { useState } from "react";
 
 export const MenuGroupExample = () => {
@@ -21,41 +10,53 @@ export const MenuGroupExample = () => {
 
   return (
     <Menu>
-      <MenuTrigger>
+      <Menu.Trigger>
         <Button>View</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuGroup>
-          <MenuGroupLabel>Sort</MenuGroupLabel>
-          <MenuRadioGroup value={sortBy} onValueChange={setSortBy}>
-            <MenuRadioItem value="date">Date</MenuRadioItem>
-            <MenuRadioItem value="name">Name</MenuRadioItem>
-            <MenuRadioItem value="type">Type</MenuRadioItem>
-          </MenuRadioGroup>
-        </MenuGroup>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Group>
+          <Menu.GroupLabel>Sort</Menu.GroupLabel>
+          <Menu.RadioGroup value={sortBy} onValueChange={setSortBy}>
+            <Menu.RadioItem value="date">
+              <Menu.ItemIndicator />
+              Date
+            </Menu.RadioItem>
+            <Menu.RadioItem value="name">
+              <Menu.ItemIndicator />
+              Name
+            </Menu.RadioItem>
+            <Menu.RadioItem value="type">
+              <Menu.ItemIndicator />
+              Type
+            </Menu.RadioItem>
+          </Menu.RadioGroup>
+        </Menu.Group>
         <Divider />
-        <MenuGroup>
-          <MenuGroupLabel>Workspace</MenuGroupLabel>
-          <MenuCheckboxItem
+        <Menu.Group>
+          <Menu.GroupLabel>Workspace</Menu.GroupLabel>
+          <Menu.CheckboxItem
             isChecked={showMinimap}
             onCheckedChange={setShowMinimap}
           >
+            <Menu.ItemIndicator />
             Minimap
-          </MenuCheckboxItem>
-          <MenuCheckboxItem
+          </Menu.CheckboxItem>
+          <Menu.CheckboxItem
             isChecked={showSearch}
             onCheckedChange={setShowSearch}
           >
+            <Menu.ItemIndicator />
             Search
-          </MenuCheckboxItem>
-          <MenuCheckboxItem
+          </Menu.CheckboxItem>
+          <Menu.CheckboxItem
             isChecked={showSidebar}
             onCheckedChange={setShowSidebar}
           >
+            <Menu.ItemIndicator />
             Sidebar
-          </MenuCheckboxItem>
-        </MenuGroup>
-      </MenuContent>
+          </Menu.CheckboxItem>
+        </Menu.Group>
+      </Menu.Content>
     </Menu>
   );
 };

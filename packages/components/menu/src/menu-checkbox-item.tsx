@@ -1,21 +1,17 @@
+"use client";
+
 import { useCallback } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { CheckIcon } from "@jamsrui/icons";
 
 import { MenuItem } from "./menu-item";
-
-const MenuCheckboxIndicator = (props: { isChecked: boolean }) => {
-  const { isChecked } = props;
-  return <span className="size-4">{isChecked ? <CheckIcon /> : null}</span>;
-};
+import { MenuItemIndicatorContext } from "./menu-item-indicator-context";
 
 export const MenuCheckboxItem = (props: MenuCheckboxItem.Props) => {
   const {
     isChecked: isCheckedProp,
     onCheckedChange,
     defaultChecked,
-    tickPlacement,
     ...restProps
   } = props;
 
@@ -30,21 +26,9 @@ export const MenuCheckboxItem = (props: MenuCheckboxItem.Props) => {
   }, [setIsChecked]);
 
   return (
-    <MenuItem
-      preventCloseOnClick
-      onClick={handleClick}
-      endContent={
-        tickPlacement === "end" ? (
-          <MenuCheckboxIndicator isChecked={isChecked} />
-        ) : undefined
-      }
-      startContent={
-        tickPlacement === "start" ? (
-          <MenuCheckboxIndicator isChecked={isChecked} />
-        ) : undefined
-      }
-      {...restProps}
-    />
+    <MenuItemIndicatorContext value={{ isChecked }}>
+      <MenuItem preventCloseOnClick onClick={handleClick} {...restProps} />
+    </MenuItemIndicatorContext>
   );
 };
 
@@ -53,6 +37,5 @@ export namespace MenuCheckboxItem {
     isChecked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
     defaultChecked?: boolean;
-    tickPlacement?: "start" | "end";
   }
 }

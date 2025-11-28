@@ -22,7 +22,7 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState, useMergeRefs } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { useMenuFloatingContext } from "./menu-floating-context";
 import { menuVariants } from "./styles";
@@ -35,17 +35,18 @@ import type {
   FloatingOverlayProps,
   Placement,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import type { MenuContent2 } from "./menu-content2";
+import { MenuContainer } from "./menu-container";
+import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context.tsx";
 import type { MenuGroup } from "./menu-group";
 import type { MenuGroupLabel } from "./menu-group-label";
 import type { MenuItem } from "./menu-item";
-import type { MenuItemInner } from "./menu-item-inner";
-import type { MenuRoot } from "./menu-root";
-import type { MenuSlots, MenuVariantProps } from "./styles";
+import type { MenuItemIndicator } from "./menu-item-indicator";
+import type { SubmenuIndicator } from "./menu-submenu-indicator";
+import type { MenuVariantProps } from "./styles";
 
 export const useMenu = (props: useMenu.Props) => {
   const parentId = useFloatingParentNodeId();
@@ -67,14 +68,11 @@ export const useMenu = (props: useMenu.Props) => {
     defaultOpen = false,
     onOpenChange,
     triggerOn = "click",
-    classNames,
-    hideArrow = isNested ? true : false,
   } = $props;
 
   const tree = useFloatingTree();
   const nodeId = useFloatingNodeId();
   const item = useListItem();
-  const arrowHeight = hideArrow ? 0 : 7;
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -83,9 +81,13 @@ export const useMenu = (props: useMenu.Props) => {
   });
   const [hasFocusInside, setHasFocusInside] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const arrowRef = useRef<SVGSVGElement>(null);
+
+  const [arrowEl, setArrowEl] = useState<SVGSVGElement | null>(null);
+
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const labelsRef = useRef<(string | null)[]>([]);
+
+  const arrowHeight = !!arrowEl ? 7 : 0;
 
   const { floatingStyles, refs, context } = useFloating<HTMLDivElement>({
     nodeId,
@@ -100,7 +102,7 @@ export const useMenu = (props: useMenu.Props) => {
       flip(),
       shift({ padding: 5 }),
       arrow({
-        element: arrowRef,
+        element: arrowEl,
       }),
       size({
         apply({ availableHeight, elements, availableWidth }) {
@@ -227,11 +229,9 @@ export const useMenu = (props: useMenu.Props) => {
     (): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll,
       "data-slot": dataAttrDev("overlay"),
-      className: styles.backdrop({
-        className: classNames?.backdrop,
-      }),
+      className: styles.backdrop(),
     }),
-    [classNames?.backdrop, lockScroll, styles]
+    [lockScroll, styles]
   );
 
   const getFocusManagerProps = useCallback(
@@ -245,45 +245,35 @@ export const useMenu = (props: useMenu.Props) => {
     [context, isNested]
   );
 
-  const getRootProps: PropGetter<MenuRoot.Props> = useCallback(
-    (props: MenuRoot.Props) => ({
+  const getContainerProps: PropGetter<MenuContainer.Props> = useCallback(
+    (props: MenuContainer.Props) => ({
       ...props,
       "data-component": dataAttrDev("menu"),
-      "data-slot": dataAttrDev("root"),
-      className: styles.root({
-        className: classNames?.root,
-      }),
+      "data-slot": dataAttrDev("container"),
+      className: styles.container(),
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
     }),
-    [
-      classNames?.root,
-      floatingStyles,
-      getFloatingProps,
-      refs.setFloating,
-      styles,
-    ]
+    [floatingStyles, getFloatingProps, refs.setFloating, styles]
   );
 
-  const getContentProps: PropGetter<MenuContent2.Props> = useCallback(
+  const getContentProps: PropGetter<MenuContent.Props> = useCallback(
     () => ({
-      className: styles.content({
-        className: cn(classNames?.content),
-      }),
+      className: styles.content(),
     }),
-    [classNames?.content, styles]
+    [styles]
   );
 
   const getArrowProps = useCallback(
-    (): FloatingArrowProps => ({
+    (props: Partial<FloatingArrowProps>): FloatingArrowProps => ({
+      tipRadius: 6,
+      ...props,
       context,
-      ref: arrowRef,
-      className: styles.arrow({
-        className: classNames?.arrow,
-      }),
+      ref: setArrowEl,
+      className: styles.arrow({ className: props.className }),
     }),
-    [classNames?.arrow, context, styles]
+    [context, styles]
   );
 
   const getNodeProps = useCallback(
@@ -315,45 +305,52 @@ export const useMenu = (props: useMenu.Props) => {
       ...props,
       "data-slot": dataAttrDev("menu-item"),
       className: styles.menuItem({
-        className: cn(classNames?.menuItem, props.className),
+        className: props.className,
         color: props.color,
       }),
       role: "menuitem",
     }),
-    [classNames?.menuItem, styles]
+    [styles]
   );
 
-  const getMenuItemInnerProps: PropGetter<MenuItemInner.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("menu-item-inner"),
-      className: styles.menuItemInner({
-        className: cn(classNames?.menuItemInner, props.className),
+  const getSubmenuIndicatorProps: PropGetter<SubmenuIndicator.Props> =
+    useCallback(
+      (props) => ({
+        ...props,
+        "data-slot": dataAttrDev("submenu-indicator"),
+        className: styles.submenuIndicator({ className: props.className }),
       }),
-    }),
-    [classNames?.menuItemInner, styles]
-  );
+      [styles]
+    );
+
+  const getMenuItemIndicatorProps: PropGetter<MenuItemIndicator.Props> =
+    useCallback(
+      (props) => ({
+        ...props,
+        "data-slot": dataAttrDev("menu-item-indicator"),
+        className: styles.menuItemIndicator({
+          className: props.className,
+        }),
+      }),
+      [styles]
+    );
 
   const getMenuGroupProps: PropGetter<MenuGroup.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu-group"),
-      className: styles.menuItemInner({
-        className: cn(classNames?.menuGroup, props.className),
-      }),
+      className: styles.menuGroup({ className: props.className }),
     }),
-    [classNames?.menuGroup, styles]
+    [styles]
   );
 
   const getMenuGroupLabelProps: PropGetter<MenuGroupLabel.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu-group-label"),
-      className: styles.menuGroupLabel({
-        className: cn(classNames?.menuGroupLabel, props.className),
-      }),
+      className: styles.menuGroupLabel({ className: props.className }),
     }),
-    [classNames?.menuGroupLabel, styles]
+    [styles]
   );
 
   return useMemo(
@@ -366,17 +363,18 @@ export const useMenu = (props: useMenu.Props) => {
       isOpen,
       getTriggerProps,
       getFloatingListProps,
-      hideArrow,
       floatingCtx,
-      getRootProps,
+      getContainerProps,
       getMenuItemProps,
       isNested,
-      getMenuItemInnerProps,
+      getSubmenuIndicatorProps,
       getMenuGroupProps,
       getMenuGroupLabelProps,
       placement,
+      getMenuItemIndicatorProps,
     }),
     [
+      getMenuItemIndicatorProps,
       getOverlayProps,
       getFocusManagerProps,
       getContentProps,
@@ -385,12 +383,11 @@ export const useMenu = (props: useMenu.Props) => {
       isOpen,
       getTriggerProps,
       getFloatingListProps,
-      hideArrow,
       floatingCtx,
-      getRootProps,
+      getContainerProps,
       getMenuItemProps,
       isNested,
-      getMenuItemInnerProps,
+      getSubmenuIndicatorProps,
       getMenuGroupProps,
       getMenuGroupLabelProps,
       placement,
@@ -399,7 +396,6 @@ export const useMenu = (props: useMenu.Props) => {
 };
 export namespace useMenu {
   export interface Props extends MenuVariantProps {
-    classNames?: SlotsToClassNames<MenuSlots>;
     triggerOn?: "hover" | "click";
     isOpen?: boolean;
     defaultOpen?: boolean;
@@ -411,6 +407,5 @@ export namespace useMenu {
     lockScroll?: boolean;
     placement?: Placement;
     offset?: number;
-    hideArrow?: boolean;
   }
 }

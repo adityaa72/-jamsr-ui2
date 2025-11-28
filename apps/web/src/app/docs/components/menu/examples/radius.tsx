@@ -1,11 +1,5 @@
-import {
-  Button,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
 import { ChevronUpIcon } from "@jamsrui/icons";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuRadius = () => {
   const radii: Menu.Props["radius"][] = [
@@ -21,20 +15,21 @@ export const MenuRadius = () => {
     <div className="flex flex-wrap justify-center gap-4">
       {radii.map((radius) => (
         <Menu key={radius} radius={radius}>
-          <MenuTrigger>
-            <Button radius={radius} endContent={<ChevronUpIcon />}>
+          <Menu.Trigger>
+            <Button radius={radius}>
+              <ChevronUpIcon />
               Open Me {radius}
             </Button>
-          </MenuTrigger>
-          <MenuContent>
-            <MenuItem>Undo</MenuItem>
-            <MenuItem>Info</MenuItem>
-            <MenuItem>Search</MenuItem>
-            <MenuItem isDisabled>Redo</MenuItem>
-            <MenuItem>Cut</MenuItem>
-            <MenuItem isDisabled>Edit</MenuItem>
-            <MenuItem color="danger">Delete</MenuItem>
-          </MenuContent>
+          </Menu.Trigger>
+          <Menu.Content>
+            <Menu.Item>Undo</Menu.Item>
+            <Menu.Item>Info</Menu.Item>
+            <Menu.Item>Search</Menu.Item>
+            <Menu.Item isDisabled>Redo</Menu.Item>
+            <Menu.Item>Cut</Menu.Item>
+            <Menu.Item isDisabled>Edit</Menu.Item>
+            <Menu.Item color="danger">Delete</Menu.Item>
+          </Menu.Content>
         </Menu>
       ))}
     </div>

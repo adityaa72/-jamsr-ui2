@@ -1,9 +1,9 @@
 import { ChevronUpIcon } from "@jamsrui/icons";
 import { Button, Menu } from "@jamsrui/react";
 
-export const MenuWithoutLockScroll = () => {
+export const MenuWithArrow = () => {
   return (
-    <Menu lockScroll={false}>
+    <Menu>
       <Menu.Trigger>
         <Button>
           <ChevronUpIcon />
@@ -11,6 +11,7 @@ export const MenuWithoutLockScroll = () => {
         </Button>
       </Menu.Trigger>
       <Menu.Content>
+        <Menu.Arrow />
         <Menu.Item>Undo</Menu.Item>
         <Menu.Item>Info</Menu.Item>
         <Menu.Item>Search</Menu.Item>

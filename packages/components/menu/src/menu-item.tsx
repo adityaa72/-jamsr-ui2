@@ -1,9 +1,10 @@
+"use client";
+
 import { useFloatingTree, useListItem } from "@floating-ui/react";
 import { useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
 import { useMenuContext } from "./menu-context";
 import { useMenuFloatingContext } from "./menu-floating-context";
-import { MenuItemInner } from "./menu-item-inner";
 
 import type { UIProps } from "@jamsrui/utils";
 
@@ -16,8 +17,6 @@ export const MenuItem = (props: MenuItem.Props) => {
     textValue,
     children,
     isDisabled,
-    startContent,
-    endContent,
     preventCloseOnClick,
     ...elementProps
   } = props;
@@ -29,18 +28,11 @@ export const MenuItem = (props: MenuItem.Props) => {
   const isActive = item.index === parentCtx.activeIndex;
   const refs = useMergeRefs([item.ref]);
 
-  const composedChildren = (
-    <>
-      {startContent}
-      <MenuItemInner>{children}</MenuItemInner>
-      {endContent}
-    </>
-  );
   const renderElement = useRenderElement("button", {
     props: [
       getMenuItemProps(elementProps),
       {
-        children: composedChildren,
+        children: children,
         disabled: isDisabled,
         "data-disabled": isDisabled,
         "data-active": isActive,
@@ -67,8 +59,6 @@ export namespace MenuItem {
     textValue?: string;
     isDisabled?: boolean;
     color?: Menu.Props["color"];
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
     preventCloseOnClick?: boolean;
   }
 }

@@ -1,23 +1,20 @@
-import {
-  Button,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
 import { ChevronUpIcon } from "@jamsrui/icons";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuOffset = () => {
   return (
     <Menu offset={20}>
-      <MenuTrigger>
-        <Button endContent={<ChevronUpIcon />}>Open Me</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuItem>Undo</MenuItem>
-        <MenuItem>Info</MenuItem>
-        <MenuItem>Search</MenuItem>
-      </MenuContent>
+      <Menu.Trigger>
+        <Button>
+          <ChevronUpIcon />
+          Open Me
+        </Button>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item>Undo</Menu.Item>
+        <Menu.Item>Info</Menu.Item>
+        <Menu.Item>Search</Menu.Item>
+      </Menu.Content>
     </Menu>
   );
 };

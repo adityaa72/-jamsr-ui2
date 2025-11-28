@@ -6,7 +6,7 @@ export const menuVariants = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
-    root: "min-w-[150px] z-popover outline-none outline-0",
+    container: "min-w-[150px] z-popover outline-none outline-0",
     content: [
       "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
       "shadow-lg origin-(--transform-origin)",
@@ -17,7 +17,8 @@ export const menuVariants = tv({
     ],
     menuGroup: [""],
     menuGroupLabel: "pl-2 text-foreground-secondary py-1",
-    menuItemInner: "grow",
+    submenuIndicator: "ml-auto size-4",
+    menuItemIndicator: "size-4",
   },
   variants: {
     radius: radiusVariant(["content", "menuItem"]),

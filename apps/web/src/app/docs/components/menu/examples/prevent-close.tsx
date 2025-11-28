@@ -1,29 +1,26 @@
 "use client";
 
-import {
-  Button,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
 import { ChevronUpIcon } from "@jamsrui/icons";
+import { Button, Menu } from "@jamsrui/react";
 
 export const MenuPreventClose = () => {
   return (
     <Menu>
-      <MenuTrigger>
-        <Button endContent={<ChevronUpIcon />}>Open Me</Button>
-      </MenuTrigger>
-      <MenuContent>
-        <MenuItem preventCloseOnClick>Click me here!</MenuItem>
-        <MenuItem>Info</MenuItem>
-        <MenuItem>Search</MenuItem>
-        <MenuItem isDisabled>Redo</MenuItem>
-        <MenuItem>Cut</MenuItem>
-        <MenuItem isDisabled>Edit</MenuItem>
-        <MenuItem color="danger">Delete</MenuItem>
-      </MenuContent>
+      <Menu.Trigger>
+        <Button>
+          <ChevronUpIcon />
+          Open Me
+        </Button>
+      </Menu.Trigger>
+      <Menu.Content>
+        <Menu.Item preventCloseOnClick>Click me here!</Menu.Item>
+        <Menu.Item>Info</Menu.Item>
+        <Menu.Item>Search</Menu.Item>
+        <Menu.Item isDisabled>Redo</Menu.Item>
+        <Menu.Item>Cut</Menu.Item>
+        <Menu.Item isDisabled>Edit</Menu.Item>
+        <Menu.Item color="danger">Delete</Menu.Item>
+      </Menu.Content>
     </Menu>
   );
 };
