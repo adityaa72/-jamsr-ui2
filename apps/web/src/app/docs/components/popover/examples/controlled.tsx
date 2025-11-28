@@ -1,25 +1,22 @@
 "use client";
 
-import { Button } from "@jamsrui/react";
 import { useDisclosure } from "@jamsrui/hooks";
-import { IconButton } from "@jamsrui/react";
 import { InfoIcon } from "@jamsrui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/react";
-import { Text } from "@jamsrui/react";
+import { Button, IconButton, Popover, Text } from "@jamsrui/react";
 
 export const PopoverControlled = () => {
   const { isOpen, setIsOpen, onToggle } = useDisclosure();
   return (
     <div className="flex flex-col items-center gap-4">
-      <Popover isOpen={isOpen} onOpenChange={setIsOpen} showArrow>
-        <PopoverTrigger>
+      <Popover isOpen={isOpen} onOpenChange={setIsOpen}>
+        <Popover.Trigger>
           <IconButton label="Popover Trigger">
             <InfoIcon />
           </IconButton>
-        </PopoverTrigger>
-        <PopoverContent>
+        </Popover.Trigger>
+        <Popover.Content>
           <Text>This is a Popover content</Text>
-        </PopoverContent>
+        </Popover.Content>
       </Popover>
       <Button onClick={onToggle}>{isOpen ? "Close" : "Open"}</Button>
     </div>

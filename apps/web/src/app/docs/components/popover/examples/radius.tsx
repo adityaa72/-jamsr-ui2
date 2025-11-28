@@ -1,6 +1,4 @@
-import { Button } from "@jamsrui/react";
-import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/react";
-import { Text } from "@jamsrui/react";
+import { Button, Popover, Text } from "@jamsrui/react";
 
 export const PopoverRadius = () => {
   const radii: Popover.Props["radius"][] = [
@@ -15,13 +13,13 @@ export const PopoverRadius = () => {
   return (
     <div className="flex flex-wrap gap-4">
       {radii.map((radius) => (
-        <Popover key={radius} radius={radius} triggerOn="hover">
-          <PopoverTrigger>
+        <Popover key={radius} radius={radius}>
+          <Popover.Trigger>
             <Button>{radius}</Button>
-          </PopoverTrigger>
-          <PopoverContent>
+          </Popover.Trigger>
+          <Popover.Content>
             <Text>This is a Popover content</Text>
-          </PopoverContent>
+          </Popover.Content>
         </Popover>
       ))}
     </div>

@@ -1,22 +1,16 @@
-import {
-  Button,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Text,
-} from "@jamsrui/react";
+import { Button, Popover } from "@jamsrui/react";
 
 export const PopoverUsage = () => {
   return (
     <Popover placement="bottom">
-      <PopoverTrigger>
-        <Button>Press Me!</Button>
-      </PopoverTrigger>
-      <PopoverContent className="flex flex-col gap-2">
-        <Text variant="h6">Notifications</Text>
-        <Text>You are all caught up. Good job!</Text>
-        <Text>I am the popover content.</Text>
-      </PopoverContent>
+      <Popover.Trigger>
+        <Button>Click Me!</Button>
+      </Popover.Trigger>
+      <Popover.Content>
+        Popover is a non-modal dialog that floats around its disclosure. It's
+        commonly used for displaying additional rich content on top of
+        something.
+      </Popover.Content>
     </Popover>
   );
 };

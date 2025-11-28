@@ -1,42 +1,35 @@
+"use client";
+
 import {
-  FloatingArrow,
   FloatingFocusManager,
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 
+import { useRenderElement } from "@jamsrui/hooks";
+import { UIProps } from "@jamsrui/utils";
 import { usePopoverContext } from "./popover-context";
-import { PopoverRoot } from "./popover-root";
-
-import type { HTMLMotionProps } from "motion/react";
+import { PopoverDialog } from "./popover-dialog";
 
 export const PopoverContent = (props: PopoverContent.Props) => {
-  const { children } = props;
   const {
     isOpen,
-    showArrow,
-    getArrowProps,
     getFloatingFocusManagerProps,
     getContentProps,
     getOverlayProps,
     getAnimatePresenceProps,
   } = usePopoverContext();
-
+  const renderElement = useRenderElement("div", {
+    props: [getContentProps(props)],
+  });
   return (
     <AnimatePresence {...getAnimatePresenceProps()}>
       {!!isOpen && (
         <FloatingPortal>
           <FloatingOverlay {...getOverlayProps()} />
           <FloatingFocusManager {...getFloatingFocusManagerProps()}>
-            <PopoverRoot>
-              <motion.div {...getContentProps(props)}>
-                <>
-                  {!!showArrow && <FloatingArrow {...getArrowProps()} />}
-                  {children}
-                </>
-              </motion.div>
-            </PopoverRoot>
+            {renderElement}
           </FloatingFocusManager>
         </FloatingPortal>
       )}
@@ -44,6 +37,14 @@ export const PopoverContent = (props: PopoverContent.Props) => {
   );
 };
 
+export const PopoverContentWithDialog = (props: PopoverDialog.Props) => {
+  return (
+    <PopoverContent>
+      <PopoverDialog {...props} />
+    </PopoverContent>
+  );
+};
+
 export namespace PopoverContent {
-  export interface Props extends HTMLMotionProps<"div"> {}
+  export interface Props extends UIProps<"div"> {}
 }

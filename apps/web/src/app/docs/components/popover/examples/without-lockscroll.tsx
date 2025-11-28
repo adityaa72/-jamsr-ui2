@@ -1,23 +1,17 @@
 import { InfoIcon } from "@jamsrui/icons";
-import {
-  IconButton,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Text,
-} from "@jamsrui/react";
+import { IconButton, Popover, Text } from "@jamsrui/react";
 
 export const PopoverWithoutLockScroll = () => {
   return (
-    <Popover className="p-2" lockScroll={false}>
-      <PopoverTrigger>
+    <Popover lockScroll={false}>
+      <Popover.Trigger>
         <IconButton label="Popover Trigger">
           <InfoIcon />
         </IconButton>
-      </PopoverTrigger>
-      <PopoverContent>
+      </Popover.Trigger>
+      <Popover.Content>
         <Text>This is a Popover content</Text>
-      </PopoverContent>
+      </Popover.Content>
     </Popover>
   );
 };

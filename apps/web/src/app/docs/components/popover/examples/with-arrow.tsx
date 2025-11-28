@@ -1,25 +1,20 @@
 import { InfoIcon } from "@jamsrui/icons";
-import {
-  IconButton,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Text,
-} from "@jamsrui/react";
+import { IconButton, Popover, Text } from "@jamsrui/react";
 
 export const PopoverWithArrow = () => {
   return (
-    <Popover showArrow>
-      <PopoverTrigger>
+    <Popover>
+      <Popover.Trigger>
         <IconButton label="Popover Trigger">
           <InfoIcon />
         </IconButton>
-      </PopoverTrigger>
-      <PopoverContent className="flex flex-col gap-2">
+      </Popover.Trigger>
+      <Popover.Content className="flex flex-col gap-2">
+        <Popover.Arrow />
         <Text variant="h6">Notifications</Text>
         <Text>You are all caught up. Good job!</Text>
         <Text>I am the popover content.</Text>
-      </PopoverContent>
+      </Popover.Content>
     </Popover>
   );
 };

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import {
   arrow,
@@ -21,17 +21,18 @@ import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 import { popoverVariants } from "./styles";
 
 import type {
+  FloatingArrowProps,
   FloatingFocusManagerProps,
   FloatingOverlay,
   Placement,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 import type { AnimatePresenceProps } from "motion/react";
 import type { ComponentProps } from "react";
 
 import type { PopoverContent } from "./popover-content";
-import type { PopoverRoot } from "./popover-root";
-import type { PopoverSlots, PopoverVariants } from "./styles";
+import { PopoverDialog } from "./popover-dialog";
+import type { PopoverVariants } from "./styles";
 
 export const usePopover = (props: usePopover.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -39,17 +40,14 @@ export const usePopover = (props: usePopover.Props) => {
     popoverVariants.variantKeys
   );
   const {
-    className,
-    classNames,
     defaultOpen,
-    isDisabled = false,
+    disabled: isDisabled = false,
     isModal = true,
     isOpen: isOpenProp,
     lockScroll = true,
     offset: offsetProp = 4,
     onOpenChange,
     placement = "top",
-    showArrow = false,
     triggerOn = "click",
   } = $props;
 
@@ -58,7 +56,9 @@ export const usePopover = (props: usePopover.Props) => {
     onChange: onOpenChange,
     prop: isOpenProp,
   });
-  const arrowRef = useRef<SVGSVGElement>(null);
+
+  const [arrowEl, setArrowEl] = useState<SVGSVGElement | null>(null);
+  const showArrow = !!arrowEl;
   const arrowHeight = showArrow ? 7 : 0;
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -76,7 +76,6 @@ export const usePopover = (props: usePopover.Props) => {
     placement,
     open: isOpen,
     onOpenChange: handleOpenChange,
-    // onOpenChange: setIsOpen,
     middleware: [
       offset(offsetProp + arrowHeight),
       flip({
@@ -85,7 +84,7 @@ export const usePopover = (props: usePopover.Props) => {
         padding: 4,
       }),
       shift({ padding: 4 }),
-      showArrow ? arrow({ element: arrowRef }) : null,
+      showArrow ? arrow({ element: arrowEl }) : null,
       size({ apply() {} }),
     ],
     whileElementsMounted: autoUpdate,
@@ -109,11 +108,11 @@ export const usePopover = (props: usePopover.Props) => {
   ]);
 
   const styles = popoverVariants(variantProps);
-  const getRootProps: PropGetter<PopoverRoot.Props> = useCallback(
+  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
     (props) => ({
       ...props,
-      className: styles.root({
-        className: cn(props.className, classNames?.root, className),
+      className: styles.content({
+        className: cn(props.className),
       }),
       ref: refs.setFloating,
       style: floatingStyles,
@@ -121,17 +120,10 @@ export const usePopover = (props: usePopover.Props) => {
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("popover"),
     }),
-    [
-      className,
-      classNames?.root,
-      floatingStyles,
-      getFloatingProps,
-      refs.setFloating,
-      styles,
-    ]
+    [floatingStyles, getFloatingProps, refs.setFloating, styles]
   );
 
-  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
+  const getDialogProps: PropGetter<PopoverDialog.Props> = useCallback(
     (props) => ({
       initial: { opacity: 0, scale: 0.8 },
       animate: { opacity: 1, scale: 1, x: 0, y: 0 },
@@ -139,22 +131,24 @@ export const usePopover = (props: usePopover.Props) => {
       transition: { type: "spring", stiffness: 300, damping: 25 },
       ...props,
       "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: cn(classNames?.content, props.className),
+      className: styles.dialog({
+        className: cn(props.className),
       }),
     }),
-    [classNames?.content, styles]
+    [styles]
   );
 
   const getArrowProps = useCallback(
-    () => ({
+    (props: Partial<FloatingArrowProps>): FloatingArrowProps => ({
+      tipRadius: 4,
+      ...props,
       context,
-      ref: arrowRef,
+      ref: setArrowEl,
       className: styles.arrow({
-        className: cn(classNames?.arrow),
+        className: props.className,
       }),
     }),
-    [classNames?.arrow, context, styles]
+    [context, styles]
   );
 
   const getTriggerProps = useCallback(
@@ -189,11 +183,9 @@ export const usePopover = (props: usePopover.Props) => {
   const getOverlayProps = useCallback(
     (): ComponentProps<typeof FloatingOverlay> => ({
       lockScroll,
-      className: styles.backdrop({
-        className: cn(classNames?.backdrop),
-      }),
+      className: styles.backdrop(),
     }),
-    [classNames?.backdrop, lockScroll, styles]
+    [lockScroll, styles]
   );
 
   const getAnimatePresenceProps = useCallback(
@@ -207,7 +199,7 @@ export const usePopover = (props: usePopover.Props) => {
 
   return useMemo(
     () => ({
-      getRootProps,
+      getRootProps: getContentProps,
       getArrowProps,
       isOpen,
       getTriggerProps,
@@ -216,9 +208,11 @@ export const usePopover = (props: usePopover.Props) => {
       getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
+      getDialogProps,
+      isDisabled,
     }),
     [
-      getRootProps,
+      getContentProps,
       getArrowProps,
       isOpen,
       getTriggerProps,
@@ -227,22 +221,21 @@ export const usePopover = (props: usePopover.Props) => {
       getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
+      getDialogProps,
+      isDisabled,
     ]
   );
 };
 
 export namespace usePopover {
   export interface Props extends PopoverVariants {
-    classNames?: SlotsToClassNames<PopoverSlots>;
     defaultOpen?: boolean;
     placement?: Placement;
     isModal?: boolean;
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
-    isDisabled?: boolean;
+    disabled?: boolean;
     triggerOn?: "click" | "hover";
-    showArrow?: boolean;
-    className?: string;
     offset?: number;
     lockScroll?: boolean;
   }

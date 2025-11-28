@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [PopoverConfig, usePopoverConfig] =
   });
 
 export namespace PopoverConfig {
-  export interface Props extends Popover.Props, GlobalConfigProps<Popover.Props> {}
+  export interface Props
+    extends Popover.Props,
+      GlobalConfigProps<Popover.Props> {}
 }

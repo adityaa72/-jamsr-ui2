@@ -1,6 +1,4 @@
-import { Button } from "@jamsrui/react";
-import { Popover, PopoverContent, PopoverTrigger } from "@jamsrui/react";
-import { Text } from "@jamsrui/react";
+import { Button, Popover, Text } from "@jamsrui/react";
 
 export const PopoverPlacements = () => {
   const placements: Popover.Props["placement"][] = [
@@ -20,13 +18,13 @@ export const PopoverPlacements = () => {
   return (
     <div className="flex flex-wrap gap-4">
       {placements.map((placement) => (
-        <Popover key={placement} placement={placement} triggerOn="hover">
-          <PopoverTrigger>
+        <Popover key={placement} placement={placement}>
+          <Popover.Trigger>
             <Button>{placement}</Button>
-          </PopoverTrigger>
-          <PopoverContent>
+          </Popover.Trigger>
+          <Popover.Content>
             <Text>This is a Popover content</Text>
-          </PopoverContent>
+          </Popover.Content>
         </Popover>
       ))}
     </div>

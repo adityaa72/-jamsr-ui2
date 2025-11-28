@@ -2,13 +2,14 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { PopoverBackdrop } from "./examples/backdrop";
 import { PopoverControlled } from "./examples/controlled";
+import { PopoverPlacements } from "./examples/placements";
 import { PopoverRadius } from "./examples/radius";
 import { PopoverTriggerOnHover } from "./examples/trigger-on-hover";
 import { PopoverUsage } from "./examples/usage";
 import { PopoverWithArrow } from "./examples/with-arrow";
 import { PopoverWithoutLockScroll } from "./examples/without-lockscroll";
-import { PopoverPlacements } from "./examples/placements";
 
 const title = "Popover";
 const description =
@@ -63,6 +64,13 @@ const Popover = () => {
         url={resolvePath("without-lockscroll.tsx")}
       >
         <PopoverWithoutLockScroll />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Backdrop"
+        url={resolvePath("backdrop.tsx")}
+      >
+        <PopoverBackdrop />
       </CodeExample>
     </DocsPage>
   );

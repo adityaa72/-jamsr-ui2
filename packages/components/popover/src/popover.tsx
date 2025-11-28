@@ -1,3 +1,5 @@
+"use client";
+
 import { PopoverContext } from "./popover-context";
 import { usePopover } from "./use-popover";
 
