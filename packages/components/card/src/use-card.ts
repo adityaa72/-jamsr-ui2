@@ -1,20 +1,18 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { cardVariants } from "./styles";
 
-import type { Text } from "@jamsrui/text";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Card } from "./card";
 import type { CardContent } from "./card-content";
 import type { CardDescription } from "./card-description";
 import type { CardFooter } from "./card-footer";
 import type { CardHeader } from "./card-header";
-import type { CardHeaderContent } from "./card-header-content";
 import type { CardTitle } from "./card-title";
-import type { CardSlots, CardVariants } from "./styles";
+import type { CardVariants } from "./styles";
 
 export const useCard = (props: useCard.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
@@ -22,17 +20,17 @@ export const useCard = (props: useCard.Props) => {
     cardVariants.variantKeys
   );
   const styles = cardVariants(variantKeys);
-  const { classNames, slotProps, ...baseProps } = newProps;
+  const { ...baseProps } = newProps;
 
   const getRootProps: PropGetter<Card.Props> = useCallback(
     () => ({
       "data-slot": dataAttrDev("root"),
       ...baseProps,
       className: styles.root({
-        className: cn(classNames?.root, baseProps.className),
+        className: cn(baseProps.className),
       }),
     }),
-    [baseProps, classNames?.root, styles]
+    [baseProps, styles]
   );
 
   const getHeaderProps: PropGetter<CardHeader.Props> = useCallback(
@@ -64,16 +62,6 @@ export const useCard = (props: useCard.Props) => {
     [styles]
   );
 
-  const getHeaderContentProps: PropGetter<CardHeaderContent.Props> =
-    useCallback(
-      (props) => ({
-        "data-slot": dataAttrDev("header-content"),
-        ...props,
-        className: styles.headerContent({ className: props.className }),
-      }),
-      [styles]
-    );
-
   const getContentProps: PropGetter<CardContent.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("content"),
@@ -92,28 +80,26 @@ export const useCard = (props: useCard.Props) => {
     [styles]
   );
 
-  return {
-    slotProps,
-    getRootProps,
-    getHeaderProps,
-    getHeaderContentProps,
-    getTitleProps,
-    getDescriptionProps,
-    getContentProps,
-    getFooterProps,
-  };
+  return useMemo(
+    () => ({
+      getRootProps,
+      getHeaderProps,
+      getTitleProps,
+      getDescriptionProps,
+      getContentProps,
+      getFooterProps,
+    }),
+    [
+      getContentProps,
+      getDescriptionProps,
+      getFooterProps,
+      getHeaderProps,
+      getRootProps,
+      getTitleProps,
+    ]
+  );
 };
 
 export namespace useCard {
-  export interface Props extends UIProps<"div">, CardVariants {
-    classNames?: SlotsToClassNames<CardSlots>;
-    slotProps?: {
-      header?: CardHeader.Props;
-      headerContent?: CardHeader.Props;
-      title?: Text.Props;
-      description?: Text.Props;
-      content?: CardContent.Props;
-      footer?: CardFooter.Props;
-    };
-  }
+  export interface Props extends UIProps<"div">, CardVariants {}
 }

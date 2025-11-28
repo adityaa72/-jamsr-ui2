@@ -1,17 +1,14 @@
+"use client";
+
 import { Text } from "@jamsrui/text";
-import { mergeProps } from "@jamsrui/utils";
 
 import { useCardContext } from "./card-context";
 
 export const CardTitle = (props: CardTitle.Props) => {
-  const { getTitleProps, slotProps } = useCardContext();
-  const { children, ...elementProps } = mergeProps(
-    slotProps?.title ?? {},
-    props
-  );
-
+  const { children } = props;
+  const { getTitleProps } = useCardContext();
   return (
-    <Text render={<h3 />} {...getTitleProps(elementProps)}>
+    <Text render={<h3 />} {...getTitleProps(props)}>
       {children}
     </Text>
   );

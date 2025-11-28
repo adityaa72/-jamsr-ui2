@@ -1,3 +1,5 @@
+"use client";
+
 import { Text } from "@jamsrui/text";
 
 import { useCardContext } from "./card-context";

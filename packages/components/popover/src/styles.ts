@@ -4,23 +4,24 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const popoverVariants = tv({
   slots: {
-    content: "z-popover",
+    content: "popover popover__content z-popover",
     dialog:
-      "bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-[top_center]",
-    arrow: "fill-background-secondary",
-    backdrop: "z-backdrop",
+      "popover__dialog bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-[top_center]",
+    arrow: "popover__arrow fill-background-secondary",
+    backdrop: "popover__backdrop z-backdrop",
   },
   variants: {
-    radius: radiusVariant("dialog"),
+    radius: radiusVariant("dialog", "popover"),
     backdrop: {
       transparent: {
-        backdrop: "",
+        backdrop: "popover--backdrop-transparent",
       },
       opaque: {
-        backdrop: "bg-black/50",
+        backdrop: "popover--backdrop-opaque bg-black/50",
       },
       blur: {
-        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop:
+          "popover--backdrop-blur bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
   },

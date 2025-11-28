@@ -1,35 +1,19 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
 
 import { useCardContext } from "./card-context";
-import { CardHeaderContent } from "./card-header-content";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const CardHeader = (props: CardHeader.Props) => {
-  const { getHeaderProps, slotProps } = useCardContext();
-  const { startContent, endContent, children, ...elementProps } = mergeProps(
-    slotProps?.header ?? {},
-    props
-  );
-
-  const composedChildren = (
-    <>
-      {startContent}
-      <CardHeaderContent>{children}</CardHeaderContent>
-      {endContent}
-    </>
-  );
-
+  const { getHeaderProps } = useCardContext();
   const renderElement = useRenderElement("div", {
-    props: [getHeaderProps(elementProps), { children: composedChildren }],
+    props: [getHeaderProps(props)],
   });
   return renderElement;
 };
 
 export namespace CardHeader {
-  export interface Props extends UIProps<"div"> {
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
-  }
+  export interface Props extends UIProps<"div"> {}
 }

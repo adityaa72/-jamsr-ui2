@@ -30,19 +30,25 @@ export const radiusBaseVariant = {
   none: "rounded-none",
 } as const;
 
-export const radiusVariant = (name: string | string[]) => {
+export const radiusVariant = (name: string | string[], group?: string) => {
   const keys = Array.isArray(name) ? name : [name];
-  const value = (className: string) =>
-    keys.reduce((acc, key) => ({ ...acc, [key]: className }), {});
+  const value = (className: string, radius: string) =>
+    keys.reduce(
+      (acc, key) => ({
+        ...acc,
+        [key]: group ? `${group}--radius-${radius} ${className}` : className,
+      }),
+      {}
+    );
 
   return {
-    sm: value("rounded"),
-    md: value("rounded-md"),
-    lg: value("rounded-lg"),
-    xl: value("rounded-xl"),
-    "2xl": value("rounded-2xl"),
-    "3xl": value("rounded-3xl"),
-    full: value("rounded-full"),
-    none: value("rounded-none"),
+    sm: value("rounded-sm", "sm"),
+    md: value("rounded-md", "md"),
+    lg: value("rounded-lg", "lg"),
+    xl: value("rounded-xl", "xl"),
+    "2xl": value("rounded-2xl", "2xl"),
+    "3xl": value("rounded-3xl", "3xl"),
+    full: value("rounded-full", "full"),
+    none: value("rounded-none", "none"),
   };
 };

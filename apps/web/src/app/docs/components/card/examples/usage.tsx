@@ -1,19 +1,13 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@jamsrui/react";
+import { Card } from "@jamsrui/react";
 
 export const CardUsage = () => {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-      </CardHeader>
-      <CardContent>Hey there i' m content</CardContent>
+      <Card.Header>
+        <Card.Title>Card Title</Card.Title>
+        <Card.Description>Card Description</Card.Description>
+      </Card.Header>
+      <Card.Content>Hey there i' m content</Card.Content>
     </Card>
   );
 };
