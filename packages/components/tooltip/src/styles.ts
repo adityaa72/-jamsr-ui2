@@ -2,14 +2,14 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const tooltipVariants = tv({
   slots: {
-    root: "bg-surface inline-flex px-3 py-1 text-sm font-medium text-foreground",
+    content:
+      "bg-surface inline-flex px-3 py-1 text-sm font-medium text-foreground",
     arrow: "fill-background-secondary",
   },
   variants: {
-    radius: radiusVariant("root"),
+    radius: radiusVariant("content"),
   },
   defaultVariants: {
     radius: "md",

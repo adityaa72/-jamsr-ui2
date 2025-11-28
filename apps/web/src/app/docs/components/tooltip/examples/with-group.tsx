@@ -5,15 +5,21 @@ export const TooltipWithGroup = () => {
   return (
     <div className="flex gap-2">
       <TooltipGroup delay={200}>
-        <Tooltip title="This is a tooltip within group">
-          <IconButton label="Click Me!">
-            <InfoIcon width={24} height={24} />
-          </IconButton>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <IconButton label="Click Me!">
+              <InfoIcon width={24} height={24} />
+            </IconButton>
+          </Tooltip.Trigger>
+          <Tooltip.Content>This is a tooltip within group</Tooltip.Content>
         </Tooltip>
-        <Tooltip title="This is a tooltip within group">
-          <IconButton label="Click Me!">
-            <EmailIcon width={24} height={24} />
-          </IconButton>
+        <Tooltip>
+          <Tooltip.Trigger>
+            <IconButton label="Click Me!">
+              <EmailIcon width={24} height={24} />
+            </IconButton>
+          </Tooltip.Trigger>
+          <Tooltip.Content>This is a tooltip within group</Tooltip.Content>
         </Tooltip>
       </TooltipGroup>
     </div>

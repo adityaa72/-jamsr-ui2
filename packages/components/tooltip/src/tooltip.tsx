@@ -1,40 +1,16 @@
-import { useMemo } from "react";
+"use client";
 
-import { FloatingArrow, FloatingPortal } from "@floating-ui/react";
-import { useRenderElement } from "@jamsrui/hooks";
-
+import { TooltipContext } from "./tooltip-context";
 import { useTooltip } from "./use-tooltip";
 
 export const Tooltip = (props: Tooltip.Props) => {
-  const { children, getArrowProps, getRootProps, isOpen, title, showArrow } =
-    useTooltip(props);
-
-  const composedChildren = useMemo(() => {
-    return (
-      <>
-        {!!showArrow && <FloatingArrow {...getArrowProps()} />}
-        {title}
-      </>
-    );
-  }, [getArrowProps, showArrow, title]);
-
-  const renderElement = useRenderElement("div", {
-    props: [
-      getRootProps({}),
-      {
-        children: composedChildren,
-      },
-    ],
-  });
-
-  return (
-    <>
-      {children}
-      {!!isOpen && <FloatingPortal>{renderElement}</FloatingPortal>}
-    </>
-  );
+  const { children } = props;
+  const ctx = useTooltip(props);
+  return <TooltipContext value={ctx}>{children}</TooltipContext>;
 };
 
 export namespace Tooltip {
   export interface Props extends useTooltip.Props {}
 }
+
+export { FloatingDelayGroup as TooltipGroup } from "@floating-ui/react";

@@ -1,10 +1,12 @@
-import { Button } from "@jamsrui/react";
-import { Tooltip } from "@jamsrui/react";
+import { Button, Tooltip } from "@jamsrui/react";
 
 export const TooltipUsage = () => {
   return (
-    <Tooltip title="This is a tooltip">
-      <Button>Hover me</Button>
+    <Tooltip>
+      <Tooltip.Trigger>
+        <Button>Hover me</Button>
+      </Tooltip.Trigger>
+      <Tooltip.Content>This is a tooltip</Tooltip.Content>
     </Tooltip>
   );
 };

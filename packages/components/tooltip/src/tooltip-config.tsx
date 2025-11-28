@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [TooltipConfig, useTooltipConfig] =
   });
 
 export namespace TooltipConfig {
-  export interface Props extends Tooltip.Props, GlobalConfigProps<Tooltip.Props> {}
+  export interface Props
+    extends Tooltip.Props,
+      GlobalConfigProps<Tooltip.Props> {}
 }

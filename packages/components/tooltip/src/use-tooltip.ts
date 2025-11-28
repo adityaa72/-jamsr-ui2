@@ -1,4 +1,4 @@
-import { cloneElement, useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import {
   arrow,
@@ -16,39 +16,35 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn } from "@jamsrui/utils";
 
 import { tooltipVariants } from "./styles";
 
 import type { Delay, FloatingArrowProps, Placement } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
-import type { ReactElement } from "react";
+import type { PropGetter } from "@jamsrui/utils";
+import type { PropsWithChildren } from "react";
 
-import type { TooltipSlots, TooltipVariants } from "./styles";
+import type { TooltipVariants } from "./styles";
+import type { TooltipContent } from "./tooltip-content";
 
 export const useTooltip = (props: useTooltip.Props) => {
   const {
-    title,
-    isDisabled = false,
     delay: delayProp,
     offset: offsetProp = 4,
     placement = "top",
     radius,
-    showArrow = false,
-    className,
-    classNames,
-    children,
     defaultOpen,
     isOpen: isOpenProp,
     onOpenChange,
+    disabled: isDisabled = false,
+    ...restProps
   } = props;
-
   const [isOpen, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
     onChange: onOpenChange,
     prop: isOpenProp,
   });
-  const arrowRef = useRef<SVGSVGElement>(null);
+  const [arrowEl, setArrowEl] = useState<SVGSVGElement | null>(null);
+  const showArrow = !!arrowEl;
   const arrowHeight = showArrow ? 7 : 0;
 
   const { refs, floatingStyles, context } = useFloating({
@@ -62,7 +58,7 @@ export const useTooltip = (props: useTooltip.Props) => {
         fallbackAxisSideDirection: "start",
       }),
       shift(),
-      showArrow ? arrow({ element: arrowRef }) : null,
+      arrow({ element: arrowEl }),
     ],
   });
 
@@ -84,8 +80,6 @@ export const useTooltip = (props: useTooltip.Props) => {
     openDelay = delayGroup.open ?? openDelay;
     closeDelay = delayGroup.close ?? closeDelay;
   }
-
-  // const delay =
 
   const hover = useHover(context, {
     move: false,
@@ -110,78 +104,65 @@ export const useTooltip = (props: useTooltip.Props) => {
     radius,
   });
 
-  const triggerChildren = cloneElement(
-    children,
-    getReferenceProps({
-      ref: refs.setReference,
-    })
-  );
-
-  const getRootProps: PropGetter<UIProps<"div">> = useCallback(
-    () => ({
-      className: styles.root({
-        className: cn(classNames?.root, className),
-      }),
+  const getContentProps: PropGetter<TooltipContent.Props> = useCallback(
+    (props) => ({
+      ...props,
+      className: styles.content(),
       style: floatingStyles,
       ref: refs.setFloating,
       ...getFloatingProps(),
     }),
-    [
-      className,
-      classNames?.root,
-      floatingStyles,
-      getFloatingProps,
-      refs.setFloating,
-      styles,
-    ]
+    [floatingStyles, getFloatingProps, refs.setFloating, styles]
   );
 
   const getArrowProps = useCallback(
-    (): FloatingArrowProps => ({
+    (props: Partial<FloatingArrowProps>): FloatingArrowProps => ({
+      tipRadius: 4,
+      ...props,
       context,
-      ref: arrowRef,
+      ref: setArrowEl,
       className: styles.arrow({
-        className: cn(classNames?.arrow, className),
+        className: props.className,
       }),
     }),
-    [className, classNames?.arrow, context, styles]
+    [context, styles]
+  );
+
+  const getTriggerProps = useCallback(
+    () => ({
+      ...getReferenceProps({
+        ref: refs.setReference,
+      }),
+    }),
+    [getReferenceProps, refs.setReference]
   );
 
   return useMemo(
     () => ({
-      getRootProps,
+      getContentProps,
       getArrowProps,
       isOpen,
-      children: isDisabled ? children : triggerChildren,
-      title,
       showArrow,
+      getTriggerProps,
+      isDisabled,
     }),
     [
-      children,
+      getContentProps,
       getArrowProps,
-      getRootProps,
-      isDisabled,
       isOpen,
       showArrow,
-      title,
-      triggerChildren,
+      getTriggerProps,
+      isDisabled,
     ]
   );
 };
 
 export namespace useTooltip {
-  export interface Props extends TooltipVariants {
-    title: string;
+  export interface Props extends PropsWithChildren, TooltipVariants {
     placement?: Placement;
-    isDisabled?: boolean;
+    disabled?: boolean;
     offset?: number;
-    showArrow?: boolean;
     delay?: Delay;
-    // openDelay?: number;
-    // closeDelay?: number;
-    className?: string;
-    classNames?: SlotsToClassNames<TooltipSlots>;
-    children: ReactElement<unknown>;
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
     defaultOpen?: boolean;
