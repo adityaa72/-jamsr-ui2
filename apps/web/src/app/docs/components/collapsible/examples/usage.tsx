@@ -5,7 +5,7 @@ export const CollapsibleUsage = () => {
     <Collapsible>
       <Card>
         <Collapsible.Trigger>
-          <Card.Header>
+          <Card.Header className="pb-3">
             <Card.Title>Can I use this in my project?</Card.Title>
           </Card.Header>
         </Collapsible.Trigger>

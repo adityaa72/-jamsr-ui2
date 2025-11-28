@@ -1,16 +1,6 @@
 "use client";
 
-import {
-  Button,
-  Dialog,
-  DialogBody,
-  DialogCloseTrigger,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTrigger,
-  Text,
-} from "@jamsrui/react";
+import { Button, Dialog, Text } from "@jamsrui/react";
 
 const DialogItem = (
   props: Partial<Dialog.Props> & {
@@ -21,12 +11,12 @@ const DialogItem = (
   return (
     <div>
       <Dialog {...restProps}>
-        <DialogTrigger>
+        <Dialog.Trigger>
           <Button>{buttonText}</Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>Heading</DialogHeader>
-          <DialogBody className="flex flex-col gap-4">
+        </Dialog.Trigger>
+        <Dialog.Content>
+          <Dialog.Header>Heading</Dialog.Header>
+          <Dialog.Body className="flex flex-col gap-4">
             <Text>Im am dialog Body</Text>
             <Text>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -34,18 +24,18 @@ const DialogItem = (
               obcaecati odio excepturi illo recusandae tenetur, qui earum
               dolorem minus, quibusdam optio? Cum.
             </Text>
-          </DialogBody>
-          <DialogFooter>
-            <DialogCloseTrigger>
+          </Dialog.Body>
+          <Dialog.Footer>
+            <Dialog.CloseTrigger>
               <Button variant="light" color="secondary">
                 Cancel
               </Button>
-            </DialogCloseTrigger>
-            <DialogCloseTrigger>
+            </Dialog.CloseTrigger>
+            <Dialog.CloseTrigger>
               <Button color="primary">Submit</Button>
-            </DialogCloseTrigger>
-          </DialogFooter>
-        </DialogContent>
+            </Dialog.CloseTrigger>
+          </Dialog.Footer>
+        </Dialog.Content>
       </Dialog>
     </div>
   );

@@ -1,3 +1,5 @@
+"use client";
+
 import { DialogContext } from "./dialog-context";
 import { useDialog } from "./use-dialog";
 

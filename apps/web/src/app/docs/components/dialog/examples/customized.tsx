@@ -1,54 +1,32 @@
-import {
-  Button,
-  Dialog,
-  DialogBody,
-  DialogCloseTrigger,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTrigger,
-  Text,
-} from "@jamsrui/react";
+import { Button, Dialog, Text } from "@jamsrui/react";
 
 export const DialogCustomized = () => {
   return (
-    <Dialog
-      classNames={{
-        header: "bg-red-500",
-        body: "bg-surface-secondary",
-        footer: "bg-background-quarternary",
-        closeButton: "bg-red-900",
-        content: "border-2 border-red-950",
-        backdrop: "bg-gray-900/20",
-      }}
-      slotProps={{
-        closeButton: {},
-      }}
-    >
-      <DialogTrigger>
+    <Dialog>
+      <Dialog.Trigger>
         <Button>Click Me!</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>Heading</DialogHeader>
-        <DialogBody className="flex flex-col gap-4">
+      </Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header>Heading</Dialog.Header>
+        <Dialog.Body className="flex flex-col gap-4">
           <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
             corrupti est quos asperiores libero maiores amet non obcaecati odio
             excepturi illo recusandae tenetur, qui earum dolorem minus,
             quibusdam optio? Cum.
           </Text>
-        </DialogBody>
-        <DialogFooter>
-          <DialogCloseTrigger>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Dialog.CloseTrigger>
             <Button variant="light" color="secondary">
               Cancel
             </Button>
-          </DialogCloseTrigger>
-          <DialogCloseTrigger>
+          </Dialog.CloseTrigger>
+          <Dialog.CloseTrigger>
             <Button color="primary">Submit</Button>
-          </DialogCloseTrigger>
-        </DialogFooter>
-      </DialogContent>
+          </Dialog.CloseTrigger>
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog>
   );
 };

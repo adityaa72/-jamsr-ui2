@@ -8,7 +8,7 @@ import type { PropGetter } from "@jamsrui/utils";
 
 import type { Chip } from "./chip";
 import type { ChipDot } from "./chip-dot";
-import { ChipRoot } from "./chip-root";
+import type { ChipRoot } from "./chip-root";
 import type { ChipVariantsProps } from "./styles";
 
 export const useChip = (props: useChip.Props) => {

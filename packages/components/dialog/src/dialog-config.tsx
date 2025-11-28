@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [DialogConfig, useDialogConfig] =
   });
 
 export namespace DialogConfig {
-  export interface Props extends Dialog.Props, GlobalConfigProps<Dialog.Props> {}
+  export interface Props
+    extends Dialog.Props,
+      GlobalConfigProps<Dialog.Props> {}
 }
