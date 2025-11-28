@@ -1,3 +1,5 @@
+"use client";
+
 import { cloneElement } from "react";
 
 import { CollapsibleContext } from "./collapsible-context";

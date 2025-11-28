@@ -1,23 +1,20 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@jamsrui/react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@jamsrui/react";
+import { Card, Collapsible } from "@jamsrui/react";
 
 export const CollapsibleUsage = () => {
   return (
     <Collapsible>
       <Card>
-        <CardHeader render={<CollapsibleTrigger />}>
-          <CardTitle>Can I use this in my project?</CardTitle>
-        </CardHeader>
-        <CollapsibleContent>
-          <CardContent>
+        <Collapsible.Trigger>
+          <Card.Header>
+            <Card.Title>Can I use this in my project?</Card.Title>
+          </Card.Header>
+        </Collapsible.Trigger>
+        <Collapsible.Content>
+          <Card.Content>
             Yes. Free to use for personal and commercial projects. No
             attribution required.
-          </CardContent>
-        </CollapsibleContent>
+          </Card.Content>
+        </Collapsible.Content>
       </Card>
     </Collapsible>
   );

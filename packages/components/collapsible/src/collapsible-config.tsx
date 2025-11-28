@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [CollapsibleConfig, useCollapsibleConfig] =
   });
 
 export namespace CollapsibleConfig {
-  export interface Props extends Collapsible.Props, GlobalConfigProps<Collapsible.Props> {}
+  export interface Props
+    extends Collapsible.Props,
+      GlobalConfigProps<Collapsible.Props> {}
 }

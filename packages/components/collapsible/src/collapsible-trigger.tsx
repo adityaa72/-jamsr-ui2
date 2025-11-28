@@ -1,16 +1,16 @@
-import { useRenderElement } from "@jamsrui/hooks";
+"use client";
 
+import { cloneElement } from "react";
 import { useCollapsibleContext } from "./collapsible-context";
 
-import type { UIProps } from "@jamsrui/utils";
-
 export const CollapsibleTrigger = (props: CollapsibleTrigger.Props) => {
+  const { children } = props;
   const { getTriggerProps } = useCollapsibleContext();
-  const renderElement = useRenderElement("button", {
-    props: getTriggerProps(props),
-  });
+  const renderElement = cloneElement(children, getTriggerProps());
   return renderElement;
 };
 export namespace CollapsibleTrigger {
-  export interface Props extends UIProps<"button"> {}
+  export interface Props {
+    children: React.ReactElement;
+  }
 }

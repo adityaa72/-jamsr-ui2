@@ -7,7 +7,6 @@ import { chipVariants } from "./styles";
 import type { PropGetter } from "@jamsrui/utils";
 
 import type { Chip } from "./chip";
-import type { ChipContent } from "./chip-content";
 import type { ChipDot } from "./chip-dot";
 import { ChipRoot } from "./chip-root";
 import type { ChipVariantsProps } from "./styles";
@@ -33,17 +32,6 @@ export const useChip = (props: useChip.Props) => {
     [elementProps, styles]
   );
 
-  const getContentProps: PropGetter<ChipContent.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: props.className,
-      }),
-    }),
-    [styles]
-  );
-
   const getDotProps: PropGetter<ChipDot.Props> = useCallback(
     (props) => ({
       ...props,
@@ -58,10 +46,9 @@ export const useChip = (props: useChip.Props) => {
   return useMemo(
     () => ({
       getRootProps,
-      getContentProps,
       getDotProps,
     }),
-    [getContentProps, getDotProps, getRootProps]
+    [getDotProps, getRootProps]
   );
 };
 export namespace useChip {

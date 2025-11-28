@@ -3,18 +3,16 @@ import { useCallback, useId, useMemo } from "react";
 import { useControlledState } from "@jamsrui/hooks";
 import { dataAttrDev, mergeProps } from "@jamsrui/utils";
 
-import type { PropGetter } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { CollapsibleContent } from "./collapsible-content";
-import type { CollapsibleTrigger } from "./collapsible-trigger";
 
 export const useCollapsible = (props: useCollapsible.Props) => {
   const {
     defaultOpen,
-    isDisabled,
+    disabled: isDisabled = false,
     isOpen: isOpenProp,
     onOpenChange,
-    slotProps,
   } = props;
   const [isOpen, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -39,21 +37,24 @@ export const useCollapsible = (props: useCollapsible.Props) => {
 
   const getContentProps: PropGetter<CollapsibleContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.content ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("content"),
       id: contentId,
       role: "region",
       "aria-labelledby": triggerId,
       hidden: !isOpen,
     }),
-    [contentId, isOpen, slotProps?.content, triggerId]
+    [contentId, isOpen, triggerId]
   );
 
-  const getTriggerProps: PropGetter<CollapsibleTrigger.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(slotProps?.trigger ?? {}, props, {
-        onClick: handleToggle,
-      }),
+  const getTriggerProps = useCallback(
+    (): UIProps<"button"> => ({
+      ...mergeProps(
+        {},
+        {
+          onClick: handleToggle,
+        }
+      ),
       id: triggerId,
       "data-slot": dataAttrDev("trigger"),
       "aria-controls": contentId,
@@ -62,7 +63,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
       disabled: isDisabled,
       "aria-disabled": isDisabled,
     }),
-    [contentId, handleToggle, isDisabled, isOpen, slotProps?.trigger, triggerId]
+    [contentId, handleToggle, isDisabled, isOpen, triggerId]
   );
 
   return useMemo(
@@ -81,10 +82,6 @@ export namespace useCollapsible {
     defaultOpen?: boolean;
     isOpen?: boolean;
     onOpenChange?: (isOpen: boolean) => void;
-    isDisabled?: boolean;
-    slotProps?: {
-      trigger?: CollapsibleTrigger.Props;
-      content?: CollapsibleContent.Props;
-    };
+    disabled?: boolean;
   }
 }
