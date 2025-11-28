@@ -35,7 +35,7 @@ const Select = () => {
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <SelectUsage />
       </CodeExample>
-      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
+      {/* <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <SelectRadius />
       </CodeExample>
       <CodeExample
@@ -131,7 +131,7 @@ const Select = () => {
         url={resolvePath("custom-render-multiple.tsx")}
       >
         <SelectCustomRenderMultiple />
-      </CodeExample>
+      </CodeExample> */}
     </DocsPage>
   );
 };

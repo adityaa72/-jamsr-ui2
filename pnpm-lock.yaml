@@ -1421,6 +1421,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/icons':
+        specifier: workspace:^
+        version: link:../../icons
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils

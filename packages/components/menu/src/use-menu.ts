@@ -38,7 +38,7 @@ import type {
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import { MenuContainer } from "./menu-container";
+import type { MenuContainer } from "./menu-container";
 import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context.tsx";
 import type { MenuGroup } from "./menu-group";
@@ -87,7 +87,7 @@ export const useMenu = (props: useMenu.Props) => {
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
   const labelsRef = useRef<(string | null)[]>([]);
 
-  const arrowHeight = !!arrowEl ? 7 : 0;
+  const arrowHeight = arrowEl ? 7 : 0;
 
   const { floatingStyles, refs, context } = useFloating<HTMLDivElement>({
     nodeId,
@@ -273,7 +273,7 @@ export const useMenu = (props: useMenu.Props) => {
       ref: setArrowEl,
       className: styles.arrow({ className: props.className }),
     }),
-    [context, styles]
+    [context, setArrowEl, styles]
   );
 
   const getNodeProps = useCallback(
@@ -297,7 +297,7 @@ export const useMenu = (props: useMenu.Props) => {
       getItemProps,
       setHasFocusInside,
     }),
-    [activeIndex, getItemProps]
+    [activeIndex, getItemProps, setHasFocusInside]
   );
 
   const getMenuItemProps: PropGetter<MenuItem.Props> = useCallback(

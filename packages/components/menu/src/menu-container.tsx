@@ -6,14 +6,14 @@ import {
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
+import { useRenderElement } from "@jamsrui/hooks";
 import { AnimatePresence } from "motion/react";
 
+import { MenuContent } from ".";
 import { useMenuContext } from "./menu-context";
 import { MenuFloatingContext } from "./menu-floating-context";
 
-import { useRenderElement } from "@jamsrui/hooks";
 import type { UIProps } from "@jamsrui/utils";
-import { MenuContent } from ".";
 
 export const MenuContainer = (props: MenuContainer.Props) => {
   const {

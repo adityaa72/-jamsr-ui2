@@ -1,3 +1,5 @@
+"use client";
+
 import { FloatingList } from "@floating-ui/react";
 import { motion } from "motion/react";
 

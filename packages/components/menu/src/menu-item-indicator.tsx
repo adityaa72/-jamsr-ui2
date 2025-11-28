@@ -4,9 +4,9 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { CheckIcon } from "@jamsrui/icons";
 
 import { useMenuContext } from "./menu-context";
+import { useMenuItemIndicatorContext } from "./menu-item-indicator-context";
 
 import type { UIProps } from "@jamsrui/utils";
-import { useMenuItemIndicatorContext } from "./menu-item-indicator-context";
 
 export const MenuItemIndicator = (props: MenuItemIndicator.Props) => {
   const { children = <CheckIcon className="size-full" />, ...restProps } =

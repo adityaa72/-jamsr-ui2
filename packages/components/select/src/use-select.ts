@@ -1,5 +1,4 @@
 import {
-  Children,
   isValidElement,
   useCallback,
   useId,
@@ -31,24 +30,17 @@ import type {
   FloatingList,
   Placement,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { SelectContent } from "./select-content";
-import type { SelectEndContent } from "./select-end-content";
-import type { SelectErrorMessage } from "./select-error-message";
-import type { SelectHelperText } from "./select-helper-text";
 import type { SelectIndicator } from "./select-indicator";
-import type { SelectInnerWrapper } from "./select-inner-wrapper";
 import type { SelectItem } from "./select-item";
-import type { SelectLabel } from "./select-label";
-import type { SelectMainWrapper } from "./select-main-wrapper";
-import type { SelectPlaceholder } from "./select-placeholder";
+import type { SelectItemIndicator } from "./select-item-indicator";
 import type { SelectPopover } from "./select-popover";
-import type { SelectStartContent } from "./select-start-content";
 import type { SelectTrigger } from "./select-trigger";
 import type { SelectValue } from "./select-value";
-import type { SelectSlots, SelectVariantProps } from "./styles";
+import type { SelectVariantProps } from "./styles";
 
 export const useSelect = (props: useSelect.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -56,27 +48,19 @@ export const useSelect = (props: useSelect.Props) => {
     selectVariants.variantKeys
   );
   const {
-    label,
-    children,
     onValueChange,
     defaultValue,
     value: propValue,
     placeholder = "Select",
-    classNames,
     onOpenChange,
     defaultOpen,
     isOpen: isOpenProp,
     isMultiple = false,
-    helperText,
     renderValue,
     placement = "bottom-start",
-    startContent,
-    endContent,
-    isDisabled,
+    disabled: isDisabled = false,
     returnFocus = true,
     disableTypeahead = false,
-    errorMessage,
-    slotProps,
     ...elementProps
   } = $props;
 
@@ -134,7 +118,7 @@ export const useSelect = (props: useSelect.Props) => {
       if (index === null) return;
       if (!isMultiple) setIsOpen(false);
     },
-    [isMultiple, setIsOpen]
+    [isMultiple, setIsOpen, setSelectedIndex]
   );
 
   function handleTypeaheadMatch(index: number | null) {
@@ -193,101 +177,31 @@ export const useSelect = (props: useSelect.Props) => {
       "data-component": dataAttrDev("select"),
       "data-slot": dataAttrDev("root"),
       className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
+        className: cn(elementProps.className),
       }),
     }),
-    [classNames?.root, elementProps, styles]
+    [elementProps, styles]
   );
 
   const getValueProps: PropGetter<SelectValue.Props> = useCallback(
     (props) => ({
-      ...mergeProps(props, slotProps?.value),
+      ...mergeProps(props),
       "data-slot": dataAttrDev("value"),
       className: styles.value({
-        className: cn(
-          slotProps?.value?.className,
-          classNames?.value,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.value, slotProps?.value, styles]
-  );
-
-  const getPlaceholderProps: PropGetter<SelectPlaceholder.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(props, slotProps?.placeholder),
-      "data-slot": dataAttrDev("placeholder"),
-      className: styles.placeholder({
-        className: cn(
-          slotProps?.placeholder?.className,
-          classNames?.placeholder,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.placeholder, slotProps?.placeholder, styles]
-  );
-
-  const getMainWrapperProps: PropGetter<SelectMainWrapper.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(props, slotProps?.mainWrapper),
-      "data-slot": dataAttrDev("mainWrapper"),
-      className: styles.mainWrapper({
-        className: cn(
-          slotProps?.mainWrapper?.className,
-          classNames?.mainWrapper,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.mainWrapper, slotProps?.mainWrapper, styles]
-  );
-
-  const getInnerWrapperProps: PropGetter<SelectInnerWrapper.Props> =
-    useCallback(
-      (props) => ({
-        ...mergeProps(props, slotProps?.innerWrapper),
-        "data-slot": dataAttrDev("innerWrapper"),
-        className: styles.innerWrapper({
-          className: cn(
-            slotProps?.innerWrapper?.className,
-            classNames?.innerWrapper,
-            props.className
-          ),
-        }),
-      }),
-      [classNames?.innerWrapper, slotProps?.innerWrapper, styles]
-    );
-
-  const getLabelProps: PropGetter<SelectLabel.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(props, slotProps?.label),
-      htmlFor: labelId,
-      "data-slot": dataAttrDev("label"),
-      className: styles.label({
-        className: cn(
-          slotProps?.label?.className,
-          classNames?.label,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.label, labelId, slotProps?.label, styles]
+    [styles]
   );
 
   const getTriggerProps: PropGetter<SelectTrigger.Props> = useCallback(
     (props) => ({
       type: "button",
-      ...mergeProps(props, slotProps?.trigger),
+      ...mergeProps(props),
       id: labelId,
       "data-slot": dataAttrDev("trigger"),
       className: styles.trigger({
-        className: cn(
-          slotProps?.trigger?.className,
-          classNames?.trigger,
-          props.className
-        ),
+        className: props.className,
       }),
       disabled: isDisabled,
       "aria-disabled": isDisabled,
@@ -296,61 +210,18 @@ export const useSelect = (props: useSelect.Props) => {
         ref: setReference,
       }),
     }),
-    [
-      classNames?.trigger,
-      getReferenceProps,
-      isDisabled,
-      labelId,
-      setReference,
-      slotProps?.trigger,
-      styles,
-    ]
+    [getReferenceProps, isDisabled, labelId, setReference, styles]
   );
-
-  const getHelperTextProps: PropGetter<SelectHelperText.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(props, slotProps?.helperText),
-      "data-slot": dataAttrDev("helperText"),
-      className: styles.helperText({
-        className: cn(
-          slotProps?.helperText?.className,
-          classNames?.helperText,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.helperText, slotProps?.helperText, styles]
-  );
-
-  const getErrorMessageProps: PropGetter<SelectErrorMessage.Props> =
-    useCallback(
-      (props) => ({
-        ...mergeProps(props, slotProps?.errorMessage),
-        "data-slot": dataAttrDev("errorMessage"),
-        className: styles.errorMessage({
-          className: cn(
-            slotProps?.errorMessage?.className,
-            classNames?.errorMessage,
-            props.className
-          ),
-        }),
-      }),
-      [classNames?.errorMessage, slotProps?.errorMessage, styles]
-    );
 
   const getIndicatorProps: PropGetter<SelectIndicator.Props> = useCallback(
     (props) => ({
-      ...mergeProps(props, slotProps?.indicator),
+      ...props,
       "data-slot": dataAttrDev("indicator"),
       className: styles.indicator({
-        className: cn(
-          slotProps?.indicator?.className,
-          classNames?.indicator,
-          props.className
-        ),
+        className: cn(props.className),
       }),
     }),
-    [classNames?.indicator, slotProps?.indicator, styles]
+    [styles]
   );
 
   const getContentProps: PropGetter<SelectContent.Props> = useCallback(
@@ -359,89 +230,51 @@ export const useSelect = (props: useSelect.Props) => {
       animate: { opacity: 1, scale: 1 },
       exit: { opacity: 0, scale: 0.9 },
       transition: { type: "spring", stiffness: 300, damping: 25 },
-      ...mergeProps(props, slotProps?.content),
       "data-slot": dataAttrDev("content"),
+      ...props,
       className: styles.content({
-        className: cn(
-          slotProps?.content?.className,
-          classNames?.content,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.content, slotProps?.content, styles]
+    [styles]
   );
-
-  const getStartContentProps: PropGetter<SelectStartContent.Props> =
-    useCallback(
-      (props) => ({
-        ...mergeProps(props, slotProps?.startContent),
-        "data-slot": dataAttrDev("startContent"),
-        className: styles.startContent({
-          className: cn(
-            slotProps?.startContent?.className,
-            classNames?.startContent,
-            props.className
-          ),
-        }),
-      }),
-      [classNames?.startContent, slotProps?.startContent, styles]
-    );
 
   const getPopoverProps: PropGetter<SelectPopover.Props> = useCallback(
     (props) => ({
-      ...mergeProps(props, slotProps?.popover),
+      ...props,
       "data-slot": dataAttrDev("popover"),
       className: styles.popover({
-        className: cn(
-          slotProps?.popover?.className,
-          classNames?.popover,
-          props.className
-        ),
+        className: props.className,
       }),
       ref: setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
     }),
-    [
-      classNames?.popover,
-      floatingStyles,
-      getFloatingProps,
-      setFloating,
-      slotProps?.popover,
-      styles,
-    ]
-  );
-
-  const getEndContentProps: PropGetter<SelectEndContent.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(props, slotProps?.endContent),
-      "data-slot": dataAttrDev("endContent"),
-      className: styles.endContent({
-        className: cn(
-          slotProps?.endContent?.className,
-          classNames?.endContent,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.endContent, slotProps?.endContent, styles]
+    [floatingStyles, getFloatingProps, setFloating, styles]
   );
 
   const getSelectItemProps: PropGetter<SelectItem.Props> = useCallback(
     (props) => ({
-      ...mergeProps(props, slotProps?.selectItem),
+      ...props,
       "data-slot": dataAttrDev("selectItem"),
       className: styles.selectItem({
-        className: cn(
-          slotProps?.selectItem?.className,
-          classNames?.selectItem,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.selectItem, slotProps?.selectItem, styles]
+    [styles]
   );
+
+  const getItemIndicatorProps: PropGetter<SelectItemIndicator.Props> =
+    useCallback(
+      (props) => ({
+        ...props,
+        "data-slot": dataAttrDev("itemIndicator"),
+        className: styles.itemIndicator({
+          className: props.className,
+        }),
+      }),
+      [styles]
+    );
 
   const getFocusManagerProps = useCallback(
     (): Omit<FloatingFocusManagerProps, "children"> => ({
@@ -461,7 +294,8 @@ export const useSelect = (props: useSelect.Props) => {
     []
   );
 
-  const childrenArray = Children.toArray(children);
+  // const childrenArray = Children.toArray(children);
+  const childrenArray: React.ReactElement[] = []; // Todo:
   const selectItems = childrenArray.map((item) => {
     if (isValidElement<SelectItem.Props>(item)) {
       return {
@@ -486,26 +320,19 @@ export const useSelect = (props: useSelect.Props) => {
   }, [selectItems, value]);
 
   const getRenderValue = useMemo(() => {
+    if (!value.length) return placeholder;
     if (renderValue) return renderValue(value);
     return selectedLabels.join(",");
-  }, [renderValue, selectedLabels, value]);
+  }, [placeholder, renderValue, selectedLabels, value]);
 
   return useMemo(
     () => ({
       getRootProps,
-      getMainWrapperProps,
-      getInnerWrapperProps,
-      getLabelProps,
       getTriggerProps,
-      getHelperTextProps,
-      getErrorMessageProps,
       getIndicatorProps,
       getContentProps,
-      getStartContentProps,
       getPopoverProps,
-      getEndContentProps,
       getSelectItemProps,
-      getPlaceholderProps,
       getValueProps,
       isOpen,
       getFocusManagerProps,
@@ -515,46 +342,30 @@ export const useSelect = (props: useSelect.Props) => {
       getItemProps,
       handleSelect,
       onSelectValue,
-      label,
-      startContent,
-      endContent,
       hasValue,
       placeholder,
       getRenderValue,
-      errorMessage,
-      helperText,
+      getItemIndicatorProps,
     }),
     [
       activeIndex,
-      endContent,
-      errorMessage,
+      getItemIndicatorProps,
       getContentProps,
-      getEndContentProps,
-      getErrorMessageProps,
       getFloatingListProps,
       getFocusManagerProps,
-      getHelperTextProps,
       getIndicatorProps,
-      getInnerWrapperProps,
       getItemProps,
-      getLabelProps,
-      getMainWrapperProps,
-      getPlaceholderProps,
       getPopoverProps,
       getRenderValue,
       getRootProps,
       getSelectItemProps,
-      getStartContentProps,
       getTriggerProps,
       getValueProps,
       handleSelect,
       hasValue,
-      helperText,
       isOpen,
-      label,
       onSelectValue,
       placeholder,
-      startContent,
       value,
     ]
   );
@@ -563,10 +374,8 @@ export const useSelect = (props: useSelect.Props) => {
 export namespace useSelect {
   export interface Props extends UIProps<"div">, SelectVariantProps {
     placement?: Placement;
-    label?: string;
     placeholder?: string;
-    isInvalid?: boolean;
-    isDisabled?: boolean;
+    disabled?: boolean;
     value?: string[];
     defaultValue?: string[];
     onValueChange?: (value: string[]) => void;
@@ -574,30 +383,8 @@ export namespace useSelect {
     defaultOpen?: boolean;
     onOpenChange?: (value: boolean) => void;
     isMultiple?: boolean;
-    className?: string;
-    errorMessage?: string;
-    classNames?: SlotsToClassNames<SelectSlots>;
-    helperText?: React.ReactNode;
     renderValue?: (value: string[]) => React.ReactElement;
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
     returnFocus?: boolean;
     disableTypeahead?: boolean;
-    slotProps?: {
-      value?: SelectValue.Props;
-      placeholder?: SelectPlaceholder.Props;
-      mainWrapper?: SelectMainWrapper.Props;
-      innerWrapper?: SelectInnerWrapper.Props;
-      label?: SelectLabel.Props;
-      trigger?: SelectTrigger.Props;
-      helperText?: SelectHelperText.Props;
-      errorMessage?: SelectErrorMessage.Props;
-      indicator?: SelectIndicator.Props;
-      popover?: SelectPopover.Props;
-      content?: SelectContent.Props;
-      startContent?: SelectStartContent.Props;
-      endContent?: SelectEndContent.Props;
-      selectItem?: SelectItem.Props;
-    };
   }
 }
