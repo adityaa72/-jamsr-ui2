@@ -18,6 +18,7 @@ export const ChipBordered = () => {
       ))}
       {colors.map((color) => (
         <Chip isBordered variant="dot" color={color} key={color}>
+          <Chip.Dot />
           {color}
         </Chip>
       ))}

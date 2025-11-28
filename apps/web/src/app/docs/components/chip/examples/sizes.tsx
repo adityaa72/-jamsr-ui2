@@ -1,7 +1,7 @@
 import { Chip } from "@jamsrui/react";
 
 export const ChipSizes = () => {
-  const sizes: Chip.Props["size"][] = ["xs", "sm", "md", "lg"];
+  const sizes: Chip.Props["size"][] = ["sm", "md", "lg"];
   return (
     <div className="flex flex-wrap gap-4">
       {sizes.map((size) => (

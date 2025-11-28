@@ -7,13 +7,13 @@ import { ChipColors } from "./examples/colors";
 import { ChipCustomized } from "./examples/customized";
 import { ChipRadius } from "./examples/radius";
 import { ChipSizes } from "./examples/sizes";
-import { ChipStartEndContent } from "./examples/start-end-content";
 import { ChipUsage } from "./examples/usage";
 import { ChipVariantBordered } from "./examples/variants/bordered";
 import { ChipVariantDot } from "./examples/variants/dot";
 import { ChipVariantFlat } from "./examples/variants/flat";
 import { ChipVariantSolid } from "./examples/variants/solid";
 import { ChipWithClose } from "./examples/with-close";
+import { ChipWithIcons } from "./examples/with-icons";
 
 const title = "Chip";
 const description =
@@ -72,10 +72,10 @@ const Chip = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Start & End Content"
-        url={resolvePath("start-end-content.tsx")}
+        title="With Icons"
+        url={resolvePath("with-icons.tsx")}
       >
-        <ChipStartEndContent />
+        <ChipWithIcons />
       </CodeExample>
       <CodeExample
         isCentered

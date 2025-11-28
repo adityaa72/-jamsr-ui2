@@ -1,26 +1,15 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useChipContext } from "./chip-context";
-import { ChipDot } from "./chip-dot";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const ChipContent = (props: ChipContent.Props) => {
-  const { children } = props;
-  const { getContentProps, startContent, endContent, isDotVariant } =
-    useChipContext();
-
-  const composedChildren = (
-    <>
-      {startContent}
-      {!!isDotVariant && <ChipDot />}
-      {children}
-      {endContent}
-    </>
-  );
-
+  const { getContentProps } = useChipContext();
   const renderElement = useRenderElement("div", {
-    props: [getContentProps(props), { children: composedChildren }],
+    props: [getContentProps(props)],
   });
   return renderElement;
 };

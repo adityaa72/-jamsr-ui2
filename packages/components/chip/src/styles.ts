@@ -2,42 +2,35 @@ import { allColors, colorVariants, radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const chipVariants = tv({
   slots: {
-    root: "relative box-border inline-flex min-w-min max-w-fit shrink-0 items-center justify-between whitespace-nowrap rounded-full",
-    content: "flex flex-1 items-center gap-2 text-inherit",
-    closeButton:
-      "z-10 cursor-pointer select-none appearance-none opacity-70 outline-none transition-opacity tap-highlight-transparent hover:opacity-100 active:opacity-disabled",
-    dot: "size-1.5 rounded-full",
+    root: "chip chip__root relative box-border inline-flex min-w-min max-w-fit shrink-0 items-center justify-between whitespace-nowrap rounded-full gap-2",
+    dot: "chip__dot size-1.5 rounded-full",
   },
   variants: {
     variant: {
-      solid: {},
-      bordered: {
-        root: "border",
+      solid: {
+        root: "chip--solid",
       },
-      flat: {},
+      bordered: {
+        root: "chip--bordered border",
+      },
+      flat: {
+        root: "chip--flat",
+      },
       dot: {
-        dot: "outline-2",
+        dot: "chip--dot outline-2",
       },
     },
     size: {
-      xs: {
-        root: "h-5 px-0.5 text-xs",
-        content: "px-0.5",
-      },
       sm: {
-        root: "h-6 px-1 text-xs",
-        content: "px-1",
+        root: "chip--xs h-5 px-1 text-xs",
       },
       md: {
-        root: "h-7 px-1 text-sm",
-        content: "px-1",
+        root: "chip--sm h-6 px-2 text-xs",
       },
       lg: {
-        root: "h-8 px-2 text-base",
-        content: "px-2",
+        root: "chip--md h-7 px-3 text-sm",
       },
     },
     color: {
@@ -50,16 +43,15 @@ export const chipVariants = tv({
     },
     isSquare: {
       true: {
-        root: "flex aspect-square items-center justify-center",
-        content: "flex-none",
+        root: "chip--squared flex aspect-square items-center justify-center",
       },
     },
     isBordered: {
       true: {
-        root: "border",
+        root: "chip--bordered border",
       },
     },
-    radius: radiusVariant("root"),
+    radius: radiusVariant("root", "chip"),
   },
   compoundVariants: [
     ...(["solid", "bordered", "flat"] as const).flatMap((variant) =>

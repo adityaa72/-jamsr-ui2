@@ -1,16 +1,16 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { chipVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 
 import type { Chip } from "./chip";
-import type { ChipCloseButton } from "./chip-close-button";
 import type { ChipContent } from "./chip-content";
 import type { ChipDot } from "./chip-dot";
-import type { ChipSlots, ChipVariantsProps } from "./styles";
+import { ChipRoot } from "./chip-root";
+import type { ChipVariantsProps } from "./styles";
 
 export const useChip = (props: useChip.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -18,18 +18,8 @@ export const useChip = (props: useChip.Props) => {
     chipVariants.variantKeys
   );
 
-  const {
-    startContent,
-    endContent,
-    onClose,
-    classNames,
-    slotProps,
-    ...elementProps
-  } = $props;
+  const { ...elementProps } = $props;
   const styles = chipVariants(variantProps);
-
-  const isClosable = typeof onClose === "function";
-  const isDotVariant = variantProps.variant === "dot";
 
   const getRootProps: PropGetter<Chip.Props> = useCallback(
     () => ({
@@ -37,92 +27,43 @@ export const useChip = (props: useChip.Props) => {
       "data-component": dataAttrDev("chip"),
       ...elementProps,
       className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
+        className: elementProps.className,
       }),
     }),
-    [classNames?.root, elementProps, styles]
+    [elementProps, styles]
   );
 
   const getContentProps: PropGetter<ChipContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.content, props),
+      ...props,
       "data-slot": dataAttrDev("content"),
       className: styles.content({
-        className: cn(
-          slotProps?.content?.className,
-          classNames?.content,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.content, slotProps?.content, styles]
-  );
-
-  const getCloseButtonProps: PropGetter<ChipCloseButton.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(slotProps?.closeButton, props, {
-        onClick: onClose,
-      }),
-      "data-slot": dataAttrDev("close-button"),
-      className: styles.closeButton({
-        className: cn(
-          slotProps?.closeButton?.className,
-          classNames?.closeButton,
-          props.className
-        ),
-      }),
-    }),
-    [classNames?.closeButton, onClose, slotProps?.closeButton, styles]
+    [styles]
   );
 
   const getDotProps: PropGetter<ChipDot.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.dot, props),
+      ...props,
       "data-slot": dataAttrDev("dot"),
       className: styles.dot({
-        className: cn(
-          slotProps?.dot?.className,
-          classNames?.dot,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.dot, slotProps?.dot, styles]
+    [styles]
   );
 
   return useMemo(
     () => ({
       getRootProps,
       getContentProps,
-      getCloseButtonProps,
       getDotProps,
-      startContent,
-      endContent,
-      isClosable,
-      isDotVariant,
     }),
-    [
-      endContent,
-      getCloseButtonProps,
-      getContentProps,
-      getDotProps,
-      getRootProps,
-      startContent,
-      isClosable,
-      isDotVariant,
-    ]
+    [getContentProps, getDotProps, getRootProps]
   );
 };
 export namespace useChip {
-  export interface Props extends UIProps<"div">, ChipVariantsProps {
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
-    onClose?: () => void;
-    classNames?: SlotsToClassNames<ChipSlots>;
-    slotProps?: {
-      content?: ChipContent.Props;
-      closeButton?: ChipCloseButton.Props;
-      dot?: ChipDot.Props;
-    };
-  }
+  export interface Props extends ChipRoot.Props, ChipVariantsProps {}
 }

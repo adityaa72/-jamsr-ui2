@@ -1,30 +1,22 @@
-import { useRenderElement } from "@jamsrui/hooks";
+"use client";
+
 import { mergeConfigProps } from "@jamsrui/utils";
 
-import { ChipCloseButton } from "./chip-close-button";
 import { useChipConfig } from "./chip-config";
-import { ChipContent } from "./chip-content";
 import { ChipContext } from "./chip-context";
+import { ChipRoot } from "./chip-root";
 import { useChip } from "./use-chip";
 
 export const Chip = (props: Chip.Props) => {
-  const { children } = props;
   const config = useChipConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
+  const mergedProps = mergeConfigProps(config, config, props);
   const ctx = useChip(mergedProps);
-  const { getRootProps, isClosable } = ctx;
 
-  const composedChildren = (
-    <>
-      <ChipContent>{children}</ChipContent>
-      {!!isClosable && <ChipCloseButton />}
-    </>
+  return (
+    <ChipContext value={ctx}>
+      <ChipRoot>{props.children}</ChipRoot>
+    </ChipContext>
   );
-
-  const renderElement = useRenderElement("div", {
-    props: [getRootProps(props), { children: composedChildren }],
-  });
-  return <ChipContext value={ctx}>{renderElement}</ChipContext>;
 };
 
 export namespace Chip {
