@@ -15,12 +15,7 @@ export const DocsPageInner = (props: Props) => {
   const { children, description, size, title, onThisPage } = props;
   const { isOpen } = useSidebarState();
   return (
-    <div
-      className={cn(
-        "flex w-full transition-transform min-w-0 duration-300 ",
-        isOpen ? "md:translate-x-[250px] md:w-[calc(100%-250px)]" : "mx-auto"
-      )}
-    >
+    <div className={"flex w-full"}>
       <div
         className={cn(
           "py-12 w-full px-4 md:px-12  mx-auto",

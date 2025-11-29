@@ -1,0 +1,25 @@
+import { Sidebar } from "@jamsrui/react";
+import { AppSidebar } from "./app-sidebar";
+
+export const SidebarUsage = () => {
+  return (
+    <Sidebar.Wrapper>
+      <div className="w-(--width) group-data-[state=collapsed]/sidebar-wrapper:w-0 duration-300 ease-out transition-[width]">
+        <AppSidebar />
+      </div>
+      <Sidebar.Inset>
+        <header className="border-b border-divider px-4 py-3 sticky top-0 bg-background">
+          <Sidebar.Toggle />
+        </header>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+          {Array.from({ length: 15 }).map((_, index) => (
+            <div
+              key={index}
+              className="w-full aspect-video bg-surface-secondary rounded-md"
+            />
+          ))}
+        </div>
+      </Sidebar.Inset>
+    </Sidebar.Wrapper>
+  );
+};

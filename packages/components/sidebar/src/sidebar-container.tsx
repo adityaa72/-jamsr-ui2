@@ -2,18 +2,17 @@
 
 import { useRenderElement } from "@jamsrui/hooks";
 
+import type { UIProps } from "@jamsrui/utils";
 import { useSidebarContext } from "./sidebar-context";
 
-import type { UIProps } from "@jamsrui/utils";
-
-export const SidebarMenuItem = (props: SidebarMenuItem.Props) => {
-  const { getMenuItemProps } = useSidebarContext();
+export const SidebarInset = (props: SidebarInset.Props) => {
+  const { getInsetProps } = useSidebarContext();
   const renderElement = useRenderElement("div", {
-    props: [getMenuItemProps(props)],
+    props: [getInsetProps(props)],
   });
   return renderElement;
 };
 
-export namespace SidebarMenuItem {
+export namespace SidebarInset {
   export interface Props extends UIProps<"div"> {}
 }

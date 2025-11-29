@@ -1,7 +1,9 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSidebarContext } from "./sidebar-context";
-import { useSidebarState } from "./sidebar-provider";
+import { useSidebarState } from "./sidebar-state-provider";
 
 import type { UIProps } from "@jamsrui/utils";
 

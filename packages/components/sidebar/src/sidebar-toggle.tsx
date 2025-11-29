@@ -1,19 +1,26 @@
-import { useRenderElement } from "@jamsrui/hooks";
+"use client";
 
-import { SidebarLeftIcon } from "./icons";
-import { useSidebarState } from "./sidebar-provider";
-
-import type { UIProps } from "@jamsrui/utils";
+import { IconButton } from "@jamsrui/icon-button";
+import { ToggleIcon } from "./icons";
+import { useSidebarState } from "./sidebar-state-provider";
 
 export const SidebarToggle = (props: SidebarToggle.Props) => {
   const { toggleSidebar } = useSidebarState();
-  const children = <SidebarLeftIcon />;
-  const renderElement = useRenderElement("button", {
-    props: [props, { onClick: toggleSidebar }, { children }],
-  });
-  return renderElement;
+  const children = <ToggleIcon className="size-5" />;
+  return (
+    <IconButton
+      label="Toggle Sidebar"
+      onClick={toggleSidebar}
+      variant="light"
+      size="sm"
+      radius="md"
+      {...props}
+    >
+      {children}
+    </IconButton>
+  );
 };
 
 export namespace SidebarToggle {
-  export interface Props extends UIProps<"button"> {}
+  export interface Props extends Partial<IconButton.Props> {}
 }

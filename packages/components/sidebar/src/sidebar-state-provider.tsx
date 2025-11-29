@@ -1,3 +1,5 @@
+"use client";
+
 import {
   createContext,
   use,
@@ -27,7 +29,7 @@ export const useSidebarState = () => {
   return ctx;
 };
 
-export const SidebarProvider = (props: SidebarProvider.Props) => {
+export const SidebarStateProvider = (props: SidebarStateProvider.Props) => {
   const { children } = props;
   const [isOpen, setIsOpen] = useState(true);
   const [isOpenMobile, setIsOpenMobile] = useState(false);
@@ -71,7 +73,7 @@ export const SidebarProvider = (props: SidebarProvider.Props) => {
 
   return <SidebarStateContext value={value}>{children}</SidebarStateContext>;
 };
-export namespace SidebarProvider {
+export namespace SidebarStateProvider {
   export interface Props {
     children: React.ReactNode;
   }

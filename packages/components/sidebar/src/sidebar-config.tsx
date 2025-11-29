@@ -1,3 +1,5 @@
+"use client";
+
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { GlobalConfigProps } from "@jamsrui/core";
@@ -10,5 +12,7 @@ export const [SidebarConfig, useSidebarConfig] =
   });
 
 export namespace SidebarConfig {
-  export interface Props extends Sidebar.Props, GlobalConfigProps<Sidebar.Props> {}
+  export interface Props
+    extends Sidebar.Props,
+      GlobalConfigProps<Sidebar.Props> {}
 }

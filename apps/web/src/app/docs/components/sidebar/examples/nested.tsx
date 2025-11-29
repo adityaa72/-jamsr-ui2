@@ -14,7 +14,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuItemButton,
-  SidebarProvider,
+  SidebarStateProvider,
 } from "@jamsrui/react";
 import Link from "next/link";
 
@@ -142,7 +142,7 @@ const SidebarNestedMenuItem = (props: NavItem & { isNested?: boolean }) => {
   const { icon, title, items = [], isNested, isActive, isDisabled } = props;
   const hasChild = items.length > 0;
   return (
-    <Collapsible defaultOpen={isActive} isDisabled={isDisabled}>
+    <Collapsible defaultOpen={isActive} disabled={isDisabled}>
       <SidebarMenuItem className="relative">
         {isNested && (
           <div className="absolute -left-1 top-0 h-full w-px bg-content2" />
@@ -176,7 +176,7 @@ const SidebarNestedMenuItem = (props: NavItem & { isNested?: boolean }) => {
 
 export const SidebarNested = () => {
   return (
-    <SidebarProvider>
+    <SidebarStateProvider>
       <Sidebar className="max-w-[250px]">
         <SidebarHeader>Avatar</SidebarHeader>
         <SidebarContent>
@@ -196,6 +196,6 @@ export const SidebarNested = () => {
         </SidebarContent>
         <SidebarFooter>Logout</SidebarFooter>
       </Sidebar>
-    </SidebarProvider>
+    </SidebarStateProvider>
   );
 };

@@ -1,209 +1,180 @@
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttrDev } from "@jamsrui/utils";
 
-import { useSidebarState } from "./sidebar-provider";
+import { useSidebarState } from "./sidebar-state-provider";
 import { sidebarVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 
 import type { Sidebar } from "./sidebar";
 import type { SidebarBackdrop } from "./sidebar-backdrop";
-import type { SidebarBody } from "./sidebar-body";
 import type { SidebarContent } from "./sidebar-content";
 import type { SidebarFooter } from "./sidebar-footer";
 import type { SidebarGroup } from "./sidebar-group";
 import type { SidebarGroupLabel } from "./sidebar-group-label";
 import type { SidebarHeader } from "./sidebar-header";
+import { SidebarInset } from "./sidebar-inset";
 import type { SidebarMenu } from "./sidebar-menu";
 import type { SidebarMenuItem } from "./sidebar-menu-item";
 import type { SidebarMenuItemButton } from "./sidebar-menu-item-button";
-import type { SidebarSlots } from "./styles";
+import { SidebarWrapper } from "./sidebar-wrapper";
 
 export const useSidebar = (props: useSidebar.Props) => {
-  const {
-    classNames,
-    className,
-    slotProps,
-    width = 250,
-    ...elementProps
-  } = props;
-
+  const { width = 250, ...elementProps } = props;
   const styles = sidebarVariants();
   const { toggleSidebar } = useSidebarState();
 
-  const getRootProps: PropGetter<Sidebar.Props> = useCallback(
-    () => ({
+  const getWrapperProps = useCallback(
+    (): SidebarWrapper.Props => ({
       ...elementProps,
       style: {
+        ...elementProps.style,
         "--width": `${width}px`,
       } as React.CSSProperties,
-      "data-slot": dataAttrDev("root"),
-      className: styles.root({ className: cn(classNames?.root, className) }),
+      "data-slot": dataAttrDev("wrapper"),
+      className: styles.wrapper({
+        className: elementProps.className,
+      }),
     }),
-    [className, classNames?.root, elementProps, styles, width]
+    [styles, width, elementProps]
+  );
+
+  const getSidebarProps: PropGetter<Sidebar.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("root"),
+      className: styles.sidebar({ className: props.className }),
+    }),
+    [styles]
   );
 
   const getHeaderProps: PropGetter<SidebarHeader.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.header ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("header"),
       className: styles.header({
-        className: cn(
-          slotProps?.header?.className,
-          classNames?.header,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.header, slotProps?.header, styles]
+    [styles]
   );
 
   const getContentProps: PropGetter<SidebarContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.content ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("content"),
       className: styles.content({
-        className: cn(
-          slotProps?.content?.className,
-          classNames?.content,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.content, slotProps?.content, styles]
+    [styles]
   );
 
   const getBodyProps: PropGetter<SidebarContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.body ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("body"),
       className: styles.body({
-        className: cn(
-          slotProps?.body?.className,
-          classNames?.body,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.body, slotProps?.body, styles]
+    [styles]
   );
 
   const getGroupProps: PropGetter<SidebarGroup.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.group ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("group"),
       className: styles.group({
-        className: cn(
-          slotProps?.group?.className,
-          classNames?.group,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.group, slotProps?.group, styles]
+    [styles]
   );
 
   const getGroupLabelProps: PropGetter<SidebarGroupLabel.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.groupLabel ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("group-label"),
       className: styles.groupLabel({
-        className: cn(
-          slotProps?.groupLabel?.className,
-          classNames?.groupLabel,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.groupLabel, slotProps?.groupLabel, styles]
+    [styles]
   );
 
   const getMenuProps: PropGetter<SidebarMenu.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.menu ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("menu"),
       className: styles.menu({
-        className: cn(
-          slotProps?.menu?.className,
-          classNames?.menu,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.menu, slotProps?.menu, styles]
+    [styles]
   );
 
   const getMenuItemProps: PropGetter<SidebarMenuItem.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.menuItem ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("menu-item"),
       className: styles.menuItem({
-        className: cn(
-          slotProps?.menuItem?.className,
-          classNames?.menuItem,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.menuItem, slotProps?.menuItem, styles]
+    [styles]
   );
 
   const getFooterProps: PropGetter<SidebarFooter.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.footer ?? {}, props),
+      ...props,
       "data-slot": dataAttrDev("footer"),
       className: styles.footer({
-        className: cn(
-          slotProps?.footer?.className,
-          classNames?.footer,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.footer, slotProps?.footer, styles]
+    [styles]
   );
 
   const getMenuItemButtonProps: PropGetter<SidebarMenuItemButton.Props> =
     useCallback(
       (props) => ({
-        ...mergeProps(slotProps?.menuItemButton ?? {}, props),
+        ...props,
         "data-slot": dataAttrDev("menu-item-button"),
         className: styles.menuItemButton({
-          className: cn(
-            slotProps?.menuItemButton?.className,
-            classNames?.menuItemButton,
-            props.className
-          ),
+          className: props.className,
         }),
       }),
-      [classNames?.menuItemButton, slotProps?.menuItemButton, styles]
+      [styles]
     );
 
   const getBackdropProps: PropGetter<SidebarBackdrop.Props> = useCallback(
     (props) => ({
-      ...mergeProps(
-        {
-          onClick: () => toggleSidebar(),
-        },
-        slotProps?.backdrop ?? {},
-        props
-      ),
+      ...props,
+      onClick: () => toggleSidebar(),
       "data-slot": dataAttrDev("backdrop"),
       className: styles.backdrop({
-        className: cn(
-          slotProps?.backdrop?.className,
-          classNames?.backdrop,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.backdrop, toggleSidebar, slotProps?.backdrop, styles]
+    [styles, toggleSidebar]
+  );
+
+  const getInsetProps: PropGetter<SidebarInset.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("inset"),
+      className: styles.inset({
+        className: props.className,
+      }),
+    }),
+    [styles]
   );
 
   return useMemo(
     () => ({
-      getRootProps,
+      getRootProps: getSidebarProps,
       getHeaderProps,
       getContentProps,
       getGroupProps,
@@ -214,9 +185,11 @@ export const useSidebar = (props: useSidebar.Props) => {
       getMenuItemButtonProps,
       getBackdropProps,
       getBodyProps,
+      getInsetProps,
+      getWrapperProps,
     }),
     [
-      getRootProps,
+      getSidebarProps,
       getHeaderProps,
       getContentProps,
       getGroupProps,
@@ -227,25 +200,14 @@ export const useSidebar = (props: useSidebar.Props) => {
       getMenuItemButtonProps,
       getBackdropProps,
       getBodyProps,
+      getInsetProps,
+      getWrapperProps,
     ]
   );
 };
 
 export namespace useSidebar {
-  export interface Props extends UIProps<"aside"> {
+  export interface Props extends SidebarWrapper.Props {
     width?: number;
-    classNames?: SlotsToClassNames<SidebarSlots>;
-    slotProps?: {
-      header?: SidebarHeader.Props;
-      content?: SidebarContent.Props;
-      body?: SidebarBody.Props;
-      group?: SidebarGroup.Props;
-      groupLabel?: SidebarGroupLabel.Props;
-      menu?: SidebarMenu.Props;
-      menuItem?: SidebarMenuItem.Props;
-      footer?: SidebarFooter.Props;
-      menuItemButton?: SidebarMenuItemButton.Props;
-      backdrop?: SidebarBackdrop.Props;
-    };
   }
 }

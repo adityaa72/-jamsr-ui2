@@ -9,8 +9,7 @@ export const selectVariants = tv({
     ],
     value: [
       "select__value text-sm",
-      "pointer-events-none",
-      "flex grow flex-wrap",
+      "font-normal overflow-hidden text-ellipsis grow text-start",
     ],
     trigger: [
       "select__trigger relative flex w-full flex-row items-center gap-3 border border-divider px-3 py-2 outline-none",

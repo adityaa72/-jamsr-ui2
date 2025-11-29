@@ -1,26 +1,24 @@
-import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps } from "@jamsrui/utils";
+"use client";
 
-import { useSidebarConfig } from "./sidebar-config";
-import { SidebarContext } from "./sidebar-context";
-import { useSidebarState } from "./sidebar-provider";
+import { useRenderElement } from "@jamsrui/hooks";
+
+import { useSidebarContext } from "./sidebar-context";
+import { useSidebarState } from "./sidebar-state-provider";
 import { useSidebar } from "./use-sidebar";
 
 export const Sidebar = (props: Sidebar.Props) => {
-  const config = useSidebarConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
-  const ctx = useSidebar(mergedProps);
   const { state } = useSidebarState();
+  const ctx = useSidebarContext();
   const { getRootProps } = ctx;
   const renderElement = useRenderElement("aside", {
     props: [
-      getRootProps({}),
+      getRootProps(props),
       {
         "data-state": state,
       },
     ],
   });
-  return <SidebarContext value={ctx}>{renderElement}</SidebarContext>;
+  return renderElement;
 };
 
 export namespace Sidebar {

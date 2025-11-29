@@ -16,18 +16,18 @@ const Sidebar = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
-      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+      <CodeExample title="Usage" url={resolvePath("usage/index.tsx")}>
         <iframe
           src={"/examples/sidebar/usage" satisfies Route}
-          className="min-h-[500px]"
+          className="min-h-[500px] w-full"
         />
       </CodeExample>
-      <CodeExample title="Nested" url={resolvePath("nested.tsx")}>
+      {/* <CodeExample title="Nested" url={resolvePath("nested.tsx")}>
         <iframe
           src={"/examples/sidebar/nested" satisfies Route}
           className="min-h-[500px]"
         />
-      </CodeExample>
+      </CodeExample> */}
     </DocsPage>
   );
 };

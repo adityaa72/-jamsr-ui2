@@ -1,6 +1,6 @@
 "use client";
 
-import { Select, SelectItem } from "@jamsrui/react";
+import { Select } from "@jamsrui/react";
 import { useState } from "react";
 
 export const SelectMultipleControlled = () => {
@@ -8,21 +8,26 @@ export const SelectMultipleControlled = () => {
   return (
     <Select
       className="max-w-md"
-      label="Select Label"
       isMultiple
       value={value}
       onValueChange={setValue}
     >
-      {Array(20)
-        .fill(null)
-        .map((_, idx) => {
-          const value = `option${idx}`;
-          return (
-            <SelectItem key={value} value={value}>
-              {`Option ${idx}`}
-            </SelectItem>
-          );
-        })}
+      <Select.Trigger />
+      <Select.Popover>
+        <Select.Content>
+          {Array(20)
+            .fill(null)
+            .map((_, idx) => {
+              const value = `option${idx}`;
+              return (
+                <Select.Item key={value} value={value} textValue={value}>
+                  {`Option ${idx}`}
+                  <Select.ItemIndicator />
+                </Select.Item>
+              );
+            })}
+        </Select.Content>
+      </Select.Popover>
     </Select>
   );
 };
