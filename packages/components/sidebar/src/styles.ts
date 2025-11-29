@@ -5,11 +5,13 @@ import type { VariantProps } from "@jamsrui/utils";
 export const sidebarVariants = tv({
   slots: {
     wrapper: "sidebar__wrapper group/sidebar-wrapper flex min-h-svh w-full",
-    sidebar: [
+    sidebar:
+      "sidebar group sidebar__root w-(--width) group-data-[state=collapsed]/sidebar-wrapper:w-0 duration-300 ease-out transition-[width]",
+    container: [
       "sidebar sidebar__root group fixed flex z-20 h-dvh max-h-dvh flex-col",
       "transition-all duration-300 ease-out",
       "w-(--width) left-0",
-      "data-[state=collapsed]:left-[calc((var(--width))*-1)]",
+      "group-data-[state=collapsed]:left-[calc((var(--width))*-1)]",
     ],
     header: "sidebar__header py-2 px-4",
     content: "sidebar__content flex h-full flex-col gap-2 bg-surface",

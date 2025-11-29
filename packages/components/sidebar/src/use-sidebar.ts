@@ -19,6 +19,7 @@ import type { SidebarMenu } from "./sidebar-menu";
 import type { SidebarMenuItem } from "./sidebar-menu-item";
 import type { SidebarMenuItemButton } from "./sidebar-menu-item-button";
 import { SidebarWrapper } from "./sidebar-wrapper";
+import { SidebarContainer } from "./sidebar-container";
 
 export const useSidebar = (props: useSidebar.Props) => {
   const { width = 250, ...elementProps } = props;
@@ -172,6 +173,17 @@ export const useSidebar = (props: useSidebar.Props) => {
     [styles]
   );
 
+  const getContainerProps: PropGetter<SidebarContainer.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("container"),
+      className: styles.container({
+        className: props.className,
+      }),
+    }),
+    [styles]
+  );
+
   return useMemo(
     () => ({
       getRootProps: getSidebarProps,
@@ -187,6 +199,7 @@ export const useSidebar = (props: useSidebar.Props) => {
       getBodyProps,
       getInsetProps,
       getWrapperProps,
+      getContainerProps,
     }),
     [
       getSidebarProps,
@@ -202,6 +215,7 @@ export const useSidebar = (props: useSidebar.Props) => {
       getBodyProps,
       getInsetProps,
       getWrapperProps,
+      getContainerProps,
     ]
   );
 };

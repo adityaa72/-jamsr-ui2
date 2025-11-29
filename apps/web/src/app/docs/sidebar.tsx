@@ -1,22 +1,7 @@
 "use client";
 
 import { AppLogo } from "@/components/app-logo";
-import {
-  Chip,
-  Sidebar,
-  SidebarBackdrop,
-  SidebarBody,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuItemButton,
-  SidebarToggle,
-  Text,
-} from "@jamsrui/react";
+import { Chip, Sidebar, Text } from "@jamsrui/react";
 import { Route } from "next";
 import Link from "next/link";
 
@@ -92,42 +77,44 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
 export const AppSidebar = () => {
   return (
     <Sidebar width={250}>
-      <SidebarBackdrop />
-      <SidebarContent>
-        <SidebarHeader className="flex justify-between border-b border-divider">
-          <AppLogo />
-          <SidebarToggle />
-        </SidebarHeader>
-        <SidebarBody>
-          {data.map((item) => {
-            const { items, title } = item;
-            return (
-              <SidebarGroup key={title}>
-                <SidebarGroupLabel>{title}</SidebarGroupLabel>
-                <SidebarMenu>
-                  {items.map((item) => {
-                    return (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuItemButton
-                          render={<Link href={item.url} />}
-                        >
-                          {item.title}
-                        </SidebarMenuItemButton>
-                      </SidebarMenuItem>
-                    );
-                  })}
-                </SidebarMenu>
-              </SidebarGroup>
-            );
-          })}
-        </SidebarBody>
-        <SidebarFooter className="flex gap-2 items-center">
-          <Text>Version 0.2.0</Text>
-          <Chip color="primary" size="sm">
-            Beta
-          </Chip>
-        </SidebarFooter>
-      </SidebarContent>
+      <Sidebar.Container>
+        <Sidebar.Backdrop />
+        <Sidebar.Content>
+          <Sidebar.Header className="flex justify-between border-b border-divider">
+            <AppLogo />
+            <Sidebar.Toggle />
+          </Sidebar.Header>
+          <Sidebar.Body>
+            {data.map((item) => {
+              const { items, title } = item;
+              return (
+                <Sidebar.Group key={title}>
+                  <Sidebar.GroupLabel>{title}</Sidebar.GroupLabel>
+                  <Sidebar.Menu>
+                    {items.map((item) => {
+                      return (
+                        <Sidebar.MenuItem key={item.title}>
+                          <Sidebar.MenuItemButton
+                            render={<Link href={item.url} />}
+                          >
+                            {item.title}
+                          </Sidebar.MenuItemButton>
+                        </Sidebar.MenuItem>
+                      );
+                    })}
+                  </Sidebar.Menu>
+                </Sidebar.Group>
+              );
+            })}
+          </Sidebar.Body>
+          <Sidebar.Footer className="flex gap-2 items-center">
+            <Text>Version 0.2.0</Text>
+            <Chip color="primary" size="sm">
+              Beta
+            </Chip>
+          </Sidebar.Footer>
+        </Sidebar.Content>
+      </Sidebar.Container>
     </Sidebar>
   );
 };

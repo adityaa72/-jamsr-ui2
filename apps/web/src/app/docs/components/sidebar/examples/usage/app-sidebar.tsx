@@ -48,32 +48,34 @@ const data = [
 
 export const AppSidebar = () => {
   return (
-    <Sidebar className="max-w-[250px]">
-      <Sidebar.Content>
-        {data.map((item) => {
-          const { items, title } = item;
-          return (
-            <Sidebar.Group key={title}>
-              <Sidebar.GroupLabel>{title}</Sidebar.GroupLabel>
-              <Sidebar.Menu>
-                {items.map((item) => {
-                  return (
-                    <Sidebar.MenuItem
-                      key={item.title}
-                      className="group/collapsible"
-                    >
-                      <Sidebar.MenuItemButton>
-                        {item.icon && item.icon}
-                        {item.title}
-                      </Sidebar.MenuItemButton>
-                    </Sidebar.MenuItem>
-                  );
-                })}
-              </Sidebar.Menu>
-            </Sidebar.Group>
-          );
-        })}
-      </Sidebar.Content>
+    <Sidebar>
+      <Sidebar.Container>
+        <Sidebar.Content>
+          {data.map((item) => {
+            const { items, title } = item;
+            return (
+              <Sidebar.Group key={title}>
+                <Sidebar.GroupLabel>{title}</Sidebar.GroupLabel>
+                <Sidebar.Menu>
+                  {items.map((item) => {
+                    return (
+                      <Sidebar.MenuItem
+                        key={item.title}
+                        className="group/collapsible"
+                      >
+                        <Sidebar.MenuItemButton>
+                          {item.icon && item.icon}
+                          {item.title}
+                        </Sidebar.MenuItemButton>
+                      </Sidebar.MenuItem>
+                    );
+                  })}
+                </Sidebar.Menu>
+              </Sidebar.Group>
+            );
+          })}
+        </Sidebar.Content>
+      </Sidebar.Container>
     </Sidebar>
   );
 };

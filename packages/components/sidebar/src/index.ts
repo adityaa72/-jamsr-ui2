@@ -1,6 +1,7 @@
 import { Sidebar as SidebarRoot } from "./sidebar";
 import { SidebarBackdrop } from "./sidebar-backdrop";
 import { SidebarBody } from "./sidebar-body";
+import { SidebarContainer } from "./sidebar-container";
 import { SidebarContent } from "./sidebar-content";
 import { SidebarFooter } from "./sidebar-footer";
 import { SidebarGroup } from "./sidebar-group";
@@ -48,4 +49,5 @@ export const Sidebar = Object.assign(SidebarRoot, {
   Toggle: SidebarToggle,
   Inset: SidebarInset,
   Wrapper: SidebarWrapper,
+  Container: SidebarContainer,
 });

@@ -4,9 +4,7 @@ import { AppSidebar } from "./app-sidebar";
 export const SidebarUsage = () => {
   return (
     <Sidebar.Wrapper>
-      <div className="w-(--width) group-data-[state=collapsed]/sidebar-wrapper:w-0 duration-300 ease-out transition-[width]">
-        <AppSidebar />
-      </div>
+      <AppSidebar />
       <Sidebar.Inset>
         <header className="border-b border-divider px-4 py-3 sticky top-0 bg-background">
           <Sidebar.Toggle />
