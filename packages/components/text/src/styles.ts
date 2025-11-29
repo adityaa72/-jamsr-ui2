@@ -4,7 +4,7 @@ import type { VariantProps } from "@jamsrui/utils";
 
 
 export const textVariants = tv({
-  base: "transition-colors",
+  base: "transition-colors cursor-default",
   variants: {
     variant: {
       h1: "text-4xl leading-tight",

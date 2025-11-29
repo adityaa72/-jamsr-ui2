@@ -114,10 +114,7 @@ export const useMenu = (props: useMenu.Props) => {
             "--available-height",
             `${availableHeight}px`
           );
-          elements.floating.style.setProperty(
-            "--transform-origin",
-            "top center"
-          );
+          elements.floating.style.setProperty("--transform-origin", "top left");
         },
       }),
     ],

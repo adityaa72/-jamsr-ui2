@@ -4,19 +4,19 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const avatarVariants = tv({
   slots: {
-    root: "relative group shrink-0 rounded-full bg-surface object-cover text-md font-medium [&>img]:size-full [&>img]:object-cover",
+    root: "relative cursor-default group shrink-0 rounded-full bg-surface object-cover [&>img]:size-full [&>img]:object-cover",
     img: "select-none group-data-[status=idle]:hidden group-data-[status=loading]:hidden rounded-inherit",
-    fallback: "absolute inset-0 flex items-center justify-center",
+    fallback: "absolute inset-0 flex items-center justify-center font-medium",
     indicator:
       "absolute -bottom-2 -right-1 size-6 flex justify-center items-center",
   },
   variants: {
     size: {
-      xs: { root: "size-6" },
-      sm: { root: "size-8" },
-      md: { root: "size-10" },
-      lg: { root: "size-12" },
-      xl: { root: "size-16" },
+      xs: { root: "size-6", fallback: "text-xs" },
+      sm: { root: "size-8", fallback: "text-sm" },
+      md: { root: "size-10", fallback: "text-base" },
+      lg: { root: "size-12", fallback: "text-lg" },
+      xl: { root: "size-16", fallback: "text-xl" },
     },
     color: {
       default: { root: "bg-default text-default-foreground ring-default" },

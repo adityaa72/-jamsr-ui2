@@ -1,26 +1,49 @@
-import { EmailIcon } from "@jamsrui/icons";
+import { Icon } from "@iconify/react";
 import { Sidebar } from "@jamsrui/react";
+import { SidebarHeader } from "./sidebar-header";
 
 const data = [
   {
-    title: "Platform",
     items: [
       {
-        title: "Playground",
-        icon: <EmailIcon />,
-        isActive: true,
+        title: "Preferences",
+        icon: "pajamas:preferences",
       },
       {
-        title: "Models",
-        icon: <EmailIcon />,
+        title: "Profile",
+        icon: "lets-icons:user",
       },
       {
-        title: "Documentation",
-        icon: <EmailIcon />,
+        title: "Notifications",
+        icon: "mynaui:notification-solid",
       },
       {
-        title: "Settings",
-        icon: <EmailIcon />,
+        title: "Security & access",
+        icon: "mdi:cloud-security",
+      },
+      {
+        title: "Connected accounts",
+        icon: "hugeicons:blockchain-02",
+      },
+    ],
+  },
+  {
+    title: "Issues",
+    items: [
+      {
+        title: "Labels",
+        url: "#",
+        icon: "pajamas:labels",
+      },
+      {
+        title: "Templates",
+        url: "#",
+        icon: "akar-icons:paper",
+      },
+      {
+        title: "SLAs",
+        url: "#",
+        icon: "solar:fire-linear",
       },
     ],
   },
@@ -28,19 +51,24 @@ const data = [
     title: "Projects",
     items: [
       {
-        title: "Design Engineering",
+        title: "Labels",
         url: "#",
-        icon: <EmailIcon />,
+        icon: "pajamas:labels",
       },
       {
-        title: "Sales & Marketing",
+        title: "Templates",
         url: "#",
-        icon: <EmailIcon />,
+        icon: "akar-icons:paper",
       },
       {
-        title: "Travel",
+        title: "Statuses",
         url: "#",
-        icon: <EmailIcon />,
+        icon: "pajamas:status",
+      },
+      {
+        title: "Updates",
+        url: "#",
+        icon: "hugeicons:analytics-up",
       },
     ],
   },
@@ -51,29 +79,39 @@ export const AppSidebar = () => {
     <Sidebar>
       <Sidebar.Container>
         <Sidebar.Content>
-          {data.map((item) => {
-            const { items, title } = item;
-            return (
-              <Sidebar.Group key={title}>
-                <Sidebar.GroupLabel>{title}</Sidebar.GroupLabel>
-                <Sidebar.Menu>
-                  {items.map((item) => {
-                    return (
-                      <Sidebar.MenuItem
-                        key={item.title}
-                        className="group/collapsible"
-                      >
-                        <Sidebar.MenuItemButton>
-                          {item.icon && item.icon}
-                          {item.title}
-                        </Sidebar.MenuItemButton>
-                      </Sidebar.MenuItem>
-                    );
-                  })}
-                </Sidebar.Menu>
-              </Sidebar.Group>
-            );
-          })}
+          <Sidebar.Header>
+            <SidebarHeader />
+          </Sidebar.Header>
+          <Sidebar.Body>
+            {data.map((item, idx) => {
+              const { items, title } = item;
+              return (
+                <Sidebar.Group key={idx}>
+                  {title && <Sidebar.GroupLabel>{title}</Sidebar.GroupLabel>}
+                  <Sidebar.Menu>
+                    {items.map((item) => {
+                      return (
+                        <Sidebar.MenuItem key={item.title}>
+                          <Sidebar.MenuItemButton className="text-sm py-1.25 text-sm">
+                            {item.icon && (
+                              <Icon
+                                icon={item.icon}
+                                className="text-foreground-secondary"
+                              />
+                            )}
+                            {item.title}
+                          </Sidebar.MenuItemButton>
+                        </Sidebar.MenuItem>
+                      );
+                    })}
+                  </Sidebar.Menu>
+                </Sidebar.Group>
+              );
+            })}
+          </Sidebar.Body>
+          <Sidebar.Footer>
+            <SidebarHeader />
+          </Sidebar.Footer>
         </Sidebar.Content>
       </Sidebar.Container>
     </Sidebar>
