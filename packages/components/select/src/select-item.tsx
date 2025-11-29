@@ -1,13 +1,15 @@
 "use client";
 
+import { useCallback } from "react";
+
 import { useListItem } from "@floating-ui/react";
 import { useRenderElement } from "@jamsrui/hooks";
+import { dataAttr } from "@jamsrui/utils";
 
 import { useSelectContext } from "./select-context";
-
-import { dataAttr, type UIProps } from "@jamsrui/utils";
 import { SelectItemContext } from "./select-item-context";
-import { useCallback } from "react";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const SelectItem = (props: SelectItem.Props) => {
   const { textValue, value, disabled, ...restProps } = props;
@@ -31,7 +33,7 @@ export const SelectItem = (props: SelectItem.Props) => {
   const handleClick = useCallback(() => {
     onSelectValue(value);
     handleSelect(index);
-  }, []);
+  }, [handleSelect, index, onSelectValue, value]);
 
   const handleOnKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLButtonElement>) => {

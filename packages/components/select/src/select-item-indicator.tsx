@@ -1,12 +1,13 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
+import { CheckIcon } from "@jamsrui/icons";
 
 import { useSelectContext } from "./select-context";
-
-import { CheckIcon } from "@jamsrui/icons";
-import type { UIProps } from "@jamsrui/utils";
 import { useSelectItemContext } from "./select-item-context";
+
+import type { UIProps } from "@jamsrui/utils";
+
 
 export const SelectItemIndicator = (props: SelectItemIndicator.Props) => {
   const { isSelected } = useSelectItemContext();

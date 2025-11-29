@@ -2,11 +2,13 @@
 
 import { useRenderElement } from "@jamsrui/hooks";
 
+
 import { useSelectContext } from "./select-context";
 import { SelectIndicator } from "./select-indicator";
 import { SelectValue } from "./select-value";
 
-import { type UIProps } from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
+
 
 export const SelectTrigger = (props: SelectTrigger.Props) => {
   const {
