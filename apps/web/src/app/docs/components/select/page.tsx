@@ -3,8 +3,6 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { SelectControlled } from "./examples/controlled";
-import { SelectCustomRenderComplex } from "./examples/custom-render-complex";
-import { SelectCustomRenderMultiple } from "./examples/custom-render-multiple";
 import { SelectCustomRenderValue } from "./examples/custom-render-value";
 import { SelectDisabled } from "./examples/disabled";
 import { SelectDisabledItems } from "./examples/disabled-items";
@@ -15,9 +13,9 @@ import { SelectRadius } from "./examples/radius";
 import { SelectSizes } from "./examples/sizes";
 import { SelectStartEndItems } from "./examples/start-end-items";
 import { SelectUsage } from "./examples/usage";
+import { SelectWithDescription } from "./examples/with-description";
 import { SelectWithErrorMessage } from "./examples/with-error-message";
-import { SelectWithHelperText } from "./examples/with-helper-text";
-import { SelectWithoutLabel } from "./examples/without-label";
+import { SelectWithIcons } from "./examples/with-icons";
 
 const title = "Select";
 const description =
@@ -75,10 +73,10 @@ const Select = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="With Helper Text"
-        url={resolvePath("with-helper-text.tsx")}
+        title="With Description"
+        url={resolvePath("with-description.tsx")}
       >
-        <SelectWithHelperText />
+        <SelectWithDescription />
       </CodeExample>
       <CodeExample
         isCentered
@@ -89,10 +87,10 @@ const Select = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Without Label"
-        url={resolvePath("without-label.tsx")}
+        title="With Icons"
+        url={resolvePath("with-icons.tsx")}
       >
-        <SelectWithoutLabel />
+        <SelectWithIcons />
       </CodeExample>
       <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <SelectSizes />

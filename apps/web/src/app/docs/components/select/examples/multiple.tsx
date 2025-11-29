@@ -12,8 +12,9 @@ export const SelectMultiple = () => {
             .map((_, idx) => {
               const value = `option${idx}`;
               return (
-                <Select.Item key={value} value={value}>
+                <Select.Item key={value} value={value} textValue={value}>
                   {`Option ${idx}`}
+                  <Select.ItemIndicator />
                 </Select.Item>
               );
             })}

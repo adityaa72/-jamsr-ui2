@@ -5,16 +5,11 @@ import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSelectContext } from "./select-context";
 
-import type { UIProps } from "@jamsrui/utils";
+import { dataAttr, type UIProps } from "@jamsrui/utils";
+import { SelectItemContext } from "./select-item-context";
 
 export const SelectItem = (props: SelectItem.Props) => {
-  const {
-    textValue,
-    children,
-    value,
-    isDisabled: isDisabledProp,
-    disabled,
-  } = props;
+  const { textValue, value, disabled, ...restProps } = props;
   const {
     getSelectItemProps,
     value: selectValue,
@@ -23,16 +18,10 @@ export const SelectItem = (props: SelectItem.Props) => {
     handleSelect,
     onSelectValue,
   } = useSelectContext();
-  const isDisabled = isDisabledProp ?? disabled;
-
-  const listLabel =
-    textValue ?? (typeof children === "string" ? children : textValue);
-  if (!listLabel) {
-    console.warn(`No label provided for list item with value ${value}`);
-  }
+  const isDisabled = disabled;
 
   const { ref, index } = useListItem({
-    label: listLabel,
+    label: textValue,
   });
 
   const isActive = activeIndex === index;
@@ -51,17 +40,17 @@ export const SelectItem = (props: SelectItem.Props) => {
 
   const renderElement = useRenderElement("button", {
     props: [
-      getSelectItemProps(props),
+      getSelectItemProps(restProps),
       {
         ref,
       },
       {
         role: "option",
-        "aria-selected": isSelected,
-        "data-selected": isSelected,
-        "aria-disabled": isDisabled,
-        "data-disabled": isDisabled,
-        "data-active": isActive,
+        "aria-selected": dataAttr(isSelected),
+        "data-selected": dataAttr(isSelected),
+        "aria-disabled": dataAttr(isDisabled),
+        "data-disabled": dataAttr(isDisabled),
+        "data-active": dataAttr(isActive),
         disabled: isDisabled,
         tabIndex: isActive ? 0 : -1,
       },
@@ -71,14 +60,17 @@ export const SelectItem = (props: SelectItem.Props) => {
       }) as any,
     ],
   });
-  return renderElement;
+  return (
+    <SelectItemContext value={{ isSelected }}>
+      {renderElement}
+    </SelectItemContext>
+  );
 };
 
 export namespace SelectItem {
   export interface Props extends UIProps<"button"> {
-    textValue?: string;
+    textValue: string;
     value: string;
-    isDisabled?: boolean;
     disabled?: boolean;
   }
 }

@@ -1,12 +1,8 @@
-"use client";
+import { Description, Label, Select } from "@jamsrui/react";
 
-import { Label, Select } from "@jamsrui/react";
-import { useState } from "react";
-
-export const SelectControlled = () => {
-  const [value, setValue] = useState<string[]>(["apple"]);
+export const SelectWithDescription = () => {
   return (
-    <Select className="max-w-xs" value={value} onValueChange={setValue}>
+    <Select className="max-w-xs" placeholder="Select Fruit">
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>
@@ -33,6 +29,7 @@ export const SelectControlled = () => {
           </Select.Item>
         </Select.Content>
       </Select.Popover>
+      <Description>Choose your favorite fruit</Description>
     </Select>
   );
 };

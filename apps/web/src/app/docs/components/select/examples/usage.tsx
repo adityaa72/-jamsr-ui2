@@ -11,23 +11,23 @@ export const SelectUsage = () => {
       <Select.Trigger />
       <Select.Popover>
         <Select.Content>
-          <SelectItem value="apple">
+          <SelectItem value="apple" textValue="Apple">
             Apple
             <Select.ItemIndicator />
           </SelectItem>
-          <SelectItem value="blueberry">
+          <SelectItem value="blueberry" textValue="Blueberry">
             Blueberry
             <Select.ItemIndicator />
           </SelectItem>
-          <SelectItem value="watermelon">
+          <SelectItem value="watermelon" textValue="Watermelon">
             Watermelon
             <Select.ItemIndicator />
           </SelectItem>
-          <SelectItem value="banana">
+          <SelectItem value="banana" textValue="Banana">
             Banana
             <Select.ItemIndicator />
           </SelectItem>
-          <SelectItem value="orange">
+          <SelectItem value="orange" textValue="Orange">
             Orange
             <Select.ItemIndicator />
           </SelectItem>

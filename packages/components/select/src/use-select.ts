@@ -1,4 +1,5 @@
 import {
+  Children,
   isValidElement,
   useCallback,
   useId,
@@ -21,7 +22,13 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import {
+  cn,
+  dataAttr,
+  dataAttrDev,
+  mapPropsVariants,
+  mergeProps,
+} from "@jamsrui/utils";
 
 import { selectVariants } from "./styles";
 
@@ -41,6 +48,11 @@ import type { SelectPopover } from "./select-popover";
 import type { SelectTrigger } from "./select-trigger";
 import type { SelectValue } from "./select-value";
 import type { SelectVariantProps } from "./styles";
+
+type SelectItemData = {
+  value: string;
+  textValue: string;
+};
 
 export const useSelect = (props: useSelect.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -71,6 +83,8 @@ export const useSelect = (props: useSelect.Props) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const labelsRef = useRef<(string | null)[]>([]);
+
+  const [selectItems, setSelectItems] = useState<SelectItemData[]>([]);
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -179,8 +193,9 @@ export const useSelect = (props: useSelect.Props) => {
       className: styles.root({
         className: cn(elementProps.className),
       }),
+      "data-open": dataAttr(isOpen),
     }),
-    [elementProps, styles]
+    [elementProps, isOpen, styles]
   );
 
   const getValueProps: PropGetter<SelectValue.Props> = useCallback(
@@ -197,15 +212,15 @@ export const useSelect = (props: useSelect.Props) => {
   const getTriggerProps: PropGetter<SelectTrigger.Props> = useCallback(
     (props) => ({
       type: "button",
-      ...mergeProps(props),
       id: labelId,
+      ...mergeProps(props),
       "data-slot": dataAttrDev("trigger"),
       className: styles.trigger({
         className: props.className,
       }),
       disabled: isDisabled,
-      "aria-disabled": isDisabled,
-      "data-disabled": isDisabled,
+      "aria-disabled": dataAttr(isDisabled),
+      "data-disabled": dataAttr(isDisabled),
       ...getReferenceProps({
         ref: setReference,
       }),
@@ -253,7 +268,7 @@ export const useSelect = (props: useSelect.Props) => {
     [floatingStyles, getFloatingProps, setFloating, styles]
   );
 
-  const getSelectItemProps: PropGetter<SelectItem.Props> = useCallback(
+  const getSelectItemProps: PropGetter<Partial<SelectItem.Props>> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("selectItem"),
@@ -294,28 +309,27 @@ export const useSelect = (props: useSelect.Props) => {
     []
   );
 
-  // const childrenArray = Children.toArray(children);
-  const childrenArray: React.ReactElement[] = []; // Todo:
-  const selectItems = childrenArray.map((item) => {
-    if (isValidElement<SelectItem.Props>(item)) {
-      return {
-        value: item.props.value,
-        children: item.props.children,
-        textValue: item.props.textValue,
-      };
-    }
-    return null;
-  });
+  const updateSelectItems = useCallback(
+    (children: React.ReactNode) => {
+      const childrenArray = Children.toArray(children);
+      const items: SelectItemData[] = [];
+      childrenArray.forEach((item) => {
+        if (isValidElement<SelectItem.Props>(item)) {
+          items.push({
+            value: item.props.value,
+            textValue: item.props.textValue,
+          });
+        }
+      });
+      setSelectItems(items);
+    },
+    [setSelectItems]
+  );
+
   const selectedLabels = useMemo(() => {
     const items = selectItems
       .filter((item) => item && value.includes(item.value))
-      .map(
-        (item) =>
-          item?.textValue ??
-          (typeof item?.children === "string"
-            ? item.children
-            : (item?.value ?? ""))
-      );
+      .map((item) => item?.textValue);
     return Array.from(new Set(items));
   }, [selectItems, value]);
 
@@ -346,10 +360,12 @@ export const useSelect = (props: useSelect.Props) => {
       placeholder,
       getRenderValue,
       getItemIndicatorProps,
+      updateSelectItems,
     }),
     [
       activeIndex,
       getItemIndicatorProps,
+      updateSelectItems,
       getContentProps,
       getFloatingListProps,
       getFocusManagerProps,

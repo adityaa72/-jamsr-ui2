@@ -1,4 +1,4 @@
-import { Label, Select, SelectItem } from "@jamsrui/react";
+import { Label, Select } from "@jamsrui/react";
 
 const SelectUsage = (props: { size: Select.Props["size"] }) => {
   const { size } = props;
@@ -8,11 +8,26 @@ const SelectUsage = (props: { size: Select.Props["size"] }) => {
       <Select.Trigger />
       <Select.Popover>
         <Select.Content>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="watermelon">Watermelon</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="orange">Orange</SelectItem>
+          <Select.Item value="apple" textValue="Apple">
+            Apple
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="blueberry" textValue="Blueberry">
+            Blueberry
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="watermelon" textValue="Watermelon">
+            Watermelon
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="banana" textValue="Banana">
+            Banana
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="orange" textValue="Orange">
+            Orange
+            <Select.ItemIndicator />
+          </Select.Item>
         </Select.Content>
       </Select.Popover>
     </Select>

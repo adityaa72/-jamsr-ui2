@@ -1,4 +1,4 @@
-import { Label, Select } from "@jamsrui/react";
+import { FieldError, Label, Select } from "@jamsrui/react";
 
 export const SelectWithErrorMessage = () => {
   return (
@@ -7,13 +7,29 @@ export const SelectWithErrorMessage = () => {
       <Select.Trigger />
       <Select.Popover>
         <Select.Content>
-          <Select.Item value="apple">Apple</Select.Item>
-          <Select.Item value="blueberry">Blueberry</Select.Item>
-          <Select.Item value="watermelon">Watermelon</Select.Item>
-          <Select.Item value="banana">Banana</Select.Item>
-          <Select.Item value="orange">Orange</Select.Item>
+          <Select.Item value="apple" textValue="Apple">
+            Apple
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="blueberry" textValue="Blueberry">
+            Blueberry
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="watermelon" textValue="Watermelon">
+            Watermelon
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="banana" textValue="Banana">
+            Banana
+            <Select.ItemIndicator />
+          </Select.Item>
+          <Select.Item value="orange" textValue="Orange">
+            Orange
+            <Select.ItemIndicator />
+          </Select.Item>
         </Select.Content>
       </Select.Popover>
+      <FieldError>Please select a fruit</FieldError>
     </Select>
   );
 };
