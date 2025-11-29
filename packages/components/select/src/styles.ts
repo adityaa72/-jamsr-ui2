@@ -62,7 +62,7 @@ export const selectVariants = tv({
     isInvalid: {
       true: {
         label: "text-danger",
-        trigger: "!border-danger",
+        trigger: "border-danger!",
       },
     },
   },

@@ -7,6 +7,7 @@ import { useSelectContext } from "./select-context";
 
 import { dataAttr, type UIProps } from "@jamsrui/utils";
 import { SelectItemContext } from "./select-item-context";
+import { useCallback } from "react";
 
 export const SelectItem = (props: SelectItem.Props) => {
   const { textValue, value, disabled, ...restProps } = props;
@@ -21,29 +22,30 @@ export const SelectItem = (props: SelectItem.Props) => {
   const isDisabled = disabled;
 
   const { ref, index } = useListItem({
-    label: textValue,
+    label: isDisabled ? null : textValue,
   });
 
   const isActive = activeIndex === index;
   const isSelected = selectValue.includes(value);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     onSelectValue(value);
     handleSelect(index);
-  };
+  }, []);
 
-  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (e.key === "Enter") {
-      handleClick();
-    }
-  };
+  const handleOnKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleClick();
+      }
+    },
+    [handleClick]
+  );
 
-  const renderElement = useRenderElement("button", {
+  const renderElement = useRenderElement("div", {
     props: [
       getSelectItemProps(restProps),
-      {
-        ref,
-      },
       {
         role: "option",
         "aria-selected": dataAttr(isSelected),
@@ -51,13 +53,17 @@ export const SelectItem = (props: SelectItem.Props) => {
         "aria-disabled": dataAttr(isDisabled),
         "data-disabled": dataAttr(isDisabled),
         "data-active": dataAttr(isActive),
-        disabled: isDisabled,
         tabIndex: isActive ? 0 : -1,
       },
-      getItemProps({
-        onClick: handleClick,
-        onKeyDown: handleOnKeyDown,
-      }) as any,
+      isDisabled
+        ? {}
+        : (getItemProps({
+            onClick: handleClick,
+            onKeyDown: handleOnKeyDown,
+          }) as any),
+      {
+        ref,
+      },
     ],
   });
   return (
@@ -68,7 +74,7 @@ export const SelectItem = (props: SelectItem.Props) => {
 };
 
 export namespace SelectItem {
-  export interface Props extends UIProps<"button"> {
+  export interface Props extends UIProps<"div"> {
     textValue: string;
     value: string;
     disabled?: boolean;

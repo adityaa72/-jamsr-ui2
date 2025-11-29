@@ -2,7 +2,6 @@
 
 import { FloatingFocusManager, FloatingPortal } from "@floating-ui/react";
 import { useRenderElement } from "@jamsrui/hooks";
-import { AnimatePresence } from "motion/react";
 
 import { useSelectContext } from "./select-context";
 
@@ -13,17 +12,13 @@ export const SelectPopover = (props: SelectPopover.Props) => {
   const renderElement = useRenderElement("div", {
     props: [getPopoverProps(props)],
   });
-  return (
-    <AnimatePresence>
-      {isOpen ? (
-        <FloatingPortal>
-          <FloatingFocusManager {...getFocusManagerProps()}>
-            {renderElement}
-          </FloatingFocusManager>
-        </FloatingPortal>
-      ) : null}
-    </AnimatePresence>
-  );
+  return isOpen ? (
+    <FloatingPortal>
+      <FloatingFocusManager {...getFocusManagerProps()}>
+        {renderElement}
+      </FloatingFocusManager>
+    </FloatingPortal>
+  ) : null;
 };
 
 export namespace SelectPopover {
