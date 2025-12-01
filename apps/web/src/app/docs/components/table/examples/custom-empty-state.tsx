@@ -23,7 +23,8 @@ const CustomTableEmptyState = () => {
             Any assets used in projects will live here. Start creating by
             uploading your files.
           </Text>
-          <Button size="xs" startContent={<RefreshIcon className="size-4" />}>
+          <Button size="sm">
+            <RefreshIcon className="size-4" />
             Refresh Page
           </Button>
         </div>

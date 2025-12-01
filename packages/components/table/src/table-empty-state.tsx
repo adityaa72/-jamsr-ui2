@@ -1,3 +1,5 @@
+"use client";
+
 import { TableCell } from "./table-cell";
 import { TableRow } from "./table-row";
 

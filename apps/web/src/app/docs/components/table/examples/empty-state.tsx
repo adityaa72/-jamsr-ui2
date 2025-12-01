@@ -1,22 +1,16 @@
-import {
-  Table,
-  TableBody,
-  TableColumn,
-  TableHeader,
-  TableRow,
-} from "@jamsrui/react";
+import { Table } from "@jamsrui/react";
 
 export const TableEmptyState = () => {
   return (
     <Table aria-label="Example static collection table" variant="solid">
-      <TableHeader>
-        <TableRow>
-          <TableColumn>Name</TableColumn>
-          <TableColumn>Role</TableColumn>
-          <TableColumn>Status</TableColumn>
-        </TableRow>
-      </TableHeader>
-      <TableBody />
+      <Table.Header>
+        <Table.Row>
+          <Table.Column>Name</Table.Column>
+          <Table.Column>Role</Table.Column>
+          <Table.Column>Status</Table.Column>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body />
     </Table>
   );
 };

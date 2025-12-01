@@ -7,7 +7,7 @@ import { tableVariants } from "./styles";
 import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 
 import type { TableSlots, TableVariantProps } from "./styles";
-import type { Table } from "./table";
+import { Table } from "./table";
 import type { TableBody } from "./table-body";
 import type { TableCell } from "./table-cell";
 import type { TableColumn } from "./table-column";

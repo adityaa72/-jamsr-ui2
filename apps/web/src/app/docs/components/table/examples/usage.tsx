@@ -1,49 +1,39 @@
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableFooter,
-  TableHeader,
-  TableRow,
-} from "@jamsrui/react";
-
+import { Button, Table } from "@jamsrui/react";
 export const TableUsage = () => {
   return (
     <Table aria-label="Example static collection table" variant="solid">
-      <TableHeader>
-        <TableRow>
-          <TableColumn>Name</TableColumn>
-          <TableColumn>Role</TableColumn>
-          <TableColumn>Status</TableColumn>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow>
-          <TableCell>Tony Reichert</TableCell>
-          <TableCell>CEO</TableCell>
-          <TableCell>Active</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Zoey Lang</TableCell>
-          <TableCell>Technical Lead</TableCell>
-          <TableCell>Paused</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Jane Fisher</TableCell>
-          <TableCell>Senior Developer</TableCell>
-          <TableCell>Active</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>William Howard</TableCell>
-          <TableCell>Community Manager</TableCell>
-          <TableCell>Vacation</TableCell>
-        </TableRow>
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3}>
+      <Table.Header>
+        <Table.Row>
+          <Table.Column>Name</Table.Column>
+          <Table.Column>Role</Table.Column>
+          <Table.Column>Status</Table.Column>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+      <Table.Footer>
+        <Table.Row>
+          <Table.Cell colSpan={3}>
             <div className="flex justify-between items-center">
               <span className="text-sm text-foreground-secondary">
                 Showing 4 of 4 employees
@@ -52,9 +42,9 @@ export const TableUsage = () => {
                 View All
               </Button>
             </div>
-          </TableCell>
-        </TableRow>
-      </TableFooter>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Footer>
     </Table>
   );
 };
