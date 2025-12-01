@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { OtpInput6Digits } from "./examples/6-digits";
 import { OtpInputControlled } from "./examples/controlled";
 import { OtpInputCustomization } from "./examples/customization";
+import { OtpInputDisabled } from "./examples/disabled";
 import { OtpInputOnComplete } from "./examples/on-complete";
 import { OtpInputRadius } from "./examples/radius";
 import { OtpInputSizes } from "./examples/sizes";
@@ -62,6 +63,13 @@ const OtpInput = () => {
         url={resolvePath("controlled.tsx")}
       >
         <OtpInputControlled />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Disabled"
+        url={resolvePath("disabled.tsx")}
+      >
+        <OtpInputDisabled />
       </CodeExample>
       <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <OtpInputSizes />

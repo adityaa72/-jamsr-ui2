@@ -1,7 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import {
+  useControlledState,
+  useFocus,
+  useHover,
+  useMergeRefs,
+} from "@jamsrui/hooks";
+import {
+  dataAttr,
+  dataAttrDev,
+  mapPropsVariants,
+  mergeProps,
+} from "@jamsrui/utils";
 
 import { otpInputVariants } from "./styles";
 
@@ -25,11 +35,13 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     value: valueProp,
     onValueChange,
     defaultValue,
-    disabled,
+    disabled: isDisabled = false,
     maxLength,
     onComplete,
     placeholder,
     pattern,
+    ref,
+    ...restProps
   } = $props;
   const [value = "", setValue] = useControlledState({
     defaultProp: defaultValue,
@@ -37,6 +49,10 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     onChange: onValueChange,
   });
   const inputRef = useRef<HTMLInputElement>(null);
+  const { ref: hoverRef, isHovered } = useHover({ isDisabled });
+  const { ref: focusRef, isFocused } = useFocus({ isDisabled });
+  const inputRefs = useMergeRefs([inputRef, hoverRef, focusRef, ref]);
+
   const inputMetadataRef = useRef<
     [number | null, number | null, "none" | "forward" | "backward" | null]
   >([
@@ -45,12 +61,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     inputRef.current?.selectionDirection ?? "none",
   ]);
   const regexp = useMemo(
-    () =>
-      pattern
-        ? typeof pattern === "string"
-          ? new RegExp(pattern)
-          : pattern
-        : null,
+    () => (pattern ? new RegExp(pattern) : null),
     [pattern]
   );
   const [selectionStart, setSelectionStart] = useState<number | null>(null);
@@ -193,10 +204,14 @@ export const useOtpInput = (props: useOtpInput.Props) => {
   const getRootProps: PropGetter<OtpInputRoot.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("root"),
+      "data-disabled": dataAttr(isDisabled),
+      "aria-disabled": dataAttr(isDisabled),
+      "data-hover": dataAttr(isHovered),
+      "data-focus": dataAttr(isFocused),
       ...props,
       className: styles.root({ className: props.className }),
     }),
-    [styles]
+    [isFocused, isHovered, styles, isDisabled]
   );
 
   const getGroupProps: PropGetter<OtpInputGroup.Props> = useCallback(
@@ -226,19 +241,34 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [styles]
   );
 
-  const getInputProps: PropGetter<OtpInputInput.Props> = useCallback(
-    (props) => ({
+  const getInputProps = useCallback(
+    (): OtpInputInput.Props => ({
+      ...mergeProps(restProps, {
+        onChange: handleOnChange,
+        onBlur: handleOnBlur,
+        onFocus: handleOnFocus,
+      }),
+      ref: inputRefs,
       "data-slot": dataAttrDev("input"),
-      ...props,
       value,
-      onChange: handleOnChange,
-      onBlur: handleOnBlur,
-      onFocus: handleOnFocus,
-      ref: inputRef,
       maxLength,
       className: styles.input({ className: props.className }),
+      disabled: isDisabled,
+      pattern: regexp?.source,
     }),
-    [value, handleOnChange, handleOnBlur, handleOnFocus, maxLength, styles]
+    [
+      restProps,
+      value,
+      handleOnChange,
+      handleOnBlur,
+      handleOnFocus,
+      inputRefs,
+      maxLength,
+      styles,
+      props.className,
+      isDisabled,
+      regexp?.source,
+    ]
   );
 
   const getCaretProps: PropGetter<OtpInputCaret.Props> = useCallback(
@@ -272,15 +302,18 @@ export const useOtpInput = (props: useOtpInput.Props) => {
   );
 };
 
+type OverrideProps<T, R> = Omit<T, keyof R> & R;
 export namespace useOtpInput {
-  export interface Props extends OtpInputVariants, OtpInputRoot.Props {
-    value?: string;
-    onValueChange?: (value: string) => void;
-    defaultValue?: string;
-    disabled?: boolean;
-    maxLength: number;
-    onComplete?: (value: string) => void;
-    placeholder?: string;
-    pattern?: string;
-  }
+  export interface Props
+    extends OtpInputVariants,
+      OverrideProps<
+        OtpInputInput.Props,
+        {
+          value?: string;
+          onValueChange?: (value: string) => void;
+          defaultValue?: string;
+          maxLength: number;
+          onComplete?: (value: string) => void;
+        }
+      > {}
 }
