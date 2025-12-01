@@ -297,7 +297,7 @@ export const useMenu = (props: useMenu.Props) => {
     [activeIndex, getItemProps, setHasFocusInside]
   );
 
-  const getMenuItemProps: PropGetter<MenuItem.Props> = useCallback(
+  const getMenuItemProps: PropGetter<Partial<MenuItem.Props>> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu-item"),

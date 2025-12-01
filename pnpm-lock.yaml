@@ -768,6 +768,9 @@ importers:
       '@jamsrui/input':
         specifier: workspace:^
         version: link:../input
+      '@jamsrui/label':
+        specifier: workspace:^
+        version: link:../label
       '@jamsrui/linear-progress':
         specifier: workspace:^
         version: link:../linear-progress

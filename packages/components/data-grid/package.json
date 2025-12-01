@@ -32,6 +32,7 @@
     "@jamsrui/icon-button": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/input": "workspace:^",
+    "@jamsrui/label": "workspace:^",
     "@jamsrui/linear-progress": "workspace:^",
     "@jamsrui/menu": "workspace:^",
     "@jamsrui/select": "workspace:^",

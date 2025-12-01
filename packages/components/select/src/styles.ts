@@ -4,9 +4,7 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const selectVariants = tv({
   slots: {
-    root: [
-      "select select__root group relative flex w-full flex-col gap-1 text-sm",
-    ],
+    root: ["select select__root group relative flex flex-col gap-1 text-sm"],
     value: [
       "select__value text-sm",
       "font-normal overflow-hidden text-ellipsis grow text-start",

@@ -2,7 +2,7 @@ import { Button } from "@jamsrui/button";
 import { useRenderElement } from "@jamsrui/hooks";
 import { Settings2Icon } from "@jamsrui/icons";
 import { AnimatedTickIcon } from "@jamsrui/icons/animated";
-import { Menu, MenuContent, MenuItem, MenuTrigger } from "@jamsrui/menu";
+import { Menu, MenuItem } from "@jamsrui/menu";
 
 import { useDataGridContext } from "./data-grid-context";
 
@@ -13,38 +13,36 @@ export const DataGridColumnVisibility = (
 ) => {
   const { table } = useDataGridContext();
   const composedChildren = (
-    <>
-      <Menu>
-        <MenuTrigger>
-          <Button size="sm" startContent={<Settings2Icon />} variant="flat">
-            Column Visibility
-          </Button>
-        </MenuTrigger>
-        <MenuContent>
-          {table.getAllLeafColumns().map((column) => {
-            const header = column.columnDef.header;
-            // @ts-expect-error todo
-            const text = typeof header === "function" ? header({}) : header;
-            return (
-              <MenuItem
-                key={column.id}
-                preventCloseOnClick
-                isDisabled={!column.getCanHide()}
-                onClick={column.getToggleVisibilityHandler()}
-                startContent={
-                  <AnimatedTickIcon
-                    className="text-primary"
-                    isSelected={column.getIsVisible()}
-                  />
-                }
-              >
-                {text}
-              </MenuItem>
-            );
-          })}
-        </MenuContent>
-      </Menu>
-    </>
+    <Menu>
+      <Menu.Trigger>
+        <Button size="sm" variant="flat">
+          <Settings2Icon />
+          Column Visibility
+        </Button>
+      </Menu.Trigger>
+      <Menu.Content>
+        {table.getAllLeafColumns().map((column) => {
+          const header = column.columnDef.header;
+          // @ts-expect-error todo
+          const text = typeof header === "function" ? header({}) : header;
+          return (
+            <MenuItem
+              key={column.id}
+              preventCloseOnClick
+              disabled={!column.getCanHide()}
+              onClick={column.getToggleVisibilityHandler()}
+              textValue={text}
+            >
+              <AnimatedTickIcon
+                className="text-primary"
+                isSelected={column.getIsVisible()}
+              />
+              {text}
+            </MenuItem>
+          );
+        })}
+      </Menu.Content>
+    </Menu>
   );
 
   const renderElement = useRenderElement("div", {

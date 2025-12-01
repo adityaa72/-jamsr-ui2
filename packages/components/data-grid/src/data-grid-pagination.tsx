@@ -7,8 +7,9 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@jamsrui/icons";
-import { Select, SelectItem } from "@jamsrui/select";
+import { Select } from "@jamsrui/select";
 
+import { Label } from "@jamsrui/label";
 import { useDataGridContext } from "./data-grid-context";
 
 export const DataGridPagination = () => {
@@ -46,21 +47,27 @@ export const DataGridPagination = () => {
       data-slot="pagination"
     >
       <Select
-        label="Rows Per Page:"
         onValueChange={onValueChange}
         returnFocus={false}
         size="sm"
         value={value}
-        classNames={{
-          root: "items-center flex max-w-[80px] flex-row gap-2",
-          label: "shrink-0",
-        }}
+        className="flex flex-row items-center gap-2"
       >
-        {[10, 20, 50, 100, 500].map((pageSize) => (
-          <SelectItem key={pageSize.toString()} value={pageSize.toString()}>
-            {pageSize.toString()}
-          </SelectItem>
-        ))}
+        <Label>Rows Per Page:</Label>
+        <Select.Trigger />
+        <Select.Popover>
+          <Select.Content>
+            {[10, 20, 50, 100, 500].map((pageSize) => (
+              <Select.Item
+                key={pageSize.toString()}
+                value={pageSize.toString()}
+                textValue={pageSize.toString()}
+              >
+                {pageSize.toString()}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select.Popover>
       </Select>
       <div className="flex gap-1 md:gap-4">
         <div className="flex items-center justify-center text-sm font-medium">
@@ -68,7 +75,7 @@ export const DataGridPagination = () => {
         </div>
         <div className="flex items-center">
           <IconButton
-            isDisabled={!table.getCanPreviousPage()}
+            disabled={!table.getCanPreviousPage()}
             label="First Page"
             onClick={onFirstPage}
             radius="full"
@@ -79,7 +86,7 @@ export const DataGridPagination = () => {
             <ChevronDoubleLeftIcon height={20} width={20} />
           </IconButton>
           <IconButton
-            isDisabled={!table.getCanPreviousPage()}
+            disabled={!table.getCanPreviousPage()}
             label="Previous Page"
             onClick={onPrevious}
             radius="full"
@@ -90,7 +97,7 @@ export const DataGridPagination = () => {
             <ChevronLeftIcon height={20} width={20} />
           </IconButton>
           <IconButton
-            isDisabled={!table.getCanNextPage()}
+            disabled={!table.getCanNextPage()}
             label="Next Page"
             onClick={onNext}
             radius="full"
@@ -101,7 +108,7 @@ export const DataGridPagination = () => {
             <ChevronRightIcon height={20} width={20} />
           </IconButton>
           <IconButton
-            isDisabled={!table.getCanNextPage()}
+            disabled={!table.getCanNextPage()}
             label="Last Page"
             onClick={onEnd}
             radius="full"

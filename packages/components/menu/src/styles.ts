@@ -12,7 +12,7 @@ export const menuVariants = tv({
       "shadow-lg border-[0.5px] border-divider-dark origin-(--transform-origin)",
     ],
     menuItem: [
-      "relative box-border flex size-full select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+      "relative box-border flex size-full select-none items-center gap-2 px-2 py-1.5 text-left outline-none data-disabled:cursor-not-allowed data-disabled:opacity-60",
       "ui-active:bg-surface-secondary",
     ],
     menuGroup: [""],

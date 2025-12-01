@@ -85,9 +85,9 @@ export const COLUMNS = [
       const { status } = original;
       return (
         <div className="flex gap-2 items-center">
-          <Avatar
-            src={original.avatar}
-            indicator={
+          <Avatar>
+            <Avatar.Image src={original.avatar} />
+            <Avatar.Indicator>
               <Chip
                 color={
                   (status === UserStatus.Active && "success") ||
@@ -97,9 +97,11 @@ export const COLUMNS = [
                 }
                 variant="dot"
                 isSquare
-              />
-            }
-          />
+              >
+                <Chip.Dot />
+              </Chip>
+            </Avatar.Indicator>
+          </Avatar>
           <div className="flex flex-col gap-1">
             <Text>{original.fullName}</Text>
             <Text variant="caption" className="text-foreground-secondary">
@@ -138,7 +140,7 @@ export const COLUMNS = [
       const { status } = original;
       return (
         <Chip
-          size="xs"
+          size="sm"
           variant="flat"
           isBordered
           color={
