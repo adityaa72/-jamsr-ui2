@@ -1,17 +1,15 @@
-import { Children, isValidElement, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { tabsVariant } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
-import type { ReactElement } from "react";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { TabsSlots, TabVariants } from "./styles";
+import type { TabsVariants } from "./styles";
 import type { Tab } from "./tab";
-import type { TabContent } from "./tab-content";
-import type { TabCursor } from "./tab-cursor";
+import type { TabIndicator } from "./tab-indicator";
 import type { TabList } from "./tab-list";
 import type { TabPanel } from "./tab-panel";
 import type { Tabs } from "./tabs";
@@ -26,8 +24,6 @@ export const useTabs = (props: useTabs.Props) => {
     defaultValue,
     value: propValue,
     onValueChange,
-    slotProps,
-    classNames,
     children,
     ...elementProps
   } = $props;
@@ -39,135 +35,80 @@ export const useTabs = (props: useTabs.Props) => {
     prop: propValue,
   });
 
-  const selectedTabContent = useMemo(() => {
-    const childrenArray = Children.toArray(children);
-    const selected = !value
-      ? (childrenArray[0] as ReactElement<Tab.Props>)
-      : (childrenArray.find((child) => {
-          if (!isValidElement<Tab.Props>(child)) return null;
-          return child.props.value === value;
-        }) as ReactElement<Tab.Props> | null);
-    return selected?.props.children as React.ReactElement;
-  }, [children, value]);
-
   const getRootProps: PropGetter<Tabs.Props> = useCallback(
     () => ({
       ...elementProps,
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("tabs"),
       className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
+        className: elementProps.className,
       }),
+      children,
     }),
-    [classNames?.root, elementProps, styles]
+    [elementProps, styles]
   );
 
   const getTabListProps: PropGetter<TabList.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.tabList, props),
+      ...props,
       "data-slot": dataAttrDev("tab-list"),
-      className: styles.tabList({
-        className: cn(
-          slotProps?.tabList?.className,
-          classNames?.tabList,
-          elementProps.className
-        ),
+      className: styles.list({
+        className: props.className,
       }),
     }),
-    [classNames?.tabList, elementProps.className, slotProps?.tabList, styles]
-  );
-
-  const getContentProps: PropGetter<TabContent.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(slotProps?.tabContent, props),
-      "data-slot": dataAttrDev("tab-content"),
-      className: styles.tabContent({
-        className: cn(
-          slotProps?.tabContent?.className,
-          classNames?.tabContent,
-          elementProps.className
-        ),
-      }),
-    }),
-    [
-      classNames?.tabContent,
-      elementProps.className,
-      slotProps?.tabContent,
-      styles,
-    ]
+    [styles]
   );
 
   const getTabProps: PropGetter<Tab.Props> = useCallback(
     (props) => ({
-      ...mergeProps<Tab.Props>(slotProps?.tab, props),
+      ...props,
       "data-slot": dataAttrDev("tab"),
       className: styles.tab({
-        className: cn(
-          slotProps?.tab?.className,
-          classNames?.tab,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [classNames?.tab, slotProps?.tab, styles]
+    [styles]
   );
 
-  const getCursorProps: PropGetter<TabCursor.Props> = useCallback(
+  const getIndicatorProps: PropGetter<TabIndicator.Props> = useCallback(
     (props) => ({
-      layoutId: "cursor",
-      ...mergeProps<TabCursor.Props>(slotProps?.cursor, props),
-      "data-slot": dataAttrDev("cursor"),
-      className: styles.cursor({
-        className: cn(
-          slotProps?.cursor?.className,
-          classNames?.cursor,
-          props.className
-        ),
+      layoutId: "indicator",
+      ...props,
+      "data-slot": dataAttrDev("indicator"),
+      className: styles.indicator({
+        className: props.className,
       }),
     }),
-    [classNames?.cursor, slotProps?.cursor, styles]
+    [styles]
   );
 
   const getPanelProps: PropGetter<TabPanel.Props> = useCallback(
     (props) => ({
-      ...mergeProps<TabPanel.Props>(slotProps?.tabContent, props),
+      ...props,
       "data-slot": dataAttrDev("tab-panel"),
       className: styles.panel({
-        className: cn(
-          slotProps?.tabPanel?.className,
-          classNames?.panel,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [
-      classNames?.panel,
-      slotProps?.tabContent,
-      slotProps?.tabPanel?.className,
-      styles,
-    ]
+    [styles]
   );
 
   return useMemo(
     () => ({
       getRootProps,
       getTabListProps,
-      getContentProps,
       getTabProps,
-      getCursorProps,
+      getIndicatorProps,
       value,
       setValue,
-      selectedTabContent,
       getPanelProps,
     }),
     [
-      getContentProps,
-      getCursorProps,
+      getIndicatorProps,
       getPanelProps,
       getRootProps,
       getTabListProps,
       getTabProps,
-      selectedTabContent,
       setValue,
       value,
     ]
@@ -175,17 +116,10 @@ export const useTabs = (props: useTabs.Props) => {
 };
 
 export namespace useTabs {
-  export interface Props extends UIProps<"div">, TabVariants {
+  export interface Props extends UIProps<"div">, TabsVariants {
     defaultValue?: string;
     value?: string;
     onValueChange?: (value: string) => void;
-    slotProps?: {
-      tab?: Tab.Props;
-      tabList?: TabList.Props;
-      tabContent?: TabContent.Props;
-      cursor?: TabCursor.Props;
-      tabPanel?: TabPanel.Props;
-    };
-    classNames?: SlotsToClassNames<TabsSlots>;
+    disabled?: boolean;
   }
 }

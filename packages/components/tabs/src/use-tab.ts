@@ -9,7 +9,6 @@ export const useTab = (props: useTab.Props) => {
   const handleClick = useCallback(() => {
     setValue(tabValue);
   }, [setValue, tabValue]);
-
   const isActive = value === tabValue;
 
   return useMemo(() => ({ isActive, handleClick }), [handleClick, isActive]);

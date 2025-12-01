@@ -7,11 +7,10 @@ import {
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const tabsVariant = tv({
   slots: {
     root: "",
-    tabList: [
+    list: [
       "inline-flex",
       "p-1",
       "h-fit",
@@ -20,42 +19,30 @@ export const tabsVariant = tv({
       "flex-nowrap",
       "overflow-x-auto",
       "scrollbar-hide",
-      "bg-default-100",
       "max-w-full overflow-auto",
     ],
     tab: [
-      "z-0 text-default-500",
+      "z-0 text-foreground-secondary",
       "w-full",
       "px-3",
       "py-1",
       "flex flex-row items-center justify-center gap-2",
-      "group",
       "relative",
       "outline-none",
-      "cursor-pointer",
+      "cursor-default",
       "transition-opacity",
       "tap-highlight-transparent",
-      "ui-disabled:cursor-not-allowed",
-      "ui-disabled:opacity-30",
-      "ui-disabled:text-foreground",
+      "disabled:cursor-not-allowed",
+      "disabled:opacity-30",
+      "data-selected:text-foreground",
       // focus ring
       ...focusVisibleClasses,
     ],
-    tabContent: [
-      "relative",
-      "z-10",
-      "whitespace-nowrap",
-      "transition-colors",
-      "text-default-500",
-      "uig-selected:text-foreground",
-      "flex flex-row items-center justify-center gap-2",
-    ],
-    cursor: ["absolute", "-z-1", "bg-white"],
+    indicator: ["absolute", "-z-1", "bg-white"],
     panel: [
       "py-3",
       "px-1",
       "outline-none",
-      "data-[inert=true]:hidden",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -63,20 +50,21 @@ export const tabsVariant = tv({
   variants: {
     variant: {
       solid: {
-        cursor: "inset-0",
+        list: "bg-background-secondary",
+        indicator: "inset-0",
       },
       light: {
-        tabList: "bg-transparent dark:bg-transparent",
-        cursor: "inset-0",
+        list: "bg-transparent",
+        indicator: "inset-0",
       },
       underlined: {
-        tabList: "bg-transparent dark:bg-transparent",
-        cursor: "bottom-0 h-[2px] w-4/5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
+        list: "bg-transparent",
+        indicator:
+          "bottom-0 h-[2px] w-4/5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
-        tabList:
-          "border-2 border-default-200 bg-transparent shadow-sm dark:bg-transparent",
-        cursor: "inset-0",
+        list: "border border-divider bg-transparent shadow-sm",
+        indicator: "inset-0",
       },
     },
     color: {
@@ -89,84 +77,63 @@ export const tabsVariant = tv({
     },
     size: {
       sm: {
-        tabList: "rounded-xl",
+        list: "rounded-xl",
         tab: "h-7 rounded text-xs",
-        cursor: "rounded",
+        indicator: "rounded",
       },
       md: {
-        tabList: "rounded-xl",
+        list: "rounded-xl",
         tab: "h-8 rounded text-sm",
-        cursor: "rounded-md",
+        indicator: "rounded-md",
       },
       lg: {
-        tabList: "rounded-lg",
+        list: "rounded-lg",
         tab: "h-9 rounded-xl text-base",
-        cursor: "rounded-xl",
+        indicator: "rounded-xl",
       },
     },
     radius: {
       none: {
-        tabList: "rounded-none",
+        list: "rounded-none",
         tab: "rounded-none",
-        cursor: "rounded-none",
+        indicator: "rounded-none",
       },
       sm: {
-        tabList: "rounded",
+        list: "rounded",
         tab: "rounded",
-        cursor: "rounded",
+        indicator: "rounded",
       },
       md: {
-        tabList: "rounded-md",
+        list: "rounded-md",
         tab: "rounded-md",
-        cursor: "rounded-md",
+        indicator: "rounded-md",
       },
       lg: {
-        tabList: "rounded-lg",
+        list: "rounded-lg",
         tab: "rounded-lg",
-        cursor: "rounded-lg",
+        indicator: "rounded-lg",
       },
       xl: {
-        tabList: "rounded-xl",
+        list: "rounded-xl",
         tab: "rounded-xl",
-        cursor: "rounded-xl",
+        indicator: "rounded-xl",
       },
       full: {
-        tabList: "rounded-full",
+        list: "rounded-full",
         tab: "rounded-full",
-        cursor: "rounded-full",
+        indicator: "rounded-full",
       },
     },
     fullWidth: {
       true: {
         root: "w-full",
-        tabList: "w-full",
-      },
-    },
-    isDisabled: {
-      true: {
-        tabList: "pointer-events-none opacity-disabled",
+        list: "w-full",
       },
     },
     disableAnimation: {
       true: {
         tab: "transition-none",
         tabContent: "transition-none",
-      },
-    },
-    placement: {
-      top: {},
-      start: {
-        tabList: "flex-col",
-        panel: "px-3 py-0",
-        root: "flex",
-      },
-      end: {
-        tabList: "flex-col",
-        panel: "px-3 py-0",
-        root: "flex flex-row-reverse",
-      },
-      bottom: {
-        root: "flex flex-col-reverse",
       },
     },
   },
@@ -179,7 +146,7 @@ export const tabsVariant = tv({
       variant: ["solid", "bordered", "light"],
       color: "default",
       className: {
-        cursor: ["bg-background", "dark:bg-default", "shadow-sm"],
+        indicator: ["bg-background", "dark:bg-default", "shadow-sm"],
         tabContent: "uig-selected:text-default-foreground",
       },
     },
@@ -187,7 +154,7 @@ export const tabsVariant = tv({
       variant: ["solid", "bordered", "light"],
       color: "primary",
       className: {
-        cursor: colorVariants.solid.primary,
+        indicator: colorVariants.solid.primary,
         tabContent: "uig-selected:text-primary-foreground",
       },
     },
@@ -195,7 +162,7 @@ export const tabsVariant = tv({
       variant: ["solid", "bordered", "light"],
       color: "secondary",
       className: {
-        cursor: colorVariants.solid.secondary,
+        indicator: colorVariants.solid.secondary,
         tabContent: "uig-selected:text-secondary-foreground",
       },
     },
@@ -203,7 +170,7 @@ export const tabsVariant = tv({
       variant: ["solid", "bordered", "light"],
       color: "success",
       className: {
-        cursor: colorVariants.solid.success,
+        indicator: colorVariants.solid.success,
         tabContent: "uig-selected:text-success-foreground",
       },
     },
@@ -211,7 +178,7 @@ export const tabsVariant = tv({
       variant: ["solid", "bordered", "light"],
       color: "warning",
       className: {
-        cursor: colorVariants.solid.warning,
+        indicator: colorVariants.solid.warning,
         tabContent: "uig-selected:text-warning-foreground",
       },
     },
@@ -219,7 +186,7 @@ export const tabsVariant = tv({
       variant: ["solid", "bordered", "light"],
       color: "danger",
       className: {
-        cursor: colorVariants.solid.danger,
+        indicator: colorVariants.solid.danger,
         tabContent: "uig-selected:text-danger-foreground",
       },
     },
@@ -228,7 +195,7 @@ export const tabsVariant = tv({
       variant: "underlined",
       color: "default",
       className: {
-        cursor: "bg-foreground",
+        indicator: "bg-foreground",
         tabContent: "uig-selected:text-foreground",
       },
     },
@@ -236,7 +203,7 @@ export const tabsVariant = tv({
       variant: "underlined",
       color: "primary",
       className: {
-        cursor: "bg-primary",
+        indicator: "bg-primary",
         tabContent: "uig-selected:text-primary",
       },
     },
@@ -244,7 +211,7 @@ export const tabsVariant = tv({
       variant: "underlined",
       color: "secondary",
       className: {
-        cursor: "bg-secondary",
+        indicator: "bg-secondary",
         tabContent: "uig-selected:text-secondary",
       },
     },
@@ -252,7 +219,7 @@ export const tabsVariant = tv({
       variant: "underlined",
       color: "success",
       className: {
-        cursor: "bg-success",
+        indicator: "bg-success",
         tabContent: "uig-selected:text-success",
       },
     },
@@ -260,7 +227,7 @@ export const tabsVariant = tv({
       variant: "underlined",
       color: "warning",
       className: {
-        cursor: "bg-warning",
+        indicator: "bg-warning",
         tabContent: "uig-selected:text-warning",
       },
     },
@@ -268,7 +235,7 @@ export const tabsVariant = tv({
       variant: "underlined",
       color: "danger",
       className: {
-        cursor: "bg-danger",
+        indicator: "bg-danger",
         tabContent: "uig-selected:text-danger",
       },
     },
@@ -278,9 +245,8 @@ export const tabsVariant = tv({
     variant: "solid",
     size: "md",
     fullWidth: false,
-    isDisabled: false,
   },
 });
 
-export type TabVariants = VariantProps<typeof tabsVariant>;
+export type TabsVariants = VariantProps<typeof tabsVariant>;
 export type TabsSlots = keyof ReturnType<typeof tabsVariant>;

@@ -1,37 +1,29 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
-import { TabContent } from "./tab-content";
-import { TabCursor } from "./tab-cursor";
 import { useTabsContext } from "./tabs-context";
 import { useTab } from "./use-tab";
 
-import type { UIProps } from "@jamsrui/utils";
+import { dataAttr, type UIProps } from "@jamsrui/utils";
+import { TabContext } from "./tab-context";
 
 export const Tab = (props: Tab.Props) => {
   const { getTabProps } = useTabsContext();
-  const { heading, value, ...elementProps } = getTabProps(props);
+  const { value, ...elementProps } = getTabProps(props);
   const { handleClick, isActive } = useTab({ value });
-
-  const composedChildren = (
-    <>
-      <TabContent>{heading}</TabContent>
-      {!!isActive && <TabCursor />}
-    </>
-  );
 
   const renderElement = useRenderElement("button", {
     props: [
       elementProps,
-      { onClick: handleClick },
-      { children: composedChildren },
+      { onClick: handleClick, "data-selected": dataAttr(isActive) },
     ],
   });
-  return renderElement;
+  return <TabContext value={{ isActive }}>{renderElement}</TabContext>;
 };
 
 export namespace Tab {
   export interface Props extends UIProps<"button"> {
     value: string;
-    heading: React.ReactNode;
   }
 }

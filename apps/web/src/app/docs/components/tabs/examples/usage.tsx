@@ -1,19 +1,32 @@
-import { Card, CardContent } from "@jamsrui/react";
-import { Tab, Tabs } from "@jamsrui/react";
+import { Card, CardContent, Tabs } from "@jamsrui/react";
 
 export const TabsUsage = () => {
   return (
     <Tabs defaultValue="photos">
-      <Tab value="photos" heading="Photos">
+      <Tabs.List>
+        <Tabs.Tab value="photos">
+          Photos
+          <Tabs.Indicator />
+        </Tabs.Tab>
+        <Tabs.Tab value="music">
+          Music
+          <Tabs.Indicator />
+        </Tabs.Tab>
+        <Tabs.Tab value="videos">
+          Videos
+          <Tabs.Indicator />
+        </Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value="photos">
         <Card>
           <CardContent>
             📸 <strong>12 new photos</strong> from your weekend trip to Yosemite
-            have been uploaded. Don’t forget to tag your friends and add them to
+            have been uploaded. Don't forget to tag your friends and add them to
             the shared album!
           </CardContent>
         </Card>
-      </Tab>
-      <Tab value="music" heading="Music">
+      </Tabs.Panel>
+      <Tabs.Panel value="music">
         <Card>
           <CardContent>
             🎵 You’ve got a new playlist: <em>“Lo-Fi Evenings”</em>. Featuring
@@ -21,8 +34,8 @@ export const TabsUsage = () => {
             unwinding.
           </CardContent>
         </Card>
-      </Tab>
-      <Tab value="videos" heading="Videos">
+      </Tabs.Panel>
+      <Tabs.Panel value="videos">
         <Card>
           <CardContent>
             🎬 Your recent video, <em>“How I Built a Web App in 7 Days”</em>,
@@ -30,7 +43,7 @@ export const TabsUsage = () => {
             insights for more stats.
           </CardContent>
         </Card>
-      </Tab>
+      </Tabs.Panel>
     </Tabs>
   );
 };

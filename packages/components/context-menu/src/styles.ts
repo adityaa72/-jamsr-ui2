@@ -2,7 +2,6 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const contextMenuVariants = tv({
   slots: {
     arrow: "fill-background-secondary",
@@ -11,7 +10,7 @@ export const contextMenuVariants = tv({
     content:
       "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
     menuItem: [
-      "relative box-border flex size-full cursor-pointer select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+      "relative box-border flex size-full cursor-default select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
       "ui-active:bg-surface-secondary",
     ],
     menuItemInner: "grow",

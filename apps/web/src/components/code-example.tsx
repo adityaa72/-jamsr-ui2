@@ -1,8 +1,7 @@
 import { readSourceCode } from "@/utils/code";
-import { Text } from "@jamsrui/react";
-import { CodeBlock, CodeBlockProps } from "./code-block";
-import { Tab, Tabs } from "@jamsrui/react";
+import { Tabs, Text } from "@jamsrui/react";
 import { cn } from "@jamsrui/utils";
+import { CodeBlock, CodeBlockProps } from "./code-block";
 
 type CodeExampleProps = Omit<CodeBlockProps, "children"> & {
   url: string;
@@ -45,7 +44,17 @@ export const CodeExample = async (props: CodeExampleProps) => {
         {description && <Text>{description}</Text>}
       </div>
       <Tabs defaultValue="preview">
-        <Tab heading="Preview" value="preview">
+        <Tabs.List>
+          <Tabs.Tab value="preview">
+            Preview
+            <Tabs.Indicator />
+          </Tabs.Tab>
+          <Tabs.Tab value="code">
+            Code
+            <Tabs.Indicator />
+          </Tabs.Tab>
+        </Tabs.List>
+        <Tabs.Panel value="preview">
           <div
             className={cn(
               "border min-h-[200px]  border-divider rounded-lg p-4",
@@ -54,10 +63,10 @@ export const CodeExample = async (props: CodeExampleProps) => {
           >
             {children}
           </div>
-        </Tab>
-        <Tab heading="Code" value="code">
+        </Tabs.Panel>
+        <Tabs.Panel value="code">
           <CodeBlock lang={lang}>{code}</CodeBlock>
-        </Tab>
+        </Tabs.Panel>
       </Tabs>
     </section>
   );
