@@ -16,14 +16,13 @@ export const OtpInputSlot = (props: OtpInputSlot.Props) => {
   const isActive = slot?.isActive ?? false;
   const char = slot?.char ?? "";
   const placeholderChar = slot?.placeholderChar ?? "";
-  const hasFakeCaret = slot?.hasFakeCaret ?? false;
 
   const children = useMemo(() => {
     if (char) return char;
     if (placeholderChar) return placeholderChar;
-    if (hasFakeCaret) return <OtpInputCaret />;
+    if (isActive) return <OtpInputCaret />;
     return null;
-  }, [hasFakeCaret, char, placeholderChar]);
+  }, [char, placeholderChar, isActive]);
 
   const renderElement = useRenderElement("div", {
     props: [

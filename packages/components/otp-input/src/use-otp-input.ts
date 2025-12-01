@@ -7,10 +7,12 @@ import { otpInputVariants } from "./styles";
 
 import type { PropGetter } from "@jamsrui/utils";
 
-import type { OtpInput } from "./otp-input";
 import type { OtpInputCaret } from "./otp-input-caret";
+import type { OtpInputGroup } from "./otp-input-group";
 import type { OtpInputInput } from "./otp-input-input";
 import type { OtpInputRoot } from "./otp-input-root";
+import type { OtpInputSeparator } from "./otp-input-separator";
+import type { OtpInputSlot } from "./otp-input-slot";
 import type { OtpInputVariants } from "./styles";
 
 export const useOtpInput = (props: useOtpInput.Props) => {
@@ -25,6 +27,9 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     defaultValue,
     disabled,
     maxLength,
+    onComplete,
+    placeholder,
+    pattern,
   } = $props;
   const [value = "", setValue] = useControlledState({
     defaultProp: defaultValue,
@@ -32,36 +37,85 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     onChange: onValueChange,
   });
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleValueChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value);
-    },
-    [setValue]
+  const inputMetadataRef = useRef<
+    [number | null, number | null, "none" | "forward" | "backward" | null]
+  >([
+    inputRef.current?.selectionStart ?? null,
+    inputRef.current?.selectionEnd ?? null,
+    inputRef.current?.selectionDirection ?? "none",
+  ]);
+  const regexp = useMemo(
+    () =>
+      pattern
+        ? typeof pattern === "string"
+          ? new RegExp(pattern)
+          : pattern
+        : null,
+    [pattern]
   );
-
   const [selectionStart, setSelectionStart] = useState<number | null>(null);
   const [selectionEnd, setSelectionEnd] = useState<number | null>(null);
+
+  const handleOnBlur = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+    setSelectionStart(null);
+    setSelectionEnd(null);
+  }, []);
+
+  const handleOnFocus = useCallback(
+    (e: React.FocusEvent<HTMLInputElement>) => {
+      if (inputRef.current) {
+        const start = Math.min(inputRef.current.value.length, maxLength - 1);
+        const end = inputRef.current.value.length;
+        inputRef.current.setSelectionRange(start, end);
+        setSelectionStart(start);
+        setSelectionEnd(end);
+      }
+    },
+    [maxLength]
+  );
+
+  const handleOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = e.currentTarget.value.slice(0, maxLength);
+      if (newValue.length > 0 && regexp && !regexp.test(newValue)) {
+        e.preventDefault();
+        return;
+      }
+
+      setValue(newValue);
+      if (newValue.length === maxLength) {
+        onComplete?.(newValue);
+      }
+    },
+    [maxLength, onComplete, regexp, setValue]
+  );
 
   useEffect(() => {
     const input = inputRef.current;
     if (!input) return;
 
+    inputMetadataRef.current = [
+      input.selectionStart,
+      input.selectionEnd,
+      input.selectionDirection,
+    ];
+
     function onDocumentSelectionChange() {
       if (!input) return;
-      console.log("selectionchange");
 
       if (document.activeElement !== input) {
+        setSelectionStart(null);
+        setSelectionEnd(null);
         return;
       }
 
       const selectionStart = input.selectionStart;
       const selectionEnd = input.selectionEnd;
       const selectionDirection = input.selectionDirection;
-
+      const prev = inputMetadataRef.current;
       let start = -1;
       let end = -1;
-      let direction = undefined;
+      let direction: "none" | "forward" | "backward" | undefined = undefined;
 
       if (
         value.length !== 0 &&
@@ -69,8 +123,6 @@ export const useOtpInput = (props: useOtpInput.Props) => {
         selectionEnd !== null
       ) {
         const isSingleCaret = selectionStart === selectionEnd;
-        console.log({ isSingleCaret });
-
         if (isSingleCaret) {
           if (selectionStart === 0) {
             start = 0;
@@ -79,21 +131,30 @@ export const useOtpInput = (props: useOtpInput.Props) => {
             start = maxLength - 1;
             end = maxLength;
           } else if (maxLength > 1 && value.length > 1) {
-            start = selectionStart;
+            let offset = 0;
+            if (prev[0] !== null && prev[1] !== null) {
+              direction = selectionStart < prev[1] ? "backward" : "forward";
+              const wasPreviouslyInserting =
+                prev[0] === prev[1] && prev[0] < selectionStart;
+              if (direction === "backward" && !wasPreviouslyInserting) {
+                offset = -1;
+              }
+            }
+            start = selectionStart + offset;
             end = start + 1;
           }
         }
-
         if (start != -1 && end !== -1 && start !== end) {
-          console.log({ start, end });
-          input.setSelectionRange(start, end, "forward");
+          input.setSelectionRange(start, end, direction);
         }
       }
 
       const s = start !== -1 ? start : selectionStart;
       const e = end !== -1 ? end : selectionEnd;
+      const dir = direction ?? selectionDirection;
       setSelectionStart(s);
       setSelectionEnd(e);
+      inputMetadataRef.current = [s, e, dir];
     }
 
     document.addEventListener("selectionchange", onDocumentSelectionChange, {
@@ -114,21 +175,19 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     () =>
       Array.from({ length: 6 }).map((_, index) => {
         const char = value[index] ?? null;
-        const placeholderChar = "-";
+        const placeholderChar = placeholder?.[index];
         const isActive =
           selectionStart !== null &&
           selectionEnd !== null &&
           ((selectionStart === selectionEnd && selectionStart === index) ||
             (selectionStart <= index && selectionEnd > index));
-        const hasFakeCaret = false;
         return {
           char,
           placeholderChar,
           isActive,
-          hasFakeCaret,
         };
       }),
-    [selectionEnd, selectionStart, value]
+    [placeholder, selectionEnd, selectionStart, value]
   );
 
   const getRootProps: PropGetter<OtpInputRoot.Props> = useCallback(
@@ -140,7 +199,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [styles]
   );
 
-  const getGroupProps: PropGetter<OtpInput.Props> = useCallback(
+  const getGroupProps: PropGetter<OtpInputGroup.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("group"),
       ...props,
@@ -149,7 +208,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [styles]
   );
 
-  const getSlotProps: PropGetter<OtpInput.Props> = useCallback(
+  const getSlotProps: PropGetter<OtpInputSlot.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("slot"),
       ...props,
@@ -158,7 +217,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [styles]
   );
 
-  const getSeparatorProps: PropGetter<OtpInput.Props> = useCallback(
+  const getSeparatorProps: PropGetter<OtpInputSeparator.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("separator"),
       ...props,
@@ -172,12 +231,14 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       "data-slot": dataAttrDev("input"),
       ...props,
       value,
-      onChange: handleValueChange,
+      onChange: handleOnChange,
+      onBlur: handleOnBlur,
+      onFocus: handleOnFocus,
       ref: inputRef,
       maxLength,
       className: styles.input({ className: props.className }),
     }),
-    [handleValueChange, styles, value]
+    [value, handleOnChange, handleOnBlur, handleOnFocus, maxLength, styles]
   );
 
   const getCaretProps: PropGetter<OtpInputCaret.Props> = useCallback(
@@ -218,5 +279,8 @@ export namespace useOtpInput {
     defaultValue?: string;
     disabled?: boolean;
     maxLength: number;
+    onComplete?: (value: string) => void;
+    placeholder?: string;
+    pattern?: string;
   }
 }
