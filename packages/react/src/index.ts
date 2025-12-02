@@ -33,7 +33,7 @@ export { Label } from '@jamsrui/label';
 export { LinearProgress, LinearProgressConfig, useLinearProgressConfig } from '@jamsrui/linear-progress';
 export { Link, LinkConfig, useLinkConfig } from '@jamsrui/link';
 export { MenuConfig, useMenuConfig, MenuCheckboxItem, MenuContainer, MenuContent, MenuGroup, MenuGroupLabel, MenuItem, MenuRadioGroup, MenuRadioItem, MenuSeparator, MenuTrigger, Menu } from '@jamsrui/menu';
-export { NumberInput, NumberInputConfig, useNumberInputConfig } from '@jamsrui/number-input';
+export { NumberFieldConfig, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput, useNumberFieldConfig, NumberField } from '@jamsrui/number-field';
 export { OtpInputConfig, useOtpInputConfig, REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS, OtpInput } from '@jamsrui/otp-input';
 export { Pagination, PaginationConfig, usePaginationConfig } from '@jamsrui/pagination';
 export { PopoverConfig, usePopoverConfig, PopoverContent, PopoverTrigger, Popover } from '@jamsrui/popover';

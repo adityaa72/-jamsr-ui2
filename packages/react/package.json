@@ -47,7 +47,7 @@
     "@jamsrui/linear-progress": "workspace:^",
     "@jamsrui/link": "workspace:^",
     "@jamsrui/menu": "workspace:^",
-    "@jamsrui/number-input": "workspace:^",
+    "@jamsrui/number-field": "workspace:^",
     "@jamsrui/otp-input": "workspace:^",
     "@jamsrui/pagination": "workspace:^",
     "@jamsrui/popover": "workspace:^",

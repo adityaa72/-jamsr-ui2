@@ -25,7 +25,7 @@ import { KbdConfig } from '@jamsrui/kbd';
 import { LinearProgressConfig } from '@jamsrui/linear-progress';
 import { LinkConfig } from '@jamsrui/link';
 import { MenuConfig } from '@jamsrui/menu';
-import { NumberInputConfig } from '@jamsrui/number-input';
+import { NumberFieldConfig } from '@jamsrui/number-field';
 import { OtpInputConfig } from '@jamsrui/otp-input';
 import { PaginationConfig } from '@jamsrui/pagination';
 import { PopoverConfig } from '@jamsrui/popover';
@@ -75,7 +75,7 @@ type Props = {
   linearProgress?: LinearProgressConfig.Props;
   link?: LinkConfig.Props;
   menu?: MenuConfig.Props;
-  numberInput?: NumberInputConfig.Props;
+  numberField?: NumberFieldConfig.Props;
   otpInput?: OtpInputConfig.Props;
   pagination?: PaginationConfig.Props;
   popover?: PopoverConfig.Props;
@@ -127,7 +127,7 @@ export const JamsrUIConfig = (props: Props) => {
   <LinearProgressConfig {...props.linearProgress}>
   <LinkConfig {...props.link}>
   <MenuConfig {...props.menu}>
-  <NumberInputConfig {...props.numberInput}>
+  <NumberFieldConfig {...props.numberField}>
   <OtpInputConfig {...props.otpInput}>
   <PaginationConfig {...props.pagination}>
   <PopoverConfig {...props.popover}>
@@ -167,7 +167,7 @@ export const JamsrUIConfig = (props: Props) => {
   </PopoverConfig>
   </PaginationConfig>
   </OtpInputConfig>
-  </NumberInputConfig>
+  </NumberFieldConfig>
   </MenuConfig>
   </LinkConfig>
   </LinearProgressConfig>

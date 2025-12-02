@@ -48,7 +48,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Linear Progress", url: "/docs/components/linear-progress" },
       { title: "Link", url: "/docs/components/link" },
       { title: "Menu", url: "/docs/components/menu" },
-      { title: "Number Input", url: "/docs/components/number-input" },
+      { title: "Number Field", url: "/docs/components/number-field" },
       { title: "Otp Input", url: "/docs/components/otp-input" },
       { title: "Pagination", url: "/docs/components/pagination" },
       { title: "Popover", url: "/docs/components/popover" },
