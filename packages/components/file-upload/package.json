@@ -1,6 +1,6 @@
 {
-  "name": "@jamsrui/alert-popover",
-  "version": "0.0.12",
+  "name": "@jamsrui/file-upload",
+  "version": "0.0.1",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -18,11 +18,8 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/button": "workspace:^",
-    "@jamsrui/popover": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/core": "workspace:^",
-    "@jamsrui/text": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"

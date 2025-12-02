@@ -1,7 +1,6 @@
-export { Accordion, AccordionConfig, useAccordionConfig, AccordionContent, AccordionItem, useAccordionItemState, AccordionTrigger } from '@jamsrui/accordion';
+export { AccordionConfig, AccordionContent, AccordionHeading, AccordionIndicator, AccordionItem, AccordionPanel, AccordionTrigger, useAccordionItemState, Accordion } from '@jamsrui/accordion';
 export { AlertConfig, useAlertConfig, AlertDescription, AlertTitle, alertStyles, useAlert, Alert } from '@jamsrui/alert';
-export { AlertDialog, AlertDialogConfig, useAlertDialogConfig } from '@jamsrui/alert-dialog';
-export { AlertPopover, AlertPopoverConfig, useAlertPopoverConfig } from '@jamsrui/alert-popover';
+export { AlertDialogConfig, useAlertDialogConfig, AlertDialogBody, AlertDialogContainer, AlertDialogContent, AlertDialogContentInner, AlertDialogDescription, AlertDialogFooter, AlertDialogTitle, AlertDialogTrigger, AlertDialogTriggerClose, AlertDialog } from '@jamsrui/alert-dialog';
 export { Autocomplete, AutocompleteConfig, useAutocompleteConfig, AutocompleteItem } from '@jamsrui/autocomplete';
 export { AvatarConfig, useAvatarConfig, Avatar } from '@jamsrui/avatar';
 export { Breadcrumb, BreadcrumbConfig, useBreadcrumbConfig } from '@jamsrui/breadcrumb';
@@ -24,6 +23,7 @@ export { Divider, DividerConfig, useDividerConfig } from '@jamsrui/divider';
 export { Drawer, DrawerBody, DrawerCloseButton, DrawerCloseTrigger, DrawerConfig, useDrawerConfig, DrawerContent, DrawerFooter, DrawerHeader, DrawerTrigger } from '@jamsrui/drawer';
 export { Editor, EditorConfig, useEditorConfig } from '@jamsrui/editor';
 export { FieldError } from '@jamsrui/field-error';
+export { FileUpload, FileUploadConfig, useFileUploadConfig, useFileUpload, formatBytes } from '@jamsrui/file-upload';
 export { Header, HeaderConfig, useHeaderConfig } from '@jamsrui/header';
 export { IconButton, IconButtonConfig, useIconButtonConfig } from '@jamsrui/icon-button';
 export { Input } from '@jamsrui/input';
@@ -46,8 +46,8 @@ export { SidebarConfig, useSidebarConfig, SidebarContext, useSidebarContext, use
 export { Skeleton, SkeletonConfig, useSkeletonConfig } from '@jamsrui/skeleton';
 export { Slider, SliderConfig, useSliderConfig } from '@jamsrui/slider';
 export { SwitchConfig, useSwitchConfig, Switch } from '@jamsrui/switch';
-export { TableBody, TableCell, TableColumn, TableFooter, TableHeader, TableRow, Table, TableConfig, useTableConfig } from '@jamsrui/table';
-export { Tab, Tabs, TabsConfig, useTabsConfig } from '@jamsrui/tabs';
+export { TableConfig, useTableConfig, TableBody, TableCell, TableColumn, TableFooter, TableHeader, TableRow, TableTable, TableWrapper, Table, TableSlots, TableVariantProps } from '@jamsrui/table';
+export { TabsConfig, useTabsConfig, Tab, TabIndicator, TabList, TabPanel, Tabs } from '@jamsrui/tabs';
 export { TagsInput, TagsInputConfig, useTagsInputConfig } from '@jamsrui/tags-input';
 export { textVariants, Text, TextConfig, useTextConfig } from '@jamsrui/text';
 export { Textarea } from '@jamsrui/textarea';

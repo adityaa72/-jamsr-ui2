@@ -1,7 +1,6 @@
 import { AccordionConfig } from '@jamsrui/accordion';
 import { AlertConfig } from '@jamsrui/alert';
 import { AlertDialogConfig } from '@jamsrui/alert-dialog';
-import { AlertPopoverConfig } from '@jamsrui/alert-popover';
 import { AutocompleteConfig } from '@jamsrui/autocomplete';
 import { AvatarConfig } from '@jamsrui/avatar';
 import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
@@ -19,6 +18,7 @@ import { DialogConfig } from '@jamsrui/dialog';
 import { DividerConfig } from '@jamsrui/divider';
 import { DrawerConfig } from '@jamsrui/drawer';
 import { EditorConfig } from '@jamsrui/editor';
+import { FileUploadConfig } from '@jamsrui/file-upload';
 import { HeaderConfig } from '@jamsrui/header';
 import { IconButtonConfig } from '@jamsrui/icon-button';
 import { KbdConfig } from '@jamsrui/kbd';
@@ -51,7 +51,6 @@ type Props = {
   accordion?: AccordionConfig.Props;
   alert?: AlertConfig.Props;
   alertDialog?: AlertDialogConfig.Props;
-  alertPopover?: AlertPopoverConfig.Props;
   autocomplete?: AutocompleteConfig.Props;
   avatar?: AvatarConfig.Props;
   breadcrumb?: BreadcrumbConfig.Props;
@@ -69,6 +68,7 @@ type Props = {
   divider?: DividerConfig.Props;
   drawer?: DrawerConfig.Props;
   editor?: EditorConfig.Props;
+  fileUpload?: FileUploadConfig.Props;
   header?: HeaderConfig.Props;
   iconButton?: IconButtonConfig.Props;
   kbd?: KbdConfig.Props;
@@ -103,7 +103,6 @@ export const JamsrUIConfig = (props: Props) => {
   <AccordionConfig {...props.accordion}>
   <AlertConfig {...props.alert}>
   <AlertDialogConfig {...props.alertDialog}>
-  <AlertPopoverConfig {...props.alertPopover}>
   <AutocompleteConfig {...props.autocomplete}>
   <AvatarConfig {...props.avatar}>
   <BreadcrumbConfig {...props.breadcrumb}>
@@ -121,6 +120,7 @@ export const JamsrUIConfig = (props: Props) => {
   <DividerConfig {...props.divider}>
   <DrawerConfig {...props.drawer}>
   <EditorConfig {...props.editor}>
+  <FileUploadConfig {...props.fileUpload}>
   <HeaderConfig {...props.header}>
   <IconButtonConfig {...props.iconButton}>
   <KbdConfig {...props.kbd}>
@@ -174,6 +174,7 @@ export const JamsrUIConfig = (props: Props) => {
   </KbdConfig>
   </IconButtonConfig>
   </HeaderConfig>
+  </FileUploadConfig>
   </EditorConfig>
   </DrawerConfig>
   </DividerConfig>
@@ -191,7 +192,6 @@ export const JamsrUIConfig = (props: Props) => {
   </BreadcrumbConfig>
   </AvatarConfig>
   </AutocompleteConfig>
-  </AlertPopoverConfig>
   </AlertDialogConfig>
   </AlertConfig>
   </AccordionConfig>

@@ -6,8 +6,7 @@ export const AccordionUsage = () => {
       <Accordion.Item>
         <Accordion.Heading>
           <Accordion.Trigger>
-            Accordion 1
-            <Accordion.Indicator />
+            Accordion 1<Accordion.Indicator />
           </Accordion.Trigger>
         </Accordion.Heading>
         <Accordion.Panel>
