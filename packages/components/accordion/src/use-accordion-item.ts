@@ -1,35 +1,27 @@
 import { useCallback, useId, useMemo } from "react";
 
 import { useCompositeItem } from "@jamsrui/composite";
-import { cn, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { cn, dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { useAccordionContext } from "./accordion-context";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { AccordionContent } from "./accordion-content";
-import type { AccordionContentWrapper } from "./accordion-content-wrapper";
-import type { AccordionHeadingContent } from "./accordion-heading-content";
+import { AccordionContent } from "./accordion-content";
+import type { AccordionHeading } from "./accordion-heading";
 import type { AccordionIndicator } from "./accordion-indicator";
 import type { AccordionItem } from "./accordion-item";
+import { AccordionPanel } from "./accordion-panel";
 import type { AccordionTrigger } from "./accordion-trigger";
 
 export const useAccordionItem = (props: useAccordionItem.Props) => {
-  const {
-    styles,
-    classNames,
-    handleAccordionOpen,
-    value,
-    elementRefs,
-    slotProps,
-  } = useAccordionContext();
-  // const { index } = useAccordionListItem();
+  const { styles, handleAccordionOpen, value, elementRefs } =
+    useAccordionContext();
   const { index } = useCompositeItem({});
   const indexValue = (index + 1).toString();
   const {
     value: itemValue = indexValue,
-    isDisabled,
-    indicator,
+    disabled: isDisabled,
     ...elementProps
   } = props;
   const isOpen = useMemo(() => value.includes(itemValue), [value, itemValue]);
@@ -40,44 +32,39 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     (props) => ({
       ...elementProps,
       ...props,
-      "data-slot": dataAttrDev("item"),
+      "data-slot": dataAttrDev("accordion-item"),
       className: styles.item({
-        className: cn(
-          classNames?.item,
-          elementProps.className,
-          props.className
-        ),
+        className: cn(elementProps.className, props.className),
       }),
-      "aria-disabled": isDisabled,
-      "data-disabled": isDisabled,
+      "aria-disabled": dataAttr(isDisabled),
+      "data-disabled": dataAttr(isDisabled),
     }),
-    [classNames?.item, elementProps, isDisabled, styles]
+    [elementProps, isDisabled, styles]
   );
 
-  const getContentWrapperProps: PropGetter<AccordionContentWrapper.Props> =
-    useCallback(
-      (props) => ({
-        ...props,
-        "data-slot": dataAttrDev("content-wrapper"),
-        className: styles.contentWrapper({
-          className: cn(classNames?.contentWrapper, props.className),
-        }),
+  const getPanelProps: PropGetter<AccordionPanel.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("panel"),
+      className: styles.panel({
+        className: cn(props.className),
       }),
-      [classNames?.contentWrapper, styles]
-    );
+      role: "region",
+      "aria-labelledby": triggerId,
+      id: contentId,
+    }),
+    [styles, triggerId, contentId]
+  );
 
   const getContentProps: PropGetter<AccordionContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("content"),
       className: styles.content({
-        className: cn(classNames?.content, props.className),
+        className: props.className,
       }),
-      role: "region",
-      "aria-labelledby": triggerId,
-      id: contentId,
     }),
-    [classNames?.content, contentId, styles, triggerId]
+    [styles]
   );
 
   const getTriggerProps: PropGetter<AccordionTrigger.Props> = useCallback(
@@ -92,7 +79,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
       }),
       "data-slot": dataAttrDev("trigger"),
       className: styles.trigger({
-        className: cn(classNames?.trigger, props.className),
+        className: props.className,
       }),
       id: triggerId,
       "aria-expanded": isOpen,
@@ -101,7 +88,6 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     [
       isDisabled,
       styles,
-      classNames?.trigger,
       triggerId,
       isOpen,
       contentId,
@@ -112,65 +98,47 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
 
   const getIndicatorProps: PropGetter<AccordionIndicator.Props> = useCallback(
     (props) => ({
-      ...slotProps?.trigger,
       ...props,
       "data-slot": dataAttrDev("indicator"),
-      "data-open": isOpen,
+      "data-open": dataAttr(isOpen),
       className: styles.indicator({
-        className: cn(
-          slotProps?.indicator?.className,
-          classNames?.indicator,
-          props.className
-        ),
+        className: props.className,
       }),
     }),
-    [
-      classNames?.indicator,
-      isOpen,
-      slotProps?.indicator?.className,
-      slotProps?.trigger,
-      styles,
-    ]
+    [isOpen, styles]
   );
 
-  const getHeadingContentProps: PropGetter<AccordionHeadingContent.Props> =
-    useCallback(
-      (props) => ({
-        ...mergeProps(slotProps?.headingContent, props),
-        "data-slot": dataAttrDev("heading-content"),
-        className: styles.headingContent({
-          className: cn(
-            slotProps?.headingContent?.className,
-            classNames?.headingContent,
-            props.className
-          ),
-        }),
+  const getHeadingProps: PropGetter<AccordionHeading.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("heading"),
+      className: styles.heading({
+        className: props.className,
       }),
-      [classNames?.headingContent, slotProps?.headingContent, styles]
-    );
+    }),
+    [styles]
+  );
 
   return useMemo(
     () => ({
       getItemProps,
       getContentProps,
       getTriggerProps,
-      getContentWrapperProps,
       getIndicatorProps,
-      getHeadingContentProps,
       isOpen,
-      indicator,
       isDisabled,
+      getHeadingProps,
+      getPanelProps,
     }),
     [
       getItemProps,
       getContentProps,
       getTriggerProps,
-      getContentWrapperProps,
       getIndicatorProps,
-      getHeadingContentProps,
+      getHeadingProps,
       isOpen,
-      indicator,
       isDisabled,
+      getPanelProps,
     ]
   );
 };
@@ -178,7 +146,6 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
 export namespace useAccordionItem {
   export interface Props extends UIProps<"div"> {
     value?: string;
-    isDisabled?: boolean;
-    indicator?: React.ReactNode;
+    disabled?: boolean;
   }
 }

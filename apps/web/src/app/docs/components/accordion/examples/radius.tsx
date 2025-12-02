@@ -1,25 +1,41 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@jamsrui/react";
+import { Accordion } from "@jamsrui/react";
 
 export const AccordionRadius = () => {
   return (
-    <Accordion variant="splitted" radius="2xl" >
-      <AccordionItem>
-        <AccordionTrigger>Accordion 1</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
-      <AccordionItem>
-        <AccordionTrigger>Accordion 2</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
-      <AccordionItem>
-        <AccordionTrigger>Accordion 3</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
+    <Accordion variant="splitted" radius="2xl">
+      <Accordion.Item>
+        <Accordion.Heading>
+          <Accordion.Trigger>
+            Accordion 1
+            <Accordion.Indicator />
+          </Accordion.Trigger>
+        </Accordion.Heading>
+        <Accordion.Panel>
+          <Accordion.Content>I am the accordion content</Accordion.Content>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item>
+        <Accordion.Heading>
+          <Accordion.Trigger>
+            Accordion 2
+            <Accordion.Indicator />
+          </Accordion.Trigger>
+        </Accordion.Heading>
+        <Accordion.Panel>
+          <Accordion.Content>I am the accordion content</Accordion.Content>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item>
+        <Accordion.Heading>
+          <Accordion.Trigger>
+            Accordion 3
+            <Accordion.Indicator />
+          </Accordion.Trigger>
+        </Accordion.Heading>
+        <Accordion.Panel>
+          <Accordion.Content>I am the accordion content</Accordion.Content>
+        </Accordion.Panel>
+      </Accordion.Item>
     </Accordion>
   );
 };

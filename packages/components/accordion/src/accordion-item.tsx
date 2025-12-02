@@ -1,16 +1,13 @@
-import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
+"use client";
 
-import { useAccordionContext } from "./accordion-context";
+import { useRenderElement } from "@jamsrui/hooks";
+
 import { AccordionItemContextProvider } from "./accordion-item-context";
 import { useAccordionItem } from "./use-accordion-item";
 
 const AccordionItem = (props: AccordionItem.Props) => {
-  const rootCtx = useAccordionContext();
-  const mergedProps = mergeProps(rootCtx.slotProps?.item ?? {}, props);
-  const ctx = useAccordionItem(mergedProps);
+  const ctx = useAccordionItem(props);
   const { getItemProps } = ctx;
-
   const renderElement = useRenderElement("div", {
     props: [getItemProps({})],
   });

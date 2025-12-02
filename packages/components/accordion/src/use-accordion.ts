@@ -5,16 +5,10 @@ import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { accordionVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Accordion } from "./accordion";
-import type { AccordionContent } from "./accordion-content";
-import type { AccordionContentWrapper } from "./accordion-content-wrapper";
-import type { AccordionHeadingContent } from "./accordion-heading-content";
-import type { AccordionIndicator } from "./accordion-indicator";
-import type { AccordionItem } from "./accordion-item";
-import type { AccordionTrigger } from "./accordion-trigger";
-import type { AccordionSlots, AccordionVariants } from "./styles";
+import type { AccordionVariants } from "./styles";
 
 export const useAccordion = (props: useAccordion.Props) => {
   const [elementProps, variantProps] = mapPropsVariants(
@@ -24,13 +18,10 @@ export const useAccordion = (props: useAccordion.Props) => {
   const {
     value: valueProp,
     defaultValue,
-    isDisabled,
+    disabled: isDisabled = false,
     onValueChange,
     isMultiple,
     loop,
-    slotProps,
-    classNames,
-    hideIndicator,
     ...restProps
   } = elementProps;
 
@@ -67,10 +58,10 @@ export const useAccordion = (props: useAccordion.Props) => {
       ...props,
       "data-slot": dataAttrDev("root"),
       className: styles.root({
-        className: cn(classNames?.root, restProps.className, props.className),
+        className: cn(restProps.className, props.className),
       }),
     }),
-    [classNames?.root, restProps, styles]
+    [restProps, styles]
   );
 
   return useMemo(
@@ -79,23 +70,18 @@ export const useAccordion = (props: useAccordion.Props) => {
       handleValueChange,
       value,
       isDisabled,
-      slotProps,
-      classNames,
       styles,
       handleAccordionOpen,
       elementRefs,
-      hideIndicator,
     }),
     [
-      classNames,
       getRootProps,
       handleAccordionOpen,
       handleValueChange,
       isDisabled,
-      slotProps,
       styles,
       value,
-      hideIndicator,
+      elementRefs,
     ]
   );
 };
@@ -103,21 +89,11 @@ export const useAccordion = (props: useAccordion.Props) => {
 export namespace useAccordion {
   export type AccordionValue = string[];
   export interface Props extends UIProps<"div">, AccordionVariants {
-    slotProps?: {
-      trigger?: AccordionTrigger.Props;
-      item?: AccordionItem.Props;
-      content?: AccordionContent.Props;
-      contentWrapper?: AccordionContentWrapper.Props;
-      indicator?: AccordionIndicator.Props;
-      headingContent?: AccordionHeadingContent.Props;
-    };
-    classNames?: SlotsToClassNames<AccordionSlots>;
     value?: AccordionValue;
     defaultValue?: AccordionValue;
-    isDisabled?: boolean;
+    disabled?: boolean;
     onValueChange?: (value: AccordionValue) => void;
     isMultiple?: boolean;
     loop?: boolean;
-    hideIndicator?: boolean;
   }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, use } from "react";
 
 import type { useAccordionItem } from "./use-accordion-item";
@@ -26,7 +28,6 @@ export const useAccordionItemState = () => {
   return {
     isOpen: ctx.isOpen,
     isDisabled: ctx.isDisabled,
-    indicator: ctx.indicator,
   };
 };
 

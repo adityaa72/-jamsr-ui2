@@ -1,32 +1,18 @@
-import { useRenderElement } from "@jamsrui/hooks";
-import { mergeProps } from "@jamsrui/utils";
-import { AnimatePresence } from "motion/react";
+"use client";
 
-import { AccordionContentWrapper } from "./accordion-content-wrapper";
-import { useAccordionContext } from "./accordion-context";
+import { UIProps } from "@jamsrui/utils";
+
+import { useRenderElement } from "@jamsrui/hooks";
 import { useAccordionItemContext } from "./accordion-item-context";
 
-import type { UIProps } from "@jamsrui/utils";
-
-const AccordionContent = (props: AccordionContent.Props) => {
-  const ctx = useAccordionContext();
-  const mergedProps = mergeProps(ctx.slotProps?.content ?? {}, props);
-
-  const { isOpen, getContentProps } = useAccordionItemContext();
+export const AccordionContent = (props: AccordionContent.Props) => {
+  const { getContentProps } = useAccordionItemContext();
   const renderElement = useRenderElement("div", {
-    props: [getContentProps(mergedProps)],
+    props: [getContentProps(props)],
   });
-  return (
-    <AnimatePresence>
-      {!!isOpen && (
-        <AccordionContentWrapper>{renderElement}</AccordionContentWrapper>
-      )}
-    </AnimatePresence>
-  );
+  return renderElement;
 };
 
-namespace AccordionContent {
+export namespace AccordionContent {
   export interface Props extends UIProps<"div"> {}
 }
-
-export { AccordionContent };

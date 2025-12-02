@@ -1,15 +1,9 @@
 "use client";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-  useAccordionItemState,
-} from "@jamsrui/react";
 import { MinusIcon, PlusIcon } from "@jamsrui/icons";
+import { Accordion, useAccordionItemState } from "@jamsrui/react";
 
-const AccordionIndicator = () => {
+const AccordionIcon = () => {
   const { isOpen } = useAccordionItemState();
   return isOpen ? <MinusIcon /> : <PlusIcon />;
 };
@@ -17,18 +11,45 @@ const AccordionIndicator = () => {
 export const AccordionCustomIcon = () => {
   return (
     <Accordion variant="splitted">
-      <AccordionItem indicator={<AccordionIndicator />}>
-        <AccordionTrigger>Accordion 1</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
-      <AccordionItem indicator={<AccordionIndicator />}>
-        <AccordionTrigger>Accordion 2</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
-      <AccordionItem indicator={<AccordionIndicator />}>
-        <AccordionTrigger>Accordion 3</AccordionTrigger>
-        <AccordionContent>I am the accordion content</AccordionContent>
-      </AccordionItem>
+      <Accordion.Item>
+        <Accordion.Heading>
+          <Accordion.Trigger>
+            Accordion 1
+            <Accordion.Indicator>
+              <AccordionIcon />
+            </Accordion.Indicator>
+          </Accordion.Trigger>
+        </Accordion.Heading>
+        <Accordion.Panel>
+          <Accordion.Content>I am the accordion content</Accordion.Content>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item>
+        <Accordion.Heading>
+          <Accordion.Trigger>
+            Accordion 2
+            <Accordion.Indicator>
+              <AccordionIcon />
+            </Accordion.Indicator>
+          </Accordion.Trigger>
+        </Accordion.Heading>
+        <Accordion.Panel>
+          <Accordion.Content>I am the accordion content</Accordion.Content>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item>
+        <Accordion.Heading>
+          <Accordion.Trigger>
+            Accordion 3
+            <Accordion.Indicator>
+              <AccordionIcon />
+            </Accordion.Indicator>
+          </Accordion.Trigger>
+        </Accordion.Heading>
+        <Accordion.Panel>
+          <Accordion.Content>I am the accordion content</Accordion.Content>
+        </Accordion.Panel>
+      </Accordion.Item>
     </Accordion>
   );
 };

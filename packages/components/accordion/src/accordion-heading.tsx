@@ -1,19 +1,19 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useAccordionItemContext } from "./accordion-item-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const AccordionHeadingContent = (
-  props: AccordionHeadingContent.Props
-) => {
-  const { getHeadingContentProps } = useAccordionItemContext();
+export const AccordionHeading = (props: AccordionHeading.Props) => {
+  const { getHeadingProps } = useAccordionItemContext();
   const renderElement = useRenderElement("div", {
-    props: [getHeadingContentProps(props)],
+    props: [getHeadingProps(props)],
   });
   return renderElement;
 };
 
-export namespace AccordionHeadingContent {
+export namespace AccordionHeading {
   export interface Props extends UIProps<"div"> {}
 }
