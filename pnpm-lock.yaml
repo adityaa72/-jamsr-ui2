@@ -348,15 +348,15 @@ importers:
 
   packages/components/alert-dialog:
     dependencies:
+      '@floating-ui/react':
+        specifier: 'catalog:'
+        version: 0.27.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@jamsrui/button':
         specifier: workspace:^
         version: link:../button
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
-      '@jamsrui/dialog':
-        specifier: workspace:^
-        version: link:../dialog
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
@@ -366,6 +366,9 @@ importers:
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
+      motion:
+        specifier: 'catalog:'
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@types/react':
         specifier: 'catalog:'

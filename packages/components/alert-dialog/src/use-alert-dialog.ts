@@ -1,154 +1,214 @@
-import { useCallback, useMemo } from "react";
+import { ComponentProps, useCallback, useMemo } from "react";
 
-import type { Button } from "@jamsrui/button";
-import type {
-  Dialog,
-  DialogBody,
-  DialogContent,
-  DialogFooter,
-} from "@jamsrui/dialog";
+import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+
+import { alertDialogVariant, AlertDialogVariants } from "./styles";
+
 import type { Text } from "@jamsrui/text";
 import type { PropGetter } from "@jamsrui/utils";
 
+import {
+  FloatingFocusManagerProps,
+  FloatingOverlay,
+  useClick,
+  useDismiss,
+  useFloating,
+  useInteractions,
+  useRole,
+} from "@floating-ui/react";
+import { useControlledState } from "@jamsrui/hooks";
+import type { AlertDialogBody } from "./alert-dialog-body";
+import { AlertDialogContainer } from "./alert-dialog-container";
+import type { AlertDialogContent } from "./alert-dialog-content";
+import type { AlertDialogFooter } from "./alert-dialog-footer";
+import type { AlertDialogTitle } from "./alert-dialog-title";
+
 export const useAlertDialog = (props: useAlertDialog.Props) => {
+  const [_props, variantProps] = mapPropsVariants(
+    props,
+    alertDialogVariant.variantKeys
+  );
   const {
-    message,
-    title,
-    onConfirm,
-    onCancel,
-    children,
-    cancelText = "Cancel",
-    confirmText = "Confirm",
-    slotProps,
-    cancelButtonProps,
-    confirmButtonProps,
-    ...dialogProps
-  } = props;
+    defaultOpen,
+    disableAnimation = false,
+    isDismissible = true,
+    isKeyboardDismissible = true,
+    isOpen: isOpenProp,
+    onOpenChange,
+  } = _props;
+  const styles = alertDialogVariant(variantProps);
 
-  const getDialogProps: PropGetter<Partial<Dialog.Props>> = useCallback(
-    (props) => ({
-      hideCloseButton: true,
-      size: "md",
-      ...props,
-      ...dialogProps,
-    }),
-    [dialogProps]
-  );
+  const [isOpen, setIsOpen] = useControlledState({
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+    prop: isOpenProp,
+  });
 
-  const getContentProps: PropGetter<Partial<DialogContent.Props>> = useCallback(
-    (props) => ({
-      ...props,
-      ...slotProps?.content,
-    }),
-    [slotProps?.content]
-  );
+  const {
+    context,
+    refs: { setFloating, setReference },
+  } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+  });
+  const click = useClick(context, {});
+  const dismiss = useDismiss(context, {
+    escapeKey: isKeyboardDismissible,
+    outsidePressEvent: "click",
+    enabled: isDismissible,
+  });
+  const role = useRole(context);
+  const interactions = useInteractions([click, dismiss, role]);
+  const { getReferenceProps, getFloatingProps } = interactions;
 
-  const getBodyProps: PropGetter<Partial<DialogBody.Props>> = useCallback(
-    (props) => ({
-      className: "flex gap-1 flex-col",
-      ...props,
-      ...slotProps?.body,
-    }),
-    [slotProps?.body]
-  );
+  const handleTriggerClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
-  const getFooterProps: PropGetter<Partial<DialogFooter.Props>> = useCallback(
+  const getContainerProps: PropGetter<AlertDialogContainer.Props> = useCallback(
     (props) => ({
       ...props,
-      ...slotProps?.footer,
+      "data-slot": dataAttrDev("container"),
+      className: styles.container({
+        className: props.className,
+      }),
+      ref: setFloating,
+      ...getFloatingProps(),
     }),
-    [slotProps?.footer]
+    [styles]
   );
 
-  const getConfirmButtonProps: PropGetter<Button.Props> = useCallback(
+  const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
     (props) => ({
-      onClick: onConfirm,
-      color: "danger",
       ...props,
-      ...confirmButtonProps,
+      "data-slot": dataAttrDev("content"),
+      className: styles.content({
+        className: props.className,
+      }),
     }),
-    [onConfirm, confirmButtonProps]
+    [styles]
   );
 
-  const getCancelButtonProps: PropGetter<Button.Props> = useCallback(
+  const getBodyProps: PropGetter<AlertDialogBody.Props> = useCallback(
     (props) => ({
-      onClick: onCancel,
       ...props,
-      ...cancelButtonProps,
+      "data-slot": dataAttrDev("body"),
+      className: styles.body({
+        className: props.className,
+      }),
     }),
-    [onCancel, cancelButtonProps]
+    [styles]
   );
 
-  const getTitleProps: PropGetter<Text.Props> = useCallback(
+  const getFooterProps: PropGetter<AlertDialogFooter.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": dataAttrDev("footer"),
+      className: styles.footer({
+        className: props.className,
+      }),
+    }),
+    [styles]
+  );
+
+  const getTitleProps: PropGetter<AlertDialogTitle.Props> = useCallback(
     (props) => ({
       variant: "h6",
+      "data-slot": dataAttrDev("title"),
+      className: styles.title({
+        className: props.className,
+      }),
       ...props,
-      ...slotProps?.title,
     }),
-    [slotProps?.title]
+    [styles]
   );
 
-  const getMessageProps: PropGetter<Text.Props> = useCallback(
+  const getDescriptionProps: PropGetter<Text.Props> = useCallback(
     (props) => ({
       variant: "paragraph2",
-      className: "text-foreground-secondary",
+      "data-slot": dataAttrDev("description"),
+      className: styles.description({
+        className: props.className,
+      }),
       ...props,
-      ...slotProps?.message,
     }),
-    [slotProps?.message]
+    [styles]
+  );
+
+  const getTriggerProps = useCallback(
+    (props: Partial<ComponentProps<"button">>): ComponentProps<"button"> => ({
+      ...props,
+      className: styles.trigger({
+        className: props.className,
+      }),
+      ...getReferenceProps({
+        ref: setReference,
+      }),
+    }),
+    [styles]
+  );
+
+  const getTriggerCloseProps = useCallback(
+    (props: Partial<ComponentProps<"button">>): ComponentProps<"button"> => ({
+      ...props,
+      onClick: handleTriggerClose,
+    }),
+    [handleTriggerClose]
+  );
+
+  const getOverlayProps = useCallback(
+    (): ComponentProps<typeof FloatingOverlay> => ({
+      className: styles.backdrop(),
+      lockScroll: true,
+    }),
+    [styles]
+  );
+
+  const getFocusManagerProps = useCallback(
+    (): Omit<FloatingFocusManagerProps, "children"> => ({
+      context,
+      modal: true,
+    }),
+    [context]
   );
 
   return useMemo(
     () => ({
-      getDialogProps,
+      getContainerProps,
       getContentProps,
       getBodyProps,
       getFooterProps,
-      getConfirmButtonProps,
-      getCancelButtonProps,
       getTitleProps,
-      getMessageProps,
-      cancelText,
-      confirmText,
-      message,
-      title,
-      children,
+      getDescriptionProps,
+      getTriggerProps,
+      getOverlayProps,
+      getFocusManagerProps,
+      getTriggerCloseProps,
+      isOpen,
     }),
     [
-      cancelText,
-      children,
-      confirmText,
+      getContainerProps,
       getBodyProps,
-      getCancelButtonProps,
-      getConfirmButtonProps,
       getContentProps,
-      getDialogProps,
       getFooterProps,
-      getMessageProps,
       getTitleProps,
-      message,
-      title,
+      getDescriptionProps,
+      getTriggerProps,
+      getOverlayProps,
+      getFocusManagerProps,
+      getTriggerCloseProps,
+      isOpen,
     ]
   );
 };
 
 export namespace useAlertDialog {
-  export interface Props extends Dialog.Props {
-    title: React.ReactNode;
-    message: React.ReactNode;
-    onConfirm?: () => void;
-    onCancel?: () => void;
-    children: React.ReactElement;
-    cancelText?: string;
-    confirmText?: string;
-    confirmButtonProps?: Button.Props;
-    cancelButtonProps?: Button.Props;
-    slotProps?: {
-      title?: Text.Props;
-      message?: Text.Props;
-      content?: DialogContent.Props;
-      body?: DialogBody.Props;
-      footer?: DialogFooter.Props;
-    };
+  export interface Props extends AlertDialogVariants {
+    defaultOpen?: boolean;
+    isOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    isDismissible?: boolean;
+    isKeyboardDismissible?: boolean;
+    disableAnimation?: boolean;
   }
 }

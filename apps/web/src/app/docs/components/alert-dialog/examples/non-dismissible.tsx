@@ -1,8 +1,8 @@
 import { AlertDialog, Button } from "@jamsrui/react";
 
-export const AlertDialogUsage = () => {
+export const AlertDialogNonDismissible = () => {
   return (
-    <AlertDialog>
+    <AlertDialog isDismissible={false} isKeyboardDismissible={false}>
       <AlertDialog.Trigger>
         <Button>Click to delete!</Button>
       </AlertDialog.Trigger>
