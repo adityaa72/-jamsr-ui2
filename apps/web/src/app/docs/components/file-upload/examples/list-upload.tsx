@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react";
 import {
   Avatar,
+  Button,
   formatBytes,
   IconButton,
   Text,
@@ -10,7 +11,7 @@ import {
 } from "@jamsrui/react";
 import { cn } from "@jamsrui/utils";
 
-export const FileUploadUsage = () => {
+export const FileUploadListUpload = () => {
   const {
     getInputProps,
     isDragging,
@@ -18,6 +19,7 @@ export const FileUploadUsage = () => {
     removeFile,
     getRootProps,
     openFileDialog,
+    clearFiles,
   } = useFileUpload({
     multiple: true,
     maxFiles: 10,
@@ -51,37 +53,44 @@ export const FileUploadUsage = () => {
       </div>
 
       {files.length > 0 && (
-        <ul className="flex gap-4 flex-wrap py-4">
+        <ul className="flex gap-2 flex-col py-4">
+          <div className="flex justify-end">
+            <Button onClick={clearFiles} size="sm">
+              Clear All
+            </Button>
+          </div>
           {files.map((file) => {
             return (
               <li
                 key={file.id}
-                className="flex size-32 flex-col gap-4 group relative bg-background-secondary rounded-md"
+                className="flex w-full gap-2 group relative bg-background-secondary rounded-md items-center py-2 px-4"
               >
-                {file.preview ? (
-                  <Avatar radius="md" className="size-full">
-                    <Avatar.Image src={file.preview} alt={file.file.name} />
-                  </Avatar>
-                ) : (
-                  <div className="flex justify-center items-center size-full">
-                    <Icon
-                      icon="tabler:file-filled"
-                      className="size-12 text-foreground"
-                    />
-                  </div>
-                )}
-                <div className="absolute bottom-0 bg-background/40 right-0 w-full py-1 px-2">
-                  <Text variant="caption" className="text-foreground">
-                    {file.file.name}
+                <div>
+                  {file.preview ? (
+                    <Avatar radius="md">
+                      <Avatar.Image src={file.preview} alt={file.file.name} />
+                    </Avatar>
+                  ) : (
+                    <div className="flex justify-center items-center size-full">
+                      <Icon
+                        icon="tabler:file-filled"
+                        className="size-12 text-foreground"
+                      />
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <Text className="text-foreground">{file.file.name}</Text>
+                  <Text variant="caption" className="text-foreground-secondary">
+                    {formatBytes(file.file.size)}
                   </Text>
-                  <Text variant="caption">{formatBytes(file.file.size)}</Text>
                 </div>
                 <IconButton
                   label="Remove"
                   size="xs"
                   radius="full"
-                  className="absolute -top-2 -right-2 hidden group-hover:flex"
                   onClick={() => removeFile(file.id)}
+                  className="ml-auto"
                 >
                   <Icon icon="material-symbols:close-rounded" />
                 </IconButton>

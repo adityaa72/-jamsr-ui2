@@ -110,7 +110,9 @@ export const useFileUpload = (props: useFileUpload.Props) => {
 
       onFilesAdded?.(validFiles);
       setFiles((prev) => {
-        const newFiles = multiple ? [...prev, ...validFiles] : validFiles;
+        const newFiles = multiple
+          ? [...prev, ...validFiles]
+          : validFiles.slice(0, 1);
         onFilesChange?.(newFiles);
         return newFiles;
       });
@@ -197,7 +199,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
   const getInputProps: PropGetter<UIProps<"input">> = useCallback(
     (props) => ({
       type: "file",
-      multiple: true,
+      multiple,
       ref: inputRef,
       className: cn(props.className, "sr-only"),
       ...mergeProps(props, {
@@ -219,6 +221,12 @@ export const useFileUpload = (props: useFileUpload.Props) => {
     [handleDragEnter, handleDragLeave, handleDrop, handleDragOver]
   );
 
+  const openFileDialog = useCallback(() => {
+    if (inputRef.current) {
+      inputRef.current.click();
+    }
+  }, []);
+
   return useMemo(
     () => ({
       isDragging,
@@ -227,8 +235,19 @@ export const useFileUpload = (props: useFileUpload.Props) => {
       setFiles,
       removeFile,
       getRootProps,
+      openFileDialog,
+      clearFiles,
     }),
-    [isDragging, getInputProps, files, setFiles, removeFile, getRootProps]
+    [
+      isDragging,
+      getInputProps,
+      files,
+      setFiles,
+      removeFile,
+      getRootProps,
+      openFileDialog,
+      clearFiles,
+    ]
   );
 };
 
