@@ -1,7 +1,6 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
-import { UIProps } from "@jamsrui/utils";
 import { NumberFieldContext } from "./number-field-context";
 import { useNumberField } from "./use-number-field";
 
@@ -15,5 +14,5 @@ export const NumberField = (props: NumberField.Props) => {
 };
 
 export namespace NumberField {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useNumberField.Props {}
 }

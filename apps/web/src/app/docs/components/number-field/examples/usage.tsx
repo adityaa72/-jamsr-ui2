@@ -4,9 +4,11 @@ export const NumberFieldUsage = () => {
   return (
     <NumberField
       formatOptions={{
-        currency: "EUR",
+        currency: "INR",
         currencySign: "accounting",
         style: "currency",
+        minimumFractionDigits: 0,
+        currencyDisplay:"narrowSymbol"
       }}
     >
       <Label>Width</Label>

@@ -4,9 +4,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { dataAttrDev, mergeProps } from "@jamsrui/utils";
 
+import { NumberParser } from "./parser";
 import { numberFieldVariants } from "./styles";
 
-import type { PropGetter } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { NumberField } from "./number-field";
 import type { NumberFieldDecrement } from "./number-field-decrement";
@@ -15,61 +16,66 @@ import type { NumberFieldIncrement } from "./number-field-increment";
 import type { NumberFieldInput } from "./number-field-input";
 
 export const useNumberField = (props: useNumberField.Props) => {
+  const {
+    formatOptions = { style: "decimal" },
+    locale = navigator?.language ?? "en-US",
+  } = props;
   const [value, setValue] = useState<string>("");
   const styles = numberFieldVariants();
   const inputRef = useRef<HTMLInputElement>(null);
+  const parser = useMemo(
+    () => new NumberParser(locale, formatOptions),
+    [locale, formatOptions]
+  );
+  const formatter = useMemo(
+    () => new Intl.NumberFormat(locale, formatOptions),
+    [locale, formatOptions]
+  );
 
   const handleInputOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
-      setValue(value);
+      const parsedValue = parser.parse(value);
+      if (!isNaN(parsedValue)) {
+        setValue(value);
+      }
     },
-    []
+    [parser]
   );
 
   const handleInputOnBlur = useCallback(
     (event: React.FocusEvent<HTMLInputElement>) => {
       const value = event.target.value;
-      const parsedValue = Number(value);
+      const parsedValue = parser.parse(value);
       if (!isNaN(parsedValue)) {
-        const formattedValue = new Intl.NumberFormat("en-US").format(
-          parsedValue
-        );
-        setValue(formattedValue);
-      } else {
-        setValue("");
+        setValue(formatter.format(parsedValue));
       }
     },
-    []
+    [formatter, parser]
   );
 
   const handleIncrement = useCallback(() => {
-    const parsedValue = Number(value);
+    const parsedValue = parser.parse(value);
     if (!isNaN(parsedValue)) {
-      console.log(parsedValue);
-      const formattedValue = new Intl.NumberFormat("en-US").format(
-        parsedValue + 1
-      );
-      setValue(formattedValue);
+      setValue(formatter.format(parsedValue + 1));
     }
-  }, [value]);
+  }, [formatter, parser, value]);
 
   const handleDecrement = useCallback(() => {
-    const parsedValue = Number(value);
+    const parsedValue = parser.parse(value);
     if (!isNaN(parsedValue)) {
-      const formattedValue = new Intl.NumberFormat("en-US").format(
-        parsedValue - 1
-      );
-      setValue(formattedValue);
+      setValue(formatter.format(parsedValue - 1));
     }
-  }, [value]);
+  }, [formatter, parser, value]);
 
   const handleInputKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "ArrowUp") {
         handleIncrement();
+        event.preventDefault();
       } else if (event.key === "ArrowDown") {
         handleDecrement();
+        event.preventDefault();
       }
     },
     [handleDecrement, handleIncrement]
@@ -80,7 +86,15 @@ export const useNumberField = (props: useNumberField.Props) => {
     if (!el) return;
 
     const handler = (event: WheelEvent) => {
-      if (document.activeElement !== el) return;
+      if (
+        document.activeElement !== el ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.ctrlKey ||
+        event.altKey
+      )
+        return;
+
       event.preventDefault();
       if (event.deltaY > 0) {
         handleIncrement();
@@ -183,6 +197,10 @@ export const useNumberField = (props: useNumberField.Props) => {
     ]
   );
 };
+
 export namespace useNumberField {
-  export interface Props {}
+  export interface Props extends UIProps<"div"> {
+    formatOptions?: Intl.NumberFormatOptions;
+    locale?: string;
+  }
 }
