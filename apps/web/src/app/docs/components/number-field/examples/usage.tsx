@@ -2,12 +2,18 @@ import { Label, NumberField } from "@jamsrui/react";
 
 export const NumberFieldUsage = () => {
   return (
-    <NumberField>
+    <NumberField
+      formatOptions={{
+        currency: "EUR",
+        currencySign: "accounting",
+        style: "currency",
+      }}
+    >
       <Label>Width</Label>
       <NumberField.Group>
-        <NumberField.DecrementButton />
+        <NumberField.Decrement />
         <NumberField.Input />
-        <NumberField.IncrementButton />
+        <NumberField.Increment />
       </NumberField.Group>
     </NumberField>
   );

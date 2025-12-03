@@ -206,7 +206,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
         onChange: handleOnChange,
       }),
     }),
-    [handleOnChange]
+    [handleOnChange, multiple]
   );
 
   const getRootProps: PropGetter<UIProps<"div">> = useCallback(

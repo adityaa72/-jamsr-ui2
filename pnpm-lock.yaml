@@ -6,9 +6,36 @@ settings:
 
 catalogs:
   default:
+    '@floating-ui/react':
+      specifier: '>=0.27'
+      version: 0.27.8
+    '@tanstack/react-table':
+      specifier: '>=8'
+      version: 8.21.3
     '@types/node':
       specifier: 24.10.0
       version: 24.10.0
+    '@types/react':
+      specifier: '>=19'
+      version: 19.1.2
+    '@types/react-dom':
+      specifier: '>=19'
+      version: 19.1.1
+    motion:
+      specifier: '>=12'
+      version: 12.9.2
+    react:
+      specifier: '>=19'
+      version: 19.1.0
+    react-dom:
+      specifier: '>=19'
+      version: 19.1.0
+    tailwindcss:
+      specifier: ^4.1.4
+      version: 4.1.5
+    typescript:
+      specifier: 5.9.3
+      version: 5.9.3
 
 importers:
 
@@ -1240,6 +1267,9 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
+      '@jamsrui/icon-button':
+        specifier: workspace:^
+        version: link:../icon-button
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils

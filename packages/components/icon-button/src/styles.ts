@@ -49,10 +49,9 @@ export const iconButtonVariants = tv({
       flat: "",
     },
     size: {
-      xs: "size-6 rounded",
-      sm: "size-8 min-w-8 rounded-lg",
-      md: "size-10 min-w-10 rounded-xl",
-      lg: "size-12 min-w-12 rounded-2xl",
+      sm: "size-6 rounded",
+      md: "size-8 min-w-8 rounded-lg",
+      lg: "size-10 min-w-10 rounded-xl",
     },
     disableAnimation: {
       true: "transition-none!",

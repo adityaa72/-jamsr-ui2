@@ -6,6 +6,7 @@ import { IconButtonColors } from "./examples/colors";
 import { IconButtonDisabled } from "./examples/disabled";
 import { IconButtonLoading } from "./examples/loading";
 import { IconButtonRadius } from "./examples/radius";
+import { IconButtonSizes } from "./examples/sizes";
 import { IconButtonUsage } from "./examples/usage";
 import { IconButtonVariants } from "./examples/variants";
 import { IconButtonVariantsColors } from "./examples/variants-colors";
@@ -35,6 +36,9 @@ const IconButton = () => {
       </CodeExample>
       <CodeExample isCentered title="Loading" url={resolvePath("loading.tsx")}>
         <IconButtonLoading />
+      </CodeExample>
+      <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
+        <IconButtonSizes />
       </CodeExample>
       <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <IconButtonRadius />
