@@ -1,5 +1,11 @@
 # @jamsrui/menu
 
+## 0.0.17
+
+### Patch Changes
+
+- fix: menu
+
 ## 0.0.16
 
 ### Patch Changes

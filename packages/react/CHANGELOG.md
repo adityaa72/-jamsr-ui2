@@ -1,5 +1,13 @@
 # @jamsrui/react
 
+## 0.0.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/menu@0.0.17
+  - @jamsrui/data-grid@0.0.18
+
 ## 0.0.18
 
 ### Patch Changes

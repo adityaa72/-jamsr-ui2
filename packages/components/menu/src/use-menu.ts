@@ -248,8 +248,10 @@ export const useMenu = (props: useMenu.Props) => {
     (props: MenuContainer.Props) => ({
       ...props,
       "data-component": dataAttrDev("menu"),
-      "data-slot": dataAttrDev("container"),
-      className: styles.container(),
+      "data-slot": dataAttrDev("menu-container"),
+      className: styles.container({
+        className: props.className,
+      }),
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
@@ -258,8 +260,12 @@ export const useMenu = (props: useMenu.Props) => {
   );
 
   const getContentProps: PropGetter<MenuContent.Props> = useCallback(
-    () => ({
-      className: styles.content(),
+    (props) => ({
+      ...props,
+      className: styles.content({
+        className: props.className,
+      }),
+      "data-slot": dataAttrDev("menu-content"),
     }),
     [styles]
   );
