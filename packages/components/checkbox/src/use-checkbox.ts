@@ -34,7 +34,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
   const styles = checkboxVariants(variantProps);
 
   const {
-    isChecked: isCheckedProp,
+    checked: isCheckedProp,
     onCheckedChange,
     defaultChecked,
     isIntermediate,
@@ -177,10 +177,12 @@ export const useCheckbox = (props: useCheckbox.Props) => {
 export namespace useCheckbox {
   export interface Props extends CheckboxRoot.Props, CheckboxVariantProps {
     defaultChecked?: boolean;
-    isChecked?: boolean;
+    checked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
     isIntermediate?: boolean;
     disabled?: boolean;
     inputProps?: UIProps<"input">;
+    name?: string;
+    form?: string;
   }
 }

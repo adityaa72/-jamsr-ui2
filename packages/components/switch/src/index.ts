@@ -11,4 +11,9 @@ export const Switch = Object.assign(SwitchRoot, {
   Thumb: SwitchThumb,
 });
 
-export type SwitchProps = SwitchRoot.Props;
+export namespace Switch {
+  export interface Props extends SwitchRoot.Props {}
+  export interface Content extends SwitchContent.Props {}
+  export interface Track extends SwitchTrack.Props {}
+  export interface Thumb extends SwitchThumb.Props {}
+}

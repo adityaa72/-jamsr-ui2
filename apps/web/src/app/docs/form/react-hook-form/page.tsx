@@ -2,25 +2,46 @@
 
 import { DocsPage } from "@/components/docs-page";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, toast } from "@jamsrui/react";
+import {
+  Button,
+  Checkbox,
+  Label,
+  NumberField,
+  RHFField,
+  Switch,
+  TextField,
+  toast,
+} from "@jamsrui/react";
 import { FormProvider, useForm } from "react-hook-form";
-import { object, string } from "zod";
-import { RHFInput } from "./components/rhf-input";
+import { boolean, number, object, string } from "zod";
 
 type FormValues = {
   username: string;
-  firstName: string;
+  bio: string;
+  age: number;
+  acceptedTerms: boolean;
+  darkMode: boolean;
 };
 
 const schema = object({
   username: string().min(1, "Username is required"),
-  firstName: string().min(1, "firstName is required"),
+  bio: string().min(1, "Bio is required"),
+  age: number().min(1, "Age is required"),
+  acceptedTerms: boolean().refine((val) => val === true, {
+    message: "You must accept the terms",
+  }),
+  darkMode: boolean().refine((val) => val === true, {
+    message: "Dark mode is required",
+  }),
 });
 
 const Page = () => {
   const defaultValues: FormValues = {
     username: "",
-    firstName: "",
+    bio: "",
+    age: 0,
+    acceptedTerms: false,
+    darkMode: false,
   };
   const form = useForm<FormValues>({
     defaultValues,
@@ -37,10 +58,52 @@ const Page = () => {
       Page
       <FormProvider {...form}>
         <form onSubmit={onSubmit} className="flex flex-col gap-4 max-w-md">
-          <RHFInput name="text2" label="Username" />
-          <RHFInput name="username" label="Username" />
-          <RHFInput name="text" label="Username" />
-          <RHFInput name="firstName" label="firstName" />
+          {/* Username */}
+          <RHFField<FormValues> name="username">
+            <TextField>
+              <Label>Username</Label>
+              <RHFField.Input />
+              <RHFField.FieldError />
+            </TextField>
+          </RHFField>
+          {/* Bio */}
+          <RHFField<FormValues> name="bio">
+            <TextField>
+              <Label>Bio</Label>
+              <RHFField.Textarea />
+              <RHFField.FieldError />
+            </TextField>
+          </RHFField>
+          {/* Age */}
+          <RHFField<FormValues> name="age">
+            <RHFField.NumberField>
+              <Label>Age</Label>
+              <NumberField.Group>
+                <NumberField.Input />
+              </NumberField.Group>
+            </RHFField.NumberField>
+            <RHFField.FieldError />
+          </RHFField>
+          {/* Accepted Terms */}
+          <RHFField<FormValues> name="acceptedTerms">
+            <RHFField.Checkbox>
+              <Checkbox.Control />
+              <Checkbox.Content>
+                <Label>Accept Terms and Conditions</Label>
+              </Checkbox.Content>
+            </RHFField.Checkbox>
+            <RHFField.FieldError />
+          </RHFField>
+          {/* Dark Mode */}
+          <RHFField<FormValues> name="darkMode">
+            <RHFField.Switch>
+              <Switch.Track />
+              <Switch.Content>
+                <Label>Dark Mode</Label>
+              </Switch.Content>
+            </RHFField.Switch>
+            <RHFField.FieldError />
+          </RHFField>
           <Button type="submit" color="primary">
             Submit
           </Button>

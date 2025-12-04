@@ -56,6 +56,7 @@
     "@jamsrui/popover": "workspace:^",
     "@jamsrui/radio": "workspace:^",
     "@jamsrui/rating": "workspace:^",
+    "@jamsrui/rhf": "workspace:^",
     "@jamsrui/ripple": "workspace:^",
     "@jamsrui/scroll-area": "workspace:^",
     "@jamsrui/select": "workspace:^",

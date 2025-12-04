@@ -57,6 +57,9 @@ export const switchVariants = tv({
         thumb: "size-5 uig-pressed:w-6",
       },
     },
+    isInvalid: {
+      true: {},
+    },
   },
   defaultVariants: {
     size: "md",

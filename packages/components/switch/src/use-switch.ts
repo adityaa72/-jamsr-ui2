@@ -32,7 +32,7 @@ export const useSwitch = (props: useSwitch.Props) => {
   );
   const styles = switchVariants(variantProps);
   const {
-    isChecked: propIsChecked,
+    checked: propIsChecked,
     defaultChecked,
     onCheckedChange,
     disabled = false,
@@ -155,9 +155,11 @@ export namespace useSwitch {
   export interface Props extends SwitchVariants, SwitchRoot.Props {
     defaultChecked?: boolean;
     disabled?: boolean;
-    isChecked?: boolean;
+    checked?: boolean;
     onCheckedChange?: (value: boolean) => void;
     children?: React.ReactNode;
     inputProps?: UIProps<"input">;
+    name?: string;
+    form?: string;
   }
 }

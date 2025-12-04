@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
-import { numberFieldVariants } from "./styles";
+import { NumberFieldVariants, numberFieldVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -211,11 +211,17 @@ export const useNumberField = (props: useNumberField.Props) => {
 };
 
 export namespace useNumberField {
-  export interface Props extends UIProps<"div"> {
+  export interface Props extends UIProps<"div">, NumberFieldVariants {
     formatOptions?: Intl.NumberFormatOptions;
     locale?: string;
     minValue?: number;
     maxValue?: number;
     step?: number;
+    value?: number;
+    onValueChange?: (value: number) => void;
+    defaultValue?: number;
+    name?: string;
+    form?: string;
+    disabled?: boolean;
   }
 }

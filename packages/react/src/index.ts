@@ -39,6 +39,7 @@ export { Pagination, PaginationConfig, usePaginationConfig } from '@jamsrui/pagi
 export { PopoverConfig, usePopoverConfig, PopoverContent, PopoverTrigger, Popover } from '@jamsrui/popover';
 export { Radio, RadioGroup } from '@jamsrui/radio';
 export { Rating, RatingConfig, useRatingConfig } from '@jamsrui/rating';
+export { RHFField } from '@jamsrui/rhf';
 export { Ripple, RippleConfig, useRippleConfig } from '@jamsrui/ripple';
 export { ScrollArea, ScrollAreaConfig, useScrollAreaConfig } from '@jamsrui/scroll-area';
 export { SelectConfig, useSelectConfig, SelectItem, Select } from '@jamsrui/select';
