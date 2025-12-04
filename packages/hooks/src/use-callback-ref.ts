@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect, useMemo, useRef } from "react";
@@ -7,7 +9,7 @@ import { useEffect, useMemo, useRef } from "react";
  * prop or avoid re-executing effects when passed as a dependency
  */
 export function useCallbackRef<T extends (...args: any[]) => any>(
-  callback: T | undefined,
+  callback: T | undefined
 ): T {
   const callbackRef = useRef(callback);
   useEffect(() => {
@@ -17,6 +19,6 @@ export function useCallbackRef<T extends (...args: any[]) => any>(
     () =>
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-argument
       ((...args) => callbackRef.current?.(...args)) as T,
-    [],
+    []
   );
 }

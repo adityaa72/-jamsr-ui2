@@ -1,3 +1,5 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useRadioContext } from "./radio-context";

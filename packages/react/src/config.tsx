@@ -29,7 +29,6 @@ import { NumberFieldConfig } from '@jamsrui/number-field';
 import { OtpInputConfig } from '@jamsrui/otp-input';
 import { PaginationConfig } from '@jamsrui/pagination';
 import { PopoverConfig } from '@jamsrui/popover';
-import { RadioConfig } from '@jamsrui/radio';
 import { RatingConfig } from '@jamsrui/rating';
 import { RippleConfig } from '@jamsrui/ripple';
 import { ScrollAreaConfig } from '@jamsrui/scroll-area';
@@ -79,7 +78,6 @@ type Props = {
   otpInput?: OtpInputConfig.Props;
   pagination?: PaginationConfig.Props;
   popover?: PopoverConfig.Props;
-  radio?: RadioConfig.Props;
   rating?: RatingConfig.Props;
   ripple?: RippleConfig.Props;
   scrollArea?: ScrollAreaConfig.Props;
@@ -131,7 +129,6 @@ export const JamsrUIConfig = (props: Props) => {
   <OtpInputConfig {...props.otpInput}>
   <PaginationConfig {...props.pagination}>
   <PopoverConfig {...props.popover}>
-  <RadioConfig {...props.radio}>
   <RatingConfig {...props.rating}>
   <RippleConfig {...props.ripple}>
   <ScrollAreaConfig {...props.scrollArea}>
@@ -163,7 +160,6 @@ export const JamsrUIConfig = (props: Props) => {
   </ScrollAreaConfig>
   </RippleConfig>
   </RatingConfig>
-  </RadioConfig>
   </PopoverConfig>
   </PaginationConfig>
   </OtpInputConfig>

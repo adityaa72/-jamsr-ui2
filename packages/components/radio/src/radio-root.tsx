@@ -1,17 +1,19 @@
+"use client";
+
 import { useRenderElement } from "@jamsrui/hooks";
 
-import { useRadioGroupContext } from "./radio-group-context";
+import { useRadioContext } from "./radio-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const RadioGroupRoot = (props: RadioGroupRoot.Props) => {
-  const { getRootProps } = useRadioGroupContext();
+export const RadioRoot = (props: RadioRoot.Props) => {
+  const { getRootProps } = useRadioContext();
   const renderElement = useRenderElement("div", {
     props: [getRootProps(props)],
   });
   return renderElement;
 };
 
-export namespace RadioGroupRoot {
+export namespace RadioRoot {
   export interface Props extends UIProps<"div"> {}
 }

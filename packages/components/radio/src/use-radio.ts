@@ -1,27 +1,27 @@
-import { useCallback, useId } from "react";
+"use client";
+
+import { useCallback } from "react";
 
 import { useFocusVisible, useMergeRefs, usePress } from "@jamsrui/hooks";
 import {
-  cn,
   dataAttr,
   dataAttrDev,
   mapPropsVariants,
   mergeProps,
 } from "@jamsrui/utils";
 
-import { useRadioGroupContext } from "../radio-group/radio-group-context";
-import { radioVariant } from "../styles";
+import { useRadioGroupContext } from "./radio-group-context";
+import { radioVariant } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { RadioSlots, RadioVariantProps } from "../styles";
+import { useFieldA11yContext } from "@jamsrui/context";
 import type { RadioContent } from "./radio-content";
 import type { RadioControl } from "./radio-control";
-import type { RadioDescription } from "./radio-description";
 import type { RadioIndicator } from "./radio-indicator";
 import type { RadioInput } from "./radio-input";
-import type { RadioLabel } from "./radio-label";
 import type { RadioRoot } from "./radio-root";
+import type { RadioVariantProps } from "./styles";
 
 export const useRadio = (props: useRadio.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -30,14 +30,12 @@ export const useRadio = (props: useRadio.Props) => {
   );
 
   const styles = radioVariant(variantProps);
-  const inputId = useId();
   const { name: inputName, handleInputChange, value } = useRadioGroupContext();
+  const fieldA11yCtx = useFieldA11yContext();
 
   const {
-    classNames,
-    label,
-    isDisabled,
-    isReadonly,
+    disabled: isDisabled = false,
+    readonly: isReadonly = false,
     children: description,
     ...elementProps
   } = $props;
@@ -53,7 +51,7 @@ export const useRadio = (props: useRadio.Props) => {
     (props) => ({
       ...props,
       className: styles.root({
-        className: cn(classNames?.root, props.className),
+        className: props.className,
       }),
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("radio"),
@@ -62,29 +60,27 @@ export const useRadio = (props: useRadio.Props) => {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
     }),
-    [classNames?.root, isChecked, isDisabled, isFocusVisible, isPressed, styles]
+    [isChecked, isDisabled, isFocusVisible, isPressed, styles]
   );
   const getInputProps: PropGetter<RadioInput.Props> = useCallback(
     (props) => ({
+      ...fieldA11yCtx?.getInputProps(),
       ...mergeProps(elementProps, props, {
         onChange: handleInputChange,
       }),
       "data-slot": dataAttrDev("input"),
-      id: inputId,
       type: "radio",
       ref: inputRefs,
       className: styles.input({
-        className: cn(classNames?.input, props.className),
+        className: props.className,
       }),
       disabled: isDisabled,
       readOnly: isReadonly,
       name: inputName,
     }),
     [
-      classNames?.input,
       elementProps,
       handleInputChange,
-      inputId,
       inputRefs,
       isDisabled,
       isReadonly,
@@ -97,73 +93,47 @@ export const useRadio = (props: useRadio.Props) => {
       ...props,
       "data-attr": dataAttrDev("control"),
       className: styles.control({
-        className: cn(classNames?.control, props.className),
+        className: props.className,
       }),
     }),
-    [classNames?.control, styles]
+    [styles]
   );
   const getIndicatorProps: PropGetter<RadioIndicator.Props> = useCallback(
     (props) => ({
       ...props,
       "data-attr": dataAttrDev("indicator"),
       className: styles.indicator({
-        className: cn(classNames?.indicator, props.className),
+        className: props.className,
       }),
     }),
 
-    [classNames?.indicator, styles]
-  );
-  const getLabelProps: PropGetter<RadioLabel.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-attr": dataAttrDev("label"),
-      htmlFor: inputId,
-      className: styles.label({
-        className: cn(classNames?.label, props.className),
-      }),
-    }),
-    [classNames?.label, inputId, styles]
+    [styles]
   );
   const getContentProps: PropGetter<RadioContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-attr": dataAttrDev("control"),
       className: styles.content({
-        className: cn(classNames?.content, props.className),
+        className: props.className,
       }),
     }),
-    [classNames?.content, styles]
-  );
-  const getDescriptionProps: PropGetter<RadioDescription.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-attr": dataAttrDev("description"),
-      className: styles.description({
-        className: cn(classNames?.description, props.className),
-      }),
-    }),
-    [classNames?.description, styles]
+    [styles]
   );
 
   return {
-    label,
     isChecked,
     description,
     getRootProps,
     getInputProps,
     getControlProps,
-    getLabelProps,
     getContentProps,
-    getDescriptionProps,
     getIndicatorProps,
   };
 };
 
 export namespace useRadio {
   export interface Props extends RadioVariantProps, UIProps<"input"> {
-    label?: string;
-    classNames?: SlotsToClassNames<RadioSlots>;
-    isDisabled?: boolean;
-    isReadonly?: boolean;
+    disabled?: boolean;
+    readonly?: boolean;
   }
 }
