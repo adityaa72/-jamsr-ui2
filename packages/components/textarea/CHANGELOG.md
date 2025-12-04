@@ -1,5 +1,18 @@
 # @jamsrui/textarea
 
+## 0.0.15
+
+### Patch Changes
+
+- fix; exports
+- Updated dependencies
+  - @jamsrui/input-group@0.0.3
+  - @jamsrui/textfield@0.0.3
+  - @jamsrui/context@0.0.3
+  - @jamsrui/core@0.0.12
+  - @jamsrui/hooks@0.0.14
+  - @jamsrui/utils@0.0.14
+
 ## 0.0.14
 
 ### Patch Changes

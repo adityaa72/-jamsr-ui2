@@ -1,3 +1,5 @@
+"use client";
+
 import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
@@ -13,7 +15,7 @@ export const menuVariants = tv({
     ],
     menuItem: [
       "relative box-border flex size-full select-none items-center gap-2 px-2 py-1.5 text-left outline-none data-disabled:cursor-not-allowed data-disabled:opacity-60",
-      "ui-active:bg-surface-secondary",
+      "data-active:bg-surface-secondary",
     ],
     menuGroup: [""],
     menuGroupLabel: "pl-2 text-foreground-secondary py-1",

@@ -43,6 +43,7 @@ export const Menu = Object.assign(MenuRoot, {
   SubmenuIndicator: SubmenuIndicator,
   ItemIndicator: MenuItemIndicator,
   Arrow: MenuArrow,
+  Container: MenuContainer,
 });
 
 export namespace Menu {

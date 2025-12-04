@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   typedRoutes: true,
   experimental: {
     typedEnv: true,
+    optimizePackageImports: ["@jamsrui/react"],
   },
   reactStrictMode: false,
 };

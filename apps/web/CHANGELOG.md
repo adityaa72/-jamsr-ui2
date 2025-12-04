@@ -1,5 +1,17 @@
 # web
 
+## 0.1.15
+
+### Patch Changes
+
+- fix; exports
+- Updated dependencies
+  - @jamsrui/react@0.0.16
+  - @jamsrui/hooks@0.0.14
+  - @jamsrui/icons@0.0.12
+  - @jamsrui/theme@0.0.14
+  - @jamsrui/utils@0.0.14
+
 ## 0.1.14
 
 ### Patch Changes

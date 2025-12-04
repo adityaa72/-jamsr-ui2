@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@jamsrui/button";
+import { Button } from "@jamsrui/react";
 import { Composite, CompositeItem } from "@jamsrui/react";
 
 const CompositeButton = (props) => {

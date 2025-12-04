@@ -1,5 +1,13 @@
 # @jamsrui/context
 
+## 0.0.3
+
+### Patch Changes
+
+- fix; exports
+- Updated dependencies
+  - @jamsrui/utils@0.0.14
+
 ## 0.0.2
 
 ### Patch Changes

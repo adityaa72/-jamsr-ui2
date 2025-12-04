@@ -1,3 +1,5 @@
+"use client";
+
 import { Divider } from "@jamsrui/divider";
 
 export const MenuSeparator = (props: MenuSeparator.Props) => {

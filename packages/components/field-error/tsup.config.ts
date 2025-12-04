@@ -5,7 +5,20 @@ export default defineConfig({
   format: ["esm"],
   dts: true,
   clean: true,
-  splitting: true,
   minify: true,
-  bundle: true,
+  bundle: false,
+  plugins: [
+    {
+      name: "fix-esm",
+      renderChunk(_, chunk) {
+        if (this.format === "esm") {
+          const code = chunk.code.replace(
+            /from(['"])(\.{1,2}\/[^"'./]+)\1/g,
+            (_, quote, path) => `from${quote}${path}.mjs${quote}`
+          );
+          return { code };
+        }
+      },
+    },
+  ],
 });

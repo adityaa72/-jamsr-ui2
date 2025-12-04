@@ -1,5 +1,15 @@
 # @jamsrui/label
 
+## 0.0.7
+
+### Patch Changes
+
+- fix; exports
+- Updated dependencies
+  - @jamsrui/context@0.0.3
+  - @jamsrui/hooks@0.0.14
+  - @jamsrui/utils@0.0.14
+
 ## 0.0.6
 
 ### Patch Changes
