@@ -1,5 +1,11 @@
 # web
 
+## 0.1.17
+
+### Patch Changes
+
+- @jamsrui/react@0.0.18
+
 ## 0.1.16
 
 ### Patch Changes

@@ -9,7 +9,7 @@ import {
 import { useRenderElement } from "@jamsrui/hooks";
 import { AnimatePresence } from "motion/react";
 
-import { MenuContent } from ".";
+import { MenuContent } from "./menu-content";
 import { useMenuContext } from "./menu-context";
 import { MenuFloatingContext } from "./menu-floating-context";
 
