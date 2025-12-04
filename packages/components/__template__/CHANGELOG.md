@@ -1,5 +1,11 @@
 # @jamsrui/template
 
+## 0.0.7
+
+### Patch Changes
+
+- fix: exports
+
 ## 0.0.6
 
 ### Patch Changes

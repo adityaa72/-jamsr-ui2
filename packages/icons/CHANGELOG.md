@@ -1,5 +1,11 @@
 # @jamsrui/icons
 
+## 0.0.13
+
+### Patch Changes
+
+- fix: exports
+
 ## 0.0.12
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @jamsrui/input
 
+## 0.0.16
+
+### Patch Changes
+
+- fix: exports
+- Updated dependencies
+  - @jamsrui/input-group@0.0.4
+  - @jamsrui/textfield@0.0.4
+  - @jamsrui/context@0.0.4
+  - @jamsrui/hooks@0.0.15
+  - @jamsrui/utils@0.0.15
+
 ## 0.0.15
 
 ### Patch Changes

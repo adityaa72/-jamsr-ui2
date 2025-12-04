@@ -1,5 +1,17 @@
 # @jamsrui/alert
 
+## 0.0.15
+
+### Patch Changes
+
+- fix: exports
+- Updated dependencies
+  - @jamsrui/text@0.0.15
+  - @jamsrui/core@0.0.13
+  - @jamsrui/hooks@0.0.15
+  - @jamsrui/icons@0.0.13
+  - @jamsrui/utils@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes

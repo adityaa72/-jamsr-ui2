@@ -1,5 +1,15 @@
 # @jamsrui/textfield
 
+## 0.0.4
+
+### Patch Changes
+
+- fix: exports
+- Updated dependencies
+  - @jamsrui/context@0.0.4
+  - @jamsrui/hooks@0.0.15
+  - @jamsrui/utils@0.0.15
+
 ## 0.0.3
 
 ### Patch Changes

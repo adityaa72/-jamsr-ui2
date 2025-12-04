@@ -1,5 +1,16 @@
 # @jamsrui/number-field
 
+## 0.0.15
+
+### Patch Changes
+
+- fix: exports
+- Updated dependencies
+  - @jamsrui/icon-button@0.0.15
+  - @jamsrui/core@0.0.13
+  - @jamsrui/hooks@0.0.15
+  - @jamsrui/utils@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes

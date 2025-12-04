@@ -1,5 +1,16 @@
 # @jamsrui/autocomplete
 
+## 0.0.16
+
+### Patch Changes
+
+- fix: exports
+- Updated dependencies
+  - @jamsrui/input@0.0.16
+  - @jamsrui/core@0.0.13
+  - @jamsrui/hooks@0.0.15
+  - @jamsrui/utils@0.0.15
+
 ## 0.0.15
 
 ### Patch Changes
