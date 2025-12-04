@@ -8,7 +8,7 @@ export const NumberField = (props: NumberField.Props) => {
   const ctx = useNumberField(props);
   const { getRootProps } = ctx;
   const renderElement = useRenderElement("div", {
-    props: [getRootProps(props)],
+    props: [getRootProps({})],
   });
   return <NumberFieldContext value={ctx}>{renderElement}</NumberFieldContext>;
 };

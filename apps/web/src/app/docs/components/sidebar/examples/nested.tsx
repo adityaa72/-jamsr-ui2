@@ -175,6 +175,7 @@ const SidebarNestedMenuItem = (props: NavItem & { isNested?: boolean }) => {
 };
 
 export const SidebarNested = () => {
+  return;
   return (
     <SidebarStateProvider>
       <Sidebar className="max-w-[250px]">

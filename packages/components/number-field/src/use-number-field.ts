@@ -19,6 +19,10 @@ export const useNumberField = (props: useNumberField.Props) => {
   const {
     formatOptions = { style: "decimal" },
     locale = navigator?.language ?? "en-US",
+    minValue,
+    maxValue,
+    step,
+    ...restProps
   } = props;
   const [value, setValue] = useState<string>("");
   const styles = numberFieldVariants();
@@ -118,14 +122,14 @@ export const useNumberField = (props: useNumberField.Props) => {
   }, [handleDecrement, handleIncrement]);
 
   const getRootProps: PropGetter<NumberField.Props> = useCallback(
-    (props) => ({
-      ...props,
+    () => ({
+      ...restProps,
       "data-slot": dataAttrDev("root"),
       className: styles.root({
         className: props.className,
       }),
     }),
-    [styles]
+    [restProps, styles]
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(
@@ -210,5 +214,8 @@ export namespace useNumberField {
   export interface Props extends UIProps<"div"> {
     formatOptions?: Intl.NumberFormatOptions;
     locale?: string;
+    minValue?: number;
+    maxValue?: number;
+    step?: number;
   }
 }
