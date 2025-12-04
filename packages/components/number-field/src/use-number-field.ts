@@ -35,9 +35,13 @@ export const useNumberField = (props: useNumberField.Props) => {
   const handleInputOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
-      const parsedValue = parser.parse(value);
-      if (!isNaN(parsedValue)) {
-        setValue(value);
+      if (value) {
+        const parsedValue = parser.parse(value);
+        if (!isNaN(parsedValue)) {
+          setValue(value);
+        }
+      } else {
+        setValue("");
       }
     },
     [parser]
@@ -56,14 +60,18 @@ export const useNumberField = (props: useNumberField.Props) => {
 
   const handleIncrement = useCallback(() => {
     const parsedValue = parser.parse(value);
-    if (!isNaN(parsedValue)) {
+    if (isNaN(parsedValue)) {
+      setValue(formatter.format(1));
+    } else {
       setValue(formatter.format(parsedValue + 1));
     }
   }, [formatter, parser, value]);
 
   const handleDecrement = useCallback(() => {
     const parsedValue = parser.parse(value);
-    if (!isNaN(parsedValue)) {
+    if (isNaN(parsedValue)) {
+      setValue(formatter.format(-1));
+    } else {
       setValue(formatter.format(parsedValue - 1));
     }
   }, [formatter, parser, value]);

@@ -10,12 +10,20 @@ export class NumberParser {
   parse(value: string) {
     let cleanValue = value.trim();
 
+    if (cleanValue.length === 0) {
+      return NaN;
+    }
+
     const nf = new Intl.NumberFormat(this.locale, this.formatOptions);
     const parts = nf.formatToParts(-123456.78);
 
     // 1. Extract separators
     const group = parts.find((part) => part.type === "group")?.value!;
     const decimal = parts.find((part) => part.type === "decimal")?.value!;
+
+    const others = parts.filter(
+      (part) => !["group", "decimal", "integer", "fraction"].includes(part.type)
+    );
 
     // 2. Extract minus sign (locale specific)
     const minus = parts.find((p) => p.type === "minusSign")?.value ?? "";
@@ -27,8 +35,6 @@ export class NumberParser {
       ),
     ].reverse();
     const numeralsMap = new Map(numerals.map((n, i) => [n, i.toString()]));
-
-    const currency = parts.find((part) => part.type === "currency")?.value;
 
     let isNegative = false;
 
@@ -58,13 +64,21 @@ export class NumberParser {
       .replace(groupRe, "")
       .replace(decimalRe, ".")
       .replace(numeralRe, (match) => numeralsMap.get(match)?.toString()!)
-      .replace(currency ?? "", "")
       .replace(minusRe, "-")
-      .replace(/[^\d.\-,]/g, "");
-    console.log("Clean value:", cleanValue);
+      .replace(/[\u200E\u200F\u061C\u202A-\u202E]/g, "");
+
+    for (const other of others) {
+      cleanValue = cleanValue.replace(other.value, "");
+    }
 
     // Apply negative sign if accounting format parentheses were detected
-    const parsed = cleanValue ? +cleanValue : NaN;
-    return isNegative ? -Math.abs(parsed) : parsed;
+    let parsedValue = cleanValue ? +cleanValue : NaN;
+
+    // for percentage
+    if (this.formatOptions.style === "percent") {
+      parsedValue = parsedValue / 100;
+    }
+
+    return isNegative ? -Math.abs(parsedValue) : parsedValue;
   }
 }

@@ -8,7 +8,8 @@ export const NumberFieldUsage = () => {
         currencySign: "accounting",
         style: "currency",
         minimumFractionDigits: 0,
-        currencyDisplay:"narrowSymbol"
+        currencyDisplay: "code",
+        signDisplay: "always",
       }}
     >
       <Label>Width</Label>
