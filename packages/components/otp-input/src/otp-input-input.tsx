@@ -9,7 +9,7 @@ import type { UIProps } from "@jamsrui/utils";
 export const OtpInputInput = (props: OtpInputInput.Props) => {
   const { getInputProps } = useOtpInputContext();
   const renderElement = useRenderElement("input", {
-    props: getInputProps(props),
+    props: getInputProps(),
   });
   return renderElement;
 };

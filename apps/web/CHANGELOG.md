@@ -1,5 +1,22 @@
 # web
 
+## 0.1.14
+
+### Patch Changes
+
+- primitives
+- Updated dependencies
+  - @jamsrui/table@0.0.13
+  - @jamsrui/react@0.0.15
+  - @jamsrui/avatar@0.0.13
+  - @jamsrui/button@0.0.13
+  - @jamsrui/checkbox@0.0.13
+  - @jamsrui/switch@0.0.13
+  - @jamsrui/hooks@0.0.13
+  - @jamsrui/icons@0.0.11
+  - @jamsrui/theme@0.0.13
+  - @jamsrui/utils@0.0.13
+
 ## 0.1.13
 
 ### Patch Changes

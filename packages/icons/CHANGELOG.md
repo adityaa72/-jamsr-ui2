@@ -1,5 +1,11 @@
 # @jamsrui/icons
 
+## 0.0.11
+
+### Patch Changes
+
+- primitives
+
 ## 0.0.10
 
 ### Patch Changes

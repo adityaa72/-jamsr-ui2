@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/otp-input",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -11,15 +11,16 @@
   },
   "devDependencies": {
     "@types/react": "catalog:",
+    "clean-package": "^2.2.0",
     "react": "catalog:",
-    "clean-package": "^2.2.0"
+    "terser": "^5.44.1"
   },
   "peerDependencies": {
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/core": "workspace:^",
+    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"

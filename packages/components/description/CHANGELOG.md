@@ -1,5 +1,15 @@
 # @jamsrui/label
 
+## 0.0.6
+
+### Patch Changes
+
+- primitives
+- Updated dependencies
+  - @jamsrui/context@0.0.2
+  - @jamsrui/hooks@0.0.13
+  - @jamsrui/utils@0.0.13
+
 ## 0.0.5
 
 ### Patch Changes

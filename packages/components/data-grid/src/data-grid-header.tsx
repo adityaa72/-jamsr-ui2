@@ -22,7 +22,7 @@ const DataGridHeaderDropdown = ({ column }: { column: Column<any, any> }) => {
   return (
     <Menu>
       <Menu.Trigger>
-        <IconButton label="More" size="xs" variant="light">
+        <IconButton label="More" size="sm" variant="light">
           <EllipsisVerticalIcon className="size-4" />
         </IconButton>
       </Menu.Trigger>

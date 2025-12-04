@@ -141,7 +141,7 @@ export const useDialog = (props: useDialog.Props) => {
         className: props.className,
       }),
       radius: "full",
-      size: "xs",
+      size: "sm",
       onClick: handleTriggerClose,
     }),
     [handleTriggerClose, styles]

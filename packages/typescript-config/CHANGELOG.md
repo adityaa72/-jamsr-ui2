@@ -1,5 +1,11 @@
 # @jamsrui/typescript-config
 
+## 0.0.6
+
+### Patch Changes
+
+- primitives
+
 ## 0.0.5
 
 ### Patch Changes

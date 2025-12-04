@@ -1,5 +1,11 @@
 # @jamsrui/charts
 
+## 0.0.12
+
+### Patch Changes
+
+- primitives
+
 ## 0.0.11
 
 ### Patch Changes

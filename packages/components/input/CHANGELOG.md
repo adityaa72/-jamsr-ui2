@@ -1,5 +1,17 @@
 # @jamsrui/input
 
+## 0.0.14
+
+### Patch Changes
+
+- primitives
+- Updated dependencies
+  - @jamsrui/input-group@0.0.2
+  - @jamsrui/textfield@0.0.2
+  - @jamsrui/context@0.0.2
+  - @jamsrui/hooks@0.0.13
+  - @jamsrui/utils@0.0.13
+
 ## 0.0.13
 
 ### Patch Changes

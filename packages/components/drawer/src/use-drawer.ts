@@ -198,7 +198,7 @@ export const useDrawer = (props: useDrawer.Props) => {
         ),
       }),
       radius: "full",
-      size: "xs",
+      size: "sm",
       onClick: handleTriggerClose,
     }),
     [

@@ -33,7 +33,7 @@ export { Label } from '@jamsrui/label';
 export { LinearProgress, LinearProgressConfig, useLinearProgressConfig } from '@jamsrui/linear-progress';
 export { Link, LinkConfig, useLinkConfig } from '@jamsrui/link';
 export { MenuConfig, useMenuConfig, MenuCheckboxItem, MenuContainer, MenuContent, MenuGroup, MenuGroupLabel, MenuItem, MenuRadioGroup, MenuRadioItem, MenuSeparator, MenuTrigger, Menu } from '@jamsrui/menu';
-export { NumberFieldConfig, NumberFieldDecrementButton, NumberFieldGroup, NumberFieldIncrementButton, NumberFieldInput, useNumberFieldConfig, NumberField } from '@jamsrui/number-field';
+export { NumberFieldConfig, NumberFieldDecrement, NumberFieldGroup, NumberFieldIncrement, NumberFieldInput, useNumberFieldConfig, NumberField } from '@jamsrui/number-field';
 export { OtpInputConfig, useOtpInputConfig, REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS, OtpInput } from '@jamsrui/otp-input';
 export { Pagination, PaginationConfig, usePaginationConfig } from '@jamsrui/pagination';
 export { PopoverConfig, usePopoverConfig, PopoverContent, PopoverTrigger, Popover } from '@jamsrui/popover';
@@ -46,7 +46,7 @@ export { SidebarConfig, useSidebarConfig, SidebarContext, useSidebarContext, use
 export { Skeleton, SkeletonConfig, useSkeletonConfig } from '@jamsrui/skeleton';
 export { Slider, SliderConfig, useSliderConfig } from '@jamsrui/slider';
 export { SwitchConfig, useSwitchConfig, Switch } from '@jamsrui/switch';
-export { TableConfig, useTableConfig, TableBody, TableCell, TableColumn, TableFooter, TableHeader, TableRow, TableTable, TableWrapper, Table, TableSlots, TableVariantProps } from '@jamsrui/table';
+export { TableConfig, useTableConfig, TableBody, TableCell, TableColumn, TableFooter, TableHeader, TableRow, TableTable, TableWrapper, Table } from '@jamsrui/table';
 export { TabsConfig, useTabsConfig, Tab, TabIndicator, TabList, TabPanel, Tabs } from '@jamsrui/tabs';
 export { TagsInput, TagsInputConfig, useTagsInputConfig } from '@jamsrui/tags-input';
 export { textVariants, Text, TextConfig, useTextConfig } from '@jamsrui/text';

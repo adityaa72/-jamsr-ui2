@@ -33,4 +33,6 @@ export const Table = Object.assign(TableRoot, {
   Column: TableColumn,
 });
 
-export type { TableSlots, TableVariantProps } from "./styles";
+export namespace Table {
+  export interface Props extends TableRoot.Props {}
+}
