@@ -13,14 +13,14 @@ export {
   type ButtonVariantProps,
 };
 
-export interface ButtonComponent {
+export interface Button {
   (props: ButtonRoot.Props): React.ReactNode;
   Loading: typeof ButtonLoading;
 }
 
 export const Button = Object.assign(ButtonRoot, {
   Loading: ButtonLoading,
-}) as ButtonComponent;
+}) as Button;
 
 export namespace Button {
   export interface Props extends ButtonRoot.Props {}
