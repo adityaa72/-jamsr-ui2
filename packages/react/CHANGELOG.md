@@ -1,5 +1,15 @@
 # @jamsrui/react
 
+## 0.0.21
+
+### Patch Changes
+
+- fix: button exports
+- Updated dependencies
+  - @jamsrui/button@0.0.16
+  - @jamsrui/alert-dialog@0.0.16
+  - @jamsrui/data-grid@0.0.20
+
 ## 0.0.20
 
 ### Patch Changes

@@ -1,10 +1,28 @@
 import { ButtonRoot } from "./button";
-import { ButtonConfig } from "./button-config";
+import { ButtonConfig, useButtonConfig } from "./button-config";
+import { ButtonContext } from "./button-context";
 import { ButtonLoading } from "./button-loading";
+import { ButtonVariantProps, buttonVariant } from "./styles";
 
-export { ButtonConfig, useButtonConfig } from "./button-config";
+export {
+  ButtonConfig,
+  ButtonContext,
+  ButtonLoading,
+  buttonVariant,
+  useButtonConfig,
+  type ButtonVariantProps,
+};
+
+export interface ButtonComponent {
+  (props: ButtonRoot.Props): React.ReactNode;
+  Loading: typeof ButtonLoading;
+}
 
 export const Button = Object.assign(ButtonRoot, {
-  Config: ButtonConfig,
   Loading: ButtonLoading,
-});
+}) as ButtonComponent;
+
+export namespace Button {
+  export interface Props extends ButtonRoot.Props {}
+  export interface Config extends ButtonConfig.Props {}
+}

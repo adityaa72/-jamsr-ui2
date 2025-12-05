@@ -1,5 +1,11 @@
 # @jamsrui/button
 
+## 0.0.16
+
+### Patch Changes
+
+- fix: button exports
+
 ## 0.0.15
 
 ### Patch Changes

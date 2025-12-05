@@ -1,5 +1,12 @@
 # @jamsrui/data-grid
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/button@0.0.16
+
 ## 0.0.19
 
 ### Patch Changes

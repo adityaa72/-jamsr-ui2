@@ -1,5 +1,13 @@
 # web
 
+## 0.1.20
+
+### Patch Changes
+
+- fix: button exports
+- Updated dependencies
+  - @jamsrui/react@0.0.21
+
 ## 0.1.19
 
 ### Patch Changes

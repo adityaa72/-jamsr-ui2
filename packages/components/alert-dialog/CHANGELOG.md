@@ -1,5 +1,12 @@
 # @jamsrui/alert-dialog
 
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/button@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes
