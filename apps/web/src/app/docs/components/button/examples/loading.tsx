@@ -4,7 +4,7 @@ import { Button, CircularProgress } from "@jamsrui/react";
 import { useState } from "react";
 
 export const ButtonLoading = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const toggleLoading = () => setIsLoading((prev) => !prev);
   return (
     <div>

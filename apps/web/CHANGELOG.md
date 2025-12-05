@@ -1,5 +1,15 @@
 # web
 
+## 0.1.22
+
+### Patch Changes
+
+- fix: button slots
+- Updated dependencies
+  - @jamsrui/react@0.0.23
+  - @jamsrui/utils@0.0.16
+  - @jamsrui/hooks@0.0.16
+
 ## 0.1.21
 
 ### Patch Changes

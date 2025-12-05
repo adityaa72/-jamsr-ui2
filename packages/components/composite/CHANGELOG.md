@@ -1,5 +1,12 @@
 # @jamsrui/composite
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.16
+
 ## 0.0.8
 
 ### Patch Changes

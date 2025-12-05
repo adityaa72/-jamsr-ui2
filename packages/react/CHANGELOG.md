@@ -1,5 +1,73 @@
 # @jamsrui/react
 
+## 0.0.23
+
+### Patch Changes
+
+- fix: button slots
+- Updated dependencies
+  - @jamsrui/button@0.0.18
+  - @jamsrui/utils@0.0.16
+  - @jamsrui/alert-dialog@0.0.18
+  - @jamsrui/data-grid@0.0.22
+  - @jamsrui/accordion@0.0.16
+  - @jamsrui/alert@0.0.16
+  - @jamsrui/autocomplete@0.0.18
+  - @jamsrui/avatar@0.0.16
+  - @jamsrui/breadcrumb@0.0.16
+  - @jamsrui/card@0.0.16
+  - @jamsrui/charts@0.0.16
+  - @jamsrui/checkbox@0.0.17
+  - @jamsrui/chip@0.0.16
+  - @jamsrui/circular-progress@0.0.16
+  - @jamsrui/clipboard@0.0.16
+  - @jamsrui/collapsible@0.0.16
+  - @jamsrui/composite@0.0.9
+  - @jamsrui/context-menu@0.0.16
+  - @jamsrui/date-input@0.0.18
+  - @jamsrui/date-picker@0.0.16
+  - @jamsrui/description@0.0.9
+  - @jamsrui/dialog@0.0.16
+  - @jamsrui/divider@0.0.16
+  - @jamsrui/drawer@0.0.16
+  - @jamsrui/editor@0.0.16
+  - @jamsrui/field-error@0.0.9
+  - @jamsrui/file-upload@0.0.5
+  - @jamsrui/header@0.0.16
+  - @jamsrui/icon-button@0.0.16
+  - @jamsrui/input@0.0.18
+  - @jamsrui/input-group@0.0.5
+  - @jamsrui/kbd@0.0.16
+  - @jamsrui/label@0.0.9
+  - @jamsrui/linear-progress@0.0.16
+  - @jamsrui/link@0.0.17
+  - @jamsrui/menu@0.0.18
+  - @jamsrui/number-field@0.0.17
+  - @jamsrui/otp-input@0.0.17
+  - @jamsrui/pagination@0.0.16
+  - @jamsrui/popover@0.0.16
+  - @jamsrui/radio@0.0.18
+  - @jamsrui/rating@0.0.16
+  - @jamsrui/rhf@0.0.3
+  - @jamsrui/ripple@0.0.16
+  - @jamsrui/scroll-area@0.0.16
+  - @jamsrui/select@0.0.17
+  - @jamsrui/sidebar@0.0.16
+  - @jamsrui/skeleton@0.0.16
+  - @jamsrui/slider@0.0.16
+  - @jamsrui/switch@0.0.17
+  - @jamsrui/table@0.0.16
+  - @jamsrui/tabs@0.0.16
+  - @jamsrui/tags-input@0.0.16
+  - @jamsrui/text@0.0.16
+  - @jamsrui/textarea@0.0.18
+  - @jamsrui/textfield@0.0.5
+  - @jamsrui/time-input@0.0.18
+  - @jamsrui/toast@0.0.16
+  - @jamsrui/toggle@0.0.16
+  - @jamsrui/tooltip@0.0.16
+  - @jamsrui/hooks@0.0.16
+
 ## 0.0.22
 
 ### Patch Changes

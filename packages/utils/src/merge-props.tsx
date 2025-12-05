@@ -77,13 +77,14 @@ export const mergeConfigProps = <
   T extends P & {
     props?: (props: Partial<P>) => P;
     omitProps?: string[];
+    slots?: Record<string, any>;
   },
 >(
   defaultValues: P,
   globalConfig: T,
   props: P
 ): P => {
-  const { props: configProps, omitProps, ...restProps } = globalConfig;
+  const { props: configProps, omitProps, slots, ...restProps } = globalConfig;
   const actualProps = omitProps?.length
     ? Object.fromEntries(
         Object.entries(props).filter(([key]) => !omitProps.includes(key))

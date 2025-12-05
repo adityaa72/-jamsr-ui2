@@ -1,5 +1,11 @@
 # @jamsrui/utils
 
+## 0.0.16
+
+### Patch Changes
+
+- fix: button slots
+
 ## 0.0.15
 
 ### Patch Changes

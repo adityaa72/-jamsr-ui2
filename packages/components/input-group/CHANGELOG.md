@@ -1,5 +1,16 @@
 # @jamsrui/input
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.16
+  - @jamsrui/description@0.0.9
+  - @jamsrui/field-error@0.0.9
+  - @jamsrui/label@0.0.9
+  - @jamsrui/hooks@0.0.16
+
 ## 0.0.4
 
 ### Patch Changes
