@@ -30,11 +30,16 @@ export const useRadio = (props: useRadio.Props) => {
   );
 
   const styles = radioVariant(variantProps);
-  const { name: inputName, handleInputChange, value } = useRadioGroupContext();
+  const {
+    name: inputName,
+    handleInputChange,
+    value,
+    isDisabled: isGroupDisabled,
+  } = useRadioGroupContext();
   const fieldA11yCtx = useFieldA11yContext();
 
   const {
-    disabled: isDisabled = false,
+    disabled: isDisabled = isGroupDisabled,
     readonly: isReadonly = false,
     children: description,
     ...elementProps

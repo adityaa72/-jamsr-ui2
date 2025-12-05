@@ -73,6 +73,8 @@ export const useSelect = (props: useSelect.Props) => {
     disabled: isDisabled = false,
     returnFocus = true,
     disableTypeahead = false,
+    name,
+    form,
     ...elementProps
   } = $props;
 
@@ -401,5 +403,7 @@ export namespace useSelect {
     renderValue?: (value: string[]) => React.ReactElement;
     returnFocus?: boolean;
     disableTypeahead?: boolean;
+    name?: string;
+    form?: string;
   }
 }

@@ -72,6 +72,15 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Tooltip", url: "/docs/components/tooltip" },
     ],
   },
+  {
+    title: "Libs",
+    items: [
+      {
+        title: "React Hook Form",
+        url: "/docs/libs/react-hook-form",
+      },
+    ],
+  },
 ];
 
 export const AppSidebar = () => {

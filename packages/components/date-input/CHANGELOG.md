@@ -1,5 +1,12 @@
 # @jamsrui/date-input
 
+## 0.0.17
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/input@0.0.17
+
 ## 0.0.16
 
 ### Patch Changes

@@ -6,10 +6,10 @@ import { useRadioGroupContext } from "./radio-group-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const RadioGroupRoot = (props: RadioGroupRoot.Props) => {
+export const RadioGroupRoot = () => {
   const { getRootProps } = useRadioGroupContext();
   const renderElement = useRenderElement("div", {
-    props: [getRootProps(props)],
+    props: [getRootProps()],
   });
   return renderElement;
 };

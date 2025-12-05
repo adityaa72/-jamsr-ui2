@@ -22,6 +22,10 @@ export const useNumberField = (props: useNumberField.Props) => {
     minValue,
     maxValue,
     step,
+    isInvalid,
+    onValueChange,
+    value: valueProp,
+    defaultValue,
     ...restProps
   } = props;
   const [value, setValue] = useState<string>("");

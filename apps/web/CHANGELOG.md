@@ -1,5 +1,12 @@
 # web
 
+## 0.1.19
+
+### Patch Changes
+
+- feat: rhf
+  - @jamsrui/react@0.0.20
+
 ## 0.1.18
 
 ### Patch Changes

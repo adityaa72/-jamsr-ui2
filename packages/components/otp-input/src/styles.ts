@@ -31,6 +31,9 @@ export const otpInputVariants = tv({
         caret: "h-6",
       },
     },
+    isInvalid: {
+      true: {},
+    },
   },
   defaultVariants: { radius: "md", size: "md" },
 });

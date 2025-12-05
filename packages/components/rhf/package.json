@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/rhf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -26,6 +26,7 @@
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/input": "workspace:^",
     "@jamsrui/number-field": "workspace:^",
+    "@jamsrui/otp-input": "workspace:^",
     "@jamsrui/radio": "workspace:^",
     "@jamsrui/select": "workspace:^",
     "@jamsrui/switch": "workspace:^",

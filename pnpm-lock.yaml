@@ -1380,6 +1380,9 @@ importers:
       '@jamsrui/number-field':
         specifier: workspace:^
         version: link:../number-field
+      '@jamsrui/otp-input':
+        specifier: workspace:^
+        version: link:../otp-input
       '@jamsrui/radio':
         specifier: workspace:^
         version: link:../radio

@@ -7,13 +7,16 @@ import {
   Checkbox,
   Label,
   NumberField,
+  OtpInput,
+  Radio,
   RHFField,
+  Select,
   Switch,
   TextField,
   toast,
 } from "@jamsrui/react";
 import { FormProvider, useForm } from "react-hook-form";
-import { boolean, number, object, string } from "zod";
+import z, { boolean, number, object, string } from "zod";
 
 type FormValues = {
   username: string;
@@ -21,6 +24,9 @@ type FormValues = {
   age: number;
   acceptedTerms: boolean;
   darkMode: boolean;
+  gender: "male" | "female";
+  otp: string;
+  country: string;
 };
 
 const schema = object({
@@ -33,6 +39,9 @@ const schema = object({
   darkMode: boolean().refine((val) => val === true, {
     message: "Dark mode is required",
   }),
+  gender: z.enum(["male", "female"]),
+  otp: string().length(6, "OTP is required"),
+  country: string().min(1, "Country is required"),
 });
 
 const Page = () => {
@@ -42,6 +51,9 @@ const Page = () => {
     age: 0,
     acceptedTerms: false,
     darkMode: false,
+    gender: "" as FormValues["gender"],
+    otp: "",
+    country: "",
   };
   const form = useForm<FormValues>({
     defaultValues,
@@ -55,7 +67,6 @@ const Page = () => {
 
   return (
     <DocsPage title="React Hook Form" description="">
-      Page
       <FormProvider {...form}>
         <form onSubmit={onSubmit} className="flex flex-col gap-4 max-w-md">
           {/* Username */}
@@ -102,6 +113,66 @@ const Page = () => {
                 <Label>Dark Mode</Label>
               </Switch.Content>
             </RHFField.Switch>
+            <RHFField.FieldError />
+          </RHFField>
+          {/* Gender */}
+          <RHFField<FormValues> name="gender">
+            <RHFField.RadioGroup>
+              <Label>Gender</Label>
+              <Radio value="male">
+                <Radio.Control />
+                <Radio.Content>
+                  <Label>Male</Label>
+                </Radio.Content>
+              </Radio>
+              <Radio value="female">
+                <Radio.Control />
+                <Radio.Content>
+                  <Label>Female</Label>
+                </Radio.Content>
+              </Radio>
+            </RHFField.RadioGroup>
+            <RHFField.FieldError />
+          </RHFField>
+          {/* OTP */}
+          <RHFField<FormValues> name="otp">
+            <RHFField.OtpInput maxLength={6}>
+              <OtpInput.Group>
+                <OtpInput.Slot index={0} />
+                <OtpInput.Slot index={1} />
+                <OtpInput.Slot index={2} />
+              </OtpInput.Group>
+              <OtpInput.Separator />
+              <OtpInput.Group>
+                <OtpInput.Slot index={3} />
+                <OtpInput.Slot index={4} />
+                <OtpInput.Slot index={5} />
+              </OtpInput.Group>
+            </RHFField.OtpInput>
+            <RHFField.FieldError />
+          </RHFField>
+          {/* Country */}
+          <RHFField<FormValues> name="country">
+            <RHFField.Select placeholder="Select a country...">
+              <Label>Country</Label>
+              <Select.Trigger />
+              <Select.Popover>
+                <Select.Content>
+                  <Select.Item value="us" textValue="United States">
+                    United States
+                    <Select.ItemIndicator />
+                  </Select.Item>
+                  <Select.Item value="ca" textValue="Canada">
+                    Canada
+                    <Select.ItemIndicator />
+                  </Select.Item>
+                  <Select.Item value="mx" textValue="Mexico">
+                    Mexico
+                    <Select.ItemIndicator />
+                  </Select.Item>
+                </Select.Content>
+              </Select.Popover>
+            </RHFField.Select>
             <RHFField.FieldError />
           </RHFField>
           <Button type="submit" color="primary">

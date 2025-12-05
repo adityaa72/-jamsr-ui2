@@ -1,13 +1,13 @@
 "use client";
-import { RadioGroup } from "@jamsrui/radio";
+import { Select } from "@jamsrui/select";
 import { useRHFContext } from "./rhf-context";
 
-export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
+export const RHFSelect = (props: RHFSelect.Props) => {
   const { field, fieldState } = useRHFContext();
   const { value, onChange, onBlur, name, ref, disabled } = field;
   const { invalid } = fieldState;
   return (
-    <RadioGroup
+    <Select
       name={name}
       value={value}
       onValueChange={onChange}
@@ -21,6 +21,6 @@ export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
   );
 };
 
-export namespace RHFRadioGroup {
-  export interface Props extends RadioGroup.Props {}
+export namespace RHFSelect {
+  export interface Props extends Select.Props {}
 }

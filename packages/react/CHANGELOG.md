@@ -1,5 +1,24 @@
 # @jamsrui/react
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/number-field@0.0.16
+  - @jamsrui/data-grid@0.0.19
+  - @jamsrui/otp-input@0.0.16
+  - @jamsrui/select@0.0.16
+  - @jamsrui/radio@0.0.17
+  - @jamsrui/rhf@0.0.2
+  - @jamsrui/checkbox@0.0.16
+  - @jamsrui/input@0.0.17
+  - @jamsrui/switch@0.0.16
+  - @jamsrui/textarea@0.0.17
+  - @jamsrui/autocomplete@0.0.17
+  - @jamsrui/date-input@0.0.17
+  - @jamsrui/time-input@0.0.17
+
 ## 0.0.19
 
 ### Patch Changes

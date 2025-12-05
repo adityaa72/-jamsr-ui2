@@ -1,5 +1,11 @@
 # @jamsrui/select
 
+## 0.0.16
+
+### Patch Changes
+
+- feat: rhf
+
 ## 0.0.15
 
 ### Patch Changes

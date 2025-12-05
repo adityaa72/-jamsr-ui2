@@ -1,5 +1,15 @@
 # @jamsrui/data-grid
 
+## 0.0.19
+
+### Patch Changes
+
+- feat: rhf
+- Updated dependencies
+  - @jamsrui/select@0.0.16
+  - @jamsrui/checkbox@0.0.16
+  - @jamsrui/input@0.0.17
+
 ## 0.0.18
 
 ### Patch Changes

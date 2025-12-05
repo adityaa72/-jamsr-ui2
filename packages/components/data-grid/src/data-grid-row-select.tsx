@@ -8,7 +8,7 @@ export const DataGridRowSelect = ({ row }: { row: Row<any> }) => {
   return (
     <Checkbox
       aria-label="Select Row"
-      isChecked={row.getIsSelected()}
+      checked={row.getIsSelected()}
       onCheckedChange={(value) => row.toggleSelected(value)}
     >
       <Checkbox.Control />
@@ -21,7 +21,7 @@ export const DataGridRowSelectAll = () => {
   return (
     <Checkbox
       aria-label="Select All Rows"
-      isChecked={table.getIsAllPageRowsSelected()}
+      checked={table.getIsAllPageRowsSelected()}
       isIntermediate={table.getIsSomePageRowsSelected()}
       onCheckedChange={(value) => table.toggleAllPageRowsSelected(value)}
     >

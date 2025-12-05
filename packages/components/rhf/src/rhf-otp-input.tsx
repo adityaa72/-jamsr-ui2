@@ -1,13 +1,13 @@
 "use client";
-import { RadioGroup } from "@jamsrui/radio";
+import { OtpInput } from "@jamsrui/otp-input";
 import { useRHFContext } from "./rhf-context";
 
-export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
+export const RHFOtpInput = (props: RHFOtpInput.Props) => {
   const { field, fieldState } = useRHFContext();
   const { value, onChange, onBlur, name, ref, disabled } = field;
   const { invalid } = fieldState;
   return (
-    <RadioGroup
+    <OtpInput
       name={name}
       value={value}
       onValueChange={onChange}
@@ -21,6 +21,6 @@ export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
   );
 };
 
-export namespace RHFRadioGroup {
-  export interface Props extends RadioGroup.Props {}
+export namespace RHFOtpInput {
+  export interface Props extends OtpInput.Props {}
 }

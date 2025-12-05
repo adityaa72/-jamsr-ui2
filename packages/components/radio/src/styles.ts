@@ -97,9 +97,15 @@ export const radioGroupVariant = tv({
     description: "text-xs text-foreground-secondary",
     errorMessage: "text-xs text-danger",
   },
-  variants: {},
+  variants: {
+    isInvalid: {
+      true: {
+        root: "border-danger",
+      },
+    },
+  },
 });
 
 export type RadioVariantProps = VariantProps<typeof radioVariant>;
-export type RadioSlots = keyof ReturnType<typeof radioVariant>;
 export type RadioGroupSlots = keyof ReturnType<typeof radioGroupVariant>;
+export type RadioGroupVariants = VariantProps<typeof radioGroupVariant>;

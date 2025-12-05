@@ -3,11 +3,9 @@
 import { useCallback, useId } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, mapPropsVariants } from "@jamsrui/utils";
+import { mapPropsVariants } from "@jamsrui/utils";
 
-import { radioGroupVariant } from "./styles";
-
-import type { PropGetter } from "@jamsrui/utils";
+import { radioGroupVariant, RadioGroupVariants } from "./styles";
 
 import { RadioGroupRoot } from "./radio-group-root";
 
@@ -21,8 +19,9 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
     value: propValue,
     defaultValue,
     onValueChange,
-    children,
     name,
+    disabled: isDisabled = false,
+    ...restProps
   } = $props;
 
   const styles = radioGroupVariant(variantProps);
@@ -35,14 +34,14 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
     onChange: onValueChange,
   });
 
-  const getRootProps: PropGetter<RadioGroupRoot.Props> = useCallback(
-    (props) => ({
-      ...props,
+  const getRootProps = useCallback(
+    (): RadioGroupRoot.Props => ({
+      ...restProps,
       className: styles.root({
         className: props.className,
       }),
     }),
-    [styles]
+    [styles, restProps]
   );
 
   const handleInputChange = useCallback(
@@ -56,17 +55,18 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
     getRootProps,
     handleInputChange,
     value,
-    children,
     name: inputName,
+    isDisabled,
   };
 };
 
 export namespace useRadioGroup {
-  export interface Props {
+  export interface Props extends RadioGroupVariants, RadioGroupRoot.Props {
     value?: string;
     onValueChange?: (value: string) => void;
     defaultValue?: string;
     children?: React.ReactNode;
     name?: string;
+    disabled?: boolean;
   }
 }
