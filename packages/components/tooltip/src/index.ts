@@ -1,4 +1,4 @@
-import { Tooltip as TooltipRoot } from "./tooltip";
+import { TooltipGroup, Tooltip as TooltipRoot } from "./tooltip";
 import { TooltipArrow } from "./tooltip-arrow";
 import { TooltipConfig, useTooltipConfig } from "./tooltip-config";
 import { TooltipContent } from "./tooltip-content";
@@ -8,6 +8,7 @@ export {
   TooltipArrow,
   TooltipConfig,
   TooltipContent,
+  TooltipGroup,
   TooltipTrigger,
   useTooltipConfig,
 };

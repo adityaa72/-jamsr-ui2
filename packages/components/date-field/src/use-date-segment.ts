@@ -1,17 +1,17 @@
 "use client";
 import { useCallback } from "react";
 
-import { useDateInputContext } from "./date-input-context";
+import { useDateFieldContext } from "./date-field-context";
 
 import type { ComponentProps } from "react";
 
-import type { DateInputSegment } from "./date-input-segment";
+import type { DateSegment } from "./date-segment";
 
-export const useDateInputSegment = (
-  props: useDateInputSegment.Props
-): useDateInputSegment.ReturnType => {
+export const useDateSegment = (
+  props: useDateSegment.Props
+): useDateSegment.ReturnType => {
   const { segment } = props;
-  const { activeSegment, setActiveSegment, } = useDateInputContext();
+  const { activeSegment, setActiveSegment } = useDateFieldContext();
   console.log(activeSegment);
 
   const handleOnKeyDown = useCallback(
@@ -67,9 +67,9 @@ export const useDateInputSegment = (
   };
 };
 
-export namespace useDateInputSegment {
+export namespace useDateSegment {
   export interface ReturnType extends ComponentProps<"div"> {}
   export interface Props {
-    segment: DateInputSegment.Segment;
+    segment: DateSegment.Segment;
   }
 }

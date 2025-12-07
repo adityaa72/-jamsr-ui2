@@ -1,18 +1,18 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
-import { useDateInputContext } from "./date-input-context";
+import { useDateFieldContext } from "./date-field-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const DateInputSeparator = (props: DateInputSeparator.Props) => {
-  const { getSeparatorProps } = useDateInputContext();
+export const DateFieldSeparator = (props: DateFieldSeparator.Props) => {
+  const { getSeparatorProps } = useDateFieldContext();
   const renderElement = useRenderElement("span", {
     props: [getSeparatorProps(props), { children: "/" }],
   });
   return renderElement;
 };
 
-export namespace DateInputSeparator {
+export namespace DateFieldSeparator {
   export interface Props extends UIProps<"span"> {}
 }

@@ -2,7 +2,7 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-export const dateInputVariants = tv({
+export const dateFieldVariants = tv({
   slots: {
     root: "flex gap-1 items-center",
     input:
@@ -13,5 +13,5 @@ export const dateInputVariants = tv({
   defaultVariants: {},
 });
 
-export type DateInputVariants = VariantProps<typeof dateInputVariants>;
-export type DateInputSlots = keyof ReturnType<typeof dateInputVariants>;
+export type DateFieldVariants = VariantProps<typeof dateFieldVariants>;
+export type DateFieldSlots = keyof ReturnType<typeof dateFieldVariants>;

@@ -1,18 +1,18 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
-import { useDateInputContext } from "./date-input-context";
-import { useDateInputSegment } from "./use-date-input-segment";
+import { useDateFieldContext } from "./date-field-context";
+import { useDateSegment } from "./use-date-segment";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const DateInputSegment = (props: DateInputSegment.Props) => {
+export const DateSegment = (props: DateSegment.Props) => {
   const { segment, ...restProps } = props;
 
-  const inputProps = useDateInputSegment({
+  const inputProps = useDateSegment({
     segment,
   });
-  const { getInputProps } = useDateInputContext();
+  const { getInputProps } = useDateFieldContext();
   const renderElement = useRenderElement("div", {
     props: [
       getInputProps(restProps),
@@ -24,7 +24,7 @@ export const DateInputSegment = (props: DateInputSegment.Props) => {
   return renderElement;
 };
 
-export namespace DateInputSegment {
+export namespace DateSegment {
   export type Segment = "day" | "month" | "year";
   export interface Props extends UIProps<"div"> {
     segment: Segment;

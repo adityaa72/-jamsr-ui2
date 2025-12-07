@@ -4,15 +4,16 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { DateInputUsage } from "./examples/usage";
 
-const title = "Date Picker";
-const description = "Date Picker";
+const title = "Date Field";
+const description =
+  "Date Field allows users to enter and edit date and time values using a keyboard.";
 
 export const metadata: Metadata = {
   title,
   description,
 };
 
-const DatePicker = () => {
+const DateFieldPage = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
@@ -23,4 +24,4 @@ const DatePicker = () => {
   );
 };
 
-export default DatePicker;
+export default DateFieldPage;

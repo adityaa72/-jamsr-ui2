@@ -3,20 +3,21 @@ import { useCallback, useRef, useState } from "react";
 
 import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { dateInputVariants } from "./styles";
+import { dateFieldVariants } from "./styles";
 
 import type { PropGetter } from "@jamsrui/utils";
 
-import type { DateInputRoot } from "./date-input-root";
-import type { DateInputSegment } from "./date-input-segment";
-import type { DateInputSeparator } from "./date-input-separator";
+import type { DateSegment } from "./date-segment";
+import type { DateFieldSeparator } from "./date-field-separator";
 
-type Segments = Record<DateInputSegment.Segment, string>;
+type Segments = Record<DateSegment.Segment, string>;
 
-export const useDateInput = (props: useDateInput.Props) => {
+import { DateFieldRoot } from "./date-field-root";
+
+export const useDateField = (props: useDateField.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    dateInputVariants.variantKeys
+    dateFieldVariants.variantKeys
   );
 
   const [segments, setSegments] = useState<Segments>({
@@ -25,23 +26,23 @@ export const useDateInput = (props: useDateInput.Props) => {
     year: "",
   });
   const [activeSegment, setActiveSegment] =
-    useState<DateInputSegment.Segment>("day");
+    useState<DateSegment.Segment>("day");
 
   const elementRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const styles = dateInputVariants(variantProps);
-  const getRootProps: PropGetter<DateInputRoot.Props> = useCallback(
+  const styles = dateFieldVariants(variantProps);
+  const getRootProps: PropGetter<DateFieldRoot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-component": dataAttrDev("date-input"),
+      "data-component": dataAttrDev("date-field"),
       className: styles.root({ className: props.className }),
       "data-slot": dataAttrDev("root"),
     }),
     [styles]
   );
 
-  const getInputProps: PropGetter<DateInputRoot.Props> = useCallback(
+  const getInputProps: PropGetter<DateFieldRoot.Props> = useCallback(
     (props) => ({
       ...props,
       contentEditable: true,
@@ -54,7 +55,7 @@ export const useDateInput = (props: useDateInput.Props) => {
     [styles]
   );
 
-  const getSeparatorProps: PropGetter<DateInputSeparator.Props> = useCallback(
+  const getSeparatorProps: PropGetter<DateFieldSeparator.Props> = useCallback(
     (props) => ({
       ...props,
       className: styles.separator({ className: props.className }),
@@ -64,6 +65,7 @@ export const useDateInput = (props: useDateInput.Props) => {
   );
 
   return {
+    Component: DateFieldRoot,
     segments,
     activeSegment,
 
@@ -71,9 +73,11 @@ export const useDateInput = (props: useDateInput.Props) => {
     getInputProps,
     getSeparatorProps,
     setActiveSegment,
+    segmentList: ["day", "month", "year"] as const,
+    children: null,
   };
 };
 
-export namespace useDateInput {
+export namespace useDateField {
   export interface Props {}
 }

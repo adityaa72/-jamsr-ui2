@@ -27,7 +27,7 @@
     "@jamsrui/composite": "workspace:^",
     "@jamsrui/context-menu": "workspace:^",
     "@jamsrui/data-grid": "workspace:^",
-    "@jamsrui/date-input": "workspace:^",
+    "@jamsrui/date-field": "workspace:^",
     "@jamsrui/date-picker": "workspace:^",
     "@jamsrui/description": "workspace:^",
     "@jamsrui/dialog": "workspace:^",

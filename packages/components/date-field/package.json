@@ -1,5 +1,5 @@
 {
-  "name": "@jamsrui/date-input",
+  "name": "@jamsrui/date-field",
   "version": "0.0.18",
   "main": "./src/index.ts",
   "scripts": {
