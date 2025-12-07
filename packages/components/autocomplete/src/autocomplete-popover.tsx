@@ -1,3 +1,4 @@
+"use client";
 import { FloatingFocusManager, FloatingPortal } from "@floating-ui/react";
 import { useRenderElement } from "@jamsrui/hooks";
 

@@ -1,3 +1,4 @@
+"use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useDateInputContext } from "./date-input-context";

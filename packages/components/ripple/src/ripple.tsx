@@ -1,3 +1,4 @@
+"use client";
 import { useRipple } from "./use-ripple";
 
 const RippleInner: React.FC<RippleProps> = ({ x, y, size, duration }) => {

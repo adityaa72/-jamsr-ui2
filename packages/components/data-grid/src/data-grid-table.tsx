@@ -1,3 +1,4 @@
+"use client";
 import { Table } from "@jamsrui/table";
 
 import { useDataGridContext } from "./data-grid-context";

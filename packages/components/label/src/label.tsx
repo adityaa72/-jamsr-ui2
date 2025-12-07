@@ -1,3 +1,4 @@
+"use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useLabel } from "./use-label";

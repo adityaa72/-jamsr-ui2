@@ -1,3 +1,4 @@
+"use client";
 import { Checkbox } from "@jamsrui/checkbox";
 
 import { useDataGridContext } from "./data-grid-context";

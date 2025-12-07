@@ -1,3 +1,4 @@
+"use client";
 import { IconButton } from "@jamsrui/icon-button";
 import { CloseIcon } from "@jamsrui/icons";
 

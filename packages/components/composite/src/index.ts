@@ -1,4 +1,3 @@
-"use client";
 
 export { Composite } from "./composite";
 export { CompositeItem } from "./composite-item";

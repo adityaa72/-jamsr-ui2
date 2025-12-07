@@ -1,3 +1,4 @@
+"use client";
 export class NumberParser {
   locale: string;
   formatOptions: Intl.NumberFormatOptions;

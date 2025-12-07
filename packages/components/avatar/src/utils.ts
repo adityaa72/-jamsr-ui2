@@ -1,3 +1,4 @@
+"use client";
 import type { Avatar } from "./avatar";
 
 export const getFirstChar = (name: string) => name.charAt(0).toUpperCase();

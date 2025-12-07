@@ -1,3 +1,4 @@
+"use client";
 import { useRenderElement } from "@jamsrui/hooks";
 import type { UIProps } from "@jamsrui/utils";
 import { useInputGroupContext } from "./input-group-context";

@@ -21,3 +21,4 @@ export const numberFieldVariants = tv({
 });
 
 export type NumberFieldVariants = VariantProps<typeof numberFieldVariants>;
+export type NumberFieldSlots = keyof ReturnType<typeof numberFieldVariants>;

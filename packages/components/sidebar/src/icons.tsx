@@ -1,3 +1,4 @@
+"use client";
 export const ToggleIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg

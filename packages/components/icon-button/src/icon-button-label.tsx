@@ -1,3 +1,4 @@
+"use client";
 import { useIconButtonContext } from "./icon-button-context";
 
 export const IconButtonLabel = () => {

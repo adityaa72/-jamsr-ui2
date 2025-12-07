@@ -1,3 +1,4 @@
+"use client";
 import { TableBody, TableCell, TableRow } from "@jamsrui/table";
 import { flexRender } from "@tanstack/react-table";
 

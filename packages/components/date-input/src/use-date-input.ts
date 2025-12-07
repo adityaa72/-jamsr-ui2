@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useRef, useState } from "react";
 
 import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";

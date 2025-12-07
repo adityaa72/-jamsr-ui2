@@ -38,10 +38,16 @@ export namespace DialogContainer {
   export interface Props extends UIProps<"div"> {}
 }
 
-export const DialogContainerWithContent = (props: DialogContent.Props) => {
+export const DialogContainerWithContent = (
+  props: DialogContainerWithContent.Props
+) => {
   return (
     <DialogContainer>
       <DialogContent {...props} />
     </DialogContainer>
   );
 };
+
+export namespace DialogContainerWithContent {
+  export interface Props extends DialogContent.Props {}
+}

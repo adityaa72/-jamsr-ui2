@@ -1,3 +1,4 @@
+"use client";
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "@jamsrui/icons";
 
 import type { AlertVariants } from "./styles";

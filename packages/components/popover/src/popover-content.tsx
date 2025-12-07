@@ -48,3 +48,7 @@ export const PopoverContentWithDialog = (props: PopoverDialog.Props) => {
 export namespace PopoverContent {
   export interface Props extends UIProps<"div"> {}
 }
+
+export namespace PopoverContentWithDialog {
+  export interface Props extends PopoverDialog.Props {}
+}

@@ -1,3 +1,4 @@
+"use client";
 import { createContext, use } from "react";
 
 export const TabContext = createContext<TabContext.Type | null>(null);

@@ -1,3 +1,4 @@
+"use client";
 import { cloneElement } from "react";
 
 export const Slot = (props: Slot.Props) => {

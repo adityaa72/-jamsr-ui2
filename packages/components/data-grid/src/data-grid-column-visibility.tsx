@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@jamsrui/button";
 import { useRenderElement } from "@jamsrui/hooks";
 import { Settings2Icon } from "@jamsrui/icons";

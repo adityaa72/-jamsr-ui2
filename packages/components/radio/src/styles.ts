@@ -107,5 +107,7 @@ export const radioGroupVariant = tv({
 });
 
 export type RadioVariantProps = VariantProps<typeof radioVariant>;
+export type RadioVariants = VariantProps<typeof radioVariant>;
+export type RadioSlots = keyof ReturnType<typeof radioVariant>;
 export type RadioGroupSlots = keyof ReturnType<typeof radioGroupVariant>;
 export type RadioGroupVariants = VariantProps<typeof radioGroupVariant>;

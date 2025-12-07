@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useMemo } from "react";
 
 import { cn, dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";

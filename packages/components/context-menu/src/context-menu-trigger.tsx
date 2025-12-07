@@ -1,3 +1,4 @@
+"use client";
 import { cloneElement, isValidElement } from "react";
 
 import { useContextMenuContext } from "./context-menu-context";

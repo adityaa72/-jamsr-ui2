@@ -1,3 +1,4 @@
+"use client";
 import { cloneElement, isValidElement } from "react";
 
 import { useDrawerContext } from "./drawer-context";

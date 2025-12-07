@@ -1,3 +1,4 @@
+"use client";
 export const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg

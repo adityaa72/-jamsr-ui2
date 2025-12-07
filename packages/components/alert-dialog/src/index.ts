@@ -1,29 +1,46 @@
 import { AlertDialog as AlertDialogRoot } from "./alert-dialog";
 import { AlertDialogBody } from "./alert-dialog-body";
+import { AlertDialogConfig, useAlertDialogConfig } from "./alert-dialog-config";
 import { AlertDialogContainer } from "./alert-dialog-container";
 import { AlertDialogContent } from "./alert-dialog-content";
 import { AlertDialogContentInner } from "./alert-dialog-content-inner";
+import {
+  AlertDialogContext,
+  useAlertDialogContext,
+} from "./alert-dialog-context";
 import { AlertDialogDescription } from "./alert-dialog-description";
 import { AlertDialogFooter } from "./alert-dialog-footer";
 import { AlertDialogTitle } from "./alert-dialog-title";
 import { AlertDialogTrigger } from "./alert-dialog-trigger";
 import { AlertDialogTriggerClose } from "./alert-dialog-trigger-close";
-export { AlertDialogConfig, useAlertDialogConfig } from "./alert-dialog-config";
+import {
+  AlertDialogSlots,
+  AlertDialogVariants,
+  alertDialogVariant,
+} from "./styles";
+import { useAlertDialog } from "./use-alert-dialog";
 
 export {
   AlertDialogBody,
+  AlertDialogConfig,
   AlertDialogContainer,
   AlertDialogContent,
   AlertDialogContentInner,
+  AlertDialogContext,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
   AlertDialogTriggerClose,
+  alertDialogVariant,
+  useAlertDialog,
+  useAlertDialogConfig,
+  useAlertDialogContext,
+  type AlertDialogSlots,
+  type AlertDialogVariants,
 };
 
 export const AlertDialog = Object.assign(AlertDialogRoot, {
-  Root: AlertDialogRoot,
   Trigger: AlertDialogTrigger,
   Content: AlertDialogContent,
   Body: AlertDialogBody,
@@ -37,6 +54,7 @@ export const AlertDialog = Object.assign(AlertDialogRoot, {
 
 export namespace AlertDialog {
   export interface Props extends AlertDialogRoot.Props {}
+  export interface Config extends AlertDialogConfig.Props {}
   export interface Trigger extends AlertDialogTrigger.Props {}
   export interface Content extends AlertDialogContent.Props {}
   export interface Body extends AlertDialogBody.Props {}
@@ -45,4 +63,5 @@ export namespace AlertDialog {
   export interface Description extends AlertDialogDescription.Props {}
   export interface Container extends AlertDialogContainer.Props {}
   export interface ContentInner extends AlertDialogContentInner.Props {}
+  export interface TriggerClose extends AlertDialogTriggerClose.Props {}
 }

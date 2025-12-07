@@ -1,3 +1,4 @@
+"use client";
 import { LinearProgress } from "@jamsrui/linear-progress";
 
 export const DataGridLoading = (props: DataGridLoading.Props) => {

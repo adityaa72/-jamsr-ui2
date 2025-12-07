@@ -1,22 +1,27 @@
-import { TooltipGroup, Tooltip as TooltipRoot } from "./tooltip";
+import { Tooltip as TooltipRoot } from "./tooltip";
 import { TooltipArrow } from "./tooltip-arrow";
+import { TooltipConfig, useTooltipConfig } from "./tooltip-config";
 import { TooltipContent } from "./tooltip-content";
 import { TooltipTrigger } from "./tooltip-trigger";
-export { TooltipConfig, useTooltipConfig } from "./tooltip-config";
 
-export { TooltipGroup } from "./tooltip";
+export {
+  TooltipArrow,
+  TooltipConfig,
+  TooltipContent,
+  TooltipTrigger,
+  useTooltipConfig,
+};
 
 export const Tooltip = Object.assign(TooltipRoot, {
-  Root: TooltipRoot,
-  Arrow: TooltipArrow,
-  Content: TooltipContent,
   Trigger: TooltipTrigger,
-  Group: TooltipGroup,
+  Content: TooltipContent,
+  Arrow: TooltipArrow,
 });
 
 export namespace Tooltip {
   export interface Props extends TooltipRoot.Props {}
-  export interface Arrow extends TooltipArrow.Props {}
-  export interface Content extends TooltipContent.Props {}
+  export interface Config extends TooltipConfig.Props {}
   export interface Trigger extends TooltipTrigger.Props {}
+  export interface Content extends TooltipContent.Props {}
+  export interface Arrow extends TooltipArrow.Props {}
 }

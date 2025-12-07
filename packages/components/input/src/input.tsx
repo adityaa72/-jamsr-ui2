@@ -1,3 +1,4 @@
+"use client";
 import { useInput } from "./use-input";
 
 export const Input = (props: Input.Props) => {

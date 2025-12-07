@@ -1,4 +1,3 @@
-"use client";
 
 import { radiusVariant, tv } from "@jamsrui/utils";
 

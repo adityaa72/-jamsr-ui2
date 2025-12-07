@@ -1,3 +1,4 @@
+"use client";
 import { cloneElement } from "react";
 
 import { useCompositeItem } from "./use-composite-item";

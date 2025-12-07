@@ -1,3 +1,4 @@
+"use client";
 import { CompositeContext } from "./composite-context";
 import { useComposite } from "./use-composite";
 

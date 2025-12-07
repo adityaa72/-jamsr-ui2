@@ -1,3 +1,4 @@
+"use client";
 import { createConfigContext } from "@jamsrui/utils";
 
 import type { DataGrid } from "./data-grid";

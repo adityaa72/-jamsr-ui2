@@ -50,10 +50,16 @@ export namespace MenuContainer {
   export interface Props extends UIProps<"div"> {}
 }
 
-export const MenuContainerWithContent = (props: MenuContent.Props) => {
+export const MenuContainerWithContent = (
+  props: MenuContainerWithContent.Props
+) => {
   return (
     <MenuContainer>
       <MenuContent {...props} />
     </MenuContainer>
   );
 };
+
+export namespace MenuContainerWithContent {
+  export interface Props extends MenuContent.Props {}
+}

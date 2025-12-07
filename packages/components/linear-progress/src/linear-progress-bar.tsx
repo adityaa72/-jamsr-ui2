@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "motion/react";
 
 import { useLinearProgressContext } from "./linear-progress-context";

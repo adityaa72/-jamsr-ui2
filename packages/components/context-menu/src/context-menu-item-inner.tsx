@@ -1,3 +1,4 @@
+"use client";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useContextMenuContext } from "./context-menu-context";

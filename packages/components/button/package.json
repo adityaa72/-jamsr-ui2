@@ -1,7 +1,7 @@
 {
   "name": "@jamsrui/button",
   "version": "0.0.18",
-  "main": "./src/index.tsx",
+  "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "npx eslint src --ext .ts,.tsx --fix",

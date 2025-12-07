@@ -1,3 +1,4 @@
+"use client";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useDateInputConfig } from "./date-input-config";

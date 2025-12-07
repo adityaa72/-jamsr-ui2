@@ -1,3 +1,4 @@
+"use client";
 import { FloatingOverlay, FloatingPortal } from "@floating-ui/react";
 import { AnimatePresence, motion } from "motion/react";
 

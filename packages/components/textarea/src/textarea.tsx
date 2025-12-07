@@ -1,3 +1,4 @@
+"use client";
 import { useTextarea } from "./use-textarea";
 
 export const Textarea = (props: Textarea.Props) => {

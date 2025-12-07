@@ -1,3 +1,4 @@
+"use client";
 import { useRenderElement } from "@jamsrui/hooks";
 import { Input } from "@jamsrui/input";
 import { mergeConfigProps } from "@jamsrui/utils";
