@@ -1,7 +1,9 @@
+import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Text } from "@jamsrui/react";
 import { Metadata } from "next";
+import ScrollbarUsage from "./examples/usage";
 
 const title = "ScrollArea";
 const description = "ScrollArea";
@@ -16,6 +18,9 @@ const ScrollArea = () => {
   return (
     <DocsPage title={title} description={description}>
       <Text>Coming Soon!</Text>
+      <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
+        <ScrollbarUsage />
+      </CodeExample>
     </DocsPage>
   );
 };

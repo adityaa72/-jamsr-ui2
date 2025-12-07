@@ -12,7 +12,9 @@ import { ChipConfig } from '@jamsrui/chip';
 import { CircularProgressConfig } from '@jamsrui/circular-progress';
 import { ClipboardConfig } from '@jamsrui/clipboard';
 import { CollapsibleConfig } from '@jamsrui/collapsible';
+import { ContextMenuConfig } from '@jamsrui/context-menu';
 import { DataGridConfig } from '@jamsrui/data-grid';
+import { DateInputConfig } from '@jamsrui/date-input';
 import { DatePickerConfig } from '@jamsrui/date-picker';
 import { DialogConfig } from '@jamsrui/dialog';
 import { DividerConfig } from '@jamsrui/divider';
@@ -29,9 +31,9 @@ import { NumberFieldConfig } from '@jamsrui/number-field';
 import { OtpInputConfig } from '@jamsrui/otp-input';
 import { PaginationConfig } from '@jamsrui/pagination';
 import { PopoverConfig } from '@jamsrui/popover';
+import { RadioGroupConfig } from '@jamsrui/radio';
 import { RatingConfig } from '@jamsrui/rating';
 import { RippleConfig } from '@jamsrui/ripple';
-import { ScrollAreaConfig } from '@jamsrui/scroll-area';
 import { SelectConfig } from '@jamsrui/select';
 import { SidebarConfig } from '@jamsrui/sidebar';
 import { SkeletonConfig } from '@jamsrui/skeleton';
@@ -61,7 +63,9 @@ type Props = {
   circularProgress?: CircularProgressConfig.Props;
   clipboard?: ClipboardConfig.Props;
   collapsible?: CollapsibleConfig.Props;
+  contextMenu?: ContextMenuConfig.Props;
   dataGrid?: DataGridConfig.Props;
+  dateInput?: DateInputConfig.Props;
   datePicker?: DatePickerConfig.Props;
   dialog?: DialogConfig.Props;
   divider?: DividerConfig.Props;
@@ -78,9 +82,9 @@ type Props = {
   otpInput?: OtpInputConfig.Props;
   pagination?: PaginationConfig.Props;
   popover?: PopoverConfig.Props;
+  radioGroup?: RadioGroupConfig.Props;
   rating?: RatingConfig.Props;
   ripple?: RippleConfig.Props;
-  scrollArea?: ScrollAreaConfig.Props;
   select?: SelectConfig.Props;
   sidebar?: SidebarConfig.Props;
   skeleton?: SkeletonConfig.Props;
@@ -112,7 +116,9 @@ export const JamsrUIConfig = (props: Props) => {
   <CircularProgressConfig {...props.circularProgress}>
   <ClipboardConfig {...props.clipboard}>
   <CollapsibleConfig {...props.collapsible}>
+  <ContextMenuConfig {...props.contextMenu}>
   <DataGridConfig {...props.dataGrid}>
+  <DateInputConfig {...props.dateInput}>
   <DatePickerConfig {...props.datePicker}>
   <DialogConfig {...props.dialog}>
   <DividerConfig {...props.divider}>
@@ -129,9 +135,9 @@ export const JamsrUIConfig = (props: Props) => {
   <OtpInputConfig {...props.otpInput}>
   <PaginationConfig {...props.pagination}>
   <PopoverConfig {...props.popover}>
+  <RadioGroupConfig {...props.radioGroup}>
   <RatingConfig {...props.rating}>
   <RippleConfig {...props.ripple}>
-  <ScrollAreaConfig {...props.scrollArea}>
   <SelectConfig {...props.select}>
   <SidebarConfig {...props.sidebar}>
   <SkeletonConfig {...props.skeleton}>
@@ -157,9 +163,9 @@ export const JamsrUIConfig = (props: Props) => {
   </SkeletonConfig>
   </SidebarConfig>
   </SelectConfig>
-  </ScrollAreaConfig>
   </RippleConfig>
   </RatingConfig>
+  </RadioGroupConfig>
   </PopoverConfig>
   </PaginationConfig>
   </OtpInputConfig>
@@ -176,7 +182,9 @@ export const JamsrUIConfig = (props: Props) => {
   </DividerConfig>
   </DialogConfig>
   </DatePickerConfig>
+  </DateInputConfig>
   </DataGridConfig>
+  </ContextMenuConfig>
   </CollapsibleConfig>
   </ClipboardConfig>
   </CircularProgressConfig>
