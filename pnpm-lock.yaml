@@ -1746,7 +1746,7 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
 
-  packages/components/time-input:
+  packages/components/time-field:
     dependencies:
       '@jamsrui/core':
         specifier: workspace:^
@@ -2123,9 +2123,9 @@ importers:
       '@jamsrui/theme':
         specifier: workspace:^
         version: link:../theme
-      '@jamsrui/time-input':
+      '@jamsrui/time-field':
         specifier: workspace:^
-        version: link:../components/time-input
+        version: link:../components/time-field
       '@jamsrui/toast':
         specifier: workspace:^
         version: link:../components/toast

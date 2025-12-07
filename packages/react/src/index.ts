@@ -434,6 +434,16 @@ export {
   useTagsInputConfig,
   TagsInput,
 } from "@jamsrui/tags-input";
+export {
+  TimeField,
+  TimeInput,
+  TimeSegment,
+  TimeFieldConfig,
+  timeFieldVariants,
+  useTimeField,
+  useTimeFieldConfig,
+} from "@jamsrui/time-field";
+export type { TimeFieldSlots, TimeFieldVariants } from "@jamsrui/time-field";
 export { textVariants, Text, TextConfig, useTextConfig } from "@jamsrui/text";
 export { Textarea } from "@jamsrui/textarea";
 export {

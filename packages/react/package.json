@@ -68,7 +68,7 @@
     "@jamsrui/textarea": "workspace:^",
     "@jamsrui/textfield": "workspace:^",
     "@jamsrui/theme": "workspace:^",
-    "@jamsrui/time-input": "workspace:^",
+    "@jamsrui/time-field": "workspace:^",
     "@jamsrui/toast": "workspace:^",
     "@jamsrui/toggle": "workspace:^",
     "@jamsrui/tooltip": "workspace:^",

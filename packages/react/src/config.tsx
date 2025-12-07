@@ -43,6 +43,7 @@ import { TableConfig } from "@jamsrui/table";
 import { TabsConfig } from "@jamsrui/tabs";
 import { TagsInputConfig } from "@jamsrui/tags-input";
 import { TextConfig } from "@jamsrui/text";
+import { TimeFieldConfig } from "@jamsrui/time-field";
 import { ToastConfig } from "@jamsrui/toast";
 import { ToggleConfig } from "@jamsrui/toggle";
 import { TooltipConfig } from "@jamsrui/tooltip";
@@ -94,6 +95,7 @@ type Props = {
   tabs?: TabsConfig.Props;
   tagsInput?: TagsInputConfig.Props;
   text?: TextConfig.Props;
+  timeField?: TimeFieldConfig.Props;
   toast?: ToastConfig.Props;
   toggle?: ToggleConfig.Props;
   tooltip?: TooltipConfig.Props;
@@ -191,21 +193,25 @@ export const JamsrUIConfig = (props: Props) => {
                                                                                             <TextConfig
                                                                                               {...props.text}
                                                                                             >
-                                                                                              <ToastConfig
-                                                                                                {...props.toast}
+                                                                                              <TimeFieldConfig
+                                                                                                {...props.timeField}
                                                                                               >
-                                                                                                <ToggleConfig
-                                                                                                  {...props.toggle}
+                                                                                                <ToastConfig
+                                                                                                  {...props.toast}
                                                                                                 >
-                                                                                                  <TooltipConfig
-                                                                                                    {...props.tooltip}
+                                                                                                  <ToggleConfig
+                                                                                                    {...props.toggle}
                                                                                                   >
-                                                                                                    {
-                                                                                                      children
-                                                                                                    }
-                                                                                                  </TooltipConfig>
-                                                                                                </ToggleConfig>
-                                                                                              </ToastConfig>
+                                                                                                    <TooltipConfig
+                                                                                                      {...props.tooltip}
+                                                                                                    >
+                                                                                                      {
+                                                                                                        children
+                                                                                                      }
+                                                                                                    </TooltipConfig>
+                                                                                                  </ToggleConfig>
+                                                                                                </ToastConfig>
+                                                                                              </TimeFieldConfig>
                                                                                             </TextConfig>
                                                                                           </TagsInputConfig>
                                                                                         </TabsConfig>

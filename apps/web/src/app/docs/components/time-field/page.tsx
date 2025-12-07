@@ -2,25 +2,26 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
-import { DatePickerUsage } from "./examples/usage";
+import { TimeFieldUsage } from "./examples/usage";
 
-const title = "Date Picker";
-const description = "Date Picker";
+const title = "Time Field";
+const description =
+  "Time Field allows users to enter and edit time values using a keyboard.";
 
 export const metadata: Metadata = {
   title,
   description,
 };
 
-const DatePicker = () => {
+const TimeFieldPage = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
-        <DatePickerUsage />
+        <TimeFieldUsage />
       </CodeExample>
     </DocsPage>
   );
 };
 
-export default DatePicker;
+export default TimeFieldPage;
