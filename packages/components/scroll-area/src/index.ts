@@ -1,23 +1,21 @@
 import { ScrollArea as ScrollAreaRoot } from "./scroll-area";
-import { ScrollAreaViewport } from "./scroll-area-viewport";
 import { ScrollAreaContent } from "./scroll-area-content";
+import { useScrollAreaContext } from "./scroll-area-context";
+import { ScrollAreaCorner } from "./scroll-area-corner";
 import { ScrollAreaScrollbar } from "./scroll-area-scrollbar";
 import { ScrollAreaThumb } from "./scroll-area-thumb";
-import { ScrollAreaCorner } from "./scroll-area-corner";
-import {
-  scrollArea,
-  type ScrollAreaSlots,
-  type ScrollAreaVariants,
-} from "./styles";
-import { useScrollAreaContext } from "./scroll-area-context";
+import { ScrollAreaViewport } from "./scroll-area-viewport";
+import { scrollAreaVariants } from "./styles";
+
+import type { ScrollAreaSlots, ScrollAreaVariants } from "./styles";
 
 export {
-  ScrollAreaViewport,
   ScrollAreaContent,
+  ScrollAreaCorner,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
-  ScrollAreaCorner,
-  scrollArea,
+  scrollAreaVariants,
+  ScrollAreaViewport,
   useScrollAreaContext,
   type ScrollAreaSlots,
   type ScrollAreaVariants,

@@ -1,10 +1,13 @@
 "use client";
 
+import { createContext, useContext } from "react";
+
 import { useRenderElement } from "@jamsrui/hooks";
-import { type UIProps } from "@jamsrui/utils";
-import React, { createContext, useContext } from "react";
+
 import { useScrollAreaContext } from "./scroll-area-context";
-import { scrollArea } from "./styles";
+import { scrollAreaVariants } from "./styles";
+
+import type { UIProps } from "@jamsrui/utils";
 
 type ScrollAreaScrollbarContextValue = {
   orientation: "vertical" | "horizontal";
@@ -34,11 +37,8 @@ export const ScrollAreaScrollbar = (props: ScrollAreaScrollbar.Props) => {
   const { scrollbarXRef, scrollbarYRef, hasScrollX, hasScrollY } =
     useScrollAreaContext();
 
-  const { scrollbar } = scrollArea();
+  const { scrollbar } = scrollAreaVariants();
   const styles = scrollbar({ className, orientation });
-
-  if (orientation === "vertical" && !hasScrollY) return null;
-  if (orientation === "horizontal" && !hasScrollX) return null;
 
   const ref = orientation === "vertical" ? scrollbarYRef : scrollbarXRef;
 
@@ -52,6 +52,9 @@ export const ScrollAreaScrollbar = (props: ScrollAreaScrollbar.Props) => {
       render,
     },
   });
+
+  if (orientation === "vertical" && !hasScrollY) return null;
+  if (orientation === "horizontal" && !hasScrollX) return null;
 
   return (
     <ScrollAreaScrollbarContext.Provider value={{ orientation }}>

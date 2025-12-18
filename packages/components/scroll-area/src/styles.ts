@@ -1,6 +1,10 @@
-import { tv, type VariantProps } from "@jamsrui/utils";
+"use client";
 
-export const scrollArea = tv({
+import { tv } from "@jamsrui/utils";
+
+import type { VariantProps } from "@jamsrui/utils";
+
+export const scrollAreaVariants = tv({
   slots: {
     root: "relative overflow-hidden",
     viewport:
@@ -32,5 +36,5 @@ export const scrollArea = tv({
   },
 });
 
-export type ScrollAreaVariants = VariantProps<typeof scrollArea>;
-export type ScrollAreaSlots = keyof ReturnType<typeof scrollArea>;
+export type ScrollAreaVariants = VariantProps<typeof scrollAreaVariants>;
+export type ScrollAreaSlots = keyof ReturnType<typeof scrollAreaVariants>;

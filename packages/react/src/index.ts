@@ -28,7 +28,9 @@ export {
 export type { AlertSlots, AlertVariants } from "@jamsrui/alert";
 export {
   AlertDialog,
+  AlertDialogAction,
   AlertDialogBody,
+  AlertDialogCancel,
   AlertDialogConfig,
   AlertDialogContainer,
   AlertDialogContent,
@@ -153,11 +155,14 @@ export {
 export {
   DateField,
   DateFieldConfig,
+  DateFieldRoot,
+  DateFieldSeparator,
   dateFieldVariants,
   DateInput,
   DateSegment,
   useDateField,
   useDateFieldConfig,
+  useDateSegment,
 } from "@jamsrui/date-field";
 export type { DateFieldSlots, DateFieldVariants } from "@jamsrui/date-field";
 export {
@@ -319,12 +324,12 @@ export { Rating, RatingConfig, useRatingConfig } from "@jamsrui/rating";
 export { RHFField } from "@jamsrui/rhf";
 export { Ripple, RippleConfig, useRippleConfig } from "@jamsrui/ripple";
 export {
-  scrollArea,
   ScrollArea,
   ScrollAreaContent,
   ScrollAreaCorner,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
+  scrollAreaVariants,
   ScrollAreaViewport,
   useScrollAreaContext,
 } from "@jamsrui/scroll-area";
@@ -443,11 +448,14 @@ export {
 export {
   TimeField,
   TimeFieldConfig,
+  TimeFieldRoot,
+  TimeFieldSeparator,
   timeFieldVariants,
   TimeInput,
   TimeSegment,
   useTimeField,
   useTimeFieldConfig,
+  useTimeSegment,
 } from "@jamsrui/time-field";
 export type { TimeFieldSlots, TimeFieldVariants } from "@jamsrui/time-field";
 export {

@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import { useResizeObserver } from "./use-resize-observer";
 
 export interface UseScrollAreaProps {

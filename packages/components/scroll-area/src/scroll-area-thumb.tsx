@@ -1,10 +1,12 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { type UIProps } from "@jamsrui/utils";
+
 import { useScrollAreaContext } from "./scroll-area-context";
 import { useScrollAreaScrollbarContext } from "./scroll-area-scrollbar";
-import { scrollArea } from "./styles";
+import { scrollAreaVariants } from "./styles";
+
+import type {UIProps} from "@jamsrui/utils";
 
 export const ScrollAreaThumb = (props: ScrollAreaThumb.Props) => {
   const { render, className, ...restProps } = props;
@@ -18,7 +20,7 @@ export const ScrollAreaThumb = (props: ScrollAreaThumb.Props) => {
   } = useScrollAreaContext();
   const { orientation } = useScrollAreaScrollbarContext();
 
-  const { thumb } = scrollArea();
+  const { thumb } = scrollAreaVariants();
   const styles = thumb({ className });
 
   const isVertical = orientation === "vertical";

@@ -1,17 +1,20 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { type UIProps } from "@jamsrui/utils";
-import React from "react";
-import { scrollArea, type ScrollAreaVariants } from "./styles";
+
 import { ScrollAreaProvider } from "./scroll-area-context";
+import { scrollAreaVariants  } from "./styles";
 import { useScrollArea } from "./use-scroll-area";
+
+import type {UIProps} from "@jamsrui/utils";
+
+import type {ScrollAreaVariants} from "./styles";
 
 const Root = (props: ScrollArea.Props) => {
   const { render, children, className, type, scrollHideDelay, ...restProps } =
     props;
   const context = useScrollArea({ type, scrollHideDelay });
-  const { root } = scrollArea();
+  const { root } = scrollAreaVariants();
   const styles = root({ className });
 
   const renderElement = useRenderElement("div", {

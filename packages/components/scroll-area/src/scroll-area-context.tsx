@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
+
 import type { UseScrollAreaReturn } from "./use-scroll-area";
 
 export const ScrollAreaContext = createContext<UseScrollAreaReturn | null>(

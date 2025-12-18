@@ -1,5 +1,45 @@
 # @jamsrui/react
 
+## 0.0.29
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/scroll-area@0.0.18
+
+## 0.0.28
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/scroll-area@0.0.7
+
+## 0.0.27
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/scroll-area@0.0.5
+
+## 0.0.26
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/scroll-area@0.0.4
+
+## 0.0.25
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/scroll-area@0.0.3
+
 ## 0.0.24
 
 ### Patch Changes

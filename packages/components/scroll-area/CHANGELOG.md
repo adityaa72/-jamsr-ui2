@@ -1,5 +1,35 @@
 # @jamsrui/scroll-area
 
+## 0.0.18
+
+### Patch Changes
+
+- fix: scroll-area
+
+## 0.0.7
+
+### Patch Changes
+
+- fix: scroll-area
+
+## 0.0.5
+
+### Patch Changes
+
+- fix: scroll-area
+
+## 0.0.4
+
+### Patch Changes
+
+- fix: scroll-area
+
+## 0.0.3
+
+### Patch Changes
+
+- fix: scroll-area
+
 ## 0.0.2
 
 ### Patch Changes

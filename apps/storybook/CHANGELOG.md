@@ -1,5 +1,44 @@
 # storybook-2
 
+## 0.0.28
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/react@0.0.29
+
+## 0.0.27
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/react@0.0.28
+
+## 0.0.26
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/react@0.0.27
+
+## 0.0.25
+
+### Patch Changes
+
+- fix: scroll-area
+- Updated dependencies
+  - @jamsrui/react@0.0.26
+
+## 0.0.24
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/react@0.0.25
+
 ## 0.0.23
 
 ### Patch Changes

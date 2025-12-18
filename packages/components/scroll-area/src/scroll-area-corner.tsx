@@ -1,17 +1,17 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { type UIProps } from "@jamsrui/utils";
+
 import { useScrollAreaContext } from "./scroll-area-context";
-import { scrollArea } from "./styles";
+import { scrollAreaVariants } from "./styles";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const ScrollAreaCorner = (props: ScrollAreaCorner.Props) => {
   const { render, className, ...restProps } = props;
   const { hasScrollX, hasScrollY } = useScrollAreaContext();
-  const { corner } = scrollArea();
+  const { corner } = scrollAreaVariants();
   const styles = corner({ className });
-
-  if (!hasScrollX || !hasScrollY) return null;
 
   const renderElement = useRenderElement("div", {
     props: {
@@ -20,6 +20,7 @@ export const ScrollAreaCorner = (props: ScrollAreaCorner.Props) => {
       render,
     },
   });
+  if (!hasScrollX || !hasScrollY) return null;
   return renderElement;
 };
 
