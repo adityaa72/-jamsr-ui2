@@ -14,7 +14,7 @@ import { useDataGrid } from "./use-data-grid";
 
 export const DataGrid = (props: DataGrid.Props) => {
   const config = useDataGridConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
+  const mergedProps = mergeConfigProps({} as DataGrid.Props, config, props);
   const ctx = useDataGrid(mergedProps);
 
   const composedChildren = (

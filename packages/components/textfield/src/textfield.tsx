@@ -1,7 +1,7 @@
 "use client";
 import { FieldA11yContext, useFieldA11y } from "@jamsrui/context";
-
 import { mergeConfigProps } from "@jamsrui/utils";
+
 import { textFieldVariants } from "./styles";
 import { useTextFieldConfig } from "./textfield-config";
 import { TextFieldContext } from "./textfield-context";

@@ -1,5 +1,6 @@
 "use client";
 import { mergeConfigProps } from "@jamsrui/utils";
+
 import { useInputGroupConfig } from "./input-group-config";
 import { InputGroupContext } from "./input-group-context";
 import { InputGroupRoot } from "./input-group-root";

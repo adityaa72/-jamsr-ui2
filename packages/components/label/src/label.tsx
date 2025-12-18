@@ -1,7 +1,7 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
-
 import { mergeConfigProps } from "@jamsrui/utils";
+
 import { useLabelConfig } from "./label-config";
 import { labelVariants } from "./styles";
 import { useLabel } from "./use-label";

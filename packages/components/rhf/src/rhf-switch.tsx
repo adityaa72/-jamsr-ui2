@@ -1,5 +1,6 @@
 "use client";
 import { Switch } from "@jamsrui/switch";
+
 import { useRHFContext } from "./rhf-context";
 
 export const RHFSwitch = (props: RHFSwitch.Props) => {
@@ -8,14 +9,14 @@ export const RHFSwitch = (props: RHFSwitch.Props) => {
   const { invalid } = fieldState;
   return (
     <Switch
-      name={name}
+      ref={ref}
       checked={value}
-      onCheckedChange={onChange}
-      onBlur={onBlur}
-      isInvalid={invalid}
       data-invalid={invalid}
       disabled={disabled}
-      ref={ref}
+      isInvalid={invalid}
+      name={name}
+      onBlur={onBlur}
+      onCheckedChange={onChange}
       {...props}
     />
   );

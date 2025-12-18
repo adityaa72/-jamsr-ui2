@@ -1,10 +1,10 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
-
-import { useDescription } from "./use-description";
-import { useDescriptionConfig } from "./description-config";
 import { mergeConfigProps } from "@jamsrui/utils";
+
+import { useDescriptionConfig } from "./description-config";
 import { descriptionVariants } from "./styles";
+import { useDescription } from "./use-description";
 
 export const Description = (props: Description.Props) => {
   const config = useDescriptionConfig();

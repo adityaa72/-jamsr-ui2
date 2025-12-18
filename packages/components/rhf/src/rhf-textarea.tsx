@@ -1,5 +1,6 @@
 "use client";
 import { Textarea } from "@jamsrui/textarea";
+
 import { useRHFContext } from "./rhf-context";
 
 export const RHFTextarea = (props: RHFTextarea.Props) => {
@@ -8,14 +9,14 @@ export const RHFTextarea = (props: RHFTextarea.Props) => {
   const { invalid } = fieldState;
   return (
     <Textarea
-      name={name}
-      value={value}
-      onValueChange={onChange}
-      onBlur={onBlur}
-      isInvalid={invalid}
+      ref={ref}
       data-invalid={invalid}
       disabled={disabled}
-      ref={ref}
+      isInvalid={invalid}
+      name={name}
+      onBlur={onBlur}
+      onValueChange={onChange}
+      value={value}
       {...props}
     />
   );

@@ -1,7 +1,7 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
-
 import { mergeConfigProps } from "@jamsrui/utils";
+
 import { useFieldErrorConfig } from "./field-error-config";
 import { fieldErrorVariants } from "./styles";
 import { useFieldError } from "./use-field-error";

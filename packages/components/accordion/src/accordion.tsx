@@ -5,14 +5,19 @@ import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAccordionConfig } from "./accordion-config";
 import { AccordionContext } from "./accordion-context";
+import { accordionVariants } from "./styles";
 import { useAccordion } from "./use-accordion";
 
 const Accordion = (props: Accordion.Props) => {
   const config = useAccordionConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
+  const mergedProps = mergeConfigProps(
+    accordionVariants.defaultVariants,
+    config,
+    props
+  );
   const ctx = useAccordion(mergedProps);
   const { getRootProps } = ctx;
-  const { children } = mergedProps;
+  const { children } = props;
 
   const renderElement = useRenderElement("div", {
     props: [getRootProps({}), { children }],

@@ -4,10 +4,10 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useButtonConfig } from "./button-config";
+import { ButtonContext } from "./button-context";
 import { buttonVariant } from "./styles";
 import { useButton } from "./use-button";
 
-import { ButtonContext } from "./button-context";
 import type { ButtonVariantProps } from "./styles";
 
 export const ButtonRoot = (props: ButtonRoot.Props) => {

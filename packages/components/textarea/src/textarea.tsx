@@ -1,5 +1,6 @@
 "use client";
 import { mergeConfigProps } from "@jamsrui/utils";
+
 import { textareaVariants } from "./styles";
 import { useTextareaConfig } from "./textarea-config";
 import { useTextarea } from "./use-textarea";

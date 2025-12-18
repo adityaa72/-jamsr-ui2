@@ -1,5 +1,6 @@
 "use client";
 import { OtpInput } from "@jamsrui/otp-input";
+
 import { useRHFContext } from "./rhf-context";
 
 export const RHFOtpInput = (props: RHFOtpInput.Props) => {
@@ -8,14 +9,14 @@ export const RHFOtpInput = (props: RHFOtpInput.Props) => {
   const { invalid } = fieldState;
   return (
     <OtpInput
-      name={name}
-      value={value}
-      onValueChange={onChange}
-      onBlur={onBlur}
-      isInvalid={invalid}
+      ref={ref}
       data-invalid={invalid}
       disabled={disabled}
-      ref={ref}
+      isInvalid={invalid}
+      name={name}
+      onBlur={onBlur}
+      onValueChange={onChange}
+      value={value}
       {...props}
     />
   );

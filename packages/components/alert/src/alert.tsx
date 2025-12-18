@@ -5,13 +5,18 @@ import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useAlertConfig } from "./alert-config";
 import { AlertContextProvider } from "./alert-context";
+import { alertStyles } from "./styles";
 import { useAlert } from "./use-alert";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const Alert = (props: Alert.Props) => {
   const config = useAlertConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
+  const mergedProps = mergeConfigProps(
+    alertStyles.defaultVariants,
+    config,
+    props
+  );
   const ctx = useAlert(mergedProps);
   const { getRootProps } = ctx;
 

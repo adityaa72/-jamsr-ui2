@@ -81,7 +81,7 @@ export const mergeConfigProps = <
   },
 >(
   defaultValues: P,
-  globalConfig: T,
+  globalConfig: Partial<T>,
   props: P
 ): P => {
   const { props: configProps, omitProps, slots, ...restProps } = globalConfig;

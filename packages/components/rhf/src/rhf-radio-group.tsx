@@ -1,5 +1,6 @@
 "use client";
 import { RadioGroup } from "@jamsrui/radio";
+
 import { useRHFContext } from "./rhf-context";
 
 export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
@@ -8,14 +9,14 @@ export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
   const { invalid } = fieldState;
   return (
     <RadioGroup
-      name={name}
-      value={value}
-      onValueChange={onChange}
-      onBlur={onBlur}
-      isInvalid={invalid}
+      ref={ref}
       data-invalid={invalid}
       disabled={disabled}
-      ref={ref}
+      isInvalid={invalid}
+      name={name}
+      onBlur={onBlur}
+      onValueChange={onChange}
+      value={value}
       {...props}
     />
   );

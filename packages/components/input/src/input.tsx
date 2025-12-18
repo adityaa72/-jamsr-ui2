@@ -1,5 +1,6 @@
 "use client";
 import { mergeConfigProps } from "@jamsrui/utils";
+
 import { useInputConfig } from "./input-config";
 import { inputVariants } from "./styles";
 import { useInput } from "./use-input";

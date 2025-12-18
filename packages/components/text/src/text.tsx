@@ -11,7 +11,11 @@ import type { TextVariants } from "./styles";
 
 export const Text = (props: Text.Props) => {
   const config = useTextConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
+  const mergedProps = mergeConfigProps(
+    textVariants.defaultVariants,
+    config,
+    props
+  );
   const [elementProps, variantProps] = mapPropsVariants(
     mergedProps,
     textVariants.variantKeys

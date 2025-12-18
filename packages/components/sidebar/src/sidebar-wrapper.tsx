@@ -1,7 +1,7 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps  } from "@jamsrui/utils";
+import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useSidebarConfig } from "./sidebar-config";
 import { SidebarContext } from "./sidebar-context";
@@ -9,13 +9,18 @@ import {
   SidebarStateProvider,
   useSidebarState,
 } from "./sidebar-state-provider";
+import { sidebarVariants } from "./styles";
 import { useSidebar } from "./use-sidebar";
 
-import type {UIProps} from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 const SidebarWrapperInner = (props: SidebarWrapper.Props) => {
   const config = useSidebarConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
+  const mergedProps = mergeConfigProps(
+    sidebarVariants.defaultVariants,
+    config,
+    props
+  );
   const ctx = useSidebar(mergedProps);
   const { getWrapperProps } = ctx;
   const { state } = useSidebarState();

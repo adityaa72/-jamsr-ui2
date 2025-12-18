@@ -3,11 +3,16 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useLinkConfig } from "./link-config";
+import { linkVariants } from "./styles";
 import { useLink } from "./use-link";
 
 export const Link = (props: Link.Props) => {
   const config = useLinkConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
+  const mergedProps = mergeConfigProps(
+    linkVariants.defaultVariants,
+    config,
+    props
+  );
   const ctx = useLink(mergedProps);
   const { getRootProps } = ctx;
 

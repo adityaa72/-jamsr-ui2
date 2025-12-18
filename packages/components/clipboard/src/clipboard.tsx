@@ -5,12 +5,17 @@ import { mergeConfigProps } from "@jamsrui/utils";
 import { ClipboardButton } from "./clipboard-button";
 import { useClipboardConfig } from "./clipboard-config";
 import { ClipboardContext } from "./clipboard-context";
+import { copyToClipboardVariants } from "./styles";
 import { useClipboard } from "./use-clipboard";
 
 export const Clipboard = (props: Clipboard.Props) => {
   const config = useClipboardConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
-  const ctx = useClipboard(mergedProps);
+  const mergedProps = mergeConfigProps(
+    copyToClipboardVariants.defaultVariants,
+    config,
+    props
+  );
+  const ctx = useClipboard(mergedProps as Clipboard.Props);
   const { getRootProps } = ctx;
 
   const { children } = props;

@@ -1,5 +1,6 @@
 "use client";
 import { Checkbox } from "@jamsrui/checkbox";
+
 import { useRHFContext } from "./rhf-context";
 
 export const RHFCheckbox = (props: RHFCheckbox.Props) => {
@@ -8,14 +9,14 @@ export const RHFCheckbox = (props: RHFCheckbox.Props) => {
   const { invalid } = fieldState;
   return (
     <Checkbox
-      name={name}
+      ref={ref}
       checked={value}
-      onCheckedChange={onChange}
-      onBlur={onBlur}
-      isInvalid={invalid}
       data-invalid={invalid}
       disabled={disabled}
-      ref={ref}
+      isInvalid={invalid}
+      name={name}
+      onBlur={onBlur}
+      onCheckedChange={onChange}
       {...props}
     />
   );

@@ -45,5 +45,6 @@ export namespace Radio {
 }
 
 export namespace RadioGroup {
+  export interface Props extends RadioGroupRoot.Props {}
   export interface Config extends RadioGroupConfig.Props {}
 }

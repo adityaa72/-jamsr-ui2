@@ -5,11 +5,16 @@ import { mergeConfigProps } from "@jamsrui/utils";
 
 import { useCardConfig } from "./card-config";
 import { CardContextProvider } from "./card-context";
+import { cardVariants } from "./styles";
 import { useCard } from "./use-card";
 
 export const Card = (props: Card.Props) => {
   const config = useCardConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
+  const mergedProps = mergeConfigProps(
+    cardVariants.defaultVariants,
+    config,
+    props
+  );
   const ctx = useCard(mergedProps);
 
   const renderElement = useRenderElement("div", {

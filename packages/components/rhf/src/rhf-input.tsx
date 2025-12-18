@@ -1,5 +1,6 @@
 "use client";
 import { Input } from "@jamsrui/input";
+
 import { useRHFContext } from "./rhf-context";
 
 export const RHFInput = (props: RHFInput.Props) => {
@@ -8,14 +9,14 @@ export const RHFInput = (props: RHFInput.Props) => {
   const { invalid } = fieldState;
   return (
     <Input
-      name={name}
-      value={value}
-      onValueChange={onChange}
-      onBlur={onBlur}
-      isInvalid={invalid}
+      ref={ref}
       data-invalid={invalid}
       disabled={disabled}
-      ref={ref}
+      isInvalid={invalid}
+      name={name}
+      onBlur={onBlur}
+      onValueChange={onChange}
+      value={value}
       {...props}
     />
   );
