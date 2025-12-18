@@ -17,15 +17,15 @@ export const MenuGroupExample = () => {
         <Menu.Group>
           <Menu.GroupLabel>Sort</Menu.GroupLabel>
           <Menu.RadioGroup value={sortBy} onValueChange={setSortBy}>
-            <Menu.RadioItem value="date">
+            <Menu.RadioItem textValue="date" value="date">
               <Menu.ItemIndicator />
               Date
             </Menu.RadioItem>
-            <Menu.RadioItem value="name">
+            <Menu.RadioItem textValue="name" value="name">
               <Menu.ItemIndicator />
               Name
             </Menu.RadioItem>
-            <Menu.RadioItem value="type">
+            <Menu.RadioItem textValue="type" value="type">
               <Menu.ItemIndicator />
               Type
             </Menu.RadioItem>
@@ -35,6 +35,7 @@ export const MenuGroupExample = () => {
         <Menu.Group>
           <Menu.GroupLabel>Workspace</Menu.GroupLabel>
           <Menu.CheckboxItem
+            textValue="minimap"
             isChecked={showMinimap}
             onCheckedChange={setShowMinimap}
           >
@@ -42,6 +43,7 @@ export const MenuGroupExample = () => {
             Minimap
           </Menu.CheckboxItem>
           <Menu.CheckboxItem
+            textValue="search"
             isChecked={showSearch}
             onCheckedChange={setShowSearch}
           >
@@ -49,6 +51,7 @@ export const MenuGroupExample = () => {
             Search
           </Menu.CheckboxItem>
           <Menu.CheckboxItem
+            textValue="sidebar"
             isChecked={showSidebar}
             onCheckedChange={setShowSidebar}
           >

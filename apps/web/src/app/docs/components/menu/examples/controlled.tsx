@@ -16,13 +16,19 @@ export const MenuControlled = () => {
           </Button>
         </Menu.Trigger>
         <Menu.Content>
-          <Menu.Item>Undo</Menu.Item>
-          <Menu.Item>Info</Menu.Item>
-          <Menu.Item>Search</Menu.Item>
-          <Menu.Item isDisabled>Redo</Menu.Item>
-          <Menu.Item>Cut</Menu.Item>
-          <Menu.Item isDisabled>Edit</Menu.Item>
-          <Menu.Item color="danger">Delete</Menu.Item>
+          <Menu.Item textValue="Undo">Undo</Menu.Item>
+          <Menu.Item textValue="Info">Info</Menu.Item>
+          <Menu.Item textValue="Search">Search</Menu.Item>
+          <Menu.Item textValue="Redo" disabled>
+            Redo
+          </Menu.Item>
+          <Menu.Item textValue="Cut">Cut</Menu.Item>
+          <Menu.Item textValue="Edit" disabled>
+            Edit
+          </Menu.Item>
+          <Menu.Item textValue="Delete" color="danger">
+            Delete
+          </Menu.Item>
         </Menu.Content>
       </Menu>
       <Button onClick={onToggle}> {isOpen ? "Close" : "Open"}</Button>

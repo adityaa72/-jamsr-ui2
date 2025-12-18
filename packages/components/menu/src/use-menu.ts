@@ -30,12 +30,14 @@ import { useMenuFloatingContext } from "./menu-floating-context";
 import { menuVariants } from "./styles";
 
 import type {
+  Alignment,
   FloatingArrowProps,
   FloatingFocusManagerProps,
   FloatingList,
   FloatingNodeProps,
   FloatingOverlayProps,
   Placement,
+  Side,
 } from "@floating-ui/react";
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
@@ -49,6 +51,40 @@ import type { MenuItem } from "./menu-item";
 import type { MenuItemIndicator } from "./menu-item-indicator";
 import type { SubmenuIndicator } from "./menu-submenu-indicator";
 import type { MenuVariantProps } from "./styles";
+
+export function getTransformOrigin(placement: Placement): string {
+  const [side, align] = placement.split("-") as [Side, Alignment | undefined];
+
+  switch (side) {
+    case "top":
+      return align === "start"
+        ? "bottom left"
+        : align === "end"
+          ? "bottom right"
+          : "bottom center";
+
+    case "bottom":
+      return align === "start"
+        ? "top left"
+        : align === "end"
+          ? "top right"
+          : "top center";
+
+    case "left":
+      return align === "start"
+        ? "top right"
+        : align === "end"
+          ? "bottom right"
+          : "center right";
+
+    case "right":
+      return align === "start"
+        ? "top left"
+        : align === "end"
+          ? "bottom left"
+          : "center left";
+  }
+}
 
 export const useMenu = (props: useMenu.Props) => {
   const parentId = useFloatingParentNodeId();
@@ -66,7 +102,7 @@ export const useMenu = (props: useMenu.Props) => {
     lockScroll = true,
     offset: offsetProp = 4,
     openDelay = 75,
-    placement = isNested ? "right-start" : "bottom",
+    placement = isNested ? "right-start" : "bottom-end",
     defaultOpen = false,
     onOpenChange,
     triggerOn = "click",
@@ -107,7 +143,7 @@ export const useMenu = (props: useMenu.Props) => {
         element: arrowEl,
       }),
       size({
-        apply({ availableHeight, elements, availableWidth }) {
+        apply({ availableHeight, elements, availableWidth, placement }) {
           elements.floating.style.setProperty(
             "--available-width",
             `${availableWidth}px`
@@ -116,7 +152,12 @@ export const useMenu = (props: useMenu.Props) => {
             "--available-height",
             `${availableHeight}px`
           );
-          elements.floating.style.setProperty("--transform-origin", "top left");
+
+          const transformOrigin = getTransformOrigin(placement);
+          elements.floating.style.setProperty(
+            "--transform-origin",
+            transformOrigin
+          );
         },
       }),
     ],

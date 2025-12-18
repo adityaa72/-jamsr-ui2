@@ -11,15 +11,15 @@ export const MenuRadioItemsExample = () => {
       </Menu.Trigger>
       <Menu.Content>
         <Menu.RadioGroup value={sortBy} onValueChange={setSortBy}>
-          <Menu.RadioItem value="date">
+          <Menu.RadioItem textValue="date" value="date">
             <Menu.ItemIndicator />
             Date
           </Menu.RadioItem>
-          <Menu.RadioItem value="name">
+          <Menu.RadioItem textValue="name" value="name">
             <Menu.ItemIndicator />
             Name
           </Menu.RadioItem>
-          <Menu.RadioItem value="rating">
+          <Menu.RadioItem textValue="rating" value="rating">
             <Menu.ItemIndicator />
             Rating
           </Menu.RadioItem>

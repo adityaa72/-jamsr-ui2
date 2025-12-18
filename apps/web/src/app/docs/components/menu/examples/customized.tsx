@@ -17,22 +17,24 @@ export const MenuCustomized = () => {
   return (
     <Menu
       radius="2xl"
-      classNames={{
-        content:
-          "min-w-[300px] bg-surface-tertiary border-2 border-primary-stroke",
-        menuItem: "py-3 text-base px-4 font-medium hover:text-primary",
-      }}
+      // classNames={{
+      //   content:
+      //     "min-w-[300px] bg-surface-tertiary border-2 border-primary-stroke",
+      //   menuItem: "py-3 text-base px-4 font-medium hover:text-primary",
+      // }}
     >
       <MenuTrigger>
         <button>
-          <Avatar src="https://i.pravatar.cc/150" alt="JamsrUI" />
+          <Avatar>
+            <Avatar.Image src="https://i.pravatar.cc/150" alt="JamsrUI" />
+          </Avatar>
         </button>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem>Undo</MenuItem>
-        <MenuItem>Info</MenuItem>
-        <MenuItem>Search</MenuItem>
-        <MenuItem>Cut</MenuItem>
+        <MenuItem textValue="Undo">Undo</MenuItem>
+        <MenuItem textValue="Info">Info</MenuItem>
+        <MenuItem textValue="Search">Search</MenuItem>
+        <MenuItem textValue="Cut">Cut</MenuItem>
       </MenuContent>
     </Menu>
   );

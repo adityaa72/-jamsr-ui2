@@ -11,12 +11,24 @@ export const MenuColors = () => {
         </Button>
       </Menu.Trigger>
       <Menu.Content>
-        <Menu.Item color="default">Default</Menu.Item>
-        <Menu.Item color="primary">Primary</Menu.Item>
-        <Menu.Item color="secondary">Secondary</Menu.Item>
-        <Menu.Item color="success">Success</Menu.Item>
-        <Menu.Item color="warning">Warning</Menu.Item>
-        <Menu.Item color="danger">Danger</Menu.Item>
+        <Menu.Item textValue="Default" color="default">
+          Default
+        </Menu.Item>
+        <Menu.Item textValue="Primary" color="primary">
+          Primary
+        </Menu.Item>
+        <Menu.Item textValue="Secondary" color="secondary">
+          Secondary
+        </Menu.Item>
+        <Menu.Item textValue="Success" color="success">
+          Success
+        </Menu.Item>
+        <Menu.Item textValue="Warning" color="warning">
+          Warning
+        </Menu.Item>
+        <Menu.Item textValue="Danger" color="danger">
+          Danger
+        </Menu.Item>
       </Menu.Content>
     </Menu>
   );

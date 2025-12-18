@@ -8,15 +8,15 @@ export const MenuCheckboxItemsExample = () => {
         <Button>Sort</Button>
       </Menu.Trigger>
       <Menu.Content>
-        <Menu.CheckboxItem>
+        <Menu.CheckboxItem textValue="Date">
           <Menu.ItemIndicator />
           Date
         </Menu.CheckboxItem>
-        <Menu.CheckboxItem>
+        <Menu.CheckboxItem textValue="Name">
           <Menu.ItemIndicator />
           Name
         </Menu.CheckboxItem>
-        <Menu.CheckboxItem>
+        <Menu.CheckboxItem textValue="Type">
           <Menu.ItemIndicator />
           Type
         </Menu.CheckboxItem>

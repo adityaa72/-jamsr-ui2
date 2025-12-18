@@ -1,7 +1,7 @@
 "use client";
 import { ComponentProps, useCallback, useMemo } from "react";
 
-import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { alertDialogVariant, AlertDialogVariants } from "./styles";
 
@@ -32,7 +32,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const {
     defaultOpen,
     disableAnimation = false,
-    isDismissible = true,
+    isDismissible = false,
     isKeyboardDismissible = true,
     isOpen: isOpenProp,
     onOpenChange,
@@ -55,8 +55,9 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const click = useClick(context, {});
   const dismiss = useDismiss(context, {
     escapeKey: isKeyboardDismissible,
+    outsidePress: isDismissible,
     outsidePressEvent: "click",
-    enabled: isDismissible,
+    enabled: true,
   });
   const role = useRole(context);
   const interactions = useInteractions([click, dismiss, role]);
@@ -151,8 +152,9 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
 
   const getTriggerCloseProps = useCallback(
     (props: Partial<ComponentProps<"button">>): ComponentProps<"button"> => ({
-      ...props,
-      onClick: handleTriggerClose,
+      ...mergeProps(props, {
+        onClick: handleTriggerClose,
+      }),
     }),
     [handleTriggerClose]
   );

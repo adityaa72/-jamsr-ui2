@@ -11,7 +11,7 @@ export const MenuStartEndContent = () => {
         </Button>
       </Menu.Trigger>
       <Menu.Content>
-        <Menu.Item>
+        <Menu.Item textValue="Undo">
           <SearchIcon
             width={20}
             height={20}
@@ -22,7 +22,7 @@ export const MenuStartEndContent = () => {
             U
           </Kbd>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item textValue="Info">
           <InfoIcon
             width={20}
             height={20}
@@ -33,7 +33,7 @@ export const MenuStartEndContent = () => {
             I
           </Kbd>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item textValue="Search">
           <SearchIcon
             width={20}
             height={20}
@@ -44,7 +44,7 @@ export const MenuStartEndContent = () => {
             K
           </Kbd>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item textValue="Cut">
           <SearchIcon
             width={20}
             height={20}
@@ -55,7 +55,7 @@ export const MenuStartEndContent = () => {
             C
           </Kbd>
         </Menu.Item>
-        <Menu.Item className="hover:bg-danger">
+        <Menu.Item textValue="Delete" className="hover:bg-danger">
           <TrashIcon
             width={20}
             height={20}
