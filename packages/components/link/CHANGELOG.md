@@ -1,5 +1,16 @@
 # @jamsrui/link
 
+## 0.0.18
+
+### Patch Changes
+
+- fix: config, types
+- Updated dependencies
+  - @jamsrui/text@0.0.17
+  - @jamsrui/core@0.0.14
+  - @jamsrui/hooks@0.0.17
+  - @jamsrui/utils@0.0.17
+
 ## 0.0.17
 
 ### Patch Changes

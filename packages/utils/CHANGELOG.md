@@ -1,5 +1,11 @@
 # @jamsrui/utils
 
+## 0.0.17
+
+### Patch Changes
+
+- fix: config, types
+
 ## 0.0.16
 
 ### Patch Changes

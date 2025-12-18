@@ -1,5 +1,17 @@
 # @jamsrui/switch
 
+## 0.0.18
+
+### Patch Changes
+
+- fix: config, types
+- Updated dependencies
+  - @jamsrui/slot@0.0.15
+  - @jamsrui/context@0.0.6
+  - @jamsrui/core@0.0.14
+  - @jamsrui/hooks@0.0.17
+  - @jamsrui/utils@0.0.17
+
 ## 0.0.17
 
 ### Patch Changes

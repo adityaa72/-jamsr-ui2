@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/tags-input",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",

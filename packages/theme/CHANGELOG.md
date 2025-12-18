@@ -1,5 +1,11 @@
 # @jamsrui/theme
 
+## 0.0.16
+
+### Patch Changes
+
+- fix: config, types
+
 ## 0.0.15
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @jamsrui/charts
 
+## 0.0.15
+
+### Patch Changes
+
+- fix: config, types
+
 ## 0.0.14
 
 ### Patch Changes

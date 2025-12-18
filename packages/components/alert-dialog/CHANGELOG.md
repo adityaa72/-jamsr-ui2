@@ -1,5 +1,17 @@
 # @jamsrui/alert-dialog
 
+## 0.0.19
+
+### Patch Changes
+
+- fix: config, types
+- Updated dependencies
+  - @jamsrui/button@0.0.19
+  - @jamsrui/text@0.0.17
+  - @jamsrui/core@0.0.14
+  - @jamsrui/hooks@0.0.17
+  - @jamsrui/utils@0.0.17
+
 ## 0.0.18
 
 ### Patch Changes

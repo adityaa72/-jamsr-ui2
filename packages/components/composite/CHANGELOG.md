@@ -1,5 +1,13 @@
 # @jamsrui/composite
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: config, types
+- Updated dependencies
+  - @jamsrui/utils@0.0.17
+
 ## 0.0.9
 
 ### Patch Changes

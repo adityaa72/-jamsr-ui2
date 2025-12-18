@@ -1,5 +1,17 @@
 # @jamsrui/alert
 
+## 0.0.17
+
+### Patch Changes
+
+- fix: config, types
+- Updated dependencies
+  - @jamsrui/text@0.0.17
+  - @jamsrui/core@0.0.14
+  - @jamsrui/hooks@0.0.17
+  - @jamsrui/icons@0.0.14
+  - @jamsrui/utils@0.0.17
+
 ## 0.0.16
 
 ### Patch Changes

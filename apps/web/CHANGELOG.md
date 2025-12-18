@@ -1,5 +1,17 @@
 # web
 
+## 0.1.23
+
+### Patch Changes
+
+- fix: config, types
+- Updated dependencies
+  - @jamsrui/hooks@0.0.17
+  - @jamsrui/icons@0.0.14
+  - @jamsrui/react@0.0.24
+  - @jamsrui/theme@0.0.16
+  - @jamsrui/utils@0.0.17
+
 ## 0.1.22
 
 ### Patch Changes
