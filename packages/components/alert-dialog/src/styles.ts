@@ -4,9 +4,8 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const alertDialogVariant = tv({
   slots: {
-    root: "alert-dialog alert-dialog__root",
     header: "alert-dialog__header p-4 text-base font-bold",
-    container: "alert-dialog__container z-dialog max-w-md w-full",
+    container: "alert-dialog alert-dialog__container z-dialog max-w-md w-full",
     content:
       "alert-dialog__content relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
     footer:
@@ -16,6 +15,8 @@ export const alertDialogVariant = tv({
     title: "alert-dialog__title text-foreground",
     description: "alert-dialog__description text-foreground-secondary",
     backdrop: "alert-dialog__backdrop z-backdrop grid place-items-center",
+    cancel: "alert-dialog__cancel",
+    action: "alert-dialog__action",
   },
   variants: {
     radius: radiusVariant("content"),

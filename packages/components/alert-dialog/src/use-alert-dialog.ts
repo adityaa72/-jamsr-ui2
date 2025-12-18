@@ -18,7 +18,9 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
+import { AlertDialogAction } from "./alert-dialog-action";
 import type { AlertDialogBody } from "./alert-dialog-body";
+import { AlertDialogCancel } from "./alert-dialog-cancel";
 import { AlertDialogContainer } from "./alert-dialog-container";
 import type { AlertDialogContent } from "./alert-dialog-content";
 import type { AlertDialogFooter } from "./alert-dialog-footer";
@@ -150,13 +152,29 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
     [styles]
   );
 
-  const getTriggerCloseProps = useCallback(
-    (props: Partial<ComponentProps<"button">>): ComponentProps<"button"> => ({
+  const getCancelProps: PropGetter<AlertDialogCancel.Props> = useCallback(
+    (props) => ({
+      variant: "bordered",
       ...mergeProps(props, {
         onClick: handleTriggerClose,
       }),
+      className: styles.cancel({
+        className: props.className,
+      }),
     }),
-    [handleTriggerClose]
+    [styles, handleTriggerClose]
+  );
+
+  const getActionProps: PropGetter<AlertDialogAction.Props> = useCallback(
+    (props) => ({
+      color: "danger",
+      variant: "solid",
+      ...props,
+      className: styles.action({
+        className: props.className,
+      }),
+    }),
+    [styles]
   );
 
   const getOverlayProps = useCallback(
@@ -186,7 +204,8 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       getTriggerProps,
       getOverlayProps,
       getFocusManagerProps,
-      getTriggerCloseProps,
+      getCancelProps,
+      getActionProps,
       isOpen,
     }),
     [
@@ -199,7 +218,8 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       getTriggerProps,
       getOverlayProps,
       getFocusManagerProps,
-      getTriggerCloseProps,
+      getCancelProps,
+      getActionProps,
       isOpen,
     ]
   );

@@ -17,16 +17,12 @@ export const AlertDialogControlled = () => {
             </AlertDialog.Description>
           </AlertDialog.Body>
           <AlertDialog.Footer>
-            <Button variant="bordered" onClick={() => setOpen(false)}>
+            <AlertDialog.Cancel onClick={() => setOpen(false)}>
               Cancel
-            </Button>
-            <Button
-              variant="solid"
-              color="danger"
-              onClick={() => setOpen(false)}
-            >
+            </AlertDialog.Cancel>
+            <AlertDialog.Action onClick={() => setOpen(false)}>
               Confirm
-            </Button>
+            </AlertDialog.Action>
           </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog>

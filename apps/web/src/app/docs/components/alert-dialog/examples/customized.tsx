@@ -16,17 +16,17 @@ export const AlertDialogCustomized = () => {
         </AlertDialog.Body>
         <Divider />
         <AlertDialog.Footer className="p-0 gap-0 items-stretch">
-          <AlertDialog.TriggerClose>
-            <Button variant="light" className="w-full shrink">
-              Cancel
-            </Button>
-          </AlertDialog.TriggerClose>
+          <AlertDialog.Cancel className="w-full shrink" variant="light">
+            Cancel
+          </AlertDialog.Cancel>
           <Divider orientation="vertical" />
-          <AlertDialog.TriggerClose>
-            <Button variant="light" className="w-full font-bold shrink">
-              Confirm
-            </Button>
-          </AlertDialog.TriggerClose>
+          <AlertDialog.Action
+            className="w-full font-bold shrink"
+            variant="light"
+            color="default"
+          >
+            Confirm
+          </AlertDialog.Action>
         </AlertDialog.Footer>
       </AlertDialog.Content>
     </AlertDialog>

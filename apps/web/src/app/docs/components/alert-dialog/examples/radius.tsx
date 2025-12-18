@@ -25,14 +25,8 @@ export const AlertDialogRadius = () => {
               </AlertDialog.Description>
             </AlertDialog.Body>
             <AlertDialog.Footer>
-              <AlertDialog.TriggerClose>
-                <Button variant="bordered">Cancel</Button>
-              </AlertDialog.TriggerClose>
-              <AlertDialog.TriggerClose>
-                <Button variant="solid" color="danger">
-                  Confirm
-                </Button>
-              </AlertDialog.TriggerClose>
+              <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+              <AlertDialog.Action>Confirm</AlertDialog.Action>
             </AlertDialog.Footer>
           </AlertDialog.Content>
         </AlertDialog>

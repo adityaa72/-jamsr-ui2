@@ -22,10 +22,12 @@ import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 import { popoverVariants } from "./styles";
 
 import type {
+  Alignment,
   FloatingArrowProps,
   FloatingFocusManagerProps,
   FloatingOverlay,
   Placement,
+  Side,
 } from "@floating-ui/react";
 import type { PropGetter } from "@jamsrui/utils";
 import type { AnimatePresenceProps } from "motion/react";
@@ -34,6 +36,40 @@ import type { ComponentProps } from "react";
 import type { PopoverContent } from "./popover-content";
 import { PopoverDialog } from "./popover-dialog";
 import type { PopoverVariants } from "./styles";
+
+export function getTransformOrigin(placement: Placement): string {
+  const [side, align] = placement.split("-") as [Side, Alignment | undefined];
+
+  switch (side) {
+    case "top":
+      return align === "start"
+        ? "bottom left"
+        : align === "end"
+          ? "bottom right"
+          : "bottom center";
+
+    case "bottom":
+      return align === "start"
+        ? "top left"
+        : align === "end"
+          ? "top right"
+          : "top center";
+
+    case "left":
+      return align === "start"
+        ? "top right"
+        : align === "end"
+          ? "bottom right"
+          : "center right";
+
+    case "right":
+      return align === "start"
+        ? "top left"
+        : align === "end"
+          ? "bottom left"
+          : "center left";
+  }
+}
 
 export const usePopover = (props: usePopover.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -86,7 +122,15 @@ export const usePopover = (props: usePopover.Props) => {
       }),
       shift({ padding: 4 }),
       showArrow ? arrow({ element: arrowEl }) : null,
-      size({ apply() {} }),
+      size({
+        apply({ elements, placement }) {
+          const transformOrigin = getTransformOrigin(placement);
+          elements.floating.style.setProperty(
+            "--transform-origin",
+            transformOrigin
+          );
+        },
+      }),
     ],
     whileElementsMounted: autoUpdate,
   });

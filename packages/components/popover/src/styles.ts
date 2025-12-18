@@ -6,7 +6,7 @@ export const popoverVariants = tv({
   slots: {
     content: "popover popover__content z-popover",
     dialog:
-      "popover__dialog bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-[top_center]",
+      "popover__dialog bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-(--transform-origin)",
     arrow: "popover__arrow fill-background-secondary",
     backdrop: "popover__backdrop z-backdrop",
   },

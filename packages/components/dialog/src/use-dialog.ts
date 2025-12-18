@@ -59,8 +59,9 @@ export const useDialog = (props: useDialog.Props) => {
   const click = useClick(context, {});
   const dismiss = useDismiss(context, {
     escapeKey: isKeyboardDismissible,
+    outsidePress: isDismissible,
     outsidePressEvent: "click",
-    enabled: isDismissible,
+    enabled: true,
   });
   const role = useRole(context);
   const interactions = useInteractions([click, dismiss, role]);

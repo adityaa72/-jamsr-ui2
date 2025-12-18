@@ -1,5 +1,7 @@
 import { AlertDialog as AlertDialogRoot } from "./alert-dialog";
+import { AlertDialogAction } from "./alert-dialog-action";
 import { AlertDialogBody } from "./alert-dialog-body";
+import { AlertDialogCancel } from "./alert-dialog-cancel";
 import { AlertDialogConfig, useAlertDialogConfig } from "./alert-dialog-config";
 import { AlertDialogContainer } from "./alert-dialog-container";
 import { AlertDialogContent } from "./alert-dialog-content";
@@ -21,7 +23,9 @@ import {
 import { useAlertDialog } from "./use-alert-dialog";
 
 export {
+  AlertDialogAction,
   AlertDialogBody,
+  AlertDialogCancel,
   AlertDialogConfig,
   AlertDialogContainer,
   AlertDialogContent,
@@ -49,7 +53,8 @@ export const AlertDialog = Object.assign(AlertDialogRoot, {
   Description: AlertDialogDescription,
   Container: AlertDialogContainer,
   ContentInner: AlertDialogContentInner,
-  TriggerClose: AlertDialogTriggerClose,
+  Cancel: AlertDialogCancel,
+  Action: AlertDialogAction,
 });
 
 export namespace AlertDialog {
@@ -63,5 +68,6 @@ export namespace AlertDialog {
   export interface Description extends AlertDialogDescription.Props {}
   export interface Container extends AlertDialogContainer.Props {}
   export interface ContentInner extends AlertDialogContentInner.Props {}
-  export interface TriggerClose extends AlertDialogTriggerClose.Props {}
+  export interface Cancel extends AlertDialogCancel.Props {}
+  export interface Action extends AlertDialogAction.Props {}
 }
