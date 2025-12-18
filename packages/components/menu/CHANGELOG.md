@@ -1,5 +1,14 @@
 # @jamsrui/menu
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.18
+  - @jamsrui/divider@0.0.18
+  - @jamsrui/hooks@0.0.18
+
 ## 0.0.19
 
 ### Patch Changes

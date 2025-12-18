@@ -1,5 +1,22 @@
 # @jamsrui/rhf
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.18
+  - @jamsrui/checkbox@0.0.19
+  - @jamsrui/field-error@0.0.11
+  - @jamsrui/input@0.0.20
+  - @jamsrui/number-field@0.0.19
+  - @jamsrui/otp-input@0.0.19
+  - @jamsrui/radio@0.0.20
+  - @jamsrui/select@0.0.19
+  - @jamsrui/switch@0.0.19
+  - @jamsrui/textarea@0.0.20
+  - @jamsrui/hooks@0.0.18
+
 ## 0.0.4
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @jamsrui/autocomplete
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.0.18
+  - @jamsrui/input@0.0.20
+  - @jamsrui/hooks@0.0.18
+
 ## 0.0.19
 
 ### Patch Changes

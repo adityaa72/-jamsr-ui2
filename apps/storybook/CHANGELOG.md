@@ -1,5 +1,14 @@
 # storybook-2
 
+## 0.0.29
+
+### Patch Changes
+
+- @jamsrui/accordion@0.0.18
+- @jamsrui/button@0.0.20
+- @jamsrui/text@0.0.18
+- @jamsrui/react@0.0.30
+
 ## 0.0.28
 
 ### Patch Changes

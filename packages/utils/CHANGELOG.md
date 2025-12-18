@@ -1,5 +1,11 @@
 # @jamsrui/utils
 
+## 0.0.18
+
+### Patch Changes
+
+- fix: utils
+
 ## 0.0.17
 
 ### Patch Changes
