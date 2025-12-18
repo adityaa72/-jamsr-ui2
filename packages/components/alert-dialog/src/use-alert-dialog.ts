@@ -1,16 +1,7 @@
 "use client";
-import { ComponentProps, useCallback, useMemo } from "react";
-
-import { dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
-
-import { alertDialogVariant, AlertDialogVariants } from "./styles";
-
-import type { Text } from "@jamsrui/text";
-import type { PropGetter } from "@jamsrui/utils";
+import { useCallback, useMemo } from "react";
 
 import {
-  FloatingFocusManagerProps,
-  FloatingOverlay,
   useClick,
   useDismiss,
   useFloating,
@@ -18,13 +9,26 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { AlertDialogAction } from "./alert-dialog-action";
+import { dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+
+import { alertDialogVariant } from "./styles";
+
+import type {
+  FloatingFocusManagerProps,
+  FloatingOverlay,
+} from "@floating-ui/react";
+import type { Text } from "@jamsrui/text";
+import type { PropGetter } from "@jamsrui/utils";
+import type { ComponentProps } from "react";
+
+import type { AlertDialogAction } from "./alert-dialog-action";
 import type { AlertDialogBody } from "./alert-dialog-body";
-import { AlertDialogCancel } from "./alert-dialog-cancel";
-import { AlertDialogContainer } from "./alert-dialog-container";
+import type { AlertDialogCancel } from "./alert-dialog-cancel";
+import type { AlertDialogContainer } from "./alert-dialog-container";
 import type { AlertDialogContent } from "./alert-dialog-content";
 import type { AlertDialogFooter } from "./alert-dialog-footer";
 import type { AlertDialogTitle } from "./alert-dialog-title";
+import type { AlertDialogVariants } from "./styles";
 
 export const useAlertDialog = (props: useAlertDialog.Props) => {
   const [_props, variantProps] = mapPropsVariants(
@@ -33,7 +37,6 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   );
   const {
     defaultOpen,
-    disableAnimation = false,
     isDismissible = false,
     isKeyboardDismissible = true,
     isOpen: isOpenProp,
@@ -67,7 +70,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
 
   const handleTriggerClose = useCallback(() => {
     setIsOpen(false);
-  }, []);
+  }, [setIsOpen]);
 
   const getContainerProps: PropGetter<AlertDialogContainer.Props> = useCallback(
     (props) => ({
@@ -79,7 +82,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       ref: setFloating,
       ...getFloatingProps(),
     }),
-    [styles]
+    [getFloatingProps, setFloating, styles]
   );
 
   const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
@@ -149,7 +152,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         ref: setReference,
       }),
     }),
-    [styles]
+    [getReferenceProps, setReference, styles]
   );
 
   const getCancelProps: PropGetter<AlertDialogCancel.Props> = useCallback(
@@ -232,6 +235,5 @@ export namespace useAlertDialog {
     onOpenChange?: (open: boolean) => void;
     isDismissible?: boolean;
     isKeyboardDismissible?: boolean;
-    disableAnimation?: boolean;
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { cloneElement, isValidElement } from "react";
+
 import { useAlertDialogContext } from "./alert-dialog-context";
 
 export const AlertDialogTrigger = (props: AlertDialogTrigger.Props) => {

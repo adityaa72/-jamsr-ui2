@@ -38,7 +38,6 @@ export {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-  AlertDialogTriggerClose,
   alertDialogVariant,
   useAlertDialog,
   useAlertDialogConfig,

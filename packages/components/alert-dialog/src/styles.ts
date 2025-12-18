@@ -19,22 +19,17 @@ export const alertDialogVariant = tv({
     action: "alert-dialog__action",
   },
   variants: {
-    radius: radiusVariant("content"),
-    scrollBehavior: {
-      inside: {
-        body: "grow overflow-y-auto",
-      },
-      outside: {},
-    },
+    radius: radiusVariant("content", "alert-dialog"),
     backdrop: {
       transparent: {
-        backdrop: "",
+        backdrop: "alert-dialog--backdrop-transparent",
       },
       opaque: {
-        backdrop: "bg-black/50",
+        backdrop: "alert-dialog--backdrop-opaque bg-black/50",
       },
       blur: {
-        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop:
+          "alert-dialog--backdrop-blur bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
   },

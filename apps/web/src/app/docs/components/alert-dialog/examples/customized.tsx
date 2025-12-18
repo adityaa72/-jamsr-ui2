@@ -16,12 +16,17 @@ export const AlertDialogCustomized = () => {
         </AlertDialog.Body>
         <Divider />
         <AlertDialog.Footer className="p-0 gap-0 items-stretch">
-          <AlertDialog.Cancel className="w-full shrink" variant="light">
+          <AlertDialog.Cancel
+            radius="none"
+            className="w-full shrink focus-visible:-outline-offset-2 rounded-bl-md"
+            variant="light"
+          >
             Cancel
           </AlertDialog.Cancel>
           <Divider orientation="vertical" />
           <AlertDialog.Action
-            className="w-full font-bold shrink"
+            radius="none"
+            className="w-full font-bold shrink focus-visible:-outline-offset-2 rounded-br-md"
             variant="light"
             color="default"
           >

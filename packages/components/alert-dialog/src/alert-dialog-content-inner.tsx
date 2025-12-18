@@ -1,7 +1,10 @@
 "use client";
 
-import { HTMLMotionProps, motion } from "motion/react";
+import { motion } from "motion/react";
+
 import { useAlertDialogContext } from "./alert-dialog-context";
+
+import type { HTMLMotionProps } from "motion/react";
 
 export const AlertDialogContentInner = (
   props: AlertDialogContentInner.Props
@@ -9,8 +12,9 @@ export const AlertDialogContentInner = (
   const { getContentProps } = useAlertDialogContext();
   return (
     <motion.div
-      initial={{ scale: 0.9, opacity: 0, filter: "blur(4px)" }}
       animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+      initial={{ scale: 0.9, opacity: 0, filter: "blur(4px)" }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
       exit={{
         scale: 0.95,
         opacity: 0,
@@ -19,7 +23,6 @@ export const AlertDialogContentInner = (
           duration: 0.25,
         },
       }}
-      transition={{ type: "spring", stiffness: 300, damping: 25 }}
       {...getContentProps(props)}
     />
   );

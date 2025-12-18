@@ -1,15 +1,17 @@
 "use client";
 
-import { useRenderElement } from "@jamsrui/hooks";
 
-import type { UIProps } from "@jamsrui/utils";
-import { useAlertDialogContext } from "./alert-dialog-context";
-import { AnimatePresence } from "motion/react";
 import {
   FloatingFocusManager,
   FloatingOverlay,
   FloatingPortal,
 } from "@floating-ui/react";
+import { useRenderElement } from "@jamsrui/hooks";
+import { AnimatePresence } from "motion/react";
+
+import { useAlertDialogContext } from "./alert-dialog-context";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const AlertDialogContainer = (props: AlertDialogContainer.Props) => {
   const { getContainerProps, getOverlayProps, getFocusManagerProps, isOpen } =

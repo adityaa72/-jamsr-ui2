@@ -14,7 +14,6 @@ import { AlertDialogDescription } from "./alert-dialog-description";
 import { AlertDialogFooter } from "./alert-dialog-footer";
 import { AlertDialogTitle } from "./alert-dialog-title";
 import { AlertDialogTrigger } from "./alert-dialog-trigger";
-import { AlertDialogTriggerClose } from "./alert-dialog-trigger-close";
 import {
   AlertDialogSlots,
   AlertDialogVariants,
@@ -35,7 +34,6 @@ export {
   AlertDialogFooter,
   AlertDialogTitle,
   AlertDialogTrigger,
-  AlertDialogTriggerClose,
   alertDialogVariant,
   useAlertDialog,
   useAlertDialogConfig,

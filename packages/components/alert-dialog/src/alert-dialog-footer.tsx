@@ -2,8 +2,9 @@
 
 import { useRenderElement } from "@jamsrui/hooks";
 
-import type { UIProps } from "@jamsrui/utils";
 import { useAlertDialogContext } from "./alert-dialog-context";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const AlertDialogFooter = (props: AlertDialogFooter.Props) => {
   const { getFooterProps } = useAlertDialogContext();
