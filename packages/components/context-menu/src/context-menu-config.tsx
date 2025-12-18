@@ -1,7 +1,8 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
+import { ContextMenu } from ".";
 
 export const [ContextMenuConfig, useContextMenuConfig] =
   createConfigContext<ContextMenuConfig.Props>({
@@ -9,5 +10,5 @@ export const [ContextMenuConfig, useContextMenuConfig] =
   });
 
 export namespace ContextMenuConfig {
-  export interface Props {}
+  export interface Props extends WithGlobalConfig<ContextMenu.Props> {}
 }

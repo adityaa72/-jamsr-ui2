@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@jamsrui/context": "workspace:^",
+    "@jamsrui/core": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },

@@ -1,12 +1,21 @@
 "use client";
 import { FieldA11yContext, useFieldA11y } from "@jamsrui/context";
 
+import { mergeConfigProps } from "@jamsrui/utils";
+import { textFieldVariants } from "./styles";
+import { useTextFieldConfig } from "./textfield-config";
 import { TextFieldContext } from "./textfield-context";
 import { TextfieldRoot } from "./textfield-root";
 import { useTextField } from "./use-textfield";
 
 export const TextField = (props: TextField.Props) => {
-  const ctx = useTextField(props);
+  const config = useTextFieldConfig();
+  const mergedProps = mergeConfigProps(
+    textFieldVariants.defaultVariants,
+    config,
+    props
+  );
+  const ctx = useTextField(mergedProps);
   const { children } = props;
   const fieldA11yCtx = useFieldA11y();
   return (

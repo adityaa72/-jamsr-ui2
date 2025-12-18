@@ -19,8 +19,9 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/context": "workspace:^",
+    "@jamsrui/core": "workspace:^",
+    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   }
 }

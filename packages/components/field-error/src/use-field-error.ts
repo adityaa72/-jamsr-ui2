@@ -1,9 +1,8 @@
 "use client";
 import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
-import { cn } from "@jamsrui/utils";
-
-import type { UIProps } from "@jamsrui/utils";
+import { type UIProps } from "@jamsrui/utils";
+import { fieldErrorVariants } from "./styles";
 
 export const useFieldError = (
   props: useFieldError.Props
@@ -14,7 +13,7 @@ export const useFieldError = (
 
   return {
     ref: mergedRefs,
-    className: cn("field-error text-xs text-danger", className),
+    className: fieldErrorVariants({ className }),
     ...fieldAllyCtx?.getFieldErrorProps(),
     ...restProps,
   };

@@ -1,9 +1,9 @@
 "use client";
 import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
-import { cn } from "@jamsrui/utils";
 
 import type { UIProps } from "@jamsrui/utils";
+import { descriptionVariants } from "./styles";
 
 export const useDescription = (
   props: useDescription.Props
@@ -14,7 +14,7 @@ export const useDescription = (
 
   return {
     ref: mergedRef,
-    className: cn("description text-xs text-foreground-secondary", className),
+    className: descriptionVariants({ className }),
     ...fieldAllyCtx?.getDescriptionProps(),
     ...restProps,
   };

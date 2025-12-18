@@ -3,9 +3,9 @@ import { useCallback } from "react";
 
 import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
-import { cn } from "@jamsrui/utils";
 
 import type { UIProps } from "@jamsrui/utils";
+import { labelVariants } from "./styles";
 
 export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
   const { onMouseDown, className, ref, ...restProps } = props;
@@ -32,10 +32,7 @@ export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
   return {
     ref: mergedRef,
     onMouseDown: handleOnMouseDown,
-    className: cn(
-      "label cursor-default shrink-0 text-sm font-normal text-foreground group-data-invalid:text-danger group-data-disabled:cursor-not-allowed",
-      className
-    ),
+    className: labelVariants({ className }),
     ...fieldAllyCtx?.getLabelProps(),
     ...restProps,
   };

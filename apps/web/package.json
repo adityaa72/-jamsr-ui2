@@ -23,7 +23,7 @@
     "@tanstack/react-table": "catalog:",
     "date-fns": "^4.1.0",
     "motion": "catalog:",
-    "next": "16.0.7",
+    "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-hook-form": "^7.66.0",
