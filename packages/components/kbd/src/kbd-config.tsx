@@ -1,7 +1,7 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Kbd } from "./kbd";
 
@@ -10,5 +10,5 @@ export const [KbdConfig, useKbdConfig] = createConfigContext({
 });
 
 export namespace KbdConfig {
-  export interface Props extends Kbd.Props, GlobalConfigProps<Kbd.Props> {}
+  export interface Props extends WithGlobalConfig<Kbd.Props> {}
 }

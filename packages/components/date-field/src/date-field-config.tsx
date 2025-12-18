@@ -12,5 +12,5 @@ export const [DateFieldConfig, useDateFieldConfig] =
   });
 
 export namespace DateFieldConfig {
-  export type Props = WithGlobalConfig<DateField.Props>;
+  export interface Props extends WithGlobalConfig<DateField.Props> {}
 }

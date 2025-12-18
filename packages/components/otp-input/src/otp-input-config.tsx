@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { OtpInput } from "./otp-input";
 
@@ -11,7 +11,5 @@ export const [OtpInputConfig, useOtpInputConfig] = createConfigContext({
 });
 
 export namespace OtpInputConfig {
-  export interface Props
-    extends OtpInput.Props,
-      GlobalConfigProps<OtpInput.Props> {}
+  export interface Props extends WithGlobalConfig<OtpInput.Props> {}
 }

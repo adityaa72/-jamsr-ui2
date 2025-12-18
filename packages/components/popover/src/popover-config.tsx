@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Popover } from "./popover";
 
@@ -12,7 +12,5 @@ export const [PopoverConfig, usePopoverConfig] =
   });
 
 export namespace PopoverConfig {
-  export interface Props
-    extends Popover.Props,
-      GlobalConfigProps<Popover.Props> {}
+  export interface Props extends WithGlobalConfig<Popover.Props> {}
 }

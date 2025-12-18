@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { AlertDialog } from "./alert-dialog";
 
@@ -12,7 +12,5 @@ export const [AlertDialogConfig, useAlertDialogConfig] =
   });
 
 export namespace AlertDialogConfig {
-  export interface Props
-    extends AlertDialog.Props,
-      GlobalConfigProps<AlertDialog.Props> {}
+  export interface Props extends WithGlobalConfig<AlertDialog.Props> {}
 }

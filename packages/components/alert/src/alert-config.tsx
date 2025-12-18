@@ -2,6 +2,8 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { WithGlobalConfig } from "@jamsrui/core";
+
 import type { Alert } from "./alert";
 
 export const [AlertConfig, useAlertConfig] =
@@ -10,7 +12,7 @@ export const [AlertConfig, useAlertConfig] =
   });
 
 export namespace AlertConfig {
-  export interface Props extends Alert.Props {
+  export interface Props extends WithGlobalConfig<Alert.Props> {
     merge?: boolean;
   }
 }

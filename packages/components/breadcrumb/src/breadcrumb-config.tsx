@@ -1,7 +1,7 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Breadcrumb } from "./breadcrumb";
 
@@ -10,7 +10,5 @@ export const [BreadcrumbConfig, useBreadcrumbConfig] = createConfigContext({
 });
 
 export namespace BreadcrumbConfig {
-  export interface Props
-    extends Breadcrumb.Props,
-      GlobalConfigProps<Breadcrumb.Props> {}
+  export interface Props extends WithGlobalConfig<Breadcrumb.Props> {}
 }

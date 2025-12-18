@@ -11,5 +11,5 @@ export const [RadioGroupConfig, useRadioGroupConfig] =
     displayName: "RadioGroupConfigContext",
   });
 export namespace RadioGroupConfig {
-  export type Props = WithGlobalConfig<RadioGroup.Props>;
+  export interface Props extends WithGlobalConfig<RadioGroup.Props> {}
 }

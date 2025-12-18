@@ -12,5 +12,5 @@ export const [SwitchConfig, useSwitchConfig] =
   });
 
 export namespace SwitchConfig {
-  export type Props = WithGlobalConfig<Switch.Props>;
+  export interface Props extends WithGlobalConfig<Switch.Props> {}
 }

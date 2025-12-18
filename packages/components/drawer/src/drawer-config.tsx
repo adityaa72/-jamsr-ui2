@@ -1,7 +1,7 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Drawer } from "./drawer";
 
@@ -11,5 +11,5 @@ export const [DrawerConfig, useDrawerConfig] =
   });
 
 export namespace DrawerConfig {
-  export interface Props extends Drawer.Props, GlobalConfigProps<Drawer.Props> {}
+  export interface Props extends WithGlobalConfig<Drawer.Props> {}
 }

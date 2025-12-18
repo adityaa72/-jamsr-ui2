@@ -1,6 +1,8 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
+import type { WithGlobalConfig } from "@jamsrui/core";
+
 import type { DataGrid } from "./data-grid";
 
 export const [DataGridConfig, useDataGridConfig] =
@@ -9,7 +11,7 @@ export const [DataGridConfig, useDataGridConfig] =
   });
 
 export namespace DataGridConfig {
-  export interface Props extends DataGrid.Props {
+  export interface Props extends WithGlobalConfig<DataGrid.Props> {
     children: React.ReactNode;
   }
 }

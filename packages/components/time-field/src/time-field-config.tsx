@@ -12,5 +12,5 @@ export const [TimeFieldConfig, useTimeFieldConfig] =
   });
 
 export namespace TimeFieldConfig {
-  export type Props = WithGlobalConfig<TimeField.Props>;
+  export interface Props extends WithGlobalConfig<TimeField.Props> {}
 }

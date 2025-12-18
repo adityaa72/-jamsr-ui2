@@ -1,7 +1,7 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { DatePicker } from "./date-picker";
 
@@ -11,7 +11,5 @@ export const [DatePickerConfig, useDatePickerConfig] =
   });
 
 export namespace DatePickerConfig {
-  export interface Props
-    extends DatePicker.Props,
-      GlobalConfigProps<DatePicker.Props> {}
+  export interface Props extends WithGlobalConfig<DatePicker.Props> {}
 }

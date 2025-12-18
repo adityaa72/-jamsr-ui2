@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { NumberField } from "./number-field";
 
@@ -11,7 +11,5 @@ export const [NumberFieldConfig, useNumberFieldConfig] = createConfigContext({
 });
 
 export namespace NumberFieldConfig {
-  export interface Props
-    extends NumberField.Props,
-      GlobalConfigProps<NumberField.Props> {}
+  export interface Props extends WithGlobalConfig<NumberField.Props> {}
 }

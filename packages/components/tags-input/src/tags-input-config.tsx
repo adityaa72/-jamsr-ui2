@@ -1,7 +1,7 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { TagsInput } from "./tags-input";
 
@@ -10,7 +10,5 @@ export const [TagsInputConfig, useTagsInputConfig] = createConfigContext({
 });
 
 export namespace TagsInputConfig {
-  export interface Props
-    extends TagsInput.Props,
-      GlobalConfigProps<TagsInput.Props> {}
+  export interface Props extends WithGlobalConfig<TagsInput.Props> {}
 }

@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Select } from "./select";
 
@@ -11,7 +11,5 @@ export const [SelectConfig, useSelectConfig] = createConfigContext({
 });
 
 export namespace SelectConfig {
-  export interface Props
-    extends Select.Props,
-      GlobalConfigProps<Select.Props> {}
+  export interface Props extends WithGlobalConfig<Select.Props> {}
 }

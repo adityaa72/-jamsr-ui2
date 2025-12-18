@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Table } from "./table";
 
@@ -12,5 +12,5 @@ export const [TableConfig, useTableConfig] =
   });
 
 export namespace TableConfig {
-  export interface Props extends Table.Props, GlobalConfigProps<Table.Props> {}
+  export interface Props extends WithGlobalConfig<Table.Props> {}
 }

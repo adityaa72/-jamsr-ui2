@@ -1,7 +1,7 @@
 "use client";
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Toggle } from "./toggle";
 
@@ -10,7 +10,5 @@ export const [ToggleConfig, useToggleConfig] = createConfigContext({
 });
 
 export namespace ToggleConfig {
-  export interface Props
-    extends Toggle.Props,
-      GlobalConfigProps<Toggle.Props> {}
+  export interface Props extends WithGlobalConfig<Toggle.Props> {}
 }

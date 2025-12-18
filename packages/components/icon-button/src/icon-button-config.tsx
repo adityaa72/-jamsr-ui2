@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import type { GlobalConfigProps } from "@jamsrui/core";
+import type { WithGlobalConfig } from "@jamsrui/core";
 
 import type { IconButton } from "./icon-button";
 
@@ -11,7 +11,5 @@ export const [IconButtonConfig, useIconButtonConfig] = createConfigContext({
 });
 
 export namespace IconButtonConfig {
-  export interface Props
-    extends IconButton.Props,
-      GlobalConfigProps<IconButton.Props> {}
+  export interface Props extends WithGlobalConfig<IconButton.Props> {}
 }
